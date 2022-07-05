@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BaseComponent } from 'components/BaseComponent/BaseComponent';
 
 export function App() {
