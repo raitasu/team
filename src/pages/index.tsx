@@ -2,32 +2,51 @@ import React, { Suspense } from 'react';
 
 import { Route, Routes } from 'react-router';
 
-import { Home } from './Home';
 import { NotFound } from './NotFound';
-import { Onboarding } from './Onboarding';
-import { Projects } from './Projects';
 
-export function Pages() {
-  return (
-    <Suspense fallback={<div>Loading ...</div>}>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home />}
-        />
-        <Route
-          path="onboarding"
-          element={<Onboarding />}
-        />
-        <Route
-          path="projects"
-          element={<Projects />}
-        />
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
-      </Routes>
-    </Suspense>
-  );
-}
+export const LoadableHome = React.lazy(() =>
+  import('pages/Home').then(({ Home: element }) => ({ default: element }))
+);
+export const LoadableOnboadrding = React.lazy(() =>
+  import('pages/Onboarding').then(({ Onboarding: element }) => ({
+    default: element
+  }))
+);
+export const LoadableProjects = React.lazy(() =>
+  import('pages/Projects').then(({ Projects: element }) => ({
+    default: element
+  }))
+);
+
+export const Pages = () => (
+  <Routes>
+    <Route
+      path="/"
+      element={
+        <Suspense fallback={<div>Loading home ...</div>}>
+          <LoadableHome />
+        </Suspense>
+      }
+    />
+    <Route
+      path="onboarding"
+      element={
+        <Suspense fallback={<div>Loading onboarding ...</div>}>
+          <LoadableOnboadrding />
+        </Suspense>
+      }
+    />
+    <Route
+      path="projects"
+      element={
+        <Suspense fallback={<div>Loading projects ...</div>}>
+          <LoadableProjects />
+        </Suspense>
+      }
+    />
+    <Route
+      path="*"
+      element={<NotFound />}
+    />
+  </Routes>
+);
