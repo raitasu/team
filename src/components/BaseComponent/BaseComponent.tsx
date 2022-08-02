@@ -1,6 +1,6 @@
 import { BaseComponentTitle } from 'components/BaseComponent/baseComponent.styled';
 import { BaseComponentProps } from 'components/BaseComponent/baseComponent.types';
 
-export function BaseComponent({ title }: BaseComponentProps) {
-  return <BaseComponentTitle>{title}</BaseComponentTitle>;
-}
+export const BaseComponent = ({ title }: BaseComponentProps) => (
+  <BaseComponentTitle>{title}</BaseComponentTitle>
+);
