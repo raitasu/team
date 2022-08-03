@@ -1,0 +1,12 @@
+{
+  "ignore": {
+    "@types/jest": {
+      "versions": ">=28",
+      "reason": "CRA is not compatible yet"
+    },
+    "@types/node": {
+      "versions": ">16",
+      "reason": "Using node 16 version in project"
+    }
+  }
+}
