@@ -5,8 +5,9 @@ on: [pull_request]
 concurrency:
   # Here the group is defined by the head_ref of the PR
   group: ${{ github.head_ref }}-checks
-  # Here we specify that we'll cancel any "in progress" workflow of the same group. Thus if we push, ammend a commit and push
-  # again the previous workflow will be cancelled, thus saving us github action build minutes and avoid any conflicts
+  # Here we specify that we'll cancel any "in progress" workflow of the same group.
+  # If we push, amend a commit and push
+  # again the previous workflow will be cancelled
   cancel-in-progress: true
 
 jobs:
@@ -16,19 +17,14 @@ jobs:
       nvmrc: ${{ steps.nvm.outputs.nvmrc }}
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Read .nvmrc
-        id: nvm
-        run: echo ::set-output name=nvmrc::$(cat .nvmrc)
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ steps.nvm.outputs.nvmrc }}
-          cache: npm
+          node-version-file: '.nvmrc'
 
       - name: Install 🔧
         run: npm ci
