@@ -8,7 +8,9 @@ export const theme = extendTheme({
       accentRed: '#EF4523',
       darkGray: '#7B7D7D',
       lightGray: '#B3B3B3',
-      stroke: '#E0E0E0'
+      stroke: '#E0E0E0',
+      background1: '#F8F8FA',
+      background2: '#FFFFFF'
     }
   },
   fonts: {
