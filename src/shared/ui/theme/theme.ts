@@ -1,6 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
 
 import { Button } from './Button';
+import { Input } from './Input';
 
 export const theme = extendTheme({
   colors: {
@@ -9,6 +10,7 @@ export const theme = extendTheme({
       body: '#666666',
       accentRed: '#EF4523',
       darkGray: '#7B7D7D',
+      ghostGray: '#646271',
       lightGray: '#B3B3B3',
       ghostWhite: '#F8F8FA',
       burntSienna: '#F16144',
@@ -23,6 +25,7 @@ export const theme = extendTheme({
     body: 'Roboto'
   },
   components: {
-    Button
+    Button,
+    Input
   }
 });

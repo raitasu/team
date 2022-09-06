@@ -1,8 +1,15 @@
 import React from 'react';
 
-import { Box, Button, ButtonGroup } from '@chakra-ui/react';
-
-import { MdAdd } from 'react-icons/md';
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Stack
+} from '@chakra-ui/react';
+import { MdSearch, MdAdd } from 'react-icons/md';
 
 export const Home = () => (
   <Box>
@@ -71,6 +78,7 @@ export const Home = () => (
       </Button>
     </ButtonGroup>
     <ButtonGroup
+      marginBottom="40px"
       display="flex"
       justifyContent="space-around"
     >
@@ -90,5 +98,42 @@ export const Home = () => (
       <Button>default</Button>
       <Button disabled>default disabled</Button>
     </ButtonGroup>
+    <hr />
+    <Stack
+      marginTop="40px"
+      spacing={5}
+      width="320px"
+    >
+      <Input placeholder="Enter text" />
+      <Input
+        placeholder="Enter text"
+        isInvalid
+      />
+      <Input
+        placeholder="Enter text"
+        disabled
+      />
+      <InputGroup>
+        <InputLeftElement
+          pointerEvents="none"
+          color="brand.lightGray"
+        >
+          <MdSearch size="20px" />
+        </InputLeftElement>
+        <Input placeholder="Enter text" />
+      </InputGroup>
+      <InputGroup>
+        <InputLeftElement
+          pointerEvents="none"
+          color="brand.lightGray"
+        >
+          <MdSearch size="20px" />
+        </InputLeftElement>
+        <Input
+          placeholder="Enter text"
+          disabled
+        />
+      </InputGroup>
+    </Stack>
   </Box>
 );
