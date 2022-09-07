@@ -5,6 +5,7 @@ import { Button } from './Button';
 import { Input } from './Input';
 import { Modal } from './Modal';
 import { Table } from './Table';
+import { Tabs } from './Tabs';
 import { Textarea } from './Textarea';
 
 export const theme = extendTheme({
@@ -41,6 +42,7 @@ export const theme = extendTheme({
     Input,
     Modal,
     Table,
+    Tabs,
     Textarea
   }
 });
