@@ -7,7 +7,8 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Stack
+  Stack,
+  Textarea
 } from '@chakra-ui/react';
 import { MdSearch, MdAdd } from 'react-icons/md';
 
@@ -101,6 +102,7 @@ export const Home = () => (
     <hr />
     <Stack
       marginTop="40px"
+      marginBottom="40px"
       spacing={5}
       width="320px"
     >
@@ -134,6 +136,24 @@ export const Home = () => (
           disabled
         />
       </InputGroup>
+    </Stack>
+    <hr />
+    <Stack
+      marginTop="40px"
+      marginBottom="40px"
+      direction="column"
+      spacing={5}
+      width="320px"
+    >
+      <Textarea placeholder="Hello" />
+      <Textarea
+        placeholder="Hello"
+        isInvalid
+      />
+      <Textarea
+        placeholder="Hello"
+        disabled
+      />
     </Stack>
   </Box>
 );
