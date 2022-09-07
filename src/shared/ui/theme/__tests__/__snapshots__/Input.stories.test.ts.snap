@@ -49,6 +49,7 @@ exports[`Storyshots UI/Inputs Variants 1`] = `
 }
 
 .emotion-1:disabled,
+.emotion-1[disabled],
 .emotion-1[aria-disabled=true],
 .emotion-1[data-disabled] {
   opacity: 0.4;
@@ -160,6 +161,7 @@ exports[`Storyshots UI/Inputs Variants 1`] = `
 }
 
 .emotion-6:disabled,
+.emotion-6[disabled],
 .emotion-6[aria-disabled=true],
 .emotion-6[data-disabled] {
   opacity: 0.4;

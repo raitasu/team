@@ -1,8 +1,9 @@
 import { extendTheme } from '@chakra-ui/react';
 
+import { Alert } from './Alert';
 import { Button } from './Button';
 import { Input } from './Input';
-
+import { Modal } from './Modal';
 import { Table } from './Table';
 import { Textarea } from './Textarea';
 
@@ -35,19 +36,11 @@ export const theme = extendTheme({
     body: 'Roboto'
   },
   components: {
+    Alert,
     Button,
     Input,
-    Textarea,
+    Modal,
     Table,
-    Modal: {
-      baseStyle: {
-        dialog: {
-          color: 'brand.headline',
-          fontWeight: '700',
-          fontSize: '20px',
-          lineHeight: '120%'
-        }
-      }
-    }
+    Textarea
   }
 });

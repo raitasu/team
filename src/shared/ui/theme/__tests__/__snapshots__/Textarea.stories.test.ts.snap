@@ -52,6 +52,7 @@ exports[`Storyshots UI/Textarea Variants 1`] = `
 }
 
 .emotion-1:disabled,
+.emotion-1[disabled],
 .emotion-1[aria-disabled=true],
 .emotion-1[data-disabled] {
   opacity: 0.4;
