@@ -10,6 +10,12 @@ const LoadableHome = React.lazy(() =>
   import('pages/Home').then(({ Home: element }) => ({ default: element }))
 );
 
+const LoadableAuthorization = React.lazy(() =>
+  import('pages/Authorization').then(({ Authorization: element }) => ({
+    default: element
+  }))
+);
+
 const LoadableOnboadrding = React.lazy(() =>
   import('pages/Onboarding').then(({ Onboarding: element }) => ({
     default: element
@@ -24,6 +30,14 @@ const LoadableProjects = React.lazy(() =>
 
 export const Pages = () => (
   <Routes>
+    <Route
+      path="auth"
+      element={
+        <Suspense fallback={<div>Loading login ...</div>}>
+          <LoadableAuthorization />
+        </Suspense>
+      }
+    />
     <Route element={<MainLayout />}>
       <Route
         path="/"

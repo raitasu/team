@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots UI/Authorization Authorization Page 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 431px;
+  height: 295px;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.emotion-2 {
+  margin-top: 43px;
+}
+
+.emotion-3 {
+  margin-top: 50.5px;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 120%;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  line-height: 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
+  padding: 10px 14px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: var(--chakra-fontSizes-md);
+  background: var(--chakra-colors-brand-accentRed);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  color: var(--chakra-colors-white);
+  width: 250px;
+  margin-top: 49px;
+}
+
+.emotion-4:focus-visible,
+.emotion-4[data-focus-visible] {
+  box-shadow: var(--chakra-shadows-outline);
+}
+
+.emotion-4:disabled,
+.emotion-4[aria-disabled=true],
+.emotion-4[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: 0 0 0 1px var(--chakra-colors-brand-stroke);
+  background: var(--chakra-colors-brand-ghostWhite);
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-4:disabled:active,
+.emotion-4[aria-disabled=true]:active,
+.emotion-4[data-disabled]:active,
+.emotion-4:disabled[data-active],
+.emotion-4[aria-disabled=true][data-active],
+.emotion-4[data-disabled][data-active] {
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-4:hover,
+.emotion-4[data-hover] {
+  background: var(--chakra-colors-brand-burntSienna);
+}
+
+.emotion-4:hover:disabled,
+.emotion-4[data-hover]:disabled,
+.emotion-4:hover[aria-disabled=true],
+.emotion-4[data-hover][aria-disabled=true],
+.emotion-4:hover[data-disabled],
+.emotion-4[data-hover][data-disabled] {
+  background: initial;
+}
+
+.emotion-4:active,
+.emotion-4[data-active] {
+  background: var(--chakra-colors-brand-crusta);
+  color: var(--chakra-colors-brand-headline);
+}
+
+<div>
+  <div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <img
+        alt="Logo team"
+        class="chakra-image emotion-2"
+        src="logoFull.svg"
+      />
+      <div
+        class="emotion-3"
+      >
+        Welcome aboard!
+      </div>
+      <a
+        aria-current="page"
+        class="active"
+        href="/"
+      >
+        <button
+          class="chakra-button emotion-4"
+          type="button"
+        >
+          Log in
+        </button>
+      </a>
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
