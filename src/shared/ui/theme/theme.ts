@@ -38,6 +38,16 @@ export const theme = extendTheme({
     Button,
     Input,
     Textarea,
-    Table
+    Table,
+    Modal: {
+      baseStyle: {
+        dialog: {
+          color: 'brand.headline',
+          fontWeight: '700',
+          fontSize: '20px',
+          lineHeight: '120%'
+        }
+      }
+    }
   }
 });

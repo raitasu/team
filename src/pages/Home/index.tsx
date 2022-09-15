@@ -14,11 +14,11 @@ import {
 } from '@chakra-ui/react';
 import {
   MdAdd,
-  MdRadioButtonUnchecked,
-  MdOutlineCheckCircleOutline,
-  MdOutlineCancel,
+  MdOutlineArrowDownward,
   MdOutlineArrowUpward,
-  MdOutlineArrowDownward
+  MdOutlineCancel,
+  MdOutlineCheckCircleOutline,
+  MdRadioButtonUnchecked
 } from 'react-icons/md';
 
 import defaultAvatar from '../../widgets/Header/assets/defaultAvatar.png';
@@ -29,7 +29,6 @@ export const Home = () => {
   return (
     <Box>
       Home
-      <Button variant="primaryOutline">Good</Button>
       <TableContainer
         marginTop="40px"
         marginBottom="40px"
