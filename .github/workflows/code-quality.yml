@@ -37,3 +37,6 @@ jobs:
 
       - name: Run typescript
         run: npx --package typescript tsc --project tsconfig.json
+
+      - name: Run tests
+        run: npm run test

@@ -6,7 +6,7 @@ import { MdAdd } from 'react-icons/md';
 const ButtonPreview = () => <div>Test</div>;
 
 export default {
-  title: 'UI / Buttons',
+  title: 'UI/Buttons',
   component: ButtonPreview
 };
 
