@@ -93,20 +93,20 @@ exports[`Storyshots UI/Buttons Secondary 1`] = `
     role="group"
   >
     <button
-      class="chakra-button css-1rz87m3"
+      class="chakra-button css-10d1trf"
       type="button"
     >
       secondary
     </button>
     <button
-      class="chakra-button css-jxsaln"
+      class="chakra-button css-1dk46hu"
       disabled=""
       type="button"
     >
       secondary disabled
     </button>
     <button
-      class="chakra-button css-g1yioe"
+      class="chakra-button css-16o9esw"
       type="button"
     >
       <span
@@ -135,7 +135,7 @@ exports[`Storyshots UI/Buttons Secondary 1`] = `
       secondary plus
     </button>
     <button
-      class="chakra-button css-jxsaln"
+      class="chakra-button css-1dk46hu"
       disabled=""
       type="button"
     >

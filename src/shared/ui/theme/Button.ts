@@ -31,6 +31,7 @@ export const Button = {
     },
     secondary: {
       color: 'brand.ghostGray',
+      border: '1px solid transparent',
       _hover: {
         border: '1px',
         borderColor: 'brand.stroke'
