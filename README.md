@@ -1,7 +1,7 @@
 # Team project
 
 ![Tests](https://github.com/cybergizer-hq/team-front/actions/workflows/code-quality.yml/badge.svg?branch=main)
-![Storybook](https://github.com/cybergizer-hq/team-front/workflows/storybook.yml/badge.svg?branch=main)
+![Storybook](https://github.com/cybergizer-hq/team-front/actions/workflows/storybook.yml/badge.svg?branch=main)
 
 ## Installation
 
