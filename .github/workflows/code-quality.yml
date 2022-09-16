@@ -18,6 +18,7 @@ concurrency:
 
 jobs:
   code_quality_check:
+    name: Code Quality Check
     runs-on: self-hosted
     outputs:
       nvmrc: ${{ steps.nvm.outputs.nvmrc }}

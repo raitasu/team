@@ -4,7 +4,7 @@
     "type": "git",
     "url": "https://github.com/cybergizer-hq/team-front.git"
   },
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "private": true,
   "engines": {
     "node": "16.17.0"
@@ -55,6 +55,7 @@
     "lint-staged": "13.0.3",
     "prettier": "2.7.1",
     "prop-types": "15.8.1",
+    "semantic-release": "19.0.5",
     "webpack": "5.74.0"
   },
   "scripts": {
@@ -67,7 +68,8 @@
     "postinstall": "husky install && npm run gen:theme-typings",
     "start": "react-scripts start",
     "storybook": "start-storybook -p 6006 -s public",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "semantic-release": "semantic-release"
   },
   "browserslist": {
     "production": [
@@ -80,5 +82,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }

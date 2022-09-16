@@ -1,0 +1,40 @@
+name: Release
+on:
+  workflow_dispatch:
+    branches:
+      - main
+jobs:
+  release:
+    name: Release
+    runs-on: self-hosted
+    permissions:
+      actions: read
+      checks: read
+      contents: write
+      deployments: write
+      issues: write
+      discussions: write
+      packages: write
+      pull-requests: read
+      repository-projects: read
+      statuses: read
+    outputs:
+      nvmrc: ${{ steps.nvm.outputs.nvmrc }}
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install 🔧
+        run: npm ci
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx semantic-release

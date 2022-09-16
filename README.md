@@ -48,3 +48,7 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 - We are using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) for building UI components and pages.
 - Storybook for main branch is accessible via [URL](https://staevs.ddns.net/)
+
+## Releasing
+
+- Manually trigger `Release` workflow from actions tab on `main` branch

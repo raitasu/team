@@ -15,6 +15,7 @@ concurrency:
 
 jobs:
   deploy_storybook:
+    name: Deploy Storybook
     runs-on: self-hosted
     outputs:
       nvmrc: ${{ steps.nvm.outputs.nvmrc }}
