@@ -1,0 +1,39 @@
+name: Deploy Storybook
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  # Here the group is defined by the head_ref of the PR
+  group: ${{ github.head_ref }}-deploy
+  # Here we specify that we'll cancel any "in progress" workflow of the same group.
+  # If we push, amend a commit and push
+  # again the previous workflow will be cancelled
+  cancel-in-progress: true
+
+jobs:
+  deploy_storybook:
+    runs-on: self-hosted
+    outputs:
+      nvmrc: ${{ steps.nvm.outputs.nvmrc }}
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install 🔧
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Deploying Storybook
+        run: sudo rsync -avp ./storybook-static/ /var/www/html

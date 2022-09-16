@@ -40,3 +40,8 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 - Code style is inspired by [Airbnb Guide](https://github.com/airbnb/javascript#airbnb-javascript-style-guide)
 - If you find that some rules are harmful or missing raise a PR with your proposal
+
+## Storybook
+
+- We are using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) for building UI components and pages.
+- Storybook for main branch is accessible via [URL](https://staevs.ddns.net/)
