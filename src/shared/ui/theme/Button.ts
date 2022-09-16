@@ -12,39 +12,62 @@ export const Button = {
   },
   sizes: {},
   variants: {
-    secondaryOutline: {
+    primaryOutline: {
       color: 'brand.accentRed',
-      border: '1px',
-      borderColor: 'brand.stroke',
-      _active: {
-        borderColor: 'brand.ghostGray',
-        color: 'brand.headline'
-      },
+      boxShadow: '0 0 0 1px var(--chakra-colors-brand-stroke)',
       _hover: {
-        borderColor: 'brand.darkGray'
+        boxShadow: '0 0 0 1px var(--chakra-colors-brand-darkGray)'
+      },
+      _active: {
+        boxShadow: '0 0 0 1px var(--chakra-colors-brand-ghostGray)',
+        color: 'brand.headline'
       },
       _disabled: {
         color: 'brand.lightGray',
-        border: '1px',
-        borderColor: 'brand.stroke'
+        boxShadow: '0 0 0 1px var(--chakra-colors-brand-stroke)',
+        _hover: {
+          boxShadow: '0 0 0 1px var(--chakra-colors-brand-stroke)'
+        },
+        _active: {
+          color: 'brand.lightGray'
+        }
       }
     },
-    secondary: {
+    secondaryGhost: {
       color: 'brand.ghostGray',
-      border: '1px solid transparent',
       _hover: {
-        border: '1px',
-        borderColor: 'brand.stroke'
+        boxShadow: '0 0 0 1px var(--chakra-colors-brand-stroke)'
       },
       _active: {
         color: 'brand.headline',
-        borderColor: 'brand.headline'
+        boxShadow: '0 0 0 1px var(--chakra-colors-brand-headline)'
       },
       _disabled: {
-        color: 'brand.lightGray'
+        color: 'brand.lightGray',
+        _hover: {
+          boxShadow: 'none'
+        },
+        _active: {
+          color: 'brand.lightGray'
+        }
       }
     },
-    main: {
+    primaryGhost: {
+      color: 'brand.accentRed',
+      _hover: {
+        color: 'brand.ghostGray'
+      },
+      _active: {
+        color: 'brand.headline'
+      },
+      _disabled: {
+        color: 'brand.lightGray',
+        _hover: {
+          color: 'brand.lightGray'
+        }
+      }
+    },
+    primary: {
       bg: 'brand.accentRed',
       color: 'white',
       _hover: {
@@ -57,12 +80,14 @@ export const Button = {
       _disabled: {
         bg: 'brand.ghostWhite',
         color: 'brand.lightGray',
-        border: '1px',
-        borderColor: 'brand.stroke'
+        boxShadow: '0 0 0 1px var(--chakra-colors-brand-stroke)',
+        _active: {
+          color: 'brand.lightGray'
+        }
       }
     }
   },
   defaultProps: {
-    variant: 'main'
+    variant: 'primary'
   }
 };
