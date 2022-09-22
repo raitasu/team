@@ -1,30 +1,145 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots UI/Buttons Main 1`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-0>*:not(style)~*:not(style) {
+  -webkit-margin-start: 20px;
+  margin-inline-start: 20px;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  line-height: 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
+  padding: 10px 14px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: var(--chakra-fontSizes-md);
+  background: var(--chakra-colors-brand-accentRed);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  color: var(--chakra-colors-white);
+}
+
+.emotion-1:focus-visible,
+.emotion-1[data-focus-visible] {
+  box-shadow: var(--chakra-shadows-outline);
+}
+
+.emotion-1:disabled,
+.emotion-1[aria-disabled=true],
+.emotion-1[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--chakra-shadows-none);
+  background: var(--chakra-colors-brand-ghostWhite);
+  color: var(--chakra-colors-brand-lightGray);
+  border: var(--chakra-borders-1px);
+  border-color: var(--chakra-colors-brand-stroke);
+}
+
+.emotion-1:hover,
+.emotion-1[data-hover] {
+  background: var(--chakra-colors-brand-burntSienna);
+}
+
+.emotion-1:hover:disabled,
+.emotion-1[data-hover]:disabled,
+.emotion-1:hover[aria-disabled=true],
+.emotion-1[data-hover][aria-disabled=true],
+.emotion-1:hover[data-disabled],
+.emotion-1[data-hover][data-disabled] {
+  background: initial;
+}
+
+.emotion-1:active,
+.emotion-1[data-active] {
+  background: var(--chakra-colors-brand-crusta);
+  color: var(--chakra-colors-brand-headline);
+}
+
+.emotion-1:focus,
+.emotion-1[data-focus] {
+  z-index: 1;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-margin-end: 0.5rem;
+  margin-inline-end: 0.5rem;
+}
+
 <div>
   <div
-    class="chakra-button__group css-1tj2xmw"
+    class="chakra-button__group emotion-0"
     role="group"
   >
     <button
-      class="chakra-button css-ualqzd"
+      class="chakra-button emotion-1"
       type="button"
     >
       main
     </button>
     <button
-      class="chakra-button css-ualqzd"
+      class="chakra-button emotion-1"
       disabled=""
       type="button"
     >
       main disabled
     </button>
     <button
-      class="chakra-button css-ualqzd"
+      class="chakra-button emotion-1"
       type="button"
     >
       <span
-        class="chakra-button__icon css-1wh2kri"
+        class="chakra-button__icon emotion-4"
       >
         <svg
           aria-hidden="true"
@@ -49,12 +164,12 @@ exports[`Storyshots UI/Buttons Main 1`] = `
       main plus
     </button>
     <button
-      class="chakra-button css-ualqzd"
+      class="chakra-button emotion-1"
       disabled=""
       type="button"
     >
       <span
-        class="chakra-button__icon css-1wh2kri"
+        class="chakra-button__icon emotion-4"
       >
         <svg
           aria-hidden="true"
@@ -87,30 +202,299 @@ exports[`Storyshots UI/Buttons Main 1`] = `
 `;
 
 exports[`Storyshots UI/Buttons Secondary 1`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.emotion-0>*:not(style)~*:not(style) {
+  -webkit-margin-start: 20px;
+  margin-inline-start: 20px;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  line-height: 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
+  padding: 10px 14px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: var(--chakra-fontSizes-md);
+  background: var(--chakra-colors-transparent);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  color: var(--chakra-colors-brand-ghostGray);
+  border: 1px solid transparent;
+}
+
+.emotion-1:focus-visible,
+.emotion-1[data-focus-visible] {
+  box-shadow: var(--chakra-shadows-outline);
+}
+
+.emotion-1:disabled,
+.emotion-1[aria-disabled=true],
+.emotion-1[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--chakra-shadows-none);
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-1:hover,
+.emotion-1[data-hover] {
+  border: var(--chakra-borders-1px);
+  border-color: var(--chakra-colors-brand-stroke);
+}
+
+.emotion-1:hover:disabled,
+.emotion-1[data-hover]:disabled,
+.emotion-1:hover[aria-disabled=true],
+.emotion-1[data-hover][aria-disabled=true],
+.emotion-1:hover[data-disabled],
+.emotion-1[data-hover][data-disabled] {
+  background: initial;
+}
+
+.emotion-1:active,
+.emotion-1[data-active] {
+  color: var(--chakra-colors-brand-headline);
+  border-color: var(--chakra-colors-brand-headline);
+}
+
+.emotion-1:focus,
+.emotion-1[data-focus] {
+  z-index: 1;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  line-height: 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
+  padding: 10px 14px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: var(--chakra-fontSizes-md);
+  background: var(--chakra-colors-transparent);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  color: var(--chakra-colors-brand-ghostGray);
+  border: 1px solid transparent;
+}
+
+.emotion-2:focus-visible,
+.emotion-2[data-focus-visible] {
+  box-shadow: var(--chakra-shadows-outline);
+}
+
+.emotion-2:disabled,
+.emotion-2[aria-disabled=true],
+.emotion-2[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--chakra-shadows-none);
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-2:hover,
+.emotion-2[data-hover] {
+  border: var(--chakra-borders-none);
+}
+
+.emotion-2:active,
+.emotion-2[data-active] {
+  color: var(--chakra-colors-brand-headline);
+  border-color: var(--chakra-colors-brand-headline);
+}
+
+.emotion-2:focus,
+.emotion-2[data-focus] {
+  z-index: 1;
+}
+
+.emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  line-height: 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
+  padding: 10px 14px;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: var(--chakra-fontSizes-md);
+  background: var(--chakra-colors-transparent);
+  height: var(--chakra-sizes-10);
+  min-width: var(--chakra-sizes-10);
+  -webkit-padding-start: var(--chakra-space-4);
+  padding-inline-start: var(--chakra-space-4);
+  -webkit-padding-end: var(--chakra-space-4);
+  padding-inline-end: var(--chakra-space-4);
+  color: var(--chakra-colors-brand-accentRed);
+  border: 1px solid transparent;
+}
+
+.emotion-3:focus-visible,
+.emotion-3[data-focus-visible] {
+  box-shadow: var(--chakra-shadows-outline);
+}
+
+.emotion-3:disabled,
+.emotion-3[aria-disabled=true],
+.emotion-3[data-disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: var(--chakra-shadows-none);
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-3:hover,
+.emotion-3[data-hover] {
+  color: var(--chakra-colors-brand-ghostGray);
+  border: var(--chakra-borders-none);
+}
+
+.emotion-3:active,
+.emotion-3[data-active] {
+  color: var(--chakra-colors-brand-headline);
+  border-color: var(--chakra-colors-brand-headline);
+}
+
+.emotion-3:focus,
+.emotion-3[data-focus] {
+  z-index: 1;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-margin-end: 0.5rem;
+  margin-inline-end: 0.5rem;
+}
+
 <div>
   <div
-    class="chakra-button__group css-1tj2xmw"
+    class="chakra-button__group emotion-0"
     role="group"
   >
     <button
-      class="chakra-button css-10d1trf"
+      class="chakra-button emotion-1"
       type="button"
     >
       secondary
     </button>
     <button
-      class="chakra-button css-1dk46hu"
+      class="chakra-button emotion-2"
       disabled=""
       type="button"
     >
       secondary disabled
     </button>
     <button
-      class="chakra-button css-16o9esw"
+      class="chakra-button emotion-3"
       type="button"
     >
       <span
-        class="chakra-button__icon css-1wh2kri"
+        class="chakra-button__icon emotion-4"
       >
         <svg
           aria-hidden="true"
@@ -135,12 +519,12 @@ exports[`Storyshots UI/Buttons Secondary 1`] = `
       secondary plus
     </button>
     <button
-      class="chakra-button css-1dk46hu"
+      class="chakra-button emotion-2"
       disabled=""
       type="button"
     >
       <span
-        class="chakra-button__icon css-1wh2kri"
+        class="chakra-button__icon emotion-4"
       >
         <svg
           aria-hidden="true"
