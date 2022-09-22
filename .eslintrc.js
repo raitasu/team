@@ -6,7 +6,7 @@ module.exports = {
       extends: ['./configs/eslint/.eslintrc.typescript.js']
     },
     {
-      files: ['**/*.stories.*'],
+      files: ['**/*.stories.ts', '**/*.stories.tsx'],
       extends: ['./configs/eslint/.eslint.storybook.js']
     }
   ]
