@@ -1,5 +1,6 @@
 module.exports = {
   '*.{json,css,scss,md}': ['prettier --write'],
   '*.{js,jsx,ts,tsx}': ['eslint --fix'],
-  '*.{ts,tsx}': () => 'tsc --noEmit --project tsconfig.json'
+  '*.{ts,tsx}': () => 'tsc --noEmit --project tsconfig.json',
+  'package.json': () => 'npm run format:package-json'
 };
