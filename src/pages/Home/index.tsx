@@ -5,9 +5,6 @@ import {
   Button,
   ButtonGroup,
   Img,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Stack,
   Table,
   TableContainer,
@@ -19,7 +16,6 @@ import {
   Tr
 } from '@chakra-ui/react';
 import {
-  MdSearch,
   MdAdd,
   MdRadioButtonUnchecked,
   MdOutlineCheckCircleOutline,
@@ -120,44 +116,6 @@ export const Home = () => {
         <Button>default</Button>
         <Button disabled>default disabled</Button>
       </ButtonGroup>
-      <hr />
-      <Stack
-        marginTop="40px"
-        marginBottom="40px"
-        spacing={5}
-        width="320px"
-      >
-        <Input placeholder="Enter text" />
-        <Input
-          placeholder="Enter text"
-          isInvalid
-        />
-        <Input
-          placeholder="Enter text"
-          disabled
-        />
-        <InputGroup>
-          <InputLeftElement
-            pointerEvents="none"
-            color="brand.lightGray"
-          >
-            <MdSearch size="20px" />
-          </InputLeftElement>
-          <Input placeholder="Enter text" />
-        </InputGroup>
-        <InputGroup>
-          <InputLeftElement
-            pointerEvents="none"
-            color="brand.lightGray"
-          >
-            <MdSearch size="20px" />
-          </InputLeftElement>
-          <Input
-            placeholder="Enter text"
-            disabled
-          />
-        </InputGroup>
-      </Stack>
       <hr />
       <Stack
         marginTop="40px"

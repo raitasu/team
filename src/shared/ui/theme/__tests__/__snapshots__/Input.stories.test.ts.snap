@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots UI/Inputs Base Input 1`] = `
+<div>
+  <div
+    class="css-1hjq20a"
+  >
+     
+    <input
+      class="chakra-input css-26wu3k"
+      placeholder="Enter text"
+    />
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
+
+exports[`Storyshots UI/Inputs Controlled Input 1`] = `
+<div>
+  <div
+    class="css-1hjq20a"
+  >
+    <input
+      class="chakra-input css-26wu3k"
+      placeholder="Enter text"
+      value=""
+    />
+    <button
+      class="chakra-button css-1m9cxfa"
+      type="button"
+    >
+      submit
+    </button>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
+
+exports[`Storyshots UI/Inputs Disabled Input 1`] = `
+<div>
+  <div
+    class="css-1hjq20a"
+  >
+    <input
+      class="chakra-input css-26wu3k"
+      disabled=""
+      placeholder="Enter text"
+    />
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
+
+exports[`Storyshots UI/Inputs Disabled Input With Left Icon 1`] = `
+<div>
+  <div
+    class="chakra-input__group css-13qtzm3"
+  >
+    <div
+      class="chakra-input__left-element css-1jjuvk1"
+    >
+      <svg
+        fill="currentColor"
+        height="20px"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="20px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+        />
+      </svg>
+    </div>
+    <input
+      class="chakra-input css-fs7izi"
+      disabled=""
+      placeholder="Enter text"
+    />
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
+
+exports[`Storyshots UI/Inputs Input With Left Icon 1`] = `
+<div>
+  <div
+    class="chakra-input__group css-13qtzm3"
+  >
+    <div
+      class="chakra-input__left-element css-1jjuvk1"
+    >
+      <svg
+        fill="currentColor"
+        height="20px"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="20px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+        />
+      </svg>
+    </div>
+    <input
+      class="chakra-input css-fs7izi"
+      placeholder="Enter text"
+    />
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
+
+exports[`Storyshots UI/Inputs Invalid Input 1`] = `
+<div>
+  <div
+    class="css-1hjq20a"
+  >
+    <input
+      aria-invalid="true"
+      class="chakra-input css-26wu3k"
+      placeholder="Enter text"
+    />
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
+
+exports[`Storyshots UI/Inputs Uncontrollable Input 1`] = `
+<div>
+  <div
+    class="css-1hjq20a"
+  >
+    <input
+      class="chakra-input css-26wu3k"
+      placeholder="Enter text"
+    />
+    <button
+      class="chakra-button css-1m9cxfa"
+      type="button"
+    >
+      submit
+    </button>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
+
+exports[`Storyshots UI/Inputs Variants 1`] = `
+<div>
+  <div
+    class="chakra-stack css-15do2b7"
+  >
+    <input
+      class="chakra-input css-26wu3k"
+      placeholder="Enter text"
+    />
+    <input
+      aria-invalid="true"
+      class="chakra-input css-26wu3k"
+      placeholder="Enter text"
+    />
+    <input
+      class="chakra-input css-26wu3k"
+      disabled=""
+      placeholder="Enter text"
+    />
+    <div
+      class="chakra-input__group css-4302v8"
+    >
+      <div
+        class="chakra-input__left-element css-1jjuvk1"
+      >
+        <svg
+          fill="currentColor"
+          height="20px"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="20px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          />
+        </svg>
+      </div>
+      <input
+        class="chakra-input css-fs7izi"
+        placeholder="Enter text"
+      />
+    </div>
+    <div
+      class="chakra-input__group css-4302v8"
+    >
+      <div
+        class="chakra-input__left-element css-1jjuvk1"
+      >
+        <svg
+          fill="currentColor"
+          height="20px"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="20px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          />
+        </svg>
+      </div>
+      <input
+        class="chakra-input css-fs7izi"
+        disabled=""
+        placeholder="Enter text"
+      />
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
