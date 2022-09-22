@@ -1,16 +1,13 @@
 module.exports = {
-  extends: ['./.eslintrc.base.js'],
+  extends: ['./configs/eslint/.eslintrc.base.js'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
-      extends: ['./.eslintrc.typescript.js']
+      extends: ['./configs/eslint/.eslintrc.typescript.js']
     },
     {
       files: ['**/*.stories.*'],
-      rules: {
-        'import/no-anonymous-default-export': 'off',
-        'import/no-default-export': 'off'
-      }
+      extends: ['./configs/eslint/.eslint.storybook.js']
     }
   ]
 };
