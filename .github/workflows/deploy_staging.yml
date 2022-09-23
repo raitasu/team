@@ -1,12 +1,12 @@
 name: Preview Deploy
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
 concurrency:
-  group: ${{ github.head_ref }}-deploy-preview
+  group: deploy-staging
   cancel-in-progress: true
 
 jobs:
@@ -28,9 +28,9 @@ jobs:
         run: npm ci
 
       - name: Build App
-        run: PUBLIC_URL=/preview/${{ github.event.number }} npm run build
+        run: PUBLIC_URL=/app npm run build
 
-      - name: AWS Deploy Preview
+      - name: AWS Deploy Staging
         if: success()
         uses: jakejarvis/s3-sync-action@master
         with:
@@ -41,19 +41,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_PREVIEW_SECRET }}
           AWS_REGION: "eu-central-1"
           SOURCE_DIR: "build"
-          DEST_DIR: preview/${{ github.event.number }}
-
-  set_comment:
-    name: Set PR Comment
-    needs: [ 'deploy' ]
-    runs-on: self-hosted
-    permissions:
-      actions: read
-      contents: read
-      pull-requests: write
-    steps:
-      - name: Set Preview Link
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          header: preview
-          message: ":gem: Teams App preview deployed to <http://cgteam.s3-website.eu-central-1.amazonaws.com/preview/${{ github.event.number }}>"
+          DEST_DIR: app

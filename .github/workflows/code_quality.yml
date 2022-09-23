@@ -9,19 +9,13 @@ on:
       - main
 
 concurrency:
-  # Here the group is defined by the head_ref of the PR
-  group: ${{ github.head_ref }}-checks
-  # Here we specify that we'll cancel any "in progress" workflow of the same group.
-  # If we push, amend a commit and push
-  # again the previous workflow will be cancelled
+  group: ${{ github.head_ref || github.run_id }}-checks
   cancel-in-progress: true
 
 jobs:
   code_quality_check:
-    name: Code Quality Check
+    name: Quality Check
     runs-on: self-hosted
-    outputs:
-      nvmrc: ${{ steps.nvm.outputs.nvmrc }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3

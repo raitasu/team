@@ -1,4 +1,4 @@
-name: Storybook
+name: Preview Storybook Deploy
 
 on:
   push:
@@ -6,19 +6,13 @@ on:
       - main
 
 concurrency:
-  # Here the group is defined by the head_ref of the PR
-  group: ${{ github.head_ref }}-deploy
-  # Here we specify that we'll cancel any "in progress" workflow of the same group.
-  # If we push, amend a commit and push
-  # again the previous workflow will be cancelled
+  group: deploy-storybook
   cancel-in-progress: true
 
 jobs:
   deploy_storybook:
-    name: Deploy Storybook
+    name: Preview Storybook Deploy
     runs-on: self-hosted
-    outputs:
-      nvmrc: ${{ steps.nvm.outputs.nvmrc }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
@@ -36,5 +30,15 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-      - name: Deploying Storybook
-        run: sudo rsync -avp ./storybook-static/ /var/www/html
+      - name: Deploy
+        if: success()
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --delete
+        env:
+          AWS_S3_BUCKET: cgteam
+          AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOY_PREVIEW_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_PREVIEW_SECRET }}
+          AWS_REGION: "eu-central-1"
+          SOURCE_DIR: "storybook-static"
+          DEST_DIR: stories/app

@@ -3,6 +3,11 @@ on:
   workflow_dispatch:
     branches:
       - main
+
+concurrency:
+  group: release
+  cancel-in-progress: true
+
 jobs:
   release:
     name: Release
@@ -18,8 +23,6 @@ jobs:
       pull-requests: read
       repository-projects: read
       statuses: read
-    outputs:
-      nvmrc: ${{ steps.nvm.outputs.nvmrc }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3

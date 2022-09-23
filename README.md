@@ -1,7 +1,13 @@
 # Team project
 
-![Tests](https://github.com/cybergizer-hq/team-front/actions/workflows/code-quality.yml/badge.svg?branch=main)
+![Tests](https://github.com/cybergizer-hq/team-front/actions/workflows/code_quality.yml/badge.svg?branch=main)
+![Staging Deploy](https://github.com/cybergizer-hq/team-front/actions/workflows/deploy_staging.yml/badge.svg?branch=main)
 ![Storybook](https://github.com/cybergizer-hq/team-front/actions/workflows/storybook.yml/badge.svg?branch=main)
+
+## Application links
+
+- [Staging](http://cgteam.s3-website.eu-central-1.amazonaws.com/app)
+- [Storybook](http://cgteam.s3-website.eu-central-1.amazonaws.com/stories/app)
 
 ## Installation
 

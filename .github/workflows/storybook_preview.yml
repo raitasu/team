@@ -1,4 +1,4 @@
-name: Preview Deploy
+name: Preview Storybook Deploy
 
 on:
   pull_request:
@@ -6,12 +6,12 @@ on:
       - main
 
 concurrency:
-  group: ${{ github.head_ref }}-deploy-preview
+  group: ${{ github.head_ref }}-deploy-storybook-preview
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    name: Preview Deploy
+  deploy_storybook:
+    name: Preview Storybook Deploy
     runs-on: self-hosted
     steps:
       - name: Checkout 🛎️
@@ -24,13 +24,13 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
-      - name: Install
+      - name: Install 🔧
         run: npm ci
 
-      - name: Build App
-        run: PUBLIC_URL=/preview/${{ github.event.number }} npm run build
+      - name: Build Storybook
+        run: npm run build-storybook
 
-      - name: AWS Deploy Preview
+      - name: Deploy
         if: success()
         uses: jakejarvis/s3-sync-action@master
         with:
@@ -40,12 +40,12 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOY_PREVIEW_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_PREVIEW_SECRET }}
           AWS_REGION: "eu-central-1"
-          SOURCE_DIR: "build"
-          DEST_DIR: preview/${{ github.event.number }}
+          SOURCE_DIR: "storybook-static"
+          DEST_DIR: stories/preview/${{ github.event.number }}
 
   set_comment:
     name: Set PR Comment
-    needs: [ 'deploy' ]
+    needs: [ 'deploy_storybook' ]
     runs-on: self-hosted
     permissions:
       actions: read
@@ -55,5 +55,5 @@ jobs:
       - name: Set Preview Link
         uses: marocchino/sticky-pull-request-comment@v2
         with:
-          header: preview
-          message: ":gem: Teams App preview deployed to <http://cgteam.s3-website.eu-central-1.amazonaws.com/preview/${{ github.event.number }}>"
+          header: storybook
+          message: ":open_book: Teams Storybook preview deployed to <http://cgteam.s3-website.eu-central-1.amazonaws.com/stories/preview/${{ github.event.number }}>"
