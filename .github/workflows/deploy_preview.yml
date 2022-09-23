@@ -40,7 +40,7 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOY_PREVIEW_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_PREVIEW_SECRET }}
           AWS_REGION: "eu-central-1"
-          SOURCE_DIR: "public"
+          SOURCE_DIR: "storybook-static"
           DEST_DIR: preview/${{ github.event.number }}
 
       - name: Set success deployment status
