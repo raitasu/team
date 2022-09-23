@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: PATH_PREFIX=preview/${{ github.event.number }} npm run build -- --prefix-paths
+        run: PATH_PREFIX=preview/${{ github.event.number }} npm run build-storybook
 
       - name: Deploy
         if: success()
