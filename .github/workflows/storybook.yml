@@ -1,4 +1,4 @@
-name: Preview Storybook Deploy
+name: Storybook Deploy
 
 on:
   push:
@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   deploy_storybook:
-    name: Preview Storybook Deploy
+    name: Storybook Deploy
     runs-on: self-hosted
     steps:
       - name: Checkout 🛎️

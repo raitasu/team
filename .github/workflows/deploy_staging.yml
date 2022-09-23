@@ -1,4 +1,4 @@
-name: Preview Deploy
+name: Staging Deploy
 
 on:
   push:
@@ -11,7 +11,7 @@ concurrency:
 
 jobs:
   deploy:
-    name: Preview Deploy
+    name: Staging Deploy
     runs-on: self-hosted
     steps:
       - name: Checkout 🛎️
