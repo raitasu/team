@@ -7,7 +7,7 @@
 ## Application links
 
 - [Staging](http://cgteam.s3-website.eu-central-1.amazonaws.com/app)
-- [Storybook](http://cgteam.s3-website.eu-central-1.amazonaws.com/stories/app)
+- [Storybook](http://cgteam.s3-website.eu-central-1.amazonaws.com/stories)
 
 ## Installation
 

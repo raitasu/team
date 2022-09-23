@@ -41,7 +41,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_PREVIEW_SECRET }}
           AWS_REGION: "eu-central-1"
           SOURCE_DIR: "storybook-static"
-          DEST_DIR: stories/preview/${{ github.event.number }}
+          DEST_DIR: storybook/${{ github.event.number }}
 
   set_comment:
     name: Set PR Comment
@@ -56,4 +56,4 @@ jobs:
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: storybook
-          message: ":open_book: Teams Storybook preview deployed to <http://cgteam.s3-website.eu-central-1.amazonaws.com/stories/preview/${{ github.event.number }}>"
+          message: ":open_book: Teams Storybook preview deployed to <http://cgteam.s3-website.eu-central-1.amazonaws.com/storybook/${{ github.event.number }}>"
