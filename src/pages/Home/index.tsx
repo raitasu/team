@@ -4,12 +4,10 @@ import {
   Box,
   Button,
   Img,
-  Stack,
   Table,
   TableContainer,
   Tbody,
   Td,
-  Textarea,
   Th,
   Thead,
   Tr
@@ -32,24 +30,6 @@ export const Home = () => {
     <Box>
       Home
       <Button variant="primaryOutline">Good</Button>
-      <Stack
-        marginTop="40px"
-        marginBottom="40px"
-        direction="column"
-        spacing={5}
-        width="320px"
-      >
-        <Textarea placeholder="Hello" />
-        <Textarea
-          placeholder="Hello"
-          isInvalid
-        />
-        <Textarea
-          placeholder="Hello"
-          disabled
-        />
-      </Stack>
-      <hr />
       <TableContainer
         marginTop="40px"
         marginBottom="40px"
