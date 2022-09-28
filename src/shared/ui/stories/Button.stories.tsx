@@ -1,20 +1,21 @@
 import React from 'react';
 
-import { Button, ButtonGroup, IconButton, SimpleGrid } from '@chakra-ui/react';
+import { ButtonGroup, IconButton, SimpleGrid } from '@chakra-ui/react';
 import { MdAdd, MdOutlineFilterAlt } from 'react-icons/md';
+
+import { Button } from '../components/Button';
 
 export default {
   title: 'UI/Buttons',
   component: Button
 };
-
 export const Variants = () => (
   <SimpleGrid
     columns={1}
-    spacing={10}
+    spacing={5}
   >
     <ButtonGroup spacing="20px">
-      <Button variant="primary">button</Button>
+      <Button>button</Button>
       <Button
         variant="primary"
         disabled
@@ -23,13 +24,13 @@ export const Variants = () => (
       </Button>
       <Button
         variant="primary"
-        leftIcon={<MdAdd size="26px" />}
+        leftIcon={<MdAdd />}
       >
         button with icon
       </Button>
       <Button
         variant="primary"
-        leftIcon={<MdAdd size="26px" />}
+        leftIcon={<MdAdd />}
         disabled
       >
         button with icon disabled
@@ -43,15 +44,9 @@ export const Variants = () => (
       >
         button disabled
       </Button>
+      <Button variant="secondaryGhost">button with icon</Button>
       <Button
         variant="secondaryGhost"
-        leftIcon={<MdAdd size="26px" />}
-      >
-        button with icon
-      </Button>
-      <Button
-        variant="secondaryGhost"
-        leftIcon={<MdAdd size="26px" />}
         disabled
       >
         button with icon disabled
@@ -65,15 +60,9 @@ export const Variants = () => (
       >
         button disabled
       </Button>
+      <Button variant="primaryGhost">button with icon</Button>
       <Button
         variant="primaryGhost"
-        leftIcon={<MdAdd size="26px" />}
-      >
-        button with icon
-      </Button>
-      <Button
-        variant="primaryGhost"
-        leftIcon={<MdAdd size="26px" />}
         disabled
       >
         button with icon disabled
@@ -89,13 +78,13 @@ export const Variants = () => (
       </Button>
       <Button
         variant="primaryOutline"
-        leftIcon={<MdAdd size="26px" />}
+        leftIcon={<MdAdd />}
       >
         button with icon
       </Button>
       <Button
         variant="primaryOutline"
-        leftIcon={<MdAdd size="26px" />}
+        leftIcon={<MdAdd />}
         disabled
       >
         button with icon disabled

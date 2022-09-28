@@ -35,17 +35,18 @@ export const Button = {
     },
     secondaryGhost: {
       color: 'brand.ghostGray',
+      paddingLeft: '0',
+      paddingRight: '0',
       _hover: {
-        boxShadow: '0 0 0 1px var(--chakra-colors-brand-stroke)'
+        color: 'brand.darkGray'
       },
       _active: {
-        color: 'brand.headline',
-        boxShadow: '0 0 0 1px var(--chakra-colors-brand-headline)'
+        color: 'brand.headline'
       },
       _disabled: {
         color: 'brand.lightGray',
         _hover: {
-          boxShadow: 'none'
+          color: 'brand.lightGray'
         },
         _active: {
           color: 'brand.lightGray'
@@ -54,6 +55,8 @@ export const Button = {
     },
     primaryGhost: {
       color: 'brand.accentRed',
+      paddingLeft: '0',
+      paddingRight: '0',
       _hover: {
         color: 'brand.ghostGray'
       },
@@ -112,6 +115,7 @@ export const Button = {
     }
   },
   defaultProps: {
-    variant: 'primary'
+    variant: 'primary',
+    size: 'sm'
   }
 };
