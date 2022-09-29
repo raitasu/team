@@ -85,6 +85,30 @@ export const Button = {
           color: 'brand.lightGray'
         }
       }
+    },
+    iconButton: {
+      width: '48px',
+      height: '32px',
+      color: 'brand.ghostGray',
+      boxShadow: '0 0 0 1px var(--chakra-colors-brand-stroke)',
+      _hover: {
+        boxShadow: '0 0 0 1px var(--chakra-colors-brand-ghostGray)'
+      },
+      _active: {
+        color: 'brand.headline',
+        boxShadow: '0 0 0 1px var(--chakra-colors-brand-headline)'
+      },
+      _disabled: {
+        color: 'brand.lightGray',
+        boxShadow: '0 0 0 1px var(--chakra-colors-brand-lightGray)',
+        _hover: {
+          boxShadow: '0 0 0 1px var(--chakra-colors-brand-lightGray)'
+        },
+        _active: {
+          color: 'brand.lightGray',
+          boxShadow: '0 0 0 1px var(--chakra-colors-brand-lightGray)'
+        }
+      }
     }
   },
   defaultProps: {

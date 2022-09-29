@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Button, ButtonGroup, SimpleGrid } from '@chakra-ui/react';
-import { MdAdd } from 'react-icons/md';
+import { Button, ButtonGroup, IconButton, SimpleGrid } from '@chakra-ui/react';
+import { MdAdd, MdOutlineFilterAlt } from 'react-icons/md';
 
 export default {
   title: 'UI/Buttons',
@@ -100,6 +100,19 @@ export const Variants = () => (
       >
         button with icon disabled
       </Button>
+    </ButtonGroup>
+    <ButtonGroup spacing="20px">
+      <IconButton
+        aria-label="Filter"
+        variant="iconButton"
+        icon={<MdOutlineFilterAlt />}
+      />
+      <IconButton
+        aria-label="Filter"
+        variant="iconButton"
+        icon={<MdOutlineFilterAlt />}
+        disabled
+      />
     </ButtonGroup>
   </SimpleGrid>
 );
