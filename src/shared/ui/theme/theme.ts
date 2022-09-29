@@ -2,6 +2,7 @@ import { extendTheme } from '@chakra-ui/react';
 
 import { Alert } from './Alert';
 import { Button } from './Button';
+import { Checkbox } from './Checkbox';
 import { Heading } from './Heading';
 import { Input } from './Input';
 import { Modal } from './Modal';
@@ -20,6 +21,7 @@ export const theme = extendTheme({
   colors: {
     brand: {
       headline: '#212121',
+      headline2: '#131313',
       body: '#666666',
       accentRed: '#EF4523',
       red500: '#E53E3E',
@@ -46,6 +48,7 @@ export const theme = extendTheme({
   components: {
     Alert,
     Button,
+    Checkbox,
     Input,
     Modal,
     Table,
