@@ -1,8 +1,8 @@
 export const Alert = {
   baseStyle: {
     container: {
-      w: '463px',
-      h: '95px',
+      width: '463px',
+      height: '95px',
       border: '1px solid',
       borderRadius: '4px'
     },
