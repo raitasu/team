@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FormControl, FormLabel, Stack } from '@chakra-ui/react';
 
-import { Select } from '../../components/Select';
+import { Select } from 'shared/ui/components/Select';
 
 export default {
   title: 'UI/Select',

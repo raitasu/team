@@ -2,7 +2,8 @@ import React, { Suspense } from 'react';
 
 import { Route, Routes } from 'react-router';
 
-import { Layout } from '../shared/ui/Layout';
+import { MainLayout } from 'shared/layout/MainLayout';
+
 import { NotFound } from './NotFound';
 
 export const LoadableHome = React.lazy(() =>
@@ -21,7 +22,7 @@ export const LoadableProjects = React.lazy(() =>
 
 export const Pages = () => (
   <Routes>
-    <Route element={<Layout />}>
+    <Route element={<MainLayout />}>
       <Route
         path="/"
         element={

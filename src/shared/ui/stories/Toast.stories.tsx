@@ -1,6 +1,6 @@
 import { Stack } from '@chakra-ui/react';
 
-import { BaseToast } from '../../components/Toast';
+import { BaseToast } from 'shared/ui/components/Toast';
 
 export default {
   title: 'UI/Toast',

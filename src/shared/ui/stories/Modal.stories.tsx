@@ -11,8 +11,8 @@ import {
   useDisclosure
 } from '@chakra-ui/react';
 
-import defaultAvatar from '../../../../widgets/Header/assets/defaultAvatar.png';
-import { BaseModal } from '../../components/Modal';
+import { BaseModal } from 'shared/ui/components/Modal';
+import defaultAvatar from 'widgets/Header/assets/defaultAvatar.png';
 
 export default {
   title: 'UI/Modals',
