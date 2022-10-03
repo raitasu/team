@@ -12,31 +12,28 @@ import {
 import { ModalProps } from './modal.types';
 
 export const BaseModal = ({
-  isOpen,
-  onClose,
-  modalHeader,
-  modalOverlay,
-  modalFooter,
   title,
-  body,
+  shouldUseOverlay,
   footer,
-  width
+  children,
+  contentProps,
+  closeOnOverlayClick = true,
+  ...pathThroughModalProps
 }: ModalProps) => (
   <Modal
-    isOpen={isOpen}
-    onClose={onClose}
-    closeOnOverlayClick
+    closeOnOverlayClick={closeOnOverlayClick}
+    {...pathThroughModalProps}
   >
-    {modalOverlay ? <ModalOverlay /> : ''}
+    {shouldUseOverlay && <ModalOverlay />}
     <ModalContent
-      maxWidth={width}
       display="flex"
       flexDirection="column"
       alignItems="flex-start"
+      {...contentProps}
     >
-      {modalHeader ? <ModalHeader>{title}</ModalHeader> : ''}
-      <ModalBody width="100%">{body}</ModalBody>
-      {modalFooter ? (
+      {title && <ModalHeader>{title}</ModalHeader>}
+      <ModalBody width="100%">{children}</ModalBody>
+      {footer && (
         <ModalFooter
           width="100%"
           display="flex"
@@ -44,8 +41,6 @@ export const BaseModal = ({
         >
           {footer}
         </ModalFooter>
-      ) : (
-        ''
       )}
     </ModalContent>
   </Modal>

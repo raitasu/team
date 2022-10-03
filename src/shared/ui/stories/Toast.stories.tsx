@@ -13,14 +13,14 @@ export const Variants = () => (
       title="Text here."
       description="Description here."
       variant="solid"
-      text="Toast"
+      label="Toast"
       duration={5000}
     />
     <BaseToast
       title="Text here."
       description="Description here."
       variant="subtle"
-      text="Error toast"
+      label="Error toast"
       duration={5000}
     />
   </Stack>

@@ -1,13 +1,13 @@
 import React from 'react';
 
+import {
+  ModalContentProps as ChakraModalContentProps,
+  ModalProps as ChakraModalProps
+} from '@chakra-ui/react';
+
 export type ModalProps = {
-  isOpen: boolean;
-  onClose: () => void;
-  modalHeader?: boolean;
-  modalOverlay?: boolean;
-  modalFooter?: boolean;
-  title?: string;
-  body?: React.ReactElement;
-  footer?: React.ReactElement;
-  width: string;
-};
+  shouldUseOverlay?: boolean;
+  contentProps: ChakraModalContentProps;
+  title?: React.ReactNode;
+  footer?: React.ReactNode;
+} & ChakraModalProps;

@@ -57,69 +57,54 @@ export const Variants = () => {
 
       <BaseModal
         onClose={onClose}
-        width="688px"
+        contentProps={{
+          maxWidth: '688px'
+        }}
         isOpen={isOpen}
-        modalHeader={false}
-        modalOverlay
-        modalFooter={false}
-        body={
-          <Box display="flex">
-            <Box width="100%">
-              <FormControl>
-                <FormLabel color="brand.body">First name</FormLabel>
-                <Input placeholder="First name" />
-              </FormControl>
+        shouldUseOverlay
+      >
+        <Box display="flex">
+          <Box width="100%">
+            <FormControl>
+              <FormLabel color="brand.body">First name</FormLabel>
+              <Input placeholder="First name" />
+            </FormControl>
 
-              <FormControl mt={4}>
-                <FormLabel color="brand.body">Last name</FormLabel>
-                <Input placeholder="Last name" />
-              </FormControl>
-            </Box>
+            <FormControl mt={4}>
+              <FormLabel color="brand.body">Last name</FormLabel>
+              <Input placeholder="Last name" />
+            </FormControl>
           </Box>
-        }
-      />
+        </Box>
+      </BaseModal>
       <BaseModal
         onClose={onCloseTwo}
-        width="688px"
+        contentProps={{
+          maxWidth: '688px'
+        }}
         isOpen={isOpenTwo}
-        modalHeader
-        modalOverlay
-        modalFooter={false}
+        shouldUseOverlay
         title="GENERAL INFORMATION"
-        body={
-          <Box width="100%">
-            <FormControl>
-              <FormLabel color="brand.body">First name</FormLabel>
-              <Input placeholder="First name" />
-            </FormControl>
+      >
+        <Box width="100%">
+          <FormControl>
+            <FormLabel color="brand.body">First name</FormLabel>
+            <Input placeholder="First name" />
+          </FormControl>
 
-            <FormControl mt={4}>
-              <FormLabel color="brand.body">Last name</FormLabel>
-              <Input placeholder="Last name" />
-            </FormControl>
-          </Box>
-        }
-      />
+          <FormControl mt={4}>
+            <FormLabel color="brand.body">Last name</FormLabel>
+            <Input placeholder="Last name" />
+          </FormControl>
+        </Box>
+      </BaseModal>
       <BaseModal
         onClose={onCloseThree}
-        width="688px"
+        contentProps={{
+          maxWidth: '688px'
+        }}
         isOpen={isOpenThree}
-        modalHeader={false}
-        modalOverlay
-        modalFooter
-        body={
-          <Box width="100%">
-            <FormControl>
-              <FormLabel color="brand.body">First name</FormLabel>
-              <Input placeholder="First name" />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel color="brand.body">Last name</FormLabel>
-              <Input placeholder="Last name" />
-            </FormControl>
-          </Box>
-        }
+        shouldUseOverlay
         footer={
           <>
             <Button
@@ -139,28 +124,27 @@ export const Variants = () => {
             </Box>
           </>
         }
-      />
+      >
+        <Box width="100%">
+          <FormControl>
+            <FormLabel color="brand.body">First name</FormLabel>
+            <Input placeholder="First name" />
+          </FormControl>
+
+          <FormControl mt={4}>
+            <FormLabel color="brand.body">Last name</FormLabel>
+            <Input placeholder="Last name" />
+          </FormControl>
+        </Box>
+      </BaseModal>
       <BaseModal
         onClose={onCloseFour}
-        width="688px"
+        contentProps={{
+          maxWidth: '688px'
+        }}
         isOpen={isOpenFour}
-        modalHeader
-        modalOverlay
-        modalFooter
+        shouldUseOverlay
         title="GENERAL INFORMATION"
-        body={
-          <Box width="100%">
-            <FormControl>
-              <FormLabel color="brand.body">First name</FormLabel>
-              <Input placeholder="First name" />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel color="brand.body">Last name</FormLabel>
-              <Input placeholder="Last name" />
-            </FormControl>
-          </Box>
-        }
         footer={
           <>
             <Button
@@ -180,35 +164,27 @@ export const Variants = () => {
             </Box>
           </>
         }
-      />
+      >
+        <Box width="100%">
+          <FormControl>
+            <FormLabel color="brand.body">First name</FormLabel>
+            <Input placeholder="First name" />
+          </FormControl>
+
+          <FormControl mt={4}>
+            <FormLabel color="brand.body">Last name</FormLabel>
+            <Input placeholder="Last name" />
+          </FormControl>
+        </Box>
+      </BaseModal>
       <BaseModal
         onClose={onCloseFive}
-        width="1000px"
+        contentProps={{
+          maxWidth: '1000px'
+        }}
         isOpen={isOpenFive}
-        modalHeader
-        modalOverlay
-        modalFooter
+        shouldUseOverlay
         title="GENERAL INFORMATION"
-        body={
-          <Box display="flex">
-            <Img
-              marginRight="24px"
-              src={defaultAvatar}
-              borderRadius="350px"
-            />
-            <Box width="100%">
-              <FormControl>
-                <FormLabel color="brand.body">First name</FormLabel>
-                <Input placeholder="First name" />
-              </FormControl>
-
-              <FormControl mt={4}>
-                <FormLabel color="brand.body">Last name</FormLabel>
-                <Input placeholder="Last name" />
-              </FormControl>
-            </Box>
-          </Box>
-        }
         footer={
           <>
             <Button
@@ -228,7 +204,26 @@ export const Variants = () => {
             </Box>
           </>
         }
-      />
+      >
+        <Box display="flex">
+          <Img
+            marginRight="24px"
+            src={defaultAvatar}
+            borderRadius="350px"
+          />
+          <Box width="100%">
+            <FormControl>
+              <FormLabel color="brand.body">First name</FormLabel>
+              <Input placeholder="First name" />
+            </FormControl>
+
+            <FormControl mt={4}>
+              <FormLabel color="brand.body">Last name</FormLabel>
+              <Input placeholder="Last name" />
+            </FormControl>
+          </Box>
+        </Box>
+      </BaseModal>
     </Box>
   );
 };

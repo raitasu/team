@@ -1,6 +1,14 @@
+import { Theme } from '@chakra-ui/react';
 import { ChakraStylesConfig } from 'chakra-react-select';
+import { GroupBase } from 'react-select/dist/declarations/src/types';
 
-export const selectStyles: ChakraStylesConfig = {
+export const getSelectStyles: <
+  Option,
+  IsMulti extends boolean,
+  Group extends GroupBase<Option>
+>(
+  theme: Theme
+) => ChakraStylesConfig<Option, IsMulti, Group> = () => ({
   dropdownIndicator: (provided, { selectProps }) => ({
     ...provided,
     transform: `rotate(${selectProps.menuIsOpen ? -180 : 0}deg)`,
@@ -9,10 +17,9 @@ export const selectStyles: ChakraStylesConfig = {
   option: (provided, state) => ({
     ...provided,
     color: 'brand.body',
-    backgroundColor: state.isSelected ? '#E0E0E0' : 'inherit',
-    background: state.isMulti ? '#E0E0E0' : 'red',
+    backgroundColor: state.isSelected ? 'brand.stroke' : 'inherit',
     _hover: {
-      backgroundColor: '#E0E0E0'
+      backgroundColor: 'brand.stroke'
     }
   }),
   indicatorSeparator: (provided) => ({
@@ -27,4 +34,4 @@ export const selectStyles: ChakraStylesConfig = {
     padding: '4px 8px',
     color: 'brand.darkGray'
   })
-};
+});

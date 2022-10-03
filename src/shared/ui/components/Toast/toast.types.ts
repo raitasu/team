@@ -1,7 +1,5 @@
-export type ToastProps = {
-  variant: string;
-  title: string;
-  description: string;
-  text: string;
-  duration: number;
+import { ToastProps as ChackraToastProps } from '@chakra-ui/react';
+
+export type ToastProps = Omit<ChackraToastProps, 'isClosable' | 'icon'> & {
+  label: string;
 };

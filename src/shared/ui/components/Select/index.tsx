@@ -1,25 +1,27 @@
 import React from 'react';
 
-import { Size, Select as ChakraSelect } from 'chakra-react-select';
+import { Theme, useTheme } from '@chakra-ui/react';
+import {
+  Props as SelectProps,
+  Select as ChakraSelect
+} from 'chakra-react-select';
 
-import { selectStyles } from './select.styles';
+import { GroupBase } from 'react-select/dist/declarations/src/types';
 
-export const Select = (props: {
-  isMulti?: boolean;
-  options: Array<{
-    value: string;
-    label: string;
-  }>;
-  size?: Size;
-}) => {
-  const { isMulti, options, size } = props;
+import { getSelectStyles } from 'shared/ui/components/Select/getSelectStyles';
 
+export const Select = <
+  Option,
+  IsMulti extends boolean,
+  Group extends GroupBase<Option>
+>(
+  selectProps: Omit<SelectProps<Option, IsMulti, Group>, 'chakraStyles'>
+) => {
+  const theme = useTheme<Theme>();
   return (
     <ChakraSelect
-      isMulti={isMulti}
-      chakraStyles={selectStyles}
-      options={options}
-      size={size}
+      chakraStyles={getSelectStyles<Option, IsMulti, Group>(theme)}
+      {...selectProps}
     />
   );
 };
