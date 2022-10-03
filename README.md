@@ -53,7 +53,6 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 ## Storybook
 
 - We are using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) for building UI components and pages.
-- Storybook for main branch is accessible via [URL](https://staevs.ddns.net/)
 
 ## Releasing
 
