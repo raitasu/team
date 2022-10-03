@@ -1,6 +1,10 @@
 import { ChakraStylesConfig } from 'chakra-react-select';
 
 export const SelectStyles: ChakraStylesConfig = {
+  container: (provided, { selectProps }) => ({
+    ...provided,
+    cursor: selectProps.isDisabled ? 'not-allowed' : 'pointer'
+  }),
   dropdownIndicator: (provided, { selectProps }) => ({
     ...provided,
     transform: `rotate(${selectProps.menuIsOpen ? -180 : 0}deg)`,

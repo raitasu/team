@@ -82,5 +82,14 @@ export const Variants = () => (
         size="md"
       />
     </FormControl>
+
+    <FormControl mt={4}>
+      <FormLabel color="brand.body">Disabled select</FormLabel>
+      <Select
+        options={options}
+        isDisabled
+        size="md"
+      />
+    </FormControl>
   </Stack>
 );
