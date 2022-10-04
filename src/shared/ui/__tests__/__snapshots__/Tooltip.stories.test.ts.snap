@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots UI/Tooltips Variants 1`] = `
+.emotion-0 {
+  display: grid;
+  grid-row-gap: 40px;
+  grid-column-gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 700px;
+  margin: 40px;
+  padding-bottom: 100px;
+  padding-left: 100px;
+  justify-items: center;
+}
+
+<div>
+  <div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      Hover me on, please
+    </div>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;

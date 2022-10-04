@@ -9,6 +9,7 @@ import { Table } from './Table';
 import { Tabs } from './Tabs';
 import { Text } from './Text';
 import { Textarea } from './Textarea';
+import { Tooltip } from './Tooltip';
 
 export const theme = extendTheme({
   styles: {
@@ -31,7 +32,9 @@ export const theme = extendTheme({
       crusta: '#F37C64',
       stroke: '#E0E0E0',
       background1: '#F8F8FA',
-      background2: '#FFFFFF'
+      background2: '#FFFFFF',
+      white: '#FFFFFF',
+      shadow: 'rgba(0, 0, 0, 0.1)'
     }
   },
   fonts: {
@@ -47,6 +50,7 @@ export const theme = extendTheme({
     Tabs,
     Textarea,
     Heading,
-    Text
+    Text,
+    Tooltip
   }
 });
