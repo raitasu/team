@@ -802,11 +802,11 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
           aria-hidden="true"
           fill="currentColor"
           focusable="false"
-          height="1em"
+          height="26px"
           stroke="currentColor"
           stroke-width="0"
           viewBox="0 0 24 24"
-          width="1em"
+          width="26px"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -832,11 +832,11 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
           aria-hidden="true"
           fill="currentColor"
           focusable="false"
-          height="1em"
+          height="26px"
           stroke="currentColor"
           stroke-width="0"
           viewBox="0 0 24 24"
-          width="1em"
+          width="26px"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
