@@ -77,19 +77,19 @@ exports[`Storyshots UI/Select Variants 1`] = `
   appearance: none;
   transition-property: var(--chakra-transition-property-common);
   transition-duration: var(--chakra-transition-duration-normal);
-  font-weight: 400;
-  line-height: 120%;
-  font-size: var(--chakra-fontSizes-md);
-  background: inherit;
-  border-radius: var(--chakra-radii-md);
-  border: 1px solid;
-  color: var(--chakra-colors-brand-ghostGray);
+  font-size: 16px;
   -webkit-padding-start: var(--chakra-space-4);
   padding-inline-start: var(--chakra-space-4);
   -webkit-padding-end: var(--chakra-space-4);
   padding-inline-end: var(--chakra-space-4);
   height: auto;
-  border-color: inherit;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: var(--chakra-colors-brand-stroke);
+  background: var(--chakra-colors-transparent);
+  color: var(--chakra-colors-brand-ghostGray);
+  border-width: 1px;
+  border-style: solid;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -107,25 +107,20 @@ exports[`Storyshots UI/Select Variants 1`] = `
   cursor: not-allowed;
 }
 
+.emotion-6:disabled:hover,
+.emotion-6[disabled]:hover,
+.emotion-6[aria-disabled=true]:hover,
+.emotion-6[data-disabled]:hover,
+.emotion-6:disabled[data-hover],
+.emotion-6[disabled][data-hover],
+.emotion-6[aria-disabled=true][data-hover],
+.emotion-6[data-disabled][data-hover] {
+  border-color: var(--chakra-colors-brand-stroke);
+}
+
 .emotion-6:hover,
 .emotion-6[data-hover] {
-  border-color: var(--chakra-colors-gray-300);
-}
-
-.emotion-6::-webkit-input-placeholder {
-  color: var(--chakra-colors-brand-lightGray);
-}
-
-.emotion-6::-moz-placeholder {
-  color: var(--chakra-colors-brand-lightGray);
-}
-
-.emotion-6:-ms-input-placeholder {
-  color: var(--chakra-colors-brand-lightGray);
-}
-
-.emotion-6::placeholder {
-  color: var(--chakra-colors-brand-lightGray);
+  border-color: var(--chakra-colors-brand-lightGray);
 }
 
 .emotion-6[aria-readonly=true],
@@ -149,6 +144,22 @@ exports[`Storyshots UI/Select Variants 1`] = `
   z-index: 1;
   border-color: #646271;
   box-shadow: 0 0 0 1px #646271;
+}
+
+.emotion-6::-webkit-input-placeholder {
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-6::-moz-placeholder {
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-6:-ms-input-placeholder {
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-6::placeholder {
+  color: var(--chakra-colors-brand-lightGray);
 }
 
 .emotion-7 {
@@ -326,19 +337,19 @@ exports[`Storyshots UI/Select Variants 1`] = `
   appearance: none;
   transition-property: var(--chakra-transition-property-common);
   transition-duration: var(--chakra-transition-duration-normal);
-  font-weight: 400;
-  line-height: 120%;
-  font-size: var(--chakra-fontSizes-md);
-  background: inherit;
-  border-radius: var(--chakra-radii-md);
-  border: 1px solid;
-  color: var(--chakra-colors-brand-ghostGray);
+  font-size: 16px;
   -webkit-padding-start: var(--chakra-space-4);
   padding-inline-start: var(--chakra-space-4);
   -webkit-padding-end: var(--chakra-space-4);
   padding-inline-end: var(--chakra-space-4);
   height: auto;
-  border-color: inherit;
+  border-radius: 4px;
+  border: 1px solid;
+  border-color: var(--chakra-colors-brand-stroke);
+  background: var(--chakra-colors-transparent);
+  color: var(--chakra-colors-brand-ghostGray);
+  border-width: 1px;
+  border-style: solid;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -357,25 +368,20 @@ exports[`Storyshots UI/Select Variants 1`] = `
   cursor: not-allowed;
 }
 
+.emotion-34:disabled:hover,
+.emotion-34[disabled]:hover,
+.emotion-34[aria-disabled=true]:hover,
+.emotion-34[data-disabled]:hover,
+.emotion-34:disabled[data-hover],
+.emotion-34[disabled][data-hover],
+.emotion-34[aria-disabled=true][data-hover],
+.emotion-34[data-disabled][data-hover] {
+  border-color: var(--chakra-colors-brand-stroke);
+}
+
 .emotion-34:hover,
 .emotion-34[data-hover] {
-  border-color: var(--chakra-colors-gray-300);
-}
-
-.emotion-34::-webkit-input-placeholder {
-  color: var(--chakra-colors-brand-lightGray);
-}
-
-.emotion-34::-moz-placeholder {
-  color: var(--chakra-colors-brand-lightGray);
-}
-
-.emotion-34:-ms-input-placeholder {
-  color: var(--chakra-colors-brand-lightGray);
-}
-
-.emotion-34::placeholder {
-  color: var(--chakra-colors-brand-lightGray);
+  border-color: var(--chakra-colors-brand-lightGray);
 }
 
 .emotion-34[aria-readonly=true],
@@ -399,6 +405,22 @@ exports[`Storyshots UI/Select Variants 1`] = `
   z-index: 1;
   border-color: #646271;
   box-shadow: 0 0 0 1px #646271;
+}
+
+.emotion-34::-webkit-input-placeholder {
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-34::-moz-placeholder {
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-34:-ms-input-placeholder {
+  color: var(--chakra-colors-brand-lightGray);
+}
+
+.emotion-34::placeholder {
+  color: var(--chakra-colors-brand-lightGray);
 }
 
 <div>

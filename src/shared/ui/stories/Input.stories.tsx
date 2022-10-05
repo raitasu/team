@@ -13,7 +13,10 @@ export const Variants = () => (
     width="320px"
     spacing={5}
   >
-    <Input placeholder="Enter text" />
+    <Input
+      variant="outline"
+      placeholder="Enter text"
+    />
     <Input
       placeholder="Enter text"
       isInvalid

@@ -1,18 +1,26 @@
 export const Input = {
-  baseStyle: {
-    field: {
-      fontWeight: '400',
-      lineHeight: '120%',
-      fontSize: '16px',
-      bg: 'transparent',
-      borderRadius: '4px',
-      border: '1px solid brand.stroke',
-      color: 'brand.ghostGray',
-      _hover: {
-        borderColor: 'brand.lightGray'
-      },
-      _placeholder: {
-        color: 'brand.lightGray'
+  baseStyle: {},
+  variants: {
+    outline: {
+      field: {
+        fontSize: '16px',
+        bg: 'transparent',
+        borderRadius: '4px',
+        color: 'brand.ghostGray',
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: 'brand.stroke',
+        _hover: {
+          borderColor: 'brand.lightGray'
+        },
+        _placeholder: {
+          color: 'brand.lightGray'
+        },
+        _disabled: {
+          _hover: {
+            borderColor: 'brand.stroke'
+          }
+        }
       }
     }
   },
