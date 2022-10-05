@@ -2,10 +2,12 @@ import { extendTheme } from '@chakra-ui/react';
 
 import { Alert } from './Alert';
 import { Button } from './Button';
+import { Heading } from './Heading';
 import { Input } from './Input';
 import { Modal } from './Modal';
 import { Table } from './Table';
 import { Tabs } from './Tabs';
+import { Text } from './Text';
 import { Textarea } from './Textarea';
 
 export const theme = extendTheme({
@@ -43,6 +45,8 @@ export const theme = extendTheme({
     Modal,
     Table,
     Tabs,
-    Textarea
+    Textarea,
+    Heading,
+    Text
   }
 });

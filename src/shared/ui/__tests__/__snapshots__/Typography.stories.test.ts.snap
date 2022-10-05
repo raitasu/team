@@ -1,0 +1,228 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots UI/Typography Variants 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-0>*:not(style)~*:not(style) {
+  margin-top: var(--chakra-space-6);
+  -webkit-margin-end: 0px;
+  margin-inline-end: 0px;
+  margin-bottom: 0px;
+  -webkit-margin-start: 0px;
+  margin-inline-start: 0px;
+}
+
+.emotion-1 {
+  font-family: var(--chakra-fonts-heading);
+  font-weight: 700;
+  line-height: 1.33;
+  font-size: 65px;
+}
+
+@media screen and (min-width: 48em) {
+  .emotion-1 {
+    line-height: 1.2;
+  }
+}
+
+.emotion-2 {
+  font-family: var(--chakra-fonts-heading);
+  font-weight: 700;
+  line-height: 1.33;
+  font-size: 45px;
+}
+
+@media screen and (min-width: 48em) {
+  .emotion-2 {
+    line-height: 1.2;
+  }
+}
+
+.emotion-3 {
+  font-family: var(--chakra-fonts-heading);
+  font-weight: 700;
+  line-height: 1.33;
+  font-size: 35px;
+}
+
+@media screen and (min-width: 48em) {
+  .emotion-3 {
+    line-height: 1.2;
+  }
+}
+
+.emotion-4 {
+  font-family: var(--chakra-fonts-heading);
+  font-weight: 700;
+  line-height: 1.33;
+  font-size: 24px;
+}
+
+@media screen and (min-width: 48em) {
+  .emotion-4 {
+    line-height: 1.2;
+  }
+}
+
+.emotion-5 {
+  font-family: var(--chakra-fonts-heading);
+  font-weight: 700;
+  line-height: 1.33;
+  font-size: 20px;
+}
+
+@media screen and (min-width: 48em) {
+  .emotion-5 {
+    line-height: 1.2;
+  }
+}
+
+.emotion-6 {
+  color: var(--chakra-colors-brand-body);
+  line-height: 120%;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.emotion-7 {
+  color: var(--chakra-colors-brand-body);
+  line-height: 120%;
+  font-size: 18px;
+}
+
+.emotion-8 {
+  color: var(--chakra-colors-brand-body);
+  line-height: 140%;
+  font-size: 16px;
+}
+
+.emotion-9 {
+  color: var(--chakra-colors-brand-body);
+  line-height: 120%;
+  font-size: 16px;
+}
+
+.emotion-10 {
+  color: var(--chakra-colors-brand-headline);
+  line-height: 120%;
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.emotion-11 {
+  color: var(--chakra-colors-brand-body);
+  line-height: 120%;
+  font-size: 14px;
+}
+
+.emotion-12 {
+  color: var(--chakra-colors-brand-body);
+  line-height: 120%;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.emotion-13 {
+  color: var(--chakra-colors-brand-accentRed);
+  line-height: 120%;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.emotion-14 {
+  color: var(--chakra-colors-brand-body);
+  line-height: 120%;
+  font-size: 12px;
+}
+
+<div>
+  <div
+    class="chakra-stack emotion-0"
+  >
+    <h2
+      class="chakra-heading emotion-1"
+    >
+      H1 Roboto Bold, 65px, 120%
+    </h2>
+    <h2
+      class="chakra-heading emotion-2"
+    >
+      H2 Roboto Bold, 45px, 120%
+    </h2>
+    <h2
+      class="chakra-heading emotion-3"
+    >
+      H3 Roboto Bold, 35px, 120%
+    </h2>
+    <h2
+      class="chakra-heading emotion-4"
+    >
+      H4 Roboto Bold, 24px, 120%
+    </h2>
+    <h2
+      class="chakra-heading emotion-5"
+    >
+      H5 Roboto Bold, 20px, 120% 
+    </h2>
+    <p
+      class="chakra-text emotion-6"
+    >
+      Body medium Roboto Medium, 18px, 120%. 
+    </p>
+    <p
+      class="chakra-text emotion-7"
+    >
+      Body large Roboto Regular, 18px, 120%. 
+    </p>
+    <p
+      class="chakra-text emotion-8"
+    >
+      Regular 140% Roboto Regular, 16px, 140%. 
+    </p>
+    <p
+      class="chakra-text emotion-9"
+    >
+      Body regular Roboto Regular, 16px, 120%. 
+    </p>
+    <p
+      class="chakra-text emotion-10"
+    >
+      Body regular Roboto Regular, 16px, 120%. 
+    </p>
+    <p
+      class="chakra-text emotion-11"
+    >
+      Body regular Roboto Regular, 16px, 120%. 
+    </p>
+    <p
+      class="chakra-text emotion-12"
+    >
+      Body regular Roboto Regular, 16px, 120%. 
+    </p>
+    <p
+      class="chakra-text emotion-13"
+    >
+      Body regular Roboto Regular, 16px, 120%. 
+    </p>
+    <p
+      class="chakra-text emotion-14"
+    >
+      Body regular Roboto Regular, 16px, 120%. 
+    </p>
+  </div>
+  <span
+    hidden=""
+    id="__chakra_env"
+  />
+</div>
+`;
