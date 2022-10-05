@@ -3,8 +3,9 @@
 exports[`Storyshots UI/Buttons Variants 1`] = `
 .emotion-0 {
   display: grid;
-  grid-gap: var(--chakra-space-5);
+  grid-gap: var(--chakra-space-10);
   grid-template-columns: repeat(1, minmax(0, 1fr));
+  width: 1000px;
 }
 
 .emotion-1 {
@@ -15,8 +16,8 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
 }
 
 .emotion-1>*:not(style)~*:not(style) {
-  -webkit-margin-start: 20px;
-  margin-inline-start: 20px;
+  -webkit-margin-start: var(--chakra-space-10);
+  margin-inline-start: var(--chakra-space-10);
 }
 
 .emotion-2 {
@@ -245,7 +246,7 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
   z-index: 1;
 }
 
-.emotion-14 {
+.emotion-16 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -293,59 +294,59 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
   padding-right: 0px;
 }
 
-.emotion-14:focus-visible,
-.emotion-14[data-focus-visible] {
+.emotion-16:focus-visible,
+.emotion-16[data-focus-visible] {
   box-shadow: var(--chakra-shadows-outline);
 }
 
-.emotion-14:disabled,
-.emotion-14[disabled],
-.emotion-14[aria-disabled=true],
-.emotion-14[data-disabled] {
+.emotion-16:disabled,
+.emotion-16[disabled],
+.emotion-16[aria-disabled=true],
+.emotion-16[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
   box-shadow: var(--chakra-shadows-none);
   color: var(--chakra-colors-brand-lightGray);
 }
 
-.emotion-14:disabled:hover,
-.emotion-14[disabled]:hover,
-.emotion-14[aria-disabled=true]:hover,
-.emotion-14[data-disabled]:hover,
-.emotion-14:disabled[data-hover],
-.emotion-14[disabled][data-hover],
-.emotion-14[aria-disabled=true][data-hover],
-.emotion-14[data-disabled][data-hover] {
+.emotion-16:disabled:hover,
+.emotion-16[disabled]:hover,
+.emotion-16[aria-disabled=true]:hover,
+.emotion-16[data-disabled]:hover,
+.emotion-16:disabled[data-hover],
+.emotion-16[disabled][data-hover],
+.emotion-16[aria-disabled=true][data-hover],
+.emotion-16[data-disabled][data-hover] {
   color: var(--chakra-colors-brand-lightGray);
 }
 
-.emotion-14:hover,
-.emotion-14[data-hover] {
+.emotion-16:hover,
+.emotion-16[data-hover] {
   color: var(--chakra-colors-brand-ghostGray);
 }
 
-.emotion-14:hover:disabled,
-.emotion-14[data-hover]:disabled,
-.emotion-14:hover[disabled],
-.emotion-14[data-hover][disabled],
-.emotion-14:hover[aria-disabled=true],
-.emotion-14[data-hover][aria-disabled=true],
-.emotion-14:hover[data-disabled],
-.emotion-14[data-hover][data-disabled] {
+.emotion-16:hover:disabled,
+.emotion-16[data-hover]:disabled,
+.emotion-16:hover[disabled],
+.emotion-16[data-hover][disabled],
+.emotion-16:hover[aria-disabled=true],
+.emotion-16[data-hover][aria-disabled=true],
+.emotion-16:hover[data-disabled],
+.emotion-16[data-hover][data-disabled] {
   background: initial;
 }
 
-.emotion-14:active,
-.emotion-14[data-active] {
+.emotion-16:active,
+.emotion-16[data-active] {
   color: var(--chakra-colors-brand-headline);
 }
 
-.emotion-14:focus,
-.emotion-14[data-focus] {
+.emotion-16:focus,
+.emotion-16[data-focus] {
   z-index: 1;
 }
 
-.emotion-19 {
+.emotion-23 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -392,71 +393,71 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-stroke);
 }
 
-.emotion-19:focus-visible,
-.emotion-19[data-focus-visible] {
+.emotion-23:focus-visible,
+.emotion-23[data-focus-visible] {
   box-shadow: var(--chakra-shadows-outline);
 }
 
-.emotion-19:disabled,
-.emotion-19[disabled],
-.emotion-19[aria-disabled=true],
-.emotion-19[data-disabled] {
+.emotion-23:disabled,
+.emotion-23[disabled],
+.emotion-23[aria-disabled=true],
+.emotion-23[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-brand-lightGray);
 }
 
-.emotion-19:disabled:hover,
-.emotion-19[disabled]:hover,
-.emotion-19[aria-disabled=true]:hover,
-.emotion-19[data-disabled]:hover,
-.emotion-19:disabled[data-hover],
-.emotion-19[disabled][data-hover],
-.emotion-19[aria-disabled=true][data-hover],
-.emotion-19[data-disabled][data-hover] {
+.emotion-23:disabled:hover,
+.emotion-23[disabled]:hover,
+.emotion-23[aria-disabled=true]:hover,
+.emotion-23[data-disabled]:hover,
+.emotion-23:disabled[data-hover],
+.emotion-23[disabled][data-hover],
+.emotion-23[aria-disabled=true][data-hover],
+.emotion-23[data-disabled][data-hover] {
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-stroke);
 }
 
-.emotion-19:disabled:active,
-.emotion-19[disabled]:active,
-.emotion-19[aria-disabled=true]:active,
-.emotion-19[data-disabled]:active,
-.emotion-19:disabled[data-active],
-.emotion-19[disabled][data-active],
-.emotion-19[aria-disabled=true][data-active],
-.emotion-19[data-disabled][data-active] {
+.emotion-23:disabled:active,
+.emotion-23[disabled]:active,
+.emotion-23[aria-disabled=true]:active,
+.emotion-23[data-disabled]:active,
+.emotion-23:disabled[data-active],
+.emotion-23[disabled][data-active],
+.emotion-23[aria-disabled=true][data-active],
+.emotion-23[data-disabled][data-active] {
   color: var(--chakra-colors-brand-lightGray);
 }
 
-.emotion-19:hover,
-.emotion-19[data-hover] {
+.emotion-23:hover,
+.emotion-23[data-hover] {
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-darkGray);
 }
 
-.emotion-19:hover:disabled,
-.emotion-19[data-hover]:disabled,
-.emotion-19:hover[disabled],
-.emotion-19[data-hover][disabled],
-.emotion-19:hover[aria-disabled=true],
-.emotion-19[data-hover][aria-disabled=true],
-.emotion-19:hover[data-disabled],
-.emotion-19[data-hover][data-disabled] {
+.emotion-23:hover:disabled,
+.emotion-23[data-hover]:disabled,
+.emotion-23:hover[disabled],
+.emotion-23[data-hover][disabled],
+.emotion-23:hover[aria-disabled=true],
+.emotion-23[data-hover][aria-disabled=true],
+.emotion-23:hover[data-disabled],
+.emotion-23[data-hover][data-disabled] {
   background: initial;
 }
 
-.emotion-19:active,
-.emotion-19[data-active] {
+.emotion-23:active,
+.emotion-23[data-active] {
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-ghostGray);
   color: var(--chakra-colors-brand-headline);
 }
 
-.emotion-19:focus,
-.emotion-19[data-focus] {
+.emotion-23:focus,
+.emotion-23[data-focus] {
   z-index: 1;
 }
 
-.emotion-26 {
+.emotion-30 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -504,68 +505,68 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-stroke);
 }
 
-.emotion-26:focus-visible,
-.emotion-26[data-focus-visible] {
+.emotion-30:focus-visible,
+.emotion-30[data-focus-visible] {
   box-shadow: var(--chakra-shadows-outline);
 }
 
-.emotion-26:disabled,
-.emotion-26[disabled],
-.emotion-26[aria-disabled=true],
-.emotion-26[data-disabled] {
+.emotion-30:disabled,
+.emotion-30[disabled],
+.emotion-30[aria-disabled=true],
+.emotion-30[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-lightGray);
   color: var(--chakra-colors-brand-lightGray);
 }
 
-.emotion-26:disabled:hover,
-.emotion-26[disabled]:hover,
-.emotion-26[aria-disabled=true]:hover,
-.emotion-26[data-disabled]:hover,
-.emotion-26:disabled[data-hover],
-.emotion-26[disabled][data-hover],
-.emotion-26[aria-disabled=true][data-hover],
-.emotion-26[data-disabled][data-hover] {
+.emotion-30:disabled:hover,
+.emotion-30[disabled]:hover,
+.emotion-30[aria-disabled=true]:hover,
+.emotion-30[data-disabled]:hover,
+.emotion-30:disabled[data-hover],
+.emotion-30[disabled][data-hover],
+.emotion-30[aria-disabled=true][data-hover],
+.emotion-30[data-disabled][data-hover] {
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-lightGray);
 }
 
-.emotion-26:disabled:active,
-.emotion-26[disabled]:active,
-.emotion-26[aria-disabled=true]:active,
-.emotion-26[data-disabled]:active,
-.emotion-26:disabled[data-active],
-.emotion-26[disabled][data-active],
-.emotion-26[aria-disabled=true][data-active],
-.emotion-26[data-disabled][data-active] {
+.emotion-30:disabled:active,
+.emotion-30[disabled]:active,
+.emotion-30[aria-disabled=true]:active,
+.emotion-30[data-disabled]:active,
+.emotion-30:disabled[data-active],
+.emotion-30[disabled][data-active],
+.emotion-30[aria-disabled=true][data-active],
+.emotion-30[data-disabled][data-active] {
   color: var(--chakra-colors-brand-lightGray);
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-lightGray);
 }
 
-.emotion-26:hover,
-.emotion-26[data-hover] {
+.emotion-30:hover,
+.emotion-30[data-hover] {
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-ghostGray);
 }
 
-.emotion-26:hover:disabled,
-.emotion-26[data-hover]:disabled,
-.emotion-26:hover[disabled],
-.emotion-26[data-hover][disabled],
-.emotion-26:hover[aria-disabled=true],
-.emotion-26[data-hover][aria-disabled=true],
-.emotion-26:hover[data-disabled],
-.emotion-26[data-hover][data-disabled] {
+.emotion-30:hover:disabled,
+.emotion-30[data-hover]:disabled,
+.emotion-30:hover[disabled],
+.emotion-30[data-hover][disabled],
+.emotion-30:hover[aria-disabled=true],
+.emotion-30[data-hover][aria-disabled=true],
+.emotion-30:hover[data-disabled],
+.emotion-30[data-hover][data-disabled] {
   background: initial;
 }
 
-.emotion-26:active,
-.emotion-26[data-active] {
+.emotion-30:active,
+.emotion-30[data-active] {
   color: var(--chakra-colors-brand-headline);
   box-shadow: 0 0 0 1px var(--chakra-colors-brand-headline);
 }
 
-.emotion-26:focus,
-.emotion-26[data-focus] {
+.emotion-30:focus,
+.emotion-30[data-focus] {
   z-index: 1;
 }
 
@@ -671,6 +672,29 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
         class="chakra-button emotion-9"
         type="button"
       >
+        <span
+          class="chakra-button__icon emotion-5"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            focusable="false"
+            height="20px"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+        </span>
         button with icon
       </button>
       <button
@@ -678,6 +702,29 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
         disabled=""
         type="button"
       >
+        <span
+          class="chakra-button__icon emotion-5"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            focusable="false"
+            height="20px"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+        </span>
         button with icon disabled
       </button>
     </div>
@@ -686,51 +733,20 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
       role="group"
     >
       <button
-        class="chakra-button emotion-14"
+        class="chakra-button emotion-16"
         type="button"
       >
         button
       </button>
       <button
-        class="chakra-button emotion-14"
+        class="chakra-button emotion-16"
         disabled=""
         type="button"
       >
         button disabled
       </button>
       <button
-        class="chakra-button emotion-14"
-        type="button"
-      >
-        button with icon
-      </button>
-      <button
-        class="chakra-button emotion-14"
-        disabled=""
-        type="button"
-      >
-        button with icon disabled
-      </button>
-    </div>
-    <div
-      class="chakra-button__group emotion-1"
-      role="group"
-    >
-      <button
-        class="chakra-button emotion-19"
-        type="button"
-      >
-        button
-      </button>
-      <button
-        class="chakra-button emotion-19"
-        disabled=""
-        type="button"
-      >
-        button disabled
-      </button>
-      <button
-        class="chakra-button emotion-19"
+        class="chakra-button emotion-16"
         type="button"
       >
         <span
@@ -759,7 +775,84 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
         button with icon
       </button>
       <button
-        class="chakra-button emotion-19"
+        class="chakra-button emotion-16"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="chakra-button__icon emotion-5"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            focusable="false"
+            height="20px"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+        </span>
+        button with icon disabled
+      </button>
+    </div>
+    <div
+      class="chakra-button__group emotion-1"
+      role="group"
+    >
+      <button
+        class="chakra-button emotion-23"
+        type="button"
+      >
+        button
+      </button>
+      <button
+        class="chakra-button emotion-23"
+        disabled=""
+        type="button"
+      >
+        button disabled
+      </button>
+      <button
+        class="chakra-button emotion-23"
+        type="button"
+      >
+        <span
+          class="chakra-button__icon emotion-5"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            focusable="false"
+            height="20px"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+        </span>
+        button with icon
+      </button>
+      <button
+        class="chakra-button emotion-23"
         disabled=""
         type="button"
       >
@@ -795,7 +888,7 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
     >
       <button
         aria-label="Filter"
-        class="chakra-button emotion-26"
+        class="chakra-button emotion-30"
         type="button"
       >
         <svg
@@ -824,7 +917,7 @@ exports[`Storyshots UI/Buttons Variants 1`] = `
       </button>
       <button
         aria-label="Filter"
-        class="chakra-button emotion-26"
+        class="chakra-button emotion-30"
         disabled=""
         type="button"
       >

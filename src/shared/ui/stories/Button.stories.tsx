@@ -14,9 +14,10 @@ export default {
 export const Variants = () => (
   <SimpleGrid
     columns={1}
-    spacing={5}
+    spacing={10}
+    width={1000}
   >
-    <ButtonGroup spacing="20px">
+    <ButtonGroup spacing={10}>
       <Button>button</Button>
       <Button
         variant="primary"
@@ -38,7 +39,7 @@ export const Variants = () => (
         button with icon disabled
       </Button>
     </ButtonGroup>
-    <ButtonGroup spacing="20px">
+    <ButtonGroup spacing={10}>
       <Button variant="secondaryGhost">button</Button>
       <Button
         variant="secondaryGhost"
@@ -46,15 +47,21 @@ export const Variants = () => (
       >
         button disabled
       </Button>
-      <Button variant="secondaryGhost">button with icon</Button>
       <Button
+        variant="secondaryGhost"
+        leftIcon={<MdAdd />}
+      >
+        button with icon
+      </Button>
+      <Button
+        leftIcon={<MdAdd />}
         variant="secondaryGhost"
         disabled
       >
         button with icon disabled
       </Button>
     </ButtonGroup>
-    <ButtonGroup spacing="20px">
+    <ButtonGroup spacing={10}>
       <Button variant="primaryGhost">button</Button>
       <Button
         variant="primaryGhost"
@@ -62,15 +69,21 @@ export const Variants = () => (
       >
         button disabled
       </Button>
-      <Button variant="primaryGhost">button with icon</Button>
       <Button
         variant="primaryGhost"
+        leftIcon={<MdAdd />}
+      >
+        button with icon
+      </Button>
+      <Button
+        variant="primaryGhost"
+        leftIcon={<MdAdd />}
         disabled
       >
         button with icon disabled
       </Button>
     </ButtonGroup>
-    <ButtonGroup spacing="20px">
+    <ButtonGroup spacing={10}>
       <Button variant="primaryOutline">button</Button>
       <Button
         variant="primaryOutline"
@@ -92,7 +105,7 @@ export const Variants = () => (
         button with icon disabled
       </Button>
     </ButtonGroup>
-    <ButtonGroup spacing="20px">
+    <ButtonGroup spacing={10}>
       <IconButton
         aria-label="Filter"
         variant="iconButton"
