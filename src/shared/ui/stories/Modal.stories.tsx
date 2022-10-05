@@ -111,13 +111,20 @@ export const Variants = () => {
               variant="primaryGhost"
               onClick={testFunction}
             >
-              Delete
+              reset all
             </Button>
             <Box>
-              <Button onClick={testFunction}>Save</Button>
+              <Button
+                onClick={testFunction}
+                paddingLeft="32.5px"
+                paddingRight="32.5px"
+              >
+                Save
+              </Button>
               <Button
                 variant="secondaryGhost"
                 onClick={onCloseThree}
+                paddingLeft="20px"
               >
                 Cancel
               </Button>
@@ -151,13 +158,20 @@ export const Variants = () => {
               variant="primaryGhost"
               onClick={testFunction}
             >
-              Delete
+              reset all
             </Button>
             <Box>
-              <Button onClick={testFunction}>Save</Button>
+              <Button
+                onClick={testFunction}
+                paddingLeft="32.5px"
+                paddingRight="32.5px"
+              >
+                Save
+              </Button>
               <Button
                 variant="secondaryGhost"
                 onClick={onCloseFour}
+                paddingLeft="20px"
               >
                 Cancel
               </Button>
@@ -191,13 +205,20 @@ export const Variants = () => {
               variant="primaryGhost"
               onClick={testFunction}
             >
-              Delete
+              reset all
             </Button>
             <Box>
-              <Button onClick={testFunction}>Save</Button>
+              <Button
+                onClick={testFunction}
+                paddingLeft="32.5px"
+                paddingRight="32.5px"
+              >
+                Save
+              </Button>
               <Button
                 variant="secondaryGhost"
                 onClick={onCloseFive}
+                paddingLeft="20px"
               >
                 Cancel
               </Button>
