@@ -1,0 +1,15 @@
+{
+  "actions": {
+    "general": {
+      "add": "Add",
+      "delete": "Delete"
+    }
+  },
+  "navigation": {
+    "links": {
+      "onboarding": "Onboarding",
+      "employees": "Employees",
+      "projects": "Projects"
+    }
+  }
+}

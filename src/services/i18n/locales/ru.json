@@ -1,0 +1,15 @@
+{
+  "actions": {
+    "general": {
+      "add": "Добавить",
+      "delete": "Удалить"
+    }
+  },
+  "navigation": {
+    "links": {
+      "onboarding": "Адаптация",
+      "employees": "Сотрудники",
+      "projects": "Проекты"
+    }
+  }
+}
