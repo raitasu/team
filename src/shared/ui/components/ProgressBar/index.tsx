@@ -12,12 +12,12 @@ export const ProgressBar = ({
   ...passThroughProps
 }: CircularProgressProps) => (
   <CircularProgress
+    {...passThroughProps}
     value={value}
     size={size}
     color="brand.ghostGray"
     trackColor="brand.stroke"
     thickness={thickness}
-    {...passThroughProps}
   >
     <CircularProgressLabel>{valueText}</CircularProgressLabel>
   </CircularProgress>
