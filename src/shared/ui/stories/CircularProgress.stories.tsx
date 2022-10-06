@@ -10,10 +10,6 @@ export default {
 };
 export const Variants = () => (
   <Box>
-    <ProgressBar
-      value={33}
-      size="80px"
-      thickness="8px"
-    />
+    <ProgressBar value={33} />
   </Box>
 );
