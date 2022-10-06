@@ -19,6 +19,7 @@ export const { reducer: projectsReducer, actions: projectActions } =
     initialState,
     reducers: {
       loadProject: (state) => {
+        state.projects = [];
         state.projects.push({ id: 'Demonstration project' });
       }
     }

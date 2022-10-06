@@ -5,6 +5,7 @@ module.exports = {
     'airbnb',
     'airbnb/hooks',
     'plugin:jsx-a11y/recommended',
+    'plugin:eslint-comments/recommended',
     'prettier'
   ],
   plugins: ['jsx-a11y', '@emotion', 'prettier'],
@@ -65,6 +66,12 @@ module.exports = {
         namedComponents: 'arrow-function',
         unnamedComponents: 'arrow-function'
       }
-    ]
+    ],
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsFor: ['state'] }
+    ],
+    'eslint-comments/no-unused-disable': 'error',
+    'eslint-comments/require-description': 'error'
   }
 };

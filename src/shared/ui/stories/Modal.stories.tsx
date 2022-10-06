@@ -42,7 +42,7 @@ export const Variants = () => {
     onClose: onCloseFive
   } = useDisclosure();
   const testFunction = () => {
-    // eslint-disable-next-line no-alert
+    // eslint-disable-next-line no-alert --- mockup function
     alert('done');
   };
   return (
