@@ -46,9 +46,10 @@ exports[`Storyshots UI/Textarea Variants 1`] = `
   padding-inline-end: var(--chakra-space-4);
   height: var(--chakra-sizes-10);
   border-radius: var(--chakra-radii-md);
-  border: 1px solid;
-  border-color: inherit;
+  border-color: var(--chakra-colors-brand-stroke);
   background: inherit;
+  border-width: 1px;
+  border-style: solid;
 }
 
 .emotion-1:disabled,
@@ -77,7 +78,7 @@ exports[`Storyshots UI/Textarea Variants 1`] = `
 
 .emotion-1:hover,
 .emotion-1[data-hover] {
-  border-color: var(--chakra-colors-gray-300);
+  border-color: var(--chakra-colors-brand-lightGray);
 }
 
 .emotion-1[aria-readonly=true],

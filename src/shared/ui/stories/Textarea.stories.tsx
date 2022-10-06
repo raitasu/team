@@ -12,13 +12,18 @@ export const Variants = () => (
     spacing={5}
     width="320px"
   >
-    <Textarea placeholder="Hello" />
     <Textarea
       placeholder="Hello"
+      variant="outline"
+    />
+    <Textarea
+      placeholder="Hello"
+      variant="outline"
       isInvalid
     />
     <Textarea
       placeholder="Hello"
+      variant="outline"
       disabled
     />
   </Stack>
