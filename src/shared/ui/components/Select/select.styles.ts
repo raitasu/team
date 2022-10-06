@@ -25,9 +25,13 @@ export const SelectStyles: ChakraStylesConfig = {
   multiValue: () => ({
     display: 'flex',
     justifyContent: 'space-evenly',
-    border: '1px solid var(--chakra-colors-brand-ghostGray)',
+    border: '1px solid var(--chakra-colors-brand-stroke)',
     borderRadius: '4px',
     padding: '4px 8px',
-    color: 'brand.darkGray'
+    color: 'brand.darkGray',
+    marginRight: '4px'
+  }),
+  placeholder: () => ({
+    color: 'brand.lightGray'
   })
 };

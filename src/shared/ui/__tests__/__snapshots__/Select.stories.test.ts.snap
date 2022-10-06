@@ -190,21 +190,7 @@ exports[`Storyshots UI/Select Variants 1`] = `
 }
 
 .emotion-8 {
-  color: var(--chakra-colors-gray-400);
-  -webkit-margin-start: 0.125rem;
-  margin-inline-start: 0.125rem;
-  -webkit-margin-end: 0.125rem;
-  margin-inline-end: 0.125rem;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  color: var(--chakra-colors-brand-lightGray);
 }
 
 .emotion-9 {
