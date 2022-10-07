@@ -288,10 +288,8 @@ exports[`Storyshots UI/Select Variants 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   border-width: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
+  padding-left: 0px;
+  padding-right: 16px;
 }
 
 .emotion-14 {
@@ -303,7 +301,6 @@ exports[`Storyshots UI/Select Variants 1`] = `
   -ms-flex-negative: 0;
   flex-shrink: 0;
   color: currentColor;
-  vertical-align: middle;
 }
 
 .emotion-31 {
@@ -484,12 +481,21 @@ exports[`Storyshots UI/Select Variants 1`] = `
             >
               <svg
                 class="chakra-icon emotion-14"
+                fill="currentColor"
                 focusable="false"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
                 viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+                <path
                   d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                  fill="currentColor"
                 />
               </svg>
             </div>
@@ -568,12 +574,21 @@ exports[`Storyshots UI/Select Variants 1`] = `
             >
               <svg
                 class="chakra-icon emotion-14"
+                fill="currentColor"
                 focusable="false"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
                 viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+                <path
                   d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                  fill="currentColor"
                 />
               </svg>
             </div>
@@ -654,12 +669,21 @@ exports[`Storyshots UI/Select Variants 1`] = `
             >
               <svg
                 class="chakra-icon emotion-14"
+                fill="currentColor"
                 focusable="false"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
                 viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+                <path
                   d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-                  fill="currentColor"
                 />
               </svg>
             </div>
