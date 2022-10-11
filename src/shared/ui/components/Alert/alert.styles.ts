@@ -15,6 +15,6 @@ export const AlertStyles = {
     borderColor: 'brand.stroke'
   },
   error: {
-    borderColor: 'red'
+    borderColor: 'brand.accentRed'
   }
 };
