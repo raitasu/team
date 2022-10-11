@@ -14,11 +14,34 @@ export const Variants = () => (
   >
     <Box>
       <Avatar
+        variant="active"
+        size="sm"
+        src="https://bit.ly/dan-abramov"
+      />
+      <Avatar
+        variant="active"
+        size="sm"
+        name="Kola Tioluwani"
+      />
+      <Avatar
+        variant="candidate"
         size="sm"
         name="Dan Abrahmov"
         src="https://bit.ly/dan-abramov"
       />
       <Avatar
+        variant="candidate"
+        size="sm"
+        name="Kola Tioluwani"
+      />
+      <Avatar
+        variant="inactive"
+        size="sm"
+        name="Dan Abrahmov"
+        src="https://bit.ly/dan-abramov"
+      />
+      <Avatar
+        variant="inactive"
         size="sm"
         name="Kola Tioluwani"
       />
@@ -28,27 +51,49 @@ export const Variants = () => (
       marginBottom="20px"
     >
       <Avatar
-        width="40px"
-        height="40px"
+        size="md"
+        variant="active"
         name="Dan Abrahmov"
         src="https://bit.ly/dan-abramov"
       />
       <Avatar
-        width="40px"
-        height="40px"
+        size="md"
+        variant="active"
         name="Kola Tioluwani"
       />
     </Box>
     <Box>
       <Avatar
-        width="250px"
-        height="250px"
+        variant="active"
+        size="lg"
         name="Dan Abrahmov"
         src="https://bit.ly/dan-abramov"
       />
       <Avatar
-        width="250px"
-        height="250px"
+        variant="active"
+        size="lg"
+        name="Kola Tioluwani"
+      />
+      <Avatar
+        variant="candidate"
+        size="lg"
+        name="Dan Abrahmov"
+        src="https://bit.ly/dan-abramov"
+      />
+      <Avatar
+        variant="candidate"
+        size="lg"
+        name="Kola Tioluwani"
+      />
+      <Avatar
+        variant="inactive"
+        size="lg"
+        name="Dan Abrahmov"
+        src="https://bit.ly/dan-abramov"
+      />
+      <Avatar
+        variant="inactive"
+        size="lg"
         name="Kola Tioluwani"
       />
     </Box>
