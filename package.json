@@ -2,7 +2,6 @@
   "private": true,
   "name": "team-front",
   "version": "0.0.0-development",
-  "homepage": "https://github.com/cybergizer-hq/team-front#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cybergizer-hq/team-front.git"
@@ -15,16 +14,19 @@
     "build-storybook": "build-storybook -s public",
     "chromatic": "npx chromatic",
     "eject": "react-scripts eject",
-    "format": "eslint src --fix && npm run format:package-json",
+    "format": "npm run format:code && npm run format:package-json",
+    "format:code": "node scripts/runEslint.mjs --fix",
     "format:package-json": "node scripts/validatePackageJson.mjs --fix",
     "gen:theme-typings": "chakra-cli tokens /src/shared/ui/theme/theme.ts",
     "postinstall": "husky install && npm run gen:theme-typings",
-    "lint": "eslint src && npm run lint:package-json",
+    "lint": "npm run lint:code && npm run lint:package-json",
+    "lint:code": "node scripts/runEslint.mjs",
     "lint:package-json": "node scripts/validatePackageJson.mjs",
     "semantic-release": "semantic-release",
     "start": "react-scripts start",
     "storybook": "start-storybook -p 6006 -s public",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "test:ci": "JEST_JUNIT_OUTPUT_FILE=junit/jest.xml react-scripts test --ci --coverage --reporters=default --reporters=jest-junit --watchAll=false"
   },
   "dependencies": {
     "@chakra-ui/react": "2.3.5",
@@ -82,6 +84,7 @@
     "execa": "6.1.0",
     "fs-extra": "10.1.0",
     "husky": "8.0.1",
+    "jest-junit": "14.0.1",
     "lint-staged": "13.0.3",
     "postcss": "8.4.18",
     "prettier": "2.7.1",

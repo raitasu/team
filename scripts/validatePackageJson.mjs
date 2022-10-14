@@ -18,7 +18,7 @@ function isValidVersion (version) {
 }
 
 (async function() {
-  console.log(chalk.blue.bold('Checking package.json file...'));
+  console.log(chalk.blue('Checking package.json file...'));
 
   const packageJSON = await fs.readJson(packagePath);
   const {

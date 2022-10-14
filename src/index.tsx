@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom/client';
 
 import { BrowserRouter } from 'react-router-dom';
 
-import { App } from './App';
-import { AppThemeProvider } from './shared/ui/theme/AppThemeProvider';
+import { App } from 'App';
+import { AppThemeProvider } from 'shared/ui/theme/AppThemeProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

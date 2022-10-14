@@ -1,11 +1,13 @@
+import { DecoratorFn } from '@storybook/react';
+
 import { AppThemeProvider } from '../src/shared/ui/theme/AppThemeProvider';
 
-export const decorators = [
+export const decorators: DecoratorFn[] = [
   (Story) => (
     <AppThemeProvider>
       <Story />
     </AppThemeProvider>
-  ),
+  )
 ];
 
 export const parameters = {
