@@ -3,6 +3,9 @@
     "general": {
       "add": "Добавить",
       "delete": "Удалить"
+    },
+    "employees": {
+      "add_employee": "Добавить нового сотрудника"
     }
   },
   "navigation": {

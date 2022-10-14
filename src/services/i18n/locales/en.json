@@ -3,6 +3,9 @@
     "general": {
       "add": "Add",
       "delete": "Delete"
+    },
+    "employees": {
+      "add_employee": "Add new employee"
     }
   },
   "navigation": {

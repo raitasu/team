@@ -1,5 +1,12 @@
 import React from 'react';
 
-import { Box } from '@chakra-ui/react';
+import { TableHeader } from 'widgets/Table/TableHeader';
 
-export const Home = () => <Box>Home</Box>;
+export const Home = () => (
+  <TableHeader
+    title="Employees"
+    onAddButtonClick={() => ({})}
+    onFilterButtonClick={() => ({})}
+    isAdmin={false}
+  />
+);
