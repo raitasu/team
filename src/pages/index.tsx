@@ -8,8 +8,10 @@ import { useAppSelector } from 'shared/store/store.hooks';
 
 import { NotFound } from './NotFound';
 
-const LoadableHome = React.lazy(() =>
-  import('pages/Home').then(({ Home: element }) => ({ default: element }))
+const LoadableEmployees = React.lazy(() =>
+  import('pages/Employees').then(({ Employees: element }) => ({
+    default: element
+  }))
 );
 
 const LoadableLogin = React.lazy(() =>
@@ -48,8 +50,8 @@ export const Pages = () => (
         <Route
           path="/"
           element={
-            <Suspense fallback={<div>Loading home ...</div>}>
-              <LoadableHome />
+            <Suspense fallback={<div>Loading employees ...</div>}>
+              <LoadableEmployees />
             </Suspense>
           }
         />

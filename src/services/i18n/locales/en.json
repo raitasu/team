@@ -11,6 +11,13 @@
       "sign_in": "Sign in"
     }
   },
+  "enums": {
+    "employee_status": {
+      "active": "Active",
+      "candidate": "Candidate",
+      "inactive": "Inactive"
+    }
+  },
   "navigation": {
     "links": {
       "onboarding": "Onboarding",
@@ -27,6 +34,15 @@
     "auth": {
       "welcome": "Welcome aboard!",
       "token": "Getting token"
+    },
+    "employees": {
+      "table_headers": {
+        "name": "Name",
+        "position": "Position",
+        "location": "Location",
+        "date": "Date of birth",
+        "projects": "Projects"
+      }
     }
   }
 }

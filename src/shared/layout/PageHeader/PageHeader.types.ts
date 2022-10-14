@@ -1,4 +1,4 @@
-export type TableHeaderProps = {
+export type PageHeaderProps = {
   title: string;
   onAddButtonClick: () => void;
   onFilterButtonClick: () => void;

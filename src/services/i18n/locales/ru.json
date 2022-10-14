@@ -11,6 +11,13 @@
       "sign_in": "Войти"
     }
   },
+  "enums": {
+    "employee_status": {
+      "active": "Активный",
+      "candidate": "Кандидат",
+      "inactive": "Неактивный"
+    }
+  },
   "navigation": {
     "links": {
       "onboarding": "Адаптация",
@@ -27,6 +34,15 @@
     "auth": {
       "welcome": "Добро пожаловать!",
       "token": "Получаем токен"
+    },
+    "employees": {
+      "table_headers": {
+        "name": "Имя",
+        "position": "Должность",
+        "location": "Место жительства",
+        "date": "Дата рождения",
+        "projects": "Проекты"
+      }
     }
   }
 }
