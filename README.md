@@ -2,12 +2,12 @@
 
 ![Tests](https://github.com/cybergizer-hq/team-front/actions/workflows/code_quality.yml/badge.svg?branch=main)
 ![Staging Deploy](https://github.com/cybergizer-hq/team-front/actions/workflows/deploy_staging.yml/badge.svg?branch=main)
-![Storybook](https://github.com/cybergizer-hq/team-front/actions/workflows/storybook.yml/badge.svg?branch=main)
+![Chromatic](https://github.com/cybergizer-hq/team-front/actions/workflows/chromatic.yml/badge.svg?branch=main)
 
 ## Application links
 
 - [Staging](http://cgteam.s3-website.eu-central-1.amazonaws.com/app)
-- [Storybook](http://cgteam.s3-website.eu-central-1.amazonaws.com/stories)
+- [Storybook](https://main--63494e41f8bea2d9d59c6279.chromatic.com/)
 
 ## Installation
 
@@ -57,6 +57,7 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 ## Storybook
 
 - We are using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) for building UI components and pages.
+- We are hosting Storyboook on [Chromatic](https://www.chromatic.com/library?appId=63494e41f8bea2d9d59c6279)
 
 ## Releasing
 

@@ -2,13 +2,18 @@
   "private": true,
   "name": "team-front",
   "version": "0.0.0-development",
+  "homepage": "https://github.com/cybergizer-hq/team-front#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cybergizer-hq/team-front.git"
+    "url": "git+https://github.com/cybergizer-hq/team-front.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cybergizer-hq/team-front/issues"
   },
   "scripts": {
     "build": "react-scripts build",
     "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic",
     "eject": "react-scripts eject",
     "format": "eslint src --fix && npm run format:package-json",
     "format:package-json": "node scripts/validatePackageJson.mjs --fix",
@@ -68,6 +73,7 @@
     "babel-plugin-named-exports-order": "0.0.2",
     "chakra-react-select": "4.2.6",
     "chalk": "5.1.2",
+    "chromatic": "6.10.2",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-typescript": "3.5.1",
