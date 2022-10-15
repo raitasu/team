@@ -1,7 +1,4 @@
-import chalk from 'chalk';
 import { ESLint } from 'eslint';
-
-const shouldAutoFix = process.argv[2] === '--fix';
 
 const globPaths = [
   '*.{js,jsx,ts,tsx}',
@@ -11,11 +8,7 @@ const globPaths = [
   '.storybook/*.{js,jsx,ts,tsx}'
 ];
 
-(async function() {
-  console.log(
-    chalk.blue(`Checking${shouldAutoFix ? ' and fixing' : ''} eslint rules...\n`)
-  );
-
+export async function runEslint(shouldAutoFix) {
   const eslint = new ESLint({
     cwd: process.cwd(),
     fix: shouldAutoFix,
@@ -28,14 +21,13 @@ const globPaths = [
     await ESLint.outputFixes(results);
   }
 
-  if (results.some(({ errorCount, fatalErrorCount }) => fatalErrorCount > 0 || errorCount > 0)) {
+  if (
+    results.some(
+      ({ errorCount, fatalErrorCount }) => fatalErrorCount > 0 || errorCount > 0
+    )
+  ) {
     const formatter = await eslint.loadFormatter('stylish');
     console.log(formatter.format(results));
-    console.log(
-      chalk.red.bold(`\u2718 Eslint failed due to the above errors`)
-    );
-    process.exit(1);
-  } else {
-    console.log(chalk.green(`\u2714 Linter success`));
+    throw new Error('Eslint failed');
   }
-})();
+}

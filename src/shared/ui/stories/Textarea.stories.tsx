@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Stack, Textarea } from '@chakra-ui/react';
 
 export default {

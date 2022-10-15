@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Input, InputGroup, InputLeftElement, Stack } from '@chakra-ui/react';
 import { MdSearch } from 'react-icons/md';
 

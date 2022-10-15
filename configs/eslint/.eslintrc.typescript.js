@@ -1,3 +1,5 @@
+const namingConvention = require('./rules/namingConvention');
+
 module.exports = {
   extends: [
     './.eslintrc.base.js',
@@ -14,7 +16,8 @@ module.exports = {
     '@typescript-eslint/no-unnecessary-condition': 'error',
     'no-shadow': 'off',
     'no-unused-expressions': 'off',
-    'no-unused-vars': 'off'
+    'no-unused-vars': 'off',
+    ...namingConvention
   },
   parserOptions: {
     tsconfigRootDir: __dirname,

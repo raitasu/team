@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ButtonGroup, SimpleGrid } from '@chakra-ui/react';
 import { MdAdd, MdOutlineFilterAlt } from 'react-icons/md';
 

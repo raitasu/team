@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { TableHeader } from 'widgets/Table/TableHeader';
 
 export const Home = () => (

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {
   Modal,
   ModalBody,
@@ -17,11 +15,11 @@ export const BaseModal = ({
   footer,
   children,
   contentProps,
-  closeOnOverlayClick = true,
+  closeOnOverlayClick: shouldCloseOnOverlayClick = true,
   ...pathThroughModalProps
 }: ModalProps) => (
   <Modal
-    closeOnOverlayClick={closeOnOverlayClick}
+    closeOnOverlayClick={shouldCloseOnOverlayClick}
     {...pathThroughModalProps}
   >
     {shouldUseOverlay && <ModalOverlay />}

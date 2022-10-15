@@ -6,15 +6,17 @@ import { MainLayout } from 'shared/layout/MainLayout';
 
 import { NotFound } from './NotFound';
 
-export const LoadableHome = React.lazy(() =>
+const LoadableHome = React.lazy(() =>
   import('pages/Home').then(({ Home: element }) => ({ default: element }))
 );
-export const LoadableOnboadrding = React.lazy(() =>
+
+const LoadableOnboadrding = React.lazy(() =>
   import('pages/Onboarding').then(({ Onboarding: element }) => ({
     default: element
   }))
 );
-export const LoadableProjects = React.lazy(() =>
+
+const LoadableProjects = React.lazy(() =>
   import('pages/Projects').then(({ Projects: element }) => ({
     default: element
   }))

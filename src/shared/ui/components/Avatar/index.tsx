@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Avatar as ChakraAvatar } from '@chakra-ui/react';
 
 import { AvatarProps, EmployeeStatus, SizeType } from './avatar.types';

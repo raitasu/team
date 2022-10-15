@@ -2,5 +2,5 @@ module.exports = {
   '*.{json,css,scss,md}': ['prettier --write'],
   '*.{js,jsx,ts,tsx}': ['eslint --fix'],
   '*.{ts,tsx}': () => 'tsc --noEmit --project tsconfig.json',
-  'package.json': () => 'npm run format:package-json'
+  'package.json': () => 'node scripts/lint.mjs --fix --skip-eslint --skip-ts --skip-i18n'
 };

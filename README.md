@@ -50,6 +50,13 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 - Code style is inspired by [Airbnb Guide](https://github.com/airbnb/javascript#airbnb-javascript-style-guide)
 - If you find that some rules are harmful or missing raise a PR with your proposal
 
+| Command                     | Description                                                                                          |
+| --------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `npm run audit:deadcode`    | Check for unused exports from modules. Results would be written into `deadcode.txt` in project root. |
+| `npm run audit:deadcode:ci` | Same as above but for CI. Results would be displayed in workflow summary.                            |
+| `npm run lint`              | Runs code style and format checks and prints results to console.                                     |
+| `npm run format`            | Runs code style and format checks and tries to autofix problems                                      |
+
 ## Internationalization
 
 - We are using [react-i18next](https://react.i18next.com/)
@@ -59,6 +66,17 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 - We are using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) for building UI components and pages.
 - We are hosting Storyboook on [Chromatic](https://www.chromatic.com/library?appId=63494e41f8bea2d9d59c6279)
 
+| Command                   | Description                             |
+| ------------------------- | --------------------------------------- |
+| `npm run storybook`       | Launches Storybook in development mode. |
+| `npm run build-storybook` | Builds Storybook for hosting.           |
+| `npm run chromatic`       | Updates Storybook in Chromatic project. |
+
 ## Releasing
 
 - Manually trigger `Release` workflow from actions tab on `main` branch
+
+| Command                    | Description                                                                                     |
+| -------------------------- | ----------------------------------------------------------------------------------------------- |
+| `npm run build`            | Builds project for production use.                                                              |
+| `npm run semantic-release` | Creates a tag and release notes for a new version. Should be triggered on main branch within CI |

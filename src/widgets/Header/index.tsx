@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Box, Img, ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
