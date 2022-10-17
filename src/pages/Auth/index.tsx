@@ -8,7 +8,6 @@ import { AuthBox } from 'features/auth/components/AuthBox';
 import { ErrorMessage } from 'features/auth/components/ErrorMessage';
 import { updateAccessToken } from 'features/auth/slice/auth.slice';
 import { useGetAccessTokenQuery } from 'features/auth/slice/authService.slice';
-
 import { useAppDispatch } from 'shared/store/store.hooks';
 
 export const Auth = () => {

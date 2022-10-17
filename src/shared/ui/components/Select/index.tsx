@@ -1,5 +1,4 @@
 import { Icon } from '@chakra-ui/react';
-
 import {
   chakraComponents,
   ChakraStylesConfig,
@@ -10,9 +9,7 @@ import {
   Select as ChakraSelect,
   SelectComponentsConfig
 } from 'chakra-react-select';
-
 import { MdClose, MdExpandMore } from 'react-icons/md';
-
 import { ClearIndicatorProps } from 'react-select';
 
 import { SelectStyles } from 'shared/ui/components/Select/select.styles';

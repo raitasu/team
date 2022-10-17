@@ -54,8 +54,16 @@ const shouldSkipLocalization = process.argv.includes('--skip-i18n');
           } eslint rules...`
         )
       );
-      await runEslint(shouldAutoFix);
-      console.log(chalk.green(`${icons.check} Linter success\n`));
+      const results = await runEslint(shouldAutoFix);
+
+      if (results.some(({
+        warningCount,
+        fixableWarningCount
+      }) => warningCount > 0 || fixableWarningCount > 0)) {
+        console.log(chalk.yellow(`${icons.warning} Linter success with warnings\n`));
+      } else {
+        console.log(chalk.green(`${icons.check} Linter success\n`));
+      }
     }
   } catch (err) {
     success = false;
