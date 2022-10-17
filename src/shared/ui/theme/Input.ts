@@ -25,6 +25,30 @@ export const Input = {
           }
         }
       }
+    },
+    datePickerInput: {
+      field: {
+        width: '106px',
+        height: 'inherit',
+        fontSize: '12px',
+        bg: 'transparent',
+        borderRadius: '4px',
+        color: 'brand.ghostGray',
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderColor: 'brand.stroke',
+        _hover: {
+          borderColor: 'brand.lightGray'
+        },
+        _placeholder: {
+          color: 'brand.lightGray'
+        },
+        _disabled: {
+          _hover: {
+            borderColor: 'brand.stroke'
+          }
+        }
+      }
     }
   },
   defaultProps: {

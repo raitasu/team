@@ -1,5 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
 
+import { reactDatePickerStyles } from '../components/DatePicker/datepicker.styles';
 import { Alert } from './Alert';
 import { Button } from './Button';
 import { Checkbox } from './Checkbox';
@@ -22,7 +23,8 @@ import { Tooltip } from './Tooltip';
 export const theme = extendTheme({
   styles: {
     global: {
-      body: { bg: 'brand.background1' }
+      body: { bg: 'brand.background1' },
+      ...reactDatePickerStyles
     }
   },
   colors: {
