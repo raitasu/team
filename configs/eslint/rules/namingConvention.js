@@ -82,7 +82,8 @@ module.exports = {
       format: ['camelCase', 'PascalCase', 'snake_case', 'UPPER_CASE'],
       leadingUnderscore: 'allow',
       filter: {
-        regex: '^_(active|disabled|hover|placeholder|selected)$',
+        regex:
+          '^_(active|checked|disabled|focusVisible|hover|placeholder|selected)$',
         match: true
       }
     },
@@ -98,6 +99,14 @@ module.exports = {
       selector: ['typeProperty'],
       format: ['camelCase', 'snake_case'],
       leadingUnderscore: 'allow'
+    },
+    {
+      selector: ['typeProperty'],
+      format: ['UPPER_CASE'],
+      filter: {
+        regex: '^REACT_APP_',
+        match: true
+      }
     },
     {
       selector: 'parameter',
