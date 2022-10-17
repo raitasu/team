@@ -21,7 +21,7 @@
     "postinstall": "husky install && npm run gen:theme-typings",
     "lint": "node scripts/lint.mjs",
     "semantic-release": "semantic-release",
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "storybook": "start-storybook -p 6006 -s public",
     "test": "react-scripts test",
     "test:ci": "JEST_JUNIT_OUTPUT_FILE=junit/jest.xml react-scripts test --ci --coverage --reporters=default --reporters=jest-junit --watchAll=false"

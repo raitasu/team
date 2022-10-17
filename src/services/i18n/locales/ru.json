@@ -6,6 +6,9 @@
     },
     "employees": {
       "add_employee": "Добавить нового сотрудника"
+    },
+    "auth": {
+      "sign_in": "Войти"
     }
   },
   "navigation": {
@@ -13,6 +16,17 @@
       "onboarding": "Адаптация",
       "employees": "Сотрудники",
       "projects": "Проекты"
+    }
+  },
+  "errors": {
+    "auth": {
+      "no_access": "Упс, у вас нет доступа"
+    }
+  },
+  "titles": {
+    "auth": {
+      "welcome": "Добро пожаловать!",
+      "token": "Получаем токен"
     }
   }
 }

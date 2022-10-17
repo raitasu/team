@@ -1,8 +1,8 @@
 import { ButtonGroup, SimpleGrid } from '@chakra-ui/react';
 import { MdAdd, MdOutlineFilterAlt } from 'react-icons/md';
 
-import { Button } from '../components/Button';
-import { IconButton } from '../components/IconButton';
+import { Button } from 'shared/ui/components/Button';
+import { IconButton } from 'shared/ui/components/IconButton';
 
 export default {
   title: 'UI/Buttons',

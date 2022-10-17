@@ -80,3 +80,9 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 | -------------------------- | ----------------------------------------------------------------------------------------------- |
 | `npm run build`            | Builds project for production use.                                                              |
 | `npm run semantic-release` | Creates a tag and release notes for a new version. Should be triggered on main branch within CI |
+
+## Authorization
+
+- We are using [Alfred](https://alfred-cg.herokuapp.com/) for authorization.
+- retrieve code by redirecting to url (https://github.com/cybergizer-hq/alfred#on-the-frontend)
+- send code to api for getting token(https://github.com/cybergizer-hq/team/blob/a438d4b837e799240feb0d00f3404d09591735c4/docs/authentication.md)

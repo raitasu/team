@@ -26,7 +26,7 @@ export const Header = () => {
           display="flex"
           alignItems="center"
           height="100%"
-          fontSize="16px"
+          fontSize="md"
           color="brand.headline"
         >
           <Box>

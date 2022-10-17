@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react';
 
 import { Route, Routes } from 'react-router';
+import { Navigate, Outlet } from 'react-router-dom';
 
 import { MainLayout } from 'shared/layout/MainLayout';
+import { useAppSelector } from 'shared/store/store.hooks';
 
 import { NotFound } from './NotFound';
 
@@ -10,8 +12,14 @@ const LoadableHome = React.lazy(() =>
   import('pages/Home').then(({ Home: element }) => ({ default: element }))
 );
 
-const LoadableAuthorization = React.lazy(() =>
-  import('pages/Authorization').then(({ Authorization: element }) => ({
+const LoadableLogin = React.lazy(() =>
+  import('pages/Login').then(({ Login: element }) => ({
+    default: element
+  }))
+);
+
+const LoadableAuth = React.lazy(() =>
+  import('pages/Auth').then(({ Auth: element }) => ({
     default: element
   }))
 );
@@ -28,45 +36,60 @@ const LoadableProjects = React.lazy(() =>
   }))
 );
 
+const PrivateRoutes = () => {
+  const token = useAppSelector((state) => state.auth.accessToken);
+  return token ? <Outlet /> : <Navigate to="/login" />;
+};
+
 export const Pages = () => (
   <Routes>
+    <Route element={<PrivateRoutes />}>
+      <Route element={<MainLayout />}>
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<div>Loading home ...</div>}>
+              <LoadableHome />
+            </Suspense>
+          }
+        />
+        <Route
+          path="onboarding"
+          element={
+            <Suspense fallback={<div>Loading onboarding ...</div>}>
+              <LoadableOnboadrding />
+            </Suspense>
+          }
+        />
+        <Route
+          path="projects"
+          element={
+            <Suspense fallback={<div>Loading projects ...</div>}>
+              <LoadableProjects />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
+      </Route>
+    </Route>
     <Route
-      path="auth"
+      path="/auth"
       element={
-        <Suspense fallback={<div>Loading login ...</div>}>
-          <LoadableAuthorization />
+        <Suspense fallback={<div>Loading auth...</div>}>
+          <LoadableAuth />
         </Suspense>
       }
     />
-    <Route element={<MainLayout />}>
-      <Route
-        path="/"
-        element={
-          <Suspense fallback={<div>Loading home ...</div>}>
-            <LoadableHome />
-          </Suspense>
-        }
-      />
-      <Route
-        path="onboarding"
-        element={
-          <Suspense fallback={<div>Loading onboarding ...</div>}>
-            <LoadableOnboadrding />
-          </Suspense>
-        }
-      />
-      <Route
-        path="projects"
-        element={
-          <Suspense fallback={<div>Loading projects ...</div>}>
-            <LoadableProjects />
-          </Suspense>
-        }
-      />
-      <Route
-        path="*"
-        element={<NotFound />}
-      />
-    </Route>
+    <Route
+      path="/login"
+      element={
+        <Suspense fallback={<div>Loading login ...</div>}>
+          <LoadableLogin />
+        </Suspense>
+      }
+    />
   </Routes>
 );

@@ -6,6 +6,9 @@
     },
     "employees": {
       "add_employee": "Add new employee"
+    },
+    "auth": {
+      "sign_in": "Sign in"
     }
   },
   "navigation": {
@@ -13,6 +16,17 @@
       "onboarding": "Onboarding",
       "employees": "Employees",
       "projects": "Projects"
+    }
+  },
+  "errors": {
+    "auth": {
+      "no_access": "Oops. You have no access to that Discord server. Please, contact the admin."
+    }
+  },
+  "titles": {
+    "auth": {
+      "welcome": "Welcome aboard!",
+      "token": "Getting token"
     }
   }
 }
