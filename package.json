@@ -21,7 +21,7 @@
     "postinstall": "husky install && npm run gen:theme-typings",
     "lint": "node scripts/lint.mjs",
     "semantic-release": "semantic-release",
-    "start": "HTTPS=true react-scripts start",
+    "start": "cross-env HTTPS=true react-scripts start",
     "storybook": "start-storybook -p 6006 -s public",
     "test": "react-scripts test",
     "test:ci": "JEST_JUNIT_OUTPUT_FILE=junit/jest.xml react-scripts test --ci --coverage --reporters=default --reporters=jest-junit --watchAll=false"
@@ -76,6 +76,7 @@
     "chakra-react-select": "4.3.0",
     "chalk": "5.1.2",
     "chromatic": "6.10.2",
+    "cross-env": "7.0.3",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.5.0",
     "eslint-import-resolver-typescript": "3.5.1",

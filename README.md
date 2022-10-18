@@ -20,6 +20,18 @@ Run command:
 npm ci
 ```
 
+## Running application
+
+### Chrome: allow localhost site even without https certificate
+
+- Go to `chrome://flags/#allow-insecure-localhost`
+- Set the option to enabled on allow-insecure-localhost.
+- Reload browser and visit https://localhost:3000
+
+| Command       | Description                              |
+| ------------- | ---------------------------------------- |
+| npm run start | Running application in development mode. |
+
 ## Installing new packages
 
 Dependencies saved to package.json will be configured with an exact version rather than using npm's default semver range operator.
