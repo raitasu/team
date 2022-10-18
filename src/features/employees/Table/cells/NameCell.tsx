@@ -26,13 +26,11 @@ export const NameCell = ({
         place="left"
         labelText={t(`enums:employee_status.${status}`)}
       >
-        <Box>
-          <Avatar
-            variant={status}
-            size="sm"
-            src={avatar}
-          />
-        </Box>
+        <Avatar
+          variant={status}
+          size="sm"
+          src={avatar}
+        />
       </BaseTooltip>
       <Text
         variant="mm"

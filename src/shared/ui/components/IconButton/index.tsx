@@ -5,12 +5,13 @@ import {
   IconButtonProps
 } from '@chakra-ui/react';
 
-export const IconButton = ({
-  icon,
-  ...passThroughProps
-}: Omit<IconButtonProps, 'size'>) => (
+export const IconButton = React.forwardRef<
+  HTMLButtonElement,
+  Omit<IconButtonProps, 'size'>
+>(({ icon, ...passThroughProps }, ref) => (
   <ChakraIconButton
     {...passThroughProps}
+    ref={ref}
     icon={icon && React.cloneElement(icon, { size: '26px' })}
   />
-);
+));

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Avatar as ChakraAvatar } from '@chakra-ui/react';
 
 import { AvatarProps, EmployeeStatus, SizeType } from './avatar.types';
@@ -65,16 +67,15 @@ const getStyles = (variant: EmployeeStatus, size: 'sm' | 'md' | 'lg') => {
   }
 };
 
-export const Avatar = ({
-  src,
-  variant,
-  size,
-  ...passThroughProps
-}: Omit<AvatarProps, 'bg'>) => (
+export const Avatar = React.forwardRef<
+  HTMLSpanElement,
+  Omit<AvatarProps, 'bg'>
+>(({ src, variant, size, ...passThroughProps }, ref) => (
   <ChakraAvatar
     {...passThroughProps}
+    ref={ref}
     bg="brand.stroke"
     src={src || defaultAvatar}
     sx={getStyles(variant, size)}
   />
-);
+));
