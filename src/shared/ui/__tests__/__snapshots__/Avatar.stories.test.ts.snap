@@ -34,7 +34,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-white);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 32px;
   height: 32px;
@@ -45,6 +46,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-2:not([data-loaded]) {
   --avatar-background: var(--chakra-colors-gray-400);
+}
+
+.chakra-ui-dark .emotion-2:not([data-theme]),
+[data-theme=dark] .emotion-2:not([data-theme]),
+.emotion-2[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-3 {
@@ -76,7 +83,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 32px;
   height: 32px;
@@ -87,6 +95,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-4:not([data-loaded]) {
   --avatar-background: #a1be28;
+}
+
+.chakra-ui-dark .emotion-4:not([data-theme]),
+[data-theme=dark] .emotion-4:not([data-theme]),
+.emotion-4[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-5 {
@@ -117,7 +131,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 32px;
   height: 32px;
@@ -128,6 +143,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-6:not([data-loaded]) {
   --avatar-background: #ab8353;
+}
+
+.chakra-ui-dark .emotion-6:not([data-theme]),
+[data-theme=dark] .emotion-6:not([data-theme]),
+.emotion-6[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-8 {
@@ -153,7 +174,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 32px;
   height: 32px;
@@ -164,6 +186,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-8:not([data-loaded]) {
   --avatar-background: #a1be28;
+}
+
+.chakra-ui-dark .emotion-8:not([data-theme]),
+[data-theme=dark] .emotion-8:not([data-theme]),
+.emotion-8[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-10 {
@@ -189,7 +217,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 32px;
   height: 32px;
@@ -200,6 +229,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-10:not([data-loaded]) {
   --avatar-background: #ab8353;
+}
+
+.chakra-ui-dark .emotion-10:not([data-theme]),
+[data-theme=dark] .emotion-10:not([data-theme]),
+.emotion-10[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-12 {
@@ -225,7 +260,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 32px;
   height: 32px;
@@ -236,6 +272,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-12:not([data-loaded]) {
   --avatar-background: #a1be28;
+}
+
+.chakra-ui-dark .emotion-12:not([data-theme]),
+[data-theme=dark] .emotion-12:not([data-theme]),
+.emotion-12[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-14 {
@@ -266,7 +308,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 40px;
   height: 40px;
@@ -276,6 +319,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-15:not([data-loaded]) {
   --avatar-background: #ab8353;
+}
+
+.chakra-ui-dark .emotion-15:not([data-theme]),
+[data-theme=dark] .emotion-15:not([data-theme]),
+.emotion-15[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-17 {
@@ -301,7 +350,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 40px;
   height: 40px;
@@ -311,6 +361,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-17:not([data-loaded]) {
   --avatar-background: #a1be28;
+}
+
+.chakra-ui-dark .emotion-17:not([data-theme]),
+[data-theme=dark] .emotion-17:not([data-theme]),
+.emotion-17[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-20 {
@@ -336,7 +392,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 250px;
   height: 250px;
@@ -347,6 +404,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-20:not([data-loaded]) {
   --avatar-background: #ab8353;
+}
+
+.chakra-ui-dark .emotion-20:not([data-theme]),
+[data-theme=dark] .emotion-20:not([data-theme]),
+.emotion-20[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-22 {
@@ -372,7 +435,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 250px;
   height: 250px;
@@ -383,6 +447,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-22:not([data-loaded]) {
   --avatar-background: #a1be28;
+}
+
+.chakra-ui-dark .emotion-22:not([data-theme]),
+[data-theme=dark] .emotion-22:not([data-theme]),
+.emotion-22[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-24 {
@@ -408,7 +478,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 250px;
   height: 250px;
@@ -419,6 +490,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-24:not([data-loaded]) {
   --avatar-background: #ab8353;
+}
+
+.chakra-ui-dark .emotion-24:not([data-theme]),
+[data-theme=dark] .emotion-24:not([data-theme]),
+.emotion-24[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-26 {
@@ -444,7 +521,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 250px;
   height: 250px;
@@ -455,6 +533,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-26:not([data-loaded]) {
   --avatar-background: #a1be28;
+}
+
+.chakra-ui-dark .emotion-26:not([data-theme]),
+[data-theme=dark] .emotion-26:not([data-theme]),
+.emotion-26[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-28 {
@@ -480,7 +564,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 250px;
   height: 250px;
@@ -491,6 +576,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-28:not([data-loaded]) {
   --avatar-background: #ab8353;
+}
+
+.chakra-ui-dark .emotion-28:not([data-theme]),
+[data-theme=dark] .emotion-28:not([data-theme]),
+.emotion-28[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 .emotion-30 {
@@ -516,7 +607,8 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
   flex-shrink: 0;
   background: var(--chakra-colors-brand-stroke);
   color: var(--chakra-colors-gray-800);
-  border-color: var(--chakra-colors-white);
+  --avatar-border-color: var(--chakra-colors-white);
+  border-color: var(--avatar-border-color);
   vertical-align: top;
   width: 250px;
   height: 250px;
@@ -527,6 +619,12 @@ exports[`Storyshots UI/Avatar Variants 1`] = `
 
 .emotion-30:not([data-loaded]) {
   --avatar-background: #a1be28;
+}
+
+.chakra-ui-dark .emotion-30:not([data-theme]),
+[data-theme=dark] .emotion-30:not([data-theme]),
+.emotion-30[data-theme=dark] {
+  --avatar-border-color: var(--chakra-colors-gray-800);
 }
 
 <div>

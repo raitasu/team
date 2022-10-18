@@ -27,13 +27,13 @@
     "test:ci": "JEST_JUNIT_OUTPUT_FILE=junit/jest.xml react-scripts test --ci --coverage --reporters=default --reporters=jest-junit --watchAll=false"
   },
   "dependencies": {
-    "@chakra-ui/react": "2.3.5",
+    "@chakra-ui/react": "2.3.6",
     "@emotion/react": "11.10.4",
     "@emotion/styled": "11.10.4",
     "@fontsource/roboto": "4.5.8",
     "@reduxjs/toolkit": "1.8.6",
     "@tanstack/react-table": "8.5.15",
-    "framer-motion": "7.5.3",
+    "framer-motion": "7.6.1",
     "i18next": "21.10.0",
     "lodash": "4.17.21",
     "react": "18.2.0",
@@ -98,7 +98,7 @@
     "webpack": "5.74.0"
   },
   "engines": {
-    "node": "16.17.1"
+    "node": "16.18.0"
   },
   "publishConfig": {
     "access": "restricted"
