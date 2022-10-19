@@ -23,7 +23,8 @@
     "links": {
       "onboarding": "Onboarding",
       "employees": "Employees",
-      "projects": "Projects"
+      "projects": "Projects",
+      "offboarding": "Offboarding"
     }
   },
   "errors": {

@@ -4,13 +4,13 @@ import {
   ButtonGroup,
   FormControl,
   FormLabel,
-  Img,
   Input,
   useDisclosure
 } from '@chakra-ui/react';
 
 import { BaseModal } from 'shared/ui/components/Modal';
-import defaultAvatar from 'widgets/Header/assets/defaultAvatar.png';
+
+import { Avatar } from '../components/Avatar';
 
 export default {
   title: 'UI/Modals',
@@ -225,10 +225,10 @@ export const Variants = () => {
         }
       >
         <Box display="flex">
-          <Img
+          <Avatar
+            variant="active"
             marginRight="24px"
-            src={defaultAvatar}
-            borderRadius="350px"
+            size="lg"
           />
           <Box width="100%">
             <FormControl>

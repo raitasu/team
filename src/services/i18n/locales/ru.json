@@ -23,7 +23,8 @@
     "links": {
       "onboarding": "Адаптация",
       "employees": "Сотрудники",
-      "projects": "Проекты"
+      "projects": "Проекты",
+      "offboarding": "Оффбординг"
     }
   },
   "errors": {

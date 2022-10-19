@@ -1,8 +1,10 @@
 import { Box, Img, ListItem, Text, UnorderedList } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
+import { IoIosArrowDown } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 
-import defaultAvatar from './assets/defaultAvatar.png';
+import { Avatar } from 'shared/ui/components/Avatar';
+
 import logo from './assets/logo.svg';
 
 export const Header = () => {
@@ -57,6 +59,11 @@ export const Header = () => {
             <ListItem marginRight="40px">
               <NavLink to="/projects">{t('navigation:links.projects')}</NavLink>
             </ListItem>
+            <ListItem marginRight="40px">
+              <NavLink to="/offboarding">
+                {t('navigation:links.offboarding')}
+              </NavLink>
+            </ListItem>
           </UnorderedList>
           <Box
             className="filler"
@@ -69,18 +76,20 @@ export const Header = () => {
             cursor="pointer"
           >
             <Text
+              variant="r2"
+              color="brand.headline"
               padding="12px 24px"
               fontWeight="500"
             >
               Mayor Pain
             </Text>
-            <Img
-              src={defaultAvatar}
-              borderRadius="50%"
-              display="block"
-              width="40px"
-              height="40px"
+            <Avatar
+              size="md"
+              variant="active"
             />
+            <Box paddingLeft="6px">
+              <IoIosArrowDown />
+            </Box>
           </Box>
         </Box>
       </Box>

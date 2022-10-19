@@ -38,6 +38,12 @@ const LoadableProjects = React.lazy(() =>
   }))
 );
 
+const LoadableOffboarding = React.lazy(() =>
+  import('pages/Offboarding').then(({ Offboarding: element }) => ({
+    default: element
+  }))
+);
+
 const PrivateRoutes = () => {
   const token = useAppSelector((state) => state.auth.accessToken);
   return token ? <Outlet /> : <Navigate to="/login" />;
@@ -68,6 +74,14 @@ export const Pages = () => (
           element={
             <Suspense fallback={<div>Loading projects ...</div>}>
               <LoadableProjects />
+            </Suspense>
+          }
+        />
+        <Route
+          path="offboarding"
+          element={
+            <Suspense fallback={<div>Loading offboarding ...</div>}>
+              <LoadableOffboarding />
             </Suspense>
           }
         />
