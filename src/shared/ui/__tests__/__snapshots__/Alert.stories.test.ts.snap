@@ -9,10 +9,11 @@ exports[`Storyshots UI/Alert Variants 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  width: 400px;
 }
 
 .emotion-0>*:not(style)~*:not(style) {
-  margin-top: var(--chakra-space-5);
+  margin-top: var(--chakra-space-2);
   -webkit-margin-end: 0px;
   margin-inline-end: 0px;
   margin-bottom: 0px;
@@ -21,6 +22,34 @@ exports[`Storyshots UI/Alert Variants 1`] = `
 }
 
 .emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 60px;
+}
+
+.emotion-1>*:not(style)~*:not(style) {
+  margin-top: 0.5rem;
+  -webkit-margin-end: 0px;
+  margin-inline-end: 0px;
+  margin-bottom: 0px;
+  -webkit-margin-start: 0px;
+  margin-inline-start: 0px;
+}
+
+.emotion-2 {
   width: 400px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -32,7 +61,7 @@ exports[`Storyshots UI/Alert Variants 1`] = `
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: var(--alert-bg);
+  background: var(--chakra-colors-brand-background2);
   -webkit-padding-start: var(--chakra-space-4);
   padding-inline-start: var(--chakra-space-4);
   -webkit-padding-end: var(--chakra-space-4);
@@ -41,18 +70,28 @@ exports[`Storyshots UI/Alert Variants 1`] = `
   padding-bottom: var(--chakra-space-3);
   height: none;
   border: 1px solid;
-  border-radius: 6px;
+  border-radius: var(--chakra-radii-md);
+  --alert-fg: var(--chakra-colors-white);
+  --alert-bg: var(--chakra-colors-red-500);
+  color: var(--alert-fg);
   border-color: var(--chakra-colors-brand-accentRed);
-  gap: 14px;
-  padding: 18px;
+  gap: var(--chakra-space-3-5);
+  padding: var(--chakra-space-4);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.emotion-2 {
-  color: var(--chakra-colors-brand-red500);
+.chakra-ui-dark .emotion-2:not([data-theme]),
+[data-theme=dark] .emotion-2:not([data-theme]),
+.emotion-2[data-theme=dark] {
+  --alert-fg: var(--chakra-colors-gray-900);
+  --alert-bg: var(--chakra-colors-red-200);
 }
 
 .emotion-3 {
+  color: var(--chakra-colors-brand-red500);
+}
+
+.emotion-4 {
   display: inline;
   line-height: 120%;
   color: var(--chakra-colors-brand-gray700);
@@ -60,7 +99,7 @@ exports[`Storyshots UI/Alert Variants 1`] = `
   font-size: 16px;
 }
 
-.emotion-4 {
+.emotion-5 {
   outline: 2px solid transparent;
   outline-offset: 2px;
   display: -webkit-box;
@@ -88,31 +127,31 @@ exports[`Storyshots UI/Alert Variants 1`] = `
   margin-left: auto;
 }
 
-.emotion-4:disabled,
-.emotion-4[disabled],
-.emotion-4[aria-disabled=true],
-.emotion-4[data-disabled] {
+.emotion-5:disabled,
+.emotion-5[disabled],
+.emotion-5[aria-disabled=true],
+.emotion-5[data-disabled] {
   opacity: 0.4;
   cursor: not-allowed;
   box-shadow: var(--chakra-shadows-none);
 }
 
-.emotion-4:hover,
-.emotion-4[data-hover] {
+.emotion-5:hover,
+.emotion-5[data-hover] {
   background: var(--chakra-colors-blackAlpha-100);
 }
 
-.emotion-4:active,
-.emotion-4[data-active] {
+.emotion-5:active,
+.emotion-5[data-active] {
   background: var(--chakra-colors-blackAlpha-200);
 }
 
-.emotion-4:focus-visible,
-.emotion-4[data-focus-visible] {
+.emotion-5:focus-visible,
+.emotion-5[data-focus-visible] {
   box-shadow: var(--chakra-shadows-outline);
 }
 
-.emotion-5 {
+.emotion-7 {
   width: 400px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -124,7 +163,7 @@ exports[`Storyshots UI/Alert Variants 1`] = `
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: var(--alert-bg);
+  background: var(--chakra-colors-brand-background2);
   -webkit-padding-start: var(--chakra-space-4);
   padding-inline-start: var(--chakra-space-4);
   -webkit-padding-end: var(--chakra-space-4);
@@ -133,14 +172,24 @@ exports[`Storyshots UI/Alert Variants 1`] = `
   padding-bottom: var(--chakra-space-3);
   height: none;
   border: 1px solid;
-  border-radius: 6px;
+  border-radius: var(--chakra-radii-md);
+  --alert-fg: var(--chakra-colors-white);
+  --alert-bg: var(--chakra-colors-green-500);
+  color: var(--alert-fg);
   border-color: var(--chakra-colors-brand-stroke);
-  gap: 14px;
-  padding: 18px;
+  gap: var(--chakra-space-3-5);
+  padding: var(--chakra-space-4);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.emotion-6 {
+.chakra-ui-dark .emotion-7:not([data-theme]),
+[data-theme=dark] .emotion-7:not([data-theme]),
+.emotion-7[data-theme=dark] {
+  --alert-fg: var(--chakra-colors-gray-900);
+  --alert-bg: var(--chakra-colors-green-200);
+}
+
+.emotion-8 {
   color: var(--chakra-colors-brand-accentGreen);
 }
 
@@ -149,112 +198,120 @@ exports[`Storyshots UI/Alert Variants 1`] = `
     class="chakra-stack emotion-0"
   >
     <div
-      class="chakra-alert emotion-1"
-      role="alert"
+      class="chakra-stack emotion-1"
     >
       <div
-        class="emotion-2"
+        class="chakra-alert emotion-2"
+        role="alert"
       >
-        <svg
-          fill="currentColor"
-          height="20px"
-          stroke="currentColor"
-          stroke-width="0"
-          viewBox="0 0 24 24"
-          width="20px"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="emotion-3"
         >
-          <path
-            d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-          />
-        </svg>
-      </div>
-      <div
-        class="chakra-alert__desc emotion-3"
-      >
-        This is a description
-      </div>
-      <button
-        aria-label="Close"
-        class="emotion-4"
-        type="button"
-      >
-        <svg
-          color="#646271"
-          fill="currentColor"
-          height="19px"
-          stroke="currentColor"
-          stroke-width="0"
-          style="color: rgb(100, 98, 113);"
-          viewBox="0 0 24 24"
-          width="19px"
-          xmlns="http://www.w3.org/2000/svg"
+          <svg
+            fill="currentColor"
+            height="20px"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+            />
+          </svg>
+        </div>
+        <div
+          class="chakra-alert__desc emotion-4"
         >
-          <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
-            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-          />
-        </svg>
-      </button>
+          This is a description
+        </div>
+        <button
+          aria-label="Close"
+          class="emotion-5"
+          type="button"
+        >
+          <svg
+            color="#646271"
+            fill="currentColor"
+            height="19px"
+            stroke="currentColor"
+            stroke-width="0"
+            style="color: rgb(100, 98, 113);"
+            viewBox="0 0 24 24"
+            width="19px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
     <div
-      class="chakra-alert emotion-5"
-      role="alert"
+      class="chakra-stack emotion-1"
     >
       <div
-        class="emotion-6"
+        class="chakra-alert emotion-7"
+        role="alert"
       >
-        <svg
-          fill="currentColor"
-          height="20px"
-          stroke="currentColor"
-          stroke-width="0"
-          viewBox="0 0 24 24"
-          width="20px"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          class="emotion-8"
         >
-          <path
-            d="M0 0h24v24H0V0z"
-            fill="none"
-          />
-          <path
-            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"
-          />
-        </svg>
-      </div>
-      <div
-        class="chakra-alert__desc emotion-3"
-      >
-        This is a description
-      </div>
-      <button
-        aria-label="Close"
-        class="emotion-4"
-        type="button"
-      >
-        <svg
-          color="#646271"
-          fill="currentColor"
-          height="19px"
-          stroke="currentColor"
-          stroke-width="0"
-          style="color: rgb(100, 98, 113);"
-          viewBox="0 0 24 24"
-          width="19px"
-          xmlns="http://www.w3.org/2000/svg"
+          <svg
+            fill="currentColor"
+            height="20px"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="20px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0V0z"
+              fill="none"
+            />
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"
+            />
+          </svg>
+        </div>
+        <div
+          class="chakra-alert__desc emotion-4"
         >
-          <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
-            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-          />
-        </svg>
-      </button>
+          This is a description
+        </div>
+        <button
+          aria-label="Close"
+          class="emotion-5"
+          type="button"
+        >
+          <svg
+            color="#646271"
+            fill="currentColor"
+            height="19px"
+            stroke="currentColor"
+            stroke-width="0"
+            style="color: rgb(100, 98, 113);"
+            viewBox="0 0 24 24"
+            width="19px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
   <span
