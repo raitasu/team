@@ -11,7 +11,7 @@ export const BaseCheckbox = ({
 }: BaseCheckboxProps) => (
   <Checkbox
     {...pathThroughProps}
-    icon={<CustomIcon isChecked />}
+    icon={<CustomIcon />}
     defaultChecked={isChecked}
     disabled={isDisabled}
   >
