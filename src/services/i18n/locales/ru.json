@@ -5,7 +5,8 @@
       "delete": "Удалить"
     },
     "employees": {
-      "add_employee": "Добавить нового сотрудника"
+      "add_employee": "Новый сотрудник",
+      "filter": "Фильтр"
     },
     "auth": {
       "sign_in": "Войти"

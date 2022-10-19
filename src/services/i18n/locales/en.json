@@ -5,7 +5,8 @@
       "delete": "Delete"
     },
     "employees": {
-      "add_employee": "Add new employee"
+      "add_employee": "New employee",
+      "filter": "Filter"
     },
     "auth": {
       "sign_in": "Sign in"
