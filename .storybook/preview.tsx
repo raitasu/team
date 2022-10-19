@@ -1,6 +1,6 @@
 import { DecoratorFn } from '@storybook/react';
 
-import { AppThemeProvider } from '../src/shared/ui/theme/AppThemeProvider';
+import { AppThemeProvider } from '~/shared/ui/theme/AppThemeProvider';
 
 export const decorators: DecoratorFn[] = [
   (Story) => (

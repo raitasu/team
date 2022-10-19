@@ -51,7 +51,7 @@ npm-upgrade
 
 ## Build tools
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Vite](https://vitejs.dev/).
 
 ## Commit Style Guide
 
@@ -88,13 +88,26 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 - Manually trigger `Release` workflow from actions tab on `main` branch
 
-| Command                    | Description                                                                                     |
-| -------------------------- | ----------------------------------------------------------------------------------------------- |
-| `npm run build`            | Builds project for production use.                                                              |
-| `npm run semantic-release` | Creates a tag and release notes for a new version. Should be triggered on main branch within CI |
+| Command                    | Description                                                                                                                                |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `npm run build`            | Builds project for production use.                                                                                                         |
+| `npm run build:staging`    | Builds project for staging use. Pass [--base](https://vitejs.dev/config/shared-options.html#base) option while building application in CI. |
+| `npm run semantic-release` | Creates a tag and release notes for a new version. Should be triggered on main branch within CI.                                           |
 
 ## Authorization
 
-- We are using [Alfred](https://alfred-cg.herokuapp.com/) for authorization.
-- retrieve code by redirecting to url (https://github.com/cybergizer-hq/alfred#on-the-frontend)
-- send code to api for getting token(https://github.com/cybergizer-hq/team/blob/a438d4b837e799240feb0d00f3404d09591735c4/docs/authentication.md)
+- We are using [Alfred](https://github.com/cybergizer-hq/alfred#on-the-frontend) for user authentication.
+
+| Environment variable       | Description                           | Localtion            |
+| -------------------------- | ------------------------------------- | -------------------- |
+| `VITE_ALFRED_URL`          | Alfred host                           | `.env`               |
+| `VITE_ALFRED_REDIRECT_URI` | URI to redirect after successful auth | `.env.{environment}` |
+| `VITE_ALFRED_CLIENT_ID`    | UUID of Alfred application            | `.env.{environment}` |
+
+## API
+
+- Documentation - TBD
+
+| Environment variable  | Description | Location             |
+| --------------------- | ----------- | -------------------- |
+| `VITE_PUBLIC_API_URL` | API host    | `.env.{environment}` |

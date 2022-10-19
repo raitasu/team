@@ -8,7 +8,7 @@ import {
   useDisclosure
 } from '@chakra-ui/react';
 
-import { BaseModal } from 'shared/ui/components/Modal';
+import { BaseModal } from '~/shared/ui/components/Modal';
 
 import { Avatar } from '../components/Avatar';
 

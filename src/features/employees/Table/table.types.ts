@@ -1,4 +1,4 @@
-import { EmployeeStatus } from 'shared/ui/components/Avatar/avatar.types';
+import { EmployeeStatus } from '~/shared/ui/components/Avatar/avatar.types';
 
 export type EmployeesTableRow = {
   status: EmployeeStatus;

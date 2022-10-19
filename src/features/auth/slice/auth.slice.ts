@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { AuthSliceState } from 'features/auth/auth.types';
-import { LocalStorageKey } from 'shared/shared.constants';
+import type { AuthSliceState } from '~/features/auth/auth.types';
+import { LocalStorageKey } from '~/shared/shared.constants';
 
 const accessToken = localStorage.getItem(LocalStorageKey.AuthToken);
 

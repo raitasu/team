@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
-import { selectAccessToken } from 'features/auth/slice/auth.selectors';
-import { ApiTags } from 'shared/store/api/api.constants';
-import { RootState } from 'shared/store/store.types';
+import { selectAccessToken } from '~/features/auth/slice/auth.selectors';
+import { ApiTags } from '~/shared/store/api/api.constants';
+import { RootState } from '~/shared/store/store.types';
 
 export const rootApiSlice = createApi({
   reducerPath: 'apiSlice',
@@ -15,7 +15,7 @@ export const rootApiSlice = createApi({
       }
       return headers;
     },
-    baseUrl: `${process.env.REACT_APP_PUBLIC_API_URL}/api/v1/`
+    baseUrl: `${import.meta.env.VITE_PUBLIC_API_URL}api/v1/`
   }),
   endpoints: () => ({})
 });

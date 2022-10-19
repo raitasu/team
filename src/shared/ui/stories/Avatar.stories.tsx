@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 
-import { Avatar } from 'shared/ui/components/Avatar';
+import { Avatar } from '~/shared/ui/components/Avatar';
 
 export default {
   title: 'UI/Avatar',

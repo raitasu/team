@@ -2,10 +2,10 @@ import { Box, Text } from '@chakra-ui/react';
 import { CellContext } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 
-import { Avatar } from 'shared/ui/components/Avatar';
-import { BaseTooltip } from 'shared/ui/components/Tooltip';
+import { Avatar } from '~/shared/ui/components/Avatar';
+import { BaseTooltip } from '~/shared/ui/components/Tooltip';
 
-import { EmployeesTableRow } from '../table.types';
+import type { EmployeesTableRow } from '../table.types';
 
 export const NameCell = ({
   row: {

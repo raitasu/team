@@ -1,8 +1,8 @@
 import { Box, Button } from '@chakra-ui/react';
 
-import { projectsSelector } from 'features/projects/slice/projects.selectors';
-import { projectActions } from 'features/projects/slice/projects.slice';
-import { useAppDispatch, useAppSelector } from 'shared/store/store.hooks';
+import { projectsSelector } from '~/features/projects/slice/projects.selectors';
+import { projectActions } from '~/features/projects/slice/projects.slice';
+import { useAppDispatch, useAppSelector } from '~/shared/store/store.hooks';
 
 export const Projects = () => {
   const projects = useAppSelector(projectsSelector);

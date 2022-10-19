@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { IoIosArrowDown } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 
-import { PagePaths } from 'pages/pages.constants';
-import { Avatar } from 'shared/ui/components/Avatar';
+import { PagePaths } from '~/router/router.constants';
+import { Avatar } from '~/shared/ui/components/Avatar';
 
 import logo from './assets/logo.svg';
 

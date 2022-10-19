@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Build App
-        run: PUBLIC_URL=/preview/${{ github.event.number }} npm run build
+        run: npm run build:staging -- --base=/preview/${{ github.event.number }}/
 
       - name: AWS Deploy Preview
         if: success()
@@ -39,13 +39,13 @@ jobs:
           AWS_S3_BUCKET: cgteam
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOY_PREVIEW_KEY }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.DEPLOY_PREVIEW_SECRET }}
-          AWS_REGION: "eu-central-1"
-          SOURCE_DIR: "build"
+          AWS_REGION: 'eu-central-1'
+          SOURCE_DIR: 'build'
           DEST_DIR: preview/${{ github.event.number }}
 
   set_comment:
     name: Set PR Comment
-    needs: [ 'deploy' ]
+    needs: ['deploy']
     runs-on: self-hosted
     permissions:
       actions: read
@@ -56,4 +56,4 @@ jobs:
         uses: marocchino/sticky-pull-request-comment@v2
         with:
           header: preview
-          message: ":gem: Teams App preview deployed to <http://cgteam.s3-website.eu-central-1.amazonaws.com/preview/${{ github.event.number }}>"
+          message: ':gem: Teams App preview deployed to <http://cgteam.s3-website.eu-central-1.amazonaws.com/preview/${{ github.event.number }}>'

@@ -1,6 +1,6 @@
 import { MdAdd } from 'react-icons/md';
 
-import { Button } from 'shared/ui/components/Button';
+import { Button } from '~/shared/ui/components/Button';
 
 export const AddCVCell = () => (
   <Button

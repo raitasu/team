@@ -1,6 +1,6 @@
 import { Box, CircularProgress } from '@chakra-ui/react';
 
-import { ProgressBar } from 'shared/ui/components/ProgressBar';
+import { ProgressBar } from '~/shared/ui/components/ProgressBar';
 
 export default {
   title: 'UI/CircularProgress',

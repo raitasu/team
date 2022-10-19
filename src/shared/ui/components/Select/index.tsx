@@ -12,7 +12,7 @@ import {
 import { MdClose, MdExpandMore } from 'react-icons/md';
 import { ClearIndicatorProps } from 'react-select';
 
-import { SelectStyles } from 'shared/ui/components/Select/select.styles';
+import { SelectStyles } from '~/shared/ui/components/Select/select.styles';
 
 const components: SelectComponentsConfig<
   unknown,

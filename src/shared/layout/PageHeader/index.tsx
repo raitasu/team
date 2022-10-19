@@ -2,8 +2,8 @@ import { Box, Heading } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { MdAdd, MdOutlineFilterAlt } from 'react-icons/md';
 
-import { Button } from 'shared/ui/components/Button';
-import { IconButton } from 'shared/ui/components/IconButton';
+import { Button } from '~/shared/ui/components/Button';
+import { IconButton } from '~/shared/ui/components/IconButton';
 
 import { BaseTooltip } from '../../ui/components/Tooltip';
 import { PageHeaderProps } from './PageHeader.types';

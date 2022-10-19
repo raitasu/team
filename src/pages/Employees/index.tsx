@@ -1,9 +1,9 @@
 import { Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import { EmployeesTable } from 'features/employees/Table';
-import { EmployeesData } from 'features/employees/Table/fixture';
-import { PageHeader } from 'shared/layout/PageHeader';
+import { EmployeesTable } from '~/features/employees/Table';
+import { EmployeesData } from '~/features/employees/Table/fixture';
+import { PageHeader } from '~/shared/layout/PageHeader';
 
 export const Employees = () => {
   const [t] = useTranslation();
