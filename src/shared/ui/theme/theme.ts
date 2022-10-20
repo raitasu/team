@@ -6,6 +6,7 @@ import { Checkbox } from './Checkbox';
 import { Heading } from './Heading';
 import { Input } from './Input';
 import { Modal } from './Modal';
+import { NumberInput } from './NumberInput';
 import { Table } from './Table';
 import { Tabs } from './Tabs';
 import { Text } from './Text';
@@ -51,6 +52,7 @@ export const theme = extendTheme({
     Checkbox,
     Input,
     Modal,
+    NumberInput,
     Table,
     Tabs,
     Textarea,
