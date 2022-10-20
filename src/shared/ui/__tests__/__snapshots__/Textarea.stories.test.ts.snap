@@ -100,8 +100,12 @@ exports[`Storyshots UI/Textarea Variants 1`] = `
 .emotion-1:focus-visible,
 .emotion-1[data-focus-visible] {
   z-index: 1;
-  border-color: #646271;
-  box-shadow: 0 0 0 1px #646271;
+  box-shadow: 0 0 0 1px undefined;
+}
+
+.emotion-1:focus,
+.emotion-1[data-focus] {
+  border-color: var(--chakra-colors-brand-ghostGray);
 }
 
 <div>

@@ -4,6 +4,12 @@ export const Text = {
     lineHeight: '120%'
   },
   variants: {
+    hb: {
+      fontSize: '20px',
+      fontWeight: 700,
+      textTransform: 'uppercase',
+      color: 'brand.headline'
+    },
     m: {
       fontSize: '18px',
       fontWeight: 500

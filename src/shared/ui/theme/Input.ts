@@ -4,7 +4,7 @@ export const Input = {
     outline: {
       field: {
         fontSize: '16px',
-        bg: 'transparent',
+        bg: 'white',
         borderRadius: '4px',
         color: 'brand.ghostGray',
         borderWidth: '1px',
@@ -12,6 +12,9 @@ export const Input = {
         borderColor: 'brand.stroke',
         _hover: {
           borderColor: 'brand.lightGray'
+        },
+        _focus: {
+          borderColor: 'brand.ghostGray'
         },
         _placeholder: {
           color: 'brand.lightGray'
@@ -25,7 +28,7 @@ export const Input = {
     }
   },
   defaultProps: {
-    focusBorderColor: 'brand.ghostGray',
+    focusBorderColor: 'none',
     errorBorderColor: 'brand.accentRed'
   }
 };

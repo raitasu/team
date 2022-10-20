@@ -10,7 +10,8 @@ export const SelectStyles: ChakraStylesConfig = {
     transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : '',
     bg: 'transparent',
     paddingLeft: state.selectProps.menuIsOpen ? '16px' : 0,
-    paddingRight: state.selectProps.menuIsOpen ? 0 : '16px'
+    paddingRight: state.selectProps.menuIsOpen ? 0 : '16px',
+    position: 'static'
   }),
   option: (provided, state) => ({
     ...provided,
@@ -31,7 +32,9 @@ export const SelectStyles: ChakraStylesConfig = {
     borderRadius: '4px',
     padding: '4px 8px',
     color: 'brand.body',
-    marginRight: '4px'
+    marginRight: '4px',
+    marginTop: '2px',
+    marginBottom: '2px'
   }),
   placeholder: () => ({
     color: 'brand.lightGray'

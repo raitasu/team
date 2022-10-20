@@ -16,10 +16,12 @@ export const Variants = () => (
       placeholder="Enter text"
     />
     <Input
+      variant="outline"
       placeholder="Enter text"
       isInvalid
     />
     <Input
+      variant="outline"
       placeholder="Enter text"
       disabled
     />

@@ -86,7 +86,7 @@ exports[`Storyshots UI/Select Variants 1`] = `
   border-radius: 4px;
   border: 1px solid;
   border-color: var(--chakra-colors-brand-stroke);
-  background: var(--chakra-colors-transparent);
+  background: var(--chakra-colors-white);
   color: var(--chakra-colors-brand-ghostGray);
   border-width: 1px;
   border-style: solid;
@@ -142,8 +142,12 @@ exports[`Storyshots UI/Select Variants 1`] = `
 .emotion-6:focus-visible,
 .emotion-6[data-focus-visible] {
   z-index: 1;
-  border-color: #646271;
-  box-shadow: 0 0 0 1px #646271;
+  box-shadow: 0 0 0 1px undefined;
+}
+
+.emotion-6:focus,
+.emotion-6[data-focus] {
+  border-color: var(--chakra-colors-brand-ghostGray);
 }
 
 .emotion-6::-webkit-input-placeholder {
@@ -290,6 +294,7 @@ exports[`Storyshots UI/Select Variants 1`] = `
   border-width: 0;
   padding-left: 0px;
   padding-right: 16px;
+  position: static;
 }
 
 .emotion-14 {
@@ -329,7 +334,7 @@ exports[`Storyshots UI/Select Variants 1`] = `
   border-radius: 4px;
   border: 1px solid;
   border-color: var(--chakra-colors-brand-stroke);
-  background: var(--chakra-colors-transparent);
+  background: var(--chakra-colors-white);
   color: var(--chakra-colors-brand-ghostGray);
   border-width: 1px;
   border-style: solid;
@@ -386,8 +391,12 @@ exports[`Storyshots UI/Select Variants 1`] = `
 .emotion-34:focus-visible,
 .emotion-34[data-focus-visible] {
   z-index: 1;
-  border-color: #646271;
-  box-shadow: 0 0 0 1px #646271;
+  box-shadow: 0 0 0 1px undefined;
+}
+
+.emotion-34:focus,
+.emotion-34[data-focus] {
+  border-color: var(--chakra-colors-brand-ghostGray);
 }
 
 .emotion-34::-webkit-input-placeholder {

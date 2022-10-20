@@ -2,6 +2,7 @@ export const Tabs = {
   variants: {
     line: {
       tab: {
+        bg: 'white',
         fontWeight: '400',
         fontSize: '16px',
         color: 'brand.body',

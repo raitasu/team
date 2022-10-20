@@ -13,11 +13,14 @@ export const Textarea = {
       border: null,
       _hover: {
         borderColor: 'brand.lightGray'
+      },
+      _focus: {
+        borderColor: 'brand.ghostGray'
       }
     }
   },
   defaultProps: {
-    focusBorderColor: 'brand.ghostGray',
+    focusBorderColor: 'none',
     errorBorderColor: 'brand.accentRed'
   }
 };

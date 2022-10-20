@@ -86,31 +86,39 @@ exports[`Storyshots UI/Typography Variants 1`] = `
 }
 
 .emotion-6 {
-  color: var(--chakra-colors-brand-body);
+  color: var(--chakra-colors-brand-headline);
   line-height: 120%;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .emotion-7 {
   color: var(--chakra-colors-brand-body);
   line-height: 120%;
   font-size: 18px;
+  font-weight: 500;
 }
 
 .emotion-8 {
+  color: var(--chakra-colors-brand-body);
+  line-height: 120%;
+  font-size: 18px;
+}
+
+.emotion-9 {
   color: var(--chakra-colors-brand-body);
   line-height: 140%;
   font-size: 16px;
 }
 
-.emotion-9 {
+.emotion-10 {
   color: var(--chakra-colors-brand-body);
   line-height: 120%;
   font-size: 16px;
 }
 
-.emotion-10 {
+.emotion-11 {
   color: var(--chakra-colors-brand-headline);
   line-height: 120%;
   font-weight: 500;
@@ -118,20 +126,20 @@ exports[`Storyshots UI/Typography Variants 1`] = `
   text-transform: uppercase;
 }
 
-.emotion-11 {
+.emotion-12 {
   color: var(--chakra-colors-brand-body);
   line-height: 120%;
   font-size: 14px;
 }
 
-.emotion-12 {
+.emotion-13 {
   color: var(--chakra-colors-brand-body);
   line-height: 120%;
   font-weight: 500;
   font-size: 14px;
 }
 
-.emotion-13 {
+.emotion-14 {
   color: var(--chakra-colors-brand-accentRed);
   line-height: 120%;
   font-weight: 500;
@@ -139,7 +147,7 @@ exports[`Storyshots UI/Typography Variants 1`] = `
   text-transform: uppercase;
 }
 
-.emotion-14 {
+.emotion-15 {
   color: var(--chakra-colors-brand-body);
   line-height: 120%;
   font-size: 12px;
@@ -177,22 +185,22 @@ exports[`Storyshots UI/Typography Variants 1`] = `
     <p
       class="chakra-text emotion-6"
     >
-      Body medium Roboto Medium, 18px, 120%. 
+      Huge Bold roboto bold, 20px, 120%
     </p>
     <p
       class="chakra-text emotion-7"
     >
-      Body large Roboto Regular, 18px, 120%. 
+      Body medium Roboto Medium, 18px, 120%. 
     </p>
     <p
       class="chakra-text emotion-8"
     >
-      Regular 140% Roboto Regular, 16px, 140%. 
+      Body large Roboto Regular, 18px, 120%. 
     </p>
     <p
       class="chakra-text emotion-9"
     >
-      Body regular Roboto Regular, 16px, 120%. 
+      Regular 140% Roboto Regular, 16px, 140%. 
     </p>
     <p
       class="chakra-text emotion-10"
@@ -216,6 +224,11 @@ exports[`Storyshots UI/Typography Variants 1`] = `
     </p>
     <p
       class="chakra-text emotion-14"
+    >
+      Body regular Roboto Regular, 16px, 120%. 
+    </p>
+    <p
+      class="chakra-text emotion-15"
     >
       Body regular Roboto Regular, 16px, 120%. 
     </p>

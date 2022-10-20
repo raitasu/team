@@ -54,6 +54,7 @@ exports[`Storyshots UI/Tabs Variants 1`] = `
   border-bottom: 2px solid;
   border-color: var(--chakra-colors-transparent);
   margin-bottom: -2px;
+  background: var(--chakra-colors-white);
   font-weight: 400;
   color: var(--chakra-colors-brand-body);
   cursor: pointer;
