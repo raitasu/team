@@ -1,6 +1,6 @@
 import { AvatarProps as ChakraAvatarProps } from '@chakra-ui/react';
 
-export type EmployeeStatus = 'active' | 'candidate' | 'inactive';
+import { EmployeeStatus } from '~/shared/store/api/api.types';
 
 export interface AvatarProps extends ChakraAvatarProps {
   src?: string;

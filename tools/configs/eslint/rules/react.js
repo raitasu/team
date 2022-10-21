@@ -1,7 +1,13 @@
 module.exports = {
-  'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
-  'react/static-property-placement': 'off',
-  'react/react-in-jsx-scope': 'off',
+  'react/default-props-match-prop-types': [
+    'error',
+    { allowRequiredDefaults: true }
+  ],
+  'react/destructuring-assignment': [
+    'error',
+    'always',
+    { ignoreClassFields: true }
+  ],
   'react/function-component-definition': [
     'error',
     {
@@ -9,6 +15,13 @@ module.exports = {
       unnamedComponents: 'arrow-function'
     }
   ],
+  'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+  'react/jsx-fragments': 'error',
+  'react/jsx-props-no-spreading': 'off',
+  'react/no-find-dom-node': 'error',
+  'react/prop-types': 'off',
+  'react/react-in-jsx-scope': 'off',
+  'react/require-default-props': 'off',
   'react/sort-comp': [
     'error',
     {
@@ -27,17 +40,5 @@ module.exports = {
       ]
     }
   ],
-  'react/destructuring-assignment': [
-    'error',
-    'always',
-    { ignoreClassFields: true }
-  ],
-  'react/no-find-dom-node': 'error',
-  'react/jsx-fragments': 'error',
-  'react/jsx-props-no-spreading': 'off',
-  'react/require-default-props': 'off',
-  'react/default-props-match-prop-types': [
-    'error',
-    { allowRequiredDefaults: true }
-  ]
+  'react/static-property-placement': 'off'
 };

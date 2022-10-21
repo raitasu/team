@@ -1,15 +1,15 @@
 {
   "actions": {
-    "general": {
-      "add": "Add",
-      "delete": "Delete"
+    "auth": {
+      "sign_in": "Sign in"
     },
     "employees": {
       "add_employee": "New employee",
       "filter": "Filter"
     },
-    "auth": {
-      "sign_in": "Sign in"
+    "general": {
+      "add": "Add",
+      "delete": "Delete"
     }
   },
   "enums": {
@@ -19,31 +19,31 @@
       "inactive": "Inactive"
     }
   },
-  "navigation": {
-    "links": {
-      "onboarding": "Onboarding",
-      "employees": "Employees",
-      "projects": "Projects",
-      "offboarding": "Offboarding"
-    }
-  },
   "errors": {
     "auth": {
       "no_access": "Oops. You have no access to that Discord server. Please, contact the admin."
     }
   },
+  "navigation": {
+    "links": {
+      "employees": "Employees",
+      "offboarding": "Offboarding",
+      "onboarding": "Onboarding",
+      "projects": "Projects"
+    }
+  },
   "titles": {
     "auth": {
-      "welcome": "Welcome aboard!",
-      "token": "Getting token"
+      "token": "Getting token",
+      "welcome": "Welcome aboard!"
     },
     "employees": {
       "table_headers": {
-        "name": "Name",
-        "position": "Position",
-        "location": "Location",
-        "date": "Date of birth",
-        "projects": "Projects"
+        "city": "Location",
+        "date_of_birth": "Date of birth",
+        "full_name": "Name",
+        "job_title": "Position",
+        "projects": "Current projects"
       }
     }
   }

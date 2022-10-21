@@ -1,15 +1,15 @@
 {
   "actions": {
-    "general": {
-      "add": "Добавить",
-      "delete": "Удалить"
+    "auth": {
+      "sign_in": "Войти"
     },
     "employees": {
       "add_employee": "Новый сотрудник",
       "filter": "Фильтр"
     },
-    "auth": {
-      "sign_in": "Войти"
+    "general": {
+      "add": "Добавить",
+      "delete": "Удалить"
     }
   },
   "enums": {
@@ -19,31 +19,31 @@
       "inactive": "Неактивный"
     }
   },
-  "navigation": {
-    "links": {
-      "onboarding": "Адаптация",
-      "employees": "Сотрудники",
-      "projects": "Проекты",
-      "offboarding": "Оффбординг"
-    }
-  },
   "errors": {
     "auth": {
       "no_access": "Упс, у вас нет доступа"
     }
   },
+  "navigation": {
+    "links": {
+      "employees": "Сотрудники",
+      "offboarding": "Оффбординг",
+      "onboarding": "Онбординг",
+      "projects": "Проекты"
+    }
+  },
   "titles": {
     "auth": {
-      "welcome": "Добро пожаловать!",
-      "token": "Получаем токен"
+      "token": "Получаем токен",
+      "welcome": "Добро пожаловать!"
     },
     "employees": {
       "table_headers": {
-        "name": "Имя",
-        "position": "Должность",
-        "location": "Место жительства",
-        "date": "Дата рождения",
-        "projects": "Проекты"
+        "city": "Место жительства",
+        "date_of_birth": "Дата рождения",
+        "full_name": "Имя",
+        "job_title": "Должность",
+        "projects": "Текущие проекты"
       }
     }
   }

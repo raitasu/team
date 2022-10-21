@@ -3,10 +3,18 @@ export interface AuthTokens {
   refresh_token: string;
 }
 
-interface Project {
+interface EmployeeAvatar {
+  url: string | null;
+  thumb: string | null;
+  smallThumb: string | null;
+}
+
+export interface EmployeeProject {
   id: string;
   name: string;
 }
+
+export type EmployeeStatus = 'active' | 'candidate' | 'inactive';
 
 export interface Employee {
   id: string;
@@ -15,15 +23,11 @@ export interface Employee {
   city: string;
   job_title: string;
   date_of_birth: string;
-  status: string;
+  status: EmployeeStatus;
   role: string;
-  avatar: {
-    url: string | null;
-    thumb: string | null;
-    smallThumb: string | null;
-  };
+  avatar: EmployeeAvatar;
   about: string | null;
   email: string;
   years_of_experience: number;
-  projects: Project[];
+  projects: EmployeeProject[];
 }

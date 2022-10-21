@@ -1,22 +1,8 @@
-import { Table } from '@chakra-ui/react';
-import { useReactTable, getCoreRowModel } from '@tanstack/react-table';
+import { useGetEmployeesQuery } from '~/shared/store/api/employees.api';
 
-import { EmployeesColumns } from './columns';
-import { TableBody } from './components/TableBody';
-import { TableHeader } from './components/TableHeader';
-import { EmployeesTableRow } from './table.types';
+import { EmployeesTable } from './EmployeesTable';
 
-export const EmployeesTable = ({ data }: { data: EmployeesTableRow[] }) => {
-  const table = useReactTable({
-    columns: EmployeesColumns,
-    data,
-    getCoreRowModel: getCoreRowModel()
-  });
-
-  return (
-    <Table>
-      <TableHeader headerGroups={table.getHeaderGroups()} />
-      <TableBody rows={table.getRowModel().rows} />
-    </Table>
-  );
+export const EmployeesTableContainer = () => {
+  const { data } = useGetEmployeesQuery();
+  return data ? <EmployeesTable data={data.employees} /> : null;
 };

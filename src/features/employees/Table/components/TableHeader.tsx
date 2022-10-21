@@ -1,13 +1,14 @@
 import { Box, Th, Thead, Tr } from '@chakra-ui/react';
 import { flexRender, HeaderGroup } from '@tanstack/react-table';
 
-import { EmployeesTableRow } from '../table.types';
+import { Employee } from '~/shared/store/api/api.types';
+
 import { SortIcon } from './SortIcon';
 
 export const TableHeader = ({
   headerGroups
 }: {
-  headerGroups: Array<HeaderGroup<EmployeesTableRow>>;
+  headerGroups: Array<HeaderGroup<Employee>>;
 }) => (
   <Thead>
     {headerGroups.map((headerGroup) => (

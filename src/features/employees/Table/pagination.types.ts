@@ -1,0 +1,33 @@
+export type EmployeesPagination = {
+  scaffold_url: string;
+  first_url: string;
+  prev_url: string;
+  page_url: string;
+  next_url: string;
+  last_url: string;
+  count: number;
+  page: number;
+  items: number;
+  vars: {
+    page: number;
+    items: number;
+    outset: number;
+    size: Array<number>;
+    page_param: string;
+    params: object;
+    anchor: string;
+    link_extra: string;
+    i18n_key: string;
+    metadata: Array<string>;
+    items_param: string;
+    max_items: number;
+    count: number;
+  };
+  pages: number;
+  last: number;
+  from: number;
+  to: number;
+  prev: null;
+  next: null;
+  series: Array<string>;
+};
