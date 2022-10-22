@@ -1,6 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
 import { updateAccessToken } from 'features/auth/slice/auth.slice';
+import { ApiTags } from 'shared/store/api/constants';
+import { rootApiSlice } from 'shared/store/api/index';
 
 export const getAuthApiUrl = () => {
   const queryParams = new URLSearchParams({
@@ -12,16 +12,13 @@ export const getAuthApiUrl = () => {
   return `${process.env.REACT_APP_ALFRED_URL}?${queryParams.toString()}`;
 };
 
-export const authApiSlice = createApi({
-  reducerPath: 'apiSlice',
-  baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_PUBLIC_API_URL
-  }),
-  tagTypes: ['Auth'],
+const authApiSlice = rootApiSlice.injectEndpoints({
+  overrideExisting: false,
   endpoints: (builder) => ({
     getAccessToken: builder.query<{ access_token: string }, string>({
+      providesTags: [ApiTags.Auth],
       query: (code) => ({
-        url: 'api/v1/login',
+        url: 'login',
         method: 'POST',
         body: { code }
       }),

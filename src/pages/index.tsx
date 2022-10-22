@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import { Navigate, Outlet } from 'react-router-dom';
 
+import { selectAccessToken } from 'features/auth/slice/auth.selectors';
 import { MainLayout } from 'shared/layout/MainLayout';
 import { useAppSelector } from 'shared/store/store.hooks';
 
@@ -44,14 +45,19 @@ const LoadableOffboarding = React.lazy(() =>
   }))
 );
 
-const PrivateRoutes = () => {
-  const token = useAppSelector((state) => state.auth.accessToken);
+const PrivateOnlyRoutes = () => {
+  const token = useAppSelector(selectAccessToken);
   return token ? <Outlet /> : <Navigate to="/login" />;
+};
+
+const PublicOnlyRoutes = () => {
+  const token = useAppSelector(selectAccessToken);
+  return token ? <Navigate to="/" /> : <Outlet />;
 };
 
 export const Pages = () => (
   <Routes>
-    <Route element={<PrivateRoutes />}>
+    <Route element={<PrivateOnlyRoutes />}>
       <Route element={<MainLayout />}>
         <Route
           path="/"
@@ -91,21 +97,23 @@ export const Pages = () => (
         />
       </Route>
     </Route>
-    <Route
-      path="/auth"
-      element={
-        <Suspense fallback={<div>Loading auth...</div>}>
-          <LoadableAuth />
-        </Suspense>
-      }
-    />
-    <Route
-      path="/login"
-      element={
-        <Suspense fallback={<div>Loading login ...</div>}>
-          <LoadableLogin />
-        </Suspense>
-      }
-    />
+    <Route element={<PublicOnlyRoutes />}>
+      <Route
+        path="/auth"
+        element={
+          <Suspense fallback={<div>Loading auth...</div>}>
+            <LoadableAuth />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/login"
+        element={
+          <Suspense fallback={<div>Loading login ...</div>}>
+            <LoadableLogin />
+          </Suspense>
+        }
+      />
+    </Route>
   </Routes>
 );

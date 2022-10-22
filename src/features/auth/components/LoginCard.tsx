@@ -2,7 +2,7 @@ import { Box, Button, Img } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import logo from 'features/auth/assets/logoFull.svg';
-import { getAuthApiUrl } from 'features/auth/slice/authService.slice';
+import { getAuthApiUrl } from 'shared/store/api/auth.api';
 
 export const LoginCard = () => {
   const [t] = useTranslation();

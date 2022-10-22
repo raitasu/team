@@ -1,10 +1,8 @@
+import React from 'react';
+
 import { Box } from '@chakra-ui/react';
 
-export const AuthBox = ({
-  children
-}: {
-  children: JSX.Element | JSX.Element[] | string;
-}) => (
+export const AuthBox = ({ children }: { children: React.ReactNode }) => (
   <Box
     display="flex"
     justifyContent="center"
