@@ -1,5 +1,5 @@
 import { updateAccessToken } from 'features/auth/slice/auth.slice';
-import { ApiTags } from 'shared/store/api/constants';
+import { ApiTags } from 'shared/store/api/api.constants';
 import { rootApiSlice } from 'shared/store/api/index';
 
 export const getAuthApiUrl = () => {

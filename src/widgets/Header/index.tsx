@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { IoIosArrowDown } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 
+import { PagePaths } from 'pages/pages.constants';
 import { Avatar } from 'shared/ui/components/Avatar';
 
 import logo from './assets/logo.svg';
@@ -32,7 +33,7 @@ export const Header = () => {
           color="brand.headline"
         >
           <Box>
-            <NavLink to="/">
+            <NavLink to={PagePaths.Main}>
               <Img
                 height="40px"
                 src={logo}
@@ -49,18 +50,22 @@ export const Header = () => {
             listStyleType="none"
           >
             <ListItem marginRight="40px">
-              <NavLink to="/onboarding">
+              <NavLink to={PagePaths.Onboarding}>
                 {t('navigation:links.onboarding')}
               </NavLink>
             </ListItem>
             <ListItem marginRight="40px">
-              <NavLink to="/">{t('navigation:links.employees')}</NavLink>
+              <NavLink to={PagePaths.Main}>
+                {t('navigation:links.employees')}
+              </NavLink>
             </ListItem>
             <ListItem marginRight="40px">
-              <NavLink to="/projects">{t('navigation:links.projects')}</NavLink>
+              <NavLink to={PagePaths.Projects}>
+                {t('navigation:links.projects')}
+              </NavLink>
             </ListItem>
             <ListItem marginRight="40px">
-              <NavLink to="/offboarding">
+              <NavLink to={PagePaths.Offboarding}>
                 {t('navigation:links.offboarding')}
               </NavLink>
             </ListItem>

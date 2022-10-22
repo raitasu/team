@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router';
 import { Navigate, Outlet } from 'react-router-dom';
 
 import { selectAccessToken } from 'features/auth/slice/auth.selectors';
+import { PagePaths } from 'pages/pages.constants';
 import { MainLayout } from 'shared/layout/MainLayout';
 import { useAppSelector } from 'shared/store/store.hooks';
 
@@ -47,12 +48,12 @@ const LoadableOffboarding = React.lazy(() =>
 
 const PrivateOnlyRoutes = () => {
   const token = useAppSelector(selectAccessToken);
-  return token ? <Outlet /> : <Navigate to="/login" />;
+  return token ? <Outlet /> : <Navigate to={PagePaths.Login} />;
 };
 
 const PublicOnlyRoutes = () => {
   const token = useAppSelector(selectAccessToken);
-  return token ? <Navigate to="/" /> : <Outlet />;
+  return token ? <Navigate to={PagePaths.Main} /> : <Outlet />;
 };
 
 export const Pages = () => (
@@ -60,7 +61,7 @@ export const Pages = () => (
     <Route element={<PrivateOnlyRoutes />}>
       <Route element={<MainLayout />}>
         <Route
-          path="/"
+          path={PagePaths.Main}
           element={
             <Suspense fallback={<div>Loading employees ...</div>}>
               <LoadableEmployees />
@@ -68,7 +69,7 @@ export const Pages = () => (
           }
         />
         <Route
-          path="onboarding"
+          path={PagePaths.Onboarding}
           element={
             <Suspense fallback={<div>Loading onboarding ...</div>}>
               <LoadableOnboadrding />
@@ -76,7 +77,7 @@ export const Pages = () => (
           }
         />
         <Route
-          path="projects"
+          path={PagePaths.Projects}
           element={
             <Suspense fallback={<div>Loading projects ...</div>}>
               <LoadableProjects />
@@ -84,7 +85,7 @@ export const Pages = () => (
           }
         />
         <Route
-          path="offboarding"
+          path={PagePaths.Offboarding}
           element={
             <Suspense fallback={<div>Loading offboarding ...</div>}>
               <LoadableOffboarding />
@@ -99,7 +100,7 @@ export const Pages = () => (
     </Route>
     <Route element={<PublicOnlyRoutes />}>
       <Route
-        path="/auth"
+        path={PagePaths.Auth}
         element={
           <Suspense fallback={<div>Loading auth...</div>}>
             <LoadableAuth />
@@ -107,7 +108,7 @@ export const Pages = () => (
         }
       />
       <Route
-        path="/login"
+        path={PagePaths.Login}
         element={
           <Suspense fallback={<div>Loading login ...</div>}>
             <LoadableLogin />

@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
 import { selectAccessToken } from 'features/auth/slice/auth.selectors';
-import { ApiTags } from 'shared/store/api/constants';
+import { ApiTags } from 'shared/store/api/api.constants';
 import { RootState } from 'shared/store/store.types';
 
 export const rootApiSlice = createApi({
