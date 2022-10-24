@@ -1,17 +1,17 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
-import { selectAccessToken } from '~/features/auth/slice/auth.selectors';
+import { LocalStorageKey } from '~/shared/shared.constants';
 import { ApiTags } from '~/shared/store/api/api.constants';
-import { RootState } from '~/shared/store/store.types';
+import { createFetchBaseQueryWithReauth } from '~/shared/store/api/api.utils';
 
 export const rootApiSlice = createApi({
   reducerPath: 'apiSlice',
-  tagTypes: [ApiTags.Auth],
-  baseQuery: fetchBaseQuery({
-    prepareHeaders: (headers, { endpoint, getState }) => {
-      const token = selectAccessToken(getState() as RootState);
-      if (endpoint !== 'getAccessToken' && token) {
-        headers.set('Authorization', `Bearer ${token}`);
+  tagTypes: Object.values(ApiTags),
+  baseQuery: createFetchBaseQueryWithReauth({
+    prepareHeaders: (headers) => {
+      const token = localStorage.getItem(LocalStorageKey.AuthToken);
+      if (!headers.has('Authorization') && token) {
+        headers.set('Authorization', token);
       }
       return headers;
     },

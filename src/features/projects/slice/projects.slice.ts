@@ -1,11 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { Project } from '~/features/projects/projects.types';
-import { LoadingState } from '~/shared/types';
 
 interface ProjectsSliceState {
   projects: Project[];
-  status: LoadingState;
+  status: string;
 }
 
 const initialState: ProjectsSliceState = {

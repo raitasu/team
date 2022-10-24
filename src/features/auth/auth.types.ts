@@ -1,3 +1,3 @@
 export interface AuthSliceState {
-  accessToken: string | null;
+  isLoggedIn: boolean;
 }

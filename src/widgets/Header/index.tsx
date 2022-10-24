@@ -4,12 +4,14 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
+import { useGetCurrentUserQuery } from '~/shared/store/api/user.api';
 import { Avatar } from '~/shared/ui/components/Avatar';
 
 import logo from './assets/logo.svg';
 
 export const Header = () => {
   const [t] = useTranslation();
+  const { data } = useGetCurrentUserQuery();
   return (
     <Box
       position="relative"
@@ -86,7 +88,7 @@ export const Header = () => {
               padding="12px 24px"
               fontWeight="500"
             >
-              Mayor Pain
+              {`${data?.first_name || ''} ${data?.last_name || ''}`}
             </Text>
             <Avatar
               size="md"

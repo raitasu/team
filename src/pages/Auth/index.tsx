@@ -5,17 +5,23 @@ import { useLocation } from 'react-router-dom';
 
 import { AuthBox } from '~/features/auth/components/AuthBox';
 import { ErrorMessage } from '~/features/auth/components/ErrorMessage';
-import { useGetAccessTokenQuery } from '~/shared/store/api/auth.api';
+import {
+  useGetAccessTokenQuery,
+  useGetCurrentUserQuery
+} from '~/shared/store/api/user.api';
 
 export const Auth = () => {
   const [t] = useTranslation();
   const { search } = useLocation();
   const code = new URLSearchParams(search).get('code');
-  const { error, isLoading } = useGetAccessTokenQuery(code ?? skipToken);
+  const { data, error, isLoading } = useGetAccessTokenQuery(code ?? skipToken);
+  const { isLoading: isLoadingUser } = useGetCurrentUserQuery(undefined, {
+    skip: !data?.access_token
+  });
 
   return (
     <AuthBox>
-      {isLoading ? <Spinner /> : null}
+      {isLoading || isLoadingUser ? <Spinner /> : null}
       {error ? <ErrorMessage message={t('errors:auth.no_access')} /> : null}
     </AuthBox>
   );
