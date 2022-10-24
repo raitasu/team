@@ -3,18 +3,21 @@ export const Checkbox = {
     control: {
       boxSize: '18px',
       color: 'brand.ghostGray',
+      border: 'none',
       _checked: {
         color: 'brand.headline2',
         bgColor: 'transparent',
-        borderColor: 'none',
         _hover: {
-          bgColor: 'transparent',
-          borderColor: 'none'
+          bgColor: 'transparent'
         }
       },
       _disabled: {
-        color: 'brand.lightGray',
-        bgColor: 'transparent'
+        color: 'brand.stroke',
+        bgColor: 'transparent',
+        _checked: {
+          color: 'brand.stroke',
+          bgColor: 'transparent'
+        }
       }
     },
     label: {
@@ -24,11 +27,10 @@ export const Checkbox = {
       fontSize: '16px',
       color: 'brand.ghostGray',
       _checked: {
-        color: 'brand.headline2',
         bgColor: 'transparent'
       },
       _disabled: {
-        color: 'brand.lightGray'
+        opacity: 1
       }
     }
   },

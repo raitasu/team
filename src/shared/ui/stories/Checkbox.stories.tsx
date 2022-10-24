@@ -15,5 +15,9 @@ export const Variants = () => (
     <BaseCheckbox />
     <BaseCheckbox isChecked />
     <BaseCheckbox isDisabled />
+    <BaseCheckbox
+      isChecked
+      isDisabled
+    />
   </Stack>
 );
