@@ -1,7 +1,7 @@
-import { loggedIn, tokenReceived } from '~/features/auth/slice/auth.slice';
 import { ApiTags } from '~/shared/store/api/api.constants';
 import { Employee, AuthTokens } from '~/shared/store/api/api.types';
 import { rootApiSlice } from '~/shared/store/api/index';
+import { loggedIn, tokenReceived } from '~/shared/store/slices/auth/auth.slice';
 
 export const getAuthApiUrl = () => {
   const queryParams = new URLSearchParams({

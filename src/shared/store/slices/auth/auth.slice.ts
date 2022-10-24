@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { AuthSliceState } from '~/features/auth/auth.types';
 import { LocalStorageKey } from '~/shared/shared.constants';
 import { AuthTokens } from '~/shared/store/api/api.types';
+import type { AuthSliceState } from '~/shared/store/slices/auth/auth.types';
 
 const initialState: AuthSliceState = {
   isLoggedIn: false

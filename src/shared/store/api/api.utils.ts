@@ -2,9 +2,12 @@ import { QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
 import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import { Mutex } from 'async-mutex';
 
-import { loggedOut, tokenReceived } from '~/features/auth/slice/auth.slice';
 import { LocalStorageKey } from '~/shared/shared.constants';
 import { AuthTokens } from '~/shared/store/api/api.types';
+import {
+  loggedOut,
+  tokenReceived
+} from '~/shared/store/slices/auth/auth.slice';
 
 /**
  * Redux toolkit reference:
