@@ -3,40 +3,6 @@ export interface AuthTokens {
   refresh_token: string;
 }
 
-interface Pagination {
-  count: number;
-  first_url: string;
-  from: number;
-  items: number;
-  last: number;
-  last_url: string;
-  next: null;
-  next_url: string;
-  page: number;
-  page_url: string;
-  pages: number;
-  prev: null;
-  prev_url: string;
-  scaffold_url: string;
-  series: Array<string>;
-  to: number;
-  vars: {
-    anchor: string;
-    count: number;
-    i18n_key: string;
-    items: number;
-    items_param: string;
-    link_extra: string;
-    max_items: number;
-    metadata: Array<string>;
-    outset: number;
-    page: number;
-    page_param: string;
-    params: object;
-    size: Array<number>;
-  };
-}
-
 interface EmployeeAvatar {
   smallThumb: string | null;
   thumb: string | null;
@@ -66,7 +32,4 @@ export interface Employee {
   years_of_experience: number;
 }
 
-export interface EmployeesListResponse {
-  employees: Array<Employee>;
-  pagy: Pagination;
-}
+export type EmployeesListResponse = Array<Employee>;

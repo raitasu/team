@@ -4,5 +4,5 @@ import { EmployeesTable } from './EmployeesTable';
 
 export const EmployeesTableContainer = () => {
   const { data } = useGetEmployeesQuery();
-  return data ? <EmployeesTable data={data.employees} /> : null;
+  return data ? <EmployeesTable data={data} /> : null;
 };
