@@ -2,6 +2,7 @@ import React from 'react';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
 import { useGetCurrentUserQuery } from '~/shared/store/api/user.api';
+import { PageLoader } from '~/shared/ui/components/PageLoader';
 
 export const TokenVerification = ({
   children
@@ -14,7 +15,7 @@ export const TokenVerification = ({
   });
 
   if (isLoading) {
-    return <span>Loading user</span>;
+    return <PageLoader />;
   }
 
   return children;

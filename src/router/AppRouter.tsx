@@ -16,6 +16,7 @@ import {
 } from '~/router/LoadablePages';
 import { PagePaths } from '~/router/router.constants';
 import { MainLayout } from '~/shared/layout/MainLayout';
+import { PageLoader } from '~/shared/ui/components/PageLoader';
 
 export const AppRouter = () => (
   <TokenVerification>
@@ -25,7 +26,7 @@ export const AppRouter = () => (
           <Route
             path={PagePaths.Main}
             element={
-              <Suspense fallback={<div>Loading employees ...</div>}>
+              <Suspense fallback={<PageLoader />}>
                 <LoadableEmployees />
               </Suspense>
             }
@@ -33,7 +34,7 @@ export const AppRouter = () => (
           <Route
             path={PagePaths.Onboarding}
             element={
-              <Suspense fallback={<div>Loading onboarding ...</div>}>
+              <Suspense fallback={<PageLoader />}>
                 <LoadableOnboadrding />
               </Suspense>
             }
@@ -41,7 +42,7 @@ export const AppRouter = () => (
           <Route
             path={PagePaths.Projects}
             element={
-              <Suspense fallback={<div>Loading projects ...</div>}>
+              <Suspense fallback={<PageLoader />}>
                 <LoadableProjects />
               </Suspense>
             }
@@ -49,7 +50,7 @@ export const AppRouter = () => (
           <Route
             path={PagePaths.Offboarding}
             element={
-              <Suspense fallback={<div>Loading offboarding ...</div>}>
+              <Suspense fallback={<PageLoader />}>
                 <LoadableOffboarding />
               </Suspense>
             }
@@ -57,7 +58,7 @@ export const AppRouter = () => (
           <Route
             path="*"
             element={
-              <Suspense fallback={<div>Loading not found page...</div>}>
+              <Suspense fallback={<PageLoader />}>
                 <LoadableNotFound />
               </Suspense>
             }
@@ -68,7 +69,7 @@ export const AppRouter = () => (
         <Route
           path={PagePaths.Auth}
           element={
-            <Suspense fallback={<div>Loading auth...</div>}>
+            <Suspense fallback={<PageLoader />}>
               <LoadableAuth />
             </Suspense>
           }
@@ -76,7 +77,7 @@ export const AppRouter = () => (
         <Route
           path={PagePaths.Login}
           element={
-            <Suspense fallback={<div>Loading login ...</div>}>
+            <Suspense fallback={<PageLoader />}>
               <LoadableLogin />
             </Suspense>
           }
