@@ -10,7 +10,7 @@ interface EmployeeAvatar {
 }
 
 export interface EmployeeProject {
-  id: string;
+  id: number;
   name: string;
 }
 
@@ -23,7 +23,7 @@ export interface Employee {
   date_of_birth: string;
   email: string;
   first_name: string;
-  id: string;
+  id: number;
   job_title: string;
   last_name: string;
   projects: EmployeeProject[];

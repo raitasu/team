@@ -30,11 +30,10 @@
 
 ## Running application
 
----
-
-| Command         | Description                              |
-| --------------- | ---------------------------------------- |
-| `npm run start` | Running application in development mode. |
+| Command                          | Description                                                                |
+| -------------------------------- | -------------------------------------------------------------------------- |
+| `npm run start`                  | Running application in development mode.                                   |
+| `npm run start:with-mock-server` | Running application in development mode and with [msw](https://mswjs.io/). |
 
 ## Installing new packages
 

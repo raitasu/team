@@ -9,6 +9,7 @@
   "bugs": {
     "url": "https://github.com/cybergizer-hq/team-front/issues"
   },
+  "main": "src/main.tsx",
   "scripts": {
     "audit:deadcode": "npx ts-prune >deadcode.txt",
     "audit:deadcode:ci": "./tools/scripts/ci/checkDeadCode.sh",
@@ -19,10 +20,12 @@
     "chromatic": "npx chromatic",
     "format": "node ./tools/scripts/qa/lint.mjs --fix",
     "gen:theme-typings": "chakra-cli tokens /src/shared/ui/theme/theme.ts",
-    "postinstall": "husky install && npm run gen:theme-typings",
+    "postinstall": "husky install && npm run gen:theme-typings && npm run msw:init",
     "lint": "node ./tools/scripts/qa/lint.mjs",
+    "msw:init": "msw init ./public",
     "semantic-release": "semantic-release",
     "start": "vite",
+    "start:with-mock-server": "cross-env VITE_USE_MOCK_SERVER=true vite",
     "storybook": "start-storybook -p 6006",
     "test": "vitest",
     "test:ci": "vitest run --coverage --outputFile.junit=./junit/vitest.xml"
@@ -54,6 +57,7 @@
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
     "@emotion/eslint-plugin": "11.10.0",
+    "@faker-js/faker": "7.6.0",
     "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-essentials": "6.5.13",
     "@storybook/addon-interactions": "6.5.13",
@@ -79,6 +83,7 @@
     "chalk": "5.1.2",
     "chromatic": "6.11.0",
     "confusing-browser-globals": "1.0.11",
+    "cross-env": "7.0.3",
     "eslint": "8.26.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.5.0",
@@ -96,6 +101,7 @@
     "husky": "8.0.1",
     "jsdom": "20.0.1",
     "lint-staged": "13.0.3",
+    "msw": "0.47.4",
     "postcss": "8.4.18",
     "prettier": "2.7.1",
     "prettier-package-json": "2.7.0",
@@ -125,5 +131,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
