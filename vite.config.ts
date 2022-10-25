@@ -1,6 +1,6 @@
+import * as fs from 'fs';
 import path from 'path';
 
-import basicSsl from '@vitejs/plugin-basic-ssl';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import eslint from 'vite-plugin-eslint';
@@ -16,7 +16,13 @@ export default defineConfig(({ mode }) => ({
   server: {
     port: 3000,
     host: true,
-    https: true,
+    https:
+      mode === 'development'
+        ? {
+            key: fs.readFileSync('./.cert/localhost.key'),
+            cert: fs.readFileSync('./.cert/localhost.crt')
+          }
+        : false,
     strictPort: true
   },
   plugins: [
@@ -26,7 +32,6 @@ export default defineConfig(({ mode }) => ({
         plugins: ['@emotion/babel-plugin']
       }
     }),
-    basicSsl(),
     eslint({
       failOnError: !['staging', 'development', 'test'].includes(mode),
       failOnWarning: false

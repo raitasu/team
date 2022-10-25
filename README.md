@@ -6,33 +6,39 @@
 
 ## Application links
 
+---
+
 - [Staging](http://cgteam.s3-website.eu-central-1.amazonaws.com/app)
 - [Storybook](https://main--63494e41f8bea2d9d59c6279.chromatic.com/)
 
 ## Installation
 
+---
+
+### Installing https certificates
+
+- Install [mkcert](https://github.com/FiloSottile/mkcert) package. Follow carefully the instructions for your system (prefer installing from the pre-built binaries)
+- On Unix systems run `./tools/scripts/generate_certificate.sh`.
+- On Windows run the same commands from `./tools/scripts/generate_certificate.sh` in PowerShell from the project root.
+
+### Installing dependencies
+
 > Before start make sure that you're using the right node version.
 > You can use [nvm](https://github.com/nvm-sh/nvm) to change node version to one that specified inside `.nvmrc`.
 
-Run command:
-
-```shell
-npm ci
-```
+- Run command `npm ci`
 
 ## Running application
 
-### Chrome: allow localhost site even without https certificate
+---
 
-- Go to `chrome://flags/#allow-insecure-localhost`
-- Set the option to enabled on allow-insecure-localhost.
-- Reload browser and visit https://localhost:3000
-
-| Command       | Description                              |
-| ------------- | ---------------------------------------- |
-| npm run start | Running application in development mode. |
+| Command         | Description                              |
+| --------------- | ---------------------------------------- |
+| `npm run start` | Running application in development mode. |
 
 ## Installing new packages
+
+---
 
 Dependencies saved to package.json will be configured with an exact version rather than using npm's default semver range operator.
 
@@ -43,6 +49,8 @@ npm install <package-name> --save-dev --save-exact
 
 ## Updating packages
 
+---
+
 We recommend using [npm-upgrade](https://www.npmjs.com/package/npm-upgrade) to manage dependencies.
 
 ```shell
@@ -51,13 +59,19 @@ npm-upgrade
 
 ## Build tools
 
+---
+
 This project was bootstrapped with [Vite](https://vitejs.dev/).
 
 ## Commit Style Guide
 
+---
+
 Project follows [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ## Code Style Guide:
+
+---
 
 - Code style is inspired by [Airbnb Guide](https://github.com/airbnb/javascript#airbnb-javascript-style-guide)
 - If you find that some rules are harmful or missing raise a PR with your proposal
@@ -71,9 +85,13 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## Internationalization
 
+---
+
 - We are using [react-i18next](https://react.i18next.com/)
 
 ## Storybook
+
+---
 
 - We are using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) for building UI components and pages.
 - We are hosting Storyboook on [Chromatic](https://www.chromatic.com/library?appId=63494e41f8bea2d9d59c6279)
@@ -86,6 +104,8 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## Releasing
 
+---
+
 - Manually trigger `Release` workflow from actions tab on `main` branch
 
 | Command                    | Description                                                                                                                                |
@@ -96,6 +116,8 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## Authorization
 
+---
+
 - We are using [Alfred](https://github.com/cybergizer-hq/alfred#on-the-frontend) for user authentication.
 
 | Environment variable       | Description                           | Localtion            |
@@ -105,6 +127,8 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 | `VITE_ALFRED_CLIENT_ID`    | UUID of Alfred application            | `.env.{environment}` |
 
 ## API
+
+---
 
 - Documentation - TBD
 
