@@ -1,8 +1,9 @@
-import { Box, Button, Img } from '@chakra-ui/react';
+import { Box, Img } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import logo from '~/features/auth/assets/logoFull.svg';
 import { getAuthApiUrl } from '~/shared/store/api/user.api';
+import { Button } from '~/shared/ui/components/Button';
 
 export const LoginCard = () => {
   const [t] = useTranslation();

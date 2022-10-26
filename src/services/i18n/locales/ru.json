@@ -9,7 +9,9 @@
     },
     "general": {
       "add": "Добавить",
-      "delete": "Удалить"
+      "delete": "Удалить",
+      "no": "Нет",
+      "yes": "Да"
     }
   },
   "enums": {
@@ -30,10 +32,16 @@
       "offboarding": "Оффбординг",
       "onboarding": "Онбординг",
       "projects": "Проекты"
+    },
+    "profile": {
+      "profile": "Профиль",
+      "log_out": "Выход"
     }
   },
   "titles": {
     "auth": {
+      "log_out_description": "Вы действительно хотите выйти из аккаунта?",
+      "log_out_title": "Выход",
       "token": "Получаем токен",
       "welcome": "Добро пожаловать!"
     },

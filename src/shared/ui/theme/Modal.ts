@@ -1,6 +1,6 @@
 export const Modal = {
   baseStyle: {
-    dialog: {
+    header: {
       color: 'brand.headline',
       fontWeight: '700',
       fontSize: '20px',

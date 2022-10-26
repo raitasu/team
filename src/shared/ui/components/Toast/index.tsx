@@ -1,6 +1,7 @@
-import { Button, useToast } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react';
 import { MdOutlineErrorOutline } from 'react-icons/md';
 
+import { Button } from '../Button';
 import { ToastProps } from './toast.types';
 
 export const BaseToast = ({ label, ...pathThroughProps }: ToastProps) => {

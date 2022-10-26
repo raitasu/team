@@ -1,0 +1,76 @@
+import {
+  Box,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  Text
+} from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
+import { IoIosArrowDown } from 'react-icons/io';
+import { MdAccountCircle, MdInput } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+
+import { PagePaths } from '~/router/router.constants';
+import { Employee } from '~/shared/store/api/api.types';
+import { Avatar } from '~/shared/ui/components/Avatar';
+
+export const Profile = ({
+  employee,
+  onLogout
+}: {
+  employee: Employee;
+  onLogout: () => void;
+}) => {
+  const [t] = useTranslation();
+  return (
+    <Menu
+      placement="bottom-end"
+      offset={[18, 25]}
+    >
+      <MenuButton>
+        <Box
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="center"
+          cursor="pointer"
+        >
+          <Text
+            variant="r2"
+            color="brand.headline"
+            padding="12px 24px"
+            fontWeight="500"
+            maxWidth="188px"
+            overflow="hidden"
+            textOverflow="ellipsis"
+            whiteSpace="nowrap"
+          >
+            {`${employee.first_name} ${employee.last_name}`}
+          </Text>
+          <Avatar
+            size="md"
+            variant={employee.status}
+          />
+          <Box paddingLeft="6px">
+            <IoIosArrowDown />
+          </Box>
+        </Box>
+      </MenuButton>
+      <MenuList>
+        <Link to={PagePaths.Profile}>
+          <MenuItem icon={<MdAccountCircle />}>
+            {t('navigation:profile.profile')}
+          </MenuItem>
+        </Link>
+        <MenuDivider />
+        <MenuItem
+          icon={<MdInput />}
+          onClick={onLogout}
+        >
+          {t('navigation:profile.log_out')}
+        </MenuItem>
+      </MenuList>
+    </Menu>
+  );
+};

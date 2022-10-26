@@ -1,17 +1,14 @@
-import { Box, Img, ListItem, Text, UnorderedList } from '@chakra-ui/react';
+import { Box, Img, ListItem, UnorderedList } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
-import { IoIosArrowDown } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
-import { useGetCurrentUserQuery } from '~/shared/store/api/user.api';
-import { Avatar } from '~/shared/ui/components/Avatar';
 
 import logo from './assets/logo.svg';
+import { ProfileContainer } from './components/Profile';
 
 export const Header = () => {
   const [t] = useTranslation();
-  const { data } = useGetCurrentUserQuery();
   return (
     <Box
       position="relative"
@@ -76,28 +73,7 @@ export const Header = () => {
             className="filler"
             flexGrow="1"
           />
-          <Box
-            display="flex"
-            justifyContent="flex-end"
-            alignItems="center"
-            cursor="pointer"
-          >
-            <Text
-              variant="r2"
-              color="brand.headline"
-              padding="12px 24px"
-              fontWeight="500"
-            >
-              {`${data?.first_name || ''} ${data?.last_name || ''}`}
-            </Text>
-            <Avatar
-              size="md"
-              variant="active"
-            />
-            <Box paddingLeft="6px">
-              <IoIosArrowDown />
-            </Box>
-          </Box>
+          <ProfileContainer />
         </Box>
       </Box>
     </Box>
