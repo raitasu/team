@@ -26,8 +26,8 @@ const sizes: SizeType = {
 };
 
 const getSizeStyles = (
-  variant: EmployeeStatus,
-  borderValue: '1px' | '3px' | '10px'
+  borderValue: '1px' | '3px' | '10px',
+  variant?: EmployeeStatus
 ) => {
   switch (variant) {
     case 'active':
@@ -44,17 +44,17 @@ const getSizeStyles = (
       };
     default:
       return {
-        border: `${borderValue} solid var(--chakra-colors-brand-accentYellow)`
+        border: `none`
       };
   }
 };
 
-const getStyles = (variant: EmployeeStatus, size: 'sm' | 'md' | 'lg') => {
+const getStyles = (size: 'sm' | 'md' | 'lg', variant?: EmployeeStatus) => {
   switch (size) {
     case 'sm':
       return {
         ...sizes[size],
-        ...getSizeStyles(variant, sizes.sm.borderWeight)
+        ...getSizeStyles(sizes.sm.borderWeight, variant)
       };
     case 'md':
       return sizes[size];
@@ -62,7 +62,7 @@ const getStyles = (variant: EmployeeStatus, size: 'sm' | 'md' | 'lg') => {
     case 'lg':
       return {
         ...sizes[size],
-        ...getSizeStyles(variant, sizes.lg.borderWeight)
+        ...getSizeStyles(sizes.lg.borderWeight, variant)
       };
     default:
       return {};
@@ -78,6 +78,6 @@ export const Avatar = React.forwardRef<
     ref={ref}
     bg="brand.stroke"
     src={src || defaultAvatar}
-    sx={getStyles(variant, size)}
+    sx={getStyles(size, variant)}
   />
 ));

@@ -4,7 +4,7 @@ import { EmployeeStatus } from '~/shared/store/api/api.types';
 
 export interface AvatarProps extends ChakraAvatarProps {
   src?: string;
-  variant: EmployeeStatus;
+  variant?: EmployeeStatus;
   size: 'sm' | 'md' | 'lg';
 }
 

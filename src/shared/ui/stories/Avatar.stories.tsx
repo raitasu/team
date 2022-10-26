@@ -45,6 +45,15 @@ export const Variants = () => (
         size="sm"
         name="Kola Tioluwani"
       />
+      <Avatar
+        size="sm"
+        name="Kola Tioluwani"
+      />
+      <Avatar
+        size="sm"
+        name="Dan Abrahmov"
+        src="https://bit.ly/dan-abramov"
+      />
     </Box>
     <Box
       marginTop="20px"
