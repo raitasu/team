@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 
+import { EmployeesFiltersDrawer } from '~/features/employees/Filters';
 import { EmployeesTableContainer } from '~/features/employees/Table';
-import { PageContainer } from '~/shared/layout/components/PageContainer';
-import { PageTitle } from '~/shared/layout/components/PageTitle';
+import { PageContainer } from '~/shared/layout/Page/PageContainer';
+import { PageTitle } from '~/shared/layout/Page/PageTitle';
 import { Button } from '~/shared/ui/components/Button';
 
 export const Employees = () => {
@@ -21,7 +22,7 @@ export const Employees = () => {
             {t('actions:employees.add_employee')}
           </Button>
         }
-        onFilterBtnClick={() => ({})}
+        filterPanelContent={<EmployeesFiltersDrawer />}
       />
       <EmployeesTableContainer />
     </PageContainer>

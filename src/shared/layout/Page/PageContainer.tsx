@@ -2,9 +2,11 @@ import React from 'react';
 
 import { Box } from '@chakra-ui/react';
 
+import { MAX_CONTENT_WIDTH } from '~/shared/ui/ui.constants';
+
 export const PageContainer = ({ children }: { children: React.ReactNode }) => (
   <Box
-    maxWidth="1380px"
+    maxWidth={MAX_CONTENT_WIDTH}
     margin="auto"
     padding="0 20px"
     width="100%"

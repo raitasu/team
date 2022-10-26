@@ -4,15 +4,15 @@
       "sign_in": "Войти"
     },
     "employees": {
-      "add_employee": "Новый сотрудник",
-      "filter": "Фильтр"
+      "add_employee": "Новый сотрудник"
     },
     "general": {
       "add": "Добавить",
       "delete": "Удалить",
       "logout": "Выход",
       "no": "Нет",
-      "yes": "Да"
+      "yes": "Да",
+      "reset_filters": "Сбросить фильтры"
     },
     "projects": {
       "add_project": "Новый проект"
@@ -55,6 +55,12 @@
         "job_title": "Должность",
         "projects": "Текущие проекты"
       }
+    },
+    "general": {
+      "filters": "Фильтры"
     }
+  },
+  "tooltips": {
+    "filter": "Фильтр"
   }
 }

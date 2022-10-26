@@ -1,23 +1,24 @@
 import { Box } from '@chakra-ui/react';
 
-import { HeaderLogo } from '~/shared/layout/Header/components/HeaderLogo';
-import { NavBar } from '~/shared/layout/Header/components/NavBar';
-
-import { LanguageSwitcher } from './components/LanguageSwitcher';
-import { ProfileContainer } from './components/Profile';
+import { HeaderLogo } from '~/shared/layout/Main/Header/components/HeaderLogo';
+import { LanguageSwitcher } from '~/shared/layout/Main/Header/components/LanguageSwitcher';
+import { NavBar } from '~/shared/layout/Main/Header/components/NavBar';
+import { ProfileContainer } from '~/shared/layout/Main/Header/components/Profile';
+import { HEADER_HEIGHT, MAX_CONTENT_WIDTH } from '~/shared/ui/ui.constants';
 
 export const Header = () => (
   <Box
-    height="80px"
+    height={HEADER_HEIGHT}
     bg="brand.background2"
     width="100%"
+    boxShadow="lg"
   >
     <Box
       bg="brand.background2"
       display="flex"
       justifyContent="space-between"
       alignItems="center"
-      maxWidth="1380px"
+      maxWidth={MAX_CONTENT_WIDTH}
       margin="auto"
       padding="0 20px"
       height="100%"

@@ -1,11 +1,10 @@
 import { Box, useDisclosure } from '@chakra-ui/react';
 
+import { LogOutModal } from '~/shared/layout/Main/Header/components/LogOutModal';
+import { Profile } from '~/shared/layout/Main/Header/components/Profile/Profile';
 import { useGetCurrentUserQuery } from '~/shared/store/api/user.api';
 import { loggedOut } from '~/shared/store/slices/auth/auth.slice';
 import { useAppDispatch } from '~/shared/store/store.hooks';
-
-import { LogOutModal } from '../LogOutModal';
-import { Profile } from './Profile';
 
 export const ProfileContainer = () => {
   const dispatch = useAppDispatch();

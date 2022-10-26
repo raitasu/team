@@ -3,6 +3,7 @@ import { extendTheme } from '@chakra-ui/react';
 import { Alert } from './Alert';
 import { Button } from './Button';
 import { Checkbox } from './Checkbox';
+import { Drawer } from './Drawer';
 import { Form } from './Form';
 import { FormError } from './FormError';
 import { FormLabel } from './FormLabel';
@@ -54,6 +55,7 @@ export const theme = extendTheme({
     Alert,
     Button,
     Checkbox,
+    Drawer,
     Form,
     FormError,
     FormLabel,

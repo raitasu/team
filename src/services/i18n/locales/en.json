@@ -4,15 +4,15 @@
       "sign_in": "Sign in"
     },
     "employees": {
-      "add_employee": "New employee",
-      "filter": "Filter"
+      "add_employee": "New employee"
     },
     "general": {
       "add": "Add",
       "delete": "Delete",
       "logout": "Log out",
       "no": "No",
-      "yes": "Yes"
+      "yes": "Yes",
+      "reset_filters": "Reset Filters"
     },
     "projects": {
       "add_project": "New project"
@@ -55,6 +55,12 @@
         "job_title": "Position",
         "projects": "Current projects"
       }
+    },
+    "general": {
+      "filters": "Filters"
     }
+  },
+  "tooltips": {
+    "filter": "Filter"
   }
 }

@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
-import { PageContainer } from '~/shared/layout/components/PageContainer';
-import { PageTitle } from '~/shared/layout/components/PageTitle';
+import { PageContainer } from '~/shared/layout/Page/PageContainer';
+import { PageTitle } from '~/shared/layout/Page/PageTitle';
 
 export const Onboarding = () => {
   const [t] = useTranslation();

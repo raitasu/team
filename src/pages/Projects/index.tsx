@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 
-import { PageContainer } from '~/shared/layout/components/PageContainer';
-import { PageTitle } from '~/shared/layout/components/PageTitle';
+import { ProjectsFiltersDrawer } from '~/features/projects/Filters';
+import { PageContainer } from '~/shared/layout/Page/PageContainer';
+import { PageTitle } from '~/shared/layout/Page/PageTitle';
 import { Button } from '~/shared/ui/components/Button';
 
 export const Projects = () => {
@@ -11,7 +12,7 @@ export const Projects = () => {
     <PageContainer>
       <PageTitle
         title={t('navigation:links.projects')}
-        onFilterBtnClick={() => ({})}
+        filterPanelContent={<ProjectsFiltersDrawer />}
         action={
           <Button
             variant="primaryOutline"

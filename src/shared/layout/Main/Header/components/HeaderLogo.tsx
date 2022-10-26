@@ -2,7 +2,7 @@ import { Box, Img } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
-import logo from '~/shared/layout/Header/assets/logo.svg';
+import logo from '~/shared/layout/Main/Header/assets/logo.svg';
 
 export const HeaderLogo = () => (
   <Box flexShrink={0}>

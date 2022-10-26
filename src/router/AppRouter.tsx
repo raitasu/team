@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 
 import { Route, Routes } from 'react-router';
+import { Navigate } from 'react-router-dom';
 
 import { PrivateOnlyRoutes } from '~/router/guards/PrivateOnlyRoutes';
 import { PublicOnlyRoutes } from '~/router/guards/PublicOnlyRoutes';
@@ -17,7 +18,7 @@ import {
   LoadableProjects
 } from '~/router/LoadablePages';
 import { PagePaths } from '~/router/router.constants';
-import { MainLayout } from '~/shared/layout/MainLayout';
+import { MainLayout } from '~/shared/layout/Main/MainLayout';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
 
 export const AppRouter = () => (
@@ -25,6 +26,10 @@ export const AppRouter = () => (
     <Routes>
       <Route element={<PrivateOnlyRoutes />}>
         <Route element={<MainLayout />}>
+          <Route
+            path="/"
+            element={<Navigate to={PagePaths.Employees} />}
+          />
           <Route
             path={PagePaths.Employees}
             element={
