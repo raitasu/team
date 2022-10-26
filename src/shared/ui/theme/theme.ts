@@ -8,6 +8,7 @@ import { FormError } from './FormError';
 import { FormLabel } from './FormLabel';
 import { Heading } from './Heading';
 import { Input } from './Input';
+import { Menu } from './Menu';
 import { Modal } from './Modal';
 import { NumberInput } from './NumberInput';
 import { Table } from './Table';
@@ -57,6 +58,7 @@ export const theme = extendTheme({
     FormError,
     FormLabel,
     Input,
+    Menu,
     Modal,
     NumberInput,
     Table,
