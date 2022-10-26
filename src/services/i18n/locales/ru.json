@@ -12,7 +12,8 @@
       "logout": "Выход",
       "no": "Нет",
       "yes": "Да",
-      "reset_filters": "Сбросить фильтры"
+      "reset_filters": "Сбросить фильтры",
+      "go_to_page": "Перейти на страницу"
     },
     "projects": {
       "add_project": "Новый проект"
@@ -58,9 +59,19 @@
     },
     "general": {
       "filters": "Фильтры"
+    },
+    "pagination": {
+      "page": "Страница",
+      "of": "из"
     }
   },
   "tooltips": {
     "filter": "Фильтр"
+  },
+  "other": {
+    "texts": {
+      "current_page": "Текущая страница",
+      "page": "страница"
+    }
   }
 }

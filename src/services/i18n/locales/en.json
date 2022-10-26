@@ -12,7 +12,8 @@
       "logout": "Log out",
       "no": "No",
       "yes": "Yes",
-      "reset_filters": "Reset Filters"
+      "reset_filters": "Reset Filters",
+      "go_to_page": "Go to page"
     },
     "projects": {
       "add_project": "New project"
@@ -58,9 +59,19 @@
     },
     "general": {
       "filters": "Filters"
+    },
+    "pagination": {
+      "page": "Page",
+      "of": "of"
     }
   },
   "tooltips": {
     "filter": "Filter"
+  },
+  "other": {
+    "texts": {
+      "current_page": "Current page",
+      "page": "page"
+    }
   }
 }
