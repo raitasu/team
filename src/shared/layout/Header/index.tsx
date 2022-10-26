@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { PagePaths } from '~/router/router.constants';
 
 import logo from './assets/logo.svg';
+import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { ProfileContainer } from './components/Profile';
 
 export const Header = () => {
@@ -73,6 +74,7 @@ export const Header = () => {
             className="filler"
             flexGrow="1"
           />
+          <LanguageSwitcher />
           <ProfileContainer />
         </Box>
       </Box>
