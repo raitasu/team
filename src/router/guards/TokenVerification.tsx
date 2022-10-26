@@ -2,6 +2,8 @@ import React from 'react';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
 import { useGetCurrentUserQuery } from '~/shared/store/api/user.api';
+import { selectIsLoggedIn } from '~/shared/store/slices/auth/auth.selectors';
+import { useAppSelector } from '~/shared/store/store.hooks';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
 
 export const TokenVerification = ({
@@ -10,11 +12,12 @@ export const TokenVerification = ({
   children: React.ReactElement;
 }) => {
   const token = localStorage.getItem(LocalStorageKey.AuthToken);
-  const { isLoading } = useGetCurrentUserQuery(undefined, {
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+  const { isLoading, isSuccess } = useGetCurrentUserQuery(undefined, {
     skip: !token
   });
 
-  if (isLoading) {
+  if (isLoading || (isSuccess && !isLoggedIn)) {
     return <PageLoader />;
   }
 

@@ -10,8 +10,12 @@
     "general": {
       "add": "Добавить",
       "delete": "Удалить",
+      "logout": "Выход",
       "no": "Нет",
       "yes": "Да"
+    },
+    "projects": {
+      "add_project": "Новый проект"
     }
   },
   "enums": {
@@ -31,11 +35,9 @@
       "employees": "Сотрудники",
       "offboarding": "Оффбординг",
       "onboarding": "Онбординг",
-      "projects": "Проекты"
-    },
-    "profile": {
       "profile": "Профиль",
-      "log_out": "Выход"
+      "project": "Project",
+      "projects": "Проекты"
     }
   },
   "titles": {

@@ -1,4 +1,4 @@
-import { useDisclosure } from '@chakra-ui/react';
+import { Box, useDisclosure } from '@chakra-ui/react';
 
 import { useGetCurrentUserQuery } from '~/shared/store/api/user.api';
 import { loggedOut } from '~/shared/store/slices/auth/auth.slice';
@@ -17,7 +17,7 @@ export const ProfileContainer = () => {
   }
 
   return (
-    <>
+    <Box>
       <Profile
         employee={employee}
         onLogout={onOpen}
@@ -27,6 +27,6 @@ export const ProfileContainer = () => {
         onClose={onClose}
         onConfirm={() => dispatch(loggedOut())}
       />
-    </>
+    </Box>
   );
 };

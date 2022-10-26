@@ -6,5 +6,5 @@ import { useAppSelector } from '~/shared/store/store.hooks';
 
 export const PublicOnlyRoutes = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);
-  return isLoggedIn ? <Navigate to={PagePaths.Main} /> : <Outlet />;
+  return isLoggedIn ? <Navigate to={PagePaths.Employees} /> : <Outlet />;
 };

@@ -1,23 +1,29 @@
-import { Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
+import { MdAdd } from 'react-icons/md';
 
 import { EmployeesTableContainer } from '~/features/employees/Table';
-import { PageHeader } from '~/shared/layout/PageHeader';
+import { PageContainer } from '~/shared/layout/components/PageContainer';
+import { PageTitle } from '~/shared/layout/components/PageTitle';
+import { Button } from '~/shared/ui/components/Button';
 
 export const Employees = () => {
   const [t] = useTranslation();
 
   return (
-    <>
-      <PageHeader
+    <PageContainer>
+      <PageTitle
         title={t('navigation:links.employees')}
-        onAddButtonClick={() => ({})}
-        onFilterButtonClick={() => ({})}
-        isAdmin={false}
+        action={
+          <Button
+            variant="primaryOutline"
+            leftIcon={<MdAdd />}
+          >
+            {t('actions:employees.add_employee')}
+          </Button>
+        }
+        onFilterBtnClick={() => ({})}
       />
-      <Box margin="10px 110px 16px 110px">
-        <EmployeesTableContainer />
-      </Box>
-    </>
+      <EmployeesTableContainer />
+    </PageContainer>
   );
 };

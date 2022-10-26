@@ -10,8 +10,12 @@
     "general": {
       "add": "Add",
       "delete": "Delete",
+      "logout": "Log out",
       "no": "No",
       "yes": "Yes"
+    },
+    "projects": {
+      "add_project": "New project"
     }
   },
   "enums": {
@@ -31,11 +35,9 @@
       "employees": "Employees",
       "offboarding": "Offboarding",
       "onboarding": "Onboarding",
-      "projects": "Projects"
-    },
-    "profile": {
       "profile": "Profile",
-      "log_out": "Log out"
+      "project": "Project",
+      "projects": "Projects"
     }
   },
   "titles": {

@@ -2,9 +2,9 @@ import {
   Box,
   Menu,
   MenuButton,
-  MenuList,
-  MenuItem,
   MenuDivider,
+  MenuItem,
+  MenuList,
   Text
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
@@ -58,17 +58,17 @@ export const Profile = ({
         </Box>
       </MenuButton>
       <MenuList>
-        <Link to={PagePaths.Profile}>
-          <MenuItem icon={<MdAccountCircle />}>
-            {t('navigation:profile.profile')}
+        <Link to={`${PagePaths.Employees}/${employee.id}`}>
+          <MenuItem icon={<MdAccountCircle size="20px" />}>
+            {t('navigation:links.profile')}
           </MenuItem>
         </Link>
         <MenuDivider />
         <MenuItem
-          icon={<MdInput />}
+          icon={<MdInput size="20px" />}
           onClick={onLogout}
         >
-          {t('navigation:profile.log_out')}
+          {t('actions:general.logout')}
         </MenuItem>
       </MenuList>
     </Menu>

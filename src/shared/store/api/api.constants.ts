@@ -1,4 +1,4 @@
 export const ApiTags = {
-  Auth: 'auth',
+  Authentication: 'auth',
   CurrentUser: 'currentUser'
 } as const;

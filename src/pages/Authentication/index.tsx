@@ -10,7 +10,7 @@ import {
   useGetCurrentUserQuery
 } from '~/shared/store/api/user.api';
 
-export const Auth = () => {
+export const Authentication = () => {
   const [t] = useTranslation();
   const { search } = useLocation();
   const code = new URLSearchParams(search).get('code');

@@ -6,13 +6,14 @@ import { PrivateOnlyRoutes } from '~/router/guards/PrivateOnlyRoutes';
 import { PublicOnlyRoutes } from '~/router/guards/PublicOnlyRoutes';
 import { TokenVerification } from '~/router/guards/TokenVerification';
 import {
-  LoadableAuth,
+  LoadableAuthentication,
+  LoadableEmployee,
   LoadableEmployees,
   LoadableLogin,
   LoadableNotFound,
   LoadableOffboarding,
-  LoadableOnboadrding,
-  LoadableProfile,
+  LoadableOnboarding,
+  LoadableProject,
   LoadableProjects
 } from '~/router/LoadablePages';
 import { PagePaths } from '~/router/router.constants';
@@ -25,7 +26,7 @@ export const AppRouter = () => (
       <Route element={<PrivateOnlyRoutes />}>
         <Route element={<MainLayout />}>
           <Route
-            path={PagePaths.Main}
+            path={PagePaths.Employees}
             element={
               <Suspense fallback={<PageLoader />}>
                 <LoadableEmployees />
@@ -33,18 +34,18 @@ export const AppRouter = () => (
             }
           />
           <Route
-            path={PagePaths.Onboarding}
+            path={`${PagePaths.Employees}/:id`}
             element={
               <Suspense fallback={<PageLoader />}>
-                <LoadableOnboadrding />
+                <LoadableEmployee />
               </Suspense>
             }
           />
           <Route
-            path={PagePaths.Projects}
+            path={PagePaths.Onboarding}
             element={
               <Suspense fallback={<PageLoader />}>
-                <LoadableProjects />
+                <LoadableOnboarding />
               </Suspense>
             }
           />
@@ -57,10 +58,18 @@ export const AppRouter = () => (
             }
           />
           <Route
-            path={PagePaths.Profile}
+            path={PagePaths.Projects}
             element={
               <Suspense fallback={<PageLoader />}>
-                <LoadableProfile />
+                <LoadableProjects />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${PagePaths.Projects}/:id`}
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <LoadableProject />
               </Suspense>
             }
           />
@@ -68,10 +77,10 @@ export const AppRouter = () => (
       </Route>
       <Route element={<PublicOnlyRoutes />}>
         <Route
-          path={PagePaths.Auth}
+          path={PagePaths.Authentication}
           element={
             <Suspense fallback={<PageLoader />}>
-              <LoadableAuth />
+              <LoadableAuthentication />
             </Suspense>
           }
         />

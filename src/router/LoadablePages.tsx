@@ -12,26 +12,32 @@ export const LoadableEmployees = React.lazy(() =>
   }))
 );
 
+export const LoadableProjects = React.lazy(() =>
+  import('~/pages/Projects').then(({ Projects: element }) => ({
+    default: element
+  }))
+);
+
+export const LoadableProject = React.lazy(() =>
+  import('~/pages/Project').then(({ Project: element }) => ({
+    default: element
+  }))
+);
+
 export const LoadableLogin = React.lazy(() =>
   import('~/pages/Login').then(({ Login: element }) => ({
     default: element
   }))
 );
 
-export const LoadableAuth = React.lazy(() =>
-  import('~/pages/Auth').then(({ Auth: element }) => ({
+export const LoadableAuthentication = React.lazy(() =>
+  import('~/pages/Authentication').then(({ Authentication: element }) => ({
     default: element
   }))
 );
 
-export const LoadableOnboadrding = React.lazy(() =>
+export const LoadableOnboarding = React.lazy(() =>
   import('~/pages/Onboarding').then(({ Onboarding: element }) => ({
-    default: element
-  }))
-);
-
-export const LoadableProjects = React.lazy(() =>
-  import('~/pages/Projects').then(({ Projects: element }) => ({
     default: element
   }))
 );
@@ -42,8 +48,8 @@ export const LoadableOffboarding = React.lazy(() =>
   }))
 );
 
-export const LoadableProfile = React.lazy(() =>
-  import('~/pages/Profile').then(({ Profile: element }) => ({
+export const LoadableEmployee = React.lazy(() =>
+  import('~/pages/Employee').then(({ Employee: element }) => ({
     default: element
   }))
 );

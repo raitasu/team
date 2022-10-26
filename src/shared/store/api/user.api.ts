@@ -31,7 +31,7 @@ const userApiSlice = rootApiSlice.injectEndpoints({
       }
     }),
     getAccessToken: builder.query<AuthTokens, string>({
-      providesTags: [ApiTags.Auth],
+      providesTags: [ApiTags.Authentication],
       query: (code) => ({
         url: 'login',
         method: 'POST',

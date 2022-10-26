@@ -1,83 +1,47 @@
-import { Box, Img, ListItem, UnorderedList } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { Box } from '@chakra-ui/react';
 
-import { PagePaths } from '~/router/router.constants';
+import { HeaderLogo } from '~/shared/layout/Header/components/HeaderLogo';
+import { NavBar } from '~/shared/layout/Header/components/NavBar';
 
-import logo from './assets/logo.svg';
 import { LanguageSwitcher } from './components/LanguageSwitcher';
 import { ProfileContainer } from './components/Profile';
 
-export const Header = () => {
-  const [t] = useTranslation();
-  return (
+export const Header = () => (
+  <Box
+    height="80px"
+    bg="brand.background2"
+    width="100%"
+  >
     <Box
-      position="relative"
-      top="0"
-      left="0"
-      right="0"
-      height="80px"
       bg="brand.background2"
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      maxWidth="1380px"
+      margin="auto"
+      padding="0 20px"
+      height="100%"
+      width="100%"
     >
+      <HeaderLogo />
       <Box
-        maxWidth="1380px"
-        margin="auto"
+        display="flex"
+        flex="1"
+      />
+      <NavBar />
+      <Box
+        display="flex"
+        flex="2"
+      />
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
         height="100%"
-        padding="0 20px"
       >
-        <Box
-          display="flex"
-          alignItems="center"
-          height="100%"
-          fontSize="md"
-          color="brand.headline"
-        >
-          <Box>
-            <NavLink to={PagePaths.Main}>
-              <Img
-                height="40px"
-                src={logo}
-                alt="Logo team"
-              />
-            </NavLink>
-          </Box>
-          <UnorderedList
-            display="flex"
-            justifyContent="flex-end"
-            alignItems="center"
-            cursor="pointer"
-            marginLeft="120px"
-            listStyleType="none"
-          >
-            <ListItem marginRight="40px">
-              <NavLink to={PagePaths.Onboarding}>
-                {t('navigation:links.onboarding')}
-              </NavLink>
-            </ListItem>
-            <ListItem marginRight="40px">
-              <NavLink to={PagePaths.Main}>
-                {t('navigation:links.employees')}
-              </NavLink>
-            </ListItem>
-            <ListItem marginRight="40px">
-              <NavLink to={PagePaths.Projects}>
-                {t('navigation:links.projects')}
-              </NavLink>
-            </ListItem>
-            <ListItem marginRight="40px">
-              <NavLink to={PagePaths.Offboarding}>
-                {t('navigation:links.offboarding')}
-              </NavLink>
-            </ListItem>
-          </UnorderedList>
-          <Box
-            className="filler"
-            flexGrow="1"
-          />
-          <LanguageSwitcher />
-          <ProfileContainer />
-        </Box>
+        <LanguageSwitcher />
+        <ProfileContainer />
       </Box>
     </Box>
-  );
-};
+  </Box>
+);
