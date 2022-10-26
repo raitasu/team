@@ -4,5 +4,6 @@ export const PagePaths = {
   Main: '/',
   Offboarding: '/offboarding',
   Onboarding: '/onboarding',
+  Profile: '/profile',
   Projects: '/projects'
 } as const;

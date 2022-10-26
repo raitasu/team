@@ -12,6 +12,7 @@ import {
   LoadableNotFound,
   LoadableOffboarding,
   LoadableOnboadrding,
+  LoadableProfile,
   LoadableProjects
 } from '~/router/LoadablePages';
 import { PagePaths } from '~/router/router.constants';
@@ -56,10 +57,10 @@ export const AppRouter = () => (
             }
           />
           <Route
-            path="*"
+            path={PagePaths.Profile}
             element={
               <Suspense fallback={<PageLoader />}>
-                <LoadableNotFound />
+                <LoadableProfile />
               </Suspense>
             }
           />
@@ -83,6 +84,14 @@ export const AppRouter = () => (
           }
         />
       </Route>
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={<PageLoader />}>
+            <LoadableNotFound />
+          </Suspense>
+        }
+      />
     </Routes>
   </TokenVerification>
 );

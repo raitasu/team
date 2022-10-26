@@ -41,3 +41,9 @@ export const LoadableOffboarding = React.lazy(() =>
     default: element
   }))
 );
+
+export const LoadableProfile = React.lazy(() =>
+  import('~/pages/Profile').then(({ Profile: element }) => ({
+    default: element
+  }))
+);
