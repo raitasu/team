@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Employee } from '~/shared/store/api/api.types';
 import { Avatar } from '~/shared/ui/components/Avatar';
-import { BaseTooltip } from '~/shared/ui/components/Tooltip';
+import { Tooltip } from '~/shared/ui/components/Tooltip';
 
 export const NameCell = ({ row, getValue }: CellContext<Employee, string>) => {
   const [t] = useTranslation();
@@ -14,7 +14,7 @@ export const NameCell = ({ row, getValue }: CellContext<Employee, string>) => {
       gap={2}
       alignItems="center"
     >
-      <BaseTooltip
+      <Tooltip
         hasArrow
         place="left"
         labelText={t(`enums:employee_status.${row.original.status}`)}
@@ -24,7 +24,7 @@ export const NameCell = ({ row, getValue }: CellContext<Employee, string>) => {
           size="sm"
           src={row.original.avatar.url ?? undefined}
         />
-      </BaseTooltip>
+      </Tooltip>
       <Text
         variant="mm"
         color="brand.headline"

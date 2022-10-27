@@ -1,16 +1,16 @@
 import {
   Box,
-  Button,
   ButtonGroup,
-  FormControl,
   FormLabel,
   Input,
   useDisclosure
 } from '@chakra-ui/react';
 
-import { BaseModal } from '~/shared/ui/components/Modal';
+import { BaseModal } from '~/shared/ui/components/BaseModal';
 
 import { Avatar } from '../components/Avatar';
+import { Button } from '../components/Button';
+import { FormControl } from '../components/FormControl';
 
 export default {
   title: 'UI/Modals',

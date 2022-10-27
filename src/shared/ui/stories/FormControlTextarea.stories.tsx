@@ -1,6 +1,6 @@
-import { Box, FormControl, Grid, Heading, Textarea } from '@chakra-ui/react';
+import { Box, Grid, Heading, Textarea } from '@chakra-ui/react';
 
-import { BaseFormControl } from '../components/FormControl';
+import { FormControl } from '../components/FormControl';
 
 export default {
   title: 'UI/FormControls Textarea',
@@ -21,7 +21,7 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl
+        <FormControl
           label="Label"
           helperText="This is a caption"
         >
@@ -29,16 +29,16 @@ export const Variants = () => (
             placeholder="Hello"
             variant="outline"
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl label="Label">
+        <FormControl label="Label">
           <Textarea
             placeholder="Hello"
             variant="outline"
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           isError
           errorMessage="This is an error caption!"
@@ -47,7 +47,7 @@ export const Variants = () => (
             placeholder="Hello"
             variant="outline"
           />
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
 
@@ -63,21 +63,21 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl helperText="This is a caption">
+        <FormControl helperText="This is a caption">
           <Textarea
             placeholder="Hello"
             variant="outline"
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl>
+        <FormControl>
           <Textarea
             placeholder="Hello"
             variant="outline"
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           isError
           errorMessage="This is an error caption!"
         >
@@ -85,7 +85,7 @@ export const Variants = () => (
             placeholder="Hello"
             variant="outline"
           />
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
 
@@ -101,7 +101,7 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl
+        <FormControl
           label="Label"
           helperText="This is a caption"
           isRequired
@@ -110,9 +110,9 @@ export const Variants = () => (
             placeholder="Hello"
             variant="outline"
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           isRequired
         >
@@ -120,9 +120,9 @@ export const Variants = () => (
             placeholder="Hello"
             variant="outline"
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           isError
           errorMessage="This is an error caption!"
@@ -132,7 +132,7 @@ export const Variants = () => (
             placeholder="Hello"
             variant="outline"
           />
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
   </>

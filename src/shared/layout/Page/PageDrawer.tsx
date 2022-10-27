@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { MdOutlineFilterAlt } from 'react-icons/md';
 
 import { IconButton } from '~/shared/ui/components/IconButton';
-import { BaseTooltip } from '~/shared/ui/components/Tooltip';
+import { Tooltip } from '~/shared/ui/components/Tooltip';
 
 export const PageDrawer = ({
   children,
@@ -22,7 +22,7 @@ export const PageDrawer = ({
 
   return (
     <>
-      <BaseTooltip
+      <Tooltip
         hasArrow
         place="right"
         labelText={t('tooltips:filter')}
@@ -39,7 +39,7 @@ export const PageDrawer = ({
           }}
           icon={<MdOutlineFilterAlt />}
         />
-      </BaseTooltip>
+      </Tooltip>
       <Drawer
         isOpen={isOpen}
         placement="right"

@@ -1,7 +1,7 @@
-import { Box, FormControl, Grid, Heading } from '@chakra-ui/react';
+import { Box, Grid, Heading } from '@chakra-ui/react';
 
-import { BaseFormControl } from '../components/FormControl';
-import { BaseNumberInput } from '../components/NumberInput';
+import { FormControl } from '../components/FormControl';
+import { NumberInput } from '../components/NumberInput';
 
 export default {
   title: 'UI/FormControls Number Input',
@@ -22,35 +22,35 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl
+        <FormControl
           label="Label"
           helperText="This is a caption"
         >
-          <BaseNumberInput
+          <NumberInput
             defaultValue="0"
             min={0}
             max={5}
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl label="Label">
-          <BaseNumberInput
+        <FormControl label="Label">
+          <NumberInput
             defaultValue="0"
             min={0}
             max={5}
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           errorMessage="This is an error caption!"
         >
-          <BaseNumberInput
+          <NumberInput
             defaultValue="0"
             min={0}
             max={5}
           />
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
 
@@ -66,32 +66,32 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl helperText="This is a caption">
-          <BaseNumberInput
+        <FormControl helperText="This is a caption">
+          <NumberInput
             defaultValue="0"
             min={0}
             max={5}
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl>
-          <BaseNumberInput
+        <FormControl>
+          <NumberInput
             defaultValue="0"
             min={0}
             max={5}
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           isError
           errorMessage="This is an error caption!"
         >
-          <BaseNumberInput
+          <NumberInput
             defaultValue="0"
             min={0}
             max={5}
           />
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
 
@@ -107,41 +107,41 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl
+        <FormControl
           label="Label"
           helperText="This is a caption"
           isRequired
         >
-          <BaseNumberInput
+          <NumberInput
             defaultValue="0"
             min={0}
             max={5}
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           isRequired
         >
-          <BaseNumberInput
+          <NumberInput
             defaultValue="0"
             min={0}
             max={5}
           />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           isError
           errorMessage="This is an error caption!"
           isRequired
         >
-          <BaseNumberInput
+          <NumberInput
             defaultValue="0"
             min={0}
             max={5}
           />
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
   </>

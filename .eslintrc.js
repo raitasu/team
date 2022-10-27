@@ -19,6 +19,12 @@ module.exports = {
       }
     },
     {
+      files: ['**/shared/ui/components/**/*.[jt]sx?(x)'],
+      rules: {
+        'no-restricted-imports': 'off'
+      }
+    },
+    {
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
       extends: ['plugin:testing-library/react']
     }

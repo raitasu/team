@@ -1,10 +1,10 @@
 import { Box, SimpleGrid } from '@chakra-ui/react';
 
-import { BaseTooltip } from '../components/Tooltip';
+import { Tooltip } from '../components/Tooltip';
 
 export default {
   title: 'UI/Tooltips',
-  component: BaseTooltip
+  component: Tooltip
 };
 
 export const Variants = ({ ...argTypes }) => (
@@ -18,11 +18,11 @@ export const Variants = ({ ...argTypes }) => (
     spacingY="40px"
     justifyItems="center"
   >
-    <BaseTooltip
+    <Tooltip
       hasArrow
       {...argTypes}
     >
       <Box>Hover me on, please</Box>
-    </BaseTooltip>
+    </Tooltip>
   </SimpleGrid>
 );

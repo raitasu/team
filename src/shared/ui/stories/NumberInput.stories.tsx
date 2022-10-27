@@ -1,15 +1,15 @@
 import { Box } from '@chakra-ui/react';
 
-import { BaseNumberInput } from '../components/NumberInput';
+import { NumberInput } from '../components/NumberInput';
 
 export default {
   title: 'UI/NumberInput',
-  component: BaseNumberInput
+  component: NumberInput
 };
 
 export const Variants = () => (
   <Box width="272px">
-    <BaseNumberInput
+    <NumberInput
       width="100%"
       defaultValue="0"
       min={0}

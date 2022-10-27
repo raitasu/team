@@ -1,6 +1,5 @@
 import {
   Box,
-  FormControl,
   Grid,
   Heading,
   Input,
@@ -9,7 +8,7 @@ import {
 } from '@chakra-ui/react';
 import { MdSearch } from 'react-icons/md';
 
-import { BaseFormControl } from '../components/FormControl';
+import { FormControl } from '../components/FormControl';
 
 export default {
   title: 'UI/FormControls Search',
@@ -30,7 +29,7 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl
+        <FormControl
           label="Label"
           helperText="This is a caption"
         >
@@ -40,18 +39,18 @@ export const Variants = () => (
             </InputLeftElement>
             <Input placeholder="Enter text" />
           </InputGroup>
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl label="Label">
+        <FormControl label="Label">
           <InputGroup>
             <InputLeftElement color="brand.lightGray">
               <MdSearch size="20px" />
             </InputLeftElement>
             <Input placeholder="Enter text" />
           </InputGroup>
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           errorMessage="This is an error caption!"
         >
@@ -61,7 +60,7 @@ export const Variants = () => (
             </InputLeftElement>
             <Input placeholder="Enter text" />
           </InputGroup>
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
 
@@ -77,25 +76,25 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl helperText="This is a caption">
+        <FormControl helperText="This is a caption">
           <InputGroup>
             <InputLeftElement color="brand.lightGray">
               <MdSearch size="20px" />
             </InputLeftElement>
             <Input placeholder="Enter text" />
           </InputGroup>
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl>
+        <FormControl>
           <InputGroup>
             <InputLeftElement color="brand.lightGray">
               <MdSearch size="20px" />
             </InputLeftElement>
             <Input placeholder="Enter text" />
           </InputGroup>
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           isError
           errorMessage="This is an error caption!"
         >
@@ -105,7 +104,7 @@ export const Variants = () => (
             </InputLeftElement>
             <Input placeholder="Enter text" />
           </InputGroup>
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
 
@@ -121,7 +120,7 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl
+        <FormControl
           label="Label"
           helperText="This is a caption"
           isRequired
@@ -132,9 +131,9 @@ export const Variants = () => (
             </InputLeftElement>
             <Input placeholder="Enter text" />
           </InputGroup>
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           isRequired
         >
@@ -144,9 +143,9 @@ export const Variants = () => (
             </InputLeftElement>
             <Input placeholder="Enter text" />
           </InputGroup>
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           isError
           errorMessage="This is an error caption!"
@@ -158,7 +157,7 @@ export const Variants = () => (
             </InputLeftElement>
             <Input placeholder="Enter text" />
           </InputGroup>
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
   </>

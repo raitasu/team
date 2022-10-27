@@ -1,6 +1,6 @@
-import { Box, FormControl, Grid, Heading, Input } from '@chakra-ui/react';
+import { Box, Grid, Heading, Input } from '@chakra-ui/react';
 
-import { BaseFormControl } from '../components/FormControl';
+import { FormControl } from '../components/FormControl';
 
 export default {
   title: 'UI/FormControls',
@@ -21,23 +21,23 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl
+        <FormControl
           label="Label"
           helperText="This is a caption"
         >
           <Input placeholder="Enter text" />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl label="Label">
+        <FormControl label="Label">
           <Input placeholder="Enter text" />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           errorMessage="This is an error caption!"
         >
           <Input placeholder="Enter text" />
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
 
@@ -53,20 +53,20 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl helperText="This is a caption">
+        <FormControl helperText="This is a caption">
           <Input placeholder="Enter text" />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl>
+        <FormControl>
           <Input placeholder="Enter text" />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           isError
           errorMessage="This is an error caption!"
         >
           <Input placeholder="Enter text" />
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
 
@@ -82,29 +82,29 @@ export const Variants = () => (
         gap="20px"
         templateColumns="repeat(2, 1fr)"
       >
-        <BaseFormControl
+        <FormControl
           label="Label"
           helperText="This is a caption"
           isRequired
         >
           <Input placeholder="Enter text" />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           isRequired
         >
           <Input placeholder="Enter text" />
-        </BaseFormControl>
+        </FormControl>
 
-        <BaseFormControl
+        <FormControl
           label="Label"
           isError
           errorMessage="This is an error caption!"
           isRequired
         >
           <Input placeholder="Enter text" />
-        </BaseFormControl>
+        </FormControl>
       </Grid>
     </Box>
   </>

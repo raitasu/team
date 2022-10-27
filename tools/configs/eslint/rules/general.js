@@ -177,6 +177,30 @@ module.exports = {
   'unicode-bom': ['warn', 'never'],
   'use-isnan': 'warn',
   'valid-typeof': 'warn',
+  'no-restricted-imports': [
+    'error',
+    {
+      paths: [
+        {
+          name: '@chakra-ui/react',
+          importNames: [
+            'Alert',
+            'Avatar',
+            'Button',
+            'Checkbox',
+            'FormControl',
+            'IconButton',
+            'NumberInput',
+            'ProgressBar',
+            'Select',
+            'Tooltip'
+          ],
+          message:
+            "Please use the import from '~/shared/ui/components' instead."
+        }
+      ]
+    }
+  ],
   eqeqeq: ['warn', 'smart'],
   strict: ['warn', 'never']
 };

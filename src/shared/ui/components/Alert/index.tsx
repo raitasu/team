@@ -1,5 +1,10 @@
 import { AlertProps } from '@chakra-ui/alert';
-import { Alert, AlertDescription, Box, CloseButton } from '@chakra-ui/react';
+import {
+  Alert as ChakraAlert,
+  AlertDescription,
+  Box,
+  CloseButton
+} from '@chakra-ui/react';
 import {
   MdClose,
   MdOutlineCheckCircleOutline,
@@ -9,14 +14,14 @@ import {
 import { AlertStyles as styles } from './alert.styles';
 import { BaseAlertProps } from './alert.types';
 
-export const BaseAlert = ({
+export const Alert = ({
   status,
   variant,
   message = 'This is a description',
   onClose,
   ...passThroughProps
 }: AlertProps & BaseAlertProps) => (
-  <Alert
+  <ChakraAlert
     {...passThroughProps}
     status={status}
     variant={variant}
@@ -40,11 +45,9 @@ export const BaseAlert = ({
       boxSize="19px"
       ml="auto"
       onClick={onClose}
+      color="brand.ghostGray"
     >
-      <MdClose
-        size="19px"
-        color="#646271"
-      />
+      <MdClose size="19px" />
     </CloseButton>
-  </Alert>
+  </ChakraAlert>
 );

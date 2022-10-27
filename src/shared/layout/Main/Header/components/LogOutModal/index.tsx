@@ -1,8 +1,8 @@
 import { Box, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
+import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { Button } from '~/shared/ui/components/Button';
-import { BaseModal } from '~/shared/ui/components/Modal';
 
 export const LogOutModal = ({
   isOpen,

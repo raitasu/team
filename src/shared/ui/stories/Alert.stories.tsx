@@ -1,10 +1,12 @@
-import { VStack, Stack, useDisclosure, Button } from '@chakra-ui/react';
+import { Stack, useDisclosure, VStack } from '@chakra-ui/react';
 
-import { BaseAlert } from '../components/Alert';
+import { Button } from '~/shared/ui/components/Button';
+
+import { Alert } from '../components/Alert';
 
 export default {
   title: 'UI/Alert',
-  component: BaseAlert
+  component: Alert
 };
 
 export const Variants = () => {
@@ -31,7 +33,7 @@ export const Variants = () => {
         justifyContent="center"
       >
         {isVisibleError ? (
-          <BaseAlert
+          <Alert
             isError
             status="error"
             onClose={onCloseError}
@@ -47,7 +49,7 @@ export const Variants = () => {
         justifyContent="center"
       >
         {isVisible ? (
-          <BaseAlert
+          <Alert
             status="success"
             onClose={onClose}
             onOpen={onOpen}

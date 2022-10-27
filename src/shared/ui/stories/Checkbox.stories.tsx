@@ -1,10 +1,10 @@
 import { Stack } from '@chakra-ui/react';
 
-import { BaseCheckbox } from '../components/Checkbox';
+import { Checkbox } from '../components/Checkbox';
 
 export default {
   title: 'UI/Checkboxes',
-  component: BaseCheckbox
+  component: Checkbox
 };
 
 export const Variants = () => (
@@ -12,10 +12,10 @@ export const Variants = () => (
     spacing={5}
     direction="column"
   >
-    <BaseCheckbox />
-    <BaseCheckbox isChecked />
-    <BaseCheckbox isDisabled />
-    <BaseCheckbox
+    <Checkbox />
+    <Checkbox isChecked />
+    <Checkbox isDisabled />
+    <Checkbox
       isChecked
       isDisabled
     />

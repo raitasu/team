@@ -14,6 +14,7 @@ export const Button = {
   variants: {
     primaryOutline: {
       color: 'brand.accentRed',
+      bg: 'brand.background2',
       boxShadow: '0 0 0 1px var(--chakra-colors-brand-stroke)',
       _hover: {
         boxShadow: '0 0 0 1px var(--chakra-colors-brand-darkGray)'
@@ -93,6 +94,7 @@ export const Button = {
       width: '48px',
       height: '32px',
       color: 'brand.ghostGray',
+      bg: 'brand.background2',
       boxShadow: '0 0 0 1px var(--chakra-colors-brand-stroke)',
       _hover: {
         boxShadow: '0 0 0 1px var(--chakra-colors-brand-ghostGray)'

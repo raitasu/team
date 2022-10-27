@@ -1,20 +1,20 @@
 import {
-  FormControl,
-  FormLabel,
+  FormControl as ChakraFormControl,
   FormErrorMessage,
-  FormHelperText
+  FormHelperText,
+  FormLabel
 } from '@chakra-ui/react';
 
 import { BaseFormControlProps } from './formControl.types';
 
-export const BaseFormControl = ({
+export const FormControl = ({
   label,
   helperText,
   errorMessage,
   children,
   ...passThroughProps
 }: BaseFormControlProps) => (
-  <FormControl
+  <ChakraFormControl
     {...passThroughProps}
     width="100%"
     isInvalid={Boolean(errorMessage)}
@@ -25,5 +25,5 @@ export const BaseFormControl = ({
 
     {helperText ? <FormHelperText>{helperText}</FormHelperText> : null}
     {errorMessage ? <FormErrorMessage>{errorMessage}</FormErrorMessage> : null}
-  </FormControl>
+  </ChakraFormControl>
 );

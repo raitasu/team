@@ -1,5 +1,6 @@
-import { FormControl, FormLabel, Stack } from '@chakra-ui/react';
+import { FormLabel, Stack } from '@chakra-ui/react';
 
+import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 
 export default {
@@ -63,7 +64,7 @@ export const Variants = () => (
     width="320px"
     spacing={6}
   >
-    <FormControl mt={4}>
+    <FormControl>
       <FormLabel color="brand.body">Simple select</FormLabel>
       <Select
         options={options}

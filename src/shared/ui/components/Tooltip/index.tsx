@@ -1,10 +1,10 @@
-import { Tooltip } from '@chakra-ui/react';
+import { Tooltip as ChakraTooltip } from '@chakra-ui/react';
 
 import { BaseTooltipProps } from './tooltip.types';
 
 const defaultMotion = { variants: {} };
 
-export const BaseTooltip = ({
+export const Tooltip = ({
   labelText = 'Enter text',
   hasArrow,
   ariaLabel = 'A Tooltip',
@@ -15,7 +15,7 @@ export const BaseTooltip = ({
   motionProps = defaultMotion,
   ...pathThroughProps
 }: BaseTooltipProps) => (
-  <Tooltip
+  <ChakraTooltip
     {...pathThroughProps}
     label={labelText}
     hasArrow={hasArrow}
@@ -26,5 +26,5 @@ export const BaseTooltip = ({
     isOpen={isOpened}
   >
     {children}
-  </Tooltip>
+  </ChakraTooltip>
 );
