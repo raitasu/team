@@ -10,13 +10,19 @@ export const NumberInput = {
         borderWidth: '1px',
         borderStyle: 'solid',
         borderColor: 'brand.stroke',
+        backgroundColor: 'brand.white',
         _hover: {
           borderColor: 'brand.lightGray'
+        },
+        _focus: {
+          borderColor: 'brand.ghostGray'
         },
         _placeholder: {
           color: 'brand.lightGray'
         },
         _disabled: {
+          opacity: '1',
+          color: 'brand.stroke',
           _hover: {
             borderColor: 'brand.stroke'
           }
