@@ -14,6 +14,7 @@ import { Modal } from './Modal';
 import { NumberInput } from './NumberInput';
 import { Table } from './Table';
 import { Tabs } from './Tabs';
+import { Tag } from './Tag';
 import { Text } from './Text';
 import { Textarea } from './Textarea';
 import { Tooltip } from './Tooltip';
@@ -65,6 +66,7 @@ export const theme = extendTheme({
     NumberInput,
     Table,
     Tabs,
+    Tag,
     Textarea,
     Heading,
     Text,
