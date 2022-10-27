@@ -30,6 +30,7 @@ const activeLinkStyles = {
 
 export const NavBar = () => {
   const [t] = useTranslation();
+
   return (
     <Box
       display="flex"

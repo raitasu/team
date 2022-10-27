@@ -27,6 +27,7 @@ export const createFetchBaseQueryWithReauth: typeof fetchBaseQuery = (
 
     if (mutex.isLocked()) {
       await mutex.waitForUnlock();
+
       return baseQuery(args, api, extraOptions);
     }
 
@@ -35,6 +36,7 @@ export const createFetchBaseQueryWithReauth: typeof fetchBaseQuery = (
 
       if (refreshToken) {
         const release = await mutex.acquire();
+
         try {
           const { data: refreshedTokens } = (await baseQuery(
             {
@@ -49,6 +51,7 @@ export const createFetchBaseQueryWithReauth: typeof fetchBaseQuery = (
 
           if (refreshedTokens) {
             api.dispatch(tokenReceived(refreshedTokens));
+
             return baseQuery(args, api, extraOptions);
           }
         } finally {

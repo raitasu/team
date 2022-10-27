@@ -10,9 +10,11 @@ export const rootApiSlice = createApi({
   baseQuery: createFetchBaseQueryWithReauth({
     prepareHeaders: (headers) => {
       const token = localStorage.getItem(LocalStorageKey.AuthToken);
+
       if (!headers.has('Authorization') && token) {
         headers.set('Authorization', token);
       }
+
       return headers;
     },
     baseUrl: `${import.meta.env.VITE_PUBLIC_API_URL}api/v1/`

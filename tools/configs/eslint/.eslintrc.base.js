@@ -1,5 +1,6 @@
 const general = require('./rules/general');
 const imports = require('./rules/imports');
+const linePaddings = require('./rules/linePaddings');
 const promises = require('./rules/promises');
 const react = require('./rules/react');
 
@@ -24,6 +25,7 @@ module.exports = {
     ...general,
     ...imports,
     ...promises,
-    ...react
+    ...react,
+    'padding-line-between-statements': ['error', ...linePaddings]
   }
 };

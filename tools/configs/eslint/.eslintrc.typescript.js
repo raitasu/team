@@ -1,5 +1,6 @@
 const path = require('path');
 
+const linePaddings = require('./rules/linePaddings');
 const namingConvention = require('./rules/namingConvention');
 
 module.exports = {
@@ -28,6 +29,15 @@ module.exports = {
       }
     ],
     '@typescript-eslint/no-useless-constructor': 'error',
+    '@typescript-eslint/padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: ['interface', 'type']
+      },
+      ...linePaddings
+    ],
     'default-case': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-array-constructor': 'off',
@@ -39,6 +49,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-use-before-define': 'off',
     'no-useless-constructor': 'off',
+    'padding-line-between-statements': 'off',
     ...namingConvention
   },
   parserOptions: {

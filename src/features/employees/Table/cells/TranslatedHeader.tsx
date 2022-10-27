@@ -12,5 +12,6 @@ export const TranslatedHeader = <TData,>({
   column: { id }
 }: HeaderContext<Employee, TData>) => {
   const [t] = useTranslation();
+
   return <span>{t(`titles:employees.table_headers.${id as HeaderKeys}`)}</span>;
 };

@@ -10,6 +10,7 @@ export const getAuthApiUrl = () => {
     response_type: 'code',
     scope: 'user'
   });
+
   return `${import.meta.env.VITE_ALFRED_URL}?${queryParams.toString()}`;
 };
 
@@ -40,6 +41,7 @@ const userApiSlice = rootApiSlice.injectEndpoints({
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
+
           dispatch(tokenReceived(data));
           // eslint-disable-next-line no-empty -- error cases are handled outside
         } catch (err) {}

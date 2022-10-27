@@ -1,10 +1,14 @@
 export const Alert = {
   baseStyle: {
     container: {
-      width: '463px',
-      height: '95px',
+      gap: '3.5',
+      width: '400px',
+      height: 'none',
+      padding: '4',
+      borderRadius: 'md',
+      boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
       border: '1px solid',
-      borderRadius: '4px'
+      bg: 'brand.background2'
     },
     title: {
       color: 'brand.headline',
@@ -13,7 +17,7 @@ export const Alert = {
       lineHeight: '120%'
     },
     description: {
-      color: 'brand.body',
+      color: 'brand.gray700',
       fontWeight: '400',
       fontSize: '16px',
       lineHeight: '120%'
@@ -23,25 +27,5 @@ export const Alert = {
       width: '20px',
       height: '20px'
     }
-  },
-  variants: {
-    solid: {
-      container: {
-        bg: 'brand.background2',
-        borderColor: 'brand.stroke'
-      }
-    },
-    subtle: {
-      container: {
-        bg: 'brand.background2',
-        borderColor: 'brand.accentRed'
-      },
-      icon: {
-        color: 'brand.accentRed'
-      }
-    }
-  },
-  defaultProps: {
-    variant: 'solid'
   }
 };

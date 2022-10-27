@@ -7,6 +7,7 @@ import { Button } from '~/shared/ui/components/Button';
 
 export const LanguageSwitcher = () => {
   const [, { language, changeLanguage }] = useTranslation();
+
   return (
     <Button
       variant="secondaryGhost"

@@ -8,6 +8,7 @@ import { Button } from '~/shared/ui/components/Button';
 
 export const Projects = () => {
   const [t] = useTranslation();
+
   return (
     <PageContainer>
       <PageTitle

@@ -43,6 +43,7 @@ export const Variants = () => {
     // eslint-disable-next-line no-alert --- mockup function
     alert('done');
   };
+
   return (
     <Box>
       <ButtonGroup spacing={6}>

@@ -35,6 +35,7 @@ export const PageDrawer = ({
             if (onFilterPanelOpen) {
               onFilterPanelOpen();
             }
+
             onOpen();
           }}
           icon={<MdOutlineFilterAlt />}

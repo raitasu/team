@@ -34,11 +34,8 @@ export const Variants = () => {
       >
         {isVisibleError ? (
           <Alert
-            isError
             status="error"
             onClose={onCloseError}
-            onOpen={onOpenError}
-            isVisible={isVisibleError}
           />
         ) : (
           <Button onClick={onOpenError}>Show Alert</Button>
@@ -52,8 +49,6 @@ export const Variants = () => {
           <Alert
             status="success"
             onClose={onClose}
-            onOpen={onOpen}
-            isVisible={isVisible}
           />
         ) : (
           <Button onClick={onOpen}>Show Alert</Button>

@@ -12,6 +12,7 @@ import { Button } from '~/shared/ui/components/Button';
 
 export const ProjectsFiltersDrawer = () => {
   const [t] = useTranslation();
+
   return (
     <DrawerContent>
       <DrawerCloseButton />

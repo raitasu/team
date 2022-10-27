@@ -24,6 +24,7 @@ export const Profile = ({
   onLogout: () => void;
 }) => {
   const [t] = useTranslation();
+
   return (
     <Menu
       placement="bottom-end"

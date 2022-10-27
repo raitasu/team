@@ -13,6 +13,7 @@ export const EmployeesTable = ({ data }: { data: Array<Employee> }) => {
     data,
     getCoreRowModel: getCoreRowModel()
   });
+
   return (
     <Table>
       <TableHeader headerGroups={table.getHeaderGroups()} />

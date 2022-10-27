@@ -16,6 +16,7 @@ export const TableHeader = ({
         {headerGroup.headers.map((header) => {
           const sorting = header.column.getIsSorted();
           const isSortableColumn = header.column.getCanSort();
+
           return (
             <Th
               key={header.id}

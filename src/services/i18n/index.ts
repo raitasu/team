@@ -22,6 +22,7 @@ i18nBase.use({
       const resources = (await import(
         `./locales/${language}.json`
       )) as typeof en;
+
       callback(null, resources[namespace]);
     } catch (error) {
       callback(error, null);

@@ -14,6 +14,7 @@ export const LogOutModal = ({
   onConfirm: () => void;
 }) => {
   const [t] = useTranslation();
+
   return (
     <BaseModal
       onClose={onClose}

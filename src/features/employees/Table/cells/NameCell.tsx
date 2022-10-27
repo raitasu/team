@@ -8,6 +8,7 @@ import { Tooltip } from '~/shared/ui/components/Tooltip';
 
 export const NameCell = ({ row, getValue }: CellContext<Employee, string>) => {
   const [t] = useTranslation();
+
   return (
     <Box
       display="flex"
