@@ -91,18 +91,6 @@ export const Variants = () => (
             size="md"
           />
         </FormControl>
-
-        <FormControl
-          label="Label"
-          isError
-          errorMessage="This is an error caption!"
-        >
-          <Select
-            options={options}
-            isMulti={false}
-            size="md"
-          />
-        </FormControl>
       </Grid>
     </Box>
 
@@ -127,17 +115,6 @@ export const Variants = () => (
         </FormControl>
 
         <FormControl>
-          <Select
-            options={options}
-            isMulti={false}
-            size="md"
-          />
-        </FormControl>
-
-        <FormControl
-          isError
-          errorMessage="This is an error caption!"
-        >
           <Select
             options={options}
             isMulti={false}
