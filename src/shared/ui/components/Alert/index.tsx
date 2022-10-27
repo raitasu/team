@@ -1,7 +1,7 @@
-import { AlertProps } from '@chakra-ui/alert';
 import {
   Alert as ChakraAlert,
   AlertDescription,
+  AlertTitle,
   Box,
   CloseButton
 } from '@chakra-ui/react';
@@ -14,33 +14,44 @@ import {
 import { AlertStyles as styles } from './alert.styles';
 import { BaseAlertProps } from './alert.types';
 
+const getAlertIcon = (status: BaseAlertProps['status']) => {
+  switch (status) {
+    case 'error':
+      return (
+        <Box color="brand.accentRed">
+          <MdOutlineErrorOutline size="20px" />
+        </Box>
+      );
+    case 'success':
+      return (
+        <Box color="brand.accentGreen">
+          <MdOutlineCheckCircleOutline size="20px" />
+        </Box>
+      );
+    default:
+      return null;
+  }
+};
+
 export const Alert = ({
   status,
   variant,
   message = 'This is a description',
   onClose,
+  heading,
   ...passThroughProps
-}: AlertProps & BaseAlertProps) => (
+}: BaseAlertProps) => (
   <ChakraAlert
     {...passThroughProps}
     status={status}
     variant={variant}
-    sx={
-      status === 'error'
-        ? { ...styles.container, ...styles.error }
-        : { ...styles.container, ...styles.success }
-    }
+    sx={status ? styles[status] : undefined}
   >
-    {status === 'error' ? (
-      <Box color="brand.red500">
-        <MdOutlineErrorOutline size="20px" />
-      </Box>
-    ) : (
-      <Box color="brand.accentGreen">
-        <MdOutlineCheckCircleOutline size="20px" />
-      </Box>
-    )}
-    <AlertDescription sx={styles.description}>{message}</AlertDescription>
+    {getAlertIcon(status)}
+    <Box>
+      {heading ? <AlertTitle>{heading}</AlertTitle> : null}
+      <AlertDescription>{message}</AlertDescription>
+    </Box>
     <CloseButton
       boxSize="19px"
       ml="auto"

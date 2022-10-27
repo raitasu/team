@@ -1,16 +1,8 @@
-export const AlertStyles = {
-  container: {
-    gap: '3.5',
-    width: '400px',
-    height: 'none',
-    padding: '4',
-    borderRadius: 'md',
-    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
-    border: '1px solid'
-  },
-  description: {
-    color: 'brand.gray700'
-  },
+import { AlertStatus } from '@chakra-ui/alert';
+
+export const AlertStyles: Partial<
+  Record<AlertStatus, Partial<CSSStyleDeclaration>>
+> = {
   success: {
     borderColor: 'brand.stroke'
   },

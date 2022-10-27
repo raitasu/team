@@ -1,9 +1,9 @@
+import React from 'react';
+
 import { AlertProps } from '@chakra-ui/react';
 
 export interface BaseAlertProps extends AlertProps {
-  isError?: boolean;
-  isVisible: boolean;
-  message?: string;
+  heading?: React.ReactNode;
+  message?: React.ReactNode;
   onClose: () => void;
-  onOpen: () => void;
 }

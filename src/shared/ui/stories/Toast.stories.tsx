@@ -1,29 +1,22 @@
-import { Stack, useToast } from '@chakra-ui/react';
-import { MdOutlineErrorOutline } from 'react-icons/md';
+import { Stack } from '@chakra-ui/react';
 
 import { Button } from '~/shared/ui/components/Button';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 
 export default {
-  title: 'UI/Toast',
-  component: useToast
+  title: 'UI/Toast'
 };
 
 export const Variants = () => {
-  const toast = useToast({
-    isClosable: true,
-    icon: <MdOutlineErrorOutline />,
+  const toast = useSuccessToast({
     title: 'Title',
     description: 'Description here.',
-    variant: 'solid',
-    duration: 5000
+    duration: 50000
   });
-  const errorToast = useToast({
-    isClosable: true,
-    icon: <MdOutlineErrorOutline />,
+  const errorToast = useErrorToast({
     title: 'Title',
     description: 'Description here.',
-    variant: 'subtle',
-    duration: 5000
+    duration: 50000
   });
 
   return (
