@@ -2,29 +2,19 @@ import React from 'react';
 
 import { Box, Heading } from '@chakra-ui/react';
 
+import { PageDrawerProps } from '~/shared/layout/Page/page.types';
 import { PageDrawer } from '~/shared/layout/Page/PageDrawer';
 
 export const PageTitle = ({
   title,
-  filterPanelContent,
-  onFilterPanelClose,
-  onFilterPanelOpen,
+  drawerControl,
+  drawerContent,
+  onDrawerClose,
   action
 }: {
   title: string;
   action?: React.ReactNode;
-} & (
-  | {
-      filterPanelContent: React.ReactNode;
-      onFilterPanelClose?: () => void;
-      onFilterPanelOpen?: () => void;
-    }
-  | {
-      filterPanelContent?: never;
-      onFilterPanelClose?: never;
-      onFilterPanelOpen?: never;
-    }
-)) => (
+} & (PageDrawerProps | Partial<Record<keyof PageDrawerProps, never>>)) => (
   <Box
     display="flex"
     justifyContent="space-between"
@@ -37,12 +27,12 @@ export const PageTitle = ({
       gap="10px"
     >
       {action}
-      {filterPanelContent ? (
+      {drawerContent ? (
         <PageDrawer
-          onFilterPanelClose={onFilterPanelClose}
-          onFilterPanelOpen={onFilterPanelOpen}
+          onDrawerClose={onDrawerClose}
+          drawerControl={drawerControl}
         >
-          {filterPanelContent}
+          {drawerContent}
         </PageDrawer>
       ) : null}
     </Box>

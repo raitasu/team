@@ -35,6 +35,7 @@ export const Variants = () => {
     onOpen: onOpenFour,
     onClose: onCloseFour
   } = useDisclosure({ defaultIsOpen: true });
+
   return (
     <Grid
       width="680px"

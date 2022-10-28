@@ -1,52 +1,31 @@
 import React from 'react';
 
 import { Drawer, useDisclosure } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
-import { MdOutlineFilterAlt } from 'react-icons/md';
 
-import { IconButton } from '~/shared/ui/components/IconButton';
-import { Tooltip } from '~/shared/ui/components/Tooltip';
+import { DrawerControl } from '~/shared/layout/Page/page.types';
 
 export const PageDrawer = ({
   children,
-  onFilterPanelClose,
-  onFilterPanelOpen
+  onDrawerClose,
+  drawerControl
 }: {
   children: React.ReactNode;
-  onFilterPanelClose?: () => void;
-  onFilterPanelOpen?: () => void;
+  drawerControl: DrawerControl;
+  onDrawerClose?: () => void;
 }) => {
-  const [t] = useTranslation();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef<HTMLButtonElement | null>(null);
+  const disclosure = useDisclosure();
+  const triggerRef = React.useRef<HTMLButtonElement | null>(null);
+  const { isOpen, onClose } = disclosure;
 
   return (
     <>
-      <Tooltip
-        hasArrow
-        place="right"
-        labelText={t('tooltips:filter')}
-      >
-        <IconButton
-          ref={btnRef}
-          aria-label="Filter"
-          variant="iconButton"
-          onClick={() => {
-            if (onFilterPanelOpen) {
-              onFilterPanelOpen();
-            }
-
-            onOpen();
-          }}
-          icon={<MdOutlineFilterAlt />}
-        />
-      </Tooltip>
+      {drawerControl(disclosure, triggerRef)}
       <Drawer
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
-        finalFocusRef={btnRef}
-        onCloseComplete={onFilterPanelClose}
+        finalFocusRef={triggerRef}
+        onCloseComplete={onDrawerClose}
         variant="filters"
       >
         {children}
