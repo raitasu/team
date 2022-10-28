@@ -22,7 +22,9 @@ const authenticationApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
   endpoints: (builder) => ({
     getCurrentUser: builder.query<Employee, void>({
-      providesTags: [ApiTags.CurrentUser],
+      providesTags: (employee) => [
+        { type: ApiTags.Employee, id: employee?.id }
+      ],
       query: () => ({
         url: 'me',
         method: 'GET'
@@ -54,5 +56,8 @@ const authenticationApiSlice = rootApiSlice.injectEndpoints({
   })
 });
 
-export const { useGetAccessTokenQuery, useGetCurrentUserQuery } =
-  authenticationApiSlice;
+export const {
+  useGetAccessTokenQuery,
+  useGetCurrentUserQuery,
+  endpoints: authenticationEndpoints
+} = authenticationApiSlice;
