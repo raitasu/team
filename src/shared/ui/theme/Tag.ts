@@ -18,20 +18,6 @@ export const Tag = {
         marginInlineStart: '0',
         marginInlineEnd: '0'
       }
-      // opacity: '',
-      // _disabled: {
-      //     opacity: '',
-      // },
-      // _focusVisible: {
-      //     boxShadow: '',
-      //     bg: '',
-      // },
-      // _hover: {
-      //     opacity: '',
-      // },
-      // _active: {
-      //     opacity: '',
-      // },
     }
   },
   sizes: {
