@@ -1,5 +1,5 @@
-import { EmployeesListResponse } from '~/shared/store/api/api.types';
-import { rootApiSlice } from '~/shared/store/api/index';
+import { rootApiSlice } from '~/shared/store/api';
+import { EmployeesListResponse } from '~/shared/store/api/employees/employees.types';
 
 const employeesApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,

@@ -1,7 +1,7 @@
 import { createColumnHelper } from '@tanstack/react-table';
 
 import { ProjectsCell } from '~/features/employees/Table/cells/ProjectsCell';
-import { Employee } from '~/shared/store/api/api.types';
+import { Employee } from '~/shared/store/api/employees/employees.types';
 
 import { AddCVCell } from './cells/AddCVCell';
 import { NameCell } from './cells/NameCell';

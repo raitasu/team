@@ -3,12 +3,12 @@ import { skipToken } from '@reduxjs/toolkit/query/react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
-import { AuthBox } from '~/features/auth/components/AuthBox';
-import { ErrorMessage } from '~/features/auth/components/ErrorMessage';
+import { AuthBox } from '~/features/authentication/components/AuthBox';
+import { ErrorMessage } from '~/features/authentication/components/ErrorMessage';
 import {
   useGetAccessTokenQuery,
   useGetCurrentUserQuery
-} from '~/shared/store/api/user.api';
+} from '~/shared/store/api/authentication/authentication.api';
 
 export const Authentication = () => {
   const [t] = useTranslation();

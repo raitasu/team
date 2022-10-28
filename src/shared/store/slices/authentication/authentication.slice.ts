@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
-import { AuthTokens } from '~/shared/store/api/api.types';
-import type { AuthSliceState } from '~/shared/store/slices/auth/auth.types';
+import { AuthTokens } from '~/shared/store/api/authentication/authentication.types';
+import type { AuthSliceState } from '~/shared/store/slices/authentication/authentication.types';
 
 const initialState: AuthSliceState = {
   isLoggedIn: false
 };
 
-const authSlice = createSlice({
+const authenticationSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
@@ -27,5 +27,6 @@ const authSlice = createSlice({
   }
 });
 
-export const { loggedIn, loggedOut, tokenReceived } = authSlice.actions;
-export const { reducer: authReducer } = authSlice;
+export const { loggedIn, loggedOut, tokenReceived } =
+  authenticationSlice.actions;
+export const { reducer: authReducer } = authenticationSlice;

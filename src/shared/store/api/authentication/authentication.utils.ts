@@ -3,11 +3,11 @@ import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import { Mutex } from 'async-mutex';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
-import { AuthTokens } from '~/shared/store/api/api.types';
+import { AuthTokens } from '~/shared/store/api/authentication/authentication.types';
 import {
   loggedOut,
   tokenReceived
-} from '~/shared/store/slices/auth/auth.slice';
+} from '~/shared/store/slices/authentication/authentication.slice';
 
 /**
  * Redux toolkit reference:

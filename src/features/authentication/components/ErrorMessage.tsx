@@ -1,6 +1,6 @@
 import { Box, Img } from '@chakra-ui/react';
 
-import discordLogo from '~/features/auth/assets/discordLogo.svg';
+import discordLogo from '~/features/authentication/assets/discordLogo.svg';
 
 export const ErrorMessage = ({ message }: { message: string }) => (
   <>

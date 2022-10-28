@@ -1,7 +1,11 @@
+import { rootApiSlice } from '~/shared/store/api';
 import { ApiTags } from '~/shared/store/api/api.constants';
-import { Employee, AuthTokens } from '~/shared/store/api/api.types';
-import { rootApiSlice } from '~/shared/store/api/index';
-import { loggedIn, tokenReceived } from '~/shared/store/slices/auth/auth.slice';
+import { AuthTokens } from '~/shared/store/api/authentication/authentication.types';
+import { Employee } from '~/shared/store/api/employees/employees.types';
+import {
+  loggedIn,
+  tokenReceived
+} from '~/shared/store/slices/authentication/authentication.slice';
 
 export const getAuthApiUrl = () => {
   const queryParams = new URLSearchParams({
@@ -14,7 +18,7 @@ export const getAuthApiUrl = () => {
   return `${import.meta.env.VITE_ALFRED_URL}?${queryParams.toString()}`;
 };
 
-const userApiSlice = rootApiSlice.injectEndpoints({
+const authenticationApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
   endpoints: (builder) => ({
     getCurrentUser: builder.query<Employee, void>({
@@ -50,4 +54,5 @@ const userApiSlice = rootApiSlice.injectEndpoints({
   })
 });
 
-export const { useGetAccessTokenQuery, useGetCurrentUserQuery } = userApiSlice;
+export const { useGetAccessTokenQuery, useGetCurrentUserQuery } =
+  authenticationApiSlice;

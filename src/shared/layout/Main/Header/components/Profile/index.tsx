@@ -2,8 +2,8 @@ import { Box, useDisclosure } from '@chakra-ui/react';
 
 import { LogOutModal } from '~/shared/layout/Main/Header/components/LogOutModal';
 import { Profile } from '~/shared/layout/Main/Header/components/Profile/Profile';
-import { useGetCurrentUserQuery } from '~/shared/store/api/user.api';
-import { loggedOut } from '~/shared/store/slices/auth/auth.slice';
+import { useGetCurrentUserQuery } from '~/shared/store/api/authentication/authentication.api';
+import { loggedOut } from '~/shared/store/slices/authentication/authentication.slice';
 import { useAppDispatch } from '~/shared/store/store.hooks';
 
 export const ProfileContainer = () => {

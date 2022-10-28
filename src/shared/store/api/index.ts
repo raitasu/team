@@ -2,7 +2,7 @@ import { createApi } from '@reduxjs/toolkit/dist/query/react';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
 import { ApiTags } from '~/shared/store/api/api.constants';
-import { createFetchBaseQueryWithReauth } from '~/shared/store/api/api.utils';
+import { createFetchBaseQueryWithReauth } from '~/shared/store/api/authentication/authentication.utils';
 
 export const rootApiSlice = createApi({
   reducerPath: 'apiSlice',

@@ -1,4 +1,4 @@
-import { useGetEmployeesQuery } from '~/shared/store/api/employees.api';
+import { useGetEmployeesQuery } from '~/shared/store/api/employees/employees.api';
 
 import { EmployeesTable } from './EmployeesTable';
 

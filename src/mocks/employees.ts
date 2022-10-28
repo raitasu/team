@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { rest } from 'msw';
 
-import { Employee } from '~/shared/store/api/api.types';
+import { Employee } from '~/shared/store/api/employees/employees.types';
 
 function randomInteger(min: number, max: number) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
@@ -28,7 +28,7 @@ const generateEmployees: () => Employee[] = () =>
       id: index,
       name: faker.company.name()
     })),
-    role: faker.lorem.paragraph(),
+    role: faker.helpers.arrayElement(['admin', 'user'] as const),
     status: faker.helpers.arrayElement([
       'active',
       'candidate',

@@ -1,7 +1,10 @@
 import { Text } from '@chakra-ui/react';
 import { CellContext } from '@tanstack/react-table';
 
-import { Employee, EmployeeProject } from '~/shared/store/api/api.types';
+import {
+  Employee,
+  EmployeeProject
+} from '~/shared/store/api/employees/employees.types';
 
 export const ProjectsCell = ({
   row

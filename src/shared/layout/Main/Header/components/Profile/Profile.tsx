@@ -13,7 +13,7 @@ import { MdAccountCircle, MdInput } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
-import { Employee } from '~/shared/store/api/api.types';
+import { Employee } from '~/shared/store/api/employees/employees.types';
 import { Avatar } from '~/shared/ui/components/Avatar';
 
 export const Profile = ({

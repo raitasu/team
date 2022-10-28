@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
-import { useGetCurrentUserQuery } from '~/shared/store/api/user.api';
-import { selectIsLoggedIn } from '~/shared/store/slices/auth/auth.selectors';
+import { useGetCurrentUserQuery } from '~/shared/store/api/authentication/authentication.api';
+import { selectIsLoggedIn } from '~/shared/store/slices/authentication/authentication.selectors';
 import { useAppSelector } from '~/shared/store/store.hooks';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
 

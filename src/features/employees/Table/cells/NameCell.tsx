@@ -2,7 +2,7 @@ import { Box, Text } from '@chakra-ui/react';
 import { CellContext } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 
-import { Employee } from '~/shared/store/api/api.types';
+import { Employee } from '~/shared/store/api/employees/employees.types';
 import { Avatar } from '~/shared/ui/components/Avatar';
 import { Tooltip } from '~/shared/ui/components/Tooltip';
 

@@ -1,7 +1,7 @@
 import { HeaderContext } from '@tanstack/table-core';
 import { useTranslation } from 'react-i18next';
 
-import { Employee } from '~/shared/store/api/api.types';
+import { Employee } from '~/shared/store/api/employees/employees.types';
 
 type HeaderKeys = Extract<
   keyof Employee,

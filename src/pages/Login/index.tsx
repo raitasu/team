@@ -1,5 +1,5 @@
-import { AuthBox } from '~/features/auth/components/AuthBox';
-import { LoginCard } from '~/features/auth/components/LoginCard';
+import { AuthBox } from '~/features/authentication/components/AuthBox';
+import { LoginCard } from '~/features/authentication/components/LoginCard';
 
 export const Login = () => (
   <AuthBox>

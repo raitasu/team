@@ -1,13 +1,10 @@
-export interface AuthTokens {
-  access_token: string;
-  refresh_token: string;
-}
-
 interface EmployeeAvatar {
   smallThumb: string | null;
   thumb: string | null;
   url: string | null;
 }
+
+type EmployeeRole = 'admin' | 'user';
 
 export interface EmployeeProject {
   id: number;
@@ -27,7 +24,7 @@ export interface Employee {
   job_title: string;
   last_name: string;
   projects: EmployeeProject[];
-  role: string;
+  role: EmployeeRole;
   status: EmployeeStatus;
   years_of_experience: number;
 }
