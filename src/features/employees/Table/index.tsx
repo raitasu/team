@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { Pagination } from '~/shared/layout/Pagination';
 import { useGetEmployeesQuery } from '~/shared/store/api/employees/employees.api';
+import { Pagination } from '~/shared/ui/components/Pagination';
 
 import { EmployeesTable } from './EmployeesTable';
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Pagination } from '~/shared/layout/Pagination';
+import { Pagination } from '~/shared/ui/components/Pagination';
 
 export default {
   title: 'UI/Pagination',
