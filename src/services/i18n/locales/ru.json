@@ -61,9 +61,8 @@
       "filters": "Фильтры"
     },
     "pagination": {
-      "current_page": "Текущая страница",
-      "of": "из",
-      "page": "Страница"
+      "aria_label": "Текущая страница, страница {{ current }}",
+      "current_page": "Страница <span>{{ current }}</span> из <span>{{ total }}</span>"
     }
   },
   "tooltips": {

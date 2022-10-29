@@ -61,9 +61,8 @@
       "filters": "Filters"
     },
     "pagination": {
-      "current_page": "Current page",
-      "of": "of",
-      "page": "Page"
+      "aria_label": "Current page, Page {{ current }}",
+      "current_page": "Page <span>{{ current }}</span> of <span>{{ total }}</span>"
     }
   },
   "tooltips": {
