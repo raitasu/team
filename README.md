@@ -6,14 +6,10 @@
 
 ## Application links
 
----
-
 - [Staging](http://cgteam.s3-website.eu-central-1.amazonaws.com/app)
 - [Storybook](https://main--63494e41f8bea2d9d59c6279.chromatic.com/)
 
 ## Installation
-
----
 
 ### Installing https certificates
 
@@ -37,8 +33,6 @@
 
 ## Installing new packages
 
----
-
 Dependencies saved to package.json will be configured with an exact version rather than using npm's default semver range operator.
 
 ```shell
@@ -48,8 +42,6 @@ npm install <package-name> --save-dev --save-exact
 
 ## Updating packages
 
----
-
 We recommend using [npm-upgrade](https://www.npmjs.com/package/npm-upgrade) to manage dependencies.
 
 ```shell
@@ -58,19 +50,15 @@ npm-upgrade
 
 ## Build tools
 
----
-
 This project was bootstrapped with [Vite](https://vitejs.dev/).
 
 ## Commit Style Guide
 
----
-
 Project follows [Conventional Commits specification](https://www.conventionalcommits.org/en/v1.0.0/)
 
-## Code Style Guide:
+> Confused picking commit name? Consult this [cheatsheet](https://kapeli.com/cheat_sheets/Conventional_Commits.docset/Contents/Resources/Documents/index)
 
----
+## Code Style Guide:
 
 - Code style is inspired by [Airbnb Guide](https://github.com/airbnb/javascript#airbnb-javascript-style-guide)
 - If you find that some rules are harmful or missing raise a PR with your proposal
@@ -84,13 +72,9 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## Internationalization
 
----
-
 - We are using [react-i18next](https://react.i18next.com/)
 
 ## Storybook
-
----
 
 - We are using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) for building UI components and pages.
 - We are hosting Storyboook on [Chromatic](https://www.chromatic.com/library?appId=63494e41f8bea2d9d59c6279)
@@ -103,8 +87,6 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## Releasing
 
----
-
 - Manually trigger `Release` workflow from actions tab on `main` branch
 
 | Command                    | Description                                                                                                                                |
@@ -115,8 +97,6 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## Authorization
 
----
-
 - We are using [Alfred](https://github.com/cybergizer-hq/alfred#on-the-frontend) for user authentication.
 
 | Environment variable       | Description                           | Localtion            |
@@ -126,8 +106,6 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 | `VITE_ALFRED_CLIENT_ID`    | UUID of Alfred application            | `.env.{environment}` |
 
 ## API
-
----
 
 - Documentation - TBD
 
