@@ -9,11 +9,11 @@
     "general": {
       "add": "Add",
       "delete": "Delete",
+      "go_to_page": "Go to page",
       "logout": "Log out",
       "no": "No",
-      "yes": "Yes",
       "reset_filters": "Reset Filters",
-      "go_to_page": "Go to page"
+      "yes": "Yes"
     },
     "projects": {
       "add_project": "New project"
@@ -61,17 +61,12 @@
       "filters": "Filters"
     },
     "pagination": {
-      "page": "Page",
-      "of": "of"
+      "current_page": "Current page",
+      "of": "of",
+      "page": "Page"
     }
   },
   "tooltips": {
     "filter": "Filter"
-  },
-  "other": {
-    "texts": {
-      "current_page": "Current page",
-      "page": "page"
-    }
   }
 }

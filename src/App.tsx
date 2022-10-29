@@ -4,12 +4,13 @@ import { useAsync } from 'react-use';
 import { AppRouter } from '~/router/AppRouter';
 import { initI18n } from '~/services/i18n';
 import { store } from '~/shared/store/store';
+import { PageLoader } from '~/shared/ui/components/PageLoader';
 
 export const App = () => {
   const i18nState = useAsync(() => initI18n());
 
   if (i18nState.loading) {
-    return <div>Loading translations</div>;
+    return <PageLoader />;
   }
 
   if (i18nState.error) {

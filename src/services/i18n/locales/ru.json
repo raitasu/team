@@ -9,11 +9,11 @@
     "general": {
       "add": "Добавить",
       "delete": "Удалить",
+      "go_to_page": "Перейти на страницу",
       "logout": "Выход",
       "no": "Нет",
-      "yes": "Да",
       "reset_filters": "Сбросить фильтры",
-      "go_to_page": "Перейти на страницу"
+      "yes": "Да"
     },
     "projects": {
       "add_project": "Новый проект"
@@ -61,17 +61,12 @@
       "filters": "Фильтры"
     },
     "pagination": {
-      "page": "Страница",
-      "of": "из"
+      "current_page": "Текущая страница",
+      "of": "из",
+      "page": "Страница"
     }
   },
   "tooltips": {
     "filter": "Фильтр"
-  },
-  "other": {
-    "texts": {
-      "current_page": "Текущая страница",
-      "page": "страница"
-    }
   }
 }

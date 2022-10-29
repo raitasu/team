@@ -1,14 +1,5 @@
-import { DecoratorFn } from '@storybook/react';
-
-import { AppThemeProvider } from '~/shared/ui/theme/AppThemeProvider';
-
-export const decorators: DecoratorFn[] = [
-  (Story) => (
-    <AppThemeProvider>
-      <Story />
-    </AppThemeProvider>
-  )
-];
+export * from './decorators';
+export * from './globals';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

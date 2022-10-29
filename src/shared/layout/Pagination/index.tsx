@@ -34,6 +34,10 @@ export const Pagination = ({
 }) => {
   const [t] = useTranslation();
 
+  const ariaLabel = `${t('titles:pagination.current_page')}, ${t(
+    'titles:pagination.page'
+  )} ${currentPage}`;
+
   return (
     <Flex
       role="navigation"
@@ -45,9 +49,7 @@ export const Pagination = ({
       <Flex>
         <IconButton
           variant="iconButton"
-          aria-label={`${String(t('other:texts.current_page'))}, ${String(
-            t('other:texts.page')
-          )} ${currentPage}`}
+          aria-label={ariaLabel}
           aria-current
           onClick={() => {
             onPageChange(1);
@@ -67,9 +69,7 @@ export const Pagination = ({
         />
         <IconButton
           variant="iconButton"
-          aria-label={`${String(t('other:texts.current_page'))}, ${String(
-            t('other:texts.page')
-          )} ${currentPage}`}
+          aria-label={ariaLabel}
           aria-current
           onClick={() => {
             onPageChange(currentPage - 1);
@@ -125,7 +125,7 @@ export const Pagination = ({
           defaultValue={1}
         />
         <Select
-          value={{ value: pageSize, label: String(pageSize) }}
+          value={{ value: pageSize, label: `${pageSize}` }}
           options={options}
           onChange={(e) => {
             if (e !== null) onPageSizeChange(e.value);
@@ -136,9 +136,7 @@ export const Pagination = ({
       <Flex>
         <IconButton
           variant="iconButton"
-          aria-label={`${String(t('other:texts.current_page'))}, ${String(
-            t('other:texts.page')
-          )} ${currentPage}`}
+          aria-label={ariaLabel}
           aria-current
           onClick={() => {
             onPageChange(currentPage + 1);
@@ -157,9 +155,7 @@ export const Pagination = ({
         />
         <IconButton
           variant="iconButton"
-          aria-label={`${String(t('other:texts.current_page'))}, ${String(
-            t('other:texts.page')
-          )} ${currentPage}`}
+          aria-label={ariaLabel}
           aria-current
           onClick={() => {
             onPageChange(totalPages);

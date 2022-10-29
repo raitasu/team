@@ -6,9 +6,7 @@ import en from './locales/en.json';
 
 const namespaces = Object.keys(en);
 
-i18nBase.use(initReactI18next);
-
-i18nBase.use({
+i18nBase.use(initReactI18next).use({
   type: 'backend',
   async read(
     language: AppLocale,
@@ -30,11 +28,11 @@ i18nBase.use({
   }
 });
 
-export const initI18n = async () => {
+export const initI18n = async (initialLng?: AppLocale) => {
   await i18nBase.init({
     fallbackLng: ['en'],
     partialBundledLanguages: true,
-    lng: 'en',
+    lng: initialLng || 'en',
     resources: {
       en
     },
