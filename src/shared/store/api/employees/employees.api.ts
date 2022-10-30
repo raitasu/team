@@ -9,7 +9,7 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
       providesTags: (response) =>
         response
           ? [
-              ...response.map((employee) => ({
+              ...response.items.map((employee) => ({
                 type: ApiTags.Employees,
                 id: employee.id
               })),

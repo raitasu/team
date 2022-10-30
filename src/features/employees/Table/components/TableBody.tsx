@@ -1,9 +1,9 @@
 import { Tbody, Td, Tr } from '@chakra-ui/react';
 import { flexRender, Row } from '@tanstack/react-table';
 
-import { Employee } from '~/shared/store/api/employees/employees.types';
+import { ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
-export const TableBody = ({ rows }: { rows: Array<Row<Employee>> }) => (
+export const TableBody = ({ rows }: { rows: Row<ShortEmployee>[] }) => (
   <Tbody>
     {rows.map((row) => (
       <Tr key={row.id}>

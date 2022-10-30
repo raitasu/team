@@ -50,10 +50,11 @@
     },
     "employees": {
       "table_headers": {
-        "city": "Место жительства",
+        "address": "Место жительства",
         "date_of_birth": "Дата рождения",
         "full_name": "Имя",
-        "job_title": "Должность",
+        "no_projects": "Нет текущих проектов",
+        "positions": "Должности",
         "projects": "Текущие проекты"
       }
     },

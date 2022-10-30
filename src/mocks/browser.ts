@@ -1,6 +1,48 @@
 import { setupWorker } from 'msw';
 
-import { employeesHandler } from '~/mocks/employees';
+import { employeesHandlers } from '~/mocks/employees/employees.handler';
+import {
+  getEmployees,
+  updateEmployee
+} from '~/mocks/employees/fixtures/employees';
 import { healthHandler } from '~/mocks/health';
+import { getRandomInteger } from '~/mocks/mocks.utils';
+import {
+  getRandomProjects,
+  updateProject
+} from '~/mocks/projects/fixtures/projects';
+import { projectHandlers } from '~/mocks/projects/projects.handler';
 
-export const worker = setupWorker(healthHandler, employeesHandler);
+(function assignEmployeesToProjects() {
+  const employees = getEmployees();
+
+  employees.forEach((employee) => {
+    const employeeProjects = getRandomProjects(getRandomInteger(0, 3));
+
+    employeeProjects.forEach((project) => {
+      updateProject(project.id, {
+        team: [
+          ...project.team,
+          {
+            id: employee.id,
+            first_name: employee.first_name,
+            last_name: employee.last_name
+          }
+        ]
+      });
+    });
+
+    updateEmployee(employee.id, {
+      projects: employeeProjects.map((project) => ({
+        id: project.id,
+        name_translations: project.name_translations
+      }))
+    });
+  });
+})();
+
+export const worker = setupWorker(
+  healthHandler,
+  ...employeesHandlers,
+  ...projectHandlers
+);

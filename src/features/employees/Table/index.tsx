@@ -16,7 +16,7 @@ export const EmployeesTableContainer = () => {
 
   return (
     <>
-      <EmployeesTable data={data} />
+      <EmployeesTable data={data.items} />
       <Box
         display="flex"
         width="100%"

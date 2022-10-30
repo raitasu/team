@@ -2,12 +2,15 @@ import { Box, Text } from '@chakra-ui/react';
 import { CellContext } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 
-import { Employee } from '~/shared/store/api/employees/employees.types';
+import { getTranslation } from '~/services/i18n/i18n.utils';
+import { ShortEmployee } from '~/shared/store/api/employees/employees.types';
 import { Avatar } from '~/shared/ui/components/Avatar';
 import { Tooltip } from '~/shared/ui/components/Tooltip';
 
-export const NameCell = ({ row, getValue }: CellContext<Employee, string>) => {
-  const [t] = useTranslation();
+export const NameCell = ({
+  row: { original: employee }
+}: CellContext<ShortEmployee, undefined>) => {
+  const [t, { language }] = useTranslation();
 
   return (
     <Box
@@ -18,19 +21,22 @@ export const NameCell = ({ row, getValue }: CellContext<Employee, string>) => {
       <Tooltip
         hasArrow
         place="left"
-        labelText={t(`enums:employee_status.${row.original.status}`)}
+        labelText={t(`enums:employee_status.${employee.status}`)}
       >
         <Avatar
-          variant={row.original.status}
+          variant={employee.status}
           size="sm"
-          src={row.original.avatar.url ?? undefined}
+          src={employee.avatar ?? undefined}
         />
       </Tooltip>
       <Text
         variant="mm"
         color="brand.headline"
       >
-        {getValue()}
+        {`${getTranslation(employee.first_name, language)} ${getTranslation(
+          employee.last_name,
+          language
+        )}`}
       </Text>
     </Box>
   );

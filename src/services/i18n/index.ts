@@ -52,3 +52,13 @@ export const initI18n = async (initialLng?: AppLocale) => {
 
   return i18nBase;
 };
+
+export const getI18n = () => {
+  if (!i18nBase.isInitialized) {
+    throw new Error(
+      'Trying to access i18n instance before it was initialized!'
+    );
+  }
+
+  return i18nBase;
+};

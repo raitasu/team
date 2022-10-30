@@ -50,10 +50,11 @@
     },
     "employees": {
       "table_headers": {
-        "city": "Location",
+        "address": "Location",
         "date_of_birth": "Date of birth",
         "full_name": "Name",
-        "job_title": "Position",
+        "no_projects": "No current projects",
+        "positions": "Positions",
         "projects": "Current projects"
       }
     },

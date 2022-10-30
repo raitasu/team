@@ -13,6 +13,7 @@ import { MdAccountCircle, MdInput } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
+import { getTranslation } from '~/services/i18n/i18n.utils';
 import { Employee } from '~/shared/store/api/employees/employees.types';
 import { Avatar } from '~/shared/ui/components/Avatar';
 
@@ -23,7 +24,7 @@ export const Profile = ({
   employee: Employee;
   onLogout: () => void;
 }) => {
-  const [t] = useTranslation();
+  const [t, { language }] = useTranslation();
 
   return (
     <Menu
@@ -47,7 +48,10 @@ export const Profile = ({
             textOverflow="ellipsis"
             whiteSpace="nowrap"
           >
-            {`${employee.first_name} ${employee.last_name}`}
+            {`${getTranslation(employee.first_name, language)} ${getTranslation(
+              employee.last_name,
+              language
+            )}`}
           </Text>
           <Avatar
             size="md"

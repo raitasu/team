@@ -1,26 +1,33 @@
 import { createColumnHelper } from '@tanstack/react-table';
 
 import { ProjectsCell } from '~/features/employees/Table/cells/ProjectsCell';
-import { Employee } from '~/shared/store/api/employees/employees.types';
+import { getI18n } from '~/services/i18n';
+import { getTranslation } from '~/services/i18n/i18n.utils';
+import { ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
 import { AddCVCell } from './cells/AddCVCell';
 import { NameCell } from './cells/NameCell';
 import { TranslatedHeader } from './cells/TranslatedHeader';
 
-const columnHelper = createColumnHelper<Employee>();
+const columnHelper = createColumnHelper<ShortEmployee>();
 
 export const EmployeesColumns = [
-  columnHelper.accessor((row) => `${row.first_name} ${row.last_name}`, {
+  columnHelper.accessor(() => undefined, {
     id: 'full_name',
     cell: NameCell,
     header: TranslatedHeader
   }),
-  columnHelper.accessor('job_title', {
-    cell: (info) => info.getValue(),
+  columnHelper.accessor('positions', {
+    cell: (info) =>
+      Object.values(info.getValue())
+        .map((project) =>
+          getTranslation(project.name_translations, getI18n().language)
+        )
+        .join(', '),
     header: TranslatedHeader
   }),
-  columnHelper.accessor('city', {
-    cell: (info) => info.getValue(),
+  columnHelper.accessor('address', {
+    cell: (info) => `${info.getValue().country}, ${info.getValue().city}`,
     header: TranslatedHeader
   }),
   columnHelper.accessor('date_of_birth', {
@@ -31,7 +38,7 @@ export const EmployeesColumns = [
     cell: ProjectsCell,
     header: TranslatedHeader
   }),
-  columnHelper.accessor(() => 'cv', {
+  columnHelper.accessor(() => undefined, {
     id: 'cv',
     cell: AddCVCell,
     enableSorting: false,
