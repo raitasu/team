@@ -95,6 +95,9 @@ const generateEmployee = (id: number): Employee => {
 
 export const getEmployees = () => Object.values(sessionEmployees);
 
+export const getEmployeeById = (employeeId: number): Employee | undefined =>
+  sessionEmployees[employeeId];
+
 export const updateEmployee = (
   employeeId: number,
   employee: Partial<Employee>

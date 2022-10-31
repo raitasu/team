@@ -1,7 +1,10 @@
 import pick from 'lodash/pick';
 import { rest } from 'msw';
 
-import { getEmployees } from '~/mocks/employees/fixtures/employees';
+import {
+  getEmployeeById,
+  getEmployees
+} from '~/mocks/employees/fixtures/employees';
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
@@ -14,11 +17,24 @@ const getCurrentUser = rest.get(
   }
 );
 
+const getEmployee = rest.get(
+  `${import.meta.env.VITE_PUBLIC_API_URL}employees/:id`,
+  async ({ params: { id } }, res, ctx) => {
+    const employee = getEmployeeById(+id);
+
+    if (!employee) {
+      return res(ctx.status(404), ctx.json({ message: 'Employee not found!' }));
+    }
+
+    return res(ctx.json(employee));
+  }
+);
+
 const getEmployeesHandler = rest.get(
   `${import.meta.env.VITE_PUBLIC_API_URL}employees`,
   async ({ url: { searchParams } }, res, ctx) => {
     const limit = +(searchParams.get('limit') || 10);
-    const offset = +(searchParams.get('offset') || 10);
+    const offset = +(searchParams.get('offset') || 0);
     const name = searchParams.get('name');
     const locale = searchParams.get('locale') || undefined;
 
@@ -61,4 +77,8 @@ const getEmployeesHandler = rest.get(
   }
 );
 
-export const employeesHandlers = [getEmployeesHandler, getCurrentUser];
+export const employeesHandlers = [
+  getEmployeesHandler,
+  getCurrentUser,
+  getEmployee
+];

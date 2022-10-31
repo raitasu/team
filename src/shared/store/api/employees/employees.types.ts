@@ -92,14 +92,12 @@ type EmployeeClothingSize =
 
 type EmployeeGender = 'male' | 'female' | 'other';
 
-export type EmployeesListResponse = PaginatedResponse<ShortEmployee>;
-
 export type EmployeeStatus = 'active' | 'candidate' | 'inactive';
 
 type EmployeeRole = 'admin' | 'user';
 
 export interface Employee {
-  address: Pick<EmployeeAddress, 'city' | 'country'>;
+  address: EmployeeAddress;
   avatar: string | null;
   clothing_size: EmployeeClothingSize;
   contacts: EmployeeContact;
@@ -120,7 +118,6 @@ export interface Employee {
 
 export type ShortEmployee = Pick<
   Employee,
-  | 'address'
   | 'avatar'
   | 'date_of_birth'
   | 'first_name'
@@ -129,4 +126,8 @@ export type ShortEmployee = Pick<
   | 'positions'
   | 'projects'
   | 'status'
->;
+> & {
+  address: Pick<EmployeeAddress, 'city' | 'country'>;
+};
+
+export type EmployeesListResponse = PaginatedResponse<ShortEmployee>;

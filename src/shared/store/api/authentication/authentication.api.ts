@@ -23,7 +23,7 @@ const authenticationApiSlice = rootApiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getCurrentUser: builder.query<Employee, void>({
       providesTags: (employee) => [
-        { type: ApiTags.Employee, id: employee?.id }
+        { type: ApiTags.Employees, id: `${employee ? employee.id : 'ENTITY'}` }
       ],
       query: () => ({
         url: 'me',
