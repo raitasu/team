@@ -3,14 +3,18 @@ import {
   NumberIncrementStepper,
   NumberInput as ChakraNumberInput,
   NumberInputField,
+  NumberInputFieldProps,
   NumberInputProps,
   NumberInputStepper
 } from '@chakra-ui/react';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
 
-export const NumberInput = (props: NumberInputProps) => (
+export const NumberInput = ({
+  inputFieldProps,
+  ...props
+}: NumberInputProps & { inputFieldProps?: Partial<NumberInputFieldProps> }) => (
   <ChakraNumberInput {...props}>
-    <NumberInputField />
+    <NumberInputField {...inputFieldProps} />
     <NumberInputStepper>
       <NumberIncrementStepper>
         <MdKeyboardArrowUp size="20px" />

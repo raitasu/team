@@ -1,4 +1,4 @@
-import { VStack } from '@chakra-ui/react';
+import { HStack, VStack } from '@chakra-ui/react';
 
 import { NumberInput } from '../components/NumberInput';
 
@@ -25,5 +25,23 @@ export const Variants = () => (
       max={5}
       isDisabled
     />
+    <HStack spacing={4}>
+      <NumberInput
+        width="100%"
+        min={0}
+        max={5}
+        inputFieldProps={{
+          placeholder: 'from'
+        }}
+      />
+      <NumberInput
+        width="100%"
+        min={0}
+        max={5}
+        inputFieldProps={{
+          placeholder: 'to'
+        }}
+      />
+    </HStack>
   </VStack>
 );
