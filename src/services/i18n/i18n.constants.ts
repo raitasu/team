@@ -1,1 +1,1 @@
-export const supportedLocales = ['en', 'ru', 'zh'] as const;
+export const supportedLocales = ['en', 'ru'] as const;
