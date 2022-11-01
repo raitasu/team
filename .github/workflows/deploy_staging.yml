@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: Build App
-        run: npm run build:staging
+        run: npm run build:staging:with-mock-server
 
       - name: AWS Deploy Staging
         if: success()
