@@ -6,7 +6,7 @@
 
 ## Application links
 
-- [Staging](http://cgteam.s3-website.eu-central-1.amazonaws.com/app)
+- [Staging](https://d2xyex20ve59hj.cloudfront.net/)
 - [Storybook](https://main--63494e41f8bea2d9d59c6279.chromatic.com/)
 
 ## Installation
