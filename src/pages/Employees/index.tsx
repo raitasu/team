@@ -1,32 +1,17 @@
-import { useTranslation } from 'react-i18next';
-import { MdAdd } from 'react-icons/md';
-
 import { EmployeesFiltersDrawer } from '~/features/employees/Filters';
+import { AddEmployeeButton } from '~/features/employees/Filters/AddEmployeeButton';
 import { createEmployeesFilterControl } from '~/features/employees/Filters/EmployeesFilterControl';
 import { EmployeesTableContainer } from '~/features/employees/Table';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
-import { PageTitle } from '~/shared/layout/Page/PageTitle';
-import { Button } from '~/shared/ui/components/Button';
+import { PageToolbox } from '~/shared/layout/Page/PageToolbox';
 
-export const Employees = () => {
-  const [t] = useTranslation();
-
-  return (
-    <PageContainer>
-      <PageTitle
-        title={t('navigation:links.employees')}
-        action={
-          <Button
-            variant="primaryOutline"
-            leftIcon={<MdAdd />}
-          >
-            {t('actions:employees.add_employee')}
-          </Button>
-        }
-        drawerControl={createEmployeesFilterControl}
-        drawerContent={<EmployeesFiltersDrawer />}
-      />
-      <EmployeesTableContainer />
-    </PageContainer>
-  );
-};
+export const Employees = () => (
+  <PageContainer>
+    <EmployeesTableContainer />
+    <PageToolbox
+      action={<AddEmployeeButton />}
+      drawerControl={createEmployeesFilterControl}
+      drawerContent={<EmployeesFiltersDrawer />}
+    />
+  </PageContainer>
+);

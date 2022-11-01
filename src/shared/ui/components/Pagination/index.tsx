@@ -7,9 +7,9 @@ import {
   MdLastPage
 } from 'react-icons/md';
 
+import { ControlButton } from '~/shared/ui/components/IconButton/ControlButton';
 import { PageSwitcher } from '~/shared/ui/components/Pagination/PageSwitcher';
 import { PaginationProps } from '~/shared/ui/components/Pagination/pagination.types';
-import { QuickPageButton } from '~/shared/ui/components/Pagination/QuickPageButton';
 
 export const Pagination = ({
   totalPages,
@@ -33,16 +33,16 @@ export const Pagination = ({
       justifySelf="center"
     >
       <Flex gap={4}>
-        <QuickPageButton
-          areaLabel={ariaLabel}
+        <ControlButton
+          aria-label={ariaLabel}
           isDisabled={currentPage === 1}
           icon={<MdFirstPage size={3} />}
           onClick={() => {
             onPageChange(1);
           }}
         />
-        <QuickPageButton
-          areaLabel={ariaLabel}
+        <ControlButton
+          aria-label={ariaLabel}
           isDisabled={currentPage === 1}
           icon={<MdArrowBackIosNew size={6} />}
           onClick={() => {
@@ -58,16 +58,16 @@ export const Pagination = ({
         onPageSizeChange={onPageSizeChange}
       />
       <Flex gap={4}>
-        <QuickPageButton
-          areaLabel={ariaLabel}
+        <ControlButton
+          aria-label={ariaLabel}
           isDisabled={currentPage === totalPages}
           icon={<MdArrowForwardIos size={6} />}
           onClick={() => {
-            onPageChange(currentPage + 1);
+            onPageChange(Number(currentPage) + 1);
           }}
         />
-        <QuickPageButton
-          areaLabel={ariaLabel}
+        <ControlButton
+          aria-label={ariaLabel}
           isDisabled={currentPage === totalPages}
           icon={<MdLastPage size={3} />}
           onClick={() => {

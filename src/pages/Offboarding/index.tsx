@@ -1,14 +1,8 @@
-import { useTranslation } from 'react-i18next';
-
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
-import { PageTitle } from '~/shared/layout/Page/PageTitle';
+import { PageToolbox } from '~/shared/layout/Page/PageToolbox';
 
-export const Offboarding = () => {
-  const [t] = useTranslation();
-
-  return (
-    <PageContainer>
-      <PageTitle title={t('navigation:links.offboarding')} />
-    </PageContainer>
-  );
-};
+export const Offboarding = () => (
+  <PageContainer>
+    <PageToolbox />
+  </PageContainer>
+);

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { MdOutlineFilterAlt } from 'react-icons/md';
 
 import { DrawerControl } from '~/shared/layout/Page/page.types';
-import { IconButton } from '~/shared/ui/components/IconButton';
+import { ControlButton } from '~/shared/ui/components/IconButton/ControlButton';
 import { Tooltip } from '~/shared/ui/components/Tooltip';
 
 const ProjectsFilterControl = ({
@@ -22,9 +22,9 @@ const ProjectsFilterControl = ({
       place="right"
       labelText={t('tooltips:filter')}
     >
-      <IconButton
+      <ControlButton
         ref={triggerRef}
-        aria-label="Filter"
+        aria-label={t('tooltips:filter')}
         variant="iconButton"
         onClick={onOpen}
         icon={<MdOutlineFilterAlt />}

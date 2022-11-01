@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 
 import { getTotalPages } from '~/shared/shared.utils';
 import { useGetEmployeesQuery } from '~/shared/store/api/employees/employees.api';
@@ -28,8 +28,22 @@ export const EmployeesTableContainer = () => {
   );
 
   return (
-    <>
-      <EmployeesTable data={data.items} />
+    <Flex
+      flexDirection="column"
+      gap="20px"
+      maxH="100%"
+    >
+      <Box
+        flex="1"
+        overflow="hidden"
+        minH="0"
+        overflowY="auto"
+        border="1px solid var(--chakra-colors-brand-stroke)"
+        borderRadius="4px"
+        backgroundColor="var(--chakra-colors-brand-background2)"
+      >
+        <EmployeesTable data={data.items} />
+      </Box>
       <Box
         display="flex"
         width="100%"
@@ -44,6 +58,6 @@ export const EmployeesTableContainer = () => {
           onPageSizeChange={(size) => dispatch(toggleElementsPerPage(size))}
         />
       </Box>
-    </>
+    </Flex>
   );
 };
