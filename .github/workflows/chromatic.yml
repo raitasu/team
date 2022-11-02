@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}-chromatic
+  cancel-in-progress: true
+
 jobs:
   chromatic-deployment:
     name: Chromatic Deployment
