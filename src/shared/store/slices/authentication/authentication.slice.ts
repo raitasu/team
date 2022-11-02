@@ -21,8 +21,6 @@ export const authenticationSlice = createSlice({
     },
     loggedOut(state) {
       state.isLoggedIn = false;
-      localStorage.removeItem(LocalStorageKey.AuthToken);
-      localStorage.removeItem(LocalStorageKey.RefreshToken);
     }
   }
 });

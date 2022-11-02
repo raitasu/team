@@ -8,6 +8,7 @@ import {
   loggedOut,
   tokenReceived
 } from '~/shared/store/slices/authentication/authentication.slice';
+import type { RootState } from '~/shared/store/store.types';
 
 /**
  * Redux toolkit reference:
@@ -59,7 +60,12 @@ export const createFetchBaseQueryWithReauth: typeof fetchBaseQuery = (
         }
       }
 
-      api.dispatch(loggedOut());
+      localStorage.removeItem(LocalStorageKey.AuthToken);
+      localStorage.removeItem(LocalStorageKey.RefreshToken);
+
+      if ((api.getState() as RootState).authentication.isLoggedIn) {
+        api.dispatch(loggedOut());
+      }
     }
 
     return initialResult;
