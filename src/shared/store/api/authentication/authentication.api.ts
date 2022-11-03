@@ -42,7 +42,11 @@ const authenticationApiSlice = rootApiSlice.injectEndpoints({
       query: (code) => ({
         url: 'login',
         method: 'POST',
-        body: { code }
+        body: {
+          code,
+          redirect_uri: import.meta.env.VITE_ALFRED_REDIRECT_URI,
+          client_id: import.meta.env.VITE_ALFRED_CLIENT_ID
+        }
       }),
       async onQueryStarted(_, { dispatch, queryFulfilled }) {
         try {
