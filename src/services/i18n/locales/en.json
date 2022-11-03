@@ -20,6 +20,9 @@
       "reset_filters": "Reset Filters",
       "yes": "Yes"
     },
+    "onboarding": {
+      "continue": "Continue"
+    },
     "projects": {
       "add_project": "New project"
     }
@@ -51,6 +54,47 @@
       "profile": "Profile",
       "project": "Project",
       "projects": "Projects"
+    },
+    "onboarding": {
+      "about": "Familiarity with the «Cybergizer»",
+      "schedule": "Schedule work",
+      "sick_leave": "Sick leave",
+      "vacation": "Vacation policy",
+      "perks": "Other perks",
+      "coworking": "Coworking",
+      "help": "Who to turn to if you need help",
+      "birthdays": "Birthdays",
+      "english": "English",
+      "communications": "Communications with colleagues and clients",
+      "contacts": "Email and contacts colleagues"
+    }
+  },
+  "text": {
+    "onboarding": {
+      "about": {
+        "who_we_are": {
+          "company": "The Cybergizer ​​company develops software using outsourcing and outstaffing models and specializes in Ruby/Rails and JS/React.js.",
+          "geography": "Geography of clients — Europe, Asia, North America.",
+          "team": "The Cybergizer team consists of more than 40 engineers in Minsk, Vilnius, St. Petersburg and other cities of the world."
+        },
+        "history": {
+          "was_created": "Cybergizer was created by Sergey Sergienko and Anatoly Liotych, Ruby engineers with experience in large international companies.",
+          "base": "The experience and knowledge gained became the basis for the creation in 2017 of the first survival courses in Belarus for young rubizza developers — rubizza.com.",
+          "offices": "In 2019, in addition to the Minsk office, offices appeared in Vilnius and St. Petersburg.",
+          "remote_work": "The company have had a remote work policy since 2020."
+        },
+        "values": {
+          "core_value": "In precovid times, the main value of Cybergizer was the development and expansion of the Ruby community, primarily through educational initiatives such as rubizza.com. The company has built a growth process from a novice developer to a Middle level developer.",
+          "internships": "With the advent of remote work, the focus has shifted to internships for talented developers and the opportunity to enter the profession, gaining experience on real client projects.",
+          "driver": "But anyway, professional and career growth always was and is the driver of Cybergizer's development."
+        },
+        "goals": {
+          "brand": "Formation and maintenance of the company's brand as a pro in the sphere of Ruby, Rails and React.js.",
+          "locations": "Location extensions of presence of Cybergizer's employees.",
+          "place": "Development of the company as a place of work, perfect for starting a career in IT.",
+          "products": "Creation and promotion of own products."
+        }
+      }
     }
   },
   "titles": {
@@ -78,6 +122,15 @@
     },
     "general": {
       "filters": "Filters"
+    },
+    "onboarding": {
+      "about": {
+        "who_we_are": "Who we are",
+        "history": "History",
+        "values": "Values",
+        "goals": "Goals of the company",
+        "links": "Links"
+      }
     },
     "pagination": {
       "aria_label": "Current page, Page {{ current }}",

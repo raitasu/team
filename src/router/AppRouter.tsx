@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import { Navigate } from 'react-router-dom';
 
+import { OnboardingSections } from '~/pages/Onboarding/onboarding.constants';
 import { PrivateOnlyRoutes } from '~/router/guards/PrivateOnlyRoutes';
 import { PublicOnlyRoutes } from '~/router/guards/PublicOnlyRoutes';
 import { TokenVerification } from '~/router/guards/TokenVerification';
@@ -46,14 +47,20 @@ export const AppRouter = () => (
               </Suspense>
             }
           />
-          <Route
-            path={PagePaths.Onboarding}
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <LoadableOnboarding />
-              </Suspense>
-            }
-          />
+          <Route path={PagePaths.Onboarding}>
+            <Route
+              path=":section"
+              element={
+                <Suspense fallback={<PageLoader />}>
+                  <LoadableOnboarding />
+                </Suspense>
+              }
+            />
+            <Route
+              index
+              element={<Navigate to={OnboardingSections.About} />}
+            />
+          </Route>
           <Route
             path={PagePaths.Offboarding}
             element={
@@ -80,6 +87,7 @@ export const AppRouter = () => (
           />
         </Route>
       </Route>
+
       <Route element={<PublicOnlyRoutes />}>
         <Route
           path={PagePaths.Authentication}

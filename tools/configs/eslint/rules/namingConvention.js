@@ -30,6 +30,11 @@ module.exports = {
       format: ['camelCase', 'UPPER_CASE']
     },
     {
+      selector: ['variable'],
+      types: ['function'],
+      format: ['PascalCase', 'camelCase']
+    },
+    {
       selector: 'variable',
       modifiers: ['global'],
       format: ['camelCase', 'UPPER_CASE', 'PascalCase']
