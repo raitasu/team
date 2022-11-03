@@ -1,3 +1,4 @@
+import { getPageOffset } from '~/shared/shared.utils';
 import { rootApiSlice } from '~/shared/store/api';
 import { ApiTags } from '~/shared/store/api/api.constants';
 import {
@@ -8,7 +9,10 @@ import {
 const employeesApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
   endpoints: (builder) => ({
-    getEmployees: builder.query<EmployeesListResponse, void>({
+    getEmployees: builder.query<
+      EmployeesListResponse,
+      { page: number; elementsPerPage: number }
+    >({
       providesTags: (response) =>
         response
           ? [
@@ -27,9 +31,13 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
                 id: 'LIST'
               }
             ],
-      query: () => ({
+      query: ({ page, elementsPerPage }) => ({
         url: 'employees',
-        method: 'GET'
+        method: 'GET',
+        params: {
+          limit: elementsPerPage,
+          offset: getPageOffset(page, elementsPerPage)
+        }
       })
     }),
     getEmployee: builder.query<Employee, number>({

@@ -25,5 +25,6 @@ export const authenticationSlice = createSlice({
   }
 });
 
-export const { loggedIn, loggedOut, tokenReceived } =
-  authenticationSlice.actions;
+export const {
+  actions: { loggedIn, loggedOut, tokenReceived }
+} = authenticationSlice;

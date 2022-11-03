@@ -4,13 +4,9 @@ export type Translation = { en: string } & Partial<
   Record<Exclude<AppLocale, 'en'>, string>
 >;
 
-interface Paging {
+export type PaginatedResponse<TData> = {
+  items: TData[];
   total_count: number;
   limit: number;
   offset: number;
-}
-
-export type PaginatedResponse<TData> = {
-  items: TData[];
-  paging: Paging;
 };

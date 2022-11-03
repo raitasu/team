@@ -4,11 +4,13 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import { LocalStorageKey } from '~/shared/shared.constants';
 import { rootApiSlice } from '~/shared/store/api';
 import { authenticationSlice } from '~/shared/store/slices/authentication/authentication.slice';
+import { employeesSlice } from '~/shared/store/slices/employees/employees.slice';
 import { listenerMiddleware } from '~/shared/store/store.listener';
 
 export const store = configureStore({
   reducer: {
     authentication: authenticationSlice.reducer,
+    employees: employeesSlice.reducer,
     [rootApiSlice.reducerPath]: rootApiSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
