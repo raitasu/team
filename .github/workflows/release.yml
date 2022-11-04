@@ -1,8 +1,16 @@
 name: Release
 on:
   workflow_dispatch:
-    branches:
-      - main
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'debug'
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
 
 concurrency:
   group: release
