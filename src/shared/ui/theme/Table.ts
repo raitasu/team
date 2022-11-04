@@ -5,7 +5,7 @@ export const Table = {
       padding: '12px',
       thead: {
         backgroundColor: 'var(--chakra-colors-brand-background2)',
-        zIndex: 1,
+        zIndex: 'var(--chakra-zIndices-docked)',
         position: 'sticky',
         top: 0
       },

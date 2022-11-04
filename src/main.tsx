@@ -7,6 +7,11 @@ import { AppThemeProvider } from '~/shared/ui/theme/AppThemeProvider';
 
 import { App } from './App';
 
+console.debug(
+  `[Teams] Running version: %c${import.meta.env.VITE_APP_VERSION}`,
+  'color:#EF4523; font-weight:bold'
+);
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

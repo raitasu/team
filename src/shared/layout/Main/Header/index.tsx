@@ -23,7 +23,7 @@ export const Header = () => (
     alignItems="center"
     margin="auto"
     padding={`0 ${SIDE_PAGE_PADDING}`}
-    zIndex="1"
+    zIndex="var(--chakra-zIndices-sticky)"
   >
     <HeaderLogo />
     <Box

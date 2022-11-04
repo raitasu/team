@@ -39,7 +39,7 @@ module.exports = {
   'no-array-constructor': 'warn',
   'no-caller': 'warn',
   'no-cond-assign': ['warn', 'except-parens'],
-  'no-console': ['error', { allow: ['warn', 'error'] }],
+  'no-console': ['error', { allow: ['warn', 'error', 'debug'] }],
   'no-const-assign': 'warn',
   'no-control-regex': 'warn',
   'no-delete-var': 'warn',
