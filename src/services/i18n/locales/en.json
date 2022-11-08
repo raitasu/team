@@ -18,7 +18,8 @@
       "logout": "Log out",
       "no": "No",
       "reset_filters": "Reset Filters",
-      "yes": "Yes"
+      "yes": "Yes",
+      "create_cv": "Create CV"
     },
     "onboarding": {
       "continue": "Continue"
@@ -118,7 +119,9 @@
         "no_projects": "No current projects",
         "positions": "Positions",
         "projects": "Current projects"
-      }
+      },
+      "cv": "CV",
+      "create_cv_description": "Do you want to create CV?"
     },
     "general": {
       "filters": "Filters"

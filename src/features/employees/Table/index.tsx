@@ -2,6 +2,7 @@ import { Box, Flex } from '@chakra-ui/react';
 
 import { getTotalPages } from '~/shared/shared.utils';
 import { useGetEmployeesQuery } from '~/shared/store/api/employees/employees.api';
+import { selectCurrentEmployee } from '~/shared/store/api/employees/employees.selectors';
 import { selectEmployeesPagination } from '~/shared/store/slices/employees/employees.selectors';
 import {
   toggleElementsPerPage,
@@ -19,8 +20,10 @@ export const EmployeesTableContainer = () => {
     page: pagination.currentPage,
     elementsPerPage: pagination.elementsPerPage
   });
+  const { data: employee } = useAppSelector(selectCurrentEmployee);
 
   if (!data) return null;
+  if (!employee) return null;
 
   const totalPages = getTotalPages(
     data.page.total_count,
@@ -42,7 +45,10 @@ export const EmployeesTableContainer = () => {
         borderRadius="4px"
         backgroundColor="var(--chakra-colors-brand-background2)"
       >
-        <EmployeesTable data={data.items} />
+        <EmployeesTable
+          data={data.items}
+          employee={employee}
+        />
       </Box>
       <Box
         display="flex"

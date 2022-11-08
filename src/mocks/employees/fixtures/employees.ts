@@ -112,8 +112,8 @@ const generateEmployee = (id: number): Employee => {
     })),
     publications: getRandomPublications(getRandomInteger(0, 8)),
 
-    role: faker.helpers.arrayElement(['admin', 'user']),
     social_networks: generateSocialNetwork(),
+    role: id === 0 ? 'admin' : faker.helpers.arrayElement(['admin', 'user']),
     soft_skills: getRandomSoftSkills(getRandomInteger(0, 8)),
     status: faker.helpers.arrayElement(['active', 'candidate', 'inactive']),
     start_career_at: faker.date

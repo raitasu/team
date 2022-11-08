@@ -18,7 +18,8 @@
       "logout": "Выход",
       "no": "Нет",
       "reset_filters": "Сбросить фильтры",
-      "yes": "Да"
+      "yes": "Да",
+      "create_cv": "Создать резюме"
     },
     "onboarding": {
       "continue": "Дальше"
@@ -124,7 +125,9 @@
         "no_projects": "Нет текущих проектов",
         "positions": "Должности",
         "projects": "Текущие проекты"
-      }
+      },
+      "cv": "Резюме",
+      "create_cv_description": "Вы хотите создать резюме?"
     },
     "general": {
       "filters": "Фильтры"

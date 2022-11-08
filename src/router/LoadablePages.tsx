@@ -17,6 +17,11 @@ export const LoadableProjects = React.lazy(() =>
     default: element
   }))
 );
+export const LoadableCreateCV = React.lazy(() =>
+  import('~/pages/CreateCV').then(({ CreateCV: element }) => ({
+    default: element
+  }))
+);
 
 export const LoadableProject = React.lazy(() =>
   import('~/pages/Project').then(({ Project: element }) => ({

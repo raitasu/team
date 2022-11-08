@@ -185,6 +185,7 @@ export type ShortEmployee = Pick<
   | 'projects'
   | 'role'
   | 'status'
+  | 'role'
 > & {
   contacts: {
     address: Pick<EmployeeAddress, 'city' | 'country_code'>;

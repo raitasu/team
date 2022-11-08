@@ -9,6 +9,7 @@ import { PublicOnlyRoutes } from '~/router/guards/PublicOnlyRoutes';
 import { TokenVerification } from '~/router/guards/TokenVerification';
 import {
   LoadableAuthentication,
+  LoadableCreateCV,
   LoadableEmployee,
   LoadableEmployees,
   LoadableLogin,
@@ -82,6 +83,14 @@ export const AppRouter = () => (
             element={
               <Suspense fallback={<PageLoader />}>
                 <LoadableProject />
+              </Suspense>
+            }
+          />
+          <Route
+            path={`${PagePaths.Employees}/:id/add-cv`}
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <LoadableCreateCV />
               </Suspense>
             }
           />
