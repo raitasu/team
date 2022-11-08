@@ -20,6 +20,13 @@
     }
   },
   "enums": {
+    "employee_profile_tabs": {
+      "education": "Education",
+      "personal_information": "Personal Information",
+      "publication": "Publication",
+      "skills": "Skills",
+      "work_experience": "Work Experience"
+    },
     "employee_status": {
       "active": "Active",
       "candidate": "Candidate",

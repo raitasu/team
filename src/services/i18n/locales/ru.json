@@ -20,6 +20,13 @@
     }
   },
   "enums": {
+    "employee_profile_tabs": {
+      "education": "Образование",
+      "personal_information": "Персональная информация",
+      "publication": "Публикации",
+      "skills": "Навыки",
+      "work_experience": "Опыт работы"
+    },
     "employee_status": {
       "active": "Активный",
       "candidate": "Кандидат",
