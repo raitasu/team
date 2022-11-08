@@ -3,7 +3,7 @@ import { skipToken } from '@reduxjs/toolkit/query/react';
 import isFinite from 'lodash/isFinite';
 import { useParams } from 'react-router-dom';
 
-import { ProfileCard } from '~/features/employee/EmployeeCard';
+import { EmployeeCard } from '~/features/employee/EmployeeCard';
 import { CvProfileList } from '~/features/employee/EmployeeCvList';
 import { EmployeeInfo } from '~/features/employee/EmployeeInfo';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
@@ -50,7 +50,7 @@ export const Employee = () => {
             padding="40px"
             {...containerStyles}
           >
-            <ProfileCard />
+            <EmployeeCard employee={employee} />
           </Box>
           <Box
             padding="20px 40px"

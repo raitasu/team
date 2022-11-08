@@ -80,6 +80,7 @@ const generateEmployee = (id: number): Employee => {
     languages: getRandomLanguages(getRandomInteger(1, 3)),
     positions: getRandomPositions(getRandomInteger(1, 3)),
     projects: [],
+    years_of_experience: getRandomInteger(0, 8),
     social_networks: generateSocialNetwork(),
     role: faker.helpers.arrayElement(['admin', 'user']),
     soft_skills: getRandomSoftSkills(getRandomInteger(0, 8)),

@@ -1,0 +1,52 @@
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
+import { MdLocationOn } from 'react-icons/md';
+
+import { getTranslation } from '~/services/i18n/i18n.utils';
+import { Employee } from '~/shared/store/api/employees/employees.types';
+
+export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
+  const [t, { language }] = useTranslation();
+
+  return (
+    <Box
+      sx={{
+        '> *:not(:last-child)': {
+          marginBottom: '10px'
+        },
+        '> *': {
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap'
+        }
+      }}
+      textAlign="center"
+    >
+      <Heading variant="4">{`${getTranslation(
+        employee.first_name,
+        language
+      )} ${getTranslation(employee.last_name, language)}`}</Heading>
+      <Text variant="hr">
+        {getTranslation(employee.positions[0].name_translations, language)}
+      </Text>
+      <Flex justifyContent="center">
+        <Text variant="dm">
+          {t('titles:employee.experience', {
+            count: employee.years_of_experience
+          })}
+        </Text>
+        <Text variant="dm">
+          {t('titles:employee.project', { count: employee.projects.length })}
+        </Text>
+      </Flex>
+      {employee.address.country && employee.address.city ? (
+        <Flex justifyContent="center">
+          <Box color="brand.body">
+            <MdLocationOn size="18px" />
+          </Box>
+          <Text>{`${employee.address.city} ${employee.address.country}`}</Text>
+        </Flex>
+      ) : null}
+    </Box>
+  );
+};

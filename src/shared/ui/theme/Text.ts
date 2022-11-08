@@ -10,6 +10,10 @@ export const Text = {
       textTransform: 'uppercase',
       color: 'brand.headline'
     },
+    hr: {
+      fontSize: '20px',
+      color: 'brand.headline'
+    },
     m: {
       fontSize: '18px',
       fontWeight: 500
@@ -45,6 +49,16 @@ export const Text = {
     },
     rr: {
       fontSize: '12px'
+    },
+    dm: {
+      _notFirst: {
+        pl: '12px'
+      },
+      _notLast: {
+        borderRight: '1px solid',
+        borderRightColor: 'brand.stroke',
+        pr: '12px'
+      }
     }
   }
 };

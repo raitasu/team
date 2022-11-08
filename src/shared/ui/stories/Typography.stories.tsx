@@ -1,4 +1,4 @@
-import { Heading, Stack, Text } from '@chakra-ui/react';
+import { Flex, Heading, Stack, Text } from '@chakra-ui/react';
 
 export default {
   title: 'UI/Typography',
@@ -14,6 +14,9 @@ export const Variants = () => (
     <Heading variant="4">H4 Roboto Bold, 24px, 120% - variant 4</Heading>
     <Heading variant="5">H5 Roboto Bold, 20px, 120% - variant 5</Heading>
     <Text variant="hb">Huge Bold roboto bold, 20px, 120% - variant hb</Text>
+    <Text variant="hr">
+      Huge regular roboto Regular, 20px, 120% - variant hr
+    </Text>
     <Text variant="m">Body medium Roboto Medium, 18px, 120%. - variant m</Text>
     <Text variant="l">Body large Roboto Regular, 18px, 120%. - variant l</Text>
     <Text variant="r">
@@ -37,5 +40,13 @@ export const Variants = () => (
     <Text variant="rr">
       Body regular Roboto Regular, 16px, 120%. - variant rr
     </Text>
+    <Flex>
+      <Text variant="dm">
+        Body regular Roboto Regular with divider, 16px, 120%. - variant dm
+      </Text>
+      <Text variant="dm">
+        Body regular Roboto Regular with divider, 16px, 120%. - variant dm
+      </Text>
+    </Flex>
   </Stack>
 );

@@ -3,6 +3,11 @@
     "auth": {
       "sign_in": "Войти"
     },
+    "employee": {
+      "create_cv": "Создать резюме",
+      "copy_profile": "Копировать профиль",
+      "delete_profile": "Удалить профиль"
+    },
     "employees": {
       "add_employee": "Новый профиль"
     },
@@ -54,6 +59,18 @@
       "log_out_title": "Выход",
       "token": "Получаем токен",
       "welcome": "Добро пожаловать!"
+    },
+    "employee": {
+      "project_zero": "{{count}} проектов",
+      "project_one": "{{count}} проект",
+      "project_two": "{{count}} проекта",
+      "project_few": "{{count}} проектов",
+      "project_many": "{{count}} проектов",
+      "experience_zero": "{{count}} лет",
+      "experience_one": "{{count}} год",
+      "experience_two": "{{count}} года",
+      "experience_few": "{{count}} года",
+      "experience_many": "{{count}} лет"
     },
     "employees": {
       "table_headers": {

@@ -3,6 +3,11 @@
     "auth": {
       "sign_in": "Sign in"
     },
+    "employee": {
+      "create_cv": "Create cv",
+      "copy_profile": "Copy profile",
+      "delete_profile": "Delete profile"
+    },
     "employees": {
       "add_employee": "New profile"
     },
@@ -54,6 +59,12 @@
       "log_out_title": "Log out",
       "token": "Getting token",
       "welcome": "Welcome aboard!"
+    },
+    "employee": {
+      "project_one": "{{count}} project",
+      "project_other": "{{count}} projects",
+      "experience_one": "{{count}} year",
+      "experience_other": "{{count}} years"
     },
     "employees": {
       "table_headers": {

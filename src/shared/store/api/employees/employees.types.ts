@@ -110,6 +110,7 @@ export interface Employee {
   last_name: Translation;
   positions: EmployeePosition[];
   projects: Pick<Project, 'id' | 'name_translations'>[];
+  years_of_experience: number;
   role: EmployeeRole;
   social_networks: EmployeeSocialNetwork;
   soft_skills: EmployeeSoftSkill[];
