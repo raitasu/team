@@ -1,6 +1,9 @@
 export const Tag = {
   baseStyle: {
     container: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       fontWeight: '400',
       borderRadius: '4px',
       border: '1px solid',
@@ -9,6 +12,9 @@ export const Tag = {
         color: 'brand.lightGray',
         marginInlineEnd: '4px'
       }
+    },
+    label: {
+      lineHeight: '120%'
     },
     closeButton: {
       marginStart: '4px',
@@ -26,7 +32,7 @@ export const Tag = {
         minH: '20px',
         minW: '44px',
         fontSize: '12px',
-        padding: '3px 7px',
+        padding: '2px 7px',
         svg: {
           w: '12px',
           h: '12px'
@@ -42,7 +48,7 @@ export const Tag = {
         minH: '24px',
         minW: '49px',
         fontSize: '14px',
-        padding: '4px 7px',
+        padding: '2.5px 7px',
         svg: {
           w: '16px',
           h: '16px'
@@ -58,10 +64,10 @@ export const Tag = {
         minH: '32px',
         minW: '61px',
         fontSize: '16px',
-        padding: '7px 12px',
+        padding: '5px 12px',
         svg: {
-          w: '18px',
-          h: '18px'
+          w: '20px',
+          h: '20px'
         }
       },
       closeButton: {
@@ -78,8 +84,27 @@ export const Tag = {
     subtle: {
       container: {
         color: 'brand.ghostGray',
+        backgroundColor: 'brand.white'
+      }
+    },
+    colorCloseBtn: {
+      container: {
+        color: 'brand.ghostGray',
         backgroundColor: 'brand.white',
-        lineHeight: '120%'
+        svg: {
+          w: '20px',
+          h: '20px',
+          marginInlineEnd: '0',
+          color: 'brand.ghostGray'
+        },
+        button: {
+          svg: {
+            w: '20px',
+            h: '20px',
+            marginInlineEnd: '0',
+            color: 'brand.accentRed'
+          }
+        }
       }
     }
   },
