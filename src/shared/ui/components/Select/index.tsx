@@ -1,16 +1,15 @@
 import { Icon } from '@chakra-ui/react';
-import {
-  chakraComponents,
+import type {
   ChakraStylesConfig,
   GroupBase,
   DropdownIndicatorProps,
   MultiValueRemoveProps,
   Props as SelectProps,
-  Select as ChakraSelect,
   SelectComponentsConfig
 } from 'chakra-react-select';
+import { chakraComponents, Select as ChakraSelect } from 'chakra-react-select';
 import { MdClose, MdExpandMore } from 'react-icons/md';
-import { ClearIndicatorProps } from 'react-select';
+import type { ClearIndicatorProps } from 'react-select';
 
 import { SelectStyles } from '~/shared/ui/components/Select/select.styles';
 

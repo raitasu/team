@@ -1,5 +1,5 @@
 import 'i18next';
-import en from '~/services/i18n/locales/en.json';
+import type en from '~/services/i18n/locales/en.json';
 
 declare module 'i18next' {
   type EnglishResource = typeof en;

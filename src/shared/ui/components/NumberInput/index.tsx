@@ -1,10 +1,9 @@
+import type { NumberInputFieldProps, NumberInputProps } from '@chakra-ui/react';
 import {
   NumberDecrementStepper,
   NumberIncrementStepper,
   NumberInput as ChakraNumberInput,
   NumberInputField,
-  NumberInputFieldProps,
-  NumberInputProps,
   NumberInputStepper
 } from '@chakra-ui/react';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';

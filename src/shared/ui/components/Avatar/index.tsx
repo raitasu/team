@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Avatar as ChakraAvatar } from '@chakra-ui/react';
 
-import { EmployeeStatus } from '~/shared/store/api/employees/employees.types';
+import type { EmployeeStatus } from '~/shared/store/api/employees/employees.types';
 
-import { AvatarProps, SizeType } from './avatar.types';
+import type { AvatarProps, SizeType } from './avatar.types';
 import defaultAvatar from './defaultAvatar.svg';
 
 const sizes: SizeType = {

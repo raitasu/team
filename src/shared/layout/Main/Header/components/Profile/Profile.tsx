@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { Employee } from '~/shared/store/api/employees/employees.types';
+import type { Employee } from '~/shared/store/api/employees/employees.types';
 import { Avatar } from '~/shared/ui/components/Avatar';
 
 export const Profile = ({

@@ -12,7 +12,7 @@ import {
 } from 'react-icons/md';
 
 import { AlertStyles as styles } from './alert.styles';
-import { BaseAlertProps } from './alert.types';
+import type { BaseAlertProps } from './alert.types';
 
 const getAlertIcon = (status: BaseAlertProps['status']) => {
   switch (status) {

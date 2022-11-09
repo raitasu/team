@@ -5,7 +5,7 @@ import {
   FormLabel
 } from '@chakra-ui/react';
 
-import { BaseFormControlProps } from './formControl.types';
+import type { BaseFormControlProps } from './formControl.types';
 
 export const FormControl = ({
   label,

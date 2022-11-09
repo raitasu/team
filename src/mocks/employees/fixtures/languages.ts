@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import shuffle from 'lodash/shuffle';
 
-import { EmployeeLanguage } from '~/shared/store/api/employees/employees.types';
+import type { EmployeeLanguage } from '~/shared/store/api/employees/employees.types';
 
 const sessionLanguages = ['en', 'ru', 'ja', 'fr'] as const;
 

@@ -1,7 +1,7 @@
 import snakeCase from 'lodash/snakeCase';
 
 import { PagePaths } from '~/router/router.constants';
-import { DashToSnakeCase } from '~/shared/helpers.types';
+import type { DashToSnakeCase } from '~/shared/helpers.types';
 
 export const OnboardingSections = {
   About: 'about',

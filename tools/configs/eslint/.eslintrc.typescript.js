@@ -11,6 +11,12 @@ module.exports = {
   ],
   rules: {
     '@typescript-eslint/consistent-type-assertions': 'warn',
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports'
+      }
+    ],
     '@typescript-eslint/no-array-constructor': 'warn',
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-redeclare': 'error',

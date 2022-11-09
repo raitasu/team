@@ -1,7 +1,7 @@
 import i18nBase from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { AppLocale, I18nNamespaces } from './i18n.types';
+import type { AppLocale, I18nNamespaces } from './i18n.types';
 import en from './locales/en.json';
 
 const namespaces = Object.keys(en);

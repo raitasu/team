@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { UseDisclosureReturn } from '@chakra-ui/react';
+import type { UseDisclosureReturn } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { MdOutlineFilterAlt } from 'react-icons/md';
 
-import { DrawerControl } from '~/shared/layout/Page/page.types';
+import type { DrawerControl } from '~/shared/layout/Page/page.types';
 import { ControlButton } from '~/shared/ui/components/IconButton/ControlButton';
 import { Tooltip } from '~/shared/ui/components/Tooltip';
 

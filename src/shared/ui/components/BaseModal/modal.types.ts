@@ -1,6 +1,6 @@
-import * as React from 'react';
+import type * as React from 'react';
 
-import {
+import type {
   ModalContentProps as ChakraModalContentProps,
   ModalProps as ChakraModalProps
 } from '@chakra-ui/react';

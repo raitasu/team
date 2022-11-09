@@ -1,8 +1,5 @@
-import {
-  CircularProgress,
-  CircularProgressLabel,
-  CircularProgressProps
-} from '@chakra-ui/react';
+import type { CircularProgressProps } from '@chakra-ui/react';
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
 
 export const ProgressBar = ({
   value,

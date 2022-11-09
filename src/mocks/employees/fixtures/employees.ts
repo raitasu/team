@@ -7,7 +7,7 @@ import { getRandomPositions } from '~/mocks/employees/fixtures/positions';
 import { getRandomSoftSkills } from '~/mocks/employees/fixtures/softSkills';
 import { getRandomInteger } from '~/mocks/mocks.utils';
 import { getRandomProjects } from '~/mocks/projects/fixtures/projects';
-import {
+import type {
   Employee,
   EmployeeAddress,
   EmployeeContact,

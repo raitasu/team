@@ -1,7 +1,7 @@
 import { Table } from '@chakra-ui/react';
 import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
 
-import { ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import type { ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
 import { EmployeesColumns } from './columns';
 import { TableBody } from './components/TableBody';

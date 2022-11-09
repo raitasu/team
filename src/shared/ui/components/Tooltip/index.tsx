@@ -1,6 +1,6 @@
 import { Tooltip as ChakraTooltip } from '@chakra-ui/react';
 
-import { BaseTooltipProps } from './tooltip.types';
+import type { BaseTooltipProps } from './tooltip.types';
 
 const defaultMotion = { variants: {} };
 

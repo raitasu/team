@@ -6,7 +6,7 @@ import { PersonalInfoTab } from '~/features/employee/EmployeeInfo/tabs/PersonalI
 import { PublicationTab } from '~/features/employee/EmployeeInfo/tabs/PublicationTab';
 import { SkillsTab } from '~/features/employee/EmployeeInfo/tabs/SkillsTab';
 import { WorkExperienceTab } from '~/features/employee/EmployeeInfo/tabs/WorkExperienceTab';
-import { Employee } from '~/shared/store/api/employees/employees.types';
+import type { Employee } from '~/shared/store/api/employees/employees.types';
 
 const employeeInfoTabs = [
   {

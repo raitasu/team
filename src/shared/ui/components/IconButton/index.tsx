@@ -1,9 +1,7 @@
 import React from 'react';
 
-import {
-  IconButton as ChakraIconButton,
-  IconButtonProps
-} from '@chakra-ui/react';
+import type { IconButtonProps } from '@chakra-ui/react';
+import { IconButton as ChakraIconButton } from '@chakra-ui/react';
 
 export const IconButton = React.forwardRef<
   HTMLButtonElement,

@@ -1,6 +1,6 @@
-import React from 'react';
+import type React from 'react';
 
-import { AlertProps } from '@chakra-ui/react';
+import type { AlertProps } from '@chakra-ui/react';
 
 export interface BaseAlertProps extends AlertProps {
   heading?: React.ReactNode;

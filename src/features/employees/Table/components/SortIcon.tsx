@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { SortDirection } from '@tanstack/react-table';
+import type { SortDirection } from '@tanstack/react-table';
 import { MdOutlineArrowDownward, MdOutlineArrowUpward } from 'react-icons/md';
 
 const getAscendingColor = (sortDirection: SortDirection) =>

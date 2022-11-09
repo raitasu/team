@@ -2,7 +2,7 @@ import { Flex, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import { NumberInput } from '~/shared/ui/components/NumberInput';
-import { PaginationProps } from '~/shared/ui/components/Pagination/pagination.types';
+import type { PaginationProps } from '~/shared/ui/components/Pagination/pagination.types';
 import { Select } from '~/shared/ui/components/Select';
 
 const options = [

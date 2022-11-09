@@ -1,9 +1,9 @@
-import { QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
+import type { QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
 import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import { Mutex } from 'async-mutex';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
-import { AuthTokens } from '~/shared/store/api/authentication/authentication.types';
+import type { AuthTokens } from '~/shared/store/api/authentication/authentication.types';
 import {
   loggedOut,
   tokenReceived
