@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import fs from 'fs-extra';
 import diff from 'lodash/difference.js';
+import uniq from 'lodash/uniq.js';
 import path from 'path';
 import { icons } from './helper.mjs';
 
@@ -13,8 +14,9 @@ const getKeysMap = (source, parentKey) => {
   const keys = Object.keys(source);
   return keys.flatMap((key) => {
     const path = `${parentKey ? `${parentKey}.` : ''}${key}`;
+
     return typeof source[key] === 'string'
-      ? path
+      ? path.replace(/_(few|many|one|other|plural|two|zero)$/, '')
       : getKeysMap(source[key], path);
   });
 };
@@ -22,8 +24,8 @@ const getKeysMap = (source, parentKey) => {
 export async function validateLocalization() {
   const enBase = await fs.readJson(path.resolve(localizationPath, 'en.json'));
   const ruBase = await fs.readJson(path.resolve(localizationPath, 'ru.json'));
-  const allEnKeys = getKeysMap(enBase);
-  const allRuKeys = getKeysMap(ruBase);
+  const allEnKeys = uniq(getKeysMap(enBase));
+  const allRuKeys = uniq(getKeysMap(ruBase));
 
   const hasSameAmountOfKeys = allEnKeys.length === allRuKeys.length;
   const absentRussianKeys = diff(allEnKeys, allRuKeys);
