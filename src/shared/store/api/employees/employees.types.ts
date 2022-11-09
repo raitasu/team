@@ -22,6 +22,7 @@ type EmployeeLanguageSkill =
  * @property {EmployeeLanguageSkill} level
  */
 export type EmployeeLanguage = {
+  id: number;
   name: string;
   level: EmployeeLanguageSkill;
 };
@@ -34,9 +35,16 @@ export type EmployeeLanguage = {
  * @property {string[]} emails List of emails
  */
 export interface EmployeeContact {
+  primary_phone: string;
   phones: string[];
   emergency_phones: string[];
   emails: string[];
+  address: EmployeeAddress;
+}
+
+export interface EmployeeCv {
+  id: number;
+  position: EmployeePosition;
 }
 
 /**
@@ -55,17 +63,28 @@ export interface EmployeeSocialNetwork {
 export interface EmployeeAddress {
   apartment: string;
   building: string;
-  city: string;
+  city: Translation;
   /**
    * ISO country code: https://www.iban.com/country-codes
    */
-  country: string;
-  street: string;
+  country_code: string;
+  street_translations: Translation;
+  unit: string;
   zip_code: string;
 }
 
+export interface EmployeeEducation
+  extends Pick<EmployeeAddress, 'country_code' | 'city'> {
+  id: number;
+  degree: Translation;
+  start_at: string;
+  end_at: string;
+  speciality_translations: Translation;
+  university_name_translations: Translation;
+}
+
 export interface EmployeeHardSkill {
-  experience: number;
+  years_of_experience: number;
   id: number;
   name_translations: Translation;
 }
@@ -92,43 +111,84 @@ type EmployeeClothingSize =
 
 type EmployeeGender = 'male' | 'female' | 'other';
 
-export type EmployeeStatus = 'active' | 'candidate' | 'inactive';
+export interface EmployeePublication {
+  id: number;
+  date: string;
+  description_translations: Translation;
+  file: string;
+  name_translations: Translation;
+  link: string;
+}
 
 type EmployeeRole = 'admin' | 'user';
 
+export type EmployeeStatus = 'active' | 'candidate' | 'inactive';
+
+export interface EmployeeCertificate
+  extends Pick<EmployeeAddress, 'country_code' | 'city'> {
+  id: number;
+  institute_translations: Translation;
+  file: string;
+  start_at: string;
+  end_at: string;
+  speciality_translations: Translation;
+}
+
+export interface EmployeeWorkExperince {
+  id: number;
+  company_name: string;
+  position: Translation;
+  started_at: string;
+  ended_at: string;
+  description: Translation;
+  responsibilities: Translation;
+  environment: string[];
+}
+
 export interface Employee {
-  address: EmployeeAddress;
-  avatar: string | null;
+  about_translations: Translation;
+  avatar_url: string | null;
+  certificates: EmployeeCertificate[];
   clothing_size: EmployeeClothingSize;
   contacts: EmployeeContact;
+  cvs: EmployeeCv[];
   date_of_birth: string;
+  educations: EmployeeEducation[];
   first_name: Translation;
   gender: EmployeeGender;
   hard_skills: EmployeeHardSkill[];
   id: number;
+  interests_translations: Translation;
   languages: EmployeeLanguage[];
   last_name: Translation;
   positions: EmployeePosition[];
   projects: Pick<Project, 'id' | 'name_translations'>[];
-  years_of_experience: number;
+  publications: EmployeePublication[];
   role: EmployeeRole;
   social_networks: EmployeeSocialNetwork;
   soft_skills: EmployeeSoftSkill[];
   status: EmployeeStatus;
+  start_career_at: string;
+  timezone: string;
+  years_of_experience: number;
+  work_experiences: EmployeeWorkExperince[];
 }
 
 export type ShortEmployee = Pick<
   Employee,
-  | 'avatar'
+  | 'avatar_url'
   | 'date_of_birth'
   | 'first_name'
   | 'id'
   | 'last_name'
   | 'positions'
   | 'projects'
+  | 'role'
   | 'status'
 > & {
-  address: Pick<EmployeeAddress, 'city' | 'country'>;
+  contacts: {
+    address: Pick<EmployeeAddress, 'city' | 'country_code'>;
+  };
 };
 
 export type EmployeesListResponse = PaginatedResponse<ShortEmployee>;

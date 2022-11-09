@@ -118,7 +118,7 @@
     },
     "employees": {
       "table_headers": {
-        "address": "Место жительства",
+        "contacts": "Место жительства",
         "date_of_birth": "Дата рождения",
         "full_name": "Имя",
         "no_projects": "Нет текущих проектов",

@@ -6,7 +6,9 @@ export type Translation = { en: string } & Partial<
 
 export type PaginatedResponse<TData> = {
   items: TData[];
-  total_count: number;
-  limit: number;
-  offset: number;
+  page: {
+    total_count: number;
+    limit: number;
+    offset: number;
+  };
 };

@@ -23,7 +23,7 @@ export const EmployeesTableContainer = () => {
   if (!data) return null;
 
   const totalPages = getTotalPages(
-    data.total_count,
+    data.page.total_count,
     pagination.elementsPerPage
   );
 

@@ -13,7 +13,7 @@ const generateEmployeeHardSkill = (id: number): EmployeeHardSkill => ({
     en: faker.word.noun(),
     ru: fakerRu.word.noun()
   },
-  experience: faker.datatype.number({
+  years_of_experience: faker.datatype.number({
     min: 1,
     max: 20
   })

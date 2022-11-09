@@ -14,7 +14,7 @@ export const EmployeeCard = ({ employee }: { employee: Employee }) => (
     <Avatar
       size="lg"
       variant={employee.status}
-      src={employee.avatar || undefined}
+      src={employee.avatar_url || undefined}
     />
     <EmployeeDescription employee={employee} />
     {employee.role === 'admin' && <EmployeeCvControls />}

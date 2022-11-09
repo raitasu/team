@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
 type HeaderKeys =
-  | 'address'
+  | 'contacts'
   | 'date_of_birth'
   | 'full_name'
   | 'positions'

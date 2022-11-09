@@ -9,6 +9,7 @@ export const getRandomLanguages = (count: number): EmployeeLanguage[] =>
   shuffle(sessionLanguages)
     .slice(0, count)
     .map((lang) => ({
+      id: sessionLanguages.indexOf(lang),
       name: lang,
       level: faker.helpers.arrayElement([
         'beginner',

@@ -54,14 +54,15 @@ const getEmployeesHandler = rest.get(
       })
       .map((employee) =>
         pick(employee, [
-          'address',
-          'avatar',
+          'contacts',
+          'avatar_url',
           'date_of_birth',
           'first_name',
           'id',
           'last_name',
           'positions',
           'projects',
+          'role',
           'status'
         ])
       );
@@ -69,9 +70,11 @@ const getEmployeesHandler = rest.get(
     return res(
       ctx.json({
         items: employees.slice(offset, offset + limit),
-        limit,
-        offset,
-        total_count: employees.length
+        page: {
+          limit,
+          offset,
+          total_count: employees.length
+        }
       })
     );
   }

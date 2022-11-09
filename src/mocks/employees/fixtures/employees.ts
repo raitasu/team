@@ -6,6 +6,7 @@ import { getRandomLanguages } from '~/mocks/employees/fixtures/languages';
 import { getRandomPositions } from '~/mocks/employees/fixtures/positions';
 import { getRandomSoftSkills } from '~/mocks/employees/fixtures/softSkills';
 import { getRandomInteger } from '~/mocks/mocks.utils';
+import { getRandomProjects } from '~/mocks/projects/fixtures/projects';
 import {
   Employee,
   EmployeeAddress,
@@ -13,18 +14,33 @@ import {
   EmployeeSocialNetwork
 } from '~/shared/store/api/employees/employees.types';
 
+import { getRandomCertificates } from './certificates';
+import { getRandomCvs } from './cvs';
+import { getRandomEducations } from './educations';
+import { getRandomPublications } from './publications';
+import { getRandomWorkExperiences } from './workExperinces';
+
 const sessionEmployees: Record<string, Employee> = {};
 
 const generateEmployeeAddress = (): EmployeeAddress => ({
   apartment: faker.address.buildingNumber(),
   building: faker.address.buildingNumber(),
-  city: faker.address.city(),
-  country: faker.address.country(),
-  street: faker.address.street(),
+  city: {
+    en: faker.address.city(),
+    ru: fakerRu.address.city()
+  },
+  country_code: faker.address.countryCode(),
+  street_translations: {
+    en: faker.address.street(),
+    ru: fakerRu.address.street()
+  },
+  unit: faker.address.buildingNumber(),
   zip_code: faker.address.zipCode()
 });
 
 const generateEmployeeContacts = (): EmployeeContact => ({
+  address: generateEmployeeAddress(),
+  primary_phone: faker.phone.number('+############'),
   phones: new Array(getRandomInteger(1, 3))
     .fill(1)
     .map(() => faker.phone.number('+############')),
@@ -50,8 +66,12 @@ const generateEmployee = (id: number): Employee => {
   const gender = (['male', 'female'] as const)[getRandomInteger(0, 1)];
 
   return {
-    address: generateEmployeeAddress(),
-    avatar: faker.image.avatar(),
+    about_translations: {
+      en: faker.lorem.paragraph(),
+      ru: fakerRu.lorem.paragraph()
+    },
+    avatar_url: faker.image.avatar(),
+    certificates: getRandomCertificates(getRandomInteger(0, 10)),
     clothing_size: faker.helpers.arrayElement([
       'xs',
       's',
@@ -63,6 +83,7 @@ const generateEmployee = (id: number): Employee => {
       '4xl'
     ]),
     contacts: generateEmployeeContacts(),
+    cvs: getRandomCvs(getRandomInteger(0, 5)),
     first_name: {
       en: faker.name.firstName(gender),
       ru: fakerRu.name.firstName(gender)
@@ -74,17 +95,33 @@ const generateEmployee = (id: number): Employee => {
     date_of_birth: faker.date
       .birthdate({ min: 18, max: 50, mode: 'age' })
       .toISOString(),
+    educations: getRandomEducations(getRandomInteger(0, 5)),
     gender,
     hard_skills: getRandomHardSkills(getRandomInteger(0, 8)),
     id,
+    interests_translations: {
+      en: faker.lorem.paragraph(),
+      ru: fakerRu.lorem.paragraph()
+    },
     languages: getRandomLanguages(getRandomInteger(1, 3)),
     positions: getRandomPositions(getRandomInteger(1, 3)),
-    projects: [],
-    years_of_experience: getRandomInteger(0, 8),
-    social_networks: generateSocialNetwork(),
+
+    projects: getRandomProjects(getRandomInteger(0, 3)).map((project) => ({
+      id: project.id,
+      name_translations: project.name_translations
+    })),
+    publications: getRandomPublications(getRandomInteger(0, 8)),
+
     role: faker.helpers.arrayElement(['admin', 'user']),
+    social_networks: generateSocialNetwork(),
     soft_skills: getRandomSoftSkills(getRandomInteger(0, 8)),
-    status: faker.helpers.arrayElement(['active', 'candidate', 'inactive'])
+    status: faker.helpers.arrayElement(['active', 'candidate', 'inactive']),
+    start_career_at: faker.date
+      .birthdate({ min: 0, max: 5, mode: 'age' })
+      .toISOString(),
+    timezone: faker.address.timeZone(),
+    years_of_experience: getRandomInteger(0, 15),
+    work_experiences: getRandomWorkExperiences(getRandomInteger(0, 5))
   };
 };
 

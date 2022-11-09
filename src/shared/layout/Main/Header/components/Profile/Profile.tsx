@@ -56,6 +56,7 @@ export const Profile = ({
           <Avatar
             size="md"
             variant={employee.status}
+            src={employee.avatar_url ?? undefined}
           />
           <Box paddingLeft="6px">
             <IoIosArrowDown />

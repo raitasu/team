@@ -26,8 +26,12 @@ export const EmployeesColumns = [
         .join(', '),
     header: TranslatedHeader
   }),
-  columnHelper.accessor('address', {
-    cell: (info) => `${info.getValue().country}, ${info.getValue().city}`,
+  columnHelper.accessor('contacts', {
+    cell: (info) =>
+      `${info.getValue().address.country_code}, ${getTranslation(
+        info.getValue().address.city,
+        getI18n().language
+      )}`,
     header: TranslatedHeader
   }),
   columnHelper.accessor('date_of_birth', {

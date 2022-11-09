@@ -39,14 +39,14 @@ export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
           {t('titles:employee.project', { count: employee.projects.length })}
         </Text>
       </Flex>
-      {employee.address.country && employee.address.city ? (
-        <Flex justifyContent="center">
-          <Box color="brand.body">
-            <MdLocationOn size="18px" />
-          </Box>
-          <Text>{`${employee.address.city} ${employee.address.country}`}</Text>
-        </Flex>
-      ) : null}
+      <Flex justifyContent="center">
+        <Box color="brand.body">
+          <MdLocationOn size="18px" />
+        </Box>
+        <Text>{`${getTranslation(employee.contacts.address.city, language)} ${
+          employee.contacts.address.country_code
+        }`}</Text>
+      </Flex>
     </Box>
   );
 };
