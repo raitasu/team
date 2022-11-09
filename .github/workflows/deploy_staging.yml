@@ -48,7 +48,7 @@ jobs:
         uses: staevs/s3-deploy-action@v1.0.0
         if: success()
         with:
-          args: --follow-symlinks --delete --no-progress
+          args: --follow-symlinks --delete --no-progress --sse AES256 --cache-control max-age=600
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.DEPLOY_PREVIEW_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
