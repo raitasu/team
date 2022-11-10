@@ -1,6 +1,13 @@
 import React from 'react';
 
-import { Heading, Text, Stack, Link as ChackraLink } from '@chakra-ui/react';
+import {
+  Heading,
+  Text,
+  Stack,
+  Link as ChackraLink,
+  Box,
+  HStack
+} from '@chakra-ui/react';
 
 import { activeLinkStyles } from '~/pages/Onboarding/onboarding.constants';
 
@@ -61,4 +68,35 @@ export const OnboardingLink = ({
   >
     {children}
   </ChackraLink>
+);
+
+export const DescriptionItem = ({
+  channel,
+  description
+}: {
+  channel: string;
+  description: string;
+}) => (
+  <HStack
+    gap="20px"
+    marginBottom="20px"
+  >
+    <Box
+      as="dt"
+      width="107px"
+      color="brand.headline2"
+      lineHeight="120%"
+      textAlign="end"
+    >
+      {channel}
+    </Box>
+    <Box
+      as="dd"
+      color="brand.ghostGray"
+      lineHeight="120%"
+      style={{ marginInlineStart: 0 }}
+    >
+      {description}
+    </Box>
+  </HStack>
 );

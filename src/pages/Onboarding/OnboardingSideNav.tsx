@@ -14,6 +14,7 @@ export const OnboardingSideNav = () => {
   return (
     <Box
       flex="0 0 330px"
+      height="min-content"
       padding="20px 15px"
       border="1px solid"
       borderColor="brand.stroke"

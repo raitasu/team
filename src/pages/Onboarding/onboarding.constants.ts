@@ -5,6 +5,7 @@ import type { DashToSnakeCase } from '~/shared/helpers.types';
 
 export const OnboardingSections = {
   About: 'about',
+  Discord: 'discord',
   Schedule: 'schedule',
   SickLeave: 'sick-leave',
   Vacation: 'vacation',
@@ -49,3 +50,38 @@ export const socialLinks = [
     tag: '«Instagram»'
   }
 ];
+
+export const descriptionItems = [
+  {
+    term: 'Cyberassist',
+    definition: 'text:onboarding.discord.cyberassist'
+  },
+  {
+    term: 'Booklovers',
+    definition: 'text:onboarding.discord.booklovers'
+  },
+  {
+    term: 'General',
+    definition: 'text:onboarding.discord.general'
+  },
+  {
+    term: 'Meetups',
+    definition: 'text:onboarding.discord.meetups'
+  },
+  {
+    term: 'Thanks',
+    definition: 'text:onboarding.discord.thanks'
+  },
+  {
+    term: 'Random',
+    definition: 'text:onboarding.discord.random'
+  },
+  {
+    term: 'Relocate',
+    definition: 'text:onboarding.discord.relocate'
+  },
+  {
+    term: 'CG-branches',
+    definition: 'text:onboarding.discord.CG_branches'
+  }
+] as const;

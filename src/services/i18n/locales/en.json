@@ -82,6 +82,7 @@
     },
     "onboarding": {
       "about": "Familiarity with the «Cybergizer»",
+      "discord": "Discord team chats",
       "schedule": "Schedule work",
       "sick_leave": "Sick leave",
       "vacation": "Vacation policy",
@@ -119,6 +120,17 @@
           "place": "Development of the company as a place of work, perfect for starting a career in IT.",
           "products": "Creation and promotion of own products."
         }
+      },
+      "discord": {
+        "intro": "Of course, there is a channel of the project that you will join. And you can also get acquainted with other, equally interesting and important chats.",
+        "cyberassist": "If you need help with technical questions.",
+        "booklovers": "If you like to read, ready to share your impressions about the book or advise, then you are here.",
+        "general": "For important information.",
+        "meetups": "All information about internal meetups is discussed here.",
+        "thanks": "If one of the colleagues helped with advice, deed, supported — here you can publicly thank, or just say something good to your colleagues.",
+        "random": "«Everything and nothing», if all of the above chats do not fit the description for what you would like to say, then welcome to random.",
+        "relocate": "To discuss issues related to the relocation process.",
+        "CG_branches": "The channel is divided into locations and exists in order to be able to solve organizational issues and arrange meetings."
       }
     }
   },
@@ -172,6 +184,9 @@
         "values": "Values",
         "goals": "Goals of the company",
         "links": "Links"
+      },
+      "discord": {
+        "summary": "Summary of important chats in «Discord»"
       }
     },
     "pagination": {

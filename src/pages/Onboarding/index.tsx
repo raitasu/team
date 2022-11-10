@@ -17,6 +17,8 @@ import { Vacation } from '~/pages/Onboarding/sections/Vacation';
 import { PagePaths } from '~/router/router.constants';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
 
+import { DiscordChats } from './sections/DiscordChats';
+
 const isOnboardingSection = (
   routerParam: string
 ): routerParam is typeof OnboardingSections[keyof typeof OnboardingSections] =>
@@ -24,6 +26,7 @@ const isOnboardingSection = (
 
 const sections = {
   [OnboardingSections.About]: AboutCompany,
+  [OnboardingSections.Discord]: DiscordChats,
   [OnboardingSections.Schedule]: ScheduleWork,
   [OnboardingSections.SickLeave]: SickLeave,
   [OnboardingSections.Vacation]: Vacation,
@@ -58,6 +61,7 @@ export const Onboarding = () => {
 
         <Box
           flex={1}
+          height="min-content"
           border="1px solid"
           borderColor="brand.stroke"
           borderRadius="4px"
