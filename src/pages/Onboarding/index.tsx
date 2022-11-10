@@ -56,12 +56,13 @@ export const Onboarding = () => {
         width="100%"
         gap="20px"
         height="100%"
+        alignItems="top"
       >
         <OnboardingSideNav />
 
         <Box
-          flex={1}
           height="min-content"
+          maxHeight="100%"
           border="1px solid"
           borderColor="brand.stroke"
           borderRadius="4px"

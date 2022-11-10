@@ -42,11 +42,11 @@ export const socialLinks = [
     tag: '«Cybergizer»'
   },
   {
-    target: 'http://www.linkedin.com/',
+    target: 'https://www.linkedin.com/company/cybergizer/mycompany/',
     tag: '«LinkedIn»'
   },
   {
-    target: 'http://www.instagram.com/',
+    target: 'https://www.instagram.com/cybergizer/',
     tag: '«Instagram»'
   }
 ];

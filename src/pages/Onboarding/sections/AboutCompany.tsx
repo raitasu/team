@@ -83,10 +83,7 @@ export const AboutCompany = () => {
         </UnorderedList>
       </Subsection>
 
-      <Box
-        as="section"
-        padding="0 40px 30px"
-      >
+      <Box padding="0 40px 30px">
         {socialLinks.map(({ tag, target }) => (
           <OnboardingLink
             key={target}
