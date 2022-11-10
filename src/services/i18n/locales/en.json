@@ -161,6 +161,27 @@
           "link": "Link",
           "title": "Publications"
         },
+        "personal_information": {
+          "contacts": {
+            "address": "Address",
+            "email": "Email",
+            "emergency": "Emergency contact",
+            "mobile_primary": "Mobile primary phone",
+            "mobile_secondary": "Secondary mobile phone",
+            "section_title": "Contact information"
+          },
+          "general": {
+            "about": "About",
+            "clothing_size": "Clothing size",
+            "date_of_birth": "Date of birth",
+            "gender": "Gender",
+            "interests": "Interests",
+            "section_title": "General information",
+            "start_career": "Start career in Cybergizer"
+          },
+          "social_network_title": "Social network",
+          "title": "Personal information"
+        },
         "skills": {
           "hard_skills": "Hard skills",
           "languages": "Languages",

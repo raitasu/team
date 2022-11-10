@@ -167,6 +167,27 @@
           "link": "Ссылка",
           "title": "Публикации"
         },
+        "personal_information": {
+          "contacts": {
+            "address": "Адрес",
+            "email": "Почта",
+            "emergency": "Экстренный контакт",
+            "mobile_primary": "Основной мобильный телефон",
+            "mobile_secondary": "Дополнительный мобильный телефон",
+            "section_title": "Контакты"
+          },
+          "general": {
+            "about": "Дополнительно",
+            "clothing_size": "Размер одежды",
+            "date_of_birth": "Дата рождения",
+            "gender": "Пол",
+            "interests": "Интересы",
+            "section_title": "Общая информация",
+            "start_career": "Начало работы в Cybergizer"
+          },
+          "social_network_title": "Социальные сети",
+          "title": "Персональная информация"
+        },
         "skills": {
           "hard_skills": "Профессиональные навыки",
           "languages": "Языки",

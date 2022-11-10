@@ -34,7 +34,7 @@ export const PublicationsInfoItem = ({
               fontWeight="500"
               color="brand.headline2"
             >
-              {t('titles:employee.tabs.publications.description')}:{' '}
+              {`${t('titles:employee.tabs.publications.description')} `}
             </Text>
             {getTranslation(publication.description_translations, language)}
           </Text>
