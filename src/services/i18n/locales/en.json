@@ -131,7 +131,15 @@
       "project_one": "{{count}} project",
       "project_other": "{{count}} projects",
       "experience_one": "{{count}} year",
-      "experience_other": "{{count}} years"
+      "experience_other": "{{count}} years",
+      "tabs": {
+        "skills": {
+          "hard_skills": "Hard skills",
+          "languages": "Languages",
+          "soft_skills": "Soft skills",
+          "title": "Skills"
+        }
+      }
     },
     "employees": {
       "table_headers": {

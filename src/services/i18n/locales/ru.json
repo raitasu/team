@@ -137,7 +137,15 @@
       "experience_one": "{{count}} год",
       "experience_two": "{{count}} года",
       "experience_few": "{{count}} года",
-      "experience_many": "{{count}} лет"
+      "experience_many": "{{count}} лет",
+      "tabs": {
+        "skills": {
+          "hard_skills": "Профессиональные навыки",
+          "languages": "Языки",
+          "soft_skills": "Общие навыки",
+          "title": "Навыки"
+        }
+      }
     },
     "employees": {
       "table_headers": {

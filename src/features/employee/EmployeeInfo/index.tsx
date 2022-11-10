@@ -4,9 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { EducationTab } from '~/features/employee/EmployeeInfo/tabs/EducationTab';
 import { PersonalInfoTab } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab';
 import { PublicationTab } from '~/features/employee/EmployeeInfo/tabs/PublicationTab';
-import { SkillsTab } from '~/features/employee/EmployeeInfo/tabs/SkillsTab';
 import { WorkExperienceTab } from '~/features/employee/EmployeeInfo/tabs/WorkExperienceTab';
 import type { Employee } from '~/shared/store/api/employees/employees.types';
+
+import { SkillsTab } from './tabs/skills';
 
 const employeeInfoTabs = [
   {
