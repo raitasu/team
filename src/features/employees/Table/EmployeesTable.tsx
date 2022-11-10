@@ -2,14 +2,17 @@ import React from 'react';
 
 import { Table } from '@chakra-ui/react';
 import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import { isAdmin } from '~/features/employee/employee.utils';
 import { EmployeesColumns } from '~/features/employees/Table/columns';
-import { AddCVModal } from '~/features/employees/Table/components/AddCVModal';
+import { PagePaths } from '~/router/router.constants';
 import type {
   Employee,
   ShortEmployee
 } from '~/shared/store/api/employees/employees.types';
+import { ConfirmationModal } from '~/shared/ui/components/ConfirmationModal';
 
 import { TableBody } from './components/TableBody';
 import { TableHeader } from './components/TableHeader';
@@ -24,6 +27,8 @@ export const EmployeesTable = ({
   const [selectedEmployeeId, setSelectedEmployeeId] = React.useState<
     number | null
   >(null);
+  const navigate = useNavigate();
+  const [t] = useTranslation();
 
   const table = useReactTable({
     columns: EmployeesColumns,
@@ -47,8 +52,13 @@ export const EmployeesTable = ({
         <TableHeader headerGroups={table.getHeaderGroups()} />
         <TableBody rows={table.getRowModel().rows} />
       </Table>
-      <AddCVModal
-        employeeId={selectedEmployeeId}
+      <ConfirmationModal
+        title={t('actions:general.create_cv')}
+        description={t('titles:employees.create_cv_description')}
+        isOpen={selectedEmployeeId !== null}
+        onConfirm={() =>
+          navigate(`${PagePaths.Employees}/${employee.id}/add-cv`)
+        }
         onClose={() => setSelectedEmployeeId(null)}
       />
     </>
