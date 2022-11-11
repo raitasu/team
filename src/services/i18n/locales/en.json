@@ -87,7 +87,7 @@
     "onboarding": {
       "about": "Familiarity with the «Cybergizer»",
       "discord": "Discord team chats",
-      "schedule": "Schedule work",
+      "schedule": "Working time",
       "sick_leave": "Sick leave",
       "vacation": "Vacation policy",
       "perks": "Other perks",
@@ -135,6 +135,23 @@
         "random": "«Everything and nothing», if all of the above chats do not fit the description for what you would like to say, then welcome to random.",
         "relocate": "To discuss issues related to the relocation process.",
         "CG_branches": "The channel is divided into locations and exists in order to be able to solve organizational issues and arrange meetings."
+      },
+      "schedule": {
+        "work_schedule": {
+          "working_day": "Traditionally, the working day is:",
+          "from10": "from 10 AM to 7 PM;",
+          "from9": "from 9 AM to 6 PM;",
+          "hours": "8 working hours with a lunch break (1 hour).",
+          "week": "We work Monday — Friday."
+        },
+        "details": {
+          "remote_work": "The remote work mode has made adjustments, therefore, taking into account the new input, it depends on the work schedule on the client project and personal preferences.",
+          "response_time": "If there are no mandatory requirements for a client project, then the employee himself sets the work schedule within the working day, but it is important to be in touch from 9 to 18 (response time to messages within 5–10 minutes = to be in touch).",
+          "holydays": "All holidays and transfers are also considered. Depending on the country of residence, you need to focus on the production calendar of this country."
+        },
+        "help": {
+          "contact": "Do you have any doubts about working days and the calendar? Write to Masha (in Discord - Maria Kotyash), we will decide together."
+        }
       }
     }
   },
@@ -218,6 +235,11 @@
       },
       "discord": {
         "summary": "Summary of important chats in «Discord»"
+      },
+      "schedule": {
+        "work_schedule": "Work schedule",
+        "details": "Details",
+        "help": "Help"
       }
     },
     "pagination": {
