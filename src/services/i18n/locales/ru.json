@@ -4,6 +4,8 @@
       "sign_in": "Войти"
     },
     "employee": {
+      "add_education": "Новое образование",
+      "add_certificate": "Новый сертификат",
       "create_cv": "Создать резюме",
       "copy_profile": "Копировать профиль",
       "delete_profile": "Удалить профиль"
@@ -139,6 +141,13 @@
       "experience_few": "{{count}} года",
       "experience_many": "{{count}} лет",
       "tabs": {
+        "education": {
+          "certificates": "Сертификаты",
+          "degree": "Степень",
+          "document": "Документ",
+          "fields_of_study": "Область знаний",
+          "title": "Образование"
+        },
         "skills": {
           "hard_skills": "Профессиональные навыки",
           "languages": "Языки",
