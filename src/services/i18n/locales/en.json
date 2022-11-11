@@ -6,6 +6,7 @@
     "employee": {
       "add_education": "New education",
       "add_certificate": "New certificate",
+      "add_publication": "New publication",
       "create_cv": "Create cv",
       "copy_profile": "Copy profile",
       "delete_profile": "Delete profile"
@@ -153,6 +154,12 @@
           "document": "Document",
           "fields_of_study": "Fields of study",
           "title": "Education"
+        },
+        "publications": {
+          "description": "Description",
+          "file": "File",
+          "link": "Link",
+          "title": "Publications"
         },
         "skills": {
           "hard_skills": "Hard skills",

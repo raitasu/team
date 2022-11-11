@@ -2,11 +2,11 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import { PersonalInfoTab } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab';
-import { PublicationTab } from '~/features/employee/EmployeeInfo/tabs/PublicationTab';
 import { WorkExperienceTab } from '~/features/employee/EmployeeInfo/tabs/WorkExperienceTab';
 import type { Employee } from '~/shared/store/api/employees/employees.types';
 
 import { EducationTab } from './tabs/education';
+import { PublicationsTab } from './tabs/publications';
 import { SkillsTab } from './tabs/skills';
 
 const employeeInfoTabs = [
@@ -28,7 +28,7 @@ const employeeInfoTabs = [
   },
   {
     title: 'publication' as const,
-    panel: PublicationTab
+    panel: PublicationsTab
   }
 ];
 

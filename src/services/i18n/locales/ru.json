@@ -6,6 +6,7 @@
     "employee": {
       "add_education": "Новое образование",
       "add_certificate": "Новый сертификат",
+      "add_publication": "Новая публицация",
       "create_cv": "Создать резюме",
       "copy_profile": "Копировать профиль",
       "delete_profile": "Удалить профиль"
@@ -159,6 +160,12 @@
           "document": "Документ",
           "fields_of_study": "Область знаний",
           "title": "Образование"
+        },
+        "publications": {
+          "description": "Описание",
+          "file": "Файл",
+          "link": "Ссылка",
+          "title": "Публикации"
         },
         "skills": {
           "hard_skills": "Профессиональные навыки",
