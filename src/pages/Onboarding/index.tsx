@@ -18,6 +18,7 @@ import { PagePaths } from '~/router/router.constants';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
 
 import { DiscordChats } from './sections/DiscordChats';
+import { Memento } from './sections/Memento';
 
 const isOnboardingSection = (
   routerParam: string
@@ -27,6 +28,7 @@ const isOnboardingSection = (
 const sections = {
   [OnboardingSections.About]: AboutCompany,
   [OnboardingSections.Discord]: DiscordChats,
+  [OnboardingSections.Memento]: Memento,
   [OnboardingSections.Schedule]: ScheduleWork,
   [OnboardingSections.SickLeave]: SickLeave,
   [OnboardingSections.Vacation]: Vacation,

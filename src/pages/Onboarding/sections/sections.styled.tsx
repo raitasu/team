@@ -1,5 +1,6 @@
 import React from 'react';
 
+import type { TextProps } from '@chakra-ui/react';
 import {
   Heading,
   Text,
@@ -37,13 +38,17 @@ export const Subtitle = ({ children }: { children: React.ReactNode }) => (
     {children}
   </Heading>
 );
-export const Paragraph = ({ children }: { children: React.ReactNode }) => (
+export const Paragraph = ({
+  children,
+  ...props
+}: TextProps & { children: React.ReactNode }) => (
   <Text
     variant="r"
     style={{
       marginTop: '0',
       marginBottom: '20px'
     }}
+    {...props}
   >
     {children}
   </Text>

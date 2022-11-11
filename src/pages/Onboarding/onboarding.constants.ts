@@ -6,6 +6,7 @@ import type { DashToSnakeCase } from '~/shared/helpers.types';
 export const OnboardingSections = {
   About: 'about',
   Discord: 'discord',
+  Memento: 'memento',
   Schedule: 'schedule',
   SickLeave: 'sick-leave',
   Vacation: 'vacation',

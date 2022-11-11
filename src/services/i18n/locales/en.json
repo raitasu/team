@@ -88,6 +88,7 @@
       "about": "Familiarity with the «Cybergizer»",
       "discord": "Discord team chats",
       "schedule": "Working time",
+      "memento": "Familiarity with the «Memento»",
       "sick_leave": "Sick leave",
       "vacation": "Vacation policy",
       "perks": "Other perks",
@@ -151,6 +152,31 @@
         },
         "help": {
           "contact": "Do you have any doubts about working days and the calendar? Write to Masha (in Discord - Maria Kotyash), we will decide together."
+        }
+      },
+      "memento": {
+        "introduce": {
+          "using": "«Memento» is used for tracking working time, which allows you to automate payroll and make timely reports for clients.",
+          "tracking": "You need to track working time until the end of the current calendar month. Deadline — 1st of the new month.",
+          "work_time": "Each working day implies 8 hours (if it is full-time, and not otherwise agreed). It can be one tracking or several within one working day.",
+          "comment_field": "If tracking rules are set for the project, then you need to enter the time for each working day and give a more detailed description of what you were working on in the comment field.",
+          "note": "If there are no rules about tracking from the client, then you can specify the number of hours per month and in comments — the period.",
+          "project": "You will need to track the time on the project that you joined / joined (it is not known what project you are on? You need to write to Masha (in Discord — Maria Kotyash)."
+        },
+        "track_time": {
+          "intro": "Select log time and fill in all fields:",
+          "steps": {
+            "date": "in date — select the exact date, specify the hours of operation;",
+            "comments": "in comments write the tasks on which they worked;",
+            "activity": "activity — development (for developers), for QA — QA, etc.;",
+            "create": "and then create."
+          },
+          "tasks": "If there were several tasks in one working day, then you can separate them and submit them separately, or you can use one tracking, but specify all tasks in comments.",
+          "tracking": "And so for each working day you need to fill in, just repeat all these steps :) The ideal option is to fill in the time for each day on the same day, but you can fill in once a week for all days.",
+          "example": "Example:"
+        },
+        "help": {
+          "questions": "Maybe there are questions that need to be clarified? Feel free to write to Masha (in «Discord» — Maria Kotyash)."
         }
       }
     }
@@ -239,6 +265,11 @@
       "schedule": {
         "work_schedule": "Work schedule",
         "details": "Details",
+        "help": "Help"
+      },
+      "memento": {
+        "introduce": "Introduce to you «Memento»",
+        "track_time": "To track the time in a day",
         "help": "Help"
       }
     },
