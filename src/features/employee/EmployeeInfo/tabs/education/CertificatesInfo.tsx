@@ -33,6 +33,7 @@ export const CertificatesInfo = ({
           outline="none"
           boxShadow="none"
           leftIcon={<MdAdd />}
+          margin="auto"
         >
           {t('actions:employee.add_certificate')}
         </Button>

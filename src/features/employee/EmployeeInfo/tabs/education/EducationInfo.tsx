@@ -31,6 +31,7 @@ export const EducationInfo = ({
           outline="none"
           boxShadow="none"
           leftIcon={<MdAdd />}
+          margin="auto"
         >
           {t('actions:employee.add_education')}
         </Button>
