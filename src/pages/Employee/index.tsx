@@ -3,8 +3,8 @@ import { skipToken } from '@reduxjs/toolkit/query/react';
 import isFinite from 'lodash/isFinite';
 import { useParams } from 'react-router-dom';
 
+import { CvSection } from '~/features/employee/CvSection';
 import { EmployeeCard } from '~/features/employee/EmployeeCard';
-import { CvProfileList } from '~/features/employee/EmployeeCvList';
 import { EmployeeInfo } from '~/features/employee/EmployeeInfo';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
 import { useGetEmployeeQuery } from '~/shared/store/api/employees/employees.api';
@@ -52,12 +52,11 @@ export const Employee = () => {
           >
             <EmployeeCard employee={employee} />
           </Box>
-          <Box
-            padding="20px 40px"
-            {...containerStyles}
-          >
-            <CvProfileList />
-          </Box>
+          {employee.cvs.length ? (
+            <Box overflow="auto">
+              <CvSection cvList={employee.cvs} />
+            </Box>
+          ) : null}
         </Flex>
         <Box
           flex="1"

@@ -115,6 +115,16 @@ export const Variants = () => (
         icon={<MdOutlineFilterAlt />}
         disabled
       />
+      <IconButton
+        aria-label="Filter"
+        variant="iconButtonSmallPrimary"
+        icon={<MdOutlineFilterAlt />}
+      />
+      <IconButton
+        aria-label="Filter"
+        variant="iconButtonSmall"
+        icon={<MdOutlineFilterAlt />}
+      />
     </ButtonGroup>
   </SimpleGrid>
 );

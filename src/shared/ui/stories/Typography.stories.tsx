@@ -14,6 +14,7 @@ export const Variants = () => (
     <Heading variant="4">H4 Roboto Bold, 24px, 120% - variant 4</Heading>
     <Heading variant="5">H5 Roboto Bold, 20px, 120% - variant 5</Heading>
     <Text variant="hb">Huge Bold roboto bold, 20px, 120% - variant hb</Text>
+    <Text variant="bb">Huge Bold roboto bold, 20px, 120% - variant bb</Text>
     <Text variant="hr">
       Huge regular roboto Regular, 20px, 120% - variant hr
     </Text>

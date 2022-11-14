@@ -10,6 +10,11 @@ export const Text = {
       textTransform: 'uppercase',
       color: 'brand.headline'
     },
+    bb: {
+      fontSize: '20px',
+      fontWeight: 700,
+      color: 'brand.headline'
+    },
     hr: {
       fontSize: '20px',
       color: 'brand.headline'

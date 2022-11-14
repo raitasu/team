@@ -114,6 +114,22 @@ export const Button = {
           boxShadow: '0 0 0 1px var(--chakra-colors-brand-lightGray)'
         }
       }
+    },
+    iconButtonSmallPrimary: {
+      width: '24px',
+      height: '24px',
+      minWidth: '24px',
+      px: '0',
+      bg: 'inherit',
+      color: 'brand.accentRed'
+    },
+    iconButtonSmall: {
+      width: '24px',
+      height: '24px',
+      minWidth: '24px',
+      px: '0',
+      bg: 'inherit',
+      color: 'brand.body'
     }
   },
   defaultProps: {

@@ -9,7 +9,10 @@
       "add_publication": "New publication",
       "create_cv": "Create cv",
       "copy_profile": "Copy profile",
-      "delete_profile": "Delete profile"
+      "delete_cv": "Delete cv",
+      "delete_profile": "Delete profile",
+      "download_cv": "Download cv",
+      "edit_cv": "Edit cv"
     },
     "employees": {
       "add_employee": "New profile"

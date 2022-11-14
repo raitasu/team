@@ -9,7 +9,10 @@
       "add_publication": "Новая публицация",
       "create_cv": "Создать резюме",
       "copy_profile": "Копировать профиль",
-      "delete_profile": "Удалить профиль"
+      "delete_cv": "Удалить резюме",
+      "delete_profile": "Удалить профиль",
+      "download_cv": "Скачать резюме",
+      "edit_cv": "Изменить резюме"
     },
     "employees": {
       "add_employee": "Новый профиль"
