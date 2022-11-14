@@ -19,10 +19,16 @@ export const SocialNetworkInfo = ({
         'titles:employee.tabs.personal_information.social_network_title'
       )}
     >
-      {Object.entries(socialNetworks).map((network) => (
+      {(
+        Object.entries(socialNetworks) as [
+          key: keyof EmployeeSocialNetwork,
+          value: EmployeeSocialNetwork[keyof EmployeeSocialNetwork]
+        ][]
+      ).map((network) => (
         <ContactItem
+          key={network[0]}
           name={upperFirst(network[0])}
-          values={network[1]}
+          values={[network[1]]}
           linkType="web"
         />
       ))}
