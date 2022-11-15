@@ -41,14 +41,8 @@ export const LoadableAuthentication = React.lazy(() =>
   }))
 );
 
-export const LoadableOnboarding = React.lazy(() =>
-  import('~/pages/Onboarding').then(({ Onboarding: element }) => ({
-    default: element
-  }))
-);
-
-export const LoadableOffboarding = React.lazy(() =>
-  import('~/pages/Offboarding').then(({ Offboarding: element }) => ({
+export const LoadableAbout = React.lazy(() =>
+  import('~/pages/About').then(({ About: element }) => ({
     default: element
   }))
 );

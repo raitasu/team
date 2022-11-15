@@ -12,14 +12,14 @@ export const SickLeave = () => {
       bg="brand.white"
     >
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:onboarding.sick_leave')}</Heading>
+        <Heading variant="3">{t('navigation:about.sick_leave')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:onboarding.sick_leave.sick_leave')}</Subtitle>
+        <Subtitle>{t('titles:about.sick_leave.sick_leave')}</Subtitle>
 
-        <Paragraph>{t('text:onboarding.sick_leave.question')}</Paragraph>
-        <Paragraph>{t('text:onboarding.sick_leave.help')}</Paragraph>
+        <Paragraph>{t('text:about.sick_leave.question')}</Paragraph>
+        <Paragraph>{t('text:about.sick_leave.help')}</Paragraph>
       </Subsection>
     </Box>
   );

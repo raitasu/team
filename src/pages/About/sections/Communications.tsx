@@ -6,7 +6,7 @@ export const Communications = () => {
 
   return (
     <Box bg="brand.white">
-      <Heading variant="3">{t('navigation:onboarding.communications')}</Heading>
+      <Heading variant="3">{t('navigation:about.communications')}</Heading>
     </Box>
   );
 };

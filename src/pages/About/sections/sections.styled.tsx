@@ -7,16 +7,16 @@ import type {
   TextProps
 } from '@chakra-ui/react';
 import {
-  ListItem,
-  Heading,
-  Text,
-  Stack,
-  Link as ChackraLink,
   Box,
-  HStack
+  Heading,
+  HStack,
+  Link as ChackraLink,
+  ListItem,
+  Stack,
+  Text
 } from '@chakra-ui/react';
 
-import { activeLinkStyles } from '~/pages/Onboarding/onboarding.constants';
+import { activeLinkStyles } from '~/pages/About/about.constants';
 
 export const Subsection = ({
   border = '1px solid',
@@ -46,6 +46,7 @@ export const Subtitle = ({ children }: { children: React.ReactNode }) => (
     {children}
   </Heading>
 );
+
 export const Paragraph = ({
   children,
   ...props
@@ -62,7 +63,7 @@ export const Paragraph = ({
   </Text>
 );
 
-export const OnboardingLink = ({
+export const AboutLink = ({
   target,
   children,
   ...props
@@ -71,14 +72,14 @@ export const OnboardingLink = ({
   children: React.ReactNode;
 }) => (
   <ChackraLink
+    {...props}
     href={target}
-    display="block"
+    width="min-content"
     color="brand.ghostGray"
-    textDecoration="underline"
-    textDecorationColor="brand.ghostGray"
+    borderBottom="1px solid"
+    borderColor="currentColor"
     _hover={activeLinkStyles}
     _activeLink={activeLinkStyles}
-    {...props}
   >
     {children}
   </ChackraLink>
@@ -115,7 +116,7 @@ export const DescriptionItem = ({
   </HStack>
 );
 
-export const OnboardingListItem = ({
+export const AboutListItem = ({
   children,
   ...props
 }: ListItemProps & {

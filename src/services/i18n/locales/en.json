@@ -27,9 +27,6 @@
       "reset_filters": "Reset Filters",
       "yes": "Yes"
     },
-    "onboarding": {
-      "continue": "Continue"
-    },
     "projects": {
       "add_project": "New project"
     }
@@ -100,18 +97,10 @@
     }
   },
   "navigation": {
-    "links": {
-      "employees": "Employees",
-      "offboarding": "Offboarding",
-      "onboarding": "Onboarding",
-      "profile": "Profile",
-      "project": "Project",
-      "projects": "Projects"
-    },
-    "onboarding": {
-      "about": "Familiarity with the «Cybergizer»",
+    "about": {
       "birthdays": "Birthdays",
       "communications": "Communications with colleagues and clients",
+      "company": "Familiarity with the «Cybergizer»",
       "contacts": "Email and contacts colleagues",
       "coworking": "Coworking",
       "discord": "Discord team chats",
@@ -122,11 +111,19 @@
       "schedule": "Working time",
       "sick_leave": "Sick leave",
       "vacation": "Vacation policy"
+    },
+    "links": {
+      "about": "About",
+      "employees": "Employees",
+      "offboarding": "Offboarding",
+      "profile": "Profile",
+      "project": "Project",
+      "projects": "Projects"
     }
   },
   "text": {
-    "onboarding": {
-      "about": {
+    "about": {
+      "company": {
         "goals": {
           "brand": "Formation and maintenance of the company's brand as a pro in the sphere of Ruby, Rails and React.js.",
           "locations": "Location extensions of presence of Cybergizer's employees.",
@@ -210,6 +207,29 @@
           "tracking": "And so for each working day you need to fill in, just repeat all these steps :) The ideal option is to fill in the time for each day on the same day, but you can fill in once a week for all days."
         }
       },
+      "perks": {
+        "articles": {
+          "guide": "The guide is here: <0>ruby.news/contribute</0>.",
+          "link": "Publish on <0>ruby.news</0>.",
+          "requirements": "The article must be at least 497 characters long. You can re-write or translate with adaptation. Must be published."
+        },
+        "conferences": {
+          "meetups": "Compensation for tickets to specialized meetups and conferences: 50% - participation, 100% - if the report, or a post-mortem at an internal meetup."
+        },
+        "courses": {
+          "certificate": "Compensation of 50% upon completion of specialized courses and obtaining a certificate. Need a pre-approval."
+        },
+        "sport": {
+          "gym": "1 gym membership per month compensation of 50% of the gym membership price for a specific month;",
+          "help": "Contact <0>Alexander</0> (in Discord — Aleksandr Mishchenko).",
+          "limit": "the upper limit of compensation is 50 USD per month."
+        },
+        "workplace": {
+          "help": "For details, you can contact <0>Alexander</0> (in Discord — Aleksandr Mishchenko).",
+          "installments": "If your wallet is not rubber, but you really want to work on top-end devices. You can buy a laptop, monitor and everything related to the workflow in installments for 12 months at 0%.",
+          "joy": "In order for your work to bring you joy, it is important to equip yourself with a comfortable workplace."
+        }
+      },
       "schedule": {
         "details": {
           "holydays": "All holidays and transfers are also considered. Depending on the country of residence, you need to focus on the production calendar of this country.",
@@ -217,7 +237,7 @@
           "response_time": "If there are no mandatory requirements for a client project, then the employee himself sets the work schedule within the working day, but it is important to be in touch from 9 to 18 (response time to messages within 5–10 minutes = to be in touch)."
         },
         "help": {
-          "contact": "Do you have any doubts about working days and the calendar? Write to Masha (in Discord - Maria Kotyash), we will decide together."
+          "contact": "Do you have any doubts about working days and the calendar? Write to Masha (in Discord — Maria Kotyash), we will decide together."
         },
         "work_schedule": {
           "from10": "from 10 AM to 7 PM;",
@@ -255,6 +275,50 @@
     }
   },
   "titles": {
+    "about": {
+      "company": {
+        "goals": "Goals of the company",
+        "history": "History",
+        "links": "Links",
+        "values": "Values",
+        "who_we_are": "Who we are"
+      },
+      "coworking": {
+        "minsk": "Minsk"
+      },
+      "discord": {
+        "summary": "Summary of important chats in «Discord»"
+      },
+      "english": {
+        "company": "Possibility to improve the level of English within the company",
+        "courses": "When attending paid courses"
+      },
+      "memento": {
+        "help": "Help",
+        "introduce": "Introduce to you «Memento»",
+        "track_time": "To track the time in a day"
+      },
+      "perks": {
+        "articles": "$50 per article",
+        "conferences": "Conference compensation",
+        "courses": "Courses and advanced training",
+        "sport": "Compensation for sports",
+        "workplace": "Workplace"
+      },
+      "schedule": {
+        "details": "Details",
+        "help": "Help",
+        "work_schedule": "Work schedule"
+      },
+      "sick_leave": {
+        "sick_leave": "Sick leave"
+      },
+      "vacation": {
+        "birthday": "Birthday Day off",
+        "days": "How many vacation days?",
+        "leave": "Unpaid leave"
+      }
+    },
     "auth": {
       "log_out_description": "Do you really want to log out?",
       "log_out_title": "Log out",
@@ -284,7 +348,7 @@
             "section_title": "Contact information"
           },
           "general": {
-            "about": "About",
+            "about": "company",
             "clothing_size": "Clothing size",
             "date_of_birth": "Date of birth",
             "gender": "Gender",
@@ -323,43 +387,6 @@
     },
     "general": {
       "filters": "Filters"
-    },
-    "onboarding": {
-      "about": {
-        "goals": "Goals of the company",
-        "history": "History",
-        "links": "Links",
-        "values": "Values",
-        "who_we_are": "Who we are"
-      },
-      "coworking": {
-        "minsk": "Minsk"
-      },
-      "discord": {
-        "summary": "Summary of important chats in «Discord»"
-      },
-      "english": {
-        "company": "Possibility to improve the level of English within the company",
-        "courses": "When attending paid courses"
-      },
-      "memento": {
-        "help": "Help",
-        "introduce": "Introduce to you «Memento»",
-        "track_time": "To track the time in a day"
-      },
-      "schedule": {
-        "details": "Details",
-        "help": "Help",
-        "work_schedule": "Work schedule"
-      },
-      "sick_leave": {
-        "sick_leave": "Sick leave"
-      },
-      "vacation": {
-        "birthday": "Birthday Day off",
-        "days": "How many vacation days?",
-        "leave": "Unpaid leave"
-      }
     },
     "pagination": {
       "aria_label": "Current page, Page {{ current }}",

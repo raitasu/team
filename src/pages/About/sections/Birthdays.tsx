@@ -1,12 +1,12 @@
 import { Box, Heading } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-export const Contacts = () => {
+export const Birthdays = () => {
   const [t] = useTranslation();
 
   return (
     <Box bg="brand.white">
-      <Heading variant="3">{t('navigation:onboarding.contacts')}</Heading>
+      <Heading variant="3">{t('navigation:about.birthdays')}</Heading>
     </Box>
   );
 };

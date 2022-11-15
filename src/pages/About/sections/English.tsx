@@ -2,11 +2,11 @@ import { Box, Heading, UnorderedList, VisuallyHidden } from '@chakra-ui/react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import {
-  OnboardingLink,
+  AboutLink,
   Paragraph,
   Subsection,
   Subtitle,
-  OnboardingListItem as ListItem
+  AboutListItem as ListItem
 } from './sections.styled';
 
 export const English = () => {
@@ -18,11 +18,11 @@ export const English = () => {
       bg="brand.white"
     >
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:onboarding.english')}</Heading>
+        <Heading variant="3">{t('navigation:about.english')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:onboarding.english.company')}</Subtitle>
+        <Subtitle>{t('titles:about.english.company')}</Subtitle>
 
         <Paragraph
           style={{
@@ -30,7 +30,7 @@ export const English = () => {
             marginBottom: '4px'
           }}
         >
-          {t('text:onboarding.english.company.opportunity')}
+          {t('text:about.english.company.opportunity')}
         </Paragraph>
 
         <UnorderedList
@@ -39,29 +39,27 @@ export const English = () => {
             marginBottom: '20px'
           }}
         >
-          <ListItem>{t('text:onboarding.english.company.format')}</ListItem>
-          <ListItem>{t('text:onboarding.english.company.teacher')}</ListItem>
+          <ListItem>{t('text:about.english.company.format')}</ListItem>
+          <ListItem>{t('text:about.english.company.teacher')}</ListItem>
         </UnorderedList>
 
-        <Paragraph>{t('text:onboarding.english.company.schedule')}</Paragraph>
+        <Paragraph>{t('text:about.english.company.schedule')}</Paragraph>
         <Paragraph>
-          <Trans i18nKey="text:onboarding.english.company.contact">
-            <OnboardingLink
+          <Trans i18nKey="text:about.english.company.contact">
+            <AboutLink
               display="inline"
               target="https://t.me/Kottyashechka"
             >
               Masha
-            </OnboardingLink>
+            </AboutLink>
           </Trans>
         </Paragraph>
       </Subsection>
 
       <Subsection>
-        <Subtitle>{t('titles:onboarding.english.courses')}</Subtitle>
+        <Subtitle>{t('titles:about.english.courses')}</Subtitle>
 
-        <Paragraph>
-          {t('text:onboarding.english.courses.compensation')}
-        </Paragraph>
+        <Paragraph>{t('text:about.english.courses.compensation')}</Paragraph>
       </Subsection>
     </Box>
   );

@@ -1,14 +1,13 @@
 import { Box, Heading, VisuallyHidden } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
+import { descriptionItems } from '~/pages/About/about.constants';
 import {
   DescriptionItem,
   Paragraph,
   Subsection,
   Subtitle
-} from '~/pages/Onboarding/sections/sections.styled';
-
-import { descriptionItems } from '../onboarding.constants';
+} from '~/pages/About/sections/sections.styled';
 
 export const DiscordChats = () => {
   const [t] = useTranslation();
@@ -19,13 +18,13 @@ export const DiscordChats = () => {
       bg="brand.white"
     >
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:onboarding.discord')}</Heading>
+        <Heading variant="3">{t('navigation:about.discord')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:onboarding.discord.summary')}</Subtitle>
+        <Subtitle>{t('titles:about.discord.summary')}</Subtitle>
 
-        <Paragraph>{t('text:onboarding.discord.intro')}</Paragraph>
+        <Paragraph>{t('text:about.discord.intro')}</Paragraph>
 
         <Box
           as="dl"

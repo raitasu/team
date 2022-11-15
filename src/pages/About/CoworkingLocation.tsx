@@ -105,10 +105,9 @@ const MapInEnglish = () => (
 
 export const CoworkingLocation = () => {
   const [, { language }] = useTranslation();
-  const map = useMemo(
+
+  return useMemo(
     () => (language === 'ru' ? <MapInRussian /> : <MapInEnglish />),
     [language]
   );
-
-  return map;
 };

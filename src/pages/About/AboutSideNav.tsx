@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 import {
-  activeLinkStyles,
-  hoverLinkStyles,
-  onboardingLinks
-} from '~/pages/Onboarding/onboarding.constants';
+  aboutLinks,
+  activeNavLinkStyles,
+  hoverNavLinkStyles
+} from '~/pages/About/about.constants';
 
-export const OnboardingSideNav = () => {
+export const AboutSideNav = () => {
   const [t] = useTranslation();
 
   return (
@@ -21,7 +21,7 @@ export const OnboardingSideNav = () => {
       borderRadius="4px"
       bg="brand.white"
     >
-      {onboardingLinks.map(({ translationTag, target }) => (
+      {aboutLinks.map(({ translationTag, target }) => (
         <Link
           key={target}
           as={NavLink}
@@ -31,8 +31,8 @@ export const OnboardingSideNav = () => {
           fontSize="16px"
           lineHeight="120%"
           padding="8px 15px"
-          _hover={hoverLinkStyles}
-          _activeLink={activeLinkStyles}
+          _hover={hoverNavLinkStyles}
+          _activeLink={activeNavLinkStyles}
         >
           {t(translationTag)}
         </Link>

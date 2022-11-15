@@ -3,19 +3,18 @@ import { Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import { Navigate } from 'react-router-dom';
 
-import { OnboardingSections } from '~/pages/Onboarding/onboarding.constants';
+import { AboutSections } from '~/pages/About/about.constants';
 import { PrivateOnlyRoutes } from '~/router/guards/PrivateOnlyRoutes';
 import { PublicOnlyRoutes } from '~/router/guards/PublicOnlyRoutes';
 import { TokenVerification } from '~/router/guards/TokenVerification';
 import {
+  LoadableAbout,
   LoadableAuthentication,
   LoadableCreateCV,
   LoadableEmployee,
   LoadableEmployees,
   LoadableLogin,
   LoadableNotFound,
-  LoadableOffboarding,
-  LoadableOnboarding,
   LoadableProject,
   LoadableProjects
 } from '~/router/LoadablePages';
@@ -48,28 +47,20 @@ export const AppRouter = () => (
               </Suspense>
             }
           />
-          <Route path={PagePaths.Onboarding}>
+          <Route path={PagePaths.About}>
             <Route
               path=":section"
               element={
                 <Suspense fallback={<PageLoader />}>
-                  <LoadableOnboarding />
+                  <LoadableAbout />
                 </Suspense>
               }
             />
             <Route
               index
-              element={<Navigate to={OnboardingSections.About} />}
+              element={<Navigate to={AboutSections.About} />}
             />
           </Route>
-          <Route
-            path={PagePaths.Offboarding}
-            element={
-              <Suspense fallback={<PageLoader />}>
-                <LoadableOffboarding />
-              </Suspense>
-            }
-          />
           <Route
             path={PagePaths.Projects}
             element={

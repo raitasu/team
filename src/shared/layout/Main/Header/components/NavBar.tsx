@@ -6,8 +6,8 @@ import { PagePaths } from '~/router/router.constants';
 
 const headerLinks = [
   {
-    target: PagePaths.Onboarding,
-    translationTag: 'navigation:links.onboarding'
+    target: PagePaths.About,
+    translationTag: 'navigation:links.about'
   },
   {
     target: PagePaths.Employees,
@@ -16,10 +16,6 @@ const headerLinks = [
   {
     target: PagePaths.Projects,
     translationTag: 'navigation:links.projects'
-  },
-  {
-    target: PagePaths.Offboarding,
-    translationTag: 'navigation:links.offboarding'
   }
 ] as const;
 

@@ -1,7 +1,8 @@
 import { Box, Heading, VisuallyHidden } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import { CoworkingLocation } from '../CoworingLocation';
+import { CoworkingLocation } from '~/pages/About/CoworkingLocation';
+
 import { Subsection, Subtitle, Paragraph } from './sections.styled';
 
 export const Coworking = () => {
@@ -13,17 +14,15 @@ export const Coworking = () => {
       bg="brand.white"
     >
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:onboarding.coworking')}</Heading>
+        <Heading variant="3">{t('navigation:about.coworking')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:onboarding.coworking.minsk')}</Subtitle>
+        <Subtitle>{t('titles:about.coworking.minsk')}</Subtitle>
 
-        <Paragraph>{t('text:onboarding.coworking.minsk.location')}</Paragraph>
-        <Paragraph>
-          {t('text:onboarding.coworking.minsk.coworking_day')}
-        </Paragraph>
-        <Paragraph>{t('text:onboarding.coworking.minsk.place')}</Paragraph>
+        <Paragraph>{t('text:about.coworking.minsk.location')}</Paragraph>
+        <Paragraph>{t('text:about.coworking.minsk.coworking_day')}</Paragraph>
+        <Paragraph>{t('text:about.coworking.minsk.place')}</Paragraph>
 
         <Box>
           <CoworkingLocation />
