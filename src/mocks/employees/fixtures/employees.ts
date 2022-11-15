@@ -3,9 +3,9 @@ import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 
 import { getRandomHardSkills } from '~/mocks/employees/fixtures/hardSkills';
 import { getRandomLanguages } from '~/mocks/employees/fixtures/languages';
-import { getRandomPositions } from '~/mocks/employees/fixtures/positions';
 import { getRandomSoftSkills } from '~/mocks/employees/fixtures/softSkills';
 import { getRandomInteger } from '~/mocks/mocks.utils';
+import { getRandomPositions } from '~/mocks/positions/fixtures/positions';
 import { getRandomProjects } from '~/mocks/projects/fixtures/projects';
 import type {
   Employee,

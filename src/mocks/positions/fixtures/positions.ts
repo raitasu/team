@@ -7,7 +7,7 @@ import type { EmployeePosition } from '~/shared/store/api/employees/employees.ty
 
 const sessionPositions: Record<string, EmployeePosition> = {};
 
-const generateEmployeeSoftSkill = (id: number): EmployeePosition => ({
+const generatePosition = (id: number): EmployeePosition => ({
   id,
   name_translations: {
     en: faker.name.jobTitle(),
@@ -15,11 +15,13 @@ const generateEmployeeSoftSkill = (id: number): EmployeePosition => ({
   }
 });
 
-(function generateSessionSoftSkills() {
+(function generateSessionPositions() {
   new Array(getRandomInteger(1, 50)).fill(1).forEach((_, index) => {
-    sessionPositions[index] = generateEmployeeSoftSkill(index);
+    sessionPositions[index] = generatePosition(index);
   });
 })();
 
 export const getRandomPositions = (count: number) =>
   shuffle(Object.values(sessionPositions)).slice(0, count);
+
+export const getPositions = () => Object.values(sessionPositions);
