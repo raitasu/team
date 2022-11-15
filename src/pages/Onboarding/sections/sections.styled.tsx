@@ -88,7 +88,7 @@ export const DescriptionItem = ({
   >
     <Box
       as="dt"
-      width="107px"
+      minWidth="107px"
       color="brand.headline2"
       lineHeight="120%"
       textAlign="end"

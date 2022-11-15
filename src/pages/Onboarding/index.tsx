@@ -63,6 +63,7 @@ export const Onboarding = () => {
         <OnboardingSideNav />
 
         <Box
+          width="100%"
           height="min-content"
           maxHeight="100%"
           border="1px solid"

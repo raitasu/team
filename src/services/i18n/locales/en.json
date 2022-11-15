@@ -4,11 +4,11 @@
       "sign_in": "Sign in"
     },
     "employee": {
-      "add_education": "New education",
       "add_certificate": "New certificate",
+      "add_education": "New education",
       "add_publication": "New publication",
-      "create_cv": "Create cv",
       "copy_profile": "Copy profile",
+      "create_cv": "Create cv",
       "delete_cv": "Delete cv",
       "delete_profile": "Delete profile",
       "download_cv": "Download cv",
@@ -19,13 +19,13 @@
     },
     "general": {
       "add": "Add",
+      "create_cv": "Create CV",
       "delete": "Delete",
       "go_to_page": "Go to page",
       "logout": "Log out",
       "no": "No",
       "reset_filters": "Reset Filters",
-      "yes": "Yes",
-      "create_cv": "Create CV"
+      "yes": "Yes"
     },
     "onboarding": {
       "continue": "Continue"
@@ -37,18 +37,18 @@
   "components": {
     "datepicker": {
       "month": {
-        "january": "January",
-        "february": "February",
-        "march": "March",
         "april": "April",
-        "may": "May",
-        "june": "June",
-        "july": "July",
         "august": "August",
-        "september": "September",
-        "october": "October",
+        "december": "December",
+        "february": "February",
+        "january": "January",
+        "july": "July",
+        "june": "June",
+        "march": "March",
+        "may": "May",
         "november": "November",
-        "december": "December"
+        "october": "October",
+        "september": "September"
       },
       "placeholder": {
         "month": "Month",
@@ -110,104 +110,129 @@
     },
     "onboarding": {
       "about": "Familiarity with the «Cybergizer»",
-      "discord": "Discord team chats",
-      "schedule": "Working time",
-      "memento": "Familiarity with the «Memento»",
-      "sick_leave": "Sick leave",
-      "vacation": "Vacation policy",
-      "perks": "Other perks",
-      "coworking": "Coworking",
-      "help": "Who to turn to if you need help",
       "birthdays": "Birthdays",
-      "english": "English",
       "communications": "Communications with colleagues and clients",
-      "contacts": "Email and contacts colleagues"
+      "contacts": "Email and contacts colleagues",
+      "coworking": "Coworking",
+      "discord": "Discord team chats",
+      "english": "English",
+      "help": "Who to turn to if you need help",
+      "memento": "Familiarity with the «Memento»",
+      "perks": "Other perks",
+      "schedule": "Working time",
+      "sick_leave": "Sick leave",
+      "vacation": "Vacation policy"
     }
   },
   "text": {
     "onboarding": {
       "about": {
-        "who_we_are": {
-          "company": "The Cybergizer ​​company develops software using outsourcing and outstaffing models and specializes in Ruby/Rails and JS/React.js.",
-          "geography": "Geography of clients — Europe, Asia, North America.",
-          "team": "The Cybergizer team consists of more than 40 engineers in Minsk, Vilnius, St. Petersburg and other cities of the world."
-        },
-        "history": {
-          "was_created": "Cybergizer was created by Sergey Sergienko and Anatoly Liotych, Ruby engineers with experience in large international companies.",
-          "base": "The experience and knowledge gained became the basis for the creation in 2017 of the first survival courses in Belarus for young rubizza developers — rubizza.com.",
-          "offices": "In 2019, in addition to the Minsk office, offices appeared in Vilnius and St. Petersburg.",
-          "remote_work": "The company have had a remote work policy since 2020."
-        },
-        "values": {
-          "core_value": "In precovid times, the main value of Cybergizer was the development and expansion of the Ruby community, primarily through educational initiatives such as rubizza.com. The company has built a growth process from a novice developer to a Middle level developer.",
-          "internships": "With the advent of remote work, the focus has shifted to internships for talented developers and the opportunity to enter the profession, gaining experience on real client projects.",
-          "driver": "But anyway, professional and career growth always was and is the driver of Cybergizer's development."
-        },
         "goals": {
           "brand": "Formation and maintenance of the company's brand as a pro in the sphere of Ruby, Rails and React.js.",
           "locations": "Location extensions of presence of Cybergizer's employees.",
           "place": "Development of the company as a place of work, perfect for starting a career in IT.",
           "products": "Creation and promotion of own products."
-        }
-      },
-      "discord": {
-        "intro": "Of course, there is a channel of the project that you will join. And you can also get acquainted with other, equally interesting and important chats.",
-        "cyberassist": "If you need help with technical questions.",
-        "booklovers": "If you like to read, ready to share your impressions about the book or advise, then you are here.",
-        "general": "For important information.",
-        "meetups": "All information about internal meetups is discussed here.",
-        "thanks": "If one of the colleagues helped with advice, deed, supported — here you can publicly thank, or just say something good to your colleagues.",
-        "random": "«Everything and nothing», if all of the above chats do not fit the description for what you would like to say, then welcome to random.",
-        "relocate": "To discuss issues related to the relocation process.",
-        "CG_branches": "The channel is divided into locations and exists in order to be able to solve organizational issues and arrange meetings."
-      },
-      "schedule": {
-        "work_schedule": {
-          "working_day": "Traditionally, the working day is:",
-          "from10": "from 10 AM to 7 PM;",
-          "from9": "from 9 AM to 6 PM;",
-          "hours": "8 working hours with a lunch break (1 hour).",
-          "week": "We work Monday — Friday."
         },
-        "details": {
-          "remote_work": "The remote work mode has made adjustments, therefore, taking into account the new input, it depends on the work schedule on the client project and personal preferences.",
-          "response_time": "If there are no mandatory requirements for a client project, then the employee himself sets the work schedule within the working day, but it is important to be in touch from 9 to 18 (response time to messages within 5–10 minutes = to be in touch).",
-          "holydays": "All holidays and transfers are also considered. Depending on the country of residence, you need to focus on the production calendar of this country."
+        "history": {
+          "base": "The experience and knowledge gained became the basis for the creation in 2017 of the first survival courses in Belarus for young rubizza developers — rubizza.com.",
+          "offices": "In 2019, in addition to the Minsk office, offices appeared in Vilnius and St. Petersburg.",
+          "remote_work": "The company have had a remote work policy since 2020.",
+          "was_created": "Cybergizer was created by Sergey Sergienko and Anatoly Liotych, Ruby engineers with experience in large international companies."
         },
-        "help": {
-          "contact": "Do you have any doubts about working days and the calendar? Write to Masha (in Discord - Maria Kotyash), we will decide together."
-        }
-      },
-      "memento": {
-        "introduce": {
-          "using": "«Memento» is used for tracking working time, which allows you to automate payroll and make timely reports for clients.",
-          "tracking": "You need to track working time until the end of the current calendar month. Deadline — 1st of the new month.",
-          "work_time": "Each working day implies 8 hours (if it is full-time, and not otherwise agreed). It can be one tracking or several within one working day.",
-          "comment_field": "If tracking rules are set for the project, then you need to enter the time for each working day and give a more detailed description of what you were working on in the comment field.",
-          "note": "If there are no rules about tracking from the client, then you can specify the number of hours per month and in comments — the period.",
-          "project": "You will need to track the time on the project that you joined / joined (it is not known what project you are on? You need to write to Masha (in Discord — Maria Kotyash)."
+        "values": {
+          "core_value": "In precovid times, the main value of Cybergizer was the development and expansion of the Ruby community, primarily through educational initiatives such as rubizza.com. The company has built a growth process from a novice developer to a Middle level developer.",
+          "driver": "But anyway, professional and career growth always was and is the driver of Cybergizer's development.",
+          "internships": "With the advent of remote work, the focus has shifted to internships for talented developers and the opportunity to enter the profession, gaining experience on real client projects."
         },
-        "track_time": {
-          "intro": "Select log time and fill in all fields:",
-          "steps": {
-            "date": "in date — select the exact date, specify the hours of operation;",
-            "comments": "in comments write the tasks on which they worked;",
-            "activity": "activity — development (for developers), for QA — QA, etc.;",
-            "create": "and then create."
-          },
-          "tasks": "If there were several tasks in one working day, then you can separate them and submit them separately, or you can use one tracking, but specify all tasks in comments.",
-          "tracking": "And so for each working day you need to fill in, just repeat all these steps :) The ideal option is to fill in the time for each day on the same day, but you can fill in once a week for all days.",
-          "example": "Example:"
-        },
-        "help": {
-          "questions": "Maybe there are questions that need to be clarified? Feel free to write to Masha (in «Discord» — Maria Kotyash)."
+        "who_we_are": {
+          "company": "The Cybergizer ​​company develops software using outsourcing and outstaffing models and specializes in Ruby/Rails and JS/React.js.",
+          "geography": "Geography of clients — Europe, Asia, North America.",
+          "team": "The Cybergizer team consists of more than 40 engineers in Minsk, Vilnius, St. Petersburg and other cities of the world."
         }
       },
       "coworking": {
         "minsk": {
-          "location": "Coworking «Who is John Galt?», st. Shornaya, 20.",
           "coworking_day": "We can set up workshopes there that are not assigned to you. Every Friday of the week is coworking day when everyone needs to come. All other days are optional.",
+          "location": "Coworking «Who is John Galt?», st. Shornaya, 20.",
           "place": "There is no need to pay for visiting the coworking space on working days. But you will need to check in with the administrator, saying that you are from «Cybergizer»."
+        }
+      },
+      "discord": {
+        "CG_branches": "The channel is divided into locations and exists in order to be able to solve organizational issues and arrange meetings.",
+        "booklovers": "If you like to read, ready to share your impressions about the book or advise, then you are here.",
+        "cyberassist": "If you need help with technical questions.",
+        "general": "For important information.",
+        "intro": "Of course, there is a channel of the project that you will join. And you can also get acquainted with other, equally interesting and important chats.",
+        "meetups": "All information about internal meetups is discussed here.",
+        "random": "«Everything and nothing», if all of the above chats do not fit the description for what you would like to say, then welcome to random.",
+        "relocate": "To discuss issues related to the relocation process.",
+        "thanks": "If one of the colleagues helped with advice, deed, supported — here you can publicly thank, or just say something good to your colleagues."
+      },
+      "memento": {
+        "help": {
+          "questions": "Maybe there are questions that need to be clarified? Feel free to write to Masha (in «Discord» — Maria Kotyash)."
+        },
+        "introduce": {
+          "comment_field": "If tracking rules are set for the project, then you need to enter the time for each working day and give a more detailed description of what you were working on in the comment field.",
+          "note": "If there are no rules about tracking from the client, then you can specify the number of hours per month and in comments — the period.",
+          "project": "You will need to track the time on the project that you joined / joined (it is not known what project you are on? You need to write to Masha (in Discord — Maria Kotyash).",
+          "tracking": "You need to track working time until the end of the current calendar month. Deadline — 1st of the new month.",
+          "using": "«Memento» is used for tracking working time, which allows you to automate payroll and make timely reports for clients.",
+          "work_time": "Each working day implies 8 hours (if it is full-time, and not otherwise agreed). It can be one tracking or several within one working day."
+        },
+        "track_time": {
+          "example": "Example:",
+          "intro": "Select log time and fill in all fields:",
+          "steps": {
+            "activity": "activity — development (for developers), for QA — QA, etc.;",
+            "comments": "in comments write the tasks on which they worked;",
+            "create": "and then create.",
+            "date": "in date — select the exact date, specify the hours of operation;"
+          },
+          "tasks": "If there were several tasks in one working day, then you can separate them and submit them separately, or you can use one tracking, but specify all tasks in comments.",
+          "tracking": "And so for each working day you need to fill in, just repeat all these steps :) The ideal option is to fill in the time for each day on the same day, but you can fill in once a week for all days."
+        }
+      },
+      "schedule": {
+        "details": {
+          "holydays": "All holidays and transfers are also considered. Depending on the country of residence, you need to focus on the production calendar of this country.",
+          "remote_work": "The remote work mode has made adjustments, therefore, taking into account the new input, it depends on the work schedule on the client project and personal preferences.",
+          "response_time": "If there are no mandatory requirements for a client project, then the employee himself sets the work schedule within the working day, but it is important to be in touch from 9 to 18 (response time to messages within 5–10 minutes = to be in touch)."
+        },
+        "help": {
+          "contact": "Do you have any doubts about working days and the calendar? Write to Masha (in Discord - Maria Kotyash), we will decide together."
+        },
+        "work_schedule": {
+          "from10": "from 10 AM to 7 PM;",
+          "from9": "from 9 AM to 6 PM;",
+          "hours": "8 working hours with a lunch break (1 hour).",
+          "week": "We work Monday — Friday.",
+          "working_day": "Traditionally, the working day is:"
+        }
+      },
+      "sick_leave": {
+        "help": "It is possible to take a paid sick leave, while warning on the project and writing to Masha (in «Discord» — Maria Kotyash).",
+        "question": "What to do if you don't feel well?"
+      },
+      "vacation": {
+        "birthday": {
+          "birthday_day_off": "A paid day off as a birthday gift to an employee."
+        },
+        "days": {
+          "approval": "approval and request 1 month before the start of the holiday;",
+          "compensation": "if by the end of the year 5 or more working days of vacation have accumulated, you can receive compensation for only five working days, the rest of the vacation burns out.",
+          "contact": "For those guys who have an employment contract: the procedure and terms will be slightly different, but the amount will be the same. For details, please contact Alexander (in «Discord» — Aleksandr Mishchenko).",
+          "coordinate": "With whom to coordinate the vacation?",
+          "days": "20 working days of vacation per year. More:",
+          "get_pay": "How to get vacation pay?",
+          "help": "Coordinate with the manager on the project, then write to Masha (in «Discord» — Maria Kotyash).",
+          "new_emploees": "new employees can go on vacation no earlier than 6 months after starting work;",
+          "part_vacation": "one part of the vacation must be at least 2 weeks (10 working days), the rest can be split (from 1 to 10 working days);",
+          "percent": "70% of your CP + 100% of your normal salary = 170% of your regular salary.",
+          "spin_off": "For those who are especially persistent, who do not need rest (or who want to earn extra money), it is possible to work during formal leave with additional income in the amount of:"
+        },
+        "leave": {
+          "unpaid_leave": "Unlimited number of days per year for good reasons. Approval needed."
         }
       }
     }
@@ -220,10 +245,10 @@
       "welcome": "Welcome aboard!"
     },
     "employee": {
-      "project_one": "{{count}} project",
-      "project_other": "{{count}} projects",
       "experience_one": "{{count}} year",
       "experience_other": "{{count}} years",
+      "project_one": "{{count}} project",
+      "project_other": "{{count}} projects",
       "tabs": {
         "education": {
           "certificates": "Certificates",
@@ -231,12 +256,6 @@
           "document": "Document",
           "fields_of_study": "Fields of study",
           "title": "Education"
-        },
-        "publications": {
-          "description": "Description",
-          "file": "File",
-          "link": "Link",
-          "title": "Publications"
         },
         "personal_information": {
           "contacts": {
@@ -259,6 +278,12 @@
           "social_network_title": "Social network",
           "title": "Personal information"
         },
+        "publications": {
+          "description": "Description",
+          "file": "File",
+          "link": "Link",
+          "title": "Publications"
+        },
         "skills": {
           "hard_skills": "Hard skills",
           "languages": "Languages",
@@ -268,6 +293,8 @@
       }
     },
     "employees": {
+      "create_cv_description": "Do you want to create CV?",
+      "cv": "CV",
       "table_headers": {
         "contacts": "Location",
         "date_of_birth": "Date of birth",
@@ -275,36 +302,42 @@
         "no_projects": "No current projects",
         "positions": "Positions",
         "projects": "Current projects"
-      },
-      "cv": "CV",
-      "create_cv_description": "Do you want to create CV?"
+      }
     },
     "general": {
       "filters": "Filters"
     },
     "onboarding": {
       "about": {
-        "who_we_are": "Who we are",
-        "history": "History",
-        "values": "Values",
         "goals": "Goals of the company",
-        "links": "Links"
+        "history": "History",
+        "links": "Links",
+        "values": "Values",
+        "who_we_are": "Who we are"
+      },
+      "coworking": {
+        "minsk": "Minsk"
       },
       "discord": {
         "summary": "Summary of important chats in «Discord»"
       },
-      "schedule": {
-        "work_schedule": "Work schedule",
-        "details": "Details",
-        "help": "Help"
-      },
       "memento": {
+        "help": "Help",
         "introduce": "Introduce to you «Memento»",
-        "track_time": "To track the time in a day",
-        "help": "Help"
+        "track_time": "To track the time in a day"
       },
-      "coworking": {
-        "minsk": "Minsk"
+      "schedule": {
+        "details": "Details",
+        "help": "Help",
+        "work_schedule": "Work schedule"
+      },
+      "sick_leave": {
+        "sick_leave": "Sick leave"
+      },
+      "vacation": {
+        "birthday": "Birthday Day off",
+        "days": "How many vacation days?",
+        "leave": "Unpaid leave"
       }
     },
     "pagination": {
