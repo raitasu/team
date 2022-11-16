@@ -1,5 +1,4 @@
 import { Text } from '@chakra-ui/react';
-import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
 
 import type { EmployeeLanguage } from '~/shared/store/api/employees/employees.types';
@@ -17,12 +16,12 @@ export const LanguagesInfo = ({
     <InfoSection title={t('titles:employee.tabs.skills.languages')}>
       {languages.map((lang) => (
         <Text key={lang.name}>
-          {`${upperFirst(lang.name)} `}
+          {`${t(`enums:language.${lang.name}`)} `}
           <Text
             as="span"
             color="brand.lightGray"
           >
-            {`${lang.level}`}
+            {`(${t(`enums:language_level.${lang.level}`)})`}
           </Text>
         </Text>
       ))}

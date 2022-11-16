@@ -4,6 +4,22 @@ import type {
 } from '~/shared/store/api/api.types';
 import type { Project } from '~/shared/store/api/projects/projects.types';
 
+export type EmployeeLanguageName =
+  | 'be'
+  | 'de'
+  | 'en'
+  | 'es'
+  | 'fr'
+  | 'hi'
+  | 'it'
+  | 'ja'
+  | 'lt'
+  | 'pl'
+  | 'pt'
+  | 'ru'
+  | 'uk'
+  | 'zh';
+
 /**
  * Possession level
  */
@@ -23,7 +39,7 @@ type EmployeeLanguageSkill =
  */
 export type EmployeeLanguage = {
   id: number;
-  name: string;
+  name: EmployeeLanguageName;
   level: EmployeeLanguageSkill;
 };
 

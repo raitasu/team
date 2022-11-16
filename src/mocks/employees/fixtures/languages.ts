@@ -1,9 +1,27 @@
 import { faker } from '@faker-js/faker';
 import shuffle from 'lodash/shuffle';
 
-import type { EmployeeLanguage } from '~/shared/store/api/employees/employees.types';
+import type {
+  EmployeeLanguage,
+  EmployeeLanguageName
+} from '~/shared/store/api/employees/employees.types';
 
-const sessionLanguages = ['en', 'ru', 'ja', 'fr'] as const;
+const sessionLanguages: EmployeeLanguageName[] = [
+  'be',
+  'de',
+  'en',
+  'es',
+  'fr',
+  'hi',
+  'it',
+  'ja',
+  'lt',
+  'pl',
+  'pt',
+  'ru',
+  'uk',
+  'zh'
+];
 
 export const getRandomLanguages = (count: number): EmployeeLanguage[] =>
   shuffle(sessionLanguages)

@@ -68,6 +68,30 @@
       "active": "Active",
       "candidate": "Candidate",
       "inactive": "Inactive"
+    },
+    "language": {
+      "be": "Belarusian",
+      "de": "German",
+      "en": "English",
+      "es": "Spanish",
+      "fr": "French",
+      "hi": "Hindi",
+      "it": "Italian",
+      "ja": "Japanese",
+      "lt": "Lithuanian",
+      "pl": "Polish",
+      "pt": "Portuguese",
+      "ru": "Russian",
+      "uk": "Ukrainian",
+      "zh": "Chinese"
+    },
+    "language_level": {
+      "advanced": "C1",
+      "beginner": "A2",
+      "elementary": "A1",
+      "intermediate": "B1",
+      "proficiency": "C2",
+      "upper_intermediate": "B2"
     }
   },
   "errors": {

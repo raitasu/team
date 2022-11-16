@@ -5,13 +5,16 @@ export const Tabs = {
         bg: 'brand.background2',
         height: '100%',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        scrollX: 'auto'
       },
       tablist: {
         backgroundColor: 'brand.background2',
         padding: '0 20px',
         borderBottomWidth: '1px',
-        flex: '0'
+        overflowX: 'auto',
+        overflowY: 'hidden',
+        flexShrink: 0
       },
       tab: {
         bg: 'inherit',
@@ -23,6 +26,7 @@ export const Tabs = {
         color: 'brand.body',
         cursor: 'pointer',
         padding: '20px',
+        whiteSpace: 'nowrap',
         _selected: {
           borderColor: 'brand.accentRed',
           fontWeight: '500',
