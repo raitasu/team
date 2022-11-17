@@ -3,6 +3,5 @@ export const PagePaths = {
   Authentication: '/auth',
   Employees: '/employees',
   Login: '/login',
-  Offboarding: '/offboarding',
   Projects: '/projects'
 } as const;
