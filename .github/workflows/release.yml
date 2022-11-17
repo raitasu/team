@@ -21,16 +21,9 @@ jobs:
     name: Release
     runs-on: self-hosted
     permissions:
-      actions: read
-      checks: read
       contents: write
-      deployments: write
       issues: write
-      discussions: write
-      packages: write
-      pull-requests: read
-      repository-projects: read
-      statuses: read
+      pull-requests: write
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
@@ -47,5 +40,5 @@ jobs:
 
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
