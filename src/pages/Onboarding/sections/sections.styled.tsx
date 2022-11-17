@@ -1,7 +1,13 @@
 import React from 'react';
 
-import type { TextProps } from '@chakra-ui/react';
+import type {
+  LinkProps,
+  ListItemProps,
+  StackProps,
+  TextProps
+} from '@chakra-ui/react';
 import {
+  ListItem,
   Heading,
   Text,
   Stack,
@@ -14,8 +20,9 @@ import { activeLinkStyles } from '~/pages/Onboarding/onboarding.constants';
 
 export const Subsection = ({
   border = '1px solid',
-  children
-}: {
+  children,
+  ...props
+}: StackProps & {
   border?: string;
   children: React.ReactNode;
 }) => (
@@ -24,6 +31,7 @@ export const Subsection = ({
     padding="40px 40px 20px"
     borderBottom={border}
     borderColor="brand.stroke"
+    {...props}
   >
     {children}
   </Stack>
@@ -56,20 +64,21 @@ export const Paragraph = ({
 
 export const OnboardingLink = ({
   target,
-  children
-}: {
+  children,
+  ...props
+}: LinkProps & {
   target: string;
   children: React.ReactNode;
 }) => (
   <ChackraLink
     href={target}
     display="block"
-    marginBottom="10px"
     color="brand.ghostGray"
     textDecoration="underline"
     textDecorationColor="brand.ghostGray"
     _hover={activeLinkStyles}
     _activeLink={activeLinkStyles}
+    {...props}
   >
     {children}
   </ChackraLink>
@@ -104,4 +113,19 @@ export const DescriptionItem = ({
       {description}
     </Box>
   </HStack>
+);
+
+export const OnboardingListItem = ({
+  children,
+  ...props
+}: ListItemProps & {
+  children: React.ReactNode;
+}) => (
+  <ListItem
+    marginLeft="30px"
+    color="brand.ghostGray"
+    {...props}
+  >
+    {children}
+  </ListItem>
 );

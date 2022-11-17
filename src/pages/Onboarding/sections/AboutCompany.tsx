@@ -1,10 +1,4 @@
-import {
-  Box,
-  Heading,
-  ListItem,
-  UnorderedList,
-  VisuallyHidden
-} from '@chakra-ui/react';
+import { Box, Heading, UnorderedList, VisuallyHidden } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import { socialLinks } from '~/pages/Onboarding/onboarding.constants';
@@ -12,7 +6,8 @@ import {
   OnboardingLink,
   Paragraph,
   Subsection,
-  Subtitle
+  Subtitle,
+  OnboardingListItem as ListItem
 } from '~/pages/Onboarding/sections/sections.styled';
 
 export const AboutCompany = () => {
@@ -55,31 +50,16 @@ export const AboutCompany = () => {
       <Subsection border="none">
         <Subtitle>{t('titles:onboarding.about.goals')}</Subtitle>
 
-        <UnorderedList marginTop="0">
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
-            {t('text:onboarding.about.goals.products')}
-          </ListItem>
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
-            {t('text:onboarding.about.goals.brand')}
-          </ListItem>
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
-            {t('text:onboarding.about.goals.locations')}
-          </ListItem>
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
-            {t('text:onboarding.about.goals.place')}
-          </ListItem>
+        <UnorderedList
+          style={{
+            marginTop: '0',
+            marginBottom: '4px'
+          }}
+        >
+          <ListItem>{t('text:onboarding.about.goals.products')}</ListItem>
+          <ListItem>{t('text:onboarding.about.goals.brand')}</ListItem>
+          <ListItem>{t('text:onboarding.about.goals.locations')}</ListItem>
+          <ListItem>{t('text:onboarding.about.goals.place')}</ListItem>
         </UnorderedList>
       </Subsection>
 

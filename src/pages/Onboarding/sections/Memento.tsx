@@ -3,7 +3,6 @@ import {
   Heading,
   HStack,
   Image,
-  ListItem,
   UnorderedList,
   VisuallyHidden
 } from '@chakra-ui/react';
@@ -12,7 +11,8 @@ import { useTranslation } from 'react-i18next';
 import {
   Paragraph,
   Subsection,
-  Subtitle
+  Subtitle,
+  OnboardingListItem as ListItem
 } from '~/pages/Onboarding/sections/sections.styled';
 
 import logTimeScreen from '../assets/log_time.jpg';
@@ -48,7 +48,14 @@ export const Memento = () => {
       <Subsection>
         <Subtitle>{t('titles:onboarding.memento.track_time')}</Subtitle>
 
-        <Paragraph>{t('text:onboarding.memento.track_time.intro')}</Paragraph>
+        <Paragraph
+          style={{
+            marginTop: '0',
+            marginBottom: '4px'
+          }}
+        >
+          {t('text:onboarding.memento.track_time.intro')}
+        </Paragraph>
 
         <UnorderedList
           style={{
@@ -56,28 +63,16 @@ export const Memento = () => {
             marginBottom: '20px'
           }}
         >
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
+          <ListItem>
             {t('text:onboarding.memento.track_time.steps.date')}
           </ListItem>
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
+          <ListItem>
             {t('text:onboarding.memento.track_time.steps.comments')}
           </ListItem>
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
+          <ListItem>
             {t('text:onboarding.memento.track_time.steps.activity')}
           </ListItem>
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
+          <ListItem>
             {t('text:onboarding.memento.track_time.steps.create')}
           </ListItem>
         </UnorderedList>

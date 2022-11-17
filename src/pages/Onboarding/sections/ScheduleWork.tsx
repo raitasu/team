@@ -1,13 +1,12 @@
-import {
-  Box,
-  Heading,
-  ListItem,
-  UnorderedList,
-  VisuallyHidden
-} from '@chakra-ui/react';
+import { Box, Heading, UnorderedList, VisuallyHidden } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import { Paragraph, Subsection, Subtitle } from './sections.styled';
+import {
+  Paragraph,
+  Subsection,
+  Subtitle,
+  OnboardingListItem as ListItem
+} from './sections.styled';
 
 export const ScheduleWork = () => {
   const [t] = useTranslation();
@@ -24,7 +23,12 @@ export const ScheduleWork = () => {
       <Subsection>
         <Subtitle>{t('titles:onboarding.schedule.work_schedule')}</Subtitle>
 
-        <Paragraph>
+        <Paragraph
+          style={{
+            marginTop: '0',
+            marginBottom: '4px'
+          }}
+        >
           {t('text:onboarding.schedule.work_schedule.working_day')}
         </Paragraph>
 
@@ -34,16 +38,10 @@ export const ScheduleWork = () => {
             marginBottom: '20px'
           }}
         >
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
+          <ListItem>
             {t('text:onboarding.schedule.work_schedule.from10')}
           </ListItem>
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
+          <ListItem>
             {t('text:onboarding.schedule.work_schedule.from9')}
           </ListItem>
         </UnorderedList>

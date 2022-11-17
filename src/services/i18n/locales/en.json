@@ -168,6 +168,23 @@
         "relocate": "To discuss issues related to the relocation process.",
         "thanks": "If one of the colleagues helped with advice, deed, supported — here you can publicly thank, or just say something good to your colleagues."
       },
+      "english": {
+        "company": {
+          "contact": "How to get there — write <0>Masha</0> (in «Discord» — Maria Kotyash)",
+          "format": "class format — online;",
+          "opportunity": "Cyberizer employees have the opportunity to improve their level of English:",
+          "schedule": "Schedule — depending on the level and group, discussed with the teacher.",
+          "teacher": "teacher — Dmitry Chekan."
+        },
+        "courses": {
+          "compensation": "Based on the result of passing paid courses with obtaining a certificate or diploma (generally super) — compensation of 50% of the cost after the fact (pre-approval is needed)."
+        }
+      },
+      "help": {
+        "contact": "For all organizational issues, please contact <0>Masha</0> (in «Discord» — Maria Kotyash).",
+        "discord": "If you need technical assistance, «Discord» — «Cyberassist».",
+        "mentor": "For trainees and junior developers — the help of mentors."
+      },
       "memento": {
         "help": {
           "questions": "Maybe there are questions that need to be clarified? Feel free to write to Masha (in «Discord» — Maria Kotyash)."
@@ -320,6 +337,10 @@
       },
       "discord": {
         "summary": "Summary of important chats in «Discord»"
+      },
+      "english": {
+        "company": "Possibility to improve the level of English within the company",
+        "courses": "When attending paid courses"
       },
       "memento": {
         "help": "Help",
