@@ -202,6 +202,13 @@
         "help": {
           "questions": "Maybe there are questions that need to be clarified? Feel free to write to Masha (in «Discord» — Maria Kotyash)."
         }
+      },
+      "coworking": {
+        "minsk": {
+          "location": "Coworking «Who is John Galt?», st. Shornaya, 20.",
+          "coworking_day": "We can set up workshopes there that are not assigned to you. Every Friday of the week is coworking day when everyone needs to come. All other days are optional.",
+          "place": "There is no need to pay for visiting the coworking space on working days. But you will need to check in with the administrator, saying that you are from «Cybergizer»."
+        }
       }
     }
   },
@@ -295,6 +302,9 @@
         "introduce": "Introduce to you «Memento»",
         "track_time": "To track the time in a day",
         "help": "Help"
+      },
+      "coworking": {
+        "minsk": "Minsk"
       }
     },
     "pagination": {
