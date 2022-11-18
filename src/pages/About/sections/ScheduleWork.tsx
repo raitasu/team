@@ -1,11 +1,12 @@
 import { Box, Heading, UnorderedList, VisuallyHidden } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import {
   Paragraph,
   Subsection,
   Subtitle,
-  AboutListItem as ListItem
+  AboutListItem as ListItem,
+  AboutLink
 } from './sections.styled';
 
 export const ScheduleWork = () => {
@@ -57,7 +58,11 @@ export const ScheduleWork = () => {
       <Subsection>
         <Subtitle>{t('titles:about.schedule.help')}</Subtitle>
 
-        <Paragraph>{t('text:about.schedule.help.contact')}</Paragraph>
+        <Paragraph>
+          <Trans i18nKey="text:about.schedule.help.contact">
+            <AboutLink target="https://t.me/Kottyashechka">Masha</AboutLink>
+          </Trans>
+        </Paragraph>
       </Subsection>
     </Box>
   );

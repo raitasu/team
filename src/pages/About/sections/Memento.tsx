@@ -6,13 +6,14 @@ import {
   UnorderedList,
   VisuallyHidden
 } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import {
   Paragraph,
   Subsection,
   Subtitle,
-  AboutListItem as ListItem
+  AboutListItem as ListItem,
+  AboutLink
 } from '~/pages/About/sections/sections.styled';
 
 import logTimeScreen from '../assets/log_time.jpg';
@@ -33,12 +34,22 @@ export const Memento = () => {
       <Subsection>
         <Subtitle>{t('titles:about.memento.introduce')}</Subtitle>
 
-        <Paragraph>{t('text:about.memento.introduce.using')}</Paragraph>
+        <Paragraph>
+          <Trans i18nKey="text:about.memento.introduce.using">
+            <AboutLink target="https://memento.cybergizer.com/login">
+              «Memento»
+            </AboutLink>
+          </Trans>
+        </Paragraph>
         <Paragraph>{t('text:about.memento.introduce.tracking')}</Paragraph>
         <Paragraph>{t('text:about.memento.introduce.work_time')}</Paragraph>
         <Paragraph>{t('text:about.memento.introduce.comment_field')}</Paragraph>
         <Paragraph>{t('text:about.memento.introduce.note')}</Paragraph>
-        <Paragraph>{t('text:about.memento.introduce.project')}</Paragraph>
+        <Paragraph>
+          <Trans i18nKey="text:about.memento.introduce.project">
+            <AboutLink target="https://t.me/Kottyashechka">Masha</AboutLink>
+          </Trans>
+        </Paragraph>
       </Subsection>
 
       <Subsection>
@@ -97,7 +108,11 @@ export const Memento = () => {
       <Subsection>
         <Subtitle>{t('titles:about.memento.help')}</Subtitle>
 
-        <Paragraph>{t('text:about.memento.help.questions')}</Paragraph>
+        <Paragraph>
+          <Trans i18nKey="text:about.memento.help.questions">
+            <AboutLink target="https://t.me/Kottyashechka">Masha</AboutLink>
+          </Trans>
+        </Paragraph>
       </Subsection>
     </Box>
   );

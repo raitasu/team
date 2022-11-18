@@ -53,6 +53,7 @@ export const Paragraph = ({
 }: TextProps & { children: React.ReactNode }) => (
   <Text
     variant="r"
+    color="brand.ghostGray"
     style={{
       marginTop: '0',
       marginBottom: '20px'
@@ -74,6 +75,7 @@ export const AboutLink = ({
   <ChackraLink
     {...props}
     href={target}
+    target="_blank"
     width="min-content"
     color="brand.ghostGray"
     borderBottom="1px solid"

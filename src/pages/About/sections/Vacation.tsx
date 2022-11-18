@@ -5,9 +5,9 @@ import {
   UnorderedList,
   VisuallyHidden
 } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
-import { Subsection, Subtitle, Paragraph } from './sections.styled';
+import { Subsection, Subtitle, Paragraph, AboutLink } from './sections.styled';
 
 export const Vacation = () => {
   const [t] = useTranslation();
@@ -94,7 +94,12 @@ export const Vacation = () => {
         >
           {t('text:about.vacation.days.coordinate')}
         </Paragraph>
-        <Paragraph>{t('text:about.vacation.days.help')}</Paragraph>
+
+        <Paragraph>
+          <Trans i18nKey="text:about.vacation.days.help">
+            <AboutLink target="https://t.me/Kottyashechka">Masha</AboutLink>
+          </Trans>
+        </Paragraph>
 
         <Paragraph
           style={{
@@ -104,7 +109,12 @@ export const Vacation = () => {
         >
           {t('text:about.vacation.days.get_pay')}
         </Paragraph>
-        <Paragraph>{t('text:about.vacation.days.contact')}</Paragraph>
+
+        <Paragraph>
+          <Trans i18nKey="text:about.vacation.days.contact">
+            <AboutLink target="https://t.me/msansan">Alexander</AboutLink>
+          </Trans>
+        </Paragraph>
       </Subsection>
       <Subsection>
         <Subtitle>{t('titles:about.vacation.birthday')}</Subtitle>

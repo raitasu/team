@@ -1,5 +1,5 @@
 import { Box, Heading, UnorderedList, VisuallyHidden } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { socialLinks } from '~/pages/About/about.constants';
 import {
@@ -34,7 +34,11 @@ export const AboutCompany = () => {
         <Subtitle>{t('titles:about.company.history')}</Subtitle>
 
         <Paragraph>{t('text:about.company.history.was_created')}</Paragraph>
-        <Paragraph>{t('text:about.company.history.base')}</Paragraph>
+        <Paragraph>
+          <Trans i18nKey="text:about.company.history.base">
+            <AboutLink target="http://rubizza.com/">rubizza.com</AboutLink>
+          </Trans>
+        </Paragraph>
         <Paragraph>{t('text:about.company.history.offices')}</Paragraph>
         <Paragraph>{t('text:about.company.history.remote_work')}</Paragraph>
       </Subsection>

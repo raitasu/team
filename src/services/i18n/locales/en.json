@@ -143,7 +143,7 @@
           "products": "Creation and promotion of own products."
         },
         "history": {
-          "base": "The experience and knowledge gained became the basis for the creation in 2017 of the first survival courses in Belarus for young rubizza developers — rubizza.com.",
+          "base": "The experience and knowledge gained became the basis for the creation in 2017 of the first survival courses in Belarus for young rubizza developers — <0>rubizza.com</0>.",
           "offices": "In 2019, in addition to the Minsk office, offices appeared in Vilnius and St. Petersburg.",
           "remote_work": "The company have had a remote work policy since 2020.",
           "was_created": "Cybergizer was created by Sergey Sergienko and Anatoly Liotych, Ruby engineers with experience in large international companies."
@@ -196,14 +196,14 @@
       },
       "memento": {
         "help": {
-          "questions": "Maybe there are questions that need to be clarified? Feel free to write to Masha (in «Discord» — Maria Kotyash)."
+          "questions": "Maybe there are questions that need to be clarified? Feel free to write to <0>Masha</0> (in «Discord» — Maria Kotyash)."
         },
         "introduce": {
           "comment_field": "If tracking rules are set for the project, then you need to enter the time for each working day and give a more detailed description of what you were working on in the comment field.",
           "note": "If there are no rules about tracking from the client, then you can specify the number of hours per month and in comments — the period.",
-          "project": "You will need to track the time on the project that you joined / joined (it is not known what project you are on? You need to write to Masha (in Discord — Maria Kotyash).",
+          "project": "You will need to track the time on the project that you joined / joined (it is not known what project you are on? You need to write to <0>Masha</0> (in Discord — Maria Kotyash).",
           "tracking": "You need to track working time until the end of the current calendar month. Deadline — 1st of the new month.",
-          "using": "«Memento» is used for tracking working time, which allows you to automate payroll and make timely reports for clients.",
+          "using": "<0>«Memento»</0> is used for tracking working time, which allows you to automate payroll and make timely reports for clients.",
           "work_time": "Each working day implies 8 hours (if it is full-time, and not otherwise agreed). It can be one tracking or several within one working day."
         },
         "track_time": {
@@ -226,7 +226,7 @@
           "requirements": "The article must be at least 497 characters long. You can re-write or translate with adaptation. Must be published."
         },
         "conferences": {
-          "meetups": "Compensation for tickets to specialized meetups and conferences: 50% - participation, 100% - if the report, or a post-mortem at an internal meetup."
+          "meetups": "Compensation for tickets to specialized meetups and conferences: 50% — participation, 100% — if the report, or a post-mortem at an internal meetup."
         },
         "courses": {
           "certificate": "Compensation of 50% upon completion of specialized courses and obtaining a certificate. Need a pre-approval."
@@ -249,7 +249,7 @@
           "response_time": "If there are no mandatory requirements for a client project, then the employee himself sets the work schedule within the working day, but it is important to be in touch from 9 to 18 (response time to messages within 5–10 minutes = to be in touch)."
         },
         "help": {
-          "contact": "Do you have any doubts about working days and the calendar? Write to Masha (in Discord — Maria Kotyash), we will decide together."
+          "contact": "Do you have any doubts about working days and the calendar? Write to <0>Masha</0> (in Discord — Maria Kotyash), we will decide together."
         },
         "work_schedule": {
           "from10": "from 10 AM to 7 PM;",
@@ -260,7 +260,7 @@
         }
       },
       "sick_leave": {
-        "help": "It is possible to take a paid sick leave, while warning on the project and writing to Masha (in «Discord» — Maria Kotyash).",
+        "help": "It is possible to take a paid sick leave, while warning on the project and writing to <0>Masha</0> (in «Discord» — Maria Kotyash).",
         "question": "What to do if you don't feel well?"
       },
       "vacation": {
@@ -270,11 +270,11 @@
         "days": {
           "approval": "approval and request 1 month before the start of the holiday;",
           "compensation": "if by the end of the year 5 or more working days of vacation have accumulated, you can receive compensation for only five working days, the rest of the vacation burns out.",
-          "contact": "For those guys who have an employment contract: the procedure and terms will be slightly different, but the amount will be the same. For details, please contact Alexander (in «Discord» — Aleksandr Mishchenko).",
+          "contact": "For those guys who have an employment contract: the procedure and terms will be slightly different, but the amount will be the same. For details, please contact <0>Alexander</0> (in «Discord» — Aleksandr Mishchenko).",
           "coordinate": "With whom to coordinate the vacation?",
           "days": "20 working days of vacation per year. More:",
           "get_pay": "How to get vacation pay?",
-          "help": "Coordinate with the manager on the project, then write to Masha (in «Discord» — Maria Kotyash).",
+          "help": "Coordinate with the manager on the project, then write to <0>Masha</0> (in «Discord» — Maria Kotyash).",
           "new_emploees": "new employees can go on vacation no earlier than 6 months after starting work;",
           "part_vacation": "one part of the vacation must be at least 2 weeks (10 working days), the rest can be split (from 1 to 10 working days);",
           "percent": "70% of your CP + 100% of your normal salary = 170% of your regular salary.",
