@@ -4,19 +4,19 @@ import { PagePaths } from '~/router/router.constants';
 import type { DashToSnakeCase } from '~/shared/helpers.types';
 
 export const AboutSections = {
-  Birthdays: 'birthdays',
-  Communications: 'communications',
   About: 'company',
-  Contacts: 'contacts',
-  Coworking: 'coworking',
   Discord: 'discord',
-  English: 'english',
-  Help: 'help',
   Memento: 'memento',
-  Perks: 'perks',
   Schedule: 'schedule',
   SickLeave: 'sick-leave',
-  Vacation: 'vacation'
+  Vacation: 'vacation',
+  Perks: 'perks',
+  Coworking: 'coworking',
+  Help: 'help',
+  Birthdays: 'birthdays',
+  English: 'english',
+  Communications: 'communications',
+  Contacts: 'contacts'
 } as const;
 
 export const aboutLinks = Object.values(AboutSections).map((section) => ({

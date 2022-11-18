@@ -25,6 +25,7 @@ export const ScheduleWork = () => {
 
         <Paragraph
           style={{
+            marginTop: '0',
             marginBottom: '4px'
           }}
         >

@@ -122,6 +122,19 @@
   },
   "text": {
     "about": {
+      "communications": {
+        "steps": {
+          "address": "In the company we address each other by first name. But there is one caveat: our accountant Mrs. Queene.",
+          "polite": "There are no supernatural rules. Polite and friendly people work at «Cybergizer», who are always ready to help and support, so if you are here, then you are such a person.",
+          "thanks": "Even if life rushes at the speed of light, the main thing is not to forget to thank and not to forget about the rules of good manners, and everything will work out."
+        },
+        "rules": {
+          "meetings": "Attend daily meetings and other calls with the team.",
+          "in_time": "Don't be late (we respect each other's time).",
+          "vacation": "To warn and coordinate with the client vacation and days off",
+          "video": "If possible, connect to calls with video."
+        }
+      },
       "company": {
         "goals": {
           "brand": "Formation and maintenance of the company's brand as a pro in the sphere of Ruby, Rails and React.js.",
@@ -275,6 +288,10 @@
   },
   "titles": {
     "about": {
+      "communications": {
+        "steps": "To communicate with colleagues you need to follow simple steps",
+        "rules": "There are several rules for communication with clients"
+      },
       "company": {
         "goals": "Goals of the company",
         "history": "History",
