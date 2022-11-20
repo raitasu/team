@@ -1,5 +1,6 @@
 {
   "endOfLine": "lf",
+  "jsonRecursiveSort": true,
   "singleAttributePerLine": true,
   "singleQuote": true,
   "trailingComma": "none"
