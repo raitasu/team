@@ -22,6 +22,7 @@ export const PublicationsInfoItem = ({
   return (
     <InfoSection
       title={getTranslation(publication.name_translations, language)}
+      isEditable={false}
     >
       <Grid
         gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}

@@ -19,7 +19,7 @@ export const PublicationsTab = ({ employee }: { employee: Employee }) => {
           publication={publication}
         />
       ))}
-      <InfoSection>
+      <InfoSection isEditable={false}>
         <Button
           variant="primaryOutline"
           outline="none"

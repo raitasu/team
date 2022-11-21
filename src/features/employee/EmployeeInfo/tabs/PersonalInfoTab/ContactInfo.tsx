@@ -14,6 +14,7 @@ export const ContactInfo = ({ contacts }: { contacts: EmployeeContact }) => {
       title={t(
         'titles:employee.tabs.personal_information.contacts.section_title'
       )}
+      isEditable={false}
     >
       <ContactItem
         name={t(
