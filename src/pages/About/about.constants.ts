@@ -27,8 +27,7 @@ export const aboutLinks = Object.values(AboutSections).map((section) => ({
 }));
 
 export const hoverNavLinkStyles = {
-  textDecoration: 'underline',
-  textDecorationColor: 'brand.accentRed'
+  backgroundColor: 'brand.ghostWhite'
 };
 
 export const activeNavLinkStyles = {
