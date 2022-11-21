@@ -1,9 +1,10 @@
 import {
   Box,
+  Flex,
   Heading,
-  HStack,
   Image,
   UnorderedList,
+  useMediaQuery,
   VisuallyHidden
 } from '@chakra-ui/react';
 import { Trans, useTranslation } from 'react-i18next';
@@ -21,6 +22,7 @@ import spentTimeScreen from '../assets/spent_time.jpg';
 
 export const Memento = () => {
   const [t] = useTranslation();
+  const [isLargerThan1258] = useMediaQuery('(min-width: 1258px)');
 
   return (
     <Box
@@ -85,9 +87,15 @@ export const Memento = () => {
           {t('text:about.memento.track_time.example')}
         </Paragraph>
 
-        <HStack gap="20px">
+        <Flex
+          flexDirection={isLargerThan1258 ? 'row' : 'column'}
+          gap="20px"
+          style={{ marginTop: 0 }}
+        >
           <Image
-            width="510px"
+            width="calc(50% - 10px)"
+            maxWidth="510px"
+            minWidth="350px"
             height="451px"
             borderRadius="4px"
             backgroundColor="brand.ghostWhite"
@@ -95,14 +103,16 @@ export const Memento = () => {
             alt="Screenshot"
           />
           <Image
-            width="510px"
+            width="calc(50% - 10px)"
+            maxWidth="510px"
+            minWidth="350px"
             height="451px"
             borderRadius="4px"
             backgroundColor="brand.ghostWhite"
             src={logTimeScreen}
             alt="Screenshot"
           />
-        </HStack>
+        </Flex>
       </Subsection>
 
       <Subsection>

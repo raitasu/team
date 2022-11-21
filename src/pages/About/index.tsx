@@ -62,6 +62,7 @@ export const About = () => {
 
         <Box
           width="100%"
+          minWidth="400px"
           height="min-content"
           maxHeight="100%"
           border="1px solid"

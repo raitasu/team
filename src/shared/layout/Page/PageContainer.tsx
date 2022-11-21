@@ -13,6 +13,7 @@ export const PageContainer = ({ children }: { children: React.ReactNode }) => (
     overflow="hidden"
     padding={`calc(${HEADER_HEIGHT} + 40px) ${SIDE_PAGE_PADDING} 35px`}
     width="100%"
+    minWidth="690px"
   >
     {children}
   </Box>
