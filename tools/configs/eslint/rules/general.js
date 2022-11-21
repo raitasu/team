@@ -6,7 +6,10 @@ module.exports = {
   'default-case': ['warn', { commentPattern: '^no default$' }],
   'dot-location': ['warn', 'property'],
   'eslint-comments/no-unused-disable': 'error',
-  'eslint-comments/require-description': 'error',
+  'eslint-comments/require-description': [
+    'error',
+    { ignore: ['eslint-enable'] }
+  ],
   'getter-return': 'warn',
   'import/first': 'error',
   'import/no-amd': 'error',

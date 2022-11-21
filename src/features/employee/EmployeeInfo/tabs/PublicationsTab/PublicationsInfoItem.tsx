@@ -6,7 +6,9 @@ import {
   LEFT_COLUMN_WIDTH
 } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
+import { DateFormats } from '~/shared/shared.constants';
 import { type EmployeePublication } from '~/shared/store/api/employees/employees.types';
+import { getFormattedDate } from '~/shared/utils/dates.utils';
 
 import { InfoSection } from '../components/InfoSection';
 
@@ -25,7 +27,9 @@ export const PublicationsInfoItem = ({
         gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
         columnGap={COLUMN_GAP}
       >
-        <Text color="brand.lightGray">{publication.date}</Text>
+        <Text color="brand.lightGray">
+          {getFormattedDate(publication.date, language, DateFormats.Long)}
+        </Text>
 
         <Grid rowGap="10px">
           <Text>

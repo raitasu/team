@@ -9,6 +9,7 @@ import {
 } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { type EmployeeCertificate } from '~/shared/store/api/employees/employees.types';
+import { getFormattedDate } from '~/shared/utils/dates.utils';
 
 export const CertificatesInfoItem = ({
   certificate
@@ -41,7 +42,10 @@ export const CertificatesInfoItem = ({
         columnGap={COLUMN_GAP}
       >
         <Grid rowGap={ROW_GAP}>
-          <Text color="brand.lightGray">{certificate.start_at}</Text>
+          <Text color="brand.lightGray">{`${getFormattedDate(
+            certificate.start_at,
+            language
+          )} - ${getFormattedDate(certificate.end_at, language)}`}</Text>
           <Text>
             {`${getTranslation(certificate.city)}, ${certificate.country_code}`}
           </Text>

@@ -1,6 +1,5 @@
 import { Box, Flex } from '@chakra-ui/react';
 
-import { getTotalPages } from '~/shared/shared.utils';
 import { useGetEmployeesQuery } from '~/shared/store/api/employees/employees.api';
 import { selectCurrentEmployee } from '~/shared/store/api/employees/employees.selectors';
 import { selectEmployeesPagination } from '~/shared/store/slices/employees/employees.selectors';
@@ -10,6 +9,7 @@ import {
 } from '~/shared/store/slices/employees/employees.slice';
 import { useAppDispatch, useAppSelector } from '~/shared/store/store.hooks';
 import { Pagination } from '~/shared/ui/components/Pagination';
+import { getTotalPages } from '~/shared/utils/pagination.utils';
 
 import { EmployeesTable } from './EmployeesTable';
 

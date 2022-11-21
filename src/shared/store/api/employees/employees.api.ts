@@ -1,10 +1,10 @@
-import { getPageOffset } from '~/shared/shared.utils';
 import { rootApiSlice } from '~/shared/store/api';
 import { ApiTags } from '~/shared/store/api/api.constants';
 import {
   type Employee,
   type EmployeesListResponse
 } from '~/shared/store/api/employees/employees.types';
+import { getPageOffset } from '~/shared/utils/pagination.utils';
 
 const employeesApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,

@@ -9,6 +9,7 @@ import {
 } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { type EmployeeEducation } from '~/shared/store/api/employees/employees.types';
+import { getFormattedDate } from '~/shared/utils/dates.utils';
 
 export const EducationInfoItem = ({
   education
@@ -41,7 +42,10 @@ export const EducationInfoItem = ({
         columnGap={COLUMN_GAP}
       >
         <Grid rowGap={ROW_GAP}>
-          <Text color="brand.lightGray">{education.start_at}</Text>
+          <Text color="brand.lightGray">{`${getFormattedDate(
+            education.start_at,
+            language
+          )} - ${getFormattedDate(education.end_at, language)}`}</Text>
           <Text>
             {`${getTranslation(education.city)}, ${education.country_code}`}
           </Text>

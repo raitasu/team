@@ -3,7 +3,9 @@ import { createColumnHelper } from '@tanstack/react-table';
 import { ProjectsCell } from '~/features/employees/Table/cells/ProjectsCell';
 import { getI18n } from '~/services/i18n';
 import { getTranslation } from '~/services/i18n/i18n.utils';
+import { DateFormats } from '~/shared/shared.constants';
 import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import { getFormattedDate } from '~/shared/utils/dates.utils';
 
 import { AddCVCell } from './cells/AddCVCell';
 import { NameCell } from './cells/NameCell';
@@ -35,7 +37,8 @@ export const EmployeesColumns = [
     header: TranslatedHeader
   }),
   columnHelper.accessor('date_of_birth', {
-    cell: (info) => info.getValue(),
+    cell: (info) =>
+      getFormattedDate(info.getValue(), getI18n().language, DateFormats.Long),
     header: TranslatedHeader
   }),
   columnHelper.accessor('projects', {

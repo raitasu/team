@@ -3,7 +3,9 @@ import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
 
 import { getTranslation } from '~/services/i18n/i18n.utils';
+import { DateFormats } from '~/shared/shared.constants';
 import { type Employee } from '~/shared/store/api/employees/employees.types';
+import { getFormattedDate } from '~/shared/utils/dates.utils';
 
 import { InfoSection } from '../components/InfoSection';
 import { GeneralInfoItem } from './GeneralInfoItem';
@@ -25,13 +27,21 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
         name={t(
           'titles:employee.tabs.personal_information.general.start_career'
         )}
-        value={employee.start_career_at}
+        value={getFormattedDate(
+          employee.start_career_at,
+          language,
+          DateFormats.Long
+        )}
       />
       <GeneralInfoItem
         name={t(
           'titles:employee.tabs.personal_information.general.date_of_birth'
         )}
-        value={employee.date_of_birth}
+        value={getFormattedDate(
+          employee.date_of_birth,
+          language,
+          DateFormats.Long
+        )}
       />
       <GeneralInfoItem
         name={t('titles:employee.tabs.personal_information.general.about')}
