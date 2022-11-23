@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import { execaSync } from 'execa';
 import { icons } from './helper.mjs';
 import { runEslint } from './runEslint.mjs';
 import { runTsc } from './runTsc.mjs';
@@ -112,6 +113,28 @@ const shouldSkipLocalization = process.argv.includes('--skip-i18n');
     console.error(
       chalk.red.bold(
         `${icons.error} Localization files check failed due to the above errors\n`
+      )
+    );
+  }
+
+  try {
+    if (shouldAutoFix) {
+      console.log(
+        chalk.blue(`${icons.bullet} Formatting *.json files!`)
+      );
+      execaSync('prettier', ['-u', '-w', '--loglevel=warn', '*/**/*.json'], {
+        cwd: process.cwd(),
+        preferLocal: true
+      });
+      console.log(
+        chalk.green(`${icons.check} Formatted *.json files successfully\n`)
+      );
+    }
+  } catch (err) {
+    success = false;
+    console.error(
+      chalk.red.bold(
+        `${icons.error} Formatting *.json files failed due to the above errors\n`
       )
     );
   }
