@@ -7,11 +7,11 @@ import { getRandomSoftSkills } from '~/mocks/employees/fixtures/softSkills';
 import { getRandomInteger } from '~/mocks/mocks.utils';
 import { getRandomPositions } from '~/mocks/positions/fixtures/positions';
 import { getRandomProjects } from '~/mocks/projects/fixtures/projects';
-import type {
-  Employee,
-  EmployeeAddress,
-  EmployeeContact,
-  EmployeeSocialNetwork
+import {
+  type Employee,
+  type EmployeeAddress,
+  type EmployeeContact,
+  type EmployeeSocialNetwork
 } from '~/shared/store/api/employees/employees.types';
 
 import { getRandomCertificates } from './certificates';

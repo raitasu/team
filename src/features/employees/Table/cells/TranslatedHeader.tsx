@@ -1,7 +1,7 @@
-import type { HeaderContext } from '@tanstack/table-core';
+import { type HeaderContext } from '@tanstack/table-core';
 import { useTranslation } from 'react-i18next';
 
-import type { ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
 type HeaderKeys =
   | 'contacts'

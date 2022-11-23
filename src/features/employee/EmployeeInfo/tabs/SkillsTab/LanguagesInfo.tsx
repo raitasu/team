@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import type { EmployeeLanguage } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeLanguage } from '~/shared/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 

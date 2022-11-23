@@ -1,5 +1,4 @@
-import type { ToastProps } from '@chakra-ui/react';
-import { useToast } from '@chakra-ui/react';
+import { type ToastProps, useToast } from '@chakra-ui/react';
 
 import { Alert } from '~/shared/ui/components/Alert';
 

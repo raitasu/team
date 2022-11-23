@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 
-import type { EmployeeEducation } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeEducation } from '~/shared/store/api/employees/employees.types';
 import { Button } from '~/shared/ui/components/Button';
 
 import { InfoSection } from '../components/InfoSection';

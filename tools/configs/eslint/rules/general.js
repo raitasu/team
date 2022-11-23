@@ -201,6 +201,7 @@ module.exports = {
       ]
     }
   ],
+  'no-duplicate-imports': ['error', { includeExports: true }],
   eqeqeq: ['warn', 'smart'],
   strict: ['warn', 'never']
 };

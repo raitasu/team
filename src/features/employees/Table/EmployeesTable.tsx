@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router-dom';
 import { isAdmin } from '~/features/employee/employee.utils';
 import { EmployeesColumns } from '~/features/employees/Table/columns';
 import { PagePaths } from '~/router/router.constants';
-import type {
-  Employee,
-  ShortEmployee
+import {
+  type Employee,
+  type ShortEmployee
 } from '~/shared/store/api/employees/employees.types';
 import { ConfirmationModal } from '~/shared/ui/components/ConfirmationModal';
 

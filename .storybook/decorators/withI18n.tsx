@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
-import type { DecoratorFn } from '@storybook/react';
+import { type DecoratorFn } from '@storybook/react';
 import { useAsync } from 'react-use';
 
 import { initI18n } from '~/services/i18n';
-import type { AppLocale } from '~/services/i18n/i18n.types';
+import { type AppLocale } from '~/services/i18n/i18n.types';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
 
 import { ParamKey } from '../constants';

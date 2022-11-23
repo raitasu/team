@@ -7,7 +7,7 @@ import {
   ModalOverlay
 } from '@chakra-ui/react';
 
-import type { ModalProps } from './modal.types';
+import { type ModalProps } from './modal.types';
 
 export const BaseModal = ({
   title,

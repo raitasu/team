@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Drawer, useDisclosure } from '@chakra-ui/react';
 
-import type { DrawerControl } from '~/shared/layout/Page/page.types';
+import { type DrawerControl } from '~/shared/layout/Page/page.types';
 
 export const PageDrawer = ({
   children,

@@ -1,8 +1,8 @@
-import type {
-  PaginatedResponse,
-  Translation
+import {
+  type PaginatedResponse,
+  type Translation
 } from '~/shared/store/api/api.types';
-import type { Project } from '~/shared/store/api/projects/projects.types';
+import { type Project } from '~/shared/store/api/projects/projects.types';
 
 export type EmployeeLanguageName =
   | 'be'

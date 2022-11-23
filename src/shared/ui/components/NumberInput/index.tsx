@@ -1,5 +1,6 @@
-import type { NumberInputFieldProps, NumberInputProps } from '@chakra-ui/react';
 import {
+  type NumberInputFieldProps,
+  type NumberInputProps,
   NumberDecrementStepper,
   NumberIncrementStepper,
   NumberInput as ChakraNumberInput,

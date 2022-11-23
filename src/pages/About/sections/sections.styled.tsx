@@ -1,12 +1,10 @@
 import React from 'react';
 
-import type {
-  LinkProps,
-  ListItemProps,
-  StackProps,
-  TextProps
-} from '@chakra-ui/react';
 import {
+  type LinkProps,
+  type ListItemProps,
+  type StackProps,
+  type TextProps,
   Box,
   Heading,
   HStack,

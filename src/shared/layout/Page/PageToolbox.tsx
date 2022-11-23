@@ -3,7 +3,7 @@ import React from 'react';
 import { Box } from '@chakra-ui/react';
 
 import { HEADER_HEIGHT } from '~/shared/layout/layout.constants';
-import type { PageDrawerProps } from '~/shared/layout/Page/page.types';
+import { type PageDrawerProps } from '~/shared/layout/Page/page.types';
 import { PageDrawer } from '~/shared/layout/Page/PageDrawer';
 
 export const PageToolbox = ({

@@ -1,14 +1,14 @@
-import type { QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
+import { type QueryReturnValue } from '@reduxjs/toolkit/dist/query/baseQueryTypes';
 import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import { Mutex } from 'async-mutex';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
-import type { AuthTokens } from '~/shared/store/api/authentication/authentication.types';
+import { type AuthTokens } from '~/shared/store/api/authentication/authentication.types';
 import {
   loggedOut,
   tokenReceived
 } from '~/shared/store/slices/authentication/authentication.slice';
-import type { RootState } from '~/shared/store/store.types';
+import { type RootState } from '~/shared/store/store.types';
 
 /**
  * Redux toolkit reference:

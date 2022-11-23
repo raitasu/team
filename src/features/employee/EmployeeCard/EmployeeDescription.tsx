@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { MdLocationOn } from 'react-icons/md';
 
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import type { Employee } from '~/shared/store/api/employees/employees.types';
+import { type Employee } from '~/shared/store/api/employees/employees.types';
 
 export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
   const [t, { language }] = useTranslation();

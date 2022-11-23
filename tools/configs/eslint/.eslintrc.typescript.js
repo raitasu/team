@@ -14,16 +14,18 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': [
       'error',
       {
+        disallowTypeAnnotations: true,
+        fixStyle: 'inline-type-imports',
         prefer: 'type-imports'
       }
     ],
     '@typescript-eslint/no-array-constructor': 'warn',
+    '@typescript-eslint/no-duplicate-imports': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-redeclare': 'error',
     '@typescript-eslint/no-unnecessary-condition': 'error',
     '@typescript-eslint/no-unsafe-argument': 'warn',
     '@typescript-eslint/no-unsafe-assignment': 'off',
-    '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unused-expressions': 'error',
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-use-before-define': [

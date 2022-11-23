@@ -6,7 +6,7 @@ import {
   getEmployees
 } from '~/mocks/employees/fixtures/employees';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import type { ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
 const getCurrentUser = rest.get(
   `${import.meta.env.VITE_PUBLIC_API_URL}me`,

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { COLUMN_GAP } from '~/pages/Employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import type { EmployeeHardSkill } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeHardSkill } from '~/shared/store/api/employees/employees.types';
 
 export const HardSkillsInfoItem = ({ skill }: { skill: EmployeeHardSkill }) => {
   const [t, { language }] = useTranslation();

@@ -2,7 +2,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import { WorkExperienceTab } from '~/features/employee/EmployeeInfo/tabs/WorkExperienceTab';
-import type { Employee } from '~/shared/store/api/employees/employees.types';
+import { type Employee } from '~/shared/store/api/employees/employees.types';
 
 import { EducationTab } from './tabs/EducationTab';
 import { PersonalInfoTab } from './tabs/PersonalInfoTab';

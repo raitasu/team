@@ -1,6 +1,6 @@
 import type React from 'react';
 
-import type { UseDisclosureReturn } from '@chakra-ui/react';
+import { type UseDisclosureReturn } from '@chakra-ui/react';
 
 export type DrawerControl = (
   disclosure: UseDisclosureReturn,

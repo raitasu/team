@@ -1,9 +1,8 @@
-import type { PayloadAction } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
-import type { AuthTokens } from '~/shared/store/api/authentication/authentication.types';
-import type { AuthSliceState } from '~/shared/store/slices/authentication/authentication.types';
+import { type AuthTokens } from '~/shared/store/api/authentication/authentication.types';
+import { type AuthSliceState } from '~/shared/store/slices/authentication/authentication.types';
 
 const initialState: AuthSliceState = {
   isLoggedIn: false

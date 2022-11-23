@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { COLUMN_GAP, ROW_GAP } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import type { EmployeeSoftSkill } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeSoftSkill } from '~/shared/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 

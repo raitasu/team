@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker/locale/en';
 import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
-import type { Project } from '~/shared/store/api/projects/projects.types';
+import { type Project } from '~/shared/store/api/projects/projects.types';
 
 const sessionProjects: Record<string, Project> = {};
 

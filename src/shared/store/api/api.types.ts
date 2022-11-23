@@ -1,4 +1,4 @@
-import type { AppLocale } from '~/services/i18n/i18n.types';
+import { type AppLocale } from '~/services/i18n/i18n.types';
 
 export type Translation = { en: string } & Partial<
   Record<Exclude<AppLocale, 'en'>, string>

@@ -6,7 +6,7 @@ import {
   LEFT_COLUMN_WIDTH
 } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import type { EmployeePublication } from '~/shared/store/api/employees/employees.types';
+import { type EmployeePublication } from '~/shared/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 

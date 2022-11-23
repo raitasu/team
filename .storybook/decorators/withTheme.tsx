@@ -1,4 +1,4 @@
-import type { DecoratorFn } from '@storybook/react';
+import { type DecoratorFn } from '@storybook/react';
 
 import { AppThemeProvider } from '~/shared/ui/theme/AppThemeProvider';
 

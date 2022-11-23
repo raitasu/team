@@ -3,7 +3,7 @@ import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
-import type { EmployeeCv } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeCv } from '~/shared/store/api/employees/employees.types';
 
 const sessionCvs: Record<string, EmployeeCv> = {};
 

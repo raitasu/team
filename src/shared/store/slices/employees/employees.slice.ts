@@ -1,7 +1,6 @@
-import type { PayloadAction } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import type { EmployeesSliceState } from '~/shared/store/slices/employees/employees.types';
+import { type EmployeesSliceState } from '~/shared/store/slices/employees/employees.types';
 
 const getDefaultPagination = (): EmployeesSliceState['pagination'] => ({
   currentPage: 1,

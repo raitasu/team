@@ -1,7 +1,7 @@
 import { Grid } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import type { EmployeeHardSkill } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeHardSkill } from '~/shared/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 import { HardSkillsInfoItem } from './HardSkillsInfoItem';

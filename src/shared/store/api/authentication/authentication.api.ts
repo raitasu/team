@@ -1,7 +1,7 @@
 import { rootApiSlice } from '~/shared/store/api';
 import { ApiTags } from '~/shared/store/api/api.constants';
-import type { AuthTokens } from '~/shared/store/api/authentication/authentication.types';
-import type { Employee } from '~/shared/store/api/employees/employees.types';
+import { type AuthTokens } from '~/shared/store/api/authentication/authentication.types';
+import { type Employee } from '~/shared/store/api/employees/employees.types';
 import {
   loggedIn,
   tokenReceived

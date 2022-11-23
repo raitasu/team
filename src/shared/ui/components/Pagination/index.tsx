@@ -9,7 +9,7 @@ import {
 
 import { ControlButton } from '~/shared/ui/components/IconButton/ControlButton';
 import { PageSwitcher } from '~/shared/ui/components/Pagination/PageSwitcher';
-import type { PaginationProps } from '~/shared/ui/components/Pagination/pagination.types';
+import { type PaginationProps } from '~/shared/ui/components/Pagination/pagination.types';
 
 export const Pagination = ({
   totalPages,

@@ -3,7 +3,7 @@ import { createColumnHelper } from '@tanstack/react-table';
 import { ProjectsCell } from '~/features/employees/Table/cells/ProjectsCell';
 import { getI18n } from '~/services/i18n';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import type { ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
 import { AddCVCell } from './cells/AddCVCell';
 import { NameCell } from './cells/NameCell';

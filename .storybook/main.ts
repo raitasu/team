@@ -1,6 +1,6 @@
 import path from 'path';
 
-import type { StorybookViteConfig } from '@storybook/builder-vite';
+import { type StorybookViteConfig } from '@storybook/builder-vite';
 import { mergeConfig } from 'vite';
 
 const config: StorybookViteConfig = {

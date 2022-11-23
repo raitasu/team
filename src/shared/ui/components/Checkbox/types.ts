@@ -1,4 +1,4 @@
-import type { CheckboxProps } from '@chakra-ui/react';
+import { type CheckboxProps } from '@chakra-ui/react';
 
 export interface BaseCheckboxProps extends Omit<CheckboxProps, 'customIcon'> {
   label?: string;

@@ -1,7 +1,7 @@
 import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
 
-import type { EmployeeSocialNetwork } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeSocialNetwork } from '~/shared/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 import { ContactItem } from './ContactItem';

@@ -1,8 +1,7 @@
 import { Box, Th, Thead, Tr } from '@chakra-ui/react';
-import type { HeaderGroup } from '@tanstack/react-table';
-import { flexRender } from '@tanstack/react-table';
+import { type HeaderGroup, flexRender } from '@tanstack/react-table';
 
-import type { ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
 import { SortIcon } from './SortIcon';
 

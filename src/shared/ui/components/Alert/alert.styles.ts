@@ -1,4 +1,4 @@
-import type { AlertStatus } from '@chakra-ui/alert';
+import { type AlertStatus } from '@chakra-ui/alert';
 
 export const AlertStyles: Partial<
   Record<AlertStatus, Partial<CSSStyleDeclaration>>

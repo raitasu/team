@@ -1,6 +1,8 @@
 import { enGB, ru } from 'date-fns/locale';
-import type { ReactDatePickerProps } from 'react-datepicker';
-import ReactDatePicker, { registerLocale } from 'react-datepicker';
+import ReactDatePicker, {
+  type ReactDatePickerProps,
+  registerLocale
+} from 'react-datepicker';
 import { useTranslation } from 'react-i18next';
 
 import {

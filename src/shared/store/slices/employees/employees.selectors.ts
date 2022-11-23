@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import type { RootState } from '~/shared/store/store.types';
+import { type RootState } from '~/shared/store/store.types';
 
 const selectCurrentPage = (state: RootState) =>
   state.employees.pagination.currentPage;

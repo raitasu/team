@@ -1,8 +1,12 @@
 import React from 'react';
 
-import type { InputProps } from '@chakra-ui/react';
-import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
-import type { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
+import {
+  type InputProps,
+  Input,
+  InputGroup,
+  InputLeftElement
+} from '@chakra-ui/react';
+import { type ReactDatePickerCustomHeaderProps } from 'react-datepicker';
 import { useTranslation } from 'react-i18next';
 import { MdOutlineCalendarToday } from 'react-icons/md';
 
