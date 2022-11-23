@@ -73,6 +73,7 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 ## Internationalization
 
 - We are using [react-i18next](https://react.i18next.com/)
+- Date formats: [date-fns](https://date-fns.org/), [date formats](https://date-fns.org/v2.29.3/docs/format)
 
 ## Storybook
 
