@@ -84,6 +84,6 @@ export const descriptionItems = [
   },
   {
     term: 'CG-branches',
-    definition: 'text:about.discord.CG_branches'
+    definition: 'text:about.discord.cg_branches'
   }
 ] as const;

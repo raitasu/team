@@ -197,14 +197,16 @@ export type ShortEmployee = Pick<
   | 'first_name'
   | 'id'
   | 'last_name'
+  | 'social_networks'
   | 'positions'
   | 'projects'
-  | 'role'
   | 'status'
   | 'role'
 > & {
   contacts: {
     address: Pick<EmployeeAddress, 'city' | 'country_code'>;
+    emails: string[];
+    primary_phone: string;
   };
 };
 

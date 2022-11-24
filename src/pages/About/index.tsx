@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { Navigate, useParams } from 'react-router-dom';
 
 import { AboutSections } from '~/pages/About/about.constants';
@@ -7,7 +7,7 @@ import { AboutCompany } from '~/pages/About/sections/AboutCompany';
 import { Birthdays } from '~/pages/About/sections/Birthdays';
 import { Communications } from '~/pages/About/sections/Communications';
 import { Contacts } from '~/pages/About/sections/Contacts';
-import { Coworking } from '~/pages/About/sections/Coworking';
+import { Coworking } from '~/pages/About/sections/coworking/Coworking';
 import { English } from '~/pages/About/sections/English';
 import { Help } from '~/pages/About/sections/Help';
 import { Perks } from '~/pages/About/sections/Perks';
@@ -59,20 +59,7 @@ export const About = () => {
         alignItems="top"
       >
         <AboutSideNav />
-
-        <Box
-          width="100%"
-          minWidth="400px"
-          height="min-content"
-          maxHeight="100%"
-          border="1px solid"
-          borderColor="brand.stroke"
-          borderRadius="4px"
-          overflow="auto"
-          bg="brand.white"
-        >
-          <Content />
-        </Box>
+        <Content />
       </Flex>
     </PageContainer>
   );

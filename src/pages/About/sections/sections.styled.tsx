@@ -1,17 +1,17 @@
 import React from 'react';
 
 import {
-  type LinkProps,
-  type ListItemProps,
-  type StackProps,
-  type TextProps,
   Box,
   Heading,
   HStack,
   Link as ChackraLink,
+  type LinkProps,
   ListItem,
+  type ListItemProps,
   Stack,
-  Text
+  type StackProps,
+  Text,
+  type TextProps
 } from '@chakra-ui/react';
 
 import { activeLinkStyles } from '~/pages/About/about.constants';
@@ -129,4 +129,25 @@ export const AboutListItem = ({
   >
     {children}
   </ListItem>
+);
+
+export const SectionContainer = ({
+  children
+}: {
+  children: React.ReactNode;
+}) => (
+  <Box
+    as="section"
+    width="100%"
+    minWidth="400px"
+    height="min-content"
+    maxHeight="100%"
+    bg="brand.white"
+    border="1px solid"
+    borderColor="brand.stroke"
+    borderRadius="4px"
+    overflow="auto"
+  >
+    {children}
+  </Box>
 );

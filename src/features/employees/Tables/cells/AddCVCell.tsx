@@ -9,17 +9,17 @@ export const AddCVCell = ({
   table: {
     options: { meta }
   },
-  row: { original: employee }
-}: CellContext<ShortEmployee, undefined>) => {
+  getValue
+}: CellContext<ShortEmployee, ShortEmployee['id']>) => {
   const [t] = useTranslation();
 
   return (
     <Button
       variant="primaryOutline"
       leftIcon={<MdAdd />}
-      onClick={() => meta?.onAddCVBtnClick(employee.id)}
+      onClick={() => meta?.onAddCVBtnClick(getValue())}
     >
-      {t('titles:employees.cv')}
+      {t('titles:employees.table_headers.cv')}
     </Button>
   );
 };

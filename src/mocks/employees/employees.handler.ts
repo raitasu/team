@@ -63,7 +63,8 @@ const getEmployeesHandler = rest.get(
           'positions',
           'projects',
           'role',
-          'status'
+          'status',
+          'social_networks'
         ])
       );
 

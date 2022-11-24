@@ -1,23 +1,11 @@
 import { Box, Flex, Link, Text } from '@chakra-ui/react';
 
 import {
-  LEFT_COLUMN_WIDTH,
   COLUMN_GAP,
+  LEFT_COLUMN_WIDTH,
   ROW_GAP
 } from '~/features/employee/employee.styles';
-
-type LinkType = 'phone' | 'email' | 'web';
-
-function getLinkPrefix(type?: LinkType) {
-  switch (type) {
-    case 'email':
-      return 'mailto:';
-    case 'phone':
-      return 'tel:';
-    default:
-      return '';
-  }
-}
+import { getPrefixedHref, type LinkType } from '~/shared/utils/links.utils';
 
 export const ContactItem = ({
   name,
@@ -43,7 +31,7 @@ export const ContactItem = ({
         linkType ? (
           <Link
             key={contact}
-            href={`${getLinkPrefix(linkType)}${contact}`}
+            href={getPrefixedHref(contact, linkType)}
             target="_blank"
           >
             <Text>{contact}</Text>

@@ -1,12 +1,19 @@
-import { Box, Heading } from '@chakra-ui/react';
+import { Heading, VisuallyHidden } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
+
+import { EmployeesTablesContainer } from '~/features/employees/Tables';
+import { EmployeesContactsTable } from '~/features/employees/Tables/ContactsTable';
 
 export const Contacts = () => {
   const [t] = useTranslation();
 
   return (
-    <Box bg="brand.white">
-      <Heading variant="3">{t('navigation:about.contacts')}</Heading>
-    </Box>
+    <>
+      <VisuallyHidden>
+        <Heading variant="3">{t('navigation:about.contacts')}</Heading>
+      </VisuallyHidden>
+
+      <EmployeesTablesContainer table={EmployeesContactsTable} />
+    </>
   );
 };

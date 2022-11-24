@@ -1,18 +1,20 @@
 import { Box, Heading, VisuallyHidden } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import { CoworkingLocation } from '~/pages/About/CoworkingLocation';
+import { CoworkingLocation } from '~/pages/About/sections/coworking/CoworkingLocation';
 
-import { Subsection, Subtitle, Paragraph } from './sections.styled';
+import {
+  Paragraph,
+  SectionContainer,
+  Subsection,
+  Subtitle
+} from '../sections.styled';
 
 export const Coworking = () => {
   const [t] = useTranslation();
 
   return (
-    <Box
-      as="section"
-      bg="brand.white"
-    >
+    <SectionContainer>
       <VisuallyHidden>
         <Heading variant="3">{t('navigation:about.coworking')}</Heading>
       </VisuallyHidden>
@@ -28,6 +30,6 @@ export const Coworking = () => {
           <CoworkingLocation />
         </Box>
       </Subsection>
-    </Box>
+    </SectionContainer>
   );
 };

@@ -1,9 +1,8 @@
 import { Box, Th, Thead, Tr } from '@chakra-ui/react';
 import { type HeaderGroup, flexRender } from '@tanstack/react-table';
 
+import { SortIcon } from '~/features/employees/Tables/components/SortIcon';
 import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
-
-import { SortIcon } from './SortIcon';
 
 export const TableHeader = ({
   headerGroups
@@ -21,6 +20,7 @@ export const TableHeader = ({
             <Th
               key={header.id}
               onClick={header.column.getToggleSortingHandler()}
+              whiteSpace="nowrap"
               sx={
                 isSortableColumn
                   ? { cursor: 'pointer', userSelect: 'none' }

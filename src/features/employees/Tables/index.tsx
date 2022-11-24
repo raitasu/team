@@ -1,9 +1,13 @@
+import { useEffect } from 'react';
+
 import { Box, Flex } from '@chakra-ui/react';
 
+import { type EmployeesTable } from '~/features/employees/Tables/tables.types';
 import { useGetEmployeesQuery } from '~/shared/store/api/employees/employees.api';
 import { selectCurrentEmployee } from '~/shared/store/api/employees/employees.selectors';
 import { selectEmployeesPagination } from '~/shared/store/slices/employees/employees.selectors';
 import {
+  reset,
   toggleElementsPerPage,
   togglePage
 } from '~/shared/store/slices/employees/employees.slice';
@@ -11,16 +15,26 @@ import { useAppDispatch, useAppSelector } from '~/shared/store/store.hooks';
 import { Pagination } from '~/shared/ui/components/Pagination';
 import { getTotalPages } from '~/shared/utils/pagination.utils';
 
-import { EmployeesTable } from './EmployeesTable';
-
-export const EmployeesTableContainer = () => {
+export const EmployeesTablesContainer = ({
+  table: Table
+}: {
+  table: EmployeesTable;
+}) => {
   const pagination = useAppSelector(selectEmployeesPagination);
+  const { data: employee } = useAppSelector(selectCurrentEmployee);
   const dispatch = useAppDispatch();
+
   const { data } = useGetEmployeesQuery({
     page: pagination.currentPage,
     elementsPerPage: pagination.elementsPerPage
   });
-  const { data: employee } = useAppSelector(selectCurrentEmployee);
+
+  useEffect(
+    () => () => {
+      dispatch(reset());
+    },
+    [dispatch]
+  );
 
   if (!data) return null;
   if (!employee) return null;
@@ -34,7 +48,9 @@ export const EmployeesTableContainer = () => {
     <Flex
       flexDirection="column"
       gap="20px"
+      height="min-content"
       maxH="100%"
+      width="100%"
     >
       <Box
         flex="1"
@@ -45,7 +61,7 @@ export const EmployeesTableContainer = () => {
         borderRadius="4px"
         backgroundColor="var(--chakra-colors-brand-background2)"
       >
-        <EmployeesTable
+        <Table
           data={data.items}
           employee={employee}
         />

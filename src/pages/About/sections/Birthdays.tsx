@@ -1,12 +1,14 @@
-import { Box, Heading } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
+
+import { SectionContainer } from '~/pages/About/sections/sections.styled';
 
 export const Birthdays = () => {
   const [t] = useTranslation();
 
   return (
-    <Box bg="brand.white">
+    <SectionContainer>
       <Heading variant="3">{t('navigation:about.birthdays')}</Heading>
-    </Box>
+    </SectionContainer>
   );
 };

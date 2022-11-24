@@ -2,19 +2,26 @@ import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { type EmployeesSliceState } from '~/shared/store/slices/employees/employees.types';
 
-const getDefaultPagination = (): EmployeesSliceState['pagination'] => ({
-  currentPage: 1,
-  elementsPerPage: 10
+const getInitialState: () => EmployeesSliceState = () => ({
+  pagination: {
+    currentPage: 1,
+    elementsPerPage: 10
+  }
 });
-
-const initialState: EmployeesSliceState = {
-  pagination: getDefaultPagination()
-};
 
 export const employeesSlice = createSlice({
   name: 'employees',
-  initialState,
+  initialState: getInitialState(),
   reducers: {
+    reset(state) {
+      const initialState = getInitialState();
+
+      (Object.keys(initialState) as (keyof EmployeesSliceState)[]).forEach(
+        (key) => {
+          state[key] = initialState[key];
+        }
+      );
+    },
     togglePage(state, { payload }: PayloadAction<number>) {
       state.pagination.currentPage = payload;
     },
@@ -26,5 +33,5 @@ export const employeesSlice = createSlice({
 });
 
 export const {
-  actions: { togglePage, toggleElementsPerPage }
+  actions: { togglePage, toggleElementsPerPage, reset }
 } = employeesSlice;

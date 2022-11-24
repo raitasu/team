@@ -1,25 +1,26 @@
 import { createColumnHelper } from '@tanstack/react-table';
 
-import { ProjectsCell } from '~/features/employees/Table/cells/ProjectsCell';
+import { AddCVCell } from '~/features/employees/Tables/cells/AddCVCell';
+import { NameCell } from '~/features/employees/Tables/cells/NameCell';
+import { ProjectsCell } from '~/features/employees/Tables/cells/ProjectsCell';
+import { TranslatedHeader } from '~/features/employees/Tables/cells/TranslatedHeader';
+import { EmployeesHeaderIds } from '~/features/employees/Tables/tables.constants';
 import { getI18n } from '~/services/i18n';
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { DateFormats } from '~/shared/shared.constants';
 import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 
-import { AddCVCell } from './cells/AddCVCell';
-import { NameCell } from './cells/NameCell';
-import { TranslatedHeader } from './cells/TranslatedHeader';
-
 const columnHelper = createColumnHelper<ShortEmployee>();
 
-export const EmployeesColumns = [
-  columnHelper.accessor(() => undefined, {
-    id: 'full_name',
+export const PositionsColumns = [
+  columnHelper.accessor((employee) => employee, {
+    id: EmployeesHeaderIds.FullName,
     cell: NameCell,
     header: TranslatedHeader
   }),
   columnHelper.accessor('positions', {
+    id: EmployeesHeaderIds.Positions,
     cell: (info) =>
       Object.values(info.getValue())
         .map((project) =>
@@ -29,6 +30,7 @@ export const EmployeesColumns = [
     header: TranslatedHeader
   }),
   columnHelper.accessor('contacts', {
+    id: EmployeesHeaderIds.Contacts,
     cell: (info) =>
       `${info.getValue().address.country_code}, ${getTranslation(
         info.getValue().address.city,
@@ -37,16 +39,18 @@ export const EmployeesColumns = [
     header: TranslatedHeader
   }),
   columnHelper.accessor('date_of_birth', {
+    id: EmployeesHeaderIds.Birthday,
     cell: (info) =>
       getFormattedDate(info.getValue(), getI18n().language, DateFormats.Long),
     header: TranslatedHeader
   }),
   columnHelper.accessor('projects', {
+    id: EmployeesHeaderIds.CurrentProjects,
     cell: ProjectsCell,
     header: TranslatedHeader
   }),
-  columnHelper.accessor(() => undefined, {
-    id: 'cv',
+  columnHelper.accessor('id', {
+    id: EmployeesHeaderIds.CV,
     cell: AddCVCell,
     enableSorting: false,
     header: ''

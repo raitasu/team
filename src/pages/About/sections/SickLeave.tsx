@@ -1,16 +1,19 @@
-import { Box, Heading, VisuallyHidden } from '@chakra-ui/react';
+import { Heading, VisuallyHidden } from '@chakra-ui/react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { Subsection, Subtitle, Paragraph, AboutLink } from './sections.styled';
+import {
+  AboutLink,
+  Paragraph,
+  SectionContainer,
+  Subsection,
+  Subtitle
+} from './sections.styled';
 
 export const SickLeave = () => {
   const [t] = useTranslation();
 
   return (
-    <Box
-      as="section"
-      bg="brand.white"
-    >
+    <SectionContainer>
       <VisuallyHidden>
         <Heading variant="3">{t('navigation:about.sick_leave')}</Heading>
       </VisuallyHidden>
@@ -26,6 +29,6 @@ export const SickLeave = () => {
           </Trans>
         </Paragraph>
       </Subsection>
-    </Box>
+    </SectionContainer>
   );
 };

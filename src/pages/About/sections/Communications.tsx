@@ -1,20 +1,18 @@
-import { Box, Heading, UnorderedList, VisuallyHidden } from '@chakra-ui/react';
+import { Heading, UnorderedList, VisuallyHidden } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import {
+  AboutListItem as ListItem,
+  SectionContainer,
   Subsection,
-  Subtitle,
-  AboutListItem as ListItem
+  Subtitle
 } from './sections.styled';
 
 export const Communications = () => {
   const [t] = useTranslation();
 
   return (
-    <Box
-      as="section"
-      bg="brand.white"
-    >
+    <SectionContainer>
       <VisuallyHidden>
         <Heading variant="3">{t('navigation:about.communications')}</Heading>
       </VisuallyHidden>
@@ -59,6 +57,6 @@ export const Communications = () => {
           <ListItem>{t('text:about.communications.rules.video')}</ListItem>
         </UnorderedList>
       </Subsection>
-    </Box>
+    </SectionContainer>
   );
 };

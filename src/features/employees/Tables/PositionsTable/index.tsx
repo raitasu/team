@@ -6,24 +6,14 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { isAdmin } from '~/features/employee/employee.utils';
-import { EmployeesColumns } from '~/features/employees/Table/columns';
+import { TableBody } from '~/features/employees/Tables/components/TableBody';
+import { TableHeader } from '~/features/employees/Tables/components/TableHeader';
+import { PositionsColumns } from '~/features/employees/Tables/PositionsTable/columns';
+import { type EmployeesTable } from '~/features/employees/Tables/tables.types';
 import { PagePaths } from '~/router/router.constants';
-import {
-  type Employee,
-  type ShortEmployee
-} from '~/shared/store/api/employees/employees.types';
 import { ConfirmationModal } from '~/shared/ui/components/ConfirmationModal';
 
-import { TableBody } from './components/TableBody';
-import { TableHeader } from './components/TableHeader';
-
-export const EmployeesTable = ({
-  data,
-  employee
-}: {
-  data: Array<ShortEmployee>;
-  employee: Employee;
-}) => {
+export const EmployeesPositionsTable: EmployeesTable = ({ data, employee }) => {
   const [selectedEmployeeId, setSelectedEmployeeId] = React.useState<
     number | null
   >(null);
@@ -31,7 +21,7 @@ export const EmployeesTable = ({
   const [t] = useTranslation();
 
   const table = useReactTable({
-    columns: EmployeesColumns,
+    columns: PositionsColumns,
     data,
     getCoreRowModel: getCoreRowModel(),
     meta: {

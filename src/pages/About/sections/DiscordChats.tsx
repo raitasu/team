@@ -5,6 +5,7 @@ import { descriptionItems } from '~/pages/About/about.constants';
 import {
   DescriptionItem,
   Paragraph,
+  SectionContainer,
   Subsection,
   Subtitle
 } from '~/pages/About/sections/sections.styled';
@@ -13,10 +14,7 @@ export const DiscordChats = () => {
   const [t] = useTranslation();
 
   return (
-    <Box
-      as="section"
-      bg="brand.white"
-    >
+    <SectionContainer>
       <VisuallyHidden>
         <Heading variant="3">{t('navigation:about.discord')}</Heading>
       </VisuallyHidden>
@@ -39,6 +37,6 @@ export const DiscordChats = () => {
           ))}
         </Box>
       </Subsection>
-    </Box>
+    </SectionContainer>
   );
 };

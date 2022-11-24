@@ -1,5 +1,4 @@
 import {
-  Box,
   Flex,
   Heading,
   Image,
@@ -10,11 +9,12 @@ import {
 import { Trans, useTranslation } from 'react-i18next';
 
 import {
-  Paragraph,
-  Subsection,
-  Subtitle,
+  AboutLink,
   AboutListItem as ListItem,
-  AboutLink
+  Paragraph,
+  SectionContainer,
+  Subsection,
+  Subtitle
 } from '~/pages/About/sections/sections.styled';
 
 import logTimeScreen from '../assets/log_time.jpg';
@@ -25,10 +25,7 @@ export const Memento = () => {
   const [isLargerThan1258] = useMediaQuery('(min-width: 1258px)');
 
   return (
-    <Box
-      as="section"
-      bg="brand.white"
-    >
+    <SectionContainer>
       <VisuallyHidden>
         <Heading variant="3">{t('navigation:about.memento')}</Heading>
       </VisuallyHidden>
@@ -94,9 +91,8 @@ export const Memento = () => {
         >
           <Image
             width="calc(50% - 10px)"
-            maxWidth="510px"
             minWidth="350px"
-            height="451px"
+            height="auto"
             borderRadius="4px"
             backgroundColor="brand.ghostWhite"
             src={spentTimeScreen}
@@ -104,9 +100,8 @@ export const Memento = () => {
           />
           <Image
             width="calc(50% - 10px)"
-            maxWidth="510px"
             minWidth="350px"
-            height="451px"
+            height="auto"
             borderRadius="4px"
             backgroundColor="brand.ghostWhite"
             src={logTimeScreen}
@@ -124,6 +119,6 @@ export const Memento = () => {
           </Trans>
         </Paragraph>
       </Subsection>
-    </Box>
+    </SectionContainer>
   );
 };

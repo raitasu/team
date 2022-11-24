@@ -1,22 +1,24 @@
 import {
-  Box,
   Heading,
-  VisuallyHidden,
   ListItem,
-  UnorderedList
+  UnorderedList,
+  VisuallyHidden
 } from '@chakra-ui/react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { Subsection, Subtitle, Paragraph, AboutLink } from './sections.styled';
+import {
+  AboutLink,
+  Paragraph,
+  SectionContainer,
+  Subsection,
+  Subtitle
+} from './sections.styled';
 
 export const Perks = () => {
   const [t] = useTranslation();
 
   return (
-    <Box
-      as="section"
-      bg="brand.white"
-    >
+    <SectionContainer>
       <VisuallyHidden>
         <Heading variant="3">{t('navigation:about.perks')}</Heading>
       </VisuallyHidden>
@@ -88,6 +90,6 @@ export const Perks = () => {
           </Trans>
         </Paragraph>
       </Subsection>
-    </Box>
+    </SectionContainer>
   );
 };

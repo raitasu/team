@@ -1,5 +1,4 @@
 import {
-  Box,
   Heading,
   ListItem,
   UnorderedList,
@@ -7,16 +6,19 @@ import {
 } from '@chakra-ui/react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import { Subsection, Subtitle, Paragraph, AboutLink } from './sections.styled';
+import {
+  AboutLink,
+  Paragraph,
+  SectionContainer,
+  Subsection,
+  Subtitle
+} from './sections.styled';
 
 export const Vacation = () => {
   const [t] = useTranslation();
 
   return (
-    <Box
-      as="section"
-      bg="brand.white"
-    >
+    <SectionContainer>
       <VisuallyHidden>
         <Heading variant="3">{t('navigation:about.vacation')}</Heading>
       </VisuallyHidden>
@@ -128,6 +130,6 @@ export const Vacation = () => {
 
         <Paragraph>{t('text:about.vacation.leave.unpaid_leave')}</Paragraph>
       </Subsection>
-    </Box>
+    </SectionContainer>
   );
 };

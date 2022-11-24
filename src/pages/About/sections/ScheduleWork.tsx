@@ -1,22 +1,20 @@
-import { Box, Heading, UnorderedList, VisuallyHidden } from '@chakra-ui/react';
+import { Heading, UnorderedList, VisuallyHidden } from '@chakra-ui/react';
 import { Trans, useTranslation } from 'react-i18next';
 
 import {
-  Paragraph,
-  Subsection,
-  Subtitle,
+  AboutLink,
   AboutListItem as ListItem,
-  AboutLink
+  Paragraph,
+  SectionContainer,
+  Subsection,
+  Subtitle
 } from './sections.styled';
 
 export const ScheduleWork = () => {
   const [t] = useTranslation();
 
   return (
-    <Box
-      as="section"
-      bg="brand.white"
-    >
+    <SectionContainer>
       <VisuallyHidden>
         <Heading variant="3">{t('navigation:about.schedule')}</Heading>
       </VisuallyHidden>
@@ -64,6 +62,6 @@ export const ScheduleWork = () => {
           </Trans>
         </Paragraph>
       </Subsection>
-    </Box>
+    </SectionContainer>
   );
 };

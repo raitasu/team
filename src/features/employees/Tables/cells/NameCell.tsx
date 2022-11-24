@@ -10,9 +10,10 @@ import { Avatar } from '~/shared/ui/components/Avatar';
 import { Tooltip } from '~/shared/ui/components/Tooltip';
 
 export const NameCell = ({
-  row: { original: employee }
-}: CellContext<ShortEmployee, undefined>) => {
+  getValue
+}: CellContext<ShortEmployee, ShortEmployee>) => {
   const [t, { language }] = useTranslation();
+  const employee = getValue();
 
   return (
     <Link to={`${PagePaths.Employees}/${employee.id}`}>

@@ -167,8 +167,8 @@
         }
       },
       "discord": {
-        "CG_branches": "The channel is divided into locations and exists in order to be able to solve organizational issues and arrange meetings.",
         "booklovers": "If you like to read, ready to share your impressions about the book or advise, then you are here.",
+        "cg_branches": "The channel is divided into locations and exists in order to be able to solve organizational issues and arrange meetings.",
         "cyberassist": "If you need help with technical questions.",
         "general": "For important information.",
         "intro": "Of course, there is a channel of the project that you will join. And you can also get acquainted with other, equally interesting and important chats.",
@@ -391,14 +391,19 @@
     },
     "employees": {
       "create_cv_description": "Do you want to create CV?",
-      "cv": "CV",
+      "errors": {
+        "no_projects": "No current projects"
+      },
       "table_headers": {
         "contacts": "Location",
+        "current_projects": "Current projects",
+        "cv": "CV",
         "date_of_birth": "Date of birth",
+        "email": "Email",
         "full_name": "Name",
-        "no_projects": "No current projects",
         "positions": "Positions",
-        "projects": "Current projects"
+        "primary_phone": "Phone Number",
+        "social_networks": "Social networks"
       }
     },
     "general": {

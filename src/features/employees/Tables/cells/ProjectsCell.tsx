@@ -6,11 +6,10 @@ import { getTranslation } from '~/services/i18n/i18n.utils';
 import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
 
 export const ProjectsCell = ({
-  row: {
-    original: { projects }
-  }
+  getValue
 }: CellContext<ShortEmployee, ShortEmployee['projects']>) => {
   const [t, { language }] = useTranslation();
+  const projects = getValue();
 
   return projects.length !== 0 ? (
     projects.map((project) => (
@@ -20,7 +19,7 @@ export const ProjectsCell = ({
     ))
   ) : (
     <Text color="brand.lightGray">
-      {t('titles:employees.table_headers.no_projects')}
+      {t('titles:employees.errors.no_projects')}
     </Text>
   );
 };

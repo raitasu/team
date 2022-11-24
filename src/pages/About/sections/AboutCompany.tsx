@@ -6,6 +6,7 @@ import {
   AboutLink,
   AboutListItem as ListItem,
   Paragraph,
+  SectionContainer,
   Subsection,
   Subtitle
 } from '~/pages/About/sections/sections.styled';
@@ -14,10 +15,7 @@ export const AboutCompany = () => {
   const [t] = useTranslation();
 
   return (
-    <Box
-      as="section"
-      bg="brand.white"
-    >
+    <SectionContainer>
       <VisuallyHidden>
         <Heading variant="3">{t('navigation:about.company')}</Heading>
       </VisuallyHidden>
@@ -106,6 +104,6 @@ export const AboutCompany = () => {
           </AboutLink>
         ))}
       </Box>
-    </Box>
+    </SectionContainer>
   );
 };
