@@ -4,6 +4,7 @@ import path from 'path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import eslint from 'vite-plugin-eslint';
+import svgr from 'vite-plugin-svgr';
 import GithubActionsReporter from 'vitest-github-actions-reporter';
 
 export default defineConfig(({ mode }) => ({
@@ -26,6 +27,17 @@ export default defineConfig(({ mode }) => ({
     strictPort: true
   },
   plugins: [
+    svgr({
+      svgrOptions: {
+        prettier: false,
+        svgo: false,
+        svgoConfig: {
+          plugins: [{ removeViewBox: false }]
+        },
+        titleProp: true,
+        ref: true
+      }
+    }),
     react({
       jsxImportSource: '@emotion/react',
       babel: {
