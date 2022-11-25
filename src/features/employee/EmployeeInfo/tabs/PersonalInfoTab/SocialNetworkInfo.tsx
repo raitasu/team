@@ -18,7 +18,6 @@ export const SocialNetworkInfo = ({
       title={t(
         'titles:employee.tabs.personal_information.social_network_title'
       )}
-      isEditable={false}
     >
       {(
         Object.entries(socialNetworks) as [

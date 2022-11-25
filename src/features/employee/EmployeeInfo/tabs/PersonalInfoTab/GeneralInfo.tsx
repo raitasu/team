@@ -18,7 +18,6 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
       title={t(
         'titles:employee.tabs.personal_information.general.section_title'
       )}
-      isEditable={false}
     >
       <GeneralInfoItem
         name={t('titles:employee.tabs.personal_information.general.gender')}

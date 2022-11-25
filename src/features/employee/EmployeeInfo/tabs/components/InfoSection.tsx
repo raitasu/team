@@ -13,21 +13,12 @@ import { Tooltip } from '~/shared/ui/components/Tooltip';
 export const InfoSection = ({
   title,
   children,
-  isEditable,
   onEdit
 }: {
   title?: string;
   children: React.ReactNode;
-} & (
-  | {
-      isEditable: false;
-      onEdit?: never;
-    }
-  | {
-      isEditable: true;
-      onEdit: () => void;
-    }
-)) => {
+  onEdit?: () => void;
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -50,7 +41,7 @@ export const InfoSection = ({
             {title}
           </Heading>
         ) : null}
-        {isEditable ? (
+        {onEdit ? (
           <Tooltip
             hasArrow
             place="top"

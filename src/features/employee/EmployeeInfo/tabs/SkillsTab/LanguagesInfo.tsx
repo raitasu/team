@@ -13,10 +13,7 @@ export const LanguagesInfo = ({
   const [t] = useTranslation();
 
   return (
-    <InfoSection
-      title={t('titles:employee.tabs.skills.languages')}
-      isEditable={false}
-    >
+    <InfoSection title={t('titles:employee.tabs.skills.languages')}>
       {languages.map((lang) => (
         <Text key={lang.name}>
           {`${t(`enums:language.${lang.name}`)} `}

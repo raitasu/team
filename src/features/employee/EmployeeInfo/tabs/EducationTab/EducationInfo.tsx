@@ -25,7 +25,7 @@ export const EducationInfo = ({
           />
         ))}
       </EducationSection>
-      <InfoSection isEditable={false}>
+      <InfoSection>
         <Button
           variant="primaryOutline"
           outline="none"

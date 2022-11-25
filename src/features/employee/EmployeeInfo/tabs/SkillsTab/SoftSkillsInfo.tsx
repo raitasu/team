@@ -11,10 +11,7 @@ export const SoftSkillsInfo = ({ skills }: { skills: EmployeeSoftSkill[] }) => {
   const [t, { language }] = useTranslation();
 
   return (
-    <InfoSection
-      title={t('titles:employee.tabs.skills.soft_skills')}
-      isEditable={false}
-    >
+    <InfoSection title={t('titles:employee.tabs.skills.soft_skills')}>
       <Grid
         gridTemplateColumns="repeat(auto-fill, 240px)"
         columnGap={COLUMN_GAP}
