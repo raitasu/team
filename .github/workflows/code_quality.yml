@@ -50,9 +50,3 @@ jobs:
 
       - name: Check build is passing
         run: npm run build
-
-      - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          junit_files: junit/**/*.xml
