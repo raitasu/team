@@ -5,7 +5,7 @@ import { PhoneCell } from '~/features/employees/Tables/cells/PhoneCell';
 import { SocialNetworksCell } from '~/features/employees/Tables/cells/SocialNetworksCell';
 import { TranslatedHeader } from '~/features/employees/Tables/cells/TranslatedHeader';
 import { EmployeesHeaderIds } from '~/features/employees/Tables/tables.constants';
-import type { ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import type { ShortEmployee } from '~/store/api/employees/employees.types';
 
 import { NameCell } from '../cells/NameCell';
 

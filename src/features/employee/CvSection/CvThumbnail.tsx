@@ -7,8 +7,8 @@ import {
 } from 'react-icons/md';
 
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { type EmployeeCv } from '~/shared/store/api/employees/employees.types';
 import { IconButton } from '~/shared/ui/components/IconButton';
+import { type EmployeeCv } from '~/store/api/employees/employees.types';
 
 export const CvThumbnail = ({
   cv,

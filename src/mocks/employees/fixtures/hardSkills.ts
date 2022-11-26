@@ -4,7 +4,7 @@ import shuffle from 'lodash/shuffle';
 import upperFirst from 'lodash/upperFirst';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
-import { type EmployeeHardSkill } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeHardSkill } from '~/store/api/employees/employees.types';
 
 const sessionHardSkills: Record<string, EmployeeHardSkill> = {};
 

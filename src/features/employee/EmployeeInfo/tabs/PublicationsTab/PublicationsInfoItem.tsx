@@ -7,8 +7,8 @@ import {
 } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { DateFormats } from '~/shared/shared.constants';
-import { type EmployeePublication } from '~/shared/store/api/employees/employees.types';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
+import { type EmployeePublication } from '~/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 

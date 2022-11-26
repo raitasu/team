@@ -8,8 +8,8 @@ import {
   SECTION_PADDING
 } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { type EmployeeCertificate } from '~/shared/store/api/employees/employees.types';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
+import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
 
 export const CertificatesInfoItem = ({
   certificate

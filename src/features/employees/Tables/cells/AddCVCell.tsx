@@ -2,8 +2,8 @@ import { type CellContext } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 
-import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
 import { Button } from '~/shared/ui/components/Button';
+import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
 export const AddCVCell = ({
   table: {

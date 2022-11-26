@@ -3,11 +3,13 @@ import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
-import { type EmployeeWorkExperince } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeWorkExperience } from '~/store/api/employees/employees.types';
 
-const sessionWorkExperiences: Record<string, EmployeeWorkExperince> = {};
+const sessionWorkExperiences: Record<string, EmployeeWorkExperience> = {};
 
-const generateEmployeeWorkExperience = (id: number): EmployeeWorkExperince => ({
+const generateEmployeeWorkExperience = (
+  id: number
+): EmployeeWorkExperience => ({
   id,
   company_name: faker.company.name(),
   position: {

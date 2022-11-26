@@ -3,7 +3,7 @@ import { type CellContext } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
 export const ProjectsCell = ({
   getValue

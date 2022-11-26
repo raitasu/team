@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
-import { selectIsLoggedIn } from '~/shared/store/slices/authentication/authentication.selectors';
-import { useAppSelector } from '~/shared/store/store.hooks';
+import { selectIsLoggedIn } from '~/store/slices/authentication/authentication.selectors';
+import { useAppSelector } from '~/store/store.hooks';
 
 export const PublicOnlyRoutes = () => {
   const isLoggedIn = useAppSelector(selectIsLoggedIn);

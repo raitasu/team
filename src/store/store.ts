@@ -2,10 +2,10 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
-import { rootApiSlice } from '~/shared/store/api';
-import { authenticationSlice } from '~/shared/store/slices/authentication/authentication.slice';
-import { employeesSlice } from '~/shared/store/slices/employees/employees.slice';
-import { listenerMiddleware } from '~/shared/store/store.listener';
+import { rootApiSlice } from '~/store/api';
+import { authenticationSlice } from '~/store/slices/authentication/authentication.slice';
+import { employeesSlice } from '~/store/slices/employees/employees.slice';
+import { listenerMiddleware } from '~/store/store.listener';
 
 export const store = configureStore({
   reducer: {

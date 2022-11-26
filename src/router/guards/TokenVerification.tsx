@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { LocalStorageKey } from '~/shared/shared.constants';
-import { useGetCurrentUserQuery } from '~/shared/store/api/authentication/authentication.api';
-import { selectIsLoggedIn } from '~/shared/store/slices/authentication/authentication.selectors';
-import { useAppSelector } from '~/shared/store/store.hooks';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
+import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
+import { selectIsLoggedIn } from '~/store/slices/authentication/authentication.selectors';
+import { useAppSelector } from '~/store/store.hooks';
 
 export const TokenVerification = ({
   children

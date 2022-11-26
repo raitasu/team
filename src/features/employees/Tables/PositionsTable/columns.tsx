@@ -8,8 +8,8 @@ import { EmployeesHeaderIds } from '~/features/employees/Tables/tables.constants
 import { getI18n } from '~/services/i18n';
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { DateFormats } from '~/shared/shared.constants';
-import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
+import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
 const columnHelper = createColumnHelper<ShortEmployee>();
 

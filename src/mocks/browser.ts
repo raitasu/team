@@ -26,8 +26,8 @@ import { projectHandlers } from '~/mocks/projects/projects.handler';
           ...project.team,
           {
             id: employee.id,
-            first_name: employee.first_name,
-            last_name: employee.last_name
+            first_name_translations: employee.first_name_translations,
+            last_name_translations: employee.last_name_translations
           }
         ]
       });

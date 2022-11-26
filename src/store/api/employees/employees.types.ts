@@ -1,8 +1,8 @@
 import {
   type PaginatedResponse,
   type Translation
-} from '~/shared/store/api/api.types';
-import { type Project } from '~/shared/store/api/projects/projects.types';
+} from '~/store/api/api.types';
+import { type Project } from '~/store/api/projects/projects.types';
 
 export type EmployeeLanguageName =
   | 'be'
@@ -150,7 +150,7 @@ export interface EmployeeCertificate
   speciality_translations: Translation;
 }
 
-export interface EmployeeWorkExperince {
+export interface EmployeeWorkExperience {
   id: number;
   company_name: string;
   position: Translation;
@@ -170,13 +170,13 @@ export interface Employee {
   cvs: EmployeeCv[];
   date_of_birth: string;
   educations: EmployeeEducation[];
-  first_name: Translation;
+  first_name_translations: Translation;
   gender: EmployeeGender;
   hard_skills: EmployeeHardSkill[];
   id: number;
   interests_translations: Translation;
   languages: EmployeeLanguage[];
-  last_name: Translation;
+  last_name_translations: Translation;
   positions: EmployeePosition[];
   projects: Pick<Project, 'id' | 'name_translations'>[];
   publications: EmployeePublication[];
@@ -187,21 +187,21 @@ export interface Employee {
   start_career_at: string;
   timezone: string;
   years_of_experience: number;
-  work_experiences: EmployeeWorkExperince[];
+  work_experiences: EmployeeWorkExperience[];
 }
 
 export type ShortEmployee = Pick<
   Employee,
   | 'avatar_url'
   | 'date_of_birth'
-  | 'first_name'
+  | 'first_name_translations'
   | 'id'
-  | 'last_name'
-  | 'social_networks'
+  | 'last_name_translations'
   | 'positions'
   | 'projects'
-  | 'status'
   | 'role'
+  | 'social_networks'
+  | 'status'
 > & {
   contacts: {
     address: Pick<EmployeeAddress, 'city' | 'country_code'>;

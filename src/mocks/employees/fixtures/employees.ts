@@ -12,7 +12,7 @@ import {
   type EmployeeAddress,
   type EmployeeContact,
   type EmployeeSocialNetwork
-} from '~/shared/store/api/employees/employees.types';
+} from '~/store/api/employees/employees.types';
 
 import { getRandomCertificates } from './certificates';
 import { getRandomCvs } from './cvs';
@@ -84,11 +84,11 @@ const generateEmployee = (id: number): Employee => {
     ]),
     contacts: generateEmployeeContacts(),
     cvs: getRandomCvs(getRandomInteger(0, 5)),
-    first_name: {
+    first_name_translations: {
       en: faker.name.firstName(gender),
       ru: fakerRu.name.firstName(gender)
     },
-    last_name: {
+    last_name_translations: {
       en: faker.name.lastName(gender),
       ru: fakerRu.name.lastName(gender)
     },

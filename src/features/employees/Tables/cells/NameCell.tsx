@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
 import { Avatar } from '~/shared/ui/components/Avatar';
 import { Tooltip } from '~/shared/ui/components/Tooltip';
+import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
 export const NameCell = ({
   getValue
@@ -37,10 +37,10 @@ export const NameCell = ({
           variant="mm"
           color="brand.headline"
         >
-          {`${getTranslation(employee.first_name, language)} ${getTranslation(
-            employee.last_name,
+          {`${getTranslation(
+            employee.first_name_translations,
             language
-          )}`}
+          )} ${getTranslation(employee.last_name_translations, language)}`}
         </Text>
       </Box>
     </Link>

@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 
-import { type EmployeeCv } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeCv } from '~/store/api/employees/employees.types';
 
 import { CvThumbnail } from './CvThumbnail';
 

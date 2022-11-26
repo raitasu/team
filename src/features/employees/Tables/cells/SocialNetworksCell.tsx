@@ -13,7 +13,7 @@ import {
 import {
   type EmployeeSocialNetwork,
   type ShortEmployee
-} from '~/shared/store/api/employees/employees.types';
+} from '~/store/api/employees/employees.types';
 
 const SocialNetworkIcons: Record<keyof EmployeeSocialNetwork, IconType> = {
   linkedin: SlSocialLinkedin,

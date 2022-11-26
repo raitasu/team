@@ -3,17 +3,17 @@ import { useEffect } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 
 import { type EmployeesTable } from '~/features/employees/Tables/tables.types';
-import { useGetEmployeesQuery } from '~/shared/store/api/employees/employees.api';
-import { selectCurrentEmployee } from '~/shared/store/api/employees/employees.selectors';
-import { selectEmployeesPagination } from '~/shared/store/slices/employees/employees.selectors';
+import { Pagination } from '~/shared/ui/components/Pagination';
+import { getTotalPages } from '~/shared/utils/pagination.utils';
+import { useGetEmployeesQuery } from '~/store/api/employees/employees.api';
+import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
+import { selectEmployeesPagination } from '~/store/slices/employees/employees.selectors';
 import {
   reset,
   toggleElementsPerPage,
   togglePage
-} from '~/shared/store/slices/employees/employees.slice';
-import { useAppDispatch, useAppSelector } from '~/shared/store/store.hooks';
-import { Pagination } from '~/shared/ui/components/Pagination';
-import { getTotalPages } from '~/shared/utils/pagination.utils';
+} from '~/store/slices/employees/employees.slice';
+import { useAppDispatch, useAppSelector } from '~/store/store.hooks';
 
 export const EmployeesTablesContainer = ({
   table: Table

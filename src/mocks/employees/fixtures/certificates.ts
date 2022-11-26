@@ -3,7 +3,7 @@ import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
-import { type EmployeeCertificate } from '~/shared/store/api/employees/employees.types';
+import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
 
 const sessionCertificates: Record<string, EmployeeCertificate> = {};
 

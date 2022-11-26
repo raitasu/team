@@ -8,7 +8,7 @@ import { ErrorMessage } from '~/features/authentication/components/ErrorMessage'
 import {
   useGetAccessTokenQuery,
   useGetCurrentUserQuery
-} from '~/shared/store/api/authentication/authentication.api';
+} from '~/store/api/authentication/authentication.api';
 
 export const Authentication = () => {
   const [t] = useTranslation();

@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 
-import { type Employee } from '~/shared/store/api/employees/employees.types';
 import { Avatar } from '~/shared/ui/components/Avatar';
+import { type Employee } from '~/store/api/employees/employees.types';
 
 import { EmployeeCvControls } from './EmployeeCvControls';
 import { EmployeeDescription } from './EmployeeDescription';

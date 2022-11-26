@@ -4,7 +4,7 @@ import { type EmployeesHeaderIds } from '~/features/employees/Tables/tables.cons
 import {
   type Employee,
   type ShortEmployee
-} from '~/shared/store/api/employees/employees.types';
+} from '~/store/api/employees/employees.types';
 
 export type EmployeesTable = React.FC<{
   data: Array<ShortEmployee>;

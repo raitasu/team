@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 
-import { type EmployeeCertificate } from '~/shared/store/api/employees/employees.types';
 import { Button } from '~/shared/ui/components/Button';
+import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 import { CertificatesInfoItem } from './CertificatesInfoItem';

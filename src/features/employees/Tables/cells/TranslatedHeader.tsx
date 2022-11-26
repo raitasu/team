@@ -2,7 +2,7 @@ import { type HeaderContext } from '@tanstack/table-core';
 import { useTranslation } from 'react-i18next';
 
 import { type HeaderKeys } from '~/features/employees/Tables/tables.types';
-import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
 export const TranslatedHeader = <TData,>({
   column: { id }

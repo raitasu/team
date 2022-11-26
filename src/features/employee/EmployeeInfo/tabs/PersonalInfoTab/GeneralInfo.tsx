@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { DateFormats } from '~/shared/shared.constants';
-import { type Employee } from '~/shared/store/api/employees/employees.types';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
+import { type Employee } from '~/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 import { GeneralInfoItem } from './GeneralInfoItem';

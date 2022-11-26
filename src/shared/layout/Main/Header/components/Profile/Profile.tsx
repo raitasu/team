@@ -14,8 +14,8 @@ import { Link } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { type Employee } from '~/shared/store/api/employees/employees.types';
 import { Avatar } from '~/shared/ui/components/Avatar';
+import { type Employee } from '~/store/api/employees/employees.types';
 
 export const Profile = ({
   employee,
@@ -48,10 +48,10 @@ export const Profile = ({
             textOverflow="ellipsis"
             whiteSpace="nowrap"
           >
-            {`${getTranslation(employee.first_name, language)} ${getTranslation(
-              employee.last_name,
+            {`${getTranslation(
+              employee.first_name_translations,
               language
-            )}`}
+            )} ${getTranslation(employee.last_name_translations, language)}`}
           </Text>
           <Avatar
             size="md"

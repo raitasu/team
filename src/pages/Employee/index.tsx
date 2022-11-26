@@ -7,8 +7,8 @@ import { CvSection } from '~/features/employee/CvSection';
 import { EmployeeCard } from '~/features/employee/EmployeeCard';
 import { EmployeeInfo } from '~/features/employee/EmployeeInfo';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
-import { useGetEmployeeQuery } from '~/shared/store/api/employees/employees.api';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
+import { useGetEmployeeQuery } from '~/store/api/employees/employees.api';
 
 import {
   COLUMN_GAP,

@@ -1,6 +1,6 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { type EmployeesSliceState } from '~/shared/store/slices/employees/employees.types';
+import { type EmployeesSliceState } from '~/store/slices/employees/employees.types';
 
 const getInitialState: () => EmployeesSliceState = () => ({
   pagination: {

@@ -3,8 +3,8 @@ import { useAsync } from 'react-use';
 
 import { AppRouter } from '~/router/AppRouter';
 import { initI18n } from '~/services/i18n';
-import { store } from '~/shared/store/store';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
+import { store } from '~/store/store';
 
 export const App = () => {
   const i18nState = useAsync(() => initI18n());

@@ -6,7 +6,7 @@ import {
   getEmployees
 } from '~/mocks/employees/fixtures/employees';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { type ShortEmployee } from '~/shared/store/api/employees/employees.types';
+import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
 const getCurrentUser = rest.get(
   `${import.meta.env.VITE_PUBLIC_API_URL}me`,
@@ -43,8 +43,12 @@ const getEmployeesHandler = rest.get(
         if (
           name &&
           !(
-            getTranslation(employee.first_name, locale).indexOf(name) > -1 ||
-            getTranslation(employee.last_name, locale).indexOf(name) > -1
+            getTranslation(employee.first_name_translations, locale).indexOf(
+              name
+            ) > -1 ||
+            getTranslation(employee.last_name_translations, locale).indexOf(
+              name
+            ) > -1
           )
         ) {
           return false;
@@ -57,9 +61,9 @@ const getEmployeesHandler = rest.get(
           'contacts',
           'avatar_url',
           'date_of_birth',
-          'first_name',
+          'first_name_translations',
           'id',
-          'last_name',
+          'last_name_translations',
           'positions',
           'projects',
           'role',

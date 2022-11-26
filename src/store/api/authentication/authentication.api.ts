@@ -1,11 +1,11 @@
-import { rootApiSlice } from '~/shared/store/api';
-import { ApiTags } from '~/shared/store/api/api.constants';
-import { type AuthTokens } from '~/shared/store/api/authentication/authentication.types';
-import { type Employee } from '~/shared/store/api/employees/employees.types';
+import { rootApiSlice } from '~/store/api';
+import { ApiTags } from '~/store/api/api.constants';
+import { type AuthTokens } from '~/store/api/authentication/authentication.types';
+import { type Employee } from '~/store/api/employees/employees.types';
 import {
   loggedIn,
   tokenReceived
-} from '~/shared/store/slices/authentication/authentication.slice';
+} from '~/store/slices/authentication/authentication.slice';
 
 export const getAuthApiUrl = () => {
   const queryParams = new URLSearchParams({

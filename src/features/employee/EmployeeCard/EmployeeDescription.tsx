@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { MdLocationOn } from 'react-icons/md';
 
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { type Employee } from '~/shared/store/api/employees/employees.types';
+import { type Employee } from '~/store/api/employees/employees.types';
 
 export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
   const [t, { language }] = useTranslation();
@@ -23,9 +23,12 @@ export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
       textAlign="center"
     >
       <Heading variant="4">{`${getTranslation(
-        employee.first_name,
+        employee.first_name_translations,
         language
-      )} ${getTranslation(employee.last_name, language)}`}</Heading>
+      )} ${getTranslation(
+        employee.last_name_translations,
+        language
+      )}`}</Heading>
       <Text variant="hr">
         {getTranslation(employee.positions[0].name_translations, language)}
       </Text>

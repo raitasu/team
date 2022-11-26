@@ -4,7 +4,7 @@ import shuffle from 'lodash/shuffle';
 import {
   type EmployeeLanguage,
   type EmployeeLanguageName
-} from '~/shared/store/api/employees/employees.types';
+} from '~/store/api/employees/employees.types';
 
 const sessionLanguages: EmployeeLanguageName[] = [
   'be',

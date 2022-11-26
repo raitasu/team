@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 
-import { type Employee } from '~/shared/store/api/employees/employees.types';
+import { type Employee } from '~/store/api/employees/employees.types';
 
 import { CertificatesInfo } from './CertificatesInfo';
 import { EducationInfo } from './EducationInfo';
