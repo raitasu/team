@@ -108,7 +108,8 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## API
 
-- Documentation - TBD
+- [Swagger](https://team-stage.cybergizer.com/docs)
+- [Repository](https://github.com/cybergizer-hq/team)
 
 | Environment variable  | Description | Location             |
 | --------------------- | ----------- | -------------------- |
