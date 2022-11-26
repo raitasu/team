@@ -24,7 +24,12 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2017",
-    "types": ["vite/client", "@emotion/react/types/css-prop"],
+    "types": [
+      "vite/client",
+      "vite-plugin-svgr/client",
+      "vitest",
+      "@emotion/react/types/css-prop"
+    ],
     "useDefineForClassFields": true
   },
   "exclude": ["node_modules"],

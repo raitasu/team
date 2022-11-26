@@ -9,4 +9,5 @@ it('should forward ref to button', () => {
 
   render(<Button ref={ref}>Test Button</Button>);
   expect(ref.current).toBeInstanceOf(Node);
+  expect(ref.current?.nodeName).toBe('BUTTON');
 });
