@@ -1,8 +1,0 @@
-{
-  "ignore": {
-    "@types/node": {
-      "reason": "Using node 16 version in project",
-      "versions": ">16"
-    }
-  }
-}

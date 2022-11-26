@@ -4,8 +4,11 @@ import { type StorybookViteConfig } from '@storybook/builder-vite';
 import { mergeConfig } from 'vite';
 
 const config: StorybookViteConfig = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  staticDirs: ['../public'],
+  stories: [
+    path.resolve(__dirname, '../src/**/*.stories.mdx'),
+    path.resolve(__dirname, '../src/**/*.stories.@(js|jsx|ts|tsx)')
+  ],
+  staticDirs: [path.resolve(__dirname, '../public')],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

@@ -14,7 +14,7 @@
     "audit:deadcode": "npx ts-prune >deadcode.txt",
     "audit:deadcode:ci": "./tools/scripts/ci/checkDeadCode.sh",
     "build": "vite build",
-    "build-storybook": "build-storybook",
+    "build-storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "build:preview": "vite preview",
     "build:staging": "cross-env NODE_ENV=production npm run build -- --mode staging",
     "build:staging:with-mock-server": "cross-env VITE_USE_MOCK_SERVER=true npm run build:staging",
@@ -27,7 +27,7 @@
     "semantic-release": "semantic-release",
     "start": "vite",
     "start:with-mock-server": "cross-env VITE_USE_MOCK_SERVER=true vite",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
     "test": "vitest",
     "test:ci": "vitest run --coverage --outputFile.junit=./junit/vitest.xml"
   },
@@ -74,7 +74,7 @@
     "@testing-library/user-event": "14.4.3",
     "@types/fs-extra": "9.0.13",
     "@types/lodash": "4.14.190",
-    "@types/node": "16.11.43",
+    "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-datepicker": "4.8.0",
     "@types/react-dom": "18.0.9",
@@ -121,7 +121,7 @@
     "vitest-github-actions-reporter": "0.9.0"
   },
   "engines": {
-    "node": "16.18.1"
+    "node": "18.12.1"
   },
   "publishConfig": {
     "access": "restricted"
