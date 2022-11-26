@@ -15,16 +15,22 @@ export const SickLeave = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.sick_leave')}</Heading>
+        <Heading variant="3">
+          {t('navigation:about_sections.sick_leave')}
+        </Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.sick_leave.sick_leave')}</Subtitle>
-
-        <Paragraph>{t('text:about.sick_leave.question')}</Paragraph>
+        <Subtitle>
+          {t('domains:about_sections.titles.sick_leave.sick_leave')}
+        </Subtitle>
 
         <Paragraph>
-          <Trans i18nKey="text:about.sick_leave.help">
+          {t('domains:about_sections.text.sick_leave.question')}
+        </Paragraph>
+
+        <Paragraph>
+          <Trans i18nKey="domains:about_sections.text.sick_leave.help">
             <AboutLink target="https://t.me/Kottyashechka">Masha</AboutLink>
           </Trans>
         </Paragraph>

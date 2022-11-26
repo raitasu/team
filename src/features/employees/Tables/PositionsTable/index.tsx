@@ -43,8 +43,8 @@ export const EmployeesPositionsTable: EmployeesTable = ({ data, employee }) => {
         <TableBody rows={table.getRowModel().rows} />
       </Table>
       <ConfirmationModal
-        title={t('actions:general.create_cv')}
-        description={t('titles:employees.create_cv_description')}
+        title={t('domains:employee.actions.create_cv')}
+        description={t('domains:employee.actions.create_cv_confirmation')}
         isOpen={selectedEmployeeId !== null}
         onConfirm={() =>
           navigate(`${PagePaths.Employees}/${employee.id}/add-cv`)

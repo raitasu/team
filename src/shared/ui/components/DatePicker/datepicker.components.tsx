@@ -38,7 +38,7 @@ export const DatePickerHeader = ({
     <div className="calendar-container__custom-header custom-header">
       <Select
         className="custom-header__select"
-        placeholder={t('components:datepicker.placeholder.month')}
+        placeholder={t('general_placeholders:month')}
         options={optionMonth}
         getOptionLabel={(option) => t(option.label)}
         size="sm"
@@ -50,7 +50,7 @@ export const DatePickerHeader = ({
         }}
       />
       <Input
-        placeholder={t('components:datepicker.placeholder.year')}
+        placeholder={t('general_placeholders:year')}
         variant="datePickerInput"
         type="number"
         value={date.getFullYear() || ''}

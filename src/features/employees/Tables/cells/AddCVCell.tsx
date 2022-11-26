@@ -19,7 +19,7 @@ export const AddCVCell = ({
       leftIcon={<MdAdd />}
       onClick={() => meta?.onAddCVBtnClick(getValue())}
     >
-      {t('titles:employees.table_headers.cv')}
+      {t('domains:employee.table_headers.cv')}
     </Button>
   );
 };

@@ -19,7 +19,7 @@ export const ProjectsCell = ({
     ))
   ) : (
     <Text color="brand.lightGray">
-      {t('titles:employees.errors.no_projects')}
+      {t('domains:projects.errors.no_projects')}
     </Text>
   );
 };

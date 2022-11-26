@@ -16,7 +16,7 @@ export const SocialNetworkInfo = ({
   return (
     <InfoSection
       title={t(
-        'titles:employee.tabs.personal_information.social_network_title'
+        'domains:employee.titles.profile_tabs.personal_information.social_network_title'
       )}
     >
       {(

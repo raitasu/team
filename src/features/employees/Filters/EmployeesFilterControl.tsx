@@ -20,11 +20,11 @@ const EmployeesFilterControl = ({
     <Tooltip
       hasArrow
       place="left"
-      labelText={t('tooltips:filter')}
+      labelText={t('domains:filters.titles.filter', { count: 100 })}
     >
       <ControlButton
         ref={triggerRef}
-        aria-label={t('tooltips:filter')}
+        aria-label={t('domains:filters.titles.filter', { count: 100 })}
         onClick={onOpen}
         icon={<MdOutlineFilterAlt />}
       />

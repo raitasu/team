@@ -16,11 +16,13 @@ export const ScheduleWork = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.schedule')}</Heading>
+        <Heading variant="3">{t('navigation:about_sections.schedule')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.schedule.work_schedule')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.schedule.work_schedule')}
+        </Subtitle>
 
         <Paragraph
           style={{
@@ -28,7 +30,7 @@ export const ScheduleWork = () => {
             marginBottom: '4px'
           }}
         >
-          {t('text:about.schedule.work_schedule.working_day')}
+          {t('domains:about_sections.text.schedule.work_schedule.working_day')}
         </Paragraph>
 
         <UnorderedList
@@ -37,27 +39,43 @@ export const ScheduleWork = () => {
             marginBottom: '20px'
           }}
         >
-          <ListItem>{t('text:about.schedule.work_schedule.from10')}</ListItem>
-          <ListItem>{t('text:about.schedule.work_schedule.from9')}</ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.schedule.work_schedule.from10')}
+          </ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.schedule.work_schedule.from9')}
+          </ListItem>
         </UnorderedList>
 
-        <Paragraph>{t('text:about.schedule.work_schedule.hours')}</Paragraph>
-        <Paragraph>{t('text:about.schedule.work_schedule.week')}</Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.schedule.work_schedule.hours')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.schedule.work_schedule.week')}
+        </Paragraph>
       </Subsection>
 
       <Subsection>
-        <Subtitle>{t('titles:about.schedule.details')}</Subtitle>
-
-        <Paragraph>{t('text:about.schedule.details.remote_work')}</Paragraph>
-        <Paragraph>{t('text:about.schedule.details.response_time')}</Paragraph>
-        <Paragraph>{t('text:about.schedule.details.holydays')}</Paragraph>
-      </Subsection>
-
-      <Subsection>
-        <Subtitle>{t('titles:about.schedule.help')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.schedule.details')}
+        </Subtitle>
 
         <Paragraph>
-          <Trans i18nKey="text:about.schedule.help.contact">
+          {t('domains:about_sections.text.schedule.details.remote_work')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.schedule.details.response_time')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.schedule.details.holydays')}
+        </Paragraph>
+      </Subsection>
+
+      <Subsection>
+        <Subtitle>{t('domains:about_sections.titles.schedule.help')}</Subtitle>
+
+        <Paragraph>
+          <Trans i18nKey="domains:about_sections.text.schedule.help.contact">
             <AboutLink target="https://t.me/Kottyashechka">Masha</AboutLink>
           </Trans>
         </Paragraph>

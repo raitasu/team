@@ -15,7 +15,7 @@ const headerLinks = [
   },
   {
     target: PagePaths.Projects,
-    translationTag: 'navigation:links.projects'
+    translationTag: 'navigation:links.project'
   }
 ] as const;
 
@@ -45,7 +45,7 @@ export const NavBar = () => {
           _hover={activeLinkStyles}
           _activeLink={activeLinkStyles}
         >
-          {t(translationTag)}
+          {t(translationTag, { count: 100 })}
         </Link>
       ))}
     </Box>

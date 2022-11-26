@@ -17,7 +17,7 @@ import { type RootState } from '~/store/store.types';
 
 const mutex = new Mutex();
 
-export const createFetchBaseQueryWithReauth: typeof fetchBaseQuery = (
+export const createFetchBaseQueryWithReAuth: typeof fetchBaseQuery = (
   baseQueryArgs
 ) => {
   const baseQuery = fetchBaseQuery(baseQueryArgs);

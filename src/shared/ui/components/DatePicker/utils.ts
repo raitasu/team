@@ -1,50 +1,50 @@
 export const optionMonth = [
   {
     value: 0,
-    label: 'components:datepicker.month.january'
+    label: 'enums:month.january'
   },
   {
     value: 1,
-    label: 'components:datepicker.month.february'
+    label: 'enums:month.february'
   },
   {
     value: 2,
-    label: 'components:datepicker.month.march'
+    label: 'enums:month.march'
   },
   {
     value: 3,
-    label: 'components:datepicker.month.april'
+    label: 'enums:month.april'
   },
   {
     value: 4,
-    label: 'components:datepicker.month.may'
+    label: 'enums:month.may'
   },
   {
     value: 5,
-    label: 'components:datepicker.month.june'
+    label: 'enums:month.june'
   },
   {
     value: 6,
-    label: 'components:datepicker.month.july'
+    label: 'enums:month.july'
   },
   {
     value: 7,
-    label: 'components:datepicker.month.august'
+    label: 'enums:month.august'
   },
   {
     value: 8,
-    label: 'components:datepicker.month.september'
+    label: 'enums:month.september'
   },
   {
     value: 9,
-    label: 'components:datepicker.month.october'
+    label: 'enums:month.october'
   },
   {
     value: 10,
-    label: 'components:datepicker.month.november'
+    label: 'enums:month.november'
   },
   {
     value: 11,
-    label: 'components:datepicker.month.december'
+    label: 'enums:month.december'
   }
 ] as const;

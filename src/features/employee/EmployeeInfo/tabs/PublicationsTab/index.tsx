@@ -27,7 +27,7 @@ export const PublicationsTab = ({ employee }: { employee: Employee }) => {
           leftIcon={<MdAdd />}
           margin="auto"
         >
-          {t('actions:employee.add_publication')}
+          {t('domains:employee.actions.add_publication')}
         </Button>
       </InfoSection>
     </Box>

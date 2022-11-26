@@ -57,7 +57,9 @@ export const EducationInfoItem = ({
               as="span"
               fontWeight="500"
             >
-              {`${t('titles:employee.tabs.education.degree')}: `}
+              {`${t(
+                'domains:employee.titles.profile_tabs.education.degree'
+              )}: `}
             </Text>
             {getTranslation(education.degree, language)}
           </Text>
@@ -66,7 +68,9 @@ export const EducationInfoItem = ({
               as="span"
               fontWeight="500"
             >
-              {`${t('titles:employee.tabs.education.fields_of_study')}: `}
+              {`${t(
+                'domains:employee.titles.profile_tabs.education.fields_of_study'
+              )}: `}
             </Text>
             {getTranslation(education.speciality_translations, language)}
           </Text>

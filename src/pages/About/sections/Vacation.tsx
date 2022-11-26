@@ -20,18 +20,18 @@ export const Vacation = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.vacation')}</Heading>
+        <Heading variant="3">{t('navigation:about_sections.vacation')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.vacation.days')}</Subtitle>
+        <Subtitle>{t('domains:about_sections.titles.vacation.days')}</Subtitle>
 
         <Paragraph
           style={{
             marginBottom: '4px'
           }}
         >
-          {t('text:about.vacation.days.days')}
+          {t('domains:about_sections.text.vacation.days.days')}
         </Paragraph>
 
         <UnorderedList
@@ -44,25 +44,25 @@ export const Vacation = () => {
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.vacation.days.approval')}
+            {t('domains:about_sections.text.vacation.days.approval')}
           </ListItem>
           <ListItem
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.vacation.days.new_emploees')}
+            {t('domains:about_sections.text.vacation.days.new_emploees')}
           </ListItem>
           <ListItem
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.vacation.days.part_vacation')}
+            {t('domains:about_sections.text.vacation.days.part_vacation')}
           </ListItem>
           <ListItem
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.vacation.days.compensation')}
+            {t('domains:about_sections.text.vacation.days.compensation')}
           </ListItem>
         </UnorderedList>
 
@@ -71,7 +71,7 @@ export const Vacation = () => {
             marginBottom: '4px'
           }}
         >
-          {t('text:about.vacation.days.spin_off')}
+          {t('domains:about_sections.text.vacation.days.spin_off')}
         </Paragraph>
 
         <UnorderedList
@@ -84,7 +84,7 @@ export const Vacation = () => {
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.vacation.days.percent')}
+            {t('domains:about_sections.text.vacation.days.percent')}
           </ListItem>
         </UnorderedList>
 
@@ -94,11 +94,11 @@ export const Vacation = () => {
             fontWeight: '500'
           }}
         >
-          {t('text:about.vacation.days.coordinate')}
+          {t('domains:about_sections.text.vacation.days.coordinate')}
         </Paragraph>
 
         <Paragraph>
-          <Trans i18nKey="text:about.vacation.days.help">
+          <Trans i18nKey="domains:about_sections.text.vacation.days.help">
             <AboutLink target="https://t.me/Kottyashechka">Masha</AboutLink>
           </Trans>
         </Paragraph>
@@ -109,26 +109,30 @@ export const Vacation = () => {
             fontWeight: '500'
           }}
         >
-          {t('text:about.vacation.days.get_pay')}
+          {t('domains:about_sections.text.vacation.days.get_pay')}
         </Paragraph>
 
         <Paragraph>
-          <Trans i18nKey="text:about.vacation.days.contact">
+          <Trans i18nKey="domains:about_sections.text.vacation.days.contact">
             <AboutLink target="https://t.me/msansan">Alexander</AboutLink>
           </Trans>
         </Paragraph>
       </Subsection>
       <Subsection>
-        <Subtitle>{t('titles:about.vacation.birthday')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.vacation.birthday')}
+        </Subtitle>
 
         <Paragraph>
-          {t('text:about.vacation.birthday.birthday_day_off')}
+          {t('domains:about_sections.text.vacation.birthday.birthday_day_off')}
         </Paragraph>
       </Subsection>
       <Subsection>
-        <Subtitle>{t('titles:about.vacation.leave')}</Subtitle>
+        <Subtitle>{t('domains:about_sections.titles.vacation.leave')}</Subtitle>
 
-        <Paragraph>{t('text:about.vacation.leave.unpaid_leave')}</Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.vacation.leave.unpaid_leave')}
+        </Paragraph>
       </Subsection>
     </SectionContainer>
   );

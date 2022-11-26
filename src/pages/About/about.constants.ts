@@ -21,7 +21,7 @@ export const AboutSections = {
 
 export const aboutLinks = Object.values(AboutSections).map((section) => ({
   target: `${PagePaths.About}/${section}`,
-  translationTag: `navigation:about.${
+  translationTag: `navigation:about_sections.${
     snakeCase(section) as DashToSnakeCase<typeof section>
   }` as const
 }));
@@ -56,34 +56,34 @@ export const socialLinks = [
 export const descriptionItems = [
   {
     term: 'Cyberassist',
-    definition: 'text:about.discord.cyberassist'
+    definition: 'domains:about_sections.text.discord.cyberassist'
   },
   {
     term: 'Booklovers',
-    definition: 'text:about.discord.booklovers'
+    definition: 'domains:about_sections.text.discord.booklovers'
   },
   {
     term: 'General',
-    definition: 'text:about.discord.general'
+    definition: 'domains:about_sections.text.discord.general'
   },
   {
     term: 'Meetups',
-    definition: 'text:about.discord.meetups'
+    definition: 'domains:about_sections.text.discord.meetups'
   },
   {
     term: 'Thanks',
-    definition: 'text:about.discord.thanks'
+    definition: 'domains:about_sections.text.discord.thanks'
   },
   {
     term: 'Random',
-    definition: 'text:about.discord.random'
+    definition: 'domains:about_sections.text.discord.random'
   },
   {
     term: 'Relocate',
-    definition: 'text:about.discord.relocate'
+    definition: 'domains:about_sections.text.discord.relocate'
   },
   {
     term: 'CG-branches',
-    definition: 'text:about.discord.cg_branches'
+    definition: 'domains:about_sections.text.discord.cg_branches'
   }
 ] as const;

@@ -19,7 +19,7 @@ export const Projects = () => {
         drawerContent={<ProjectsFiltersDrawer />}
         action={
           <ControlButton
-            aria-label={t('actions:projects.add_project')}
+            aria-label={t('domains:projects.actions.add_project')}
             icon={<MdAdd />}
           />
         }

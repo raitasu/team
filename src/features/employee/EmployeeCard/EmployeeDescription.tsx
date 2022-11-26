@@ -34,12 +34,14 @@ export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
       </Text>
       <Flex justifyContent="center">
         <Text variant="dm">
-          {t('titles:employee.experience', {
+          {t('domains:employee.titles.experience', {
             count: employee.years_of_experience
           })}
         </Text>
         <Text variant="dm">
-          {t('titles:employee.project', { count: employee.projects.length })}
+          {t('domains:employee.titles.project', {
+            count: employee.projects.length
+          })}
         </Text>
       </Flex>
       <Flex justifyContent="center">

@@ -38,7 +38,9 @@ export const PublicationsInfoItem = ({
               fontWeight="500"
               color="brand.headline2"
             >
-              {`${t('titles:employee.tabs.publications.description')} `}
+              {`${t(
+                'domains:employee.titles.profile_tabs.publications.description'
+              )} `}
             </Text>
             {getTranslation(publication.description_translations, language)}
           </Text>
@@ -50,7 +52,7 @@ export const PublicationsInfoItem = ({
               color="brand.headline2"
               textDecoration="underline"
             >
-              {t('titles:employee.tabs.publications.link')}
+              {t('domains:employee.titles.profile_tabs.publications.link')}
             </Text>
           </Link>
           <Link
@@ -61,7 +63,7 @@ export const PublicationsInfoItem = ({
               color="brand.headline2"
               textDecoration="underline"
             >
-              {t('titles:employee.tabs.publications.file')}
+              {t('domains:employee.titles.profile_tabs.publications.file')}
             </Text>
           </Link>
         </Grid>

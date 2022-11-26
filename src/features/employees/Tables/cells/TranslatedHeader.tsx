@@ -9,5 +9,9 @@ export const TranslatedHeader = <TData,>({
 }: HeaderContext<ShortEmployee, TData>) => {
   const [t] = useTranslation();
 
-  return <span>{t(`titles:employees.table_headers.${id as HeaderKeys}`)}</span>;
+  return (
+    <span>
+      {t(`domains:employee.table_headers.${id as HeaderKeys}`, { count: 100 })}
+    </span>
+  );
 };

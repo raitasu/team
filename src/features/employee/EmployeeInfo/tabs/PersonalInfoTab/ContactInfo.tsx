@@ -12,34 +12,40 @@ export const ContactInfo = ({ contacts }: { contacts: EmployeeContact }) => {
   return (
     <InfoSection
       title={t(
-        'titles:employee.tabs.personal_information.contacts.section_title'
+        'domains:employee.titles.profile_tabs.personal_information.contacts.section_title'
       )}
     >
       <ContactItem
         name={t(
-          'titles:employee.tabs.personal_information.contacts.mobile_primary'
+          'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_primary'
         )}
         values={[contacts.primary_phone]}
         linkType="phone"
       />
       <ContactItem
         name={t(
-          'titles:employee.tabs.personal_information.contacts.mobile_secondary'
+          'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_secondary'
         )}
         values={contacts.phones}
         linkType="phone"
       />
       <ContactItem
-        name={t('titles:employee.tabs.personal_information.contacts.emergency')}
+        name={t(
+          'domains:employee.titles.profile_tabs.personal_information.contacts.emergency'
+        )}
         values={contacts.emergency_phones}
         linkType="phone"
       />
       <ContactItem
-        name={t('titles:employee.tabs.personal_information.contacts.address')}
+        name={t(
+          'domains:employee.titles.profile_tabs.personal_information.contacts.address'
+        )}
         values={[getTranslation(contacts.address.city, language)]}
       />
       <ContactItem
-        name={t('titles:employee.tabs.personal_information.contacts.email')}
+        name={t(
+          'domains:employee.titles.profile_tabs.personal_information.contacts.email'
+        )}
         values={contacts.emails}
         linkType="email"
       />

@@ -45,7 +45,7 @@ export const InfoSection = ({
           <Tooltip
             hasArrow
             place="top"
-            labelText={t('tooltips:edit_block')}
+            labelText={t('domains:employee.actions.edit_block')}
           >
             <IconButton
               aria-label="DownloadCV"

@@ -14,11 +14,15 @@ export const Communications = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.communications')}</Heading>
+        <Heading variant="3">
+          {t('navigation:about_sections.communications')}
+        </Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.communications.steps')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.communications.steps')}
+        </Subtitle>
 
         <UnorderedList
           style={{
@@ -27,17 +31,21 @@ export const Communications = () => {
           }}
         >
           <ListItem marginBottom="10px">
-            {t('text:about.communications.steps.address')}
+            {t('domains:about_sections.text.communications.steps.address')}
           </ListItem>
           <ListItem marginBottom="10px">
-            {t('text:about.communications.steps.polite')}
+            {t('domains:about_sections.text.communications.steps.polite')}
           </ListItem>
-          <ListItem>{t('text:about.communications.steps.thanks')}</ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.communications.steps.thanks')}
+          </ListItem>
         </UnorderedList>
       </Subsection>
 
       <Subsection>
-        <Subtitle>{t('titles:about.communications.rules')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.communications.rules')}
+        </Subtitle>
 
         <UnorderedList
           style={{
@@ -46,15 +54,17 @@ export const Communications = () => {
           }}
         >
           <ListItem marginBottom="10px">
-            {t('text:about.communications.rules.meetings')}
+            {t('domains:about_sections.text.communications.rules.meetings')}
           </ListItem>
           <ListItem marginBottom="10px">
-            {t('text:about.communications.rules.in_time')}
+            {t('domains:about_sections.text.communications.rules.in_time')}
           </ListItem>
           <ListItem marginBottom="10px">
-            {t('text:about.communications.rules.vacation')}
+            {t('domains:about_sections.text.communications.rules.vacation')}
           </ListItem>
-          <ListItem>{t('text:about.communications.rules.video')}</ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.communications.rules.video')}
+          </ListItem>
         </UnorderedList>
       </Subsection>
     </SectionContainer>

@@ -18,7 +18,7 @@ export const CertificatesInfo = ({
   return (
     <>
       <EducationSection
-        title={t('titles:employee.tabs.education.certificates')}
+        title={t('domains:employee.titles.profile_tabs.education.certificates')}
       >
         {certificates.map((certificate) => (
           <CertificatesInfoItem
@@ -35,7 +35,7 @@ export const CertificatesInfo = ({
           leftIcon={<MdAdd />}
           margin="auto"
         >
-          {t('actions:employee.add_certificate')}
+          {t('domains:employee.actions.add_certificate')}
         </Button>
       </InfoSection>
     </>

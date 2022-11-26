@@ -10,7 +10,7 @@ export const Contacts = () => {
   return (
     <>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.contacts')}</Heading>
+        <Heading variant="3">{t('navigation:about_sections.contacts')}</Heading>
       </VisuallyHidden>
 
       <EmployeesTablesContainer table={EmployeesContactsTable} />

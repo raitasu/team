@@ -1,10 +1,11 @@
 import { Spinner } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/query/react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
 import { AuthBox } from '~/features/authentication/components/AuthBox';
 import { ErrorMessage } from '~/features/authentication/components/ErrorMessage';
+import { PagePaths } from '~/router/router.constants';
 import {
   useGetAccessTokenQuery,
   useGetCurrentUserQuery
@@ -19,10 +20,16 @@ export const Authentication = () => {
     skip: !data?.access_token
   });
 
+  if (!code) {
+    return <Navigate to={PagePaths.Login} />;
+  }
+
   return (
     <AuthBox>
       {isLoading || isLoadingUser ? <Spinner /> : null}
-      {error ? <ErrorMessage message={t('errors:auth.no_access')} /> : null}
+      {error ? (
+        <ErrorMessage message={t('domains:authorization.errors.no_access')} />
+      ) : null}
     </AuthBox>
   );
 };

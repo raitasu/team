@@ -15,7 +15,7 @@ export const HardSkillsInfoItem = ({ skill }: { skill: EmployeeHardSkill }) => {
         flex="1"
         color="brand.lightGray"
       >
-        {t('titles:employee.experience', {
+        {t('domains:employee.titles.experience', {
           count: skill.years_of_experience
         })}
       </Text>

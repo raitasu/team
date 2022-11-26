@@ -24,8 +24,8 @@ export const ProfileContainer = () => {
         onLogout={onOpen}
       />
       <ConfirmationModal
-        title={t('titles:auth.log_out_title')}
-        description={t('titles:auth.log_out_description')}
+        title={t('domains:authorization.actions.sign_out')}
+        description={t('domains:authorization.actions.sign_out_confirmation')}
         isOpen={isOpen}
         onClose={onClose}
         onConfirm={() => dispatch(loggedOut())}

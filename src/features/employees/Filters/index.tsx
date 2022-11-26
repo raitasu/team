@@ -16,7 +16,9 @@ export const EmployeesFiltersDrawer = () => {
   return (
     <DrawerContent>
       <DrawerCloseButton />
-      <DrawerHeader>{t('titles:general.filters')}</DrawerHeader>
+      <DrawerHeader>
+        {t('domains:filters.titles.filter', { count: 100 })}
+      </DrawerHeader>
 
       <DrawerBody>
         <Input
@@ -26,7 +28,7 @@ export const EmployeesFiltersDrawer = () => {
       </DrawerBody>
 
       <DrawerFooter>
-        <Button isDisabled>{t('actions:general.reset_filters')}</Button>
+        <Button isDisabled>{t('domains:filters.actions.reset_filters')}</Button>
       </DrawerFooter>
     </DrawerContent>
   );

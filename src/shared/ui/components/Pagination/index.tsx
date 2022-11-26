@@ -20,7 +20,7 @@ export const Pagination = ({
 }: PaginationProps) => {
   const [t] = useTranslation();
 
-  const ariaLabel = t('titles:pagination.aria_label', {
+  const ariaLabel = t('domains:pagination.titles.aria_label', {
     current: currentPage
   });
 

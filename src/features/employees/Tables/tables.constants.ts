@@ -5,7 +5,7 @@ export const EmployeesHeaderIds = {
   CV: 'cv',
   Email: 'email',
   FullName: 'full_name',
-  Positions: 'positions',
+  Positions: 'position',
   PrimaryPhone: 'primary_phone',
-  SocialNetworks: 'social_networks'
+  SocialNetworks: 'social_network'
 } as const;

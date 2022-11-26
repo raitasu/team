@@ -20,11 +20,11 @@ export const Perks = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.perks')}</Heading>
+        <Heading variant="3">{t('navigation:about_sections.perks')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.perks.sport')}</Subtitle>
+        <Subtitle>{t('domains:about_sections.titles.perks.sport')}</Subtitle>
 
         <UnorderedList
           style={{
@@ -36,43 +36,51 @@ export const Perks = () => {
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.perks.sport.gym')}
+            {t('domains:about_sections.text.perks.sport.gym')}
           </ListItem>
           <ListItem
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.perks.sport.limit')}
+            {t('domains:about_sections.text.perks.sport.limit')}
           </ListItem>
         </UnorderedList>
 
         <Paragraph>
-          <Trans i18nKey="text:about.perks.sport.help">
+          <Trans i18nKey="domains:about_sections.text.perks.sport.help">
             <AboutLink target="https://t.me/msansan">Alexander</AboutLink>
           </Trans>
         </Paragraph>
       </Subsection>
       <Subsection>
-        <Subtitle>{t('titles:about.perks.conferences')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.perks.conferences')}
+        </Subtitle>
 
-        <Paragraph>{t('text:about.perks.conferences.meetups')}</Paragraph>
-      </Subsection>
-      <Subsection>
-        <Subtitle>{t('titles:about.perks.courses')}</Subtitle>
-
-        <Paragraph>{t('text:about.perks.courses.certificate')}</Paragraph>
-      </Subsection>
-      <Subsection>
-        <Subtitle>{t('titles:about.perks.articles')}</Subtitle>
-
-        <Paragraph>{t('text:about.perks.articles.requirements')}</Paragraph>
         <Paragraph>
-          <Trans i18nKey="text:about.perks.articles.link">
+          {t('domains:about_sections.text.perks.conferences.meetups')}
+        </Paragraph>
+      </Subsection>
+      <Subsection>
+        <Subtitle>{t('domains:about_sections.titles.perks.courses')}</Subtitle>
+
+        <Paragraph>
+          {t('domains:about_sections.text.perks.courses.certificate')}
+        </Paragraph>
+      </Subsection>
+      <Subsection>
+        <Subtitle>{t('domains:about_sections.titles.perks.articles')}</Subtitle>
+
+        <Paragraph>
+          {t('domains:about_sections.text.perks.articles.requirements')}
+        </Paragraph>
+        <Paragraph>
+          <Trans i18nKey="domains:about_sections.text.perks.articles.link">
             <AboutLink target="https://ruby.news/">ruby.news</AboutLink>
           </Trans>
         </Paragraph>
         <Paragraph>
-          <Trans i18nKey="text:about.perks.articles.guide">
+          <Trans i18nKey="domains:about_sections.text.perks.articles.guide">
             <AboutLink target="https://ruby.news/contribute/">
               ruby.news/contribute
             </AboutLink>
@@ -80,12 +88,18 @@ export const Perks = () => {
         </Paragraph>
       </Subsection>
       <Subsection>
-        <Subtitle>{t('titles:about.perks.workplace')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.perks.workplace')}
+        </Subtitle>
 
-        <Paragraph>{t('text:about.perks.workplace.joy')}</Paragraph>
-        <Paragraph>{t('text:about.perks.workplace.installments')}</Paragraph>
         <Paragraph>
-          <Trans i18nKey="text:about.perks.workplace.help">
+          {t('domains:about_sections.text.perks.workplace.joy')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.perks.workplace.installments')}
+        </Paragraph>
+        <Paragraph>
+          <Trans i18nKey="domains:about_sections.text.perks.workplace.help">
             <AboutLink target="https://t.me/msansan">Alexander</AboutLink>
           </Trans>
         </Paragraph>

@@ -16,11 +16,13 @@ export const English = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.english')}</Heading>
+        <Heading variant="3">{t('navigation:about_sections.english')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.english.company')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.english.company')}
+        </Subtitle>
 
         <Paragraph
           style={{
@@ -28,7 +30,7 @@ export const English = () => {
             marginBottom: '4px'
           }}
         >
-          {t('text:about.english.company.opportunity')}
+          {t('domains:about_sections.text.english.company.opportunity')}
         </Paragraph>
 
         <UnorderedList
@@ -37,13 +39,19 @@ export const English = () => {
             marginBottom: '20px'
           }}
         >
-          <ListItem>{t('text:about.english.company.format')}</ListItem>
-          <ListItem>{t('text:about.english.company.teacher')}</ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.english.company.format')}
+          </ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.english.company.teacher')}
+          </ListItem>
         </UnorderedList>
 
-        <Paragraph>{t('text:about.english.company.schedule')}</Paragraph>
         <Paragraph>
-          <Trans i18nKey="text:about.english.company.contact">
+          {t('domains:about_sections.text.english.company.schedule')}
+        </Paragraph>
+        <Paragraph>
+          <Trans i18nKey="domains:about_sections.text.english.company.contact">
             <AboutLink
               display="inline"
               target="https://t.me/Kottyashechka"
@@ -55,9 +63,13 @@ export const English = () => {
       </Subsection>
 
       <Subsection>
-        <Subtitle>{t('titles:about.english.courses')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.english.courses')}
+        </Subtitle>
 
-        <Paragraph>{t('text:about.english.courses.compensation')}</Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.english.courses.compensation')}
+        </Paragraph>
       </Subsection>
     </SectionContainer>
   );

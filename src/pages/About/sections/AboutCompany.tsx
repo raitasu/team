@@ -17,40 +17,62 @@ export const AboutCompany = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.company')}</Heading>
+        <Heading variant="3">{t('navigation:about_sections.company')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.company.who_we_are')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.company.who_we_are')}
+        </Subtitle>
 
-        <Paragraph>{t('text:about.company.who_we_are.company')}</Paragraph>
-        <Paragraph>{t('text:about.company.who_we_are.geography')}</Paragraph>
-        <Paragraph>{t('text:about.company.who_we_are.team')}</Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.company.who_we_are.company')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.company.who_we_are.geography')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.company.who_we_are.team')}
+        </Paragraph>
       </Subsection>
 
       <Subsection>
-        <Subtitle>{t('titles:about.company.history')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.company.history')}
+        </Subtitle>
 
-        <Paragraph>{t('text:about.company.history.was_created')}</Paragraph>
         <Paragraph>
-          <Trans i18nKey="text:about.company.history.base">
+          {t('domains:about_sections.text.company.history.was_created')}
+        </Paragraph>
+        <Paragraph>
+          <Trans i18nKey="domains:about_sections.text.company.history.base">
             <AboutLink target="http://rubizza.com/">rubizza.com</AboutLink>
           </Trans>
         </Paragraph>
-        <Paragraph>{t('text:about.company.history.offices')}</Paragraph>
-        <Paragraph>{t('text:about.company.history.remote_work')}</Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.company.history.offices')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.company.history.remote_work')}
+        </Paragraph>
       </Subsection>
 
       <Subsection>
-        <Subtitle>{t('titles:about.company.values')}</Subtitle>
+        <Subtitle>{t('domains:about_sections.titles.company.values')}</Subtitle>
 
-        <Paragraph>{t('text:about.company.values.core_value')}</Paragraph>
-        <Paragraph>{t('text:about.company.values.internships')}</Paragraph>
-        <Paragraph>{t('text:about.company.values.driver')}</Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.company.values.core_value')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.company.values.internships')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.company.values.driver')}
+        </Paragraph>
       </Subsection>
 
       <Subsection border="none">
-        <Subtitle>{t('titles:about.company.goals')}</Subtitle>
+        <Subtitle>{t('domains:about_sections.titles.company.goals')}</Subtitle>
 
         <UnorderedList
           style={{
@@ -58,33 +80,41 @@ export const AboutCompany = () => {
             marginBottom: '4px'
           }}
         >
-          <ListItem>{t('text:about.company.goals.products')}</ListItem>
-          <ListItem>{t('text:about.company.goals.brand')}</ListItem>
-          <ListItem>{t('text:about.company.goals.locations')}</ListItem>
-          <ListItem>{t('text:about.company.goals.place')}</ListItem>
-          <ListItem
-            marginLeft="30px"
-            color="brand.ghostGray"
-          >
-            {t('text:about.company.goals.products')}
+          <ListItem>
+            {t('domains:about_sections.text.company.goals.products')}
+          </ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.company.goals.brand')}
+          </ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.company.goals.locations')}
+          </ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.company.goals.place')}
           </ListItem>
           <ListItem
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.company.goals.brand')}
+            {t('domains:about_sections.text.company.goals.products')}
           </ListItem>
           <ListItem
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.company.goals.locations')}
+            {t('domains:about_sections.text.company.goals.brand')}
           </ListItem>
           <ListItem
             marginLeft="30px"
             color="brand.ghostGray"
           >
-            {t('text:about.company.goals.place')}
+            {t('domains:about_sections.text.company.goals.locations')}
+          </ListItem>
+          <ListItem
+            marginLeft="30px"
+            color="brand.ghostGray"
+          >
+            {t('domains:about_sections.text.company.goals.place')}
           </ListItem>
         </UnorderedList>
       </Subsection>

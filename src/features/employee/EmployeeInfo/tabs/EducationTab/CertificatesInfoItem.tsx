@@ -57,7 +57,9 @@ export const CertificatesInfoItem = ({
               as="span"
               fontWeight="500"
             >
-              {`${t('titles:employee.tabs.education.document')}: `}
+              {`${t(
+                'domains:employee.titles.profile_tabs.education.document'
+              )}: `}
             </Text>
             {certificate.file}
           </Text>
@@ -66,7 +68,9 @@ export const CertificatesInfoItem = ({
               as="span"
               fontWeight="500"
             >
-              {`${t('titles:employee.tabs.education.fields_of_study')}: `}
+              {`${t(
+                'domains:employee.titles.profile_tabs.education.fields_of_study'
+              )}: `}
             </Text>
             {getTranslation(certificate.speciality_translations, language)}
           </Text>

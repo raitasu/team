@@ -27,39 +27,51 @@ export const Memento = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.memento')}</Heading>
+        <Heading variant="3">{t('navigation:about_sections.memento')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.memento.introduce')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.memento.introduce')}
+        </Subtitle>
 
         <Paragraph>
-          <Trans i18nKey="text:about.memento.introduce.using">
+          <Trans i18nKey="domains:about_sections.text.memento.introduce.using">
             <AboutLink target="https://memento.cybergizer.com/login">
               «Memento»
             </AboutLink>
           </Trans>
         </Paragraph>
-        <Paragraph>{t('text:about.memento.introduce.tracking')}</Paragraph>
-        <Paragraph>{t('text:about.memento.introduce.work_time')}</Paragraph>
-        <Paragraph>{t('text:about.memento.introduce.comment_field')}</Paragraph>
-        <Paragraph>{t('text:about.memento.introduce.note')}</Paragraph>
         <Paragraph>
-          <Trans i18nKey="text:about.memento.introduce.project">
+          {t('domains:about_sections.text.memento.introduce.tracking')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.memento.introduce.work_time')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.memento.introduce.comment_field')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.memento.introduce.note')}
+        </Paragraph>
+        <Paragraph>
+          <Trans i18nKey="domains:about_sections.text.memento.introduce.project">
             <AboutLink target="https://t.me/Kottyashechka">Masha</AboutLink>
           </Trans>
         </Paragraph>
       </Subsection>
 
       <Subsection>
-        <Subtitle>{t('titles:about.memento.track_time')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.memento.track_time')}
+        </Subtitle>
 
         <Paragraph
           style={{
             marginBottom: '4px'
           }}
         >
-          {t('text:about.memento.track_time.intro')}
+          {t('domains:about_sections.text.memento.track_time.intro')}
         </Paragraph>
 
         <UnorderedList
@@ -68,20 +80,28 @@ export const Memento = () => {
             marginBottom: '20px'
           }}
         >
-          <ListItem>{t('text:about.memento.track_time.steps.date')}</ListItem>
           <ListItem>
-            {t('text:about.memento.track_time.steps.comments')}
+            {t('domains:about_sections.text.memento.track_time.steps.date')}
           </ListItem>
           <ListItem>
-            {t('text:about.memento.track_time.steps.activity')}
+            {t('domains:about_sections.text.memento.track_time.steps.comments')}
           </ListItem>
-          <ListItem>{t('text:about.memento.track_time.steps.create')}</ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.memento.track_time.steps.activity')}
+          </ListItem>
+          <ListItem>
+            {t('domains:about_sections.text.memento.track_time.steps.create')}
+          </ListItem>
         </UnorderedList>
 
-        <Paragraph>{t('text:about.memento.track_time.tasks')}</Paragraph>
-        <Paragraph>{t('text:about.memento.track_time.tracking')}</Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.memento.track_time.tasks')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.memento.track_time.tracking')}
+        </Paragraph>
         <Paragraph style={{ marginBottom: 0 }}>
-          {t('text:about.memento.track_time.example')}
+          {t('domains:about_sections.text.memento.track_time.example')}
         </Paragraph>
 
         <Flex
@@ -111,10 +131,10 @@ export const Memento = () => {
       </Subsection>
 
       <Subsection>
-        <Subtitle>{t('titles:about.memento.help')}</Subtitle>
+        <Subtitle>{t('domains:about_sections.titles.memento.help')}</Subtitle>
 
         <Paragraph>
-          <Trans i18nKey="text:about.memento.help.questions">
+          <Trans i18nKey="domains:about_sections.text.memento.help.questions">
             <AboutLink target="https://t.me/Kottyashechka">Masha</AboutLink>
           </Trans>
         </Paragraph>

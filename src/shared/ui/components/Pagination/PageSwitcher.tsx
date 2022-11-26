@@ -34,13 +34,15 @@ export const PageSwitcher = ({
           }
         }}
         dangerouslySetInnerHTML={{
-          __html: t('titles:pagination.current_page', {
+          __html: t('domains:pagination.titles.current_page', {
             current: currentPage,
             total: totalPages
           })
         }}
       />
-      <Text flexShrink="0">{`${t('actions:general.go_to_page')}:`}</Text>
+      <Text flexShrink="0">{`${t(
+        'domains:pagination.actions.go_to_page'
+      )}:`}</Text>
       <NumberInput
         value={currentPage}
         min={1}

@@ -21,21 +21,21 @@ export const EmployeeCvControls = ({
         variant="primary"
         onClick={onCreate}
       >
-        {t('actions:employee.create_cv')}
+        {t('domains:employee.actions.create_cv')}
       </Button>
       <Button
         variant="primaryOutline"
         leftIcon={<MdLink />}
         onClick={onCopy}
       >
-        {t('actions:employee.copy_profile')}
+        {t('domains:employee.actions.copy_profile')}
       </Button>
       <Button
         variant="primaryOutline"
         leftIcon={<MdDelete />}
         onClick={onDelete}
       >
-        {t('actions:employee.delete_profile')}
+        {t('domains:employee.actions.delete_profile')}
       </Button>
     </Grid>
   );

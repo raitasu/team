@@ -20,14 +20,14 @@ export const LoginCard = () => {
         fontSize="4xl"
         lineHeight="120%"
       >
-        {t('titles:auth.welcome')}
+        {t('domains:authorization.titles.welcome')}
       </Box>
       <a href={getAuthApiUrl()}>
         <Button
           width="250px"
           marginTop="49px"
         >
-          {t('actions:auth.sign_in')}
+          {t('domains:authorization.actions.sign_in')}
         </Button>
       </a>
     </>

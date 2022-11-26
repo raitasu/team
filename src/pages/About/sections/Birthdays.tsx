@@ -8,7 +8,7 @@ export const Birthdays = () => {
 
   return (
     <SectionContainer>
-      <Heading variant="3">{t('navigation:about.birthdays')}</Heading>
+      <Heading variant="3">{t('navigation:about_sections.birthdays')}</Heading>
     </SectionContainer>
   );
 };

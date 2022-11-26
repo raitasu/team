@@ -59,19 +59,19 @@ export const CvThumbnail = ({
         justifyContent="space-between"
       >
         <IconButton
-          aria-label={t('actions:employee.download_cv')}
+          aria-label={t('domains:employee.actions.download_cv')}
           variant="iconButtonSmallPrimary"
           icon={<MdOutlineDownload />}
           onClick={onDownload}
         />
         <IconButton
-          aria-label={t('actions:employee.edit_cv')}
+          aria-label={t('domains:employee.actions.edit_cv')}
           variant="iconButtonSmallPrimary"
           icon={<MdOutlineEdit />}
           onClick={onEdit}
         />
         <IconButton
-          aria-label={t('actions:employee.delete_cv')}
+          aria-label={t('domains:employee.actions.delete_cv')}
           variant="iconButtonSmallPrimary"
           icon={<MdOutlineDelete />}
           onClick={onDelete}

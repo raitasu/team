@@ -74,7 +74,7 @@ export const Profile = ({
           icon={<MdInput size="20px" />}
           onClick={onLogout}
         >
-          {t('actions:general.logout')}
+          {t('domains:authorization.actions.sign_out')}
         </MenuItem>
       </MenuList>
     </Menu>

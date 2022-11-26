@@ -14,12 +14,12 @@ export const Help = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.help')}</Heading>
+        <Heading variant="3">{t('navigation:about_sections.help')}</Heading>
       </VisuallyHidden>
 
       <Subsection as="div">
         <Paragraph style={{ marginBottom: '10px' }}>
-          <Trans i18nKey="text:about.help.contact">
+          <Trans i18nKey="domains:about_sections.text.help.contact">
             <AboutLink
               display="inline"
               target="https://t.me/Kottyashechka"
@@ -34,9 +34,9 @@ export const Help = () => {
             marginBottom: '10px'
           }}
         >
-          {t('text:about.help.discord')}
+          {t('domains:about_sections.text.help.discord')}
         </Paragraph>
-        <Paragraph>{t('text:about.help.mentor')}</Paragraph>
+        <Paragraph>{t('domains:about_sections.text.help.mentor')}</Paragraph>
       </Subsection>
     </SectionContainer>
   );

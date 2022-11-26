@@ -16,13 +16,15 @@ export const DiscordChats = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.discord')}</Heading>
+        <Heading variant="3">{t('navigation:about_sections.discord')}</Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.discord.summary')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.discord.summary')}
+        </Subtitle>
 
-        <Paragraph>{t('text:about.discord.intro')}</Paragraph>
+        <Paragraph>{t('domains:about_sections.text.discord.intro')}</Paragraph>
 
         <Box
           as="dl"

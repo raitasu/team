@@ -16,15 +16,25 @@ export const Coworking = () => {
   return (
     <SectionContainer>
       <VisuallyHidden>
-        <Heading variant="3">{t('navigation:about.coworking')}</Heading>
+        <Heading variant="3">
+          {t('navigation:about_sections.coworking')}
+        </Heading>
       </VisuallyHidden>
 
       <Subsection>
-        <Subtitle>{t('titles:about.coworking.minsk')}</Subtitle>
+        <Subtitle>
+          {t('domains:about_sections.titles.coworking.minsk')}
+        </Subtitle>
 
-        <Paragraph>{t('text:about.coworking.minsk.location')}</Paragraph>
-        <Paragraph>{t('text:about.coworking.minsk.coworking_day')}</Paragraph>
-        <Paragraph>{t('text:about.coworking.minsk.place')}</Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.coworking.minsk.location')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.coworking.minsk.coworking_day')}
+        </Paragraph>
+        <Paragraph>
+          {t('domains:about_sections.text.coworking.minsk.place')}
+        </Paragraph>
 
         <Box>
           <CoworkingLocation />

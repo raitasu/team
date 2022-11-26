@@ -53,7 +53,7 @@ export const ConfirmationModal = ({
               paddingLeft="30px"
               paddingRight="30px"
             >
-              {t('actions:general.no')}
+              {t('general_actions:no')}
             </Button>
             <Button
               colorScheme="red"
@@ -61,7 +61,7 @@ export const ConfirmationModal = ({
               paddingLeft="30px"
               paddingRight="30px"
             >
-              {t('actions:general.yes')}
+              {t('general_actions:yes')}
             </Button>
           </AlertDialogFooter>
         </AlertDialogContent>

@@ -17,7 +17,9 @@ export const EducationInfo = ({
 
   return (
     <>
-      <EducationSection title={t('titles:employee.tabs.education.title')}>
+      <EducationSection
+        title={t('domains:employee.titles.profile_tabs.education.title')}
+      >
         {educations.map((education) => (
           <EducationInfoItem
             key={education.id}
@@ -33,7 +35,7 @@ export const EducationInfo = ({
           leftIcon={<MdAdd />}
           margin="auto"
         >
-          {t('actions:employee.add_education')}
+          {t('domains:employee.actions.add_education')}
         </Button>
       </InfoSection>
     </>
