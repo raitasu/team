@@ -24,14 +24,22 @@ export const SocialNetworkInfo = ({
           key: keyof EmployeeSocialNetwork,
           value: EmployeeSocialNetwork[keyof EmployeeSocialNetwork]
         ][]
-      ).map((network) => (
-        <ContactItem
-          key={network[0]}
-          name={upperFirst(network[0])}
-          values={[network[1]]}
-          linkType="web"
-        />
-      ))}
+      ).map((network) => {
+        const [name, link] = network;
+
+        if (!link) {
+          return null;
+        }
+
+        return (
+          <ContactItem
+            key={name}
+            name={upperFirst(name)}
+            values={[link]}
+            linkType="web"
+          />
+        );
+      })}
     </InfoSection>
   );
 };

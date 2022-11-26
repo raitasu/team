@@ -38,11 +38,16 @@ export const SocialNetworksCell = ({
         ) as (keyof ShortEmployee['social_networks'])[]
       ).map((network) => {
         const NetworkIcon = SocialNetworkIcons[network];
+        const link = employeeNetworks[network];
+
+        if (!link) {
+          return null;
+        }
 
         return (
           <Link
             key={network}
-            href={employeeNetworks[network]}
+            href={link}
             target="_blank"
             display="flex"
             alignItems="center"

@@ -1,8 +1,16 @@
-import { type AppLocale } from '~/services/i18n/i18n.types';
+import { z } from 'zod';
 
-export type Translation = { en: string } & Partial<
-  Record<Exclude<AppLocale, 'en'>, string>
->;
+import { supportedLocales } from '~/services/i18n/i18n.constants';
+import { RecordOf } from '~/shared/helpers.types';
+
+export const TranslationSchema = RecordOf(
+  supportedLocales,
+  z.string().optional()
+).extend({
+  en: z.string()
+});
+
+export type Translation = z.infer<typeof TranslationSchema>;
 
 export type PaginatedResponse<TData> = {
   items: TData[];

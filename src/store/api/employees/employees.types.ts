@@ -1,35 +1,26 @@
+import { type z } from 'zod';
+
+import type en from '~/services/i18n/locales/en.json';
 import {
   type PaginatedResponse,
   type Translation
 } from '~/store/api/api.types';
+import {
+  type AddressSchema,
+  type EmployeePositionSchema,
+  type EmployeeRoleSchema,
+  type EmployeeStatusSchema,
+  type ShortEmployeeSchema,
+  type SocialNetworkSchema
+} from '~/store/api/employees/employees.schemas';
 import { type Project } from '~/store/api/projects/projects.types';
 
-export type EmployeeLanguageName =
-  | 'be'
-  | 'de'
-  | 'en'
-  | 'es'
-  | 'fr'
-  | 'hi'
-  | 'it'
-  | 'ja'
-  | 'lt'
-  | 'pl'
-  | 'pt'
-  | 'ru'
-  | 'uk'
-  | 'zh';
+export type EmployeeLanguageName = keyof typeof en['enums']['language'];
 
 /**
  * Possession level
  */
-type EmployeeLanguageSkill =
-  | 'beginner'
-  | 'elementary'
-  | 'intermediate'
-  | 'upper_intermediate'
-  | 'advanced'
-  | 'proficiency';
+type EmployeeLanguageSkill = keyof typeof en['enums']['language_level'];
 
 /**
  * Map of contacts
@@ -55,7 +46,7 @@ export interface EmployeeContact {
   phones: string[];
   emergency_phones: string[];
   emails: string[];
-  address: EmployeeAddress;
+  address: z.infer<typeof AddressSchema>;
 }
 
 export interface EmployeeCv {
@@ -66,28 +57,9 @@ export interface EmployeeCv {
 /**
  * Map of social network URLs
  */
-export interface EmployeeSocialNetwork {
-  linkedin: string;
-  github: string;
-  telegram: string;
-  facebook: string;
-  instagram: string;
-  vk: string;
-  discord: string;
-}
+export type EmployeeSocialNetwork = z.infer<typeof SocialNetworkSchema>;
 
-export interface EmployeeAddress {
-  apartment: string;
-  building: string;
-  city: Translation;
-  /**
-   * ISO country code: https://www.iban.com/country-codes
-   */
-  country_code: string;
-  street_translations: Translation;
-  unit: string;
-  zip_code: string;
-}
+export type EmployeeAddress = z.infer<typeof AddressSchema>;
 
 export interface EmployeeEducation
   extends Pick<EmployeeAddress, 'country_code' | 'city'> {
@@ -105,10 +77,7 @@ export interface EmployeeHardSkill {
   name_translations: Translation;
 }
 
-export interface EmployeePosition {
-  id: number;
-  name_translations: Translation;
-}
+export type EmployeePosition = z.infer<typeof EmployeePositionSchema>;
 
 export interface EmployeeSoftSkill {
   id: number;
@@ -136,9 +105,9 @@ export interface EmployeePublication {
   link: string;
 }
 
-type EmployeeRole = 'admin' | 'user';
+type EmployeeRole = z.infer<typeof EmployeeRoleSchema>;
 
-export type EmployeeStatus = 'active' | 'candidate' | 'inactive';
+export type EmployeeStatus = z.infer<typeof EmployeeStatusSchema>;
 
 export interface EmployeeCertificate
   extends Pick<EmployeeAddress, 'country_code' | 'city'> {
@@ -190,24 +159,6 @@ export interface Employee {
   work_experiences: EmployeeWorkExperience[];
 }
 
-export type ShortEmployee = Pick<
-  Employee,
-  | 'avatar_url'
-  | 'date_of_birth'
-  | 'first_name_translations'
-  | 'id'
-  | 'last_name_translations'
-  | 'positions'
-  | 'projects'
-  | 'role'
-  | 'social_networks'
-  | 'status'
-> & {
-  contacts: {
-    address: Pick<EmployeeAddress, 'city' | 'country_code'>;
-    emails: string[];
-    primary_phone: string;
-  };
-};
+export type ShortEmployee = z.infer<typeof ShortEmployeeSchema>;
 
 export type EmployeesListResponse = PaginatedResponse<ShortEmployee>;
