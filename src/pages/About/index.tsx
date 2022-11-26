@@ -54,6 +54,7 @@ export const About = () => {
     <PageContainer>
       <Flex
         width="100%"
+        overflow="auto"
         gap="20px"
         height="100%"
         alignItems="top"

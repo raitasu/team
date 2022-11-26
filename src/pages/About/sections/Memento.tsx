@@ -110,8 +110,7 @@ export const Memento = () => {
           style={{ marginTop: 0 }}
         >
           <Image
-            width="calc(50% - 10px)"
-            minWidth="350px"
+            width={isLargerThan1258 ? 'calc(50% - 10px)' : '100%'}
             height="auto"
             borderRadius="4px"
             backgroundColor="brand.ghostWhite"
@@ -119,8 +118,7 @@ export const Memento = () => {
             alt="Screenshot"
           />
           <Image
-            width="calc(50% - 10px)"
-            minWidth="350px"
+            width={isLargerThan1258 ? 'calc(50% - 10px)' : '100%'}
             height="auto"
             borderRadius="4px"
             backgroundColor="brand.ghostWhite"

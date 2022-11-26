@@ -54,9 +54,8 @@ export const EmployeesTablesContainer = ({
     >
       <Box
         flex="1"
-        overflow="hidden"
         minH="0"
-        overflowY="auto"
+        overflow="auto"
         border="1px solid var(--chakra-colors-brand-stroke)"
         borderRadius="4px"
         backgroundColor="var(--chakra-colors-brand-background2)"

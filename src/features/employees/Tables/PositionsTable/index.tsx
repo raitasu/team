@@ -46,9 +46,11 @@ export const EmployeesPositionsTable: EmployeesTable = ({ data, employee }) => {
         title={t('domains:employee.actions.create_cv')}
         description={t('domains:employee.actions.create_cv_confirmation')}
         isOpen={selectedEmployeeId !== null}
-        onConfirm={() =>
-          navigate(`${PagePaths.Employees}/${employee.id}/add-cv`)
-        }
+        onConfirm={() => {
+          if (selectedEmployeeId !== null) {
+            navigate(`${PagePaths.Employees}/${selectedEmployeeId}/add-cv`);
+          }
+        }}
         onClose={() => setSelectedEmployeeId(null)}
       />
     </>
