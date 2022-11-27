@@ -1,7 +1,7 @@
 import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
 
-import { type EmployeeSocialNetwork } from '~/store/api/employees/employees.types';
+import { type SocialNetwork } from '~/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 import { ContactItem } from './ContactItem';
@@ -9,7 +9,7 @@ import { ContactItem } from './ContactItem';
 export const SocialNetworkInfo = ({
   socialNetworks
 }: {
-  socialNetworks: EmployeeSocialNetwork;
+  socialNetworks: SocialNetwork;
 }) => {
   const [t] = useTranslation();
 
@@ -21,8 +21,8 @@ export const SocialNetworkInfo = ({
     >
       {(
         Object.entries(socialNetworks) as [
-          key: keyof EmployeeSocialNetwork,
-          value: EmployeeSocialNetwork[keyof EmployeeSocialNetwork]
+          key: keyof SocialNetwork,
+          value: SocialNetwork[keyof SocialNetwork]
         ][]
       ).map((network) => {
         const [name, link] = network;

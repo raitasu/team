@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import { Box, Flex } from '@chakra-ui/react';
 
+import { TableLoader } from '~/features/employees/Tables/components/TableLoader';
 import { type EmployeesTable } from '~/features/employees/Tables/tables.types';
 import { Pagination } from '~/shared/ui/components/Pagination';
 import { getTotalPages } from '~/shared/utils/pagination.utils';
@@ -24,7 +25,7 @@ export const EmployeesTablesContainer = ({
   const { data: employee } = useAppSelector(selectCurrentEmployee);
   const dispatch = useAppDispatch();
 
-  const { data } = useGetEmployeesQuery({
+  const { data, isFetching } = useGetEmployeesQuery({
     page: pagination.currentPage,
     elementsPerPage: pagination.elementsPerPage
   });
@@ -36,11 +37,10 @@ export const EmployeesTablesContainer = ({
     [dispatch]
   );
 
-  if (!data) return null;
   if (!employee) return null;
 
   const totalPages = getTotalPages(
-    data.page.total_count,
+    data?.page.total_count || 0,
     pagination.elementsPerPage
   );
 
@@ -50,6 +50,7 @@ export const EmployeesTablesContainer = ({
       gap="20px"
       height="min-content"
       maxH="100%"
+      minHeight="100%"
       width="100%"
     >
       <Box
@@ -59,9 +60,11 @@ export const EmployeesTablesContainer = ({
         border="1px solid var(--chakra-colors-brand-stroke)"
         borderRadius="4px"
         backgroundColor="var(--chakra-colors-brand-background2)"
+        position="relative"
       >
+        {isFetching && <TableLoader />}
         <Table
-          data={data.items}
+          data={data?.items || []}
           employee={employee}
         />
       </Box>

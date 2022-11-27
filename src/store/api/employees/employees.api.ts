@@ -1,6 +1,8 @@
+import { showGlobalError } from '~/shared/ui/components/Toast';
 import { getPageOffset } from '~/shared/utils/pagination.utils';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
+import { ShortEmployeeSchema } from '~/store/api/employees/employees.schemas';
 import {
   type Employee,
   type EmployeesListResponse
@@ -31,6 +33,23 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
                 id: 'LIST'
               }
             ],
+      transformResponse: (response: EmployeesListResponse) => {
+        const responseValidation = ShortEmployeeSchema.array().safeParse(
+          response.items
+        );
+
+        if (!responseValidation.success) {
+          console.error(responseValidation.error.errors);
+
+          showGlobalError({
+            titleTag: 'server_error',
+            descriptionTag: 'invalid_response_schema',
+            descriptionTagArgs: { url: 'GET /employees' }
+          });
+        }
+
+        return response;
+      },
       query: ({ page, elementsPerPage }) => ({
         url: 'employees',
         method: 'GET',

@@ -1,12 +1,12 @@
 import { Grid } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import { type EmployeeHardSkill } from '~/store/api/employees/employees.types';
+import { type HardSkill } from '~/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 import { HardSkillsInfoItem } from './HardSkillsInfoItem';
 
-export const HardSkillsInfo = ({ skills }: { skills: EmployeeHardSkill[] }) => {
+export const HardSkillsInfo = ({ skills }: { skills: HardSkill[] }) => {
   const [t] = useTranslation();
 
   return (

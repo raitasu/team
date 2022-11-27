@@ -3,6 +3,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
+import { AppErrorBoundary } from '~/features/errors/AppErrorBoundary/AppErrorBoundary';
 import { AppThemeProvider } from '~/shared/ui/theme/AppThemeProvider';
 
 import { App } from './App';
@@ -20,7 +21,9 @@ const app = (
   <React.StrictMode>
     <BrowserRouter>
       <AppThemeProvider>
-        <App />
+        <AppErrorBoundary>
+          <App />
+        </AppErrorBoundary>
       </AppThemeProvider>
     </BrowserRouter>
   </React.StrictMode>

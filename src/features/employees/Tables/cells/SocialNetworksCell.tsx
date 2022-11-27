@@ -11,11 +11,11 @@ import {
 } from 'react-icons/sl';
 
 import {
-  type EmployeeSocialNetwork,
+  type SocialNetwork,
   type ShortEmployee
 } from '~/store/api/employees/employees.types';
 
-const SocialNetworkIcons: Record<keyof EmployeeSocialNetwork, IconType> = {
+const SocialNetworkIcons: Record<keyof SocialNetwork, IconType> = {
   linkedin: SlSocialLinkedin,
   github: BsGithub,
   facebook: AiOutlineFacebook,

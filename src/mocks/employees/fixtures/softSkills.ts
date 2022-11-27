@@ -4,11 +4,11 @@ import shuffle from 'lodash/shuffle';
 import upperFirst from 'lodash/upperFirst';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
-import { type EmployeeSoftSkill } from '~/store/api/employees/employees.types';
+import { type SoftSkill } from '~/store/api/employees/employees.types';
 
-const sessionSoftSkills: Record<string, EmployeeSoftSkill> = {};
+const sessionSoftSkills: Record<string, SoftSkill> = {};
 
-const generateEmployeeSoftSkill = (id: number): EmployeeSoftSkill => ({
+const generateEmployeeSoftSkill = (id: number): SoftSkill => ({
   id,
   name_translations: {
     en: upperFirst(faker.word.noun()),

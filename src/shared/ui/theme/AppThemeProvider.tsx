@@ -8,6 +8,6 @@ import '@fontsource/roboto/700.css';
 
 import { theme } from './theme';
 
-export const AppThemeProvider: React.FC<{ children: JSX.Element }> = ({
+export const AppThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => <ChakraProvider theme={theme}>{children}</ChakraProvider>;

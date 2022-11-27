@@ -243,6 +243,9 @@
         "edit_block": "Edit block",
         "edit_cv": "Edit CV"
       },
+      "errors": {
+        "no_data": "No employees data"
+      },
       "table_headers": {
         "contacts": "Location",
         "current_projects": "Current projects",
@@ -314,6 +317,18 @@
         "filter_other": "Filters"
       }
     },
+    "global": {
+      "errors": {
+        "descriptions": {
+          "invalid_response_schema": "Response from {{ url }} has invalid shape. Please, contact developers",
+          "unknown_error": "Oops, something went wrong. Please, contact developers"
+        },
+        "titles": {
+          "server_error": "Server error",
+          "unknown_error": "Unknown error"
+        }
+      }
+    },
     "pagination": {
       "actions": {
         "go_to_page": "Go to page"
@@ -358,7 +373,7 @@
       "pl": "Polish",
       "pt": "Portuguese",
       "ru": "Russian",
-      "uk": "Ukrainian",
+      "ua": "Ukrainian",
       "zh": "Chinese"
     },
     "language_level": {

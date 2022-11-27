@@ -3,10 +3,10 @@ import shuffle from 'lodash/shuffle';
 
 import {
   type EmployeeLanguage,
-  type EmployeeLanguageName
+  type LanguageName
 } from '~/store/api/employees/employees.types';
 
-const sessionLanguages: EmployeeLanguageName[] = [
+const sessionLanguages: LanguageName[] = [
   'be',
   'de',
   'en',
@@ -19,7 +19,7 @@ const sessionLanguages: EmployeeLanguageName[] = [
   'pl',
   'pt',
   'ru',
-  'uk',
+  'ua',
   'zh'
 ];
 

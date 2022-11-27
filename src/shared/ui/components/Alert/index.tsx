@@ -52,13 +52,15 @@ export const Alert = ({
       {heading ? <AlertTitle>{heading}</AlertTitle> : null}
       <AlertDescription>{message}</AlertDescription>
     </Box>
-    <CloseButton
-      boxSize="19px"
-      ml="auto"
-      onClick={onClose}
-      color="brand.ghostGray"
-    >
-      <MdClose size="19px" />
-    </CloseButton>
+    {onClose && (
+      <CloseButton
+        boxSize="19px"
+        ml="auto"
+        onClick={onClose}
+        color="brand.ghostGray"
+      >
+        <MdClose size="19px" />
+      </CloseButton>
+    )}
   </ChakraAlert>
 );

@@ -8,7 +8,8 @@ export const Alert = {
       borderRadius: 'md',
       boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
       border: '1px solid',
-      bg: 'brand.background2'
+      bg: 'brand.background2',
+      alignItems: 'flex-start'
     },
     title: {
       color: 'brand.headline',

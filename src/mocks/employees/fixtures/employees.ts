@@ -9,9 +9,9 @@ import { getRandomPositions } from '~/mocks/positions/fixtures/positions';
 import { getRandomProjects } from '~/mocks/projects/fixtures/projects';
 import {
   type Employee,
-  type EmployeeAddress,
+  type Address,
   type EmployeeContact,
-  type EmployeeSocialNetwork
+  type SocialNetwork
 } from '~/store/api/employees/employees.types';
 
 import { getRandomCertificates } from './certificates';
@@ -22,7 +22,7 @@ import { getRandomWorkExperiences } from './workExperinces';
 
 const sessionEmployees: Record<string, Employee> = {};
 
-const generateEmployeeAddress = (): EmployeeAddress => ({
+const generateEmployeeAddress = (): Address => ({
   apartment: faker.address.buildingNumber(),
   building: faker.address.buildingNumber(),
   city: {
@@ -52,7 +52,7 @@ const generateEmployeeContacts = (): EmployeeContact => ({
     .map(() => faker.internet.email())
 });
 
-const generateSocialNetwork = (): EmployeeSocialNetwork => ({
+const generateSocialNetwork = (): SocialNetwork => ({
   linkedin: faker.internet.url(),
   github: faker.internet.url(),
   telegram: faker.internet.url(),
