@@ -1,20 +1,25 @@
+import React from 'react';
+
 import { Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
+import type en from '~/services/i18n/locales/en.json';
 import { Button } from '~/shared/ui/components/Button';
 
-export const EditModalFooter = ({
+export const ActionsModalFooter = ({
   onCancel,
-  onSave,
+  onSubmit,
   onReset,
   isValid,
-  isTouched
+  isTouched,
+  submitTag = 'save'
 }: {
-  onCancel: () => void;
-  onSave: () => void;
-  onReset: () => void;
-  isValid: boolean;
-  isTouched: boolean;
+  onCancel: React.MouseEventHandler<HTMLButtonElement>;
+  onSubmit: React.MouseEventHandler<HTMLButtonElement>;
+  onReset: React.MouseEventHandler<HTMLButtonElement>;
+  isValid?: boolean;
+  isTouched?: boolean;
+  submitTag?: keyof typeof en['general_actions'];
 }) => {
   const [t] = useTranslation();
 
@@ -22,7 +27,7 @@ export const EditModalFooter = ({
     <>
       <Button
         variant="primaryGhost"
-        onClick={() => onReset()}
+        onClick={onReset}
         disabled={!isTouched}
       >
         {t('general_actions:reset_all')}
@@ -37,10 +42,10 @@ export const EditModalFooter = ({
           {t('general_actions:cancel')}
         </Button>
         <Button
-          onClick={() => onSave()}
+          onClick={onSubmit}
           disabled={!isValid || !isTouched}
         >
-          {t('general_actions:save')}
+          {t(`general_actions:${submitTag}`)}
         </Button>
       </Box>
     </>

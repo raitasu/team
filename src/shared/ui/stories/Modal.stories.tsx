@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 
 import { BaseModal } from '~/shared/ui/components/BaseModal';
-import { EditModalFooter } from '~/shared/ui/components/BaseModal/EditModalFooter';
+import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
 
 import { Avatar } from '../components/Avatar';
 import { Button } from '../components/Button';
@@ -106,10 +106,10 @@ export const Variants = () => {
         isOpen={isOpenThree}
         shouldUseOverlay
         footer={
-          <EditModalFooter
+          <ActionsModalFooter
             onCancel={onCloseThree}
             onReset={testFunction}
-            onSave={testFunction}
+            onSubmit={testFunction}
             isTouched
             isValid
           />
@@ -136,10 +136,10 @@ export const Variants = () => {
         shouldUseOverlay
         title="GENERAL INFORMATION"
         footer={
-          <EditModalFooter
+          <ActionsModalFooter
             onCancel={onCloseFour}
             onReset={testFunction}
-            onSave={testFunction}
+            onSubmit={testFunction}
             isTouched
             isValid
           />
@@ -166,10 +166,10 @@ export const Variants = () => {
         shouldUseOverlay
         title="GENERAL INFORMATION"
         footer={
-          <EditModalFooter
+          <ActionsModalFooter
             onCancel={onCloseFive}
             onReset={testFunction}
-            onSave={testFunction}
+            onSubmit={testFunction}
             isTouched
             isValid
           />

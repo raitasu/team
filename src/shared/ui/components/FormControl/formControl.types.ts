@@ -4,5 +4,4 @@ export interface BaseFormControlProps extends FormControlProps {
   typeInput?: string;
   helperText?: string;
   errorMessage?: string;
-  isError?: boolean;
 }

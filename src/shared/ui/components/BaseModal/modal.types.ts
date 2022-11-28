@@ -7,7 +7,7 @@ import {
 
 export type ModalProps = {
   shouldUseOverlay?: boolean;
-  contentProps: ChakraModalContentProps;
+  contentProps?: ChakraModalContentProps;
   title?: React.ReactNode;
   footer?: React.ReactNode;
 } & ChakraModalProps;

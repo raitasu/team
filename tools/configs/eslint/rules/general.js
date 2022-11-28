@@ -196,6 +196,7 @@ module.exports = {
             'NumberInput',
             'ProgressBar',
             'Select',
+            'Slider',
             'Tooltip'
           ],
           message:

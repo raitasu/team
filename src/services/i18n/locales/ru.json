@@ -260,9 +260,12 @@
         "social_network_one": "Социальные сеть"
       },
       "titles": {
+        "email": "Электронная почта",
         "experience_few": "{{count}} года",
         "experience_many": "{{count}} лет",
         "experience_one": "{{count}} год",
+        "first_name": "Имя",
+        "last_name": "Фамилия",
         "profile_tabs": {
           "education": {
             "certificates": "Сертификаты",
@@ -307,7 +310,8 @@
         },
         "project_few": "{{count}} проекта",
         "project_many": "{{count}} проектов",
-        "project_one": "{{count}} проект"
+        "project_one": "{{count}} проект",
+        "status": "Статус"
       }
     },
     "filters": {
@@ -405,13 +409,20 @@
   "general_actions": {
     "add": "Добавить",
     "cancel": "Отменить",
+    "create": "Создать",
     "delete": "Удалить",
     "no": "Нет",
+    "reset": "Сбросить",
     "reset_all": "Сбросить всё",
     "save": "Сохранить",
     "yes": "Да"
   },
+  "general_errors": {
+    "invalid_email": "Неправильный формат эл.почты",
+    "required_field": "Поле не может быть пустым"
+  },
   "general_placeholders": {
+    "enter_text": "Введите текст...",
     "month": "Месяц",
     "year": "Год"
   },

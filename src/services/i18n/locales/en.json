@@ -260,8 +260,11 @@
         "social_network_other": "Social networks"
       },
       "titles": {
+        "email": "Email",
         "experience_one": "{{count}} year",
         "experience_other": "{{count}} years",
+        "first_name": "First name",
+        "last_name": "Last name",
         "profile_tabs": {
           "education": {
             "certificates": "Certificates",
@@ -305,7 +308,8 @@
           }
         },
         "project_one": "{{count}} project",
-        "project_other": "{{count}} projects"
+        "project_other": "{{count}} projects",
+        "status": "Status"
       }
     },
     "filters": {
@@ -403,13 +407,20 @@
   "general_actions": {
     "add": "Add",
     "cancel": "Cancel",
+    "create": "Create",
     "delete": "Delete",
     "no": "No",
+    "reset": "Reset",
     "reset_all": "Reset all",
     "save": "Save",
     "yes": "Yes"
   },
+  "general_errors": {
+    "invalid_email": "Email is invalid",
+    "required_field": "Field is required"
+  },
   "general_placeholders": {
+    "enter_text": "Enter text...",
     "month": "Month",
     "year": "Year"
   },

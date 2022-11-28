@@ -82,10 +82,7 @@ export const Variants = () => (
           />
         </FormControl>
 
-        <FormControl
-          isError
-          errorMessage="This is an error caption!"
-        >
+        <FormControl errorMessage="This is an error caption!">
           <NumberInput
             defaultValue="0"
             min={0}
@@ -132,7 +129,6 @@ export const Variants = () => (
 
         <FormControl
           label="Label"
-          isError
           errorMessage="This is an error caption!"
           isRequired
         >

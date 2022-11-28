@@ -161,7 +161,6 @@ export const Variants = () => (
 
         <FormControl
           label="Label"
-          isError
           errorMessage="This is an error caption!"
           isRequired
         >

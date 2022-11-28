@@ -40,7 +40,6 @@ export const Variants = () => (
 
         <FormControl
           label="Label"
-          isError
           errorMessage="This is an error caption!"
         >
           <Textarea
@@ -77,10 +76,7 @@ export const Variants = () => (
           />
         </FormControl>
 
-        <FormControl
-          isError
-          errorMessage="This is an error caption!"
-        >
+        <FormControl errorMessage="This is an error caption!">
           <Textarea
             placeholder="Hello"
             variant="outline"
@@ -124,7 +120,6 @@ export const Variants = () => (
 
         <FormControl
           label="Label"
-          isError
           errorMessage="This is an error caption!"
           isRequired
         >

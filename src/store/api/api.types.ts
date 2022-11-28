@@ -1,13 +1,13 @@
 import { z } from 'zod';
 
 import { supportedLocales } from '~/services/i18n/i18n.constants';
-import { RecordOf } from '~/shared/helpers.types';
+import { createRecordOf } from '~/shared/helpers.zod';
 
-export const TranslationSchema = RecordOf(
+export const TranslationSchema = createRecordOf(
   supportedLocales,
-  z.string().optional()
+  z.string().min(1).optional()
 ).extend({
-  en: z.string()
+  en: z.string().min(1)
 });
 
 export type Translation = z.infer<typeof TranslationSchema>;

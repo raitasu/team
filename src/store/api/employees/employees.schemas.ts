@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { createUnionSchema } from '~/shared/helpers.zod';
 import { TranslationSchema } from '~/store/api/api.types';
 
 export const AddressSchema = z.object({
@@ -92,7 +93,7 @@ export const EmployeeContactsSchema = z.object({
   primary_phone: z.string(),
   phones: z.string().array(),
   emergency_phones: z.string().array(),
-  emails: z.string().array(),
+  emails: z.string().email().array(),
   address: AddressSchema
 });
 
@@ -135,11 +136,8 @@ export const EmployeePublicationSchema = z.object({
 
 const EmployeeRoleSchema = z.union([z.literal('admin'), z.literal('user')]);
 
-export const EmployeeStatusSchema = z.union([
-  z.literal('active'),
-  z.literal('candidate'),
-  z.literal('inactive')
-]);
+export const EmployeeStatuses = ['active', 'candidate', 'inactive'] as const;
+export const EmployeeStatusSchema = createUnionSchema(EmployeeStatuses);
 
 export const CvSchema = z.object({
   id: z.number(),

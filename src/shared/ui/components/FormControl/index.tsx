@@ -19,7 +19,7 @@ export const FormControl = ({
     width="100%"
     isInvalid={Boolean(errorMessage)}
   >
-    <FormLabel>{label}</FormLabel>
+    {label ? <FormLabel>{label}</FormLabel> : null}
 
     {children}
 

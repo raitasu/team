@@ -94,10 +94,7 @@ export const Variants = () => (
           </InputGroup>
         </FormControl>
 
-        <FormControl
-          isError
-          errorMessage="This is an error caption!"
-        >
+        <FormControl errorMessage="This is an error caption!">
           <InputGroup>
             <InputLeftElement color="brand.lightGray">
               <MdSearch size="20px" />
@@ -147,7 +144,6 @@ export const Variants = () => (
 
         <FormControl
           label="Label"
-          isError
           errorMessage="This is an error caption!"
           isRequired
         >

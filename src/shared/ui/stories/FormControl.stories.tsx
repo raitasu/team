@@ -61,10 +61,7 @@ export const Variants = () => (
           <Input placeholder="Enter text" />
         </FormControl>
 
-        <FormControl
-          isError
-          errorMessage="This is an error caption!"
-        >
+        <FormControl errorMessage="This is an error caption!">
           <Input placeholder="Enter text" />
         </FormControl>
       </Grid>
@@ -99,7 +96,6 @@ export const Variants = () => (
 
         <FormControl
           label="Label"
-          isError
           errorMessage="This is an error caption!"
           isRequired
         >
