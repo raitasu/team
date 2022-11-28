@@ -1,6 +1,8 @@
+import { showGlobalError } from '~/shared/ui/components/Toast';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import { type AuthTokens } from '~/store/api/authentication/authentication.types';
+import { EmployeeSchema } from '~/store/api/employees/employees.schemas';
 import { type Employee } from '~/store/api/employees/employees.types';
 import {
   loggedIn,
@@ -29,9 +31,21 @@ const authenticationApiSlice = rootApiSlice.injectEndpoints({
         url: 'me',
         method: 'GET'
       }),
-      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
         try {
-          await queryFulfilled;
+          const response = await queryFulfilled;
+          const responseValidation = EmployeeSchema.safeParse(response.data);
+
+          if (!responseValidation.success) {
+            console.error(responseValidation.error.errors);
+
+            showGlobalError({
+              titleTag: 'server_error',
+              descriptionTag: 'invalid_response_schema',
+              descriptionTagArgs: { url: 'GET /me' }
+            });
+          }
+
           dispatch(loggedIn());
           // eslint-disable-next-line no-empty -- error cases are handled outside
         } catch (err) {}
@@ -48,7 +62,7 @@ const authenticationApiSlice = rootApiSlice.injectEndpoints({
           client_id: import.meta.env.VITE_ALFRED_CLIENT_ID
         }
       }),
-      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
         try {
           const { data } = await queryFulfilled;
 

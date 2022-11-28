@@ -33,22 +33,24 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
                 id: 'LIST'
               }
             ],
-      transformResponse: (response: EmployeesListResponse) => {
-        const responseValidation = ShortEmployeeSchema.array().safeParse(
-          response.items
-        );
+      onQueryStarted: async (_, { queryFulfilled }) => {
+        try {
+          const response = await queryFulfilled;
+          const responseValidation = ShortEmployeeSchema.array().safeParse(
+            response.data.items
+          );
 
-        if (!responseValidation.success) {
-          console.error(responseValidation.error.errors);
+          if (!responseValidation.success) {
+            console.error(responseValidation.error.errors);
 
-          showGlobalError({
-            titleTag: 'server_error',
-            descriptionTag: 'invalid_response_schema',
-            descriptionTagArgs: { url: 'GET /employees' }
-          });
-        }
-
-        return response;
+            showGlobalError({
+              titleTag: 'server_error',
+              descriptionTag: 'invalid_response_schema',
+              descriptionTagArgs: { url: 'GET /employees' }
+            });
+          }
+          // eslint-disable-next-line no-empty -- error cases are handled outside
+        } catch (err) {}
       },
       query: ({ page, elementsPerPage }) => ({
         url: 'employees',
