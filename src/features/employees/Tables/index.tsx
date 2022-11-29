@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 import { TableLoader } from '~/features/employees/Tables/components/TableLoader';
 import { type EmployeesTable } from '~/features/employees/Tables/tables.types';
@@ -8,41 +9,28 @@ import { Pagination } from '~/shared/ui/components/Pagination';
 import { getTotalPages } from '~/shared/utils/pagination.utils';
 import { useGetEmployeesQuery } from '~/store/api/employees/employees.api';
 import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
-import { selectEmployeesPagination } from '~/store/slices/employees/employees.selectors';
-import {
-  reset,
-  toggleElementsPerPage,
-  togglePage
-} from '~/store/slices/employees/employees.slice';
-import { useAppDispatch, useAppSelector } from '~/store/store.hooks';
+import { useAppSelector } from '~/store/store.hooks';
 
 export const EmployeesTablesContainer = ({
   table: Table
 }: {
   table: EmployeesTable;
 }) => {
-  const pagination = useAppSelector(selectEmployeesPagination);
+  const [t] = useTranslation();
+
+  const [pageIndex, setPageIndex] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
   const { data: employee } = useAppSelector(selectCurrentEmployee);
-  const dispatch = useAppDispatch();
 
-  const { data, isFetching } = useGetEmployeesQuery({
-    page: pagination.currentPage,
-    elementsPerPage: pagination.elementsPerPage
+  const { data, isFetching, isError } = useGetEmployeesQuery({
+    page: pageIndex,
+    elementsPerPage: pageSize
   });
-
-  useEffect(
-    () => () => {
-      dispatch(reset());
-    },
-    [dispatch]
-  );
+  const totalPages = getTotalPages(data?.page.total_count || 0, pageSize);
 
   if (!employee) return null;
-
-  const totalPages = getTotalPages(
-    data?.page.total_count || 0,
-    pagination.elementsPerPage
-  );
+  if (isError) return <Text>{t('domains:employee.errors.no_data')}</Text>;
 
   return (
     <Flex
@@ -76,10 +64,10 @@ export const EmployeesTablesContainer = ({
       >
         <Pagination
           totalPages={totalPages}
-          currentPage={pagination.currentPage}
-          pageSize={pagination.elementsPerPage}
-          onPageChange={(page) => dispatch(togglePage(page))}
-          onPageSizeChange={(size) => dispatch(toggleElementsPerPage(size))}
+          currentPage={pageIndex}
+          pageSize={pageSize}
+          onPageChange={setPageIndex}
+          onPageSizeChange={setPageSize}
         />
       </Box>
     </Flex>
