@@ -321,6 +321,7 @@
       "errors": {
         "descriptions": {
           "invalid_response_schema": "Response from {{ url }} has invalid shape. Please, contact developers",
+          "not_found_page": "Ooops! Page not found...",
           "unknown_error": "Oops, something went wrong. Please, contact developers"
         },
         "titles": {
@@ -430,6 +431,7 @@
     },
     "links": {
       "about": "About",
+      "back_home": "Back home",
       "employees": "Employees",
       "profile": "Profile",
       "project_one": "Project",

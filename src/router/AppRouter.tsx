@@ -85,6 +85,14 @@ export const AppRouter = () => (
               </Suspense>
             }
           />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <LoadableNotFound />
+              </Suspense>
+            }
+          />
         </Route>
       </Route>
 
@@ -106,14 +114,6 @@ export const AppRouter = () => (
           }
         />
       </Route>
-      <Route
-        path="*"
-        element={
-          <Suspense fallback={<PageLoader />}>
-            <LoadableNotFound />
-          </Suspense>
-        }
-      />
     </Routes>
   </TokenVerification>
 );
