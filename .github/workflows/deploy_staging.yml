@@ -43,6 +43,7 @@ jobs:
       - name: Build App
         env:
           VITE_APP_VERSION: ${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
+          NODE_OPTIONS: '--max_old_space_size=3072'
         run: npm run build:staging:with-mock-server
 
       - name: S3/CloudFront Deploy

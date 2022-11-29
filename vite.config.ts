@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'build',
     emptyOutDir: true,
-    sourcemap: true,
+    sourcemap: mode === 'development',
     target: 'es2017'
   },
   server: {
