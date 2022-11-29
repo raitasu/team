@@ -403,8 +403,11 @@
   },
   "general_actions": {
     "add": "Добавить",
+    "cancel": "Отменить",
     "delete": "Удалить",
     "no": "Нет",
+    "reset_all": "Сбросить всё",
+    "save": "Сохранить",
     "yes": "Да"
   },
   "general_placeholders": {

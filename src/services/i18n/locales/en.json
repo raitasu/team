@@ -401,8 +401,11 @@
   },
   "general_actions": {
     "add": "Add",
+    "cancel": "Cancel",
     "delete": "Delete",
     "no": "No",
+    "reset_all": "Reset all",
+    "save": "Save",
     "yes": "Yes"
   },
   "general_placeholders": {

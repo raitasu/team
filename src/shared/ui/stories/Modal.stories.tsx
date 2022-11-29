@@ -7,6 +7,7 @@ import {
 } from '@chakra-ui/react';
 
 import { BaseModal } from '~/shared/ui/components/BaseModal';
+import { EditModalFooter } from '~/shared/ui/components/BaseModal/EditModalFooter';
 
 import { Avatar } from '../components/Avatar';
 import { Button } from '../components/Button';
@@ -105,30 +106,13 @@ export const Variants = () => {
         isOpen={isOpenThree}
         shouldUseOverlay
         footer={
-          <>
-            <Button
-              variant="primaryGhost"
-              onClick={testFunction}
-            >
-              reset all
-            </Button>
-            <Box>
-              <Button
-                onClick={testFunction}
-                paddingLeft="32.5px"
-                paddingRight="32.5px"
-              >
-                Save
-              </Button>
-              <Button
-                variant="secondaryGhost"
-                onClick={onCloseThree}
-                paddingLeft="20px"
-              >
-                Cancel
-              </Button>
-            </Box>
-          </>
+          <EditModalFooter
+            onCancel={onCloseThree}
+            onReset={testFunction}
+            onSave={testFunction}
+            isTouched
+            isValid
+          />
         }
       >
         <Box width="100%">
@@ -152,30 +136,13 @@ export const Variants = () => {
         shouldUseOverlay
         title="GENERAL INFORMATION"
         footer={
-          <>
-            <Button
-              variant="primaryGhost"
-              onClick={testFunction}
-            >
-              reset all
-            </Button>
-            <Box>
-              <Button
-                onClick={testFunction}
-                paddingLeft="32.5px"
-                paddingRight="32.5px"
-              >
-                Save
-              </Button>
-              <Button
-                variant="secondaryGhost"
-                onClick={onCloseFour}
-                paddingLeft="20px"
-              >
-                Cancel
-              </Button>
-            </Box>
-          </>
+          <EditModalFooter
+            onCancel={onCloseFour}
+            onReset={testFunction}
+            onSave={testFunction}
+            isTouched
+            isValid
+          />
         }
       >
         <Box width="100%">
@@ -199,30 +166,13 @@ export const Variants = () => {
         shouldUseOverlay
         title="GENERAL INFORMATION"
         footer={
-          <>
-            <Button
-              variant="primaryGhost"
-              onClick={testFunction}
-            >
-              reset all
-            </Button>
-            <Box>
-              <Button
-                onClick={testFunction}
-                paddingLeft="32.5px"
-                paddingRight="32.5px"
-              >
-                Save
-              </Button>
-              <Button
-                variant="secondaryGhost"
-                onClick={onCloseFive}
-                paddingLeft="20px"
-              >
-                Cancel
-              </Button>
-            </Box>
-          </>
+          <EditModalFooter
+            onCancel={onCloseFive}
+            onReset={testFunction}
+            onSave={testFunction}
+            isTouched
+            isValid
+          />
         }
       >
         <Box display="flex">
