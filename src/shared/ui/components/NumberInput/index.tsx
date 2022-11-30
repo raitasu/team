@@ -17,11 +17,11 @@ export const NumberInput = React.forwardRef<
     inputFieldProps?: Partial<NumberInputFieldProps>;
   }
 >(({ inputFieldProps, ...props }, ref) => (
-  <ChakraNumberInput {...props}>
-    <NumberInputField
-      ref={ref}
-      {...inputFieldProps}
-    />
+  <ChakraNumberInput
+    ref={ref}
+    {...props}
+  >
+    <NumberInputField {...inputFieldProps} />
     <NumberInputStepper>
       <NumberIncrementStepper>
         <MdKeyboardArrowUp size="20px" />

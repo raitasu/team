@@ -314,12 +314,26 @@
     },
     "filters": {
       "actions": {
+        "apply": "Apply",
         "reset_filters": "Reset Filters"
       },
+      "employees": "Employees",
+      "hard_skills": "Hard skills",
+      "language": "Language",
+      "language_level": "Language level",
+      "placeholders": {
+        "placeholder_from": "from",
+        "placeholder_name": "Search by name",
+        "placeholder_select": "Select...",
+        "placeholder_to": "to"
+      },
+      "position": "Position",
+      "status": "Status",
       "titles": {
         "filter_one": "Filter",
         "filter_other": "Filters"
-      }
+      },
+      "work_experience": "Work experience"
     },
     "global": {
       "errors": {
@@ -417,6 +431,8 @@
   },
   "general_errors": {
     "invalid_email": "Email is invalid",
+    "invalid_number": "Invalid number",
+    "invalid_range": "Invalid range",
     "required_field": "Field is required"
   },
   "general_placeholders": {

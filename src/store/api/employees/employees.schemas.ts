@@ -140,6 +140,35 @@ export const EmployeeRoleSchema = createUnionSchema(EmployeeRoles);
 
 export const EmployeeStatuses = ['active', 'candidate', 'inactive'] as const;
 export const EmployeeStatusSchema = createUnionSchema(EmployeeStatuses);
+export const EmployeeLanguages = [
+  'be',
+  'de',
+  'en',
+  'es',
+  'fr',
+  'hi',
+  'it',
+  'ja',
+  'lt',
+  'pl',
+  'pt',
+  'ru',
+  'ua',
+  'zh'
+] as const;
+export const EmployeeLanguagesSchema = createUnionSchema(EmployeeLanguages);
+
+export const EmployeeLanguageLevel = [
+  'advanced',
+  'beginner',
+  'elementary',
+  'intermediate',
+  'proficiency',
+  'upper_intermediate'
+] as const;
+export const EmployeeLanguageLevelSchema = createUnionSchema(
+  EmployeeLanguageLevel
+);
 
 export const CvSchema = z.object({
   id: z.number(),

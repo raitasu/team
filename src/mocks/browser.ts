@@ -5,6 +5,7 @@ import {
   getEmployees,
   updateEmployee
 } from '~/mocks/employees/fixtures/employees';
+import { hardSkillsHandlers } from '~/mocks/hardSkills/hardSkills.handler';
 import { healthHandler } from '~/mocks/health';
 import { getRandomInteger } from '~/mocks/mocks.utils';
 import { positionsHandlers } from '~/mocks/positions/positions.handler';
@@ -46,5 +47,6 @@ export const worker = setupWorker(
   healthHandler,
   ...employeesHandlers,
   ...projectHandlers,
-  ...positionsHandlers
+  ...positionsHandlers,
+  ...hardSkillsHandlers
 );

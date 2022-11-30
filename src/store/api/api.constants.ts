@@ -1,5 +1,7 @@
 export const ApiTags = {
   Authentication: 'authentication',
   Employees: 'employees',
-  CurrentEmployee: 'employee'
+  CurrentEmployee: 'employee',
+  Positions: 'positions',
+  HardSkills: 'hardSkills'
 } as const;

@@ -28,3 +28,5 @@ const generateEmployeeHardSkill = (id: number): HardSkill => ({
 
 export const getRandomHardSkills = (count: number) =>
   shuffle(Object.values(sessionHardSkills)).slice(0, count);
+
+export const getHardSkills = () => Object.values(sessionHardSkills);

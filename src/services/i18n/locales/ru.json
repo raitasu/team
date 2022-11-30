@@ -316,12 +316,26 @@
     },
     "filters": {
       "actions": {
+        "apply": "Применить",
         "reset_filters": "Сбросить фильтры"
       },
+      "employees": "Сотрудники",
+      "hard_skills": "Профессиональные навыки",
+      "language": "Язык",
+      "language_level": "Уровень языка",
+      "placeholders": {
+        "placeholder_from": "от",
+        "placeholder_name": "Поиск по имени",
+        "placeholder_select": "Выберите...",
+        "placeholder_to": "до"
+      },
+      "position": "Должность",
+      "status": "Статус",
       "titles": {
         "filter": "Фильтр",
         "filter_many": "Фильтры"
-      }
+      },
+      "work_experience": "Опыт работы"
     },
     "global": {
       "errors": {
@@ -419,6 +433,8 @@
   },
   "general_errors": {
     "invalid_email": "Неправильный формат эл.почты",
+    "invalid_number": "Неверное число",
+    "invalid_range": "Недопустимый диапазон",
     "required_field": "Поле не может быть пустым"
   },
   "general_placeholders": {
