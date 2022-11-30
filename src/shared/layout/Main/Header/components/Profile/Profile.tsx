@@ -39,6 +39,7 @@ export const Profile = ({
           cursor="pointer"
         >
           <Text
+            display={{ base: 'none', md: 'block' }}
             variant="r2"
             color="brand.headline"
             padding="12px 24px"

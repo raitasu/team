@@ -2,7 +2,8 @@ import { Box } from '@chakra-ui/react';
 
 import {
   HEADER_HEIGHT,
-  SIDE_PAGE_PADDING
+  SIDE_PAGE_PADDING,
+  SIDE_PAGE_PADDING_SMALL_SCREEN
 } from '~/shared/layout/layout.constants';
 import { HeaderLogo } from '~/shared/layout/Main/Header/components/HeaderLogo';
 import { LanguageSwitcher } from '~/shared/layout/Main/Header/components/LanguageSwitcher';
@@ -22,7 +23,10 @@ export const Header = () => (
     justifyContent="space-between"
     alignItems="center"
     margin="auto"
-    padding={`0 ${SIDE_PAGE_PADDING}`}
+    padding={{
+      base: `0 ${SIDE_PAGE_PADDING_SMALL_SCREEN}`,
+      md: `0 ${SIDE_PAGE_PADDING}`
+    }}
     zIndex="var(--chakra-zIndices-sticky)"
   >
     <HeaderLogo />
@@ -40,6 +44,7 @@ export const Header = () => (
       justifyContent="space-between"
       alignItems="center"
       height="100%"
+      gap={{ base: '15px', md: '0' }}
     >
       <LanguageSwitcher />
       <ProfileContainer />
