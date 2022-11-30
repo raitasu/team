@@ -19,10 +19,14 @@ import { Tag } from './Tag';
 import { Text } from './Text';
 import { Textarea } from './Textarea';
 import { Tooltip } from './Tooltip';
+import { getScrollbarStyles } from './utils';
 
 export const theme = extendTheme({
   styles: {
     global: {
+      '*': {
+        ...getScrollbarStyles()
+      },
       body: { bg: 'brand.background1' },
       ...reactDatePickerStyles
     }

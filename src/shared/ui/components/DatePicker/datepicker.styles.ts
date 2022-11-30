@@ -5,7 +5,8 @@ export const reactDatePickerStyles = {
     backgroundColor: 'brand.white',
     border: '1px solid',
     borderColor: 'brand.stroke',
-    borderRadius: '4px'
+    borderRadius: '4px',
+    zIndex: '1'
   },
   '.custom-header__select, .react-datepicker__day-name, .react-datepicker__month':
     {
