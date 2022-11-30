@@ -1,113 +1,28 @@
-import { useMemo } from 'react';
-
 import { Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-const MapInRussian = () => (
-  <Box
-    as="div"
-    style={{ position: 'relative', overflow: 'hidden' }}
-  >
-    <a
-      href="https://yandex.ru/maps/org/kovorking_kto_takoy_dzhon_golt_/1382264409/?utm_medium=mapframe&utm_source=maps"
-      style={{
-        color: '#eee',
-        fontSize: '12px',
-        position: 'absolute',
-        top: '0'
-      }}
-    >
-      Коворкинг Кто такой Джон Голт?
-    </a>
-    <a
-      href="https://yandex.ru/maps/157/minsk/category/coworking/60934766081/?utm_medium=mapframe&utm_source=maps"
-      style={{
-        color: '#eee',
-        fontSize: '12px',
-        position: 'absolute',
-        top: '14px'
-      }}
-    >
-      Коворкинг в Минске
-    </a>
-    <a
-      href="https://yandex.ru/maps/157/minsk/category/coffee_to_go/178781223490/?utm_medium=mapframe&utm_source=maps"
-      style={{
-        color: '#eee',
-        fontSize: '12px',
-        position: 'absolute',
-        top: '28px'
-      }}
-    >
-      Кофе с собой в Минске
-    </a>
-    <iframe
-      src="https://yandex.ru/map-widget/v1/-/CCUbZEho3C"
-      width="100%"
-      height="400"
-      frameBorder="1"
-      allowFullScreen
-      style={{ position: 'relative' }}
-      title="Местонахождение коворкинга «Кто такой Джон Голт?»"
-    />
-  </Box>
-);
-
-const MapInEnglish = () => (
-  <Box
-    as="div"
-    style={{ position: 'relative', overflow: 'hidden' }}
-  >
-    <a
-      href="https://yandex.com/maps/org/kovorking_kto_takoy_dzhon_golt_/1382264409/?utm_medium=mapframe&utm_source=maps"
-      style={{
-        color: '#eee',
-        fontSize: '12px',
-        position: 'absolute',
-        top: '0'
-      }}
-    >
-      Coworking Who is John Galt?
-    </a>
-    <a
-      href="https://yandex.com/maps/157/minsk/category/coworking/60934766081/?utm_medium=mapframe&utm_source=maps"
-      style={{
-        color: '#eee',
-        fontSize: '12px',
-        position: 'absolute',
-        top: '14px'
-      }}
-    >
-      Coworking in Minsk
-    </a>
-    <a
-      href="https://yandex.com/maps/157/minsk/category/coffee_to_go/178781223490/?utm_medium=mapframe&utm_source=maps"
-      style={{
-        color: '#eee',
-        fontSize: '12px',
-        position: 'absolute',
-        top: '28px'
-      }}
-    >
-      Coffee to go in Minsk
-    </a>
-    <iframe
-      src="https://yandex.com/map-widget/v1/-/CCUbZEho3C"
-      width="100%"
-      height="400"
-      frameBorder="1"
-      allowFullScreen
-      style={{ position: 'relative' }}
-      title="Coworking Who is John Galt? location"
-    />
-  </Box>
-);
-
 export const CoworkingLocation = () => {
   const [, { language }] = useTranslation();
+  const linkToMap =
+    language === 'ru'
+      ? 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2350.7731313789473!2d27.540919015938552!3d53.90023619492401!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfef0594783b%3A0x40e531795188cf79!2z0JrRgtC-INGC0LDQutC-0Lkg0JTQttC-0L0g0JPQvtC70YI_!5e0!3m2!1sru!2sru!4v1669766524515!5m2!1sru!2sru'
+      : 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.775355216812!2d27.540851928586644!3d53.900196670503234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfef0594783b%3A0x40e531795188cf79!2z0JrRgtC-INGC0LDQutC-0Lkg0JTQttC-0L0g0JPQvtC70YI_!5e0!3m2!1sen!2sru!4v1669765858449!5m2!1sen!2sru';
 
-  return useMemo(
-    () => (language === 'ru' ? <MapInRussian /> : <MapInEnglish />),
-    [language]
+  return (
+    <Box
+      as="div"
+      style={{ overflow: 'hidden' }}
+    >
+      <iframe
+        title="Coworking map"
+        src={linkToMap}
+        width="100%"
+        height="450"
+        style={{ borderRadius: '4px' }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+    </Box>
   );
 };
