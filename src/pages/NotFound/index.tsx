@@ -1,4 +1,4 @@
-import { Box, Image, useMediaQuery, Text, Link } from '@chakra-ui/react';
+import { Box, Image, Text, Link } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import { PagePaths } from '~/router/router.constants';
@@ -7,7 +7,6 @@ import { PageContainer } from '~/shared/layout/Page/PageContainer';
 import NotFoundImage from './assets/not-found-image.png';
 
 export const NotFound = () => {
-  const [isLargerThan1240] = useMediaQuery('(min-width: 1240px)');
   const [t] = useTranslation();
 
   return (
@@ -17,9 +16,12 @@ export const NotFound = () => {
       alignItems="center"
     >
       <Box
-        maxWidth="959px"
-        maxHeight="626px"
-        padding={`40px ${isLargerThan1240 ? '204.5px' : '100px'}`}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        width="66%"
+        minWidth="162px"
+        padding="40px 12px"
         backgroundColor="brand.white"
         border="1px solid"
         borderColor="brand.stroke"
@@ -44,9 +46,10 @@ export const NotFound = () => {
           {t('domains:global.errors.descriptions.not_found_page')}
         </Text>
         <Link
-          display="block"
-          width="250px"
-          margin="0 auto"
+          display="flex"
+          justifyContent="center"
+          width="26%"
+          minWidth="max-content"
           padding="8px 12px"
           borderRadius="4px"
           textTransform="uppercase"
