@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker/locale/en';
 import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 
+import { type CreateEmployeeValues } from '~/features/employee/CreateEmployeeModal/employee.schema';
 import { getRandomHardSkills } from '~/mocks/employees/fixtures/hardSkills';
 import { getRandomLanguages } from '~/mocks/employees/fixtures/languages';
 import { getRandomSoftSkills } from '~/mocks/employees/fixtures/softSkills';
@@ -8,8 +9,8 @@ import { getRandomInteger } from '~/mocks/mocks.utils';
 import { getRandomPositions } from '~/mocks/positions/fixtures/positions';
 import { getRandomProjects } from '~/mocks/projects/fixtures/projects';
 import {
-  type Employee,
   type Address,
+  type Employee,
   type EmployeeContact,
   type SocialNetwork
 } from '~/store/api/employees/employees.types';
@@ -135,6 +136,24 @@ export const getEmployees = () => Object.values(sessionEmployees);
 
 export const getEmployeeById = (employeeId: number): Employee | undefined =>
   sessionEmployees[employeeId];
+
+export const createEmployee = (data: CreateEmployeeValues) => {
+  const employees = getEmployees();
+  const newEmployeeId = employees.reduce(
+    (newId, { id }) => (newId >= id ? newId + 1 : id),
+    0
+  );
+
+  const newEmployee = generateEmployee(newEmployeeId);
+
+  newEmployee.first_name_translations.en = data.first_name_translations.en;
+  newEmployee.last_name_translations.en = data.last_name_translations.en;
+  newEmployee.status = data.status;
+  newEmployee.contacts.emails = [data.email];
+  sessionEmployees[newEmployee.id] = newEmployee;
+
+  return newEmployee;
+};
 
 export const updateEmployee = (
   employeeId: number,

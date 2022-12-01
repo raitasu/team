@@ -12,8 +12,8 @@ import { useGetEmployeeQuery } from '~/store/api/employees/employees.api';
 
 import {
   COLUMN_GAP,
-  PROFILE_COLUMN_WIDTH,
-  containerStyles
+  containerStyles,
+  PROFILE_COLUMN_WIDTH
 } from './employee.styles';
 
 export const Employee = () => {
@@ -29,7 +29,11 @@ export const Employee = () => {
   }
 
   if (isError || !employee) {
-    return <div>Oops, something went wrong :(</div>;
+    return (
+      <PageContainer>
+        <div>Oops, something went wrong :(</div>
+      </PageContainer>
+    );
   }
 
   return (

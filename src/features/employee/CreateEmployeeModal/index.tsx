@@ -11,6 +11,7 @@ import { EmployeeAvatar } from '~/features/employee/CreateEmployeeModal/Employee
 import { EmployeeDetails } from '~/features/employee/CreateEmployeeModal/EmployeeDetails';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
+import { useCreateEmployeeMutation } from '~/store/api/employees/employees.api';
 
 export const CreateEmployeeModal = ({
   isOpen,
@@ -20,6 +21,8 @@ export const CreateEmployeeModal = ({
   onClose: () => void;
 }) => {
   const [t] = useTranslation();
+  const [createEmployee, { isLoading }] = useCreateEmployeeMutation();
+
   const methods = useForm<CreateEmployeeFormValues>({
     defaultValues: {
       avatar: null,
@@ -52,8 +55,9 @@ export const CreateEmployeeModal = ({
           onReset={() => methods.reset()}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
-          onSubmit={methods.handleSubmit((r) => {
-            console.debug(r);
+          isLoading={isLoading}
+          onSubmit={methods.handleSubmit((employee) => {
+            createEmployee(employee).then(onClose).catch(onClose);
           })}
           submitTag="create"
         />

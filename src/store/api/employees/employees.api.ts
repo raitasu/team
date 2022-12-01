@@ -1,8 +1,12 @@
+import { type CreateEmployeeFormValues } from '~/features/employee/CreateEmployeeModal/employee.schema';
 import { showGlobalError } from '~/shared/ui/components/Toast';
 import { getPageOffset } from '~/shared/utils/pagination.utils';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
-import { ShortEmployeeSchema } from '~/store/api/employees/employees.schemas';
+import {
+  EmployeeSchema,
+  ShortEmployeeSchema
+} from '~/store/api/employees/employees.schemas';
 import {
   type Employee,
   type EmployeesListResponse
@@ -69,8 +73,59 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
         url: `employees/${id}`,
         method: 'GET'
       })
+    }),
+    createEmployee: builder.mutation<void, CreateEmployeeFormValues>({
+      invalidatesTags: [ApiTags.Employees],
+      onQueryStarted: async (_, { queryFulfilled }) => {
+        try {
+          const response = await queryFulfilled;
+          const responseValidation = EmployeeSchema.safeParse(response.data);
+
+          if (!responseValidation.success) {
+            console.error(responseValidation.error.errors);
+
+            showGlobalError({
+              titleTag: 'server_error',
+              descriptionTag: 'invalid_response_schema',
+              descriptionTagArgs: { url: 'POST /employees' }
+            });
+          }
+          // eslint-disable-next-line no-empty -- error cases are handled outside
+        } catch (err) {}
+      },
+      query: (employee) => {
+        const body = new FormData();
+
+        body.append(
+          'first_name_translations_en',
+          employee.first_name_translations.en
+        );
+
+        body.append('email', employee.email);
+
+        body.append(
+          'last_name_translations_en',
+          employee.last_name_translations.en
+        );
+
+        body.append('status', employee.status);
+
+        if (employee.avatar) {
+          body.append('avatar', employee.avatar);
+        }
+
+        return {
+          url: 'employees',
+          method: 'POST',
+          body
+        };
+      }
     })
   })
 });
 
-export const { useGetEmployeesQuery, useGetEmployeeQuery } = employeesApiSlice;
+export const {
+  useGetEmployeesQuery,
+  useGetEmployeeQuery,
+  useCreateEmployeeMutation
+} = employeesApiSlice;

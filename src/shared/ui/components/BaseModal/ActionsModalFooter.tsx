@@ -12,13 +12,15 @@ export const ActionsModalFooter = ({
   onReset,
   isValid,
   isTouched,
-  submitTag = 'save'
+  submitTag = 'save',
+  isLoading
 }: {
   onCancel: React.MouseEventHandler<HTMLButtonElement>;
   onSubmit: React.MouseEventHandler<HTMLButtonElement>;
   onReset: React.MouseEventHandler<HTMLButtonElement>;
   isValid?: boolean;
   isTouched?: boolean;
+  isLoading?: boolean;
   submitTag?: keyof typeof en['general_actions'];
 }) => {
   const [t] = useTranslation();
@@ -43,7 +45,8 @@ export const ActionsModalFooter = ({
         </Button>
         <Button
           onClick={onSubmit}
-          disabled={!isValid || !isTouched}
+          disabled={!isValid || !isTouched || isLoading}
+          isLoading={isLoading}
         >
           {t(`general_actions:${submitTag}`)}
         </Button>

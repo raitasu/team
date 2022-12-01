@@ -1,14 +1,17 @@
 import pick from 'lodash/pick';
 import { rest } from 'msw';
 
+import { type CreateEmployeeValues } from '~/features/employee/CreateEmployeeModal/employee.schema';
 import {
+  createEmployee,
   getEmployeeById,
   getEmployees
 } from '~/mocks/employees/fixtures/employees';
+import { sleep } from '~/mocks/mocks.utils';
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
-const getCurrentUser = rest.get(
+const getCurrentUserHandler = rest.get(
   `${import.meta.env.VITE_PUBLIC_API_URL}me`,
   async (_, res, ctx) => {
     const me = getEmployees()[0];
@@ -17,7 +20,7 @@ const getCurrentUser = rest.get(
   }
 );
 
-const getEmployee = rest.get(
+const getEmployeeHandler = rest.get(
   `${import.meta.env.VITE_PUBLIC_API_URL}employees/:id`,
   async ({ params: { id } }, res, ctx) => {
     const employee = getEmployeeById(+id);
@@ -25,6 +28,35 @@ const getEmployee = rest.get(
     if (!employee) {
       return res(ctx.status(404), ctx.json({ message: 'Employee not found!' }));
     }
+
+    return res(ctx.json(employee));
+  }
+);
+
+const createEmployeeHandler = rest.post(
+  `${import.meta.env.VITE_PUBLIC_API_URL}employees`,
+  async (req, res, ctx) => {
+    const formData = req.body as {
+      first_name_translations_en: CreateEmployeeValues['first_name_translations']['en'];
+      last_name_translations_en: CreateEmployeeValues['last_name_translations']['en'];
+      status: CreateEmployeeValues['status'];
+      email: CreateEmployeeValues['email'];
+      avatar: CreateEmployeeValues['avatar'];
+    };
+
+    const employee = createEmployee({
+      first_name_translations: {
+        en: formData.first_name_translations_en
+      },
+      last_name_translations: {
+        en: formData.last_name_translations_en
+      },
+      status: formData.status,
+      email: formData.email,
+      avatar: formData.avatar
+    });
+
+    await sleep(3000);
 
     return res(ctx.json(employee));
   }
@@ -87,6 +119,7 @@ const getEmployeesHandler = rest.get(
 
 export const employeesHandlers = [
   getEmployeesHandler,
-  getCurrentUser,
-  getEmployee
+  getCurrentUserHandler,
+  getEmployeeHandler,
+  createEmployeeHandler
 ];
