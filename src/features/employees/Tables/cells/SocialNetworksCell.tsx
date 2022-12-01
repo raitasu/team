@@ -1,28 +1,32 @@
+import { type FunctionComponent, type SVGProps } from 'react';
+
 import { Flex, Link } from '@chakra-ui/react';
 import { type CellContext } from '@tanstack/react-table';
-import { type IconType } from 'react-icons';
-import { AiOutlineFacebook } from 'react-icons/ai';
-import { BsDiscord, BsGithub } from 'react-icons/bs';
-import { FaTelegramPlane } from 'react-icons/fa';
-import {
-  SlSocialInstagram,
-  SlSocialLinkedin,
-  SlSocialVkontakte
-} from 'react-icons/sl';
 
 import {
-  type SocialNetwork,
-  type ShortEmployee
+  type ShortEmployee,
+  type SocialNetwork
 } from '~/store/api/employees/employees.types';
 
-const SocialNetworkIcons: Record<keyof SocialNetwork, IconType> = {
-  linkedin: SlSocialLinkedin,
-  github: BsGithub,
-  facebook: AiOutlineFacebook,
-  instagram: SlSocialInstagram,
-  telegram: FaTelegramPlane,
-  vk: SlSocialVkontakte,
-  discord: BsDiscord
+import { ReactComponent as DiscordIcon } from '../assets/discord.svg';
+import { ReactComponent as FacebookIcon } from '../assets/facebook.svg';
+import { ReactComponent as GitHubIcon } from '../assets/github.svg';
+import { ReactComponent as InstagramIcon } from '../assets/instagram.svg';
+import { ReactComponent as LinkedinIcon } from '../assets/linkedin.svg';
+import { ReactComponent as TelegramIcon } from '../assets/telegram.svg';
+import { ReactComponent as VkIcon } from '../assets/vk.svg';
+
+const SocialNetworkIcons: Record<
+  keyof SocialNetwork,
+  FunctionComponent<SVGProps<SVGSVGElement>>
+> = {
+  linkedin: LinkedinIcon,
+  github: GitHubIcon,
+  facebook: FacebookIcon,
+  instagram: InstagramIcon,
+  telegram: TelegramIcon,
+  vk: VkIcon,
+  discord: DiscordIcon
 };
 
 export const SocialNetworksCell = ({
@@ -51,7 +55,8 @@ export const SocialNetworksCell = ({
             target="_blank"
             display="flex"
             alignItems="center"
-            boxSize="20px"
+            justify-content="center"
+            boxSize="24px"
             color="brand.ghostGray"
             _hover={{ color: 'brand.lightGray' }}
             _active={{ color: 'brand.ghostGray' }}
