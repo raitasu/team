@@ -64,6 +64,7 @@ export const PageSwitcher = ({
         options={options}
         onChange={(e) => {
           if (e !== null) onPageSizeChange(e.value);
+          onPageChange(1);
         }}
         menuPlacement="top"
       />
