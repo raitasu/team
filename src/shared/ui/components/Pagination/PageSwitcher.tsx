@@ -25,6 +25,7 @@ export const PageSwitcher = ({
   return (
     <Flex alignItems="center">
       <Text
+        display={{ base: 'none', md: 'block' }}
         flexShrink="0"
         mr={8}
         sx={{
@@ -40,9 +41,10 @@ export const PageSwitcher = ({
           })
         }}
       />
-      <Text flexShrink="0">{`${t(
-        'domains:pagination.actions.go_to_page'
-      )}:`}</Text>
+      <Text
+        display={{ base: 'none', md: 'block' }}
+        flexShrink="0"
+      >{`${t('domains:pagination.actions.go_to_page')}:`}</Text>
       <NumberInput
         value={currentPage}
         min={1}
