@@ -19,10 +19,6 @@ const components: SelectComponentsConfig<
   boolean,
   GroupBase<unknown>
 > = {
-  Input: ({ getClassNames, ...passThroughProps }) => (
-    // @ts-expect-error -- see https://github.com/csandman/chakra-react-select/issues/223
-    <chakraComponents.Input {...passThroughProps} />
-  ),
   ClearIndicator: (props) => (
     <chakraComponents.ClearIndicator {...props}>
       <Icon
