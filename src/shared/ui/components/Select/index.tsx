@@ -1,16 +1,16 @@
+import React from 'react';
+
 import { Icon } from '@chakra-ui/react';
 import {
-  type ChakraStylesConfig,
-  type GroupBase,
-  type DropdownIndicatorProps,
-  type MultiValueRemoveProps,
-  type Props as SelectProps,
-  type SelectComponentsConfig,
   chakraComponents,
-  Select as ChakraSelect
+  type GroupBase,
+  type Props as SelectProps,
+  Select as ChakraSelect,
+  type SelectComponent,
+  type SelectComponentsConfig,
+  type SelectInstance
 } from 'chakra-react-select';
 import { MdClose, MdExpandMore } from 'react-icons/md';
-import { type ClearIndicatorProps } from 'react-select';
 
 import { SelectStyles } from '~/shared/ui/components/Select/select.styles';
 
@@ -19,7 +19,11 @@ const components: SelectComponentsConfig<
   boolean,
   GroupBase<unknown>
 > = {
-  ClearIndicator: (props: ClearIndicatorProps) => (
+  Input: ({ getClassNames, ...passThroughProps }) => (
+    // @ts-expect-error -- see https://github.com/csandman/chakra-react-select/issues/223
+    <chakraComponents.Input {...passThroughProps} />
+  ),
+  ClearIndicator: (props) => (
     <chakraComponents.ClearIndicator {...props}>
       <Icon
         as={MdClose}
@@ -28,12 +32,12 @@ const components: SelectComponentsConfig<
       />
     </chakraComponents.ClearIndicator>
   ),
-  DropdownIndicator: (props: DropdownIndicatorProps) => (
+  DropdownIndicator: (props) => (
     <chakraComponents.DropdownIndicator {...props}>
       <Icon as={MdExpandMore} />
     </chakraComponents.DropdownIndicator>
   ),
-  MultiValueRemove: (props: MultiValueRemoveProps) => (
+  MultiValueRemove: (props) => (
     <chakraComponents.MultiValueRemove {...props}>
       <Icon
         as={MdClose}
@@ -44,14 +48,13 @@ const components: SelectComponentsConfig<
   )
 };
 
-export const Select = <Option, IsMulti extends boolean = false>(
-  selectProps: Omit<SelectProps<Option, IsMulti>, 'chakraStyles'>
-) => (
-  <ChakraSelect
-    chakraStyles={SelectStyles as ChakraStylesConfig<Option, IsMulti>}
-    {...selectProps}
-    components={
-      components as SelectComponentsConfig<Option, IsMulti, GroupBase<Option>>
-    }
-  />
-);
+export const Select = React.forwardRef<SelectInstance, SelectProps>(
+  (selectProps, ref) => (
+    <ChakraSelect
+      ref={ref}
+      chakraStyles={SelectStyles}
+      {...selectProps}
+      components={components}
+    />
+  )
+) as SelectComponent;
