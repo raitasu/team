@@ -31,7 +31,7 @@ const config: StorybookViteConfig = {
   viteFinal(viteConfig) {
     return mergeConfig(viteConfig, {
       build: {
-        target: 'es2017',
+        target: 'es2018',
         sourcemap: false
       },
       resolve: {

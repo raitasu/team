@@ -1,0 +1,63 @@
+{
+  "about_translations": {
+    "en": "Cypress Tester"
+  },
+  "avatar_url": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/336.jpg",
+  "certificates": [],
+  "clothing_size": "l",
+  "contacts": {
+    "address": {
+      "apartment": "8882",
+      "building": "33566",
+      "city": {
+        "en": "Gleichnerbury"
+      },
+      "country_code": "DK",
+      "street_translations": {
+        "en": "Emmanuel Hill",
+        "ru": "площадь Северная"
+      },
+      "unit": "198",
+      "zip_code": "95384-2629"
+    },
+    "emails": ["user.cypress@test.com"],
+    "emergency_phones": ["+009529760235"],
+    "phones": ["+985648819545"],
+    "primary_phone": "+689063939561"
+  },
+  "cvs": [],
+  "date_of_birth": "1974-01-29T13:18:16.307Z",
+  "educations": [],
+  "first_name_translations": {
+    "en": "User"
+  },
+  "gender": "male",
+  "hard_skills": [],
+  "id": 0,
+  "interests_translations": {
+    "en": "Testing"
+  },
+  "languages": [],
+  "last_name_translations": {
+    "en": "Cypress"
+  },
+  "positions": [],
+  "projects": [],
+  "publications": [],
+  "role": "user",
+  "social_networks": {
+    "discord": "http://canine-metro.org",
+    "facebook": "https://internal-game.info",
+    "github": "https://ill-informed-stonework.org",
+    "instagram": "http://milky-latitude.net",
+    "linkedin": "http://waterlogged-sampan.org",
+    "telegram": "http://soggy-standard.org",
+    "vk": "https://first-vagrant.com"
+  },
+  "soft_skills": [],
+  "start_career_at": "2020-05-03T06:47:51.458Z",
+  "status": "inactive",
+  "timezone": "Europe/Zagreb",
+  "work_experiences": [],
+  "years_of_experience": 4
+}

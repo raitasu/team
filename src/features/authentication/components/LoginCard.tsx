@@ -2,6 +2,7 @@ import { Box, Img } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import logo from '~/features/authentication/assets/logoFull.svg';
+import { TestIds } from '~/shared/layout/testids';
 import { Button } from '~/shared/ui/components/Button';
 import { getAuthApiUrl } from '~/store/api/authentication/authentication.api';
 
@@ -22,14 +23,16 @@ export const LoginCard = () => {
       >
         {t('domains:authorization.titles.welcome')}
       </Box>
-      <a href={getAuthApiUrl()}>
-        <Button
-          width="250px"
-          marginTop="49px"
-        >
-          {t('domains:authorization.actions.sign_in')}
-        </Button>
-      </a>
+      <Button
+        onClick={() => {
+          window.location.assign(getAuthApiUrl());
+        }}
+        width="250px"
+        marginTop="49px"
+        data-test-id={TestIds.SignInBtn}
+      >
+        {t('domains:authorization.actions.sign_in')}
+      </Button>
     </>
   );
 };

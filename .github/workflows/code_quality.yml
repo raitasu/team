@@ -46,7 +46,7 @@ jobs:
         run: npm run audit:deadcode:ci
 
       - name: Run tests
-        run: npm run test:ci
+        run: npm run test:unit:ci
 
       - name: Check build is passing
         env:

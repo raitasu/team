@@ -31,6 +31,49 @@
 | `npm run start`                  | Running application in development mode.                                   |
 | `npm run start:with-mock-server` | Running application in development mode and with [msw](https://mswjs.io/). |
 
+## Testing application
+
+We are using [Vitest](https://vitest.dev/) for unit tests and [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress) for integration tests
+
+| Command                  | Description                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------ |
+| `build:test`             | Builds application to use in Cypress tests.                                    |
+| `cy:open`                | Opens Cypress UI.                                                              |
+| `cy:run`                 | Runs Cypress tests.                                                            |
+| `start:test`             | Runs dev server to use in Cypress tests.                                       |
+| `test:unit`              | Runs unit tests in watch mode.                                                 |
+| `test:unit:ci`           | Runs unit tests once and outputs test coverage.                                |
+| `test:integration:debug` | Builds application to use in Cypress tests and serves files from build folder. |
+| `preview:test`           | Serves files from build folder to use in Cypress tests.                        |
+
+### Running unit tests
+
+- Run `npm run test:unit`
+
+### Emulating running unit tests in CI
+
+- Run `npm run test:unit:ci`
+
+### Developing integration/components tests
+
+- Run `npm run start:test`
+- Wait unless server is started
+- Run `npm run cy:open`
+- Use Cypress UI to select test
+
+### Emulating running integration/components tests in CI
+
+- Run `test:integration:debug`
+- Wait unless server is started
+- Run `npm run cy:run`
+
+### Debugging failed integration/components tests in CI
+
+- Run `npm run test:integration:debug`
+- Run `npm run cy:open`
+- Wait unless server is started
+- Use Cypress UI to select test you want to debug
+
 ## Installing new packages
 
 Dependencies saved to package.json will be configured with an exact version rather than using npm's default semver range operator.

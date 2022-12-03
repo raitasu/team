@@ -153,6 +153,7 @@ module.exports = {
   ],
   'no-whitespace-before-property': 'warn',
   'no-with': 'warn',
+  'prefer-named-capture-group': 'error',
   'prettier/prettier': 'error',
   'react-hooks/exhaustive-deps': 'warn',
   'react-hooks/rules-of-hooks': 'error',

@@ -13,9 +13,22 @@ module.exports = {
       extends: ['./tools/configs/eslint/.eslint.storybook.js']
     },
     {
-      files: ['vite.config.ts', '.storybook/main.ts', 'jest.config.ts'],
+      files: ['vite.config.ts', '.storybook/main.ts', 'cypress.config.ts'],
       rules: {
         'import/no-default-export': 'off'
+      }
+    },
+    {
+      files: ['cypress/**/*.ts', 'cypress/*.ts'],
+      rules: {
+        '@typescript-eslint/no-namespace': 'off',
+        'no-param-reassign': [
+          'error',
+          {
+            props: true,
+            ignorePropertyModificationsFor: ['state', 'config', 'req']
+          }
+        ]
       }
     },
     {

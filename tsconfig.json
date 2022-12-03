@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -18,22 +18,28 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "~/*": ["./*"]
+      "#cypress/*": ["./cypress/*"],
+      "~/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es2017",
+    "target": "es2018",
     "types": [
+      "@emotion/react/types/css-prop",
+      "cypress",
       "vite/client",
       "vite-plugin-svgr/client",
-      "vitest",
-      "@emotion/react/types/css-prop"
+      "vitest/globals"
     ],
     "useDefineForClassFields": true
   },
   "exclude": ["node_modules"],
   "include": [
+    "cypress/**/*.ts",
+    "cypress/**/*.json",
+    "cypress/*.ts",
+    "cypress/*.json",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/*.ts",
@@ -47,7 +53,7 @@
     ".storybook/**/*.json",
     ".storybook/*.json",
     "vite.config.ts",
-    "jest.config.ts"
+    "cypress.config.ts"
   ],
   "ts-node": {
     "compilerOptions": {

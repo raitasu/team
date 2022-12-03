@@ -1,0 +1,45 @@
+name: Cypress
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}-cypress-checks
+  cancel-in-progress: true
+
+jobs:
+  cypress-run:
+    name: End-to-End Check
+    runs-on: self-hosted
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install 🔧
+        run: npm ci
+
+      - name: Verify Cypress install 🔧
+        run: npm run cy:verify
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
+        env:
+          NODE_TLS_REJECT_UNAUTHORIZED: 0
+        with:
+          browser: electron
+          build: npm run build:test
+          install: false
+          start: npm run preview:test
+          wait-on: 'https://localhost:3000'

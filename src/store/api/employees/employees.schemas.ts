@@ -134,7 +134,9 @@ export const EmployeePublicationSchema = z.object({
   link: z.string()
 });
 
-const EmployeeRoleSchema = z.union([z.literal('admin'), z.literal('user')]);
+const EmployeeRoles = ['admin', 'user'] as const;
+
+export const EmployeeRoleSchema = createUnionSchema(EmployeeRoles);
 
 export const EmployeeStatuses = ['active', 'candidate', 'inactive'] as const;
 export const EmployeeStatusSchema = createUnionSchema(EmployeeStatuses);

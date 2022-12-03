@@ -10,6 +10,7 @@ const shouldAutoFix = process.argv.includes('--fix');
 const shouldSkipEslint = process.argv.includes('--skip-eslint');
 const shouldSkipTypescript = process.argv.includes('--skip-ts');
 const shouldSkipLocalization = process.argv.includes('--skip-i18n');
+const shouldSkipJson = process.argv.includes('--skip-json');
 
 (async function lint() {
   console.log(
@@ -118,20 +119,35 @@ const shouldSkipLocalization = process.argv.includes('--skip-i18n');
   }
 
   try {
-    if (shouldAutoFix) {
+    if (shouldSkipJson) {
       console.log(
-        chalk.blue(`${icons.bullet} Formatting *.json files!`)
+        chalk.yellow(`${icons.warning} Skipping *.json files formatting\n`)
       );
-      execaSync('prettier', ['-u', '-w', '--loglevel=warn', '*/**/*.json'], {
-        cwd: process.cwd(),
-        preferLocal: true
-      });
+    } else if (shouldAutoFix) {
+      console.log(chalk.blue(`${icons.bullet} Formatting *.json files!`));
+      execaSync(
+        'prettier',
+        [
+          '-u',
+          '-w',
+          '--ignore-unknown',
+          '--no-error-on-unmatched-pattern',
+          '--loglevel=warn',
+          '*/**/*.json'
+        ],
+        {
+          cwd: process.cwd(),
+          preferLocal: true
+        }
+      );
       console.log(
         chalk.green(`${icons.check} Formatted *.json files successfully\n`)
       );
     }
   } catch (err) {
     success = false;
+    console.log(chalk.bold('Prettier errors'));
+    console.log(err.stdout || err.stderr);
     console.error(
       chalk.red.bold(
         `${icons.error} Formatting *.json files failed due to the above errors\n`
