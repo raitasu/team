@@ -3,6 +3,7 @@
 ![Tests](https://github.com/cybergizer-hq/team-front/actions/workflows/code_quality.yml/badge.svg?branch=main)
 ![Staging Deploy](https://github.com/cybergizer-hq/team-front/actions/workflows/deploy_staging.yml/badge.svg?branch=main)
 ![Chromatic](https://github.com/cybergizer-hq/team-front/actions/workflows/chromatic.yml/badge.svg?branch=main)
+![E2E](https://github.com/cybergizer-hq/team-front/actions/workflows/cypress.yml/badge.svg?branch=main)
 
 ## Application links
 
