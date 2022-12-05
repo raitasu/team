@@ -254,7 +254,7 @@ export const EmployeeSchema = z.object({
   gender: EmployeeGendersSchema.nullable(),
   hard_skills: HardSkillSchema.array().nullable(),
   id: z.number(),
-  email: z.string(),
+  email: z.string().email(),
   interests_translations: TranslationSchema.nullable(),
   languages: EmployeeLanguageSchema.array().nullable(),
   last_name_translations: TranslationSchema,

@@ -40,6 +40,7 @@ const createEmployeeHandler = rest.post(
       last_name_translations_en: CreateEmployeeValues['last_name_translations']['en'];
       status: CreateEmployeeValues['status'];
       email: CreateEmployeeValues['email'];
+      personal_email: CreateEmployeeValues['personal_email'];
       avatar: CreateEmployeeValues['avatar'];
     };
 
@@ -52,6 +53,7 @@ const createEmployeeHandler = rest.post(
       },
       status: formData.status,
       email: formData.email,
+      personal_email: formData.personal_email,
       avatar: formData.avatar
     });
 

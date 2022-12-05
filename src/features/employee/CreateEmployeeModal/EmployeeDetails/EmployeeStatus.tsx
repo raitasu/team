@@ -24,7 +24,10 @@ export const EmployeeStatus = () => {
   );
 
   return (
-    <FormControl label={t('domains:employee.titles.status')}>
+    <FormControl
+      label={t('domains:employee.titles.status')}
+      isRequired
+    >
       <Select
         options={options}
         isMulti={false}

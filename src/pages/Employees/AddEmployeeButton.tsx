@@ -11,10 +11,10 @@ export const AddEmployeeButton = ({ onClick }: { onClick: () => void }) => {
     <Tooltip
       hasArrow
       place="left"
-      labelText={t('domains:employee.actions.add_employee')}
+      labelText={t('domains:employee.actions.create_profile')}
     >
       <ControlButton
-        aria-label={t('domains:employee.actions.add_employee')}
+        aria-label={t('domains:employee.actions.create_profile')}
         icon={<MdAdd />}
         onClick={onClick}
       />

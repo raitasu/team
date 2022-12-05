@@ -1,5 +1,6 @@
 import { Grid } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -33,6 +34,7 @@ export const CreateEmployeeModal = ({
         en: ''
       },
       email: '',
+      personal_email: '',
       status: 'active'
     },
     mode: 'onBlur',
@@ -43,11 +45,11 @@ export const CreateEmployeeModal = ({
     <BaseModal
       isOpen={isOpen}
       onClose={onClose}
+      isCentered
       shouldUseOverlay
-      title={t('domains:employee.actions.add_employee')}
+      title={upperCase(t('domains:employee.actions.create_profile'))}
       contentProps={{
-        maxWidth: '90%',
-        width: 'fit-content'
+        maxWidth: '962px'
       }}
       footer={
         <ActionsModalFooter
@@ -68,7 +70,7 @@ export const CreateEmployeeModal = ({
           templateColumns="250px 1fr"
           gap="20px"
         >
-          <EmployeeAvatar />
+          <EmployeeAvatar onReset={() => methods.resetField('avatar')} />
           <EmployeeDetails />
         </Grid>
       </FormProvider>

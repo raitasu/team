@@ -1,8 +1,9 @@
 import { Flex } from '@chakra-ui/react';
 
-import { EmployeeEmail } from '~/features/employee/CreateEmployeeModal/EmployeeDetails/EmployeeEmail';
 import { EmployeeName } from '~/features/employee/CreateEmployeeModal/EmployeeDetails/EmployeeName';
+import { EmployeePersonalEmail } from '~/features/employee/CreateEmployeeModal/EmployeeDetails/EmployeePersonalEmail';
 import { EmployeeStatus } from '~/features/employee/CreateEmployeeModal/EmployeeDetails/EmployeeStatus';
+import { EmployeeWorkEmail } from '~/features/employee/CreateEmployeeModal/EmployeeDetails/EmployeeWorkEmail';
 
 export const EmployeeDetails = () => (
   <Flex
@@ -11,6 +12,7 @@ export const EmployeeDetails = () => (
   >
     <EmployeeName />
     <EmployeeStatus />
-    <EmployeeEmail />
+    <EmployeeWorkEmail />
+    <EmployeePersonalEmail />
   </Flex>
 );

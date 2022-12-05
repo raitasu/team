@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Grid } from '@chakra-ui/react';
 import { MdOutlineDelete, MdOutlineEdit } from 'react-icons/md';
 
@@ -11,7 +13,7 @@ export const EditorActions = ({
   scale
 }: {
   onEdit: () => void;
-  onDelete: () => void;
+  onDelete: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onScaleChange: (scale: number) => void;
   scale: number;
 }) => (

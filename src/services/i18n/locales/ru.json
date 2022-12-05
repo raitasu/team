@@ -238,6 +238,7 @@
         "copy_profile": "Копировать профиль",
         "create_cv": "Создать резюме",
         "create_cv_confirmation": "Вы хотите создать резюме?",
+        "create_profile": "Создать профиль",
         "delete_cv": "Удалить резюме",
         "delete_profile": "Удалить профиль",
         "download_cv": "Скачать резюме",
@@ -280,6 +281,7 @@
         "experience_one": "{{count}} год",
         "first_name": "Имя",
         "last_name": "Фамилия",
+        "personal_email": "Личная почта",
         "present": "настоящее время",
         "profile_tabs": {
           "education": {
@@ -370,7 +372,8 @@
         "project_few": "{{count}} проекта",
         "project_many": "{{count}} проектов",
         "project_one": "{{count}} проект",
-        "status": "Статус"
+        "status": "Статус",
+        "work_email": "Рабочая почта"
       }
     },
     "filters": {

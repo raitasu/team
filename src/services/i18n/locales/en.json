@@ -238,6 +238,7 @@
         "copy_profile": "Copy profile",
         "create_cv": "Create CV",
         "create_cv_confirmation": "Do you want to create CV?",
+        "create_profile": "Create profile",
         "delete_cv": "Delete CV",
         "delete_profile": "Delete profile",
         "download_cv": "Download CV",
@@ -279,6 +280,7 @@
         "first_name": "First name",
         "last_name": "Last name",
         "present": "present",
+        "personal_email": "Personal email",
         "profile_tabs": {
           "education": {
             "certificates": "Certificates",
@@ -366,7 +368,8 @@
         },
         "project_one": "{{count}} project",
         "project_other": "{{count}} projects",
-        "status": "Status"
+        "status": "Status",
+        "work_email": "Work email"
       }
     },
     "filters": {
