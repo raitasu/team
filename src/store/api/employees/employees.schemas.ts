@@ -13,23 +13,24 @@ export const AddressSchema = z.object({
   zip_code: z.string()
 });
 
-const ClothingSizeSchema = z.union([
-  z.literal('xs'),
-  z.literal('s'),
-  z.literal('m'),
-  z.literal('l'),
-  z.literal('xl'),
-  z.literal('xxl'),
-  z.literal('3xl'),
-  z.literal('4xl')
-]);
+export const EmployeeClothingSizes = [
+  'xs',
+  's',
+  'm',
+  'l',
+  'xl',
+  'xxl',
+  '3xl',
+  '4xl'
+] as const;
 
-const GenderSchema = z.union([
-  z.literal('male'),
-  z.literal('female'),
-  z.literal('other')
-]);
+export const EmployeeClothingSizesSchema = createUnionSchema(
+  EmployeeClothingSizes
+);
 
+export const EmployeeGenders = ['male', 'female', 'other'] as const;
+
+export const EmployeeGendersSchema = createUnionSchema(EmployeeGenders);
 export const HardSkillSchema = z.object({
   id: z.number(),
   years_of_experience: z.number(),
@@ -190,13 +191,13 @@ export const EmployeeSchema = z.object({
   about_translations: TranslationSchema,
   avatar_url: z.string().url().nullable(),
   certificates: EmployeeCertificateSchema.array(),
-  clothing_size: ClothingSizeSchema,
+  clothing_size: EmployeeClothingSizesSchema,
   contacts: EmployeeContactsSchema,
   cvs: CvSchema.array(),
   date_of_birth: z.string().datetime(),
   educations: EmployeeEducationSchema.array(),
   first_name_translations: TranslationSchema,
-  gender: GenderSchema,
+  gender: EmployeeGendersSchema,
   hard_skills: HardSkillSchema.array(),
   id: z.number(),
   interests_translations: TranslationSchema,

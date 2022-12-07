@@ -244,7 +244,8 @@
         "edit_cv": "Edit CV"
       },
       "errors": {
-        "no_data": "No employees data"
+        "no_data": "No employees data",
+        "required_field": "Field can't be empty"
       },
       "table_headers": {
         "contacts": "Location",
@@ -295,6 +296,11 @@
               "clothing_size": "Clothing size",
               "date_of_birth": "Date of birth",
               "gender": "Gender",
+              "genders": {
+                "female": "Female",
+                "male": "Male",
+                "other": "Other"
+              },
               "interests": "Interests",
               "section_title": "General information",
               "start_career": "Start career in Cybergizer"

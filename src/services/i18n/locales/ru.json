@@ -244,7 +244,8 @@
         "edit_cv": "Изменить резюме"
       },
       "errors": {
-        "no_data": "Нет данных о сотрудниках"
+        "no_data": "Нет данных о сотрудниках",
+        "required_field": "Поле не может быть пустым"
       },
       "table_headers": {
         "contacts": "Место жительства",
@@ -296,6 +297,11 @@
               "clothing_size": "Размер одежды",
               "date_of_birth": "Дата рождения",
               "gender": "Пол",
+              "genders": {
+                "female": "Женщина",
+                "male": "Мужчина",
+                "other": "Другое"
+              },
               "interests": "Интересы",
               "section_title": "Общая информация",
               "start_career": "Начало работы в Cybergizer"
