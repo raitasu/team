@@ -357,6 +357,18 @@
       "work_experience": "Work experience"
     },
     "global": {
+      "confirmations": {
+        "descriptions": {
+          "delete": "Do you want to delete information?",
+          "deleted": "Information deleted",
+          "save": "Do you want to save information?",
+          "saved": "Information saved"
+        },
+        "titles": {
+          "delete": "Delete information",
+          "save": "Save information"
+        }
+      },
       "errors": {
         "descriptions": {
           "invalid_response_schema": "Response from {{ url }} has invalid shape. Please, contact developers",

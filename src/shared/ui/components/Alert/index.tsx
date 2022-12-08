@@ -19,13 +19,13 @@ const getAlertIcon = (status: BaseAlertProps['status']) => {
     case 'error':
       return (
         <Box color="brand.accentRed">
-          <MdOutlineErrorOutline size="20px" />
+          <MdOutlineErrorOutline size="25px" />
         </Box>
       );
     case 'success':
       return (
         <Box color="brand.accentGreen">
-          <MdOutlineCheckCircleOutline size="20px" />
+          <MdOutlineCheckCircleOutline size="25px" />
         </Box>
       );
     default:
@@ -54,12 +54,12 @@ export const Alert = ({
     </Box>
     {onClose && (
       <CloseButton
-        boxSize="19px"
+        boxSize="32px"
         ml="auto"
         onClick={onClose}
         color="brand.ghostGray"
       >
-        <MdClose size="19px" />
+        <MdClose size="35px" />
       </CloseButton>
     )}
   </ChakraAlert>

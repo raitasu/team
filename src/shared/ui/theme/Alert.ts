@@ -9,7 +9,7 @@ export const Alert = {
       boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
       border: '1px solid',
       bg: 'brand.background2',
-      alignItems: 'flex-start'
+      alignItems: 'center'
     },
     title: {
       color: 'brand.headline',
@@ -27,6 +27,21 @@ export const Alert = {
       color: 'brand.body',
       width: '20px',
       height: '20px'
+    }
+  },
+  variants: {
+    editModal: {
+      container: {
+        gap: '3.5',
+        width: '400px',
+        height: 'none',
+        padding: '4px 0',
+        borderRadius: 'none',
+        boxShadow: 'none',
+        border: 'none',
+        bg: 'brand.background2',
+        alignItems: 'center'
+      }
     }
   }
 };
