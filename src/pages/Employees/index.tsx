@@ -5,7 +5,6 @@ import { useDisclosure } from '@chakra-ui/react';
 import { CreateEmployeeModal } from '~/features/employee/CreateEmployeeModal';
 import { EmployeesFiltersDrawer } from '~/features/employees/Filters';
 import { EmployeesFilterControl } from '~/features/employees/Filters/EmployeesFilterControl';
-import { type AppliedEmployeesFilters } from '~/features/employees/Filters/employeesFilters.schema';
 import { EmployeesTablesContainer } from '~/features/employees/Tables';
 import { EmployeesPositionsTable } from '~/features/employees/Tables/PositionsTable';
 import { AddEmployeeButton } from '~/pages/Employees/AddEmployeeButton';
@@ -29,10 +28,6 @@ export const Employees = () => {
     [dispatch]
   );
 
-  const filterSubmit = (filters: AppliedEmployeesFilters) => {
-    console.debug(filters);
-  };
-
   return (
     <PageContainer>
       <EmployeesTablesContainer table={EmployeesPositionsTable} />
@@ -45,7 +40,7 @@ export const Employees = () => {
       <PageToolbox
         action={<AddEmployeeButton onClick={onCreateModalOpen} />}
         drawerControl={<EmployeesFilterControl />}
-        drawerContent={<EmployeesFiltersDrawer onSubmit={filterSubmit} />}
+        drawerContent={<EmployeesFiltersDrawer />}
       />
     </PageContainer>
   );

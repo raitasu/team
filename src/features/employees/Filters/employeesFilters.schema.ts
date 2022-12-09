@@ -7,11 +7,6 @@ import {
 } from '~/store/api/employees/employees.schemas';
 
 export type EmployeeFilterFormValues = z.infer<typeof EmployeesFiltersSchema>;
-export type AppliedEmployeesFilters = {
-  [DataKey in keyof EmployeeFilterFormValues]?: NonNullable<
-    EmployeeFilterFormValues[DataKey]
-  >;
-};
 export const EmployeesFiltersSchema = z
   .object({
     employee_name: z.string().trim().nullable(),
@@ -44,3 +39,13 @@ export const EmployeesFiltersSchema = z
   );
 
 export type EmployeeFilterValues = z.infer<typeof EmployeesFiltersSchema>;
+export const initialFilterValues: EmployeeFilterFormValues = {
+  employee_name: null,
+  position: null,
+  hard_skills: null,
+  status: null,
+  language: null,
+  language_level: null,
+  work_experience_start: null,
+  work_experience_end: null
+};

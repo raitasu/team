@@ -1,8 +1,12 @@
-import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import { type EmployeesSliceState } from '~/store/slices/employees/employees.types';
+import {
+  type EmployeesFilters,
+  type EmployeesSliceState
+} from '~/store/slices/employees/employees.types';
 
 const getInitialState: () => EmployeesSliceState = () => ({
+  filters: {},
   pagination: {
     currentPage: 1,
     elementsPerPage: 10
@@ -18,9 +22,14 @@ export const employeesSlice = createSlice({
 
       (Object.keys(initialState) as (keyof EmployeesSliceState)[]).forEach(
         (key) => {
-          state[key] = initialState[key];
+          const initialValue = initialState[key];
+
+          (state[key] as typeof initialValue) = initialValue;
         }
       );
+    },
+    setEmployeesFilters(state, { payload }: PayloadAction<EmployeesFilters>) {
+      state.filters = payload;
     },
     togglePage(state, { payload }: PayloadAction<number>) {
       state.pagination.currentPage = payload;
@@ -33,5 +42,10 @@ export const employeesSlice = createSlice({
 });
 
 export const {
-  actions: { togglePage, toggleElementsPerPage, resetEmployeesSlice }
+  actions: {
+    togglePage,
+    toggleElementsPerPage,
+    setEmployeesFilters,
+    resetEmployeesSlice
+  }
 } = employeesSlice;

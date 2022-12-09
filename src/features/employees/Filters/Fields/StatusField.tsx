@@ -36,7 +36,9 @@ export const StatusField = () => {
         options={statusOptions}
         value={selectedStatus}
         onChange={(option) => {
-          field.onChange(option.map((item) => item.value));
+          field.onChange(
+            option.length > 0 ? option.map((item) => item.value) : null
+          );
         }}
         isMulti
         size="md"

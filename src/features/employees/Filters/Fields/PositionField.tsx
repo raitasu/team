@@ -46,7 +46,9 @@ export const PositionField = ({
         options={positionOptions}
         value={selectedPosition}
         onChange={(option) => {
-          field.onChange(option.map((item) => item.value));
+          field.onChange(
+            option.length > 0 ? option.map((item) => item.value) : null
+          );
         }}
         isMulti
         size="md"

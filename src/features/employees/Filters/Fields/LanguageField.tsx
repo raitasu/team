@@ -40,7 +40,9 @@ export const LanguageField = () => {
         value={selectedLanguage}
         options={languageOptions}
         onChange={(option) => {
-          field.onChange(option.map((item) => item.value));
+          field.onChange(
+            option.length > 0 ? option.map((item) => item.value) : null
+          );
         }}
         isMulti
         size="md"

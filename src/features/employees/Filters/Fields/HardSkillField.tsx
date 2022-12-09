@@ -45,7 +45,9 @@ export const HardSkillField = ({
         options={hardSkillsOptions}
         value={selectedHardSkill}
         onChange={(option) => {
-          field.onChange(option.map((item) => item.value));
+          field.onChange(
+            option.length > 0 ? option.map((item) => item.value) : null
+          );
         }}
         isMulti
         size="md"
