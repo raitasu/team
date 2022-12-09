@@ -50,7 +50,7 @@ export const SelectStyles: ChakraStylesConfig = {
     borderRadius: '4px',
     padding: '4px 8px',
     color: 'brand.body',
-    marginRight: '4px',
+    gap: '4px',
     marginTop: '2px',
     marginBottom: '2px'
   }),
