@@ -13,7 +13,7 @@ export const employeesSlice = createSlice({
   name: 'employees',
   initialState: getInitialState(),
   reducers: {
-    reset(state) {
+    resetEmployeesSlice(state) {
       const initialState = getInitialState();
 
       (Object.keys(initialState) as (keyof EmployeesSliceState)[]).forEach(
@@ -33,5 +33,5 @@ export const employeesSlice = createSlice({
 });
 
 export const {
-  actions: { togglePage, toggleElementsPerPage, reset }
+  actions: { togglePage, toggleElementsPerPage, resetEmployeesSlice }
 } = employeesSlice;

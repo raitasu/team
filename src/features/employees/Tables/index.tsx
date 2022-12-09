@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 import { Box, Flex } from '@chakra-ui/react';
 
 import { TableLoader } from '~/features/employees/Tables/components/TableLoader';
@@ -10,7 +8,6 @@ import { useGetEmployeesQuery } from '~/store/api/employees/employees.api';
 import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
 import { selectEmployeesPagination } from '~/store/slices/employees/employees.selectors';
 import {
-  reset,
   toggleElementsPerPage,
   togglePage
 } from '~/store/slices/employees/employees.slice';
@@ -29,13 +26,6 @@ export const EmployeesTablesContainer = ({
     page: pagination.currentPage,
     elementsPerPage: pagination.elementsPerPage
   });
-
-  useEffect(
-    () => () => {
-      dispatch(reset());
-    },
-    [dispatch]
-  );
 
   if (!employee) return null;
 
