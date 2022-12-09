@@ -7,6 +7,7 @@ import {
 } from '~/store/api/employees/employees.schemas';
 
 export type EmployeeFilterFormValues = z.infer<typeof EmployeesFiltersSchema>;
+
 export const EmployeesFiltersSchema = z
   .object({
     employee_name: z.string().trim().nullable(),

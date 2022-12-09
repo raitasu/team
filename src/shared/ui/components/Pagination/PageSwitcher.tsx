@@ -51,7 +51,7 @@ export const PageSwitcher = ({
         max={totalPages}
         width="76px"
         marginLeft="8px"
-        marginRight="20px"
+        marginRight="40px"
         onChange={(e) => {
           const page = Number(e);
 
@@ -61,6 +61,11 @@ export const PageSwitcher = ({
         }}
         defaultValue={1}
       />
+      <Text
+        display={{ base: 'none', md: 'block' }}
+        flexShrink="0"
+        marginRight="8px"
+      >{`${t('domains:pagination.titles.show_label')}:`}</Text>
       <Select
         value={{ value: pageSize, label: `${pageSize}` }}
         options={options}

@@ -18,10 +18,14 @@ import {
 } from '~/store/slices/employees/employees.slice';
 import { useAppDispatch, useAppSelector } from '~/store/store.hooks';
 
+import { type SearchEmployee } from '../../../pages/About/components/SearchEmployee';
+
 export const EmployeesTablesContainer = ({
-  table: Table
+  table: Table,
+  header: Header
 }: {
   table: EmployeesTable;
+  header?: typeof SearchEmployee;
 }) => {
   const pagination = useAppSelector(selectEmployeesPagination);
   const filters = useAppSelector(selectEmployeesFilters);
@@ -52,6 +56,7 @@ export const EmployeesTablesContainer = ({
       minHeight="100%"
       width="100%"
     >
+      {Header && <Header />}
       <Box
         flex="1"
         minH="0"

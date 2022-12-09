@@ -16,6 +16,10 @@ export const Input = {
         _focus: {
           borderColor: 'brand.ghostGray'
         },
+        _focusVisible: {
+          borderColor: 'brand.ghostGray',
+          boxShadow: 'none'
+        },
         _placeholder: {
           color: 'brand.lightGray'
         },
@@ -24,6 +28,12 @@ export const Input = {
             borderColor: 'brand.stroke'
           }
         }
+      },
+      clearIndicator: {
+        display: 'flex',
+        marginLeft: '4px',
+        marginRight: '8px',
+        bg: 'brand.ghostGray'
       }
     },
     datePickerInput: {

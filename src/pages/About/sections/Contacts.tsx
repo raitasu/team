@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { EmployeesTablesContainer } from '~/features/employees/Tables';
 import { EmployeesContactsTable } from '~/features/employees/Tables/ContactsTable';
+import { SearchEmployee } from '~/pages/About/components/SearchEmployee';
 import { resetEmployeesSlice } from '~/store/slices/employees/employees.slice';
 import { useAppDispatch } from '~/store/store.hooks';
 
@@ -26,7 +27,10 @@ export const Contacts = () => {
         <Heading variant="3">{t('navigation:about_sections.contacts')}</Heading>
       </VisuallyHidden>
 
-      <EmployeesTablesContainer table={EmployeesContactsTable} />
+      <EmployeesTablesContainer
+        table={EmployeesContactsTable}
+        header={SearchEmployee}
+      />
     </>
   );
 };

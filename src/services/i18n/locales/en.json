@@ -387,7 +387,8 @@
       },
       "titles": {
         "aria_label": "Current page, Page {{ current }}",
-        "current_page": "Page <span>{{ current }}</span> of <span>{{ total }}</span>"
+        "current_page": "Page <span>{{ current }}</span> of <span>{{ total }}</span>",
+        "show_label": "Show"
       }
     },
     "projects": {

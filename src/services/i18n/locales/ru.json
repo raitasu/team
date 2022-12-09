@@ -390,7 +390,8 @@
       },
       "titles": {
         "aria_label": "Текущая страница, страница {{ current }}",
-        "current_page": "Страница <span>{{ current }}</span> из <span>{{ total }}</span>"
+        "current_page": "Страница <span>{{ current }}</span> из <span>{{ total }}</span>",
+        "show_label": "Показать"
       }
     },
     "projects": {

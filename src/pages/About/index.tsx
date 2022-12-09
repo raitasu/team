@@ -2,7 +2,7 @@ import { Flex } from '@chakra-ui/react';
 import { Navigate, useParams } from 'react-router-dom';
 
 import { AboutSections } from '~/pages/About/about.constants';
-import { AboutSideNav } from '~/pages/About/AboutSideNav';
+import { AboutSideNav } from '~/pages/About/components/AboutSideNav';
 import { AboutCompany } from '~/pages/About/sections/AboutCompany';
 import { Birthdays } from '~/pages/About/sections/Birthdays';
 import { Communications } from '~/pages/About/sections/Communications';
