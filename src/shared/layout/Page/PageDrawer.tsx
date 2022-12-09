@@ -2,34 +2,38 @@ import React from 'react';
 
 import { Drawer, useDisclosure } from '@chakra-ui/react';
 
-import { type DrawerControl } from '~/shared/layout/Page/page.types';
+import { PageToolboxContext } from '~/shared/layout/Page/PageToolbox.context';
 
 export const PageDrawer = ({
   children,
-  onDrawerClose,
   drawerControl
 }: {
   children: React.ReactNode;
-  drawerControl: DrawerControl;
-  onDrawerClose?: () => void;
+  drawerControl: React.ReactNode;
 }) => {
   const disclosure = useDisclosure();
   const triggerRef = React.useRef<HTMLButtonElement | null>(null);
   const { isOpen, onClose } = disclosure;
+  const contextValue = React.useMemo(
+    () => ({
+      disclosure,
+      triggerRef
+    }),
+    [disclosure, triggerRef]
+  );
 
   return (
-    <>
-      {drawerControl(disclosure, triggerRef)}
+    <PageToolboxContext.Provider value={contextValue}>
+      {drawerControl}
       <Drawer
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
         finalFocusRef={triggerRef}
-        onCloseComplete={onDrawerClose}
         variant="filters"
       >
         {children}
       </Drawer>
-    </>
+    </PageToolboxContext.Provider>
   );
 };

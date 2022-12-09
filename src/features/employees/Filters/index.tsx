@@ -22,6 +22,7 @@ import { NameField } from '~/features/employees/Filters/Fields/NameField';
 import { PositionField } from '~/features/employees/Filters/Fields/PositionField';
 import { StatusField } from '~/features/employees/Filters/Fields/StatusField';
 import { WorkExperienceSection } from '~/features/employees/Filters/Fields/WorkExperienceSection';
+import { usePageToolboxContext } from '~/shared/layout/Page/PageToolbox.context';
 import { Button } from '~/shared/ui/components/Button';
 import { useGetHardSkillsQuery } from '~/store/api/hardSkills/hardSkills.api';
 import { useGetPositionsQuery } from '~/store/api/positions/positions.api';
@@ -32,6 +33,9 @@ export const EmployeesFiltersDrawer = ({
   onSubmit: (filters: AppliedEmployeesFilters) => void;
 }) => {
   const [t] = useTranslation();
+  const {
+    disclosure: { onClose }
+  } = usePageToolboxContext();
   const { data: positions } = useGetPositionsQuery();
   const { data: hardSkills } = useGetHardSkillsQuery();
   const methods = useForm<EmployeeFilterFormValues>({
@@ -48,6 +52,12 @@ export const EmployeesFiltersDrawer = ({
     mode: 'onBlur',
     resolver: zodResolver(EmployeesFiltersSchema)
   });
+
+  const {
+    formState: { isDirty, isValid },
+    handleSubmit,
+    reset
+  } = methods;
 
   return (
     <FormProvider {...methods}>
@@ -74,20 +84,21 @@ export const EmployeesFiltersDrawer = ({
         >
           <Button
             variant="primaryGhost"
-            disabled={!methods.formState.isDirty}
-            onClick={() => methods.reset()}
+            disabled={!isDirty}
+            onClick={() => reset()}
           >
             {t('domains:filters.actions.reset_filters')}
           </Button>
           <Button
             variant="primaryGhost"
-            disabled={!methods.formState.isValid || !methods.formState.isDirty}
-            onClick={methods.handleSubmit((data) => {
+            disabled={!isValid || !isDirty}
+            onClick={handleSubmit((data) => {
               const filters = Object.fromEntries(
                 Object.entries(data).filter((item) => item[1] !== null)
               );
 
               onSubmit(filters);
+              onClose();
             })}
           >
             {t('domains:filters.actions.apply')}

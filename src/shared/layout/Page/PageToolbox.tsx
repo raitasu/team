@@ -9,7 +9,6 @@ import { PageDrawer } from '~/shared/layout/Page/PageDrawer';
 export const PageToolbox = ({
   drawerControl,
   drawerContent,
-  onDrawerClose,
   action
 }: {
   action?: React.ReactNode;
@@ -30,12 +29,7 @@ export const PageToolbox = ({
     right="0"
   >
     {drawerContent ? (
-      <PageDrawer
-        onDrawerClose={onDrawerClose}
-        drawerControl={drawerControl}
-      >
-        {drawerContent}
-      </PageDrawer>
+      <PageDrawer drawerControl={drawerControl}>{drawerContent}</PageDrawer>
     ) : null}
     {action}
   </Box>

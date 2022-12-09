@@ -1,20 +1,16 @@
-import React from 'react';
-
-import { type UseDisclosureReturn } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { MdOutlineFilterAlt } from 'react-icons/md';
 
-import { type DrawerControl } from '~/shared/layout/Page/page.types';
+import { usePageToolboxContext } from '~/shared/layout/Page/PageToolbox.context';
 import { ControlButton } from '~/shared/ui/components/IconButton/ControlButton';
 import { Tooltip } from '~/shared/ui/components/Tooltip';
 
-const EmployeesFilterControl = ({
-  triggerRef,
-  onOpen
-}: UseDisclosureReturn & {
-  triggerRef?: React.Ref<HTMLButtonElement>;
-}) => {
+export const EmployeesFilterControl = () => {
   const [t] = useTranslation();
+  const {
+    disclosure: { onOpen },
+    triggerRef
+  } = usePageToolboxContext();
 
   return (
     <Tooltip
@@ -31,13 +27,3 @@ const EmployeesFilterControl = ({
     </Tooltip>
   );
 };
-
-export const createEmployeesFilterControl: DrawerControl = (
-  disclosure,
-  triggerRef
-) => (
-  <EmployeesFilterControl
-    triggerRef={triggerRef}
-    {...disclosure}
-  />
-);
