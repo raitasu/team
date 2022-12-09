@@ -277,11 +277,19 @@
           "personal_information": {
             "contacts": {
               "address": "Адрес",
+              "apartment": "Квартира",
+              "building": "Дом",
+              "city": "Город",
+              "country": "Страна",
               "email": "Почта",
               "emergency": "Экстренный контакт",
               "mobile_primary": "Основной мобильный телефон",
               "mobile_secondary": "Дополнительный мобильный телефон",
-              "section_title": "Контакты"
+              "section_title": "Контакты",
+              "street": "Улица",
+              "timezone": "Часовой пояс",
+              "unit": "Корпус",
+              "zip_code": "Почтовый индекс"
             },
             "general": {
               "about": "Дополнительно",

@@ -9,7 +9,10 @@ import { SocialNetworkInfo } from './SocialNetworkInfo';
 export const PersonalInfoTab: EmployeeInfoTab = ({ employee }) => (
   <Box>
     <GeneralInfo employee={employee} />
-    <ContactInfo contacts={employee.contacts} />
+    <ContactInfo
+      contacts={employee.contacts}
+      employeeId={employee.id}
+    />
     <SocialNetworkInfo socialNetworks={employee.social_networks} />
   </Box>
 );

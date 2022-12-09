@@ -276,11 +276,19 @@
           "personal_information": {
             "contacts": {
               "address": "Address",
+              "apartment": "Apartment",
+              "building": "Building",
+              "city": "City",
+              "country": "Country",
               "email": "Email",
               "emergency": "Emergency contact",
               "mobile_primary": "Mobile primary phone",
               "mobile_secondary": "Secondary mobile phone",
-              "section_title": "Contact information"
+              "section_title": "Contact information",
+              "street": "Street",
+              "timezone": "Timezone",
+              "unit": "Unit",
+              "zip_code": "ZIP code"
             },
             "general": {
               "about": "About",
