@@ -6,7 +6,10 @@ import { Pagination } from '~/shared/ui/components/Pagination';
 import { getTotalPages } from '~/shared/utils/pagination.utils';
 import { useGetEmployeesQuery } from '~/store/api/employees/employees.api';
 import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
-import { selectEmployeesPagination } from '~/store/slices/employees/employees.selectors';
+import {
+  selectEmployeesFilters,
+  selectEmployeesPagination
+} from '~/store/slices/employees/employees.selectors';
 import {
   toggleElementsPerPage,
   togglePage
@@ -19,12 +22,14 @@ export const EmployeesTablesContainer = ({
   table: EmployeesTable;
 }) => {
   const pagination = useAppSelector(selectEmployeesPagination);
+  const filters = useAppSelector(selectEmployeesFilters);
   const { data: employee } = useAppSelector(selectCurrentEmployee);
   const dispatch = useAppDispatch();
 
   const { data, isFetching } = useGetEmployeesQuery({
     page: pagination.currentPage,
-    elementsPerPage: pagination.elementsPerPage
+    elementsPerPage: pagination.elementsPerPage,
+    filters
   });
 
   if (!employee) return null;

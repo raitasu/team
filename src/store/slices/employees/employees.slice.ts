@@ -30,6 +30,7 @@ export const employeesSlice = createSlice({
     },
     setEmployeesFilters(state, { payload }: PayloadAction<EmployeesFilters>) {
       state.filters = payload;
+      state.pagination.currentPage = 1;
     },
     togglePage(state, { payload }: PayloadAction<number>) {
       state.pagination.currentPage = payload;

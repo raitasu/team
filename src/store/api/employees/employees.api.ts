@@ -11,13 +11,14 @@ import {
   type Employee,
   type EmployeesListResponse
 } from '~/store/api/employees/employees.types';
+import { type EmployeesFilters } from '~/store/slices/employees/employees.types';
 
 const employeesApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
   endpoints: (builder) => ({
     getEmployees: builder.query<
       EmployeesListResponse,
-      { page: number; elementsPerPage: number }
+      { page: number; elementsPerPage: number; filters?: EmployeesFilters }
     >({
       providesTags: (response) =>
         response
@@ -56,14 +57,30 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
           // eslint-disable-next-line no-empty -- error cases are handled outside
         } catch (err) {}
       },
-      query: ({ page, elementsPerPage }) => ({
-        url: 'employees',
-        method: 'GET',
-        params: {
-          limit: elementsPerPage,
-          offset: getPageOffset(page, elementsPerPage)
-        }
-      })
+      query: ({ page, elementsPerPage, filters = {} }) => {
+        const params = new URLSearchParams({
+          limit: `${elementsPerPage}`,
+          offset: `${getPageOffset(page, elementsPerPage)}`
+        });
+
+        (Object.keys(filters) as (keyof EmployeesFilters)[]).forEach((key) => {
+          const value = filters[key];
+
+          if (typeof value === 'string' || typeof value === 'number') {
+            params.append(key, `${value}`);
+          }
+
+          if (Array.isArray(value)) {
+            params.append(`${key}[]`, value.join(','));
+          }
+        });
+
+        return {
+          url: 'employees',
+          method: 'GET',
+          params
+        };
+      }
     }),
     getEmployee: builder.query<Employee, number>({
       providesTags: (employee) => [

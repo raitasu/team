@@ -67,26 +67,91 @@ const getEmployeesHandler = rest.get(
   async ({ url: { searchParams } }, res, ctx) => {
     const limit = +(searchParams.get('limit') || 10);
     const offset = +(searchParams.get('offset') || 0);
-    const name = searchParams.get('name');
-    const locale = searchParams.get('locale') || undefined;
+    const name = searchParams.get('employee_name');
+    const workExperienceStart = Number.isNaN(
+      +(searchParams.get('work_experience_start') || NaN)
+    )
+      ? null
+      : +(searchParams.get('work_experience_start') || '');
+    const workExperienceEnd = Number.isNaN(
+      +(searchParams.get('work_experience_end') || NaN)
+    )
+      ? null
+      : +(searchParams.get('work_experience_end') || '');
+    const locale = searchParams.get('locale') || 'en';
+    const positions = searchParams
+      .getAll('position[]')
+      .flatMap((item) => item.split(','))
+      .map((num) => +num);
+    const hardSkills = searchParams
+      .getAll('hard_skills[]')
+      .flatMap((item) => item.split(','))
+      .map((num) => +num);
+    const languages = searchParams
+      .getAll('language[]')
+      .flatMap((item) => item.split(','));
+    const languageLevels = searchParams
+      .getAll('language_level[]')
+      .flatMap((item) => item.split(','));
+    const statuses = searchParams
+      .getAll('status[]')
+      .flatMap((item) => item.split(','));
 
     const employees: ShortEmployee[] = getEmployees()
       .filter((employee) => {
-        if (
-          name &&
-          !(
-            getTranslation(employee.first_name_translations, locale).indexOf(
-              name
-            ) > -1 ||
-            getTranslation(employee.last_name_translations, locale).indexOf(
-              name
-            ) > -1
-          )
-        ) {
-          return false;
+        let isValid = true;
+
+        if (name) {
+          isValid =
+            getTranslation(employee.first_name_translations, locale)
+              .toLowerCase()
+              .indexOf(name.toLowerCase()) > -1 ||
+            getTranslation(employee.last_name_translations, locale)
+              .toLowerCase()
+              .indexOf(name.toLowerCase()) > -1;
         }
 
-        return true;
+        if (workExperienceStart !== null) {
+          isValid =
+            isValid && employee.years_of_experience >= workExperienceStart;
+        }
+
+        if (workExperienceEnd !== null) {
+          isValid =
+            isValid && employee.years_of_experience <= workExperienceEnd;
+        }
+
+        if (positions.length > 0) {
+          isValid =
+            isValid &&
+            employee.positions.some(({ id }) => positions.includes(id));
+        }
+
+        if (hardSkills.length > 0) {
+          isValid =
+            isValid &&
+            employee.hard_skills.some(({ id }) => hardSkills.includes(id));
+        }
+
+        if (languages.length > 0) {
+          isValid =
+            isValid &&
+            employee.languages.some(({ name }) => languages.includes(name));
+        }
+
+        if (languageLevels.length > 0) {
+          isValid =
+            isValid &&
+            employee.languages.some(({ level }) =>
+              languageLevels.includes(level)
+            );
+        }
+
+        if (statuses.length > 0) {
+          isValid = isValid && statuses.includes(employee.status);
+        }
+
+        return isValid;
       })
       .map((employee) =>
         pick(employee, [

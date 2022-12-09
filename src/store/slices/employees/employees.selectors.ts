@@ -5,3 +5,6 @@ export const selectEmployeesPagination = (state: RootState) =>
 
 export const selectEmployeesFilters = (state: RootState) =>
   state.employees.filters;
+
+export const selectEmployeesFiltersCount = (state: RootState) =>
+  Object.keys(state.employees.filters).length;
