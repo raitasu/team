@@ -73,9 +73,7 @@ const shouldSkipJson = process.argv.includes('--skip-json');
     }
   } catch (err) {
     success = false;
-    console.error(
-      chalk.red.bold(`${icons.error} Eslint failed due to the above errors\n`)
-    );
+    console.error(chalk.red.bold(`${icons.error} ${err.message}\n`));
   }
 
   try {

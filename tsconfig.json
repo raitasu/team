@@ -9,7 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react",
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
@@ -26,7 +25,6 @@
     "strict": true,
     "target": "es2018",
     "types": [
-      "@emotion/react/types/css-prop",
       "cypress",
       "vite/client",
       "vite-plugin-svgr/client",

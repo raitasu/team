@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import path from 'path';
 
 import basicSsl from '@vitejs/plugin-basic-ssl';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react-swc';
 import { defineConfig, type PluginOption } from 'vite';
 import eslint from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
@@ -17,13 +17,6 @@ const getSvgrPluginOptions = () => ({
     },
     titleProp: true,
     ref: true
-  }
-});
-
-const getReactPluginOptions = () => ({
-  jsxImportSource: '@emotion/react',
-  babel: {
-    plugins: ['@emotion/babel-plugin']
   }
 });
 
@@ -59,7 +52,7 @@ export default defineConfig(({ mode }) => {
 
   const plugins: PluginOption[] = [
     svgr(getSvgrPluginOptions()),
-    react(getReactPluginOptions()),
+    react(),
     eslint(getEslintPluginOptions(isProductionBuild))
   ];
 
@@ -101,7 +94,6 @@ export default defineConfig(({ mode }) => {
         ? ['default', 'junit', new GithubActionsReporter()]
         : 'default',
       coverage: {
-        all: true,
         src: ['src']
       }
     }
