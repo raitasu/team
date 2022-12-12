@@ -1,3 +1,5 @@
+import { type SortingState } from '@tanstack/react-table';
+
 import { type CreateEmployeeFormValues } from '~/features/employee/CreateEmployeeModal/employee.schema';
 import { showGlobalError } from '~/shared/ui/components/Toast';
 import { getPageOffset } from '~/shared/utils/pagination.utils';
@@ -18,7 +20,12 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getEmployees: builder.query<
       EmployeesListResponse,
-      { page: number; elementsPerPage: number; filters?: EmployeesFilters }
+      {
+        page: number;
+        elementsPerPage: number;
+        filters?: EmployeesFilters;
+        sorting?: SortingState;
+      }
     >({
       providesTags: (response) =>
         response
@@ -57,7 +64,7 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
           // eslint-disable-next-line no-empty -- error cases are handled outside
         } catch (err) {}
       },
-      query: ({ page, elementsPerPage, filters = {} }) => {
+      query: ({ page, elementsPerPage, filters = {}, sorting = [] }) => {
         const params = new URLSearchParams({
           limit: `${elementsPerPage}`,
           offset: `${getPageOffset(page, elementsPerPage)}`
@@ -74,6 +81,13 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
             params.append(`${key}[]`, value.join(','));
           }
         });
+
+        if (sorting.length > 0) {
+          const [column] = sorting;
+
+          params.append('sort_column', column.id);
+          params.append('sort_direction', column.desc ? 'desc' : 'asc');
+        }
 
         return {
           url: 'employees',

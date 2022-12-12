@@ -252,7 +252,7 @@
         "cv": "CV",
         "date_of_birth": "Date of birth",
         "email": "Email",
-        "full_name": "Name",
+        "name": "Name",
         "position_one": "Position",
         "position_other": "Positions",
         "primary_phone": "Phone Number",

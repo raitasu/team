@@ -13,7 +13,12 @@ import { type EmployeesTable } from '~/features/employees/Tables/tables.types';
 import { PagePaths } from '~/router/router.constants';
 import { ConfirmationModal } from '~/shared/ui/components/ConfirmationModal';
 
-export const EmployeesPositionsTable: EmployeesTable = ({ data, employee }) => {
+export const EmployeesPositionsTable: EmployeesTable = ({
+  data,
+  employee,
+  sorting,
+  onSortingChange
+}) => {
   const [selectedEmployeeId, setSelectedEmployeeId] = React.useState<
     number | null
   >(null);
@@ -24,6 +29,11 @@ export const EmployeesPositionsTable: EmployeesTable = ({ data, employee }) => {
     columns: PositionsColumns,
     data,
     getCoreRowModel: getCoreRowModel(),
+    manualSorting: true,
+    onSortingChange: (updater) =>
+      onSortingChange(
+        typeof updater === 'function' ? updater(sorting) : updater
+      ),
     meta: {
       onAddCVBtnClick: (id) => {
         setSelectedEmployeeId(id);
@@ -33,6 +43,9 @@ export const EmployeesPositionsTable: EmployeesTable = ({ data, employee }) => {
       columnVisibility: {
         cv: isAdmin(employee)
       }
+    },
+    state: {
+      sorting
     }
   });
 

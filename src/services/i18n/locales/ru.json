@@ -252,7 +252,7 @@
         "cv": "Резюме",
         "date_of_birth": "Дата рождения",
         "email": "Почта",
-        "full_name": "Имя",
+        "name": "Имя",
         "position_many": "Должности",
         "position_one": "Должность",
         "primary_phone": "Номер",

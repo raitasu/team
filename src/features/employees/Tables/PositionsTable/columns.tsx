@@ -27,7 +27,8 @@ export const PositionsColumns = [
           getTranslation(project.name_translations, getI18n().language)
         )
         .join(', '),
-    header: TranslatedHeader
+    header: TranslatedHeader,
+    enableSorting: false
   }),
   columnHelper.accessor('contacts', {
     id: EmployeesHeaderIds.Contacts,
@@ -36,7 +37,8 @@ export const PositionsColumns = [
         info.getValue().address.city,
         getI18n().language
       )}`,
-    header: TranslatedHeader
+    header: TranslatedHeader,
+    enableSorting: false
   }),
   columnHelper.accessor('date_of_birth', {
     id: EmployeesHeaderIds.Birthday,
@@ -47,7 +49,8 @@ export const PositionsColumns = [
   columnHelper.accessor('projects', {
     id: EmployeesHeaderIds.CurrentProjects,
     cell: ProjectsCell,
-    header: TranslatedHeader
+    header: TranslatedHeader,
+    enableSorting: false
   }),
   columnHelper.accessor('id', {
     id: EmployeesHeaderIds.CV,

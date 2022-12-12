@@ -8,11 +8,13 @@ import { useGetEmployeesQuery } from '~/store/api/employees/employees.api';
 import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
 import {
   selectEmployeesFilters,
-  selectEmployeesPagination
+  selectEmployeesPagination,
+  selectEmployeesSorting
 } from '~/store/slices/employees/employees.selectors';
 import {
   toggleElementsPerPage,
-  togglePage
+  togglePage,
+  toggleSorting
 } from '~/store/slices/employees/employees.slice';
 import { useAppDispatch, useAppSelector } from '~/store/store.hooks';
 
@@ -23,13 +25,15 @@ export const EmployeesTablesContainer = ({
 }) => {
   const pagination = useAppSelector(selectEmployeesPagination);
   const filters = useAppSelector(selectEmployeesFilters);
+  const sorting = useAppSelector(selectEmployeesSorting);
   const { data: employee } = useAppSelector(selectCurrentEmployee);
   const dispatch = useAppDispatch();
 
   const { data, isFetching } = useGetEmployeesQuery({
     page: pagination.currentPage,
     elementsPerPage: pagination.elementsPerPage,
-    filters
+    filters,
+    sorting
   });
 
   if (!employee) return null;
@@ -61,6 +65,10 @@ export const EmployeesTablesContainer = ({
         <Table
           data={data?.items || []}
           employee={employee}
+          sorting={sorting}
+          onSortingChange={(updatedSort) =>
+            dispatch(toggleSorting(updatedSort))
+          }
         />
       </Box>
       <Box

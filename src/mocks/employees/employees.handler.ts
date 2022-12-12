@@ -79,6 +79,8 @@ const getEmployeesHandler = rest.get(
       ? null
       : +(searchParams.get('work_experience_end') || '');
     const locale = searchParams.get('locale') || 'en';
+    const sortColumn = searchParams.get('sort_column');
+    const sortDirection = searchParams.get('sort_direction');
     const positions = searchParams
       .getAll('position[]')
       .flatMap((item) => item.split(','))
@@ -152,6 +154,46 @@ const getEmployeesHandler = rest.get(
         }
 
         return isValid;
+      })
+      .sort((a, b) => {
+        if (sortColumn && sortDirection) {
+          if (sortColumn === 'date_of_birth') {
+            if (sortDirection === 'desc') {
+              return a.date_of_birth > b.date_of_birth ? -1 : 1;
+            }
+
+            return a.date_of_birth > b.date_of_birth ? 1 : -1;
+          }
+
+          if (sortColumn === 'name') {
+            const firstNameA = getTranslation(
+              a.first_name_translations,
+              locale
+            );
+            const firstNameB = getTranslation(
+              b.first_name_translations,
+              locale
+            );
+            const lastNameA = getTranslation(a.last_name_translations, locale);
+            const lastNameB = getTranslation(b.last_name_translations, locale);
+
+            if (lastNameA === lastNameB) {
+              if (sortDirection === 'desc') {
+                return firstNameA > firstNameB ? -1 : 1;
+              }
+
+              return firstNameA > lastNameB ? 1 : -1;
+            }
+
+            if (sortDirection === 'desc') {
+              return lastNameA > lastNameB ? -1 : 1;
+            }
+
+            return lastNameA > lastNameB ? 1 : -1;
+          }
+        }
+
+        return 0;
       })
       .map((employee) =>
         pick(employee, [

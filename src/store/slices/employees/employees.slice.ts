@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { type SortingState } from '@tanstack/react-table';
 
 import {
   type EmployeesFilters,
@@ -10,7 +11,8 @@ const getInitialState: () => EmployeesSliceState = () => ({
   pagination: {
     currentPage: 1,
     elementsPerPage: 10
-  }
+  },
+  sorting: []
 });
 
 export const employeesSlice = createSlice({
@@ -35,6 +37,10 @@ export const employeesSlice = createSlice({
     togglePage(state, { payload }: PayloadAction<number>) {
       state.pagination.currentPage = payload;
     },
+    toggleSorting(state, { payload }: PayloadAction<SortingState>) {
+      state.sorting = payload;
+      state.pagination.currentPage = 1;
+    },
     toggleElementsPerPage(state, { payload }: PayloadAction<number>) {
       state.pagination.currentPage = 1;
       state.pagination.elementsPerPage = payload;
@@ -46,6 +52,7 @@ export const {
   actions: {
     togglePage,
     toggleElementsPerPage,
+    toggleSorting,
     setEmployeesFilters,
     resetEmployeesSlice
   }

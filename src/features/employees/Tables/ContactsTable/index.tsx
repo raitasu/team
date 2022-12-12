@@ -6,11 +6,23 @@ import { TableHeader } from '~/features/employees/Tables/components/TableHeader'
 import { ContactsColumns } from '~/features/employees/Tables/ContactsTable/collumns';
 import { type EmployeesTable } from '~/features/employees/Tables/tables.types';
 
-export const EmployeesContactsTable: EmployeesTable = ({ data }) => {
+export const EmployeesContactsTable: EmployeesTable = ({
+  data,
+  sorting,
+  onSortingChange
+}) => {
   const table = useReactTable({
     columns: ContactsColumns,
     data,
-    getCoreRowModel: getCoreRowModel()
+    getCoreRowModel: getCoreRowModel(),
+    manualSorting: true,
+    onSortingChange: (updater) =>
+      onSortingChange(
+        typeof updater === 'function' ? updater(sorting) : updater
+      ),
+    state: {
+      sorting
+    }
   });
 
   return (
