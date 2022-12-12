@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker';
+import { faker } from '@faker-js/faker/locale/en';
 import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
@@ -29,7 +29,7 @@ const generateEmployeeCertificate = (id: number): EmployeeCertificate => ({
   }
 });
 
-(function generateSessionEmployeeCeritificates() {
+(function generateSessionEmployeeCertificates() {
   new Array(getRandomInteger(1, 50)).fill('').forEach((_, index) => {
     sessionCertificates[index] = generateEmployeeCertificate(index);
   });

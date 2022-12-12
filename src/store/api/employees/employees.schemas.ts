@@ -84,8 +84,8 @@ export const EmployeeCertificateSchema = AddressSchema.pick({
   id: z.number(),
   institute_translations: TranslationSchema,
   file: z.string(),
-  start_at: z.string(),
-  end_at: z.string(),
+  start_at: z.string().datetime(),
+  end_at: z.string().datetime(),
   speciality_translations: TranslationSchema
 });
 
@@ -103,8 +103,8 @@ export const EmployeeEducationSchema = AddressSchema.pick({
 }).extend({
   id: z.number(),
   degree: TranslationSchema,
-  start_at: z.string(),
-  end_at: z.string(),
+  start_at: z.string().datetime(),
+  end_at: z.string().datetime(),
   speciality_translations: TranslationSchema,
   university_name_translations: TranslationSchema
 });
@@ -127,7 +127,7 @@ const EmployeeProjectSchema = z.object({
 
 export const EmployeePublicationSchema = z.object({
   id: z.number(),
-  date: z.string(),
+  date: z.string().datetime(),
   description_translations: TranslationSchema,
   file: z.string(),
   name_translations: TranslationSchema,
@@ -179,8 +179,8 @@ export const WorkExperienceSchema = z.object({
   id: z.number(),
   company_name: z.string(),
   position: TranslationSchema,
-  started_at: z.string(),
-  ended_at: z.string(),
+  started_at: z.string().datetime(),
+  ended_at: z.string().datetime(),
   description: TranslationSchema,
   responsibilities: TranslationSchema,
   environment: z.string().array()
@@ -193,7 +193,7 @@ export const EmployeeSchema = z.object({
   clothing_size: ClothingSizeSchema,
   contacts: EmployeeContactsSchema,
   cvs: CvSchema.array(),
-  date_of_birth: z.string(),
+  date_of_birth: z.string().datetime(),
   educations: EmployeeEducationSchema.array(),
   first_name_translations: TranslationSchema,
   gender: GenderSchema,
@@ -209,7 +209,7 @@ export const EmployeeSchema = z.object({
   social_networks: SocialNetworkSchema,
   soft_skills: SoftSkillSchema.array(),
   status: EmployeeStatusSchema,
-  start_career_at: z.string(),
+  start_career_at: z.string().datetime(),
   timezone: z.string(),
   years_of_experience: z.number(),
   work_experiences: WorkExperienceSchema.array()

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import { DrawerFooter } from '@chakra-ui/react';
-import { isEqual } from 'lodash';
 import isEmpty from 'lodash/isEmpty';
+import isEqual from 'lodash/isEqual';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 

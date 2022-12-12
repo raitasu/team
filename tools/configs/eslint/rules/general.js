@@ -202,6 +202,11 @@ module.exports = {
           ],
           message:
             "Please use the import from '~/shared/ui/components' instead."
+        },
+        {
+          name: 'lodash',
+          message:
+            "Please, use the specific import from 'lodash' instead. Ex. import isEqual from 'lodash/isEqual'"
         }
       ]
     }

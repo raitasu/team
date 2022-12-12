@@ -3,6 +3,7 @@ import path from 'path';
 
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import react from '@vitejs/plugin-react-swc';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, type PluginOption } from 'vite';
 import eslint from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
@@ -23,6 +24,12 @@ const getSvgrPluginOptions = () => ({
 const getEslintPluginOptions = (isProductionBuild: boolean) => ({
   failOnError: isProductionBuild,
   failOnWarning: false
+});
+
+const getVisualizerPluginOptions = () => ({
+  title: 'Teams Dependencies Analysis',
+  filename: 'bundleAnalysisReport.html',
+  gzipSize: true
 });
 
 const getHttpsOptions = (mode: string) => {
@@ -53,7 +60,8 @@ export default defineConfig(({ mode }) => {
   const plugins: PluginOption[] = [
     svgr(getSvgrPluginOptions()),
     react(),
-    eslint(getEslintPluginOptions(isProductionBuild))
+    eslint(getEslintPluginOptions(isProductionBuild)),
+    visualizer(getVisualizerPluginOptions())
   ];
 
   if (mode === 'test') {
@@ -64,6 +72,7 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: 'build',
       emptyOutDir: true,
+      manifest: 'assets-manifest.json',
       sourcemap: isDevelopmentBuild,
       target: 'es2018'
     },
