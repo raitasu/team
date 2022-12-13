@@ -1,6 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { type SortingState } from '@tanstack/react-table';
 
+import { EmployeesHeaderIds } from '~/features/employees/Tables/tables.constants';
 import {
   type EmployeesFilters,
   type EmployeesSliceState
@@ -12,7 +13,12 @@ const getInitialState: () => EmployeesSliceState = () => ({
     currentPage: 1,
     elementsPerPage: 10
   },
-  sorting: []
+  sorting: [
+    {
+      id: EmployeesHeaderIds.FullName,
+      desc: false
+    }
+  ]
 });
 
 export const employeesSlice = createSlice({

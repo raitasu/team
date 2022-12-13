@@ -174,22 +174,28 @@ const getEmployeesHandler = rest.get(
               b.first_name_translations,
               locale
             );
-            const lastNameA = getTranslation(a.last_name_translations, locale);
-            const lastNameB = getTranslation(b.last_name_translations, locale);
+            const lastNameA = getTranslation(
+              a.last_name_translations,
+              locale
+            ).toLowerCase();
+            const lastNameB = getTranslation(
+              b.last_name_translations,
+              locale
+            ).toLowerCase();
 
-            if (lastNameA === lastNameB) {
+            if (firstNameA === firstNameB) {
               if (sortDirection === 'desc') {
-                return firstNameA > firstNameB ? -1 : 1;
+                return lastNameA > lastNameB ? -1 : 1;
               }
 
-              return firstNameA > lastNameB ? 1 : -1;
+              return lastNameA > lastNameB ? 1 : -1;
             }
 
             if (sortDirection === 'desc') {
-              return lastNameA > lastNameB ? -1 : 1;
+              return firstNameA > firstNameB ? -1 : 1;
             }
 
-            return lastNameA > lastNameB ? 1 : -1;
+            return firstNameA > firstNameB ? 1 : -1;
           }
         }
 
