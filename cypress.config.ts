@@ -15,7 +15,7 @@ export default defineConfig({
   },
 
   e2e: {
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'https://localhost:3000',
     env: {
       ALFRED_HOST: 'https://alfred.cybergizer.com'
     }

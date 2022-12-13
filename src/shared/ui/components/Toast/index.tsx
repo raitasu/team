@@ -54,13 +54,13 @@ export const showGlobalError = (
     ...config,
     title: getI18n().t(
       `domains:global.errors.titles.${config?.titleTag ?? 'unknown_error'}`,
-      config?.titleTagArgs
+      config?.titleTagArgs || {}
     ),
     description: getI18n().t(
       `domains:global.errors.descriptions.${
         config?.descriptionTag ?? 'unknown_error'
       }`,
-      config?.descriptionTagArgs
+      config?.descriptionTagArgs || {}
     ),
     position: config?.position ?? 'bottom-right',
     duration: config?.duration ?? 5000,
