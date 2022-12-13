@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/query/react';
 import isFinite from 'lodash/isFinite';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { CvSection } from '~/features/employee/CvSection';
@@ -23,6 +24,8 @@ export const Employee = () => {
     isLoading,
     isError
   } = useGetEmployeeQuery(id && isFinite(+id) ? +id : skipToken);
+
+  const [t] = useTranslation();
 
   if (isLoading) {
     return <PageLoader />;
@@ -56,11 +59,13 @@ export const Employee = () => {
           >
             <EmployeeCard employee={employee} />
           </Box>
-          {employee.cvs.length ? (
+          {employee.cvs ? (
             <Box overflow="auto">
               <CvSection cvList={employee.cvs} />
             </Box>
-          ) : null}
+          ) : (
+            <div>{t('domains:employee.errors.no_data')}</div>
+          )}
         </Flex>
         <Box
           flex="1"

@@ -22,7 +22,7 @@ export const PositionsColumns = [
   columnHelper.accessor('positions', {
     id: EmployeesHeaderIds.Positions,
     cell: (info) =>
-      Object.values(info.getValue())
+      Object.values(info.getValue() || [])
         .map((project) =>
           getTranslation(project.name_translations, getI18n().language)
         )
@@ -33,17 +33,25 @@ export const PositionsColumns = [
   columnHelper.accessor('contacts', {
     id: EmployeesHeaderIds.Contacts,
     cell: (info) =>
-      `${info.getValue().address.country_code}, ${getTranslation(
-        info.getValue().address.city,
-        getI18n().language
-      )}`,
+      `${info.getValue().address.country_code},  ${
+        info.getValue().address.city
+          ? getTranslation(
+              info.getValue().address.city || { en: '' },
+              getI18n().language
+            )
+          : '-'
+      }`,
     header: TranslatedHeader,
     enableSorting: false
   }),
   columnHelper.accessor('date_of_birth', {
     id: EmployeesHeaderIds.Birthday,
     cell: (info) =>
-      getFormattedDate(info.getValue(), getI18n().language, DateFormats.Long),
+      getFormattedDate(
+        info.getValue() as string,
+        getI18n().language,
+        DateFormats.Long
+      ),
     header: TranslatedHeader
   }),
   columnHelper.accessor('projects', {

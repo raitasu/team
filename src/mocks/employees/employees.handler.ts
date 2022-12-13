@@ -9,7 +9,6 @@ import {
 } from '~/mocks/employees/fixtures/employees';
 import { sleep } from '~/mocks/mocks.utils';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
 const getCurrentUserHandler = rest.get(
   `${import.meta.env.VITE_PUBLIC_API_URL}me`,
@@ -99,7 +98,7 @@ const getEmployeesHandler = rest.get(
       .getAll('status[]')
       .flatMap((item) => item.split(','));
 
-    const employees: ShortEmployee[] = getEmployees()
+    const employees = getEmployees()
       .filter((employee) => {
         let isValid = true;
 
@@ -113,35 +112,35 @@ const getEmployeesHandler = rest.get(
               .indexOf(name.toLowerCase()) > -1;
         }
 
-        if (workExperienceStart !== null) {
+        if (workExperienceStart !== null && employee.years_of_experience) {
           isValid =
             isValid && employee.years_of_experience >= workExperienceStart;
         }
 
-        if (workExperienceEnd !== null) {
+        if (workExperienceEnd !== null && employee.years_of_experience) {
           isValid =
             isValid && employee.years_of_experience <= workExperienceEnd;
         }
 
-        if (positions.length > 0) {
+        if (positions.length > 0 && employee.positions) {
           isValid =
             isValid &&
             employee.positions.some(({ id }) => positions.includes(id));
         }
 
-        if (hardSkills.length > 0) {
+        if (hardSkills.length > 0 && employee.hard_skills) {
           isValid =
             isValid &&
             employee.hard_skills.some(({ id }) => hardSkills.includes(id));
         }
 
-        if (languages.length > 0) {
+        if (languages.length > 0 && employee.languages) {
           isValid =
             isValid &&
             employee.languages.some(({ name }) => languages.includes(name));
         }
 
-        if (languageLevels.length > 0) {
+        if (languageLevels.length > 0 && employee.languages) {
           isValid =
             isValid &&
             employee.languages.some(({ level }) =>
@@ -157,13 +156,14 @@ const getEmployeesHandler = rest.get(
       })
       .sort((a, b) => {
         if (sortColumn && sortDirection) {
-          if (sortColumn === 'date_of_birth') {
-            if (sortDirection === 'desc') {
-              return a.date_of_birth > b.date_of_birth ? -1 : 1;
-            }
+          if (a.date_of_birth && b.date_of_birth)
+            if (sortColumn === 'date_of_birth') {
+              if (sortDirection === 'desc') {
+                return a.date_of_birth > b.date_of_birth ? -1 : 1;
+              }
 
-            return a.date_of_birth > b.date_of_birth ? 1 : -1;
-          }
+              return a.date_of_birth > b.date_of_birth ? 1 : -1;
+            }
 
           if (sortColumn === 'name') {
             const firstNameA = getTranslation(
@@ -213,7 +213,8 @@ const getEmployeesHandler = rest.get(
           'projects',
           'role',
           'status',
-          'social_networks'
+          'social_networks',
+          'email'
         ])
       );
 

@@ -8,7 +8,7 @@ import { InfoSection } from '../components/InfoSection';
 export const LanguagesInfo = ({
   languages
 }: {
-  languages: EmployeeLanguage[];
+  languages?: EmployeeLanguage[];
 }) => {
   const [t] = useTranslation();
 
@@ -16,7 +16,7 @@ export const LanguagesInfo = ({
     <InfoSection
       title={t('domains:employee.titles.profile_tabs.skills.languages')}
     >
-      {languages.map((lang) => (
+      {(languages || []).map((lang) => (
         <Text key={lang.name}>
           {`${t(`enums:language.${lang.name}`)} `}
           <Text

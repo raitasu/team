@@ -11,7 +11,7 @@ export const ProjectsCell = ({
   const [t, { language }] = useTranslation();
   const projects = getValue();
 
-  return projects.length !== 0 ? (
+  return projects ? (
     projects.map((project) => (
       <Text key={project.id}>
         {getTranslation(project.name_translations, language)}

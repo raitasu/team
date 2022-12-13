@@ -67,6 +67,7 @@ const generateEmployee = (id: number): Employee => {
   const gender = (['male', 'female'] as const)[getRandomInteger(0, 1)];
 
   return {
+    email: faker.internet.email(),
     about_translations: {
       en: faker.lorem.paragraph(),
       ru: fakerRu.lorem.paragraph()

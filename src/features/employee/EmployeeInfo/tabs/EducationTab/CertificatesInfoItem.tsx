@@ -18,6 +18,10 @@ export const CertificatesInfoItem = ({
 }) => {
   const [t, { language }] = useTranslation();
 
+  const city = certificate.city
+    ? getTranslation(certificate.city, language)
+    : t('domains:employee.errors.no_data');
+
   return (
     <Flex
       flexDirection="column"
@@ -46,9 +50,7 @@ export const CertificatesInfoItem = ({
             certificate.start_at,
             language
           )} - ${getFormattedDate(certificate.end_at, language)}`}</Text>
-          <Text>
-            {`${getTranslation(certificate.city)}, ${certificate.country_code}`}
-          </Text>
+          <Text>{`${city} ${certificate.country_code}`}</Text>
         </Grid>
 
         <Grid rowGap={ROW_GAP}>

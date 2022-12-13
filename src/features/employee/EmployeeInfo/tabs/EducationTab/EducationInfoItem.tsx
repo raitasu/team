@@ -47,7 +47,9 @@ export const EducationInfoItem = ({
             language
           )} - ${getFormattedDate(education.end_at, language)}`}</Text>
           <Text>
-            {`${getTranslation(education.city)}, ${education.country_code}`}
+            {`${getTranslation(education.city || { en: '' })}, ${
+              education.country_code
+            }`}
           </Text>
         </Grid>
 

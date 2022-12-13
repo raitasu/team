@@ -244,7 +244,8 @@
         "edit_cv": "Edit CV"
       },
       "errors": {
-        "no_data": "No employees data",
+        "no_data": "No data",
+        "no_employees_data": "No employees data",
         "required_field": "Field can't be empty"
       },
       "table_headers": {

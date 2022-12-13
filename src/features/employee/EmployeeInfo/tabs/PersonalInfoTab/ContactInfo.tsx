@@ -42,28 +42,36 @@ export const ContactInfo = ({
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_primary'
         )}
-        values={[contacts.primary_phone]}
+        values={[
+          contacts.primary_phone || t('domains:employee.errors.no_data')
+        ]}
         linkType="phone"
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_secondary'
         )}
-        values={contacts.phones}
+        values={contacts.phones || [t('domains:employee.errors.no_data')]}
         linkType="phone"
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.emergency'
         )}
-        values={contacts.emergency_phones}
+        values={
+          contacts.emergency_phones || [t('domains:employee.errors.no_data')]
+        }
         linkType="phone"
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.address'
         )}
-        values={[getTranslation(contacts.address.city, language)]}
+        values={
+          contacts.address?.city
+            ? [getTranslation(contacts.address.city, language)]
+            : [t('domains:employee.errors.no_data')]
+        }
       />
       <ContactItem
         name={t(

@@ -142,18 +142,30 @@ export const EditContactsInfoModal = ({
             gap={COLUMN_GAP}
           >
             <SelectContactField
-              data={contacts.address.city}
+              data={
+                contacts.address?.city
+                  ? contacts.address.city
+                  : { en: t('domains:employee.errors.no_data') }
+              }
               name="country"
               label={TranslationKeys.country}
             />
             <SelectContactField
-              data={contacts.address.city}
+              data={
+                contacts.address?.city
+                  ? contacts.address.city
+                  : { en: t('domains:employee.errors.no_data') }
+              }
               name="city"
               label={TranslationKeys.city}
             />
           </Grid>
           <SelectContactField
-            data={contacts.address.city}
+            data={
+              contacts.address?.city
+                ? contacts.address.city
+                : { en: t('domains:employee.errors.no_data') }
+            }
             name="timeZone"
             label={TranslationKeys.timeZone}
           />

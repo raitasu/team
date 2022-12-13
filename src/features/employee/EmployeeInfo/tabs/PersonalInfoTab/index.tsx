@@ -13,6 +13,8 @@ export const PersonalInfoTab: EmployeeInfoTab = ({ employee }) => (
       contacts={employee.contacts}
       employeeId={employee.id}
     />
-    <SocialNetworkInfo socialNetworks={employee.social_networks} />
+    <SocialNetworkInfo
+      socialNetworks={employee.social_networks ? employee.social_networks : {}}
+    />
   </Box>
 );

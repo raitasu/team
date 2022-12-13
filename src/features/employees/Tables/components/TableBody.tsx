@@ -25,7 +25,7 @@ export const TableBody = ({ rows }: { rows: Row<ShortEmployee>[] }) => {
             colSpan={2000}
             textAlign="center"
           >
-            {t('domains:employee.errors.no_data')}
+            {t('domains:employee.errors.no_employees_data')}
           </Td>
         </Tr>
       )}

@@ -5,9 +5,9 @@ import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
 export const EmailCell = ({
   getValue
-}: CellContext<ShortEmployee, ShortEmployee['contacts']>) => (
+}: CellContext<ShortEmployee, ShortEmployee['email']>) => (
   <TableLink
-    link={getValue().emails[0]}
+    link={getValue()}
     linkType="email"
   />
 );

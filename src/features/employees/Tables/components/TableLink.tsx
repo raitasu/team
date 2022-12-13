@@ -7,7 +7,7 @@ export const TableLink = ({
   linkType,
   ...props
 }: LinkProps & {
-  link: string;
+  link: string | null;
   linkType?: LinkType;
 }) => {
   if (!link) {

@@ -13,7 +13,7 @@ export const ContactItem = ({
   linkType
 }: {
   name: string;
-  values: string[];
+  values?: string[];
   linkType?: LinkType;
 }) => (
   <Flex gap={COLUMN_GAP}>
@@ -27,7 +27,7 @@ export const ContactItem = ({
       flexDirection="column"
       gap={ROW_GAP}
     >
-      {values.map((contact) =>
+      {(values || []).map((contact) =>
         linkType ? (
           <Link
             key={contact}

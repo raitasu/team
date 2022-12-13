@@ -17,7 +17,7 @@ export const ContactsColumns = [
     cell: NameCell,
     header: TranslatedHeader
   }),
-  columnHelper.accessor('contacts', {
+  columnHelper.accessor('email', {
     id: EmployeesHeaderIds.Email,
     cell: EmailCell,
     enableSorting: false,

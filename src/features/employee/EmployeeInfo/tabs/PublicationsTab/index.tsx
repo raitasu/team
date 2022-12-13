@@ -13,7 +13,7 @@ export const PublicationsTab = ({ employee }: { employee: Employee }) => {
 
   return (
     <Box>
-      {employee.publications.map((publication) => (
+      {(employee.publications || []).map((publication) => (
         <PublicationsInfoItem
           key={publication.id}
           publication={publication}

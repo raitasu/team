@@ -6,7 +6,7 @@ import { TranslationSchema } from '~/store/api/api.types';
 export const AddressSchema = z.object({
   apartment: z.string(),
   building: z.string(),
-  city: TranslationSchema,
+  city: TranslationSchema.nullable(),
   country_code: z.string(),
   street_translations: TranslationSchema,
   unit: z.string(),
@@ -91,11 +91,11 @@ export const EmployeeCertificateSchema = AddressSchema.pick({
 });
 
 export const EmployeeContactsSchema = z.object({
-  primary_phone: z.string(),
-  phones: z.string().array(),
-  emergency_phones: z.string().array(),
+  primary_phone: z.string().nullable(),
+  phones: z.string().array().nullable(),
+  emergency_phones: z.string().array().nullable(),
   emails: z.string().email().array(),
-  address: AddressSchema
+  address: AddressSchema.nullable()
 });
 
 export const EmployeeEducationSchema = AddressSchema.pick({
@@ -188,32 +188,33 @@ export const WorkExperienceSchema = z.object({
 });
 
 export const EmployeeSchema = z.object({
-  about_translations: TranslationSchema,
+  about_translations: TranslationSchema.nullable(),
   avatar_url: z.string().url().nullable(),
-  certificates: EmployeeCertificateSchema.array(),
-  clothing_size: EmployeeClothingSizesSchema,
+  certificates: EmployeeCertificateSchema.array().nullable(),
+  clothing_size: EmployeeClothingSizesSchema.nullable(),
   contacts: EmployeeContactsSchema,
-  cvs: CvSchema.array(),
-  date_of_birth: z.string().datetime(),
-  educations: EmployeeEducationSchema.array(),
+  cvs: CvSchema.array().nullable(),
+  date_of_birth: z.string().datetime().nullable(),
+  educations: EmployeeEducationSchema.array().nullable(),
   first_name_translations: TranslationSchema,
-  gender: EmployeeGendersSchema,
-  hard_skills: HardSkillSchema.array(),
+  gender: EmployeeGendersSchema.nullable(),
+  hard_skills: HardSkillSchema.array().nullable(),
   id: z.number(),
-  interests_translations: TranslationSchema,
-  languages: EmployeeLanguageSchema.array(),
+  email: z.string(),
+  interests_translations: TranslationSchema.nullable(),
+  languages: EmployeeLanguageSchema.array().nullable(),
   last_name_translations: TranslationSchema,
-  positions: EmployeePositionSchema.array(),
-  projects: EmployeeProjectSchema.array(),
-  publications: EmployeePublicationSchema.array(),
-  role: EmployeeRoleSchema,
-  social_networks: SocialNetworkSchema,
-  soft_skills: SoftSkillSchema.array(),
+  positions: EmployeePositionSchema.array().nullable(),
+  projects: EmployeeProjectSchema.array().nullable(),
+  publications: EmployeePublicationSchema.array().nullable(),
+  role: EmployeeRoleSchema.nullable(),
+  social_networks: SocialNetworkSchema.nullable(),
+  soft_skills: SoftSkillSchema.array().nullable(),
   status: EmployeeStatusSchema,
-  start_career_at: z.string().datetime(),
-  timezone: z.string(),
-  years_of_experience: z.number(),
-  work_experiences: WorkExperienceSchema.array()
+  start_career_at: z.string().datetime().nullable(),
+  timezone: z.string().nullable(),
+  years_of_experience: z.number().nullable(),
+  work_experiences: WorkExperienceSchema.array().nullable()
 });
 
 export const ShortEmployeeSchema = EmployeeSchema.pick({
@@ -226,7 +227,8 @@ export const ShortEmployeeSchema = EmployeeSchema.pick({
   projects: true,
   role: true,
   social_networks: true,
-  status: true
+  status: true,
+  email: true
 }).extend({
   contacts: EmployeeContactsSchema.pick({
     emails: true,

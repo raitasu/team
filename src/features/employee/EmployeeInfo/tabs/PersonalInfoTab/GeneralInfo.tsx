@@ -40,45 +40,69 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.general.gender'
         )}
-        value={upperFirst(employee.gender)}
+        value={upperFirst(
+          employee.gender
+            ? employee.gender
+            : t('domains:employee.errors.no_data')
+        )}
       />
       <GeneralInfoItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.general.start_career'
         )}
-        value={getFormattedDate(
-          employee.start_career_at,
-          language,
-          DateFormats.Long
-        )}
+        value={
+          employee.start_career_at
+            ? getFormattedDate(
+                employee.start_career_at,
+                language,
+                DateFormats.Long
+              )
+            : t('domains:employee.errors.no_data')
+        }
       />
       <GeneralInfoItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.general.date_of_birth'
         )}
-        value={getFormattedDate(
-          employee.date_of_birth,
-          language,
-          DateFormats.Long
-        )}
+        value={
+          employee.date_of_birth
+            ? getFormattedDate(
+                employee.date_of_birth,
+                language,
+                DateFormats.Long
+              )
+            : t('domains:employee.errors.no_data')
+        }
       />
       <GeneralInfoItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.general.about'
         )}
-        value={getTranslation(employee.about_translations, language)}
+        value={
+          employee.about_translations
+            ? getTranslation(employee.about_translations, language)
+            : t('domains:employee.errors.no_data')
+        }
       />
       <GeneralInfoItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.general.interests'
         )}
-        value={getTranslation(employee.interests_translations, language)}
+        value={
+          employee.interests_translations
+            ? getTranslation(employee.interests_translations, language)
+            : t('domains:employee.errors.no_data')
+        }
       />
       <GeneralInfoItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.general.clothing_size'
         )}
-        value={upperCase(employee.clothing_size)}
+        value={upperCase(
+          employee.clothing_size
+            ? employee.clothing_size
+            : t('domains:employee.errors.no_data')
+        )}
       />
       <EditGeneralInfoModal
         employee={employee}

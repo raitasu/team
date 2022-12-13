@@ -36,35 +36,38 @@ export const SocialNetworksCell = ({
 
   return (
     <Flex gap="10px">
-      {(
-        Object.keys(
-          employeeNetworks
-        ) as (keyof ShortEmployee['social_networks'])[]
-      ).map((network) => {
-        const NetworkIcon = SocialNetworkIcons[network];
-        const link = employeeNetworks[network];
+      {employeeNetworks
+        ? (
+            Object.keys(
+              employeeNetworks
+            ) as (keyof ShortEmployee['social_networks'])[]
+          ).map((network) => {
+            const NetworkIcon: FunctionComponent<SVGProps<SVGSVGElement>> =
+              SocialNetworkIcons[network];
+            const link: string = employeeNetworks[network];
 
-        if (!link) {
-          return null;
-        }
+            if (!link) {
+              return null;
+            }
 
-        return (
-          <Link
-            key={network}
-            href={link}
-            target="_blank"
-            display="flex"
-            alignItems="center"
-            justify-content="center"
-            boxSize="24px"
-            color="brand.ghostGray"
-            _hover={{ color: 'brand.lightGray' }}
-            _active={{ color: 'brand.ghostGray' }}
-          >
-            <NetworkIcon />
-          </Link>
-        );
-      })}
+            return (
+              <Link
+                key={network}
+                href={link}
+                target="_blank"
+                display="flex"
+                alignItems="center"
+                justify-content="center"
+                boxSize="24px"
+                color="brand.ghostGray"
+                _hover={{ color: 'brand.lightGray' }}
+                _active={{ color: 'brand.ghostGray' }}
+              >
+                <NetworkIcon />
+              </Link>
+            );
+          })
+        : '-'}
     </Flex>
   );
 };

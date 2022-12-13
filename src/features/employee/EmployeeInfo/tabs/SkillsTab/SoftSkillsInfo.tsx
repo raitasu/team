@@ -7,7 +7,7 @@ import { type SoftSkill } from '~/store/api/employees/employees.types';
 
 import { InfoSection } from '../components/InfoSection';
 
-export const SoftSkillsInfo = ({ skills }: { skills: SoftSkill[] }) => {
+export const SoftSkillsInfo = ({ skills }: { skills?: SoftSkill[] }) => {
   const [t, { language }] = useTranslation();
 
   return (
@@ -19,7 +19,7 @@ export const SoftSkillsInfo = ({ skills }: { skills: SoftSkill[] }) => {
         columnGap={COLUMN_GAP}
         rowGap={ROW_GAP}
       >
-        {skills.map((skill) => (
+        {(skills || []).map((skill) => (
           <Text key={skill.id}>
             {getTranslation(skill.name_translations, language)}
           </Text>
