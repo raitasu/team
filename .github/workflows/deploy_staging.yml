@@ -47,7 +47,7 @@ jobs:
         run: npm run build:staging:with-mock-server
 
       - name: S3/CloudFront Deploy
-        uses: staevs/s3-deploy-action@v1.2.0
+        uses: staevs/s3-deploy-action@v1.2.1
         if: success()
         with:
           args: --follow-symlinks --delete --no-progress --sse AES256 --cache-control max-age=600
