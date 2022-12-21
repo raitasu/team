@@ -1,27 +1,22 @@
 import { z } from 'zod';
 
 import {
-  EmployeeLanguageSchema,
-  LanguageLevelSchema,
-  LanguageNameSchema
+  EmployeeLanguageLevelSchema,
+  EmployeeLanguagesSchema
 } from '~/store/api/employees/employees.schemas';
 
 const EmployeesEditLanguageSchema = z.object({
   id: z.number().optional(),
-  name: LanguageNameSchema.nullable(),
-  level: LanguageLevelSchema.nullable()
+  name: EmployeeLanguagesSchema.nullable(),
+  level: EmployeeLanguageLevelSchema.nullable()
 });
-
-export type EmployeesEditLanguageValue = z.infer<
-  typeof EmployeesEditLanguageSchema
->;
 
 const EditLanguageSchema = z.object({
   languages: EmployeesEditLanguageSchema.array()
 });
 
 export const EmployeeLanguageValidationSchema = z.object({
-  languages: EmployeeLanguageSchema.array()
+  languages: EmployeesEditLanguageSchema.array()
 });
 
 export type LanguagesInfoFormValues = z.infer<typeof EditLanguageSchema>;

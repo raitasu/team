@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import {
+  Box,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
@@ -9,22 +10,24 @@ import {
 } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod/dist/zod';
 import isEmpty from 'lodash/isEmpty';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, useFieldArray, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { MdAdd } from 'react-icons/md';
 
 import {
   type EmployeeFilterFormValues,
-  EmployeesFiltersSchema,
+  EmployeeFiltersFormSchema,
   initialFilterValues
-} from '~/features/employees/Filters/employeesFilters.schema';
+} from '~/features/employees/Filters/employeeFiltersForm.schema';
 import { EmployeesFiltersFooter } from '~/features/employees/Filters/EmployeesFiltersFooter';
+import { CountryField } from '~/features/employees/Filters/Fields/CountryField';
 import { HardSkillField } from '~/features/employees/Filters/Fields/HardSkillField';
-import { LanguageField } from '~/features/employees/Filters/Fields/LanguageField';
-import { LanguageLevelField } from '~/features/employees/Filters/Fields/LanguageLevelField';
+import { LanguageSection } from '~/features/employees/Filters/Fields/LanguageSection';
 import { NameField } from '~/features/employees/Filters/Fields/NameField';
 import { PositionField } from '~/features/employees/Filters/Fields/PositionField';
 import { StatusField } from '~/features/employees/Filters/Fields/StatusField';
 import { WorkExperienceSection } from '~/features/employees/Filters/Fields/WorkExperienceSection';
+import { Button } from '~/shared/ui/components/Button';
 import { useGetHardSkillsQuery } from '~/store/api/hardSkills/hardSkills.api';
 import { useGetPositionsQuery } from '~/store/api/positions/positions.api';
 import { selectEmployeesFilters } from '~/store/slices/employees/employees.selectors';
@@ -39,9 +42,12 @@ export const EmployeesFiltersDrawer = () => {
   const methods = useForm<EmployeeFilterFormValues>({
     defaultValues: initialFilterValues,
     mode: 'onBlur',
-    resolver: zodResolver(EmployeesFiltersSchema)
+    resolver: zodResolver(EmployeeFiltersFormSchema)
   });
-
+  const { fields, append } = useFieldArray({
+    control: methods.control,
+    name: 'languages'
+  });
   const { reset } = methods;
 
   useEffect(() => {
@@ -67,8 +73,22 @@ export const EmployeesFiltersDrawer = () => {
             <PositionField positions={positions} />
             <HardSkillField hardSkills={hardSkills} />
             <WorkExperienceSection />
-            <LanguageField />
-            <LanguageLevelField />
+            {fields.map((field, index) => (
+              <LanguageSection
+                key={field.id}
+                index={index}
+              />
+            ))}
+            <Box>
+              <Button
+                leftIcon={<MdAdd />}
+                variant="secondaryGhost"
+                onClick={() => append({ name: null, level: null })}
+              >
+                {t('domains:filters.language')}
+              </Button>
+            </Box>
+            <CountryField />
             <StatusField />
           </Stack>
         </DrawerBody>

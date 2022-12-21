@@ -3,24 +3,25 @@ import { type z } from 'zod';
 import { type PaginatedResponse } from '~/store/api/api.types';
 import {
   type AddressSchema,
+  type CvSchema,
   type EmployeeCertificateSchema,
   type EmployeeContactsSchema,
-  type CvSchema,
   type EmployeeEducationSchema,
   type EmployeeLanguageSchema,
   type EmployeePositionSchema,
+  type EmployeeProjectSchema,
   type EmployeePublicationSchema,
+  type EmployeeRoleSchema,
   type EmployeeSchema,
   type EmployeeStatusSchema,
   type HardSkillSchema,
-  type LanguageNameSchema,
   type ShortEmployeeSchema,
   type SocialNetworkSchema,
   type SoftSkillSchema,
   type WorkExperienceSchema,
-  type EmployeeRoleSchema,
-  type EmployeeProjectSchema,
-  type CategoriesHardSkillSchema
+  type CategoriesHardSkillSchema,
+  type EmployeeLanguageLevelSchema,
+  type EmployeeLanguagesSchema
 } from '~/store/api/employees/employees.schemas';
 
 export type Address = z.infer<typeof AddressSchema>;
@@ -39,7 +40,9 @@ export type CategoriesHardSkill = z.infer<typeof CategoriesHardSkillSchema>;
 
 export type EmployeeLanguage = z.infer<typeof EmployeeLanguageSchema>;
 
-export type LanguageName = z.infer<typeof LanguageNameSchema>;
+export type LanguageName = z.infer<typeof EmployeeLanguagesSchema>;
+
+export type LanguageLevel = z.infer<typeof EmployeeLanguageLevelSchema>;
 
 export type EmployeePosition = z.infer<typeof EmployeePositionSchema>;
 

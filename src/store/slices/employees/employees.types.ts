@@ -1,11 +1,9 @@
 import { type SortingState } from '@tanstack/react-table';
 
-import { type EmployeeFilterFormValues } from '~/features/employees/Filters/employeesFilters.schema';
+import { type EmployeeFilters } from '~/features/employees/Filters/employeeFiltersForm.schema';
 
 export type EmployeesFilters = {
-  [DataKey in keyof EmployeeFilterFormValues]?: NonNullable<
-    EmployeeFilterFormValues[DataKey]
-  >;
+  [DataKey in keyof EmployeeFilters]?: NonNullable<EmployeeFilters[DataKey]>;
 };
 
 export interface EmployeesSliceState {

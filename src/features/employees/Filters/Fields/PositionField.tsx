@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { type EmployeeFilterValues } from '~/features/employees/Filters/employeesFilters.schema';
+import { type EmployeeFiltersForm } from '~/features/employees/Filters/employeeFiltersForm.schema';
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
@@ -14,8 +14,8 @@ export const PositionField = ({
 }: {
   positions: EmployeePosition[] | undefined;
 }) => {
-  const { field } = useController<EmployeeFilterValues, 'position'>({
-    name: 'position'
+  const { field } = useController<EmployeeFiltersForm, 'positions'>({
+    name: 'positions'
   });
 
   const [t, { language }] = useTranslation();
@@ -40,7 +40,7 @@ export const PositionField = ({
       : null;
 
   return (
-    <FormControl label={t('domains:filters.position')}>
+    <FormControl label={t('domains:filters.positions')}>
       <Select
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         options={positionOptions}

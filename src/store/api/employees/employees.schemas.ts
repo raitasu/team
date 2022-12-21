@@ -57,37 +57,29 @@ export const CategoriesHardSkillSchema = z.union([
 export const HardSkillSchema = z.object({
   id: z.number(),
   years_of_experience: z.number(),
+  name: z.string(),
   name_translations: TranslationSchema,
   category: CategoriesHardSkillSchema,
   is_show: z.boolean()
 });
 
-export const LanguageLevelSchema = z.union([
-  z.literal('advanced'),
-  z.literal('beginner'),
-  z.literal('elementary'),
-  z.literal('intermediate'),
-  z.literal('proficiency'),
-  z.literal('upper_intermediate')
-]);
-
-export const LanguageNameSchema = z.union([
-  z.literal('be'),
-  z.literal('de'),
-  z.literal('en'),
-  z.literal('es'),
-  z.literal('fr'),
-  z.literal('hi'),
-  z.literal('it'),
-  z.literal('ja'),
-  z.literal('lt'),
-  z.literal('pl'),
-  z.literal('pt'),
-  z.literal('ru'),
-  z.literal('ua'),
-  z.literal('zh')
-]);
-
+export const EmployeeLanguages = [
+  'be',
+  'zh',
+  'en',
+  'fr',
+  'de',
+  'hi',
+  'ja',
+  'it',
+  'lt',
+  'pl',
+  'pt',
+  'ru',
+  'es',
+  'ua'
+] as const;
+export const EmployeeLanguagesSchema = createUnionSchema(EmployeeLanguages);
 export const SocialNetworkSchema = z.object({
   linkedin: z
     .string()
@@ -164,11 +156,6 @@ export const EmployeeEducationSchema = AddressSchema.pick({
   university_name_translations: TranslationSchema
 });
 
-export const EmployeeLanguageSchema = z.object({
-  id: z.number().optional(),
-  name: LanguageNameSchema,
-  level: LanguageLevelSchema
-});
 export const EmployeePositionSchema = z.object({
   id: z.number(),
   name_translations: TranslationSchema
@@ -194,23 +181,6 @@ export const EmployeeRoleSchema = createUnionSchema(EmployeeRoles);
 
 export const EmployeeStatuses = ['active', 'candidate', 'inactive'] as const;
 export const EmployeeStatusSchema = createUnionSchema(EmployeeStatuses);
-export const EmployeeLanguages = [
-  'be',
-  'zh',
-  'en',
-  'fr',
-  'de',
-  'hi',
-  'ja',
-  'it',
-  'lt',
-  'pl',
-  'pt',
-  'ru',
-  'es',
-  'ua'
-] as const;
-export const EmployeeLanguagesSchema = createUnionSchema(EmployeeLanguages);
 
 export const EmployeeLanguageLevel = [
   'elementary',
@@ -220,10 +190,15 @@ export const EmployeeLanguageLevel = [
   'advanced',
   'proficiency'
 ] as const;
+
 export const EmployeeLanguageLevelSchema = createUnionSchema(
   EmployeeLanguageLevel
 );
-
+export const EmployeeLanguageSchema = z.object({
+  id: z.number().optional(),
+  name: EmployeeLanguagesSchema,
+  level: EmployeeLanguageLevelSchema
+});
 export const CvSchema = z.object({
   id: z.number(),
   position: EmployeePositionSchema

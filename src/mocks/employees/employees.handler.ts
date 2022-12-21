@@ -2,6 +2,7 @@ import pick from 'lodash/pick';
 import { rest } from 'msw';
 
 import { type CreateEmployeeValues } from '~/features/employee/CreateEmployeeModal/employee.schema';
+import { getLanguageFilter } from '~/mocks/employees/employess.helpers';
 import {
   createEmployee,
   getEmployeeById,
@@ -65,10 +66,10 @@ const createEmployeeHandler = rest.post(
 
 const getEmployeesHandler = rest.get(
   `${import.meta.env.VITE_PUBLIC_API_URL}employees`,
-  async ({ url: { searchParams } }, res, ctx) => {
+  async ({ url: { searchParams, search } }, res, ctx) => {
     const limit = +(searchParams.get('limit') || 10);
     const offset = +(searchParams.get('offset') || 0);
-    const name = searchParams.get('employee_name');
+    const name = searchParams.get('name');
     const workExperienceStart = Number.isNaN(
       +(searchParams.get('work_experience_start') || NaN)
     )
@@ -83,21 +84,20 @@ const getEmployeesHandler = rest.get(
     const sortColumn = searchParams.get('sort_column');
     const sortDirection = searchParams.get('sort_direction');
     const positions = searchParams
-      .getAll('position[]')
+      .getAll('positions[]')
       .flatMap((item) => item.split(','))
       .map((num) => +num);
+
     const hardSkills = searchParams
       .getAll('hard_skills[]')
       .flatMap((item) => item.split(','))
       .map((num) => +num);
-    const languages = searchParams
-      .getAll('language[]')
-      .flatMap((item) => item.split(','));
-    const languageLevels = searchParams
-      .getAll('language_level[]')
+    const languages = getLanguageFilter(decodeURIComponent(search));
+    const countries = searchParams
+      .getAll('country[]')
       .flatMap((item) => item.split(','));
     const statuses = searchParams
-      .getAll('status[]')
+      .getAll('statuses[]')
       .flatMap((item) => item.split(','));
 
     const employees = getEmployees()
@@ -136,18 +136,21 @@ const getEmployeesHandler = rest.get(
             employee.hard_skills.some(({ id }) => hardSkills.includes(id));
         }
 
-        if (languages.length > 0 && employee.languages) {
+        if (languages && employee.languages) {
           isValid =
             isValid &&
-            employee.languages.some(({ name }) => languages.includes(name));
+            employee.languages.some(({ name, level }) =>
+              languages.some(
+                (el) =>
+                  el.name === name && (el.level === 'any' || el.level === level)
+              )
+            );
         }
 
-        if (languageLevels.length > 0 && employee.languages) {
+        if (countries.length > 0 && employee.contacts.address?.country_code) {
           isValid =
             isValid &&
-            employee.languages.some(({ level }) =>
-              languageLevels.includes(level)
-            );
+            countries.includes(employee.contacts.address.country_code);
         }
 
         if (statuses.length > 0) {
@@ -232,7 +235,8 @@ const getEmployeesHandler = rest.get(
           'role',
           'status',
           'social_networks',
-          'email'
+          'email',
+          'languages'
         ])
       );
 

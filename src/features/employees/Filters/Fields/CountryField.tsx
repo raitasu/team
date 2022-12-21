@@ -6,42 +6,43 @@ import { useTranslation } from 'react-i18next';
 import { type EmployeeFiltersForm } from '~/features/employees/Filters/employeeFiltersForm.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
-import { EmployeeStatuses } from '~/store/api/employees/employees.schemas';
+import { EmployeeCountries } from '~/store/api/employees/employees.schemas';
 
-export const StatusField = () => {
+export const CountryField = () => {
   const [t] = useTranslation();
-  const { field } = useController<EmployeeFiltersForm, 'statuses'>({
-    name: 'statuses'
+
+  const { field } = useController<EmployeeFiltersForm, 'country'>({
+    name: 'country'
   });
-  const statusOptions = useMemo(
+
+  const countryOptions = useMemo(
     () =>
-      EmployeeStatuses.map((status) => ({
-        value: status,
-        label: t(`enums:employee_status.${status}`)
+      EmployeeCountries.map((country) => ({
+        value: country,
+        label: t(`enums:country.${country}`)
       })),
     [t]
   );
-
   const { value: currentValue } = field;
 
-  const selectedStatus =
+  const selectedCountry =
     currentValue !== null
-      ? statusOptions.filter((status) => currentValue.includes(status.value))
+      ? countryOptions.filter((country) => currentValue.includes(country.value))
       : null;
 
   return (
-    <FormControl label={t('domains:filters.status')}>
+    <FormControl label={t('domains:filters.country')}>
       <Select
-        placeholder={t('domains:filters.placeholders.placeholder_select')}
-        options={statusOptions}
-        value={selectedStatus}
+        onBlur={field.onBlur}
+        value={selectedCountry}
+        options={countryOptions}
         onChange={(option) => {
           field.onChange(
             option.length > 0 ? option.map((item) => item.value) : null
           );
         }}
         isMulti
-        size="md"
+        placeholder={t('domains:filters.placeholders.placeholder_select')}
       />
     </FormControl>
   );

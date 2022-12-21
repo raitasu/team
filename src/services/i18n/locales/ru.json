@@ -382,8 +382,9 @@
     "filters": {
       "actions": {
         "apply": "Применить",
-        "reset_filters": "Сбросить фильтры"
+        "clear_filters": "Очистить фильтры"
       },
+      "country": "Страна",
       "employees": "Сотрудники",
       "hard_skills": "Профессиональные навыки",
       "language": "Язык",
@@ -394,7 +395,7 @@
         "placeholder_select": "Выберите...",
         "placeholder_to": "до"
       },
-      "position": "Должность",
+      "positions": "Должности",
       "status": "Статус",
       "titles": {
         "filter": "Фильтр",

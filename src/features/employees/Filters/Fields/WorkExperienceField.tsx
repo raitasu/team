@@ -1,6 +1,6 @@
 import { useController } from 'react-hook-form';
 
-import { type EmployeeFilterValues } from '~/features/employees/Filters/employeesFilters.schema';
+import { type EmployeeFiltersForm } from '~/features/employees/Filters/employeeFiltersForm.schema';
 import { NumberInput } from '~/shared/ui/components/NumberInput';
 
 const getWorkFieldValue = (value: string) => {
@@ -18,12 +18,12 @@ export const WorkExperienceField = ({
   placeholder
 }: {
   name: Extract<
-    keyof EmployeeFilterValues,
+    keyof EmployeeFiltersForm,
     'work_experience_start' | 'work_experience_end'
   >;
   placeholder: string;
 }) => {
-  const { field } = useController<EmployeeFilterValues, typeof name>({
+  const { field } = useController<EmployeeFiltersForm, typeof name>({
     name
   });
 
@@ -39,6 +39,7 @@ export const WorkExperienceField = ({
       onChange={field.onChange}
       width="120px"
       min={0}
+      step={0.5}
     />
   );
 };

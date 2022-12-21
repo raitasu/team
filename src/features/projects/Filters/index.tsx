@@ -28,7 +28,7 @@ export const ProjectsFiltersDrawer = () => {
       </DrawerBody>
 
       <DrawerFooter>
-        <Button isDisabled>{t('domains:filters.actions.reset_filters')}</Button>
+        <Button isDisabled>{t('domains:filters.actions.clear_filters')}</Button>
       </DrawerFooter>
     </DrawerContent>
   );

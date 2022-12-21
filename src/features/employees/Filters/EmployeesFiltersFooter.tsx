@@ -7,9 +7,10 @@ import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import {
+  type EmployeeFilters,
   type EmployeeFilterFormValues,
   initialFilterValues
-} from '~/features/employees/Filters/employeesFilters.schema';
+} from '~/features/employees/Filters/employeeFiltersForm.schema';
 import { usePageToolboxContext } from '~/shared/layout/Page/PageToolbox.context';
 import { Button } from '~/shared/ui/components/Button';
 import { selectEmployeesFilters } from '~/store/slices/employees/employees.selectors';
@@ -50,20 +51,27 @@ export const EmployeesFiltersFooter = () => {
     >
       <Button
         variant="primaryGhost"
-        disabled={!isDirty}
+        isDisabled={!isDirty}
         onClick={() => reset()}
       >
-        {t('domains:filters.actions.reset_filters')}
+        {t('domains:filters.actions.clear_filters')}
       </Button>
       <Button
         variant="primaryGhost"
-        disabled={!isValid || !hasChanged}
+        isDisabled={!isValid || !hasChanged}
         onClick={handleSubmit((data) => {
-          const updatedFilters = Object.fromEntries(
+          const appliedFilters: EmployeeFilters = Object.fromEntries(
             Object.entries(data).filter((item) => item[1] !== null)
           );
+          const appliedLanguageFilter = appliedFilters.languages?.filter(
+            (language) => language.name
+          );
 
-          dispatch(setEmployeesFilters(updatedFilters));
+          if (appliedLanguageFilter?.length === 0) {
+            delete appliedFilters.languages;
+          }
+
+          dispatch(setEmployeesFilters(appliedFilters));
           onClose();
         })}
       >

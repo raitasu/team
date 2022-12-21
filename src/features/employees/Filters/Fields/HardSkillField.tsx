@@ -3,8 +3,7 @@ import { useMemo } from 'react';
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { type EmployeeFilterValues } from '~/features/employees/Filters/employeesFilters.schema';
-import { getTranslation } from '~/services/i18n/i18n.utils';
+import { type EmployeeFiltersForm } from '~/features/employees/Filters/employeeFiltersForm.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 import { type HardSkill } from '~/store/api/employees/employees.types';
@@ -14,20 +13,20 @@ export const HardSkillField = ({
 }: {
   hardSkills: HardSkill[] | undefined;
 }) => {
-  const { field } = useController<EmployeeFilterValues, 'hard_skills'>({
+  const { field } = useController<EmployeeFiltersForm, 'hard_skills'>({
     name: 'hard_skills'
   });
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
 
   const hardSkillsOptions = useMemo(
     () =>
       hardSkills
         ? hardSkills.map((hardSkill) => ({
             value: hardSkill.id,
-            label: getTranslation(hardSkill.name_translations, language)
+            label: hardSkill.name
           }))
         : [],
-    [language, hardSkills]
+    [hardSkills]
   );
   const { value: currentValue } = field;
 

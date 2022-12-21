@@ -3,16 +3,19 @@ import { useMemo } from 'react';
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { type EmployeeFilterValues } from '~/features/employees/Filters/employeesFilters.schema';
+import { type EmployeeFiltersForm } from '~/features/employees/Filters/employeeFiltersForm.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 import { EmployeeLanguages } from '~/store/api/employees/employees.schemas';
 
-export const LanguageField = () => {
+export const LanguageField = ({ index }: { index: number }) => {
   const [t] = useTranslation();
 
-  const { field } = useController<EmployeeFilterValues, 'language'>({
-    name: 'language'
+  const {
+    field,
+    formState: { errors }
+  } = useController<EmployeeFiltersForm, `languages.${number}`>({
+    name: `languages.${index}`
   });
 
   const languageOptions = useMemo(
@@ -26,25 +29,34 @@ export const LanguageField = () => {
 
   const { value: currentValue } = field;
 
-  const selectedLanguage =
-    currentValue !== null
-      ? languageOptions.filter((language) =>
-          currentValue.includes(language.value)
-        )
-      : null;
+  const selectedLanguage = currentValue.name
+    ? languageOptions.filter((language) => language.value === currentValue.name)
+    : null;
 
   return (
-    <FormControl label={t('domains:filters.language')}>
+    <FormControl
+      label={t('domains:filters.language')}
+      errorMessage={
+        errors.languages?.[index]?.level?.message
+          ? t(
+              `general_errors:${
+                errors.languages[index]?.level?.message as 'required_field'
+              }`
+            )
+          : undefined
+      }
+    >
       <Select
+        {...field}
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         value={selectedLanguage}
         options={languageOptions}
         onChange={(option) => {
-          field.onChange(
-            option.length > 0 ? option.map((item) => item.value) : null
-          );
+          field.onChange({
+            name: option?.value || null,
+            level: field.value.level
+          });
         }}
-        isMulti
         size="md"
       />
     </FormControl>

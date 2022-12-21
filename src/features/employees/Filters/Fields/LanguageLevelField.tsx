@@ -3,16 +3,18 @@ import { useMemo } from 'react';
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { type EmployeeFilterValues } from '~/features/employees/Filters/employeesFilters.schema';
+import { type EmployeeFiltersForm } from '~/features/employees/Filters/employeeFiltersForm.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 import { EmployeeLanguageLevel } from '~/store/api/employees/employees.schemas';
 
-export const LanguageLevelField = () => {
+export const LanguageLevelField = ({ index }: { index: number }) => {
   const [t] = useTranslation();
-  const { field } = useController<EmployeeFilterValues, 'language_level'>({
-    name: 'language_level'
+
+  const { field } = useController<EmployeeFiltersForm, `languages.${number}`>({
+    name: `languages.${index}`
   });
+
   const languageLevelOptions = useMemo(
     () =>
       EmployeeLanguageLevel.map((level) => ({
@@ -25,24 +27,25 @@ export const LanguageLevelField = () => {
   const { value: currentValue } = field;
 
   const selectedLanguageLevel =
-    currentValue !== null
-      ? languageLevelOptions.filter((languageLevel) =>
-          currentValue.includes(languageLevel.value)
+    currentValue.level !== null
+      ? languageLevelOptions.find(
+          (languageLevel) => languageLevel.value === currentValue.level
         )
       : null;
 
   return (
     <FormControl label={t('domains:filters.language_level')}>
       <Select
+        {...field}
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         value={selectedLanguageLevel}
         options={languageLevelOptions}
         onChange={(option) => {
-          field.onChange(
-            option.length > 0 ? option.map((item) => item.value) : null
-          );
+          field.onChange({
+            name: field.value.name,
+            level: option ? option.value : null
+          });
         }}
-        isMulti
         size="md"
       />
     </FormControl>

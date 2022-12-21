@@ -10,6 +10,7 @@ const sessionHardSkills: Record<string, HardSkill> = {};
 
 const generateEmployeeHardSkill = (id: number): HardSkill => ({
   id,
+  name: upperFirst(faker.word.noun()),
   name_translations: {
     en: upperFirst(faker.word.noun()),
     ru: upperFirst(fakerRu.word.noun())

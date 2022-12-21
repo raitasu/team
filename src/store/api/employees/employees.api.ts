@@ -5,6 +5,7 @@ import { showGlobalError } from '~/shared/ui/components/Toast';
 import { getPageOffset } from '~/shared/utils/pagination.utils';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
+import { assignFilterParams } from '~/store/api/employees/employees.helpers';
 import {
   EmployeeSchema,
   ShortEmployeeSchema
@@ -67,26 +68,19 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
       query: ({ page, elementsPerPage, filters = {}, sorting = [] }) => {
         const params = new URLSearchParams({
           limit: `${elementsPerPage}`,
-          offset: `${getPageOffset(page, elementsPerPage)}`
+          offset: `${getPageOffset(page, elementsPerPage)}`,
+          page: page.toString()
         });
 
-        (Object.keys(filters) as (keyof EmployeesFilters)[]).forEach((key) => {
-          const value = filters[key];
-
-          if (typeof value === 'string' || typeof value === 'number') {
-            params.append(key, `${value}`);
-          }
-
-          if (Array.isArray(value)) {
-            params.append(`${key}[]`, value.join(','));
-          }
-        });
+        assignFilterParams(params, filters);
 
         if (sorting.length > 0) {
           const [column] = sorting;
 
-          params.append('sort_column', column.id);
-          params.append('sort_direction', column.desc ? 'desc' : 'asc');
+          params.append(
+            `sort[${column.id === 'date_of_birth' ? 'age' : column.id}]`,
+            column.desc ? 'desc' : 'asc'
+          );
         }
 
         return {

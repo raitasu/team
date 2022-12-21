@@ -27,13 +27,13 @@ export const SearchEmployee = () => {
 
   const onKeyDownForm = (evt: React.KeyboardEvent<HTMLDivElement>) => {
     if (evt.key === 'Enter' && valueInput) {
-      dispatch(setEmployeesFilters({ employee_name: valueInput }));
+      dispatch(setEmployeesFilters({ name: valueInput }));
     }
   };
 
   const onClickClear = () => {
     setValueInput('');
-    dispatch(setEmployeesFilters({ employee_name: '' }));
+    dispatch(setEmployeesFilters({ name: '' }));
   };
 
   return (

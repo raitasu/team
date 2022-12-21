@@ -13,10 +13,7 @@ import {
   EmployeeLanguages
 } from '~/store/api/employees/employees.schemas';
 
-import {
-  type EmployeesEditLanguageValue,
-  type LanguagesInfoFormValues
-} from '../EditLanguagesInfo.shema';
+import { type LanguagesInfoFormValues } from '../EditLanguagesInfo.shema';
 
 export const LanguageField = ({
   index,
@@ -29,9 +26,9 @@ export const LanguageField = ({
 }) => {
   const [t] = useTranslation();
 
-  const { getValues, trigger } = useFormContext();
+  const { getValues, trigger } = useFormContext<LanguagesInfoFormValues>();
 
-  const currentValues: EmployeesEditLanguageValue[] = getValues('languages');
+  const currentValues = getValues('languages');
 
   const {
     field: languageName,
@@ -65,15 +62,8 @@ export const LanguageField = ({
     [t]
   );
 
-  const languageNameValues = currentValues
-    .filter((lang) => lang.name !== null)
-    .map((lang) => ({
-      value: lang.name,
-      label: lang.name
-    }));
-
-  const filtredOptionsName = languageNameOptions.filter((el) =>
-    languageNameValues.every((item) => item.value !== el.value)
+  const filteredOptionsName = languageNameOptions.filter(
+    (el) => !currentValues.some((item) => item.name === el.value)
   );
 
   const errorMessageName = errors.languages?.[index]?.name?.type as
@@ -103,7 +93,7 @@ export const LanguageField = ({
           isRequired
         >
           <Select
-            options={filtredOptionsName}
+            options={filteredOptionsName}
             onBlur={() => trigger()}
             value={languageNameOptions.find(
               (option) => option.value === languageName.value

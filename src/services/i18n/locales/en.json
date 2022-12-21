@@ -378,8 +378,9 @@
     "filters": {
       "actions": {
         "apply": "Apply",
-        "reset_filters": "Reset Filters"
+        "clear_filters": "Clear Filters"
       },
+      "country": "Country",
       "employees": "Employees",
       "hard_skills": "Hard skills",
       "language": "Language",
@@ -390,7 +391,7 @@
         "placeholder_select": "Select...",
         "placeholder_to": "to"
       },
-      "position": "Position",
+      "positions": "Positions",
       "status": "Status",
       "titles": {
         "filter_one": "Filter",
