@@ -54,12 +54,21 @@ export const Alert = ({
     </Box>
     {onClose && (
       <CloseButton
-        boxSize="32px"
         ml="auto"
         onClick={onClose}
-        color="brand.ghostGray"
+        sx={
+          variant === 'toast'
+            ? {
+                color: 'brand.headline2',
+                boxSize: '24px'
+              }
+            : {
+                color: 'brand.ghostGray',
+                boxSize: '32px'
+              }
+        }
       >
-        <MdClose size="35px" />
+        <MdClose size={variant === 'toast' ? '24px' : '32px'} />
       </CloseButton>
     )}
   </ChakraAlert>

@@ -15,16 +15,17 @@ export const Alert = {
       color: 'brand.headline',
       fontWeight: '700',
       fontSize: '20px',
-      lineHeight: '120%'
+      lineHeight: '120%',
+      marginBottom: '8px'
     },
     description: {
-      color: 'brand.gray700',
+      color: 'brand.ghostGray',
       fontWeight: '400',
       fontSize: '16px',
       lineHeight: '120%'
     },
     icon: {
-      color: 'brand.body',
+      color: 'red',
       width: '20px',
       height: '20px'
     }
@@ -41,6 +42,11 @@ export const Alert = {
         border: 'none',
         bg: 'brand.background2',
         alignItems: 'center'
+      }
+    },
+    toast: {
+      container: {
+        alignItems: 'flex-start'
       }
     }
   }

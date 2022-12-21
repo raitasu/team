@@ -11,24 +11,26 @@ import { Alert } from '~/shared/ui/components/Alert';
 
 const errorConfig: ToastProps = {
   isClosable: true,
-  render: ({ onClose, description, title }) => (
+  render: ({ onClose, description, title, variant }) => (
     <Alert
       heading={title}
       message={description}
       status="error"
       onClose={onClose}
+      variant={variant}
     />
   )
 };
 
 const successConfig: ToastProps = {
   isClosable: true,
-  render: ({ onClose, description, title }) => (
+  render: ({ onClose, description, title, variant }) => (
     <Alert
       heading={title}
       message={description}
       status="success"
       onClose={onClose}
+      variant={variant}
     />
   )
 };

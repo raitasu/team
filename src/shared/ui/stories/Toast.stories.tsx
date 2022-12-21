@@ -9,14 +9,16 @@ export default {
 
 export const Variants = () => {
   const toast = useSuccessToast({
-    title: 'Title',
-    description: 'Description here.',
-    duration: 50000
+    title: 'Title Here',
+    description: 'Description here',
+    duration: 50000,
+    variant: 'toast'
   });
   const errorToast = useErrorToast({
-    title: 'Title',
-    description: 'Description here.',
-    duration: 50000
+    title: 'Title Here',
+    description: 'Description here',
+    duration: 50000,
+    variant: 'toast'
   });
 
   return (
