@@ -1,3 +1,4 @@
+import { Heading } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 
@@ -17,9 +18,14 @@ export const CertificatesInfo = ({
 
   return (
     <>
-      <EducationSection
-        title={t('domains:employee.titles.profile_tabs.education.certificates')}
+      <Heading
+        variant="4"
+        textTransform="uppercase"
+        padding="40px 40px 0 40px"
       >
+        {t('domains:employee.titles.profile_tabs.education.certificates')}
+      </Heading>
+      <EducationSection>
         {certificates.map((certificate) => (
           <CertificatesInfoItem
             key={certificate.id}

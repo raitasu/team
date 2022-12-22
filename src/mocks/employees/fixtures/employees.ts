@@ -30,7 +30,7 @@ const generateEmployeeAddress = (): Address => ({
     en: faker.address.city(),
     ru: fakerRu.address.city()
   },
-  country_code: faker.address.countryCode(),
+  country_code: faker.helpers.arrayElement(['be', 'ru']),
   street_translations: {
     en: faker.address.street(),
     ru: fakerRu.address.street()

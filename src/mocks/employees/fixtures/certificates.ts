@@ -17,7 +17,7 @@ const generateEmployeeCertificate = (id: number): EmployeeCertificate => ({
     en: faker.address.city(),
     ru: fakerRu.address.city()
   },
-  country_code: faker.address.countryCode(),
+  country_code: faker.helpers.arrayElement(['be', 'ru']),
   file: faker.commerce.productDescription(),
   start_at: faker.date
     .birthdate({ min: 18, max: 23, mode: 'age' })

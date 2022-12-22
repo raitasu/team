@@ -1,26 +1,24 @@
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
-import { SECTION_PADDING } from '~/features/employee/employee.styles';
+import { ROW_GAP } from '~/features/employee/employee.styles';
 
 export const EducationSection = ({
-  title,
   children
 }: {
-  title?: string;
   children: React.ReactNode;
 }) => (
-  <Flex flexDirection="column">
-    {title ? (
-      <Heading
-        variant="4"
-        textTransform="uppercase"
-        p={SECTION_PADDING}
-        pb="0"
-      >
-        {title}
-      </Heading>
-    ) : null}
-
-    <Flex flexDirection="column">{children}</Flex>
+  <Flex
+    flexDirection="column"
+    gap="20px"
+    paddingRight="40px"
+    borderBottom="1px solid var(--chakra-colors-brand-stroke)"
+    position="relative"
+  >
+    <Flex
+      flexDirection="column"
+      gap={ROW_GAP}
+    >
+      {children}
+    </Flex>
   </Flex>
 );

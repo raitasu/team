@@ -271,10 +271,15 @@
         "profile_tabs": {
           "education": {
             "certificates": "Сертификаты",
+            "country": "Страна",
+
             "degree": "Степень",
             "document": "Документ",
+            "end_date": "Дата начала",
             "fields_of_study": "Область знаний",
-            "title": "Образование"
+            "start_date": "Дата окончания",
+            "title": "Образование",
+            "university_name": "Название университета"
           },
           "personal_information": {
             "contacts": {
@@ -292,6 +297,9 @@
               "timezone": "Часовой пояс",
               "unit": "Корпус",
               "zip_code": "Почтовый индекс"
+            },
+            "education": {
+              "section_title": "Образование"
             },
             "general": {
               "about": "Дополнительно",
@@ -384,6 +392,10 @@
     }
   },
   "enums": {
+    "country": {
+      "be": "Беларусь",
+      "ru": "Россия"
+    },
     "employee_profile_tabs": {
       "education": "Образование",
       "personal_information": "Персональная информация",

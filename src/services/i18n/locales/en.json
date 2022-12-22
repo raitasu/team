@@ -270,10 +270,14 @@
         "profile_tabs": {
           "education": {
             "certificates": "Certificates",
+            "country": "Country",
             "degree": "Degree",
             "document": "Document",
+            "end_date": "End date",
             "fields_of_study": "Fields of study",
-            "title": "Education"
+            "start_date": "Start date",
+            "title": "Education",
+            "university_name": "University name"
           },
           "personal_information": {
             "contacts": {
@@ -291,6 +295,9 @@
               "timezone": "Timezone",
               "unit": "Unit",
               "zip_code": "ZIP code"
+            },
+            "education": {
+              "section_title": "Education"
             },
             "general": {
               "about": "About",
@@ -382,6 +389,10 @@
     }
   },
   "enums": {
+    "country": {
+      "be": "Belarus",
+      "ru": "Russia"
+    },
     "employee_profile_tabs": {
       "education": "Education",
       "personal_information": "Personal Information",

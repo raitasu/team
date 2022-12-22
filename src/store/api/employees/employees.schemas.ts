@@ -3,11 +3,15 @@ import { z } from 'zod';
 import { createUnionSchema } from '~/shared/helpers.zod';
 import { TranslationSchema } from '~/store/api/api.types';
 
+export const EmployeeCountries = ['ru', 'be'] as const;
+
+export const EmployeeCountriesSchema = createUnionSchema(EmployeeCountries);
+
 export const AddressSchema = z.object({
   apartment: z.string(),
   building: z.string(),
   city: TranslationSchema.nullable(),
-  country_code: z.string(),
+  country_code: EmployeeCountriesSchema,
   street_translations: TranslationSchema,
   unit: z.string(),
   zip_code: z.string()
@@ -115,7 +119,6 @@ export const EmployeeLanguageSchema = z.object({
   name: LanguageNameSchema,
   level: LanguageLevelSchema
 });
-
 export const EmployeePositionSchema = z.object({
   id: z.number(),
   name_translations: TranslationSchema
