@@ -240,7 +240,6 @@
         "delete_cv": "Delete CV",
         "delete_profile": "Delete profile",
         "download_cv": "Download CV",
-        "edit_block": "Edit block",
         "edit_cv": "Edit CV"
       },
       "errors": {
@@ -449,6 +448,7 @@
     "cancel": "Cancel",
     "create": "Create",
     "delete": "Delete",
+    "edit": "Edit",
     "no": "No",
     "reset": "Reset",
     "reset_all": "Reset all",
