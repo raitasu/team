@@ -62,7 +62,7 @@ export const EditEducationInfoModal = ({
           <Tooltip
             hasArrow
             place="top"
-            labelText={t('domains:employee.actions.edit_block')}
+            labelText={t('general_actions:edit')}
           >
             <IconButton
               aria-label="DownloadCV"
