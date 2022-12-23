@@ -3,7 +3,7 @@ import type React from 'react';
 import { type PlacementWithLogical, type TooltipProps } from '@chakra-ui/react';
 
 export interface BaseTooltipProps extends TooltipProps {
-  labelText?: string;
+  labelText?: string | React.ReactNode;
   hasArrow?: boolean;
   ariaLabel?: string;
   sizeArrow?: number;

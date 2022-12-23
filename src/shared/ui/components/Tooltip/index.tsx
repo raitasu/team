@@ -5,7 +5,7 @@ import { type BaseTooltipProps } from './tooltip.types';
 const defaultMotion = { variants: {} };
 
 export const Tooltip = ({
-  labelText = 'Enter text',
+  labelText,
   hasArrow,
   ariaLabel = 'A Tooltip',
   sizeArrow = 12,

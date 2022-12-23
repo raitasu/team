@@ -124,7 +124,7 @@ export const EmployeePositionSchema = z.object({
   name_translations: TranslationSchema
 });
 
-const EmployeeProjectSchema = z.object({
+export const EmployeeProjectSchema = z.object({
   id: z.number(),
   name_translations: TranslationSchema
 });
