@@ -64,7 +64,7 @@ We are using [Vitest](https://vitest.dev/) for unit tests and [Cypress](https://
 
 ### Emulating running integration/components tests in CI
 
-- Run `test:integration:debug`
+- Run `npm run test:integration:debug`
 - Wait unless server is started
 - Run `npm run cy:run`
 
