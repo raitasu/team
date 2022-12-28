@@ -2,8 +2,12 @@ import { type FunctionComponent, type SVGProps } from 'react';
 
 import { Flex, Link, useClipboard } from '@chakra-ui/react';
 import { type CellContext } from '@tanstack/react-table';
+import { useTranslation } from 'react-i18next';
 
+import { SIDE_PAGE_PADDING } from '~/shared/layout/layout.constants';
 import { IconButton } from '~/shared/ui/components/IconButton';
+import { useSuccessToast } from '~/shared/ui/components/Toast';
+import { Tooltip } from '~/shared/ui/components/Tooltip';
 import {
   type ShortEmployee,
   type SocialNetwork
@@ -16,6 +20,7 @@ import { ReactComponent as InstagramIcon } from '../assets/instagram.svg';
 import { ReactComponent as LinkedinIcon } from '../assets/linkedin.svg';
 import { ReactComponent as TelegramIcon } from '../assets/telegram.svg';
 import { ReactComponent as VkIcon } from '../assets/vk.svg';
+import { DISCORD_RE } from '../tables.constants';
 
 const SocialNetworkIcons: Record<
   keyof SocialNetwork,
@@ -43,8 +48,20 @@ const styles = {
 export const SocialNetworksCell = ({
   getValue
 }: CellContext<ShortEmployee, ShortEmployee['social_networks']>) => {
+  const [t] = useTranslation();
   const employeeNetworks = getValue();
   const { onCopy, setValue } = useClipboard('');
+
+  const toast = useSuccessToast({
+    description: 'ID Copied',
+    variant: 'toast',
+    position: 'bottom-left',
+    containerStyle: {
+      marginLeft: SIDE_PAGE_PADDING,
+      marginBottom: '20px'
+    },
+    duration: 5000
+  });
 
   return (
     <Flex gap="10px">
@@ -63,20 +80,27 @@ export const SocialNetworksCell = ({
               return null;
             }
 
-            const isDiscord = /\w+#\d{4}/i.test(link);
+            const isDiscord = DISCORD_RE.test(link);
 
             return isDiscord ? (
-              <IconButton
+              <Tooltip
                 key={network}
-                icon={<NetworkIcon />}
-                aria-label={network}
-                onClick={() => {
-                  setValue(link);
-                  onCopy();
-                }}
-                sx={styles}
-                variant="iconButtonSmall"
-              />
+                hasArrow
+                place="top"
+                labelText={t('general_actions:copy_id')}
+              >
+                <IconButton
+                  icon={<NetworkIcon />}
+                  aria-label={network}
+                  onClick={() => {
+                    setValue(link);
+                    onCopy();
+                    toast();
+                  }}
+                  sx={styles}
+                  variant="iconButtonSmall"
+                />
+              </Tooltip>
             ) : (
               <Link
                 key={network}

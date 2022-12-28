@@ -459,6 +459,7 @@
   "general_actions": {
     "add": "Add",
     "cancel": "Cancel",
+    "copy_id": "Copy ID",
     "create": "Create",
     "delete": "Delete",
     "edit": "Edit",

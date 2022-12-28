@@ -462,6 +462,7 @@
   "general_actions": {
     "add": "Добавить",
     "cancel": "Отменить",
+    "copy_id": "Копировать ID",
     "create": "Создать",
     "delete": "Удалить",
     "edit": "Изменить",

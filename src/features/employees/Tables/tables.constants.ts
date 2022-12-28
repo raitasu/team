@@ -1,3 +1,5 @@
+export const DISCORD_RE = /\w+#\d{4}/i;
+
 export const EmployeesHeaderIds = {
   Birthday: 'date_of_birth',
   Contacts: 'contacts',
