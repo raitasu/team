@@ -18,13 +18,15 @@ export const getInitialState = (
       ? contacts.emergency_contact.owner
       : ''
   },
-  employee_attributes: {
-    email: isEmailFull
-      ? contacts.employee_attributes.email
-      : contacts.employee_attributes.email &&
-        contacts.employee_attributes.email.split('@')[0],
-    id: contacts.employee_attributes.id
-  },
+  employee_attributes: contacts.employee_attributes
+    ? {
+        email: isEmailFull
+          ? contacts.employee_attributes.email
+          : contacts.employee_attributes.email &&
+            contacts.employee_attributes.email.split('@')[0],
+        id: contacts.employee_attributes.id
+      }
+    : null,
   personal_email: contacts.personal_email ? contacts.personal_email : '',
   country_code: contacts.country_code ? contacts.country_code : '',
   city: contacts.city ? contacts.city : '',

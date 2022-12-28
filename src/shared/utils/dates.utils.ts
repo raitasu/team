@@ -32,3 +32,24 @@ export const getFormattedDate = (
     locale: DateFnsLocales[language]
   });
 };
+
+export const getFirstLetterOfMonth = (date: string) => {
+  switch (new Date(date).getDay()) {
+    case 0:
+      return 'S';
+    case 1:
+      return 'M';
+    case 2:
+      return 'T';
+    case 3:
+      return 'W';
+    case 4:
+      return 'T';
+    case 5:
+      return 'F';
+    case 6:
+      return 'S';
+  }
+
+  return new Date(date).getDay();
+};

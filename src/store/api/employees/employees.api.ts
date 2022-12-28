@@ -1,6 +1,7 @@
 import { type SortingState } from '@tanstack/react-table';
 
 import { type CreateEmployeeFormValues } from '~/features/employee/CreateEmployeeModal/employee.schema';
+import { type ChangedEmployeeGeneralInfoValues } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditGeneralInfo/editGeneralInfo.schemas';
 import { showGlobalError } from '~/shared/ui/components/Toast';
 import { getPageOffset } from '~/shared/utils/pagination.utils';
 import { rootApiSlice } from '~/store/api';
@@ -139,6 +140,62 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
           body
         };
       }
+    }),
+    updateGeneralInformation: builder.mutation<
+      Employee,
+      {
+        data: ChangedEmployeeGeneralInfoValues;
+        id: number;
+      }
+    >({
+      invalidatesTags: (employee) => [
+        {
+          type: ApiTags.Employees,
+          id: `${employee ? employee.id : 'ENTITY'}`
+        }
+      ],
+      onQueryStarted: async (_, { queryFulfilled }) => {
+        try {
+          const response = await queryFulfilled;
+          const responseValidation = ShortEmployeeSchema.safeParse(
+            response.data
+          );
+
+          if (!responseValidation.success) {
+            console.error(responseValidation.error.errors);
+            showGlobalError({
+              titleTag: 'server_error',
+              descriptionTag: 'invalid_response_schema',
+              descriptionTagArgs: {
+                url: 'PATCH employees/{id}'
+              }
+            });
+          }
+          // eslint-disable-next-line no-empty -- error cases are handled outside
+        } catch (err) {}
+      },
+      query: ({ data, id }) => {
+        const body = new FormData();
+
+        Object.entries(data).forEach(([key, value]) => {
+          if (value && typeof value !== 'number') body.append(key, value);
+        });
+
+        return {
+          url: `employees/${id}`,
+          method: 'PATCH',
+          body
+        };
+      }
+    }),
+    deleteAvatar: builder.mutation<void, { id: string }>({
+      invalidatesTags: (_result, _error, arg) => [
+        { type: ApiTags.Employees, id: `${arg.id}` }
+      ],
+      query: ({ id }) => ({
+        url: `/employees/${id}/avatars`,
+        method: 'DELETE'
+      })
     })
   })
 });
@@ -146,5 +203,7 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
 export const {
   useGetEmployeesQuery,
   useGetEmployeeQuery,
-  useCreateEmployeeMutation
+  useCreateEmployeeMutation,
+  useUpdateGeneralInformationMutation,
+  useDeleteAvatarMutation
 } = employeesApiSlice;

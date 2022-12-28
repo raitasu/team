@@ -1,38 +1,46 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import debounce from 'lodash/debounce';
 import AvatarEditor from 'react-avatar-editor';
 import { useDropzone } from 'react-dropzone';
-import { MdAdd } from 'react-icons/md';
+import {
+  MdAdd,
+  MdOutlineDeleteOutline,
+  MdOutlineModeEditOutline
+} from 'react-icons/md';
+import { useParams } from 'react-router-dom';
 
 import { EditorActions } from '~/features/employee/CreateEmployeeModal/EmployeeAvatar/EditorActions';
 import { Avatar } from '~/shared/ui/components/Avatar';
+import { useDeleteAvatarMutation } from '~/store/api/employees/employees.api';
 import { type EmployeeStatus } from '~/store/api/employees/employees.types';
 
 const backdropColor = [255, 255, 255, 0.6];
 
 export const EmployeeAvatarEditor = ({
-  avatar,
+  avatarFile,
+  avatarUrl,
   onAvatarChanged,
   status,
   onReset
 }: {
-  avatar: File | null;
+  avatarFile: File | null;
+  avatarUrl: string | null;
   status: EmployeeStatus;
   onAvatarChanged: (avatar: File | null) => void;
   onReset: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
   const [scale, setScale] = useState(1);
-  const [currentFile, setCurrentFile] = useState<File | null>(null);
+  const [currentFile, setCurrentFile] = useState<File | null | string>(null);
   const editor = useRef<AvatarEditor | null>(null);
 
   useEffect(() => {
-    if (!avatar || avatar.name !== currentFile?.name) {
-      setCurrentFile(avatar);
+    if (!avatarFile) {
+      setCurrentFile(avatarFile);
       setScale(1);
     }
-  }, [avatar, currentFile]);
+  }, [avatarFile, currentFile]);
 
   const debouncedImageChange = useMemo(
     () =>
@@ -42,10 +50,11 @@ export const EmployeeAvatarEditor = ({
         if (canvas) {
           const dataUrl = canvas.getImageScaledToCanvas().toDataURL();
           const result = await fetch(dataUrl);
+
           const blob = await result.blob();
 
           onAvatarChanged(
-            new File([blob], currentFile?.name || 'employee_avatar', {
+            new File([blob], (currentFile as File).name || 'employee_avatar', {
               type: blob.type
             })
           );
@@ -77,61 +86,93 @@ export const EmployeeAvatarEditor = ({
         return 'var(--chakra-colors-brand-accentGreen)';
     }
   };
+  const { id } = useParams();
+  const [deleteAvatar] = useDeleteAvatarMutation();
 
   return (
     <Box>
-      <Box
-        {...getRootProps({
-          onClick: (ev) => {
-            if (currentFile) ev.stopPropagation();
+      {currentFile ? (
+        <AvatarEditor
+          ref={editor}
+          image={currentFile}
+          onImageChange={debouncedImageChange}
+          onImageReady={debouncedImageChange}
+          width={250}
+          height={250}
+          border={0}
+          color={backdropColor}
+          scale={scale}
+          crossOrigin="anonymous"
+          borderRadius={250}
+          style={{
+            border: `10px solid ${borderColor(status)}`,
+            borderRadius: '50%'
+          }}
+        />
+      ) : (
+        <Avatar
+          src={
+            avatarUrl
+              ? `${import.meta.env.VITE_GALLERY_BASE_URL}${avatarUrl}`
+              : undefined
           }
-        })}
-      >
-        {currentFile ? (
-          <AvatarEditor
-            ref={editor}
-            image={currentFile}
-            onImageChange={debouncedImageChange}
-            onImageReady={debouncedImageChange}
-            width={250}
-            height={250}
-            border={0}
-            color={backdropColor}
-            scale={scale}
-            crossOrigin="anonymous"
-            borderRadius={250}
-            style={{
-              border: `10px solid ${borderColor(status)}`,
-              borderRadius: '50%'
-            }}
-          />
-        ) : (
-          <Avatar
-            variant={status}
-            _hover={{
-              div: {
-                opacity: 1
-              }
-            }}
-            size="lg"
+          variant={status}
+          _hover={{
+            div: {
+              opacity: 1
+            }
+          }}
+          size="lg"
+        >
+          <Flex
+            borderRadius="5px"
+            border="1px solid var(--chakra-colors-brand-stroke)"
+            bgColor="#FFFFFF"
             cursor="pointer"
+            sx={{
+              position: 'absolute',
+              opacity: 0
+            }}
           >
-            <Box
-              sx={{
-                position: 'absolute',
-                opacity: 0
-              }}
+            <Flex
+              {...getRootProps({
+                onClick: (
+                  ev: React.MouseEvent<HTMLElement | SVGElement, MouseEvent>
+                ) => {
+                  if (currentFile) ev.stopPropagation();
+                }
+              })}
             >
-              <MdAdd
-                id="AddAvatarIcon"
-                size={64}
-                color="var(--chakra-colors-brand-ghostGray)"
-              />
-            </Box>
-          </Avatar>
-        )}
-        <input {...getInputProps()} />
-      </Box>
+              {avatarUrl ? (
+                <>
+                  <MdOutlineModeEditOutline
+                    id="EditAvatarIcon"
+                    size={50}
+                    color="var(--chakra-colors-brand-ghostGray)"
+                  />
+                  <MdOutlineDeleteOutline
+                    id="DeleteAvatarIcon"
+                    size={50}
+                    color="var(--chakra-colors-brand-ghostGray)"
+                    onClick={async (event) => {
+                      event.stopPropagation();
+                      onAvatarChanged(null);
+                      await deleteAvatar({ id: id || '' });
+                    }}
+                  />
+                </>
+              ) : (
+                <MdAdd
+                  id="AddAvatarIcon"
+                  size={64}
+                  color="var(--chakra-colors-brand-ghostGray)"
+                />
+              )}
+            </Flex>
+          </Flex>
+        </Avatar>
+      )}
+      <input {...getInputProps()} />
       {currentFile && (
         <EditorActions
           onEdit={() => inputRef.current?.click()}

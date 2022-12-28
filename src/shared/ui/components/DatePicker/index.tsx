@@ -9,6 +9,7 @@ import {
   DateInput,
   DatePickerHeader
 } from '~/shared/ui/components/DatePicker/datepicker.components';
+import { getFirstLetterOfMonth } from '~/shared/utils/dates.utils';
 
 registerLocale('en', enGB);
 registerLocale('ru', ru);
@@ -19,7 +20,7 @@ export const DatePicker = <
 >({
   customInput = <DateInput />,
   dateFormat = 'dd.MM.yyyy',
-  formatWeekDay = (nameOfDay) => nameOfDay.slice(0, 1),
+  formatWeekDay = (nameOfDay) => <div>{getFirstLetterOfMonth(nameOfDay)}</div>,
   renderCustomHeader = (headerProps) => <DatePickerHeader {...headerProps} />,
   showPopperArrow: shouldShowPopperArrow = false,
   ...pathThroughProps

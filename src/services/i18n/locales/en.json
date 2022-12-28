@@ -335,7 +335,9 @@
               "interests": "Interests",
               "section_title": "General information",
               "start_career": "Start career in Cybergizer",
-              "start_career_in": "Start career in {{date}}"
+              "start_career_in": "Start career in {{date}}",
+              "sweat_shirt_size": "Sweatshirt size",
+              "t_shirt_size": "T-shirt size"
             },
             "social_network_title": "Social network",
             "title": "Personal information"
@@ -475,7 +477,6 @@
     },
     "employee_profile_tabs": {
       "cv": "CV",
-
       "education": "Education",
       "personal_information": "Personal Information",
       "publication": "Publication",

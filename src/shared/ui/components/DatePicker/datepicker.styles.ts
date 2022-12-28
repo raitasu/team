@@ -8,6 +8,7 @@ export const reactDatePickerStyles = {
     borderRadius: '4px',
     zIndex: '1'
   },
+
   '.custom-header__select, .react-datepicker__day-name, .react-datepicker__month':
     {
       fontFamily: 'Roboto, sans-serif'
@@ -47,6 +48,9 @@ export const reactDatePickerStyles = {
   '.react-datepicker__input-container': {
     position: 'relative',
     width: '100%'
+  },
+  '.react-datepicker__aria-live': {
+    display: 'none'
   },
   '.react-datepicker-popper[data-placement^=bottom]': {
     paddingTop: '20px'

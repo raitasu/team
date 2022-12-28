@@ -1,7 +1,7 @@
 import { useDisclosure } from '@chakra-ui/react';
-import upperCase from 'lodash/upperCase';
 import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 import { isEditable } from '~/features/employee/employee.utils';
 import { EditGeneralInfoModal } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditGeneralInfo';
@@ -9,6 +9,7 @@ import { type ChangedEmployeeGeneralInfoValues } from '~/features/employee/Emplo
 import { DateFormats } from '~/shared/shared.constants';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
+import { useUpdateGeneralInformationMutation } from '~/store/api/employees/employees.api';
 import { type Employee } from '~/store/api/employees/employees.types';
 
 import { GeneralInfoItem } from './GeneralInfoItem';
@@ -22,8 +23,12 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
     onClose: onCloseGeneralInfoTab
   } = useDisclosure();
   const { data: currentUser } = useGetCurrentUserQuery();
+  const { id } = useParams();
+  const [updateGeneralInformation] = useUpdateGeneralInformationMutation();
   const changeGeneralInfo = (values: ChangedEmployeeGeneralInfoValues) => {
-    console.debug(values);
+    updateGeneralInformation({ data: values, id: Number(id) })
+      .then(onCloseGeneralInfoTab)
+      .catch(onCloseGeneralInfoTab);
   };
 
   return (
@@ -95,11 +100,15 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.general.clothing_size'
         )}
-        value={upperCase(
-          employee.t_shirt_size
-            ? employee.t_shirt_size
+        value={
+          employee.sweat_shirt_size
+            ? `${employee.sweat_shirt_size} (${
+                t(
+                  'domains:employee.titles.profile_tabs.personal_information.general.sweat_shirt_size'
+                ) as 'sweat_shirt_size'
+              })`
             : t('domains:employee.errors.no_data')
-        )}
+        }
       />
       <EditGeneralInfoModal
         employee={employee}

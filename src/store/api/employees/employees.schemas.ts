@@ -135,10 +135,12 @@ export const EmployeeContactsSchema = z.object({
 
 export const EmployeeContactInfoSchema = z.object({
   id: z.number().optional(),
-  employee_attributes: z.object({
-    email: z.string().email().nullable().optional(),
-    id: z.number()
-  }),
+  employee_attributes: z
+    .object({
+      email: z.string().email().nullable().optional(),
+      id: z.number()
+    })
+    .optional(),
   personal_email: z.string().email().nullable(),
   secondary_phone: z.string().nullable(),
   primary_phone: z.string().nullable().optional(),
@@ -256,7 +258,7 @@ export const EmployeeSchema = z.object({
   employee_hard_skill_permissions: HardSkillSchema.array().nullable(),
   id: z.number(),
   email: z.string().email(),
-  interests: z.string(),
+  interests: z.string().nullable(),
   languages: EmployeeLanguageSchema.array().nullable(),
   last_name: z.string(),
   positions: EmployeePositionSchema.array().optional().nullable(),
@@ -273,6 +275,7 @@ export const EmployeeSchema = z.object({
 
 export const ShortEmployeeSchema = EmployeeSchema.pick({
   avatar: true,
+  about: true,
   date_of_birth: true,
   first_name: true,
   id: true,
@@ -282,7 +285,9 @@ export const ShortEmployeeSchema = EmployeeSchema.pick({
   role: true,
   social_networks: true,
   status: true,
-  email: true
+  email: true,
+  interests: true,
+  start_career_at: true
 }).extend({
   contacts: EmployeeContactsSchema.pick({
     primary_phone: true

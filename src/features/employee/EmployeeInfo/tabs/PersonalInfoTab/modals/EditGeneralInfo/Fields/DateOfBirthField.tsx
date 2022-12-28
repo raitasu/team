@@ -7,11 +7,12 @@ import { FormControl } from '~/shared/ui/components/FormControl';
 
 export const BirthDateField = () => {
   const [t] = useTranslation();
-  const { field } = useController<EmployeeGeneralInfoFormValues, 'dateOfBirth'>(
-    {
-      name: 'dateOfBirth'
-    }
-  );
+  const { field } = useController<
+    EmployeeGeneralInfoFormValues,
+    'date_of_birth'
+  >({
+    name: 'date_of_birth'
+  });
 
   return (
     <FormControl

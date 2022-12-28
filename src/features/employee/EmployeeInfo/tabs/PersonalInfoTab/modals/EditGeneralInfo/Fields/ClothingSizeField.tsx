@@ -7,14 +7,17 @@ import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 import { EmployeeClothingSizes } from '~/store/api/employees/employees.schemas';
 
-export const ClothingSizeField = () => {
+export const ClothingSizeField = ({
+  name
+}: {
+  name: 'sweat_shirt_size' | 't_shirt_size';
+}) => {
   const [t] = useTranslation();
 
   const { field } = useController<
-    EmployeeGeneralInfoFormValues,
-    'clothingSize'
+    Pick<EmployeeGeneralInfoFormValues, 'sweat_shirt_size' | 't_shirt_size'>
   >({
-    name: 'clothingSize'
+    name
   });
 
   const clothingSizeOptions = EmployeeClothingSizes.map((size) => ({
@@ -24,11 +27,13 @@ export const ClothingSizeField = () => {
 
   return (
     <FormControl
+      width="315px"
       label={t(
-        'domains:employee.titles.profile_tabs.personal_information.general.clothing_size'
+        `domains:employee.titles.profile_tabs.personal_information.general.${name}`
       )}
     >
       <Select
+        menuPlacement="top"
         options={clothingSizeOptions}
         getOptionLabel={(option) => upperCase(option.label)}
         value={clothingSizeOptions.find(
