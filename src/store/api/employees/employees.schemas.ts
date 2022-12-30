@@ -3,6 +3,8 @@ import { z } from 'zod';
 import { createUnionSchema } from '~/shared/helpers.zod';
 import { TranslationSchema } from '~/store/api/api.types';
 
+import { Patterns } from '../api.constants';
+
 export const EmployeeCountries = ['ru', 'be'] as const;
 
 export const EmployeeCountriesSchema = createUnionSchema(EmployeeCountries);
@@ -68,13 +70,29 @@ export const LanguageNameSchema = z.union([
 ]);
 
 export const SocialNetworkSchema = z.object({
-  linkedin: z.string().url().optional().nullable(),
-  github: z.string().url().optional().nullable(),
-  telegram: z.string().url().optional().nullable(),
-  facebook: z.string().url().optional().nullable(),
-  instagram: z.string().url().optional().nullable(),
-  vk: z.string().url().optional().nullable(),
-  discord: z.string().url().optional().nullable()
+  linkedin: z
+    .string()
+    .regex(new RegExp(Patterns.Linkedin))
+    .optional()
+    .nullable(),
+  github: z.string().regex(new RegExp(Patterns.GitHub)).optional().nullable(),
+  discord: z.string().regex(new RegExp(Patterns.Discord)).optional().nullable(),
+  telegram: z
+    .string()
+    .regex(new RegExp(Patterns.Telegram))
+    .optional()
+    .nullable(),
+  facebook: z
+    .string()
+    .regex(new RegExp(Patterns.Facebook))
+    .optional()
+    .nullable(),
+  instagram: z
+    .string()
+    .regex(new RegExp(Patterns.Instagram))
+    .optional()
+    .nullable(),
+  vk: z.string().regex(new RegExp(Patterns.VKontakte)).optional().nullable()
 });
 
 export const SoftSkillSchema = z.object({

@@ -8,11 +8,11 @@ import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
 import { type SocialNetwork } from '~/store/api/employees/employees.types';
 
-import { socialFieldsNames } from './editSocialNetworks.constants';
+import { socialFieldsNames } from './EditSocialNetworks.constants';
 import {
   type EditSocialNetworksValues,
   EditSocialNetworksSchema
-} from './editSocialNetworks.shema';
+} from './EditSocialNetworks.shema';
 import { SocialLinkField } from './Fields/SocialLinkField';
 
 export const EditSocialNetworksInfoModal = ({

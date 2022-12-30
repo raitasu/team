@@ -243,6 +243,15 @@
         "edit_cv": "Изменить резюме"
       },
       "errors": {
+        "invalid_link": {
+          "discord": "Добавьте корректное имя пользователя. Например: Username#4512",
+          "facebook": "Добавьте корректную ссылку. Например: https://www.facebook.com/username",
+          "github": "Добавьте корректную ссылку. Например: https://github.com/username",
+          "instagram": "Добавьте корректную ссылку. Например: https://instagram.com/username",
+          "linkedin": "Добавьте корректную ссылку. Например: htts://linkedin.com/in/username",
+          "telegram": "Добавьте корректную ссылку. Например: https://t.me/username",
+          "vk": "Добавьте корректную ссылку. Например: https://vk.com/username"
+        },
         "no_data": "Нет данных",
         "no_employees_data": "Нет данных о сотрудниках",
         "required_field": "Поле не может быть пустым"
@@ -461,6 +470,15 @@
       "november": "Ноябрь",
       "october": "Октябрь",
       "september": "Сентябрь"
+    },
+    "social_networks": {
+      "discord": "Дискорд",
+      "facebook": "Фейсбук",
+      "github": "Гитхаб",
+      "instagram": "Инстаграм",
+      "linkedin": "Линкедин",
+      "telegram": "Телеграм",
+      "vk": "ВКонтакте"
     }
   },
   "general_actions": {

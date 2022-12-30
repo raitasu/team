@@ -54,13 +54,13 @@ const generateEmployeeContacts = (): EmployeeContact => ({
 });
 
 const generateSocialNetwork = (): SocialNetwork => ({
-  linkedin: faker.internet.url(),
-  github: faker.internet.url(),
-  telegram: faker.internet.url(),
-  facebook: faker.internet.url(),
-  instagram: faker.internet.url(),
-  vk: faker.internet.url(),
-  discord: `${faker.name.fullName()}#${faker.random.numeric(4)}`
+  linkedin: `https://www.linkedin.com/in/${faker.name.firstName()}`,
+  github: `https://github.com/${faker.name.firstName()}`,
+  discord: `${faker.name.fullName()}#${faker.random.numeric(4)}`,
+  telegram: `https://t.me/${faker.name.firstName()}`,
+  facebook: `https://www.facebook.com/${faker.name.firstName()}`,
+  instagram: `https://www.instagram.com/${faker.name.firstName()}`,
+  vk: `https://vk.com/${faker.name.firstName()}`
 });
 
 const generateEmployee = (id: number): Employee => {

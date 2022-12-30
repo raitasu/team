@@ -1,5 +1,4 @@
 import { useDisclosure } from '@chakra-ui/react';
-import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
 
 import { isEditable } from '~/features/employee/employee.utils';
@@ -52,7 +51,7 @@ export const SocialNetworkInfo = ({ employee }: { employee: Employee }) => {
         return (
           <ContactItem
             key={name}
-            name={upperFirst(name)}
+            name={t(`enums:social_networks.${name}`)}
             values={[link]}
             linkType="web"
           />

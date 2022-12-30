@@ -243,6 +243,15 @@
         "edit_cv": "Edit CV"
       },
       "errors": {
+        "invalid_link": {
+          "discord": "Add correct username. Example: Username#4512",
+          "facebook": "Add correct link. Example: https://www.facebook.com/username",
+          "github": "Add correct link. Example: https://github.com/username",
+          "instagram": "Add correct link. Example: https://instagram.com/username",
+          "linkedin": "Add correct link. Example: htts://linkedin.com/in/username",
+          "telegram": "Add correct link. Example: https://t.me/username",
+          "vk": "Add correct link. Example: https://vk.com/username"
+        },
         "no_data": "No data",
         "no_employees_data": "No employees data",
         "required_field": "Field can't be empty"
@@ -458,6 +467,15 @@
       "november": "November",
       "october": "October",
       "september": "September"
+    },
+    "social_networks": {
+      "discord": "Discord",
+      "facebook": "Facebook",
+      "github": "Github",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "telegram": "Telegram",
+      "vk": "Vkontakte"
     }
   },
   "general_actions": {

@@ -1,11 +1,10 @@
 import { Input } from '@chakra-ui/react';
-import upperFirst from 'lodash/upperFirst';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { FormControl } from '~/shared/ui/components/FormControl';
 
-import { type EditSocialNetworksValues } from '../editSocialNetworks.shema';
+import { type EditSocialNetworksValues } from '../EditSocialNetworks.shema';
 
 export const SocialLinkField = ({
   linkName
@@ -13,10 +12,20 @@ export const SocialLinkField = ({
   linkName: keyof EditSocialNetworksValues;
 }) => {
   const [t] = useTranslation();
-  const { register } = useFormContext<EditSocialNetworksValues>();
+  const {
+    register,
+    formState: { errors }
+  } = useFormContext<EditSocialNetworksValues>();
 
   return (
-    <FormControl label={upperFirst(linkName)}>
+    <FormControl
+      label={t(`enums:social_networks.${linkName}`)}
+      errorMessage={
+        errors[linkName] !== undefined
+          ? `${t(`domains:employee.errors.invalid_link.${linkName}`)}`
+          : ''
+      }
+    >
       <Input
         {...register(linkName)}
         type="text"

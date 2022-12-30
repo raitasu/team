@@ -1,4 +1,4 @@
-import { type EditSocialNetworksValues } from './editSocialNetworks.shema';
+import { type EditSocialNetworksValues } from './EditSocialNetworks.shema';
 
 export const socialFieldsNames: Array<keyof EditSocialNetworksValues> = [
   'linkedin',

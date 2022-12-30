@@ -12,7 +12,7 @@ export const ContactItem = ({
   values,
   linkType
 }: {
-  name: string;
+  name?: string;
   values?: string[];
   linkType?: LinkType;
 }) => (
