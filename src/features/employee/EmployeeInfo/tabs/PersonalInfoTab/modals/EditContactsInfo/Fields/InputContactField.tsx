@@ -14,7 +14,7 @@ export const InputContactField = ({
   errorMessage
 }: {
   name: keyof EmployeeContactsInfoFormValues;
-  label: typeof TranslationKeys[keyof EmployeeContactsInfoFormValues];
+  label: (typeof TranslationKeys)[keyof EmployeeContactsInfoFormValues];
   placeholder?: string;
   isRequired?: boolean;
   errorMessage?: string;

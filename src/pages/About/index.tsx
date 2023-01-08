@@ -22,7 +22,7 @@ import { Memento } from './sections/Memento';
 
 const isAboutSection = (
   routerParam: string
-): routerParam is typeof AboutSections[keyof typeof AboutSections] =>
+): routerParam is (typeof AboutSections)[keyof typeof AboutSections] =>
   (Object.values(AboutSections) as string[]).includes(routerParam);
 
 const sections = {

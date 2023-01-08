@@ -13,7 +13,7 @@ i18nBase.use(initReactI18next).use({
     namespace: I18nNamespaces,
     callback: (
       errorValue: unknown,
-      translations: typeof en[I18nNamespaces] | null
+      translations: (typeof en)[I18nNamespaces] | null
     ) => void
   ) {
     try {

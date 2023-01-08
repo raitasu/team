@@ -21,7 +21,7 @@ export const ActionsModalFooter = ({
   isValid?: boolean;
   isTouched?: boolean;
   isLoading?: boolean;
-  submitTag?: keyof typeof en['general_actions'];
+  submitTag?: keyof (typeof en)['general_actions'];
 }) => {
   const [t] = useTranslation();
 

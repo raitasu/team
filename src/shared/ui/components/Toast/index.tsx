@@ -45,9 +45,9 @@ export const useSuccessToast = (config?: ToastProps) =>
 
 export const showGlobalError = (
   config?: Omit<ToastProps, 'description' | 'title'> & {
-    titleTag?: keyof typeof en['domains']['global']['errors']['titles'];
+    titleTag?: keyof (typeof en)['domains']['global']['errors']['titles'];
     titleTagArgs?: TOptions;
-    descriptionTag?: keyof typeof en['domains']['global']['errors']['descriptions'];
+    descriptionTag?: keyof (typeof en)['domains']['global']['errors']['descriptions'];
     descriptionTagArgs?: TOptions;
   }
 ) =>

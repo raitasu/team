@@ -16,4 +16,4 @@ export type EmployeesTable = React.FC<{
 }>;
 
 export type HeaderKeys =
-  typeof EmployeesHeaderIds[keyof typeof EmployeesHeaderIds];
+  (typeof EmployeesHeaderIds)[keyof typeof EmployeesHeaderIds];

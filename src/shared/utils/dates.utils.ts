@@ -7,7 +7,7 @@ import { DateFormats } from '~/shared/shared.constants';
 export const getFormattedDate = (
   date: string,
   language: string,
-  pattern: typeof DateFormats[keyof typeof DateFormats] = DateFormats.Short
+  pattern: (typeof DateFormats)[keyof typeof DateFormats] = DateFormats.Short
 ) => {
   if (!isSupportedLocale(language)) {
     throw new Error(

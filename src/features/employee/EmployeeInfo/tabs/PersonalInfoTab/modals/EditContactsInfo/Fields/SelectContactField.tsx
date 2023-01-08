@@ -15,7 +15,7 @@ export const SelectContactField = ({
   data
 }: {
   name: keyof EmployeeContactsInfoFormValues;
-  label: typeof TranslationKeys[keyof EmployeeContactsInfoFormValues];
+  label: (typeof TranslationKeys)[keyof EmployeeContactsInfoFormValues];
   placeholder?: string;
   data: Translation;
 }) => {
