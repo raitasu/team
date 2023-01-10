@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 import {
   COLUMN_GAP,
   LEFT_COLUMN_WIDTH,
-  ROW_GAP,
-  SECTION_PADDING
+  ROW_GAP
 } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
@@ -22,11 +21,6 @@ export const EducationInfoItem = ({
     <Flex
       flexDirection="column"
       gap="20px"
-      padding={SECTION_PADDING}
-      borderBottom="1px solid var(--chakra-colors-brand-stroke)"
-      _notLast={{
-        borderBottom: '1px dashed var(--chakra-colors-brand-stroke)'
-      }}
     >
       <Text
         color="brand.ghostGray"
@@ -46,11 +40,6 @@ export const EducationInfoItem = ({
             education.start_at,
             language
           )} - ${getFormattedDate(education.end_at, language)}`}</Text>
-          <Text>
-            {`${getTranslation(education.city || { en: '' })}, ${
-              education.country_code
-            }`}
-          </Text>
         </Grid>
 
         <Grid rowGap={ROW_GAP}>

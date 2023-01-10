@@ -31,16 +31,16 @@ export const DegreeField = () => {
   return (
     <FormControl
       label={t('domains:employee.titles.profile_tabs.education.degree')}
-      isRequired
     >
       <Select
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         options={degreeOptions}
         value={selectedDegree}
         onChange={(option) => {
-          field.onChange(option.map((item) => item.value));
+          if (option) {
+            field.onChange(option.value);
+          }
         }}
-        isMulti
         size="md"
       />
     </FormControl>

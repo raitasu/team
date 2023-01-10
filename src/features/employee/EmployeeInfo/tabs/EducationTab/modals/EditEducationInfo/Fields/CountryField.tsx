@@ -30,16 +30,16 @@ export const CountryField = () => {
   return (
     <FormControl
       label={t('domains:employee.titles.profile_tabs.education.country')}
-      isRequired
     >
       <Select
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         options={countryOptions}
         value={selectedCountry}
         onChange={(option) => {
-          field.onChange(option.map((item) => item.value));
+          if (option) {
+            field.onChange(option.value);
+          }
         }}
-        isMulti
         size="md"
       />
     </FormControl>

@@ -10,7 +10,6 @@ export const EducationSection = ({
   <Flex
     flexDirection="column"
     gap="20px"
-    paddingRight="40px"
     borderBottom="1px solid var(--chakra-colors-brand-stroke)"
     position="relative"
   >

@@ -2,7 +2,7 @@ export const Tooltip = {
   baseStyle: {
     position: 'static !important',
     minWidth: '81px',
-    padding: '7px',
+    padding: '8px',
     fontWeight: '400',
     fontSize: '14px',
     lineHeight: '20px',

@@ -130,6 +130,17 @@ export const Button = {
       px: '0',
       bg: 'inherit',
       color: 'brand.body'
+    },
+    asLink: {
+      display: 'inline',
+      height: 0,
+      padding: 0,
+      paddingInlineStart: 0,
+      paddingInlineEnd: 0,
+      color: 'brand.headline2',
+      fontSize: '16px',
+      textTransform: 'none',
+      textDecoration: 'underline'
     }
   },
   defaultProps: {

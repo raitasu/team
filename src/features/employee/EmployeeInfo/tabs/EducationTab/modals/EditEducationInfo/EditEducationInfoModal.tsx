@@ -1,11 +1,9 @@
-import { Box, Flex, useDisclosure } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { MdOutlineEdit } from 'react-icons/md';
 
-import { isEditable } from '~/features/employee/employee.utils';
 import {
   type ChangedEmployeeEducationInfoValues,
   type EmployeeEducationInfoFormValues,
@@ -19,31 +17,20 @@ import { StudyField } from '~/features/employee/EmployeeInfo/tabs/EducationTab/m
 import { UniversityNameField } from '~/features/employee/EmployeeInfo/tabs/EducationTab/modals/EditEducationInfo/Fields/UniversityNameField';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
-import { IconButton } from '~/shared/ui/components/IconButton';
-import { Tooltip } from '~/shared/ui/components/Tooltip';
-import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import { type EmployeeEducation } from '~/store/api/employees/employees.types';
 
 export const EditEducationInfoModal = ({
   education,
-  employeeId,
-  onConfirm
+  onConfirm,
+  isOpenModal,
+  onCloseModal
 }: {
   education: EmployeeEducation;
-  employeeId: number;
+  isOpenModal: boolean;
+  onCloseModal: () => void;
   onConfirm: (values: ChangedEmployeeEducationInfoValues) => void;
 }) => {
   const [t] = useTranslation();
-
-  const {
-    isOpen: isOpenEducationInfoTab,
-    onOpen: onOpenEducationInfoTab,
-    onClose: onCloseEducationInfoTab
-  } = useDisclosure();
-  const { data: currentUser } = useGetCurrentUserQuery();
-  const onEdit = isEditable(employeeId, currentUser)
-    ? onOpenEducationInfoTab
-    : undefined;
 
   const methods = useForm<EmployeeEducationInfoFormValues>({
     defaultValues: getInitialState(education),
@@ -52,73 +39,54 @@ export const EditEducationInfoModal = ({
   });
   const closeEducationInfoForm = () => {
     methods.reset();
-    onCloseEducationInfoTab();
+    onCloseModal();
   };
 
   return (
-    <>
-      {onEdit ? (
-        <Box pt="40px">
-          <Tooltip
-            hasArrow
-            place="top"
-            labelText={t('general_actions:edit')}
-          >
-            <IconButton
-              aria-label="DownloadCV"
-              variant="iconButtonSmall"
-              icon={<MdOutlineEdit />}
-              onClick={onOpenEducationInfoTab}
-              gridColumn="2 / 3"
-            />
-          </Tooltip>
-        </Box>
-      ) : null}
-      <BaseModal
-        autoFocus={false}
-        title={upperCase(
-          t(
-            'domains:employee.titles.profile_tabs.personal_information.education.section_title'
-          )
-        )}
-        isOpen={isOpenEducationInfoTab}
-        onClose={closeEducationInfoForm}
-        shouldUseOverlay
-        isCentered
-        contentProps={{
-          maxWidth: '688px'
-        }}
-        footer={
-          <ActionsModalFooter
-            onCancel={closeEducationInfoForm}
-            onReset={() => methods.reset()}
-            onSubmit={methods.handleSubmit((data) => {
-              const changedValues = Object.entries(data).filter(
-                (_, i) =>
-                  Object.entries(data)[i][1] !==
-                  Object.entries(getInitialState(education))[i][1]
-              );
+    <BaseModal
+      autoFocus={false}
+      title={upperCase(
+        t(
+          'domains:employee.titles.profile_tabs.personal_information.education.section_title'
+        )
+      )}
+      isOpen={isOpenModal}
+      onClose={closeEducationInfoForm}
+      shouldUseOverlay
+      isCentered
+      contentProps={{
+        maxWidth: '688px'
+      }}
+      footer={
+        <ActionsModalFooter
+          onCancel={closeEducationInfoForm}
+          onReset={() => methods.reset()}
+          onSubmit={methods.handleSubmit((data) => {
+            const changedValues = Object.entries(data).filter(
+              (_, i) =>
+                Object.entries(data)[i][1] !==
+                Object.entries(getInitialState(education))[i][1]
+            );
 
-              onConfirm(Object.fromEntries(changedValues));
-            })}
-            isValid={methods.formState.isValid}
-            isTouched={methods.formState.isDirty}
-          />
-        }
+            onConfirm(Object.fromEntries(changedValues));
+          })}
+          isValid={methods.formState.isValid}
+          isTouched={methods.formState.isDirty}
+        />
+      }
+    >
+      <Flex
+        flexDirection="column"
+        gap="20px"
       >
-        <Flex
-          flexDirection="column"
-          gap="20px"
-        >
-          <FormProvider {...methods}>
-            <UniversityNameField />
-            <DegreeField />
-            <StudyField />
-            <CountryField />
-            <DateField />
-          </FormProvider>
-        </Flex>
-      </BaseModal>
-    </>
+        <FormProvider {...methods}>
+          <UniversityNameField />
+          <DegreeField />
+          <StudyField />
+          <CountryField />
+          <DateField />
+        </FormProvider>
+      </Flex>
+    </BaseModal>
   );
 };

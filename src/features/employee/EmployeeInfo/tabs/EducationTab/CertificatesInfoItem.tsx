@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import {
   COLUMN_GAP,
   LEFT_COLUMN_WIDTH,
-  ROW_GAP,
-  SECTION_PADDING
+  ROW_GAP
 } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
+import { Button } from '~/shared/ui/components/Button';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
 
@@ -18,19 +18,14 @@ export const CertificatesInfoItem = ({
 }) => {
   const [t, { language }] = useTranslation();
 
-  const city = certificate.city
-    ? getTranslation(certificate.city, language)
-    : t('domains:employee.errors.no_data');
+  const onDownloadDocument = () => {
+    console.debug(`Download ${certificate.file}`);
+  };
 
   return (
     <Flex
       flexDirection="column"
       gap="20px"
-      padding={SECTION_PADDING}
-      borderBottom="1px solid var(--chakra-colors-brand-stroke)"
-      _notLast={{
-        borderBottom: '1px dashed var(--chakra-colors-brand-stroke)'
-      }}
     >
       <Text
         color="brand.ghostGray"
@@ -50,32 +45,30 @@ export const CertificatesInfoItem = ({
             certificate.start_at,
             language
           )} - ${getFormattedDate(certificate.end_at, language)}`}</Text>
-          <Text>{`${city} ${certificate.country_code}`}</Text>
         </Grid>
 
-        <Grid rowGap={ROW_GAP}>
+        <Grid
+          rowGap={ROW_GAP}
+          justifyItems="start"
+        >
           <Text>
             <Text
               as="span"
               fontWeight="500"
             >
               {`${t(
-                'domains:employee.titles.profile_tabs.education.document'
-              )}: `}
-            </Text>
-            {certificate.file}
-          </Text>
-          <Text>
-            <Text
-              as="span"
-              fontWeight="500"
-            >
-              {`${t(
-                'domains:employee.titles.profile_tabs.education.fields_of_study'
+                'domains:employee.titles.profile_tabs.education.title_certificates'
               )}: `}
             </Text>
             {getTranslation(certificate.speciality_translations, language)}
           </Text>
+          <Button
+            variant="asLink"
+            fontWeight="400"
+            onClick={onDownloadDocument}
+          >
+            {t('domains:employee.titles.profile_tabs.education.document')}
+          </Button>
         </Grid>
       </Grid>
     </Flex>

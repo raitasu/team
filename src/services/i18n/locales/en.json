@@ -276,6 +276,7 @@
             "fields_of_study": "Fields of study",
             "start_date": "Start date",
             "title": "Education",
+            "title_certificates": "Title",
             "university_name": "University name"
           },
           "personal_information": {
@@ -361,12 +362,14 @@
       "confirmations": {
         "descriptions": {
           "delete": "Do you want to delete information?",
+          "delete_education": "Do you want to delete education?",
           "deleted": "Information deleted",
           "save": "Do you want to save information?",
           "saved": "Information saved"
         },
         "titles": {
           "delete": "Delete information",
+          "delete_education": "Delete education",
           "save": "Save information"
         }
       },

@@ -1,4 +1,4 @@
-import { Flex, Grid, Heading } from '@chakra-ui/react';
+import { Flex, type FlexProps, Grid, Heading } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { MdOutlineEdit } from 'react-icons/md';
 
@@ -13,16 +13,18 @@ import { Tooltip } from '~/shared/ui/components/Tooltip';
 export const InfoSection = ({
   title,
   children,
-  onEdit
+  onEdit,
+  ...throwProps
 }: {
   title?: string;
   children: React.ReactNode;
   onEdit?: () => void;
-}) => {
+} & FlexProps) => {
   const { t } = useTranslation();
 
   return (
     <Flex
+      {...throwProps}
       flexDirection="column"
       gap="20px"
       p={SECTION_PADDING}
