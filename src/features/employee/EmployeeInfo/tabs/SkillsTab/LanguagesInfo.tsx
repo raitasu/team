@@ -1,22 +1,37 @@
-import { Text } from '@chakra-ui/react';
+import { Text, useDisclosure } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import { type EmployeeLanguage } from '~/store/api/employees/employees.types';
 
+import { type ChangedEmployeeLanguageInfoValues } from './modals/EditLanguagesInfo/EditLanguagesInfo.shema';
+import { EditLanguagesInfoModal } from './modals/EditLanguagesInfo/EditLanguagesInfoModal';
 import { InfoSection } from '../components/InfoSection';
 
 export const LanguagesInfo = ({
-  languages
+  languages,
+  canEdit
 }: {
-  languages?: EmployeeLanguage[];
+  languages: EmployeeLanguage[];
+  canEdit: boolean;
 }) => {
   const [t] = useTranslation();
+
+  const {
+    isOpen: isOpenLanguagesInfoTab,
+    onOpen: onOpenLanguagesInfoTab,
+    onClose: onCloseLanguagesInfoTab
+  } = useDisclosure();
+
+  const changeLanguagesInfo = (values: ChangedEmployeeLanguageInfoValues) => {
+    console.debug(values);
+  };
 
   return (
     <InfoSection
       title={t('domains:employee.titles.profile_tabs.skills.languages')}
+      onEdit={canEdit ? onOpenLanguagesInfoTab : undefined}
     >
-      {(languages || []).map((lang) => (
+      {languages.map((lang) => (
         <Text key={lang.name}>
           {`${t(`enums:language.${lang.name}`)} `}
           <Text
@@ -27,6 +42,12 @@ export const LanguagesInfo = ({
           </Text>
         </Text>
       ))}
+      <EditLanguagesInfoModal
+        languages={languages}
+        isOpenLanguagesInfoTab={isOpenLanguagesInfoTab}
+        onCloseLanguagesInfoTab={onCloseLanguagesInfoTab}
+        onConfirm={changeLanguagesInfo}
+      />
     </InfoSection>
   );
 };

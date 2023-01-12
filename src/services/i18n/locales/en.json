@@ -254,6 +254,7 @@
           "telegram": "Add correct link. Example: https://t.me/username",
           "vk": "Add correct link. Example: https://vk.com/username"
         },
+        "invalid_literal": "Select value",
         "no_data": "No data",
         "no_employees_data": "No employees data",
         "required_field": "Field can't be empty"
@@ -357,6 +358,7 @@
             },
             "hard_skills": "Hard skills",
             "languages": "Languages",
+            "possession": "Possession",
             "soft_skills": "Soft skills",
             "title": "Skills"
           },
@@ -488,6 +490,14 @@
       "proficiency": "C2",
       "upper_intermediate": "B2"
     },
+    "language_level_full": {
+      "advanced": "Advanced (C1)",
+      "beginner": "Beginner (A2)",
+      "elementary": "Elementary (A1)",
+      "intermediate": "Intermediate (B1)",
+      "proficiency": "Proficiency (C2)",
+      "upper_intermediate": "Upper-intermediate (B2)"
+    },
     "month": {
       "april": "April",
       "august": "August",
@@ -529,6 +539,7 @@
     "invalid_email": "Email is invalid",
     "invalid_number": "Invalid number",
     "invalid_range": "Invalid range",
+    "no_dublicates": "No duplicated allowed",
     "required_field": "Field is required"
   },
   "general_placeholders": {

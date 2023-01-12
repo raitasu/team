@@ -66,7 +66,10 @@ export const ProjectsCell = ({
       {projects && projects.length ? (
         projects.map((project: EmployeeProject) =>
           isShowedPoppover ? (
-            <Popover trigger="hover">
+            <Popover
+              key={project.id}
+              trigger="hover"
+            >
               <PopoverTrigger>{getProject(project)}</PopoverTrigger>
               <PopoverContent
                 color="brand.body"

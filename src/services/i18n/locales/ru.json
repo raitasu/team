@@ -254,6 +254,7 @@
           "telegram": "Добавьте корректную ссылку. Например: https://t.me/username",
           "vk": "Добавьте корректную ссылку. Например: https://vk.com/username"
         },
+        "invalid_literal": "Выберите значение",
         "no_data": "Нет данных",
         "no_employees_data": "Нет данных о сотрудниках",
         "required_field": "Поле не может быть пустым"
@@ -360,6 +361,7 @@
             },
             "hard_skills": "Профессиональные навыки",
             "languages": "Языки",
+            "possession": "Владение",
             "soft_skills": "Общие навыки",
             "title": "Навыки"
           },
@@ -491,6 +493,14 @@
       "proficiency": "C2",
       "upper_intermediate": "B2"
     },
+    "language_level_full": {
+      "advanced": "Продвинутый (C1)",
+      "beginner": "Ниже среднего (A2)",
+      "elementary": "Начальный (A1)",
+      "intermediate": "Средний (B1)",
+      "proficiency": "Профессиональный (C2)",
+      "upper_intermediate": "Выше среднего (B2)"
+    },
     "month": {
       "april": "Апрель",
       "august": "Август",
@@ -532,6 +542,7 @@
     "invalid_email": "Неправильный формат эл.почты",
     "invalid_number": "Неверное число",
     "invalid_range": "Недопустимый диапазон",
+    "no_dublicates": "Дублирование не допускается",
     "required_field": "Поле не может быть пустым"
   },
   "general_placeholders": {

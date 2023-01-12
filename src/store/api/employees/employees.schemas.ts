@@ -62,7 +62,7 @@ export const HardSkillSchema = z.object({
   is_show: z.boolean()
 });
 
-const LanguageLevelSchema = z.union([
+export const LanguageLevelSchema = z.union([
   z.literal('advanced'),
   z.literal('beginner'),
   z.literal('elementary'),
@@ -165,7 +165,7 @@ export const EmployeeEducationSchema = AddressSchema.pick({
 });
 
 export const EmployeeLanguageSchema = z.object({
-  id: z.number(),
+  id: z.number().optional(),
   name: LanguageNameSchema,
   level: LanguageLevelSchema
 });
@@ -196,29 +196,29 @@ export const EmployeeStatuses = ['active', 'candidate', 'inactive'] as const;
 export const EmployeeStatusSchema = createUnionSchema(EmployeeStatuses);
 export const EmployeeLanguages = [
   'be',
-  'de',
+  'zh',
   'en',
-  'es',
   'fr',
+  'de',
   'hi',
-  'it',
   'ja',
+  'it',
   'lt',
   'pl',
   'pt',
   'ru',
-  'ua',
-  'zh'
+  'es',
+  'ua'
 ] as const;
 export const EmployeeLanguagesSchema = createUnionSchema(EmployeeLanguages);
 
 export const EmployeeLanguageLevel = [
-  'advanced',
-  'beginner',
   'elementary',
+  'beginner',
   'intermediate',
-  'proficiency',
-  'upper_intermediate'
+  'upper_intermediate',
+  'advanced',
+  'proficiency'
 ] as const;
 export const EmployeeLanguageLevelSchema = createUnionSchema(
   EmployeeLanguageLevel

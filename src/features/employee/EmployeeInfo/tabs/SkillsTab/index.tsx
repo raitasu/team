@@ -1,6 +1,8 @@
 import { Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
+import { isEditable } from '~/features/employee/employee.utils';
+import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import { type Employee } from '~/store/api/employees/employees.types';
 
 import { HardSkillsInfo } from './HardSkillsInfo';
@@ -9,6 +11,10 @@ import { SoftSkillsInfo } from './SoftSkillsInfo';
 
 export const SkillsTab = ({ employee }: { employee: Employee }) => {
   const [t] = useTranslation();
+
+  const { data: currentUser } = useGetCurrentUserQuery();
+
+  const canEdit = isEditable(employee.id, currentUser);
 
   return (
     <Box>
@@ -29,7 +35,10 @@ export const SkillsTab = ({ employee }: { employee: Employee }) => {
         <div>{t('domains:employee.errors.no_data')}</div>
       )}
       {employee.languages ? (
-        <LanguagesInfo languages={employee.languages} />
+        <LanguagesInfo
+          languages={employee.languages}
+          canEdit={canEdit}
+        />
       ) : (
         <div>{t('domains:employee.errors.no_data')}</div>
       )}
