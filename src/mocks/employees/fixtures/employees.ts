@@ -60,7 +60,7 @@ const generateSocialNetwork = (): SocialNetwork => ({
   facebook: faker.internet.url(),
   instagram: faker.internet.url(),
   vk: faker.internet.url(),
-  discord: faker.internet.url()
+  discord: `${faker.name.fullName()}#${faker.random.numeric(4)}`
 });
 
 const generateEmployee = (id: number): Employee => {
