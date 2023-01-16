@@ -8,8 +8,8 @@ import { getTranslation } from '~/services/i18n/i18n.utils';
 import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import { type EmployeeContact } from '~/store/api/employees/employees.types';
 
-import { InfoSection } from '../components/InfoSection';
 import { ContactItem } from './ContactItem';
+import { InfoSection } from '../components/InfoSection';
 
 export const ContactInfo = ({
   contacts,

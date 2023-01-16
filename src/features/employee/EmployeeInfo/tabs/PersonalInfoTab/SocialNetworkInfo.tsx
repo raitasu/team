@@ -9,9 +9,9 @@ import {
   type SocialNetwork
 } from '~/store/api/employees/employees.types';
 
-import { InfoSection } from '../components/InfoSection';
 import { ContactItem } from './ContactItem';
 import { EditSocialNetworksInfoModal } from './modals/EditSocialNetworksInfo';
+import { InfoSection } from '../components/InfoSection';
 
 export const SocialNetworkInfo = ({ employee }: { employee: Employee }) => {
   const [t] = useTranslation();

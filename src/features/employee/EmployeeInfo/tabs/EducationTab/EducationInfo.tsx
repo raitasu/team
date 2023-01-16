@@ -7,9 +7,9 @@ import { EditEducationInfoModal } from '~/features/employee/EmployeeInfo/tabs/Ed
 import { Button } from '~/shared/ui/components/Button';
 import { type EmployeeEducation } from '~/store/api/employees/employees.types';
 
-import { InfoSection } from '../components/InfoSection';
 import { EducationInfoItem } from './EducationInfoItem';
 import { EducationSection } from './EducationSection';
+import { InfoSection } from '../components/InfoSection';
 
 export const EducationInfo = ({
   educations,

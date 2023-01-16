@@ -12,8 +12,8 @@ import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import { type Employee } from '~/store/api/employees/employees.types';
 
-import { InfoSection } from '../components/InfoSection';
 import { GeneralInfoItem } from './GeneralInfoItem';
+import { InfoSection } from '../components/InfoSection';
 
 export const GeneralInfo = ({ employee }: { employee: Employee }) => {
   const [t, { language }] = useTranslation();

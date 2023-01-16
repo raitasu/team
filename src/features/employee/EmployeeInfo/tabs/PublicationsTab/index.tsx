@@ -5,8 +5,8 @@ import { MdAdd } from 'react-icons/md';
 import { Button } from '~/shared/ui/components/Button';
 import { type Employee } from '~/store/api/employees/employees.types';
 
-import { InfoSection } from '../components/InfoSection';
 import { PublicationsInfoItem } from './PublicationsInfoItem';
+import { InfoSection } from '../components/InfoSection';
 
 export const PublicationsTab = ({ employee }: { employee: Employee }) => {
   const [t] = useTranslation();

@@ -1,6 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
 
-import { reactDatePickerStyles } from '../components/DatePicker/datepicker.styles';
 import { Alert } from './Alert';
 import { Button } from './Button';
 import { Checkbox } from './Checkbox';
@@ -20,6 +19,7 @@ import { Text } from './Text';
 import { Textarea } from './Textarea';
 import { Tooltip } from './Tooltip';
 import { getScrollbarStyles } from './utils';
+import { reactDatePickerStyles } from '../components/DatePicker/datepicker.styles';
 
 export const theme = extendTheme({
   styles: {

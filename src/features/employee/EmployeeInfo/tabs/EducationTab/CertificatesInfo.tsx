@@ -5,9 +5,9 @@ import { MdAdd } from 'react-icons/md';
 import { Button } from '~/shared/ui/components/Button';
 import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
 
-import { InfoSection } from '../components/InfoSection';
 import { CertificatesInfoItem } from './CertificatesInfoItem';
 import { EducationSection } from './EducationSection';
+import { InfoSection } from '../components/InfoSection';
 
 export const CertificatesInfo = ({
   certificates

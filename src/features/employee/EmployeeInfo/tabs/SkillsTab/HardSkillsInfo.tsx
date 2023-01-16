@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { type HardSkill } from '~/store/api/employees/employees.types';
 
-import { InfoSection } from '../components/InfoSection';
 import { HardSkillsInfoItem } from './HardSkillsInfoItem';
+import { InfoSection } from '../components/InfoSection';
 
 export const HardSkillsInfo = ({ skills }: { skills: HardSkill[] }) => {
   const [t] = useTranslation();
