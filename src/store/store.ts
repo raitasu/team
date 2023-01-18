@@ -5,12 +5,14 @@ import { LocalStorageKey } from '~/shared/shared.constants';
 import { rootApiSlice } from '~/store/api';
 import { authenticationSlice } from '~/store/slices/authentication/authentication.slice';
 import { employeesSlice } from '~/store/slices/employees/employees.slice';
+import { projectsSlice } from '~/store/slices/projects/projects.slice';
 import { listenerMiddleware } from '~/store/store.listener';
 
 export const store = configureStore({
   reducer: {
     authentication: authenticationSlice.reducer,
     employees: employeesSlice.reducer,
+    projects: projectsSlice.reducer,
     [rootApiSlice.reducerPath]: rootApiSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>

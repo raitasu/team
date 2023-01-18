@@ -445,7 +445,26 @@
         "add_project": "Новый проект"
       },
       "errors": {
-        "no_projects": "Нет текущих проектов"
+        "no_projects": "Нет текущих проектов",
+        "no_projects_data": "Нет данных о проектах"
+      },
+      "table_headers": {
+        "company_name": "Компания",
+        "project_name": "Проект",
+        "status": "Статус",
+        "type": "Тип",
+        "team": "Команда",
+        "actions": "Действия"
+      },
+      "status": {
+        "in_progress": "В процессе",
+        "on_hold": "Приостановлен",
+        "completed": "Завершен",
+        "wasted": "Потрачено"
+      },
+      "type": {
+        "internal": "Внутренний",
+        "external": "Внешний"
       }
     }
   },
