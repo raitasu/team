@@ -245,6 +245,7 @@
         "edit_cv": "Edit CV"
       },
       "errors": {
+        "incorrect_date": "Add correct year format",
         "invalid_link": {
           "discord": "Add correct username. Example: Username#4512",
           "facebook": "Add correct link. Example: https://www.facebook.com/username",
@@ -511,6 +512,10 @@
       "november": "November",
       "october": "October",
       "september": "September"
+    },
+    "notes": {
+      "end_year": "Cannot be set earlier than the start date",
+      "start_year": "Cannot be set later than the current date"
     },
     "social_networks": {
       "discord": "Discord",

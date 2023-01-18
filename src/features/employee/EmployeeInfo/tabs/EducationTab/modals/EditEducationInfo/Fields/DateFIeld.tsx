@@ -7,8 +7,9 @@ import { type EmployeeEducationInfoFormValues } from '~/features/employee/Employ
 import { optionMonth } from '~/shared/ui/components/DatePicker/utils';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
+import { Tooltip } from '~/shared/ui/components/Tooltip';
 
-export const DateField = () => {
+export const DateField = ({ error }: { error: string | undefined }) => {
   const [t] = useTranslation();
   const { field: startMonthField } = useController<
     EmployeeEducationInfoFormValues,
@@ -24,6 +25,11 @@ export const DateField = () => {
   });
   const { register } = useFormContext<EmployeeEducationInfoFormValues>();
 
+  const errorMessage =
+    error === 'incorrect_date'
+      ? (error as 'incorrect_date' | undefined)
+      : undefined;
+
   return (
     <Grid
       gridTemplateColumns="1fr 1fr"
@@ -31,6 +37,11 @@ export const DateField = () => {
     >
       <FormControl
         label={t('domains:employee.titles.profile_tabs.education.start_date')}
+        errorMessage={
+          errorMessage !== undefined
+            ? t(`domains:employee.errors.${errorMessage}`)
+            : ''
+        }
         isRequired
       >
         <Grid
@@ -51,8 +62,13 @@ export const DateField = () => {
               ) ?? null
             }
           />
-
-          <Input {...register('startYear')} />
+          <Tooltip
+            hasArrow
+            place="top"
+            labelText={t('enums:notes.start_year')}
+          >
+            <Input {...register('startYear')} />
+          </Tooltip>
         </Grid>
       </FormControl>
       <FormControl
@@ -76,7 +92,13 @@ export const DateField = () => {
               ) ?? null
             }
           />
-          <Input {...register('endYear')} />
+          <Tooltip
+            hasArrow
+            place="top"
+            labelText={t('enums:notes.end_year')}
+          >
+            <Input {...register('endYear')} />
+          </Tooltip>
         </Grid>
       </FormControl>
     </Grid>

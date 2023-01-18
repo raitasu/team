@@ -30,7 +30,7 @@ export const ActionsModalFooter = ({
       <Button
         variant="primaryGhost"
         onClick={onReset}
-        disabled={!isTouched}
+        isDisabled={!isTouched}
       >
         {t('general_actions:reset_all')}
       </Button>

@@ -18,14 +18,14 @@ export const DegreeField = () => {
   const degreeOptions = useMemo(
     () =>
       degrees.map((degree) => ({
-        value: degree.en,
+        value: degree,
         label: getTranslation(degree, language)
       })),
     [language]
   );
 
   const selectedDegree = degreeOptions.find(
-    (degree) => degree.value === field.value.en
+    (degree) => degree.value.en === field.value.en
   );
 
   return (

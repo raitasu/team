@@ -3,6 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { z } from 'zod';
 
 import {
   type ChangedEmployeeEducationInfoValues,
@@ -60,6 +61,20 @@ export const EditEducationInfoModal = ({
     onCloseEducationInfoTab();
   };
 
+  const errorMessage = () => {
+    let error;
+
+    try {
+      EmployeeEducationInfoSchema.parse(methods.getValues());
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        return err.issues[0]?.message;
+      }
+    }
+
+    return error;
+  };
+
   return (
     <>
       {canEdit ? (
@@ -109,7 +124,7 @@ export const EditEducationInfoModal = ({
             <DegreeField />
             <StudyField />
             <CountryField />
-            <DateField />
+            <DateField error={errorMessage()} />
           </FormProvider>
         </Flex>
       </BaseModal>

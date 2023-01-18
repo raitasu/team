@@ -41,9 +41,11 @@ const generateEmployeeEducation = (id: number): EmployeeEducation => ({
     ru: fakerRu.address.city()
   },
   start_at: faker.date
-    .birthdate({ min: 18, max: 23, mode: 'age' })
+    .birthdate({ min: 1999, max: 2018, mode: 'year' })
     .toISOString(),
-  end_at: faker.date.birthdate({ min: 23, max: 28, mode: 'age' }).toISOString(),
+  end_at: faker.date
+    .birthdate({ min: 2019, max: 2025, mode: 'year' })
+    .toISOString(),
   speciality_translations: {
     en: faker.name.jobArea(),
     ru: fakerRu.name.jobArea()
