@@ -312,7 +312,8 @@
               },
               "interests": "Интересы",
               "section_title": "Общая информация",
-              "start_career": "Начало работы в Cybergizer"
+              "start_career": "Начало работы в Cybergizer",
+              "start_career_in": "Начало карьеры с {{date}}"
             },
             "social_network_title": "Социальные сети",
             "title": "Персональная информация"

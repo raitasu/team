@@ -5,5 +5,6 @@ export const LocalStorageKey = {
 
 export const DateFormats = {
   Short: 'LLL yyyy',
-  Long: 'PP'
+  Long: 'PP',
+  Full: 'LLLL d, yyyy'
 } as const;

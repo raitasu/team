@@ -310,7 +310,8 @@
               },
               "interests": "Interests",
               "section_title": "General information",
-              "start_career": "Start career in Cybergizer"
+              "start_career": "Start career in Cybergizer",
+              "start_career_in": "Start career in {{date}}"
             },
             "social_network_title": "Social network",
             "title": "Personal information"
