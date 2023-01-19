@@ -1,6 +1,7 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
+import { CVTab } from '~/features/employee/EmployeeInfo/tabs/CVTab';
 import { WorkExperienceTab } from '~/features/employee/EmployeeInfo/tabs/WorkExperienceTab';
 import { type Employee } from '~/store/api/employees/employees.types';
 
@@ -29,6 +30,10 @@ const employeeInfoTabs = [
   {
     title: 'publication' as const,
     panel: PublicationsTab
+  },
+  {
+    title: 'cv' as const,
+    panel: CVTab
   }
 ];
 

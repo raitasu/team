@@ -420,6 +420,8 @@
       "ru": "Russia"
     },
     "employee_profile_tabs": {
+      "cv": "CV",
+
       "education": "Education",
       "personal_information": "Personal Information",
       "publication": "Publication",

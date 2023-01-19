@@ -423,6 +423,7 @@
       "ru": "Россия"
     },
     "employee_profile_tabs": {
+      "cv": "Резюме",
       "education": "Образование",
       "personal_information": "Персональная информация",
       "publication": "Публикации",
