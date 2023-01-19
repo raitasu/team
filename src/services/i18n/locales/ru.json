@@ -336,6 +336,16 @@
             "title": "Публикации"
           },
           "skills": {
+            "category": {
+              "backend": "Бекенд",
+              "blockchain": "Блокчейн",
+              "dba": "DBA",
+              "design": "Дизайн",
+              "dev_ops": "DevOps",
+              "frontend": "Фронтенд",
+              "management": "Менеджмент",
+              "overal": "Общее"
+            },
             "hard_skills": "Профессиональные навыки",
             "languages": "Языки",
             "soft_skills": "Общие навыки",

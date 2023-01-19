@@ -334,6 +334,16 @@
             "title": "Publications"
           },
           "skills": {
+            "category": {
+              "backend": "Back-end",
+              "blockchain": "Blockchain",
+              "dba": "DBA",
+              "design": "Design",
+              "dev_ops": "DevOps",
+              "frontend": "Front-end",
+              "management": "Managemen",
+              "overal": "Overall"
+            },
             "hard_skills": "Hard skills",
             "languages": "Languages",
             "soft_skills": "Soft skills",

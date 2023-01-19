@@ -14,6 +14,16 @@ const generateEmployeeHardSkill = (id: number): HardSkill => ({
     en: upperFirst(faker.word.noun()),
     ru: upperFirst(fakerRu.word.noun())
   },
+  category: faker.helpers.arrayElement([
+    'overal',
+    'frontend',
+    'backend',
+    'dba',
+    'dev_ops',
+    'blockchain',
+    'management',
+    'design'
+  ]),
   years_of_experience: faker.datatype.number({
     min: 1,
     max: 20

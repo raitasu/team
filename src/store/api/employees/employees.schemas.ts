@@ -37,10 +37,23 @@ export const EmployeeClothingSizesSchema = createUnionSchema(
 export const EmployeeGenders = ['male', 'female', 'other'] as const;
 
 export const EmployeeGendersSchema = createUnionSchema(EmployeeGenders);
+
+export const CategoriesHardSkillSchema = z.union([
+  z.literal('overal'),
+  z.literal('frontend'),
+  z.literal('backend'),
+  z.literal('dba'),
+  z.literal('dev_ops'),
+  z.literal('blockchain'),
+  z.literal('management'),
+  z.literal('design')
+]);
+
 export const HardSkillSchema = z.object({
   id: z.number(),
   years_of_experience: z.number(),
-  name_translations: TranslationSchema
+  name_translations: TranslationSchema,
+  category: CategoriesHardSkillSchema
 });
 
 const LanguageLevelSchema = z.union([

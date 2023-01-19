@@ -19,7 +19,8 @@ import {
   type SoftSkillSchema,
   type WorkExperienceSchema,
   type EmployeeRoleSchema,
-  type EmployeeProjectSchema
+  type EmployeeProjectSchema,
+  type CategoriesHardSkillSchema
 } from '~/store/api/employees/employees.schemas';
 
 export type Address = z.infer<typeof AddressSchema>;
@@ -33,6 +34,8 @@ export type EmployeeCv = z.infer<typeof CvSchema>;
 export type EmployeeEducation = z.infer<typeof EmployeeEducationSchema>;
 
 export type HardSkill = z.infer<typeof HardSkillSchema>;
+
+export type CategoriesHardSkill = z.infer<typeof CategoriesHardSkillSchema>;
 
 export type EmployeeLanguage = z.infer<typeof EmployeeLanguageSchema>;
 
