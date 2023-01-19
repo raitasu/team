@@ -42,7 +42,7 @@ export const PositionsColumns = [
           : '-'
       }`,
     header: TranslatedHeader,
-    enableSorting: false
+    enableSorting: true
   }),
   columnHelper.accessor('date_of_birth', {
     id: EmployeesHeaderIds.Birthday,

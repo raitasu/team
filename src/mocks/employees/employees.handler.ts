@@ -197,10 +197,26 @@ const getEmployeesHandler = rest.get(
 
             return firstNameA > firstNameB ? 1 : -1;
           }
+
+          if (
+            sortColumn === 'contacts' &&
+            a.contacts.address?.city &&
+            b.contacts.address?.city
+          ) {
+            const firstNameA = getTranslation(a.contacts.address.city, locale);
+            const firstNameB = getTranslation(b.contacts.address.city, locale);
+
+            if (sortDirection === 'desc') {
+              return firstNameA > firstNameB ? -1 : 1;
+            }
+
+            return firstNameA > firstNameB ? 1 : -1;
+          }
         }
 
         return 0;
       })
+
       .map((employee) =>
         pick(employee, [
           'contacts',
