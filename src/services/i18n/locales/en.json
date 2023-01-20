@@ -248,7 +248,10 @@
         "removed_work_experience": "Work experience removed"
       },
       "errors": {
+        "add_file": "You must attach a link or upload a file",
+        "file_format": "File must be one of doc or pdf, maximum size 50MB",
         "incorrect_date": "Add correct year format",
+        "incorrect_link": "Add correct link format",
         "invalid_link": {
           "discord": "Add correct username. Example: Username#4512",
           "facebook": "Add correct link. Example: https://www.facebook.com/username",
@@ -263,6 +266,21 @@
         "no_employees_data": "No employees data",
         "required_field": "Field can't be empty",
         "unknown_error": "Oops, something went wrong"
+      },
+      "notes": {
+        "education_tab": {
+          "upload_rules": "Maximum size 50MB Format: PDF, DOCX"
+        },
+        "end_year": "Cannot be set earlier than the start date",
+        "start_year": "Cannot be set later than the current date"
+      },
+      "placeholders": {
+        "profile_tabs": {
+          "education": {
+            "issued_by": "Enter Institution",
+            "title_certificate": "Enter title"
+          }
+        }
       },
       "table_headers": {
         "contacts": "Location",
@@ -289,13 +307,20 @@
         "present": "present",
         "profile_tabs": {
           "education": {
+            "certificate": "Certificate",
             "certificates": "Certificates",
             "country": "Country",
             "degree": "Degree",
             "document": "Document",
+            "drag_description": "You may add certificate from your computer",
+            "drag_error": "You need either to add link to the certificate or upload from your computer",
+            "drag_file": "Drag a file here",
             "end_date": "End date",
             "fields_of_study": "Fields of study",
+            "file_url": "File URL",
+            "issued_by": "Issued by",
             "link": "Link",
+            "link_description": "Link to certificate confirmation",
             "start_date": "Start date",
             "title": "Education",
             "title_certificates": "Title",
@@ -424,6 +449,7 @@
       "confirmations": {
         "descriptions": {
           "delete": "Do you want to delete information?",
+          "delete_certificate": "Do you want to delete certificate?",
           "delete_education": "Do you want to delete education?",
           "delete_project": "Do you want to delete project?",
           "delete_work_experience": "Do you want to delete work experience?",
@@ -433,6 +459,7 @@
         },
         "titles": {
           "delete": "Delete information",
+          "delete_certificate": "Delete certificate",
           "delete_education": "Delete education",
           "delete_project": "Delete project",
           "delete_work_experience": "Delete work experience",
@@ -597,7 +624,9 @@
     "copy_id": "Copy ID",
     "create": "Create",
     "delete": "Delete",
+    "download": "Download",
     "edit": "Edit",
+    "follow_link": "Follow the link",
     "no": "No",
     "reset": "Reset",
     "reset_all": "Reset all",
@@ -605,13 +634,16 @@
     "yes": "Yes"
   },
   "general_errors": {
+    "incorrect_date": "Add correct date format",
     "invalid_email": "Email is invalid",
     "invalid_number": "Invalid number",
     "invalid_range": "Invalid range",
     "no_dublicates": "No duplicated allowed",
+    "required_all_date": "You should add month and year",
     "required_field": "Field is required"
   },
   "general_placeholders": {
+    "enter_link": "Enter link",
     "enter_text": "Enter text...",
     "month": "Month",
     "year": "Year"

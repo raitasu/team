@@ -34,6 +34,28 @@ export const Button = {
         }
       }
     },
+    secondaryOutline: {
+      color: 'brand.accentRed',
+      bg: 'brand.background2',
+      border: '1px solid var(--chakra-colors-brand-stroke)',
+      _hover: {
+        border: '1px solid var(--chakra-colors-brand-lightGray)'
+      },
+      _active: {
+        border: '1px solid var(--chakra-colors-brand-ghostGray)',
+        color: 'brand.headline'
+      },
+      _disabled: {
+        color: 'brand.lightGray',
+        border: '1px solid var(--chakra-colors-brand-stroke)',
+        _hover: {
+          border: '1px solid var(--chakra-colors-brand-stroke)'
+        },
+        _active: {
+          color: 'brand.lightGray'
+        }
+      }
+    },
     secondaryGhost: {
       color: 'brand.ghostGray',
       paddingLeft: '0',

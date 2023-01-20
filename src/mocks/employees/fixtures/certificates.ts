@@ -8,20 +8,16 @@ const sessionCertificates: Record<string, EmployeeCertificate> = {};
 
 const generateEmployeeCertificate = (id: number): EmployeeCertificate => ({
   id,
-  institute: faker.company.name(),
-  city: faker.address.city(),
-  country_code: faker.helpers.arrayElement(['be', 'ru']),
-  file: faker.commerce.productDescription(),
-  link: faker.commerce.productDescription(),
+  name: faker.lorem.sentence(),
+  issued_by: faker.company.name(),
   start_date: faker.date
-    .birthdate({ min: 18, max: 23, mode: 'age' })
+    .birthdate({ min: 1980, max: 2019, mode: 'year' })
     .toISOString(),
+  link: faker.internet.url(),
   end_date: faker.date
-    .birthdate({ min: 23, max: 28, mode: 'age' })
+    .birthdate({ min: 2019, max: 2025, mode: 'year' })
     .toISOString(),
-  speciality: faker.company.catchPhrase(),
-  name: faker.company.name(),
-  issued_by: faker.company.name()
+  file: faker.internet.url()
 });
 
 (function generateSessionEmployeeCertificates() {

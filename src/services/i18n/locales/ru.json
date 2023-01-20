@@ -248,7 +248,10 @@
         "removed_work_experience": "Опыт работы удален"
       },
       "errors": {
+        "add_file": "Вы должны добавить ссылку или прикрепить файл",
+        "file_format": "Файл должен быть формата doc или pdf, максимальный размер 50MB",
         "incorrect_date": "Добавьте корректный формат даты",
+        "incorrect_link": "Добавьте корректный формат ссылки",
         "invalid_link": {
           "discord": "Добавьте корректное имя пользователя. Например: Username#4512",
           "facebook": "Добавьте корректную ссылку. Например: https://www.facebook.com/username",
@@ -263,6 +266,21 @@
         "no_employees_data": "Нет данных о сотрудниках",
         "required_field": "Поле не может быть пустым",
         "unknown_error": "Упс, что-то пошло не так."
+      },
+      "notes": {
+        "education_tab": {
+          "upload_rules": "Максимальный размер 50MB Формат: PDF, DOCX"
+        },
+        "end_year": "Нельзя установить ранее даты старта",
+        "start_year": "Нельзя установить позже текущей даты"
+      },
+      "placeholders": {
+        "profile_tabs": {
+          "education": {
+            "issued_by": "Выдан",
+            "title_certificate": "Введите название сертификата"
+          }
+        }
       },
       "table_headers": {
         "contacts": "Место жительства",
@@ -291,14 +309,21 @@
         "present": "настоящее время",
         "profile_tabs": {
           "education": {
+            "certificate": "Сертификат",
             "certificates": "Сертификаты",
             "country": "Страна",
             "degree": "Степень",
             "document": "Документ",
-            "end_date": "Дата начала",
+            "drag_description": "Вы можете добавить сертификат со своего компьютера",
+            "drag_error": "Вам нужно либо добавить ссылку на сертификат, либо загрузить файл с компьютера",
+            "drag_file": "Перетащите файл сюда",
+            "end_date": "Дата окончания",
             "fields_of_study": "Область знаний",
+            "file_url": "Ссылка на сертификат",
+            "issued_by": "Выдан",
             "link": "Ссылка",
-            "start_date": "Дата окончания",
+            "link_description": "Ссылка на подтверждение сертификата",
+            "start_date": "Дата начала",
             "title": "Образование",
             "title_certificates": "Название",
             "university_name": "Название университета"
@@ -429,6 +454,7 @@
       "confirmations": {
         "descriptions": {
           "delete": "Вы хотите удалить информацию?",
+          "delete_certificate": "Вы хотите удалить информацию о сертификате?",
           "delete_education": "Вы хотите удалить информацию об образовании?",
           "delete_project": "Вы хотите удалить проект?",
           "delete_work_experience": "Вы хотите удалить информацию об опыте работы?",
@@ -438,6 +464,7 @@
         },
         "titles": {
           "delete": "Удаление информации",
+          "delete_certificate": "Удаление информации о сертификате",
           "delete_education": "Удаление информации об образовании",
           "delete_project": "Удаление проекта",
 
@@ -603,7 +630,9 @@
     "copy_id": "Копировать ID",
     "create": "Создать",
     "delete": "Удалить",
+    "download": "Загрузить",
     "edit": "Изменить",
+    "follow_link": "Перейти по ссылке",
     "no": "Нет",
     "reset": "Сбросить",
     "reset_all": "Сбросить всё",
@@ -611,13 +640,16 @@
     "yes": "Да"
   },
   "general_errors": {
+    "incorrect_date": "Добавьте корректный формат года",
     "invalid_email": "Неправильный формат эл.почты",
     "invalid_number": "Неверное число",
     "invalid_range": "Недопустимый диапазон",
     "no_dublicates": "Дублирование не допускается",
+    "required_all_date": "Добавьте и месяц, и год",
     "required_field": "Поле не может быть пустым"
   },
   "general_placeholders": {
+    "enter_link": "Введите ссылку",
     "enter_text": "Введите текст...",
     "month": "Месяц",
     "year": "Год"

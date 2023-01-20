@@ -1,14 +1,30 @@
+import { useState } from 'react';
+
 import { Flex, Heading } from '@chakra-ui/react';
+import {
+  type FetchBaseQueryError,
+  skipToken
+} from '@reduxjs/toolkit/dist/query/react';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
+import { useParams } from 'react-router-dom';
 
 import { SECTION_PADDING } from '~/features/employee/employee.styles';
+import { toastConfig } from '~/shared/shared.constants';
 import { Button } from '~/shared/ui/components/Button';
+import { ConfirmationModal as ConfirmDeleteModal } from '~/shared/ui/components/ConfirmationModal';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
+import {
+  useCreateCertificateMutation,
+  useDeleteCertificateMutation,
+  useUpdateCertificateMutation
+} from '~/store/api/employees/certificate/certificate.api';
 import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
 
 import { CertificatesInfoItem } from './CertificatesInfoItem';
 import { EducationInfoControllers } from './EducationInfoControllers';
 import { EducationSection } from './EducationSection';
+import { EditCertificateInfoModal } from './modals/EditCertificatesModal/EditCertificateInfoModal';
 import { InfoSection } from '../components/InfoSection';
 
 export const CertificatesInfo = ({
@@ -18,16 +34,99 @@ export const CertificatesInfo = ({
   certificates: EmployeeCertificate[];
   canEdit: boolean;
 }) => {
+  const [certificateId, setCertificateId] = useState<number>(0);
+  const [isOpenCertificateModal, setOpenCertificateModal] =
+    useState<boolean>(false);
+  const [isOpenConfirmModal, setOpenConfirmModal] = useState<boolean>(false);
+
   const [t] = useTranslation();
 
-  const onOpenCertificateInfoTab = () => {
-    console.debug(
-      'Open a modal window for changing information about this certificate'
-    );
+  const { id } = useParams();
+
+  const employeeId = id ? +id : Number(skipToken);
+
+  const [createCertificate, { isLoading: isLoadingCreate }] =
+    useCreateCertificateMutation();
+  const [deleteCertificate, { isLoading: isLoadingDelete }] =
+    useDeleteCertificateMutation();
+  const [updateCertificate, { isLoading: isLoadingChange }] =
+    useUpdateCertificateMutation();
+
+  const getChosenCertificate = () =>
+    certificates.find((certificate) => certificate.id === certificateId);
+
+  const errorToast = useErrorToast(toastConfig);
+  const successToast = useSuccessToast(toastConfig);
+
+  const onCloseConfirmDeleteModal = () => {
+    setCertificateId(0);
+    setOpenConfirmModal(false);
   };
 
-  const onOpenConfirmModal = () => {
-    console.debug('Open a confirm modal window for deleting this certificate');
+  const onCloseCertificateInfoTab = () => {
+    setCertificateId(0);
+    setOpenCertificateModal(false);
+  };
+
+  const addCertificateInfo = async (values: EmployeeCertificate) => {
+    const response = await createCertificate({ ...values, employeeId });
+
+    if ((response as { error?: FetchBaseQueryError }).error) {
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    } else {
+      onCloseCertificateInfoTab();
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    }
+  };
+
+  const deleteCertificateInfo = async (id: number) => {
+    const response = await deleteCertificate({ employeeId, id });
+
+    if ((response as { error?: FetchBaseQueryError }).error) {
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    } else {
+      onCloseConfirmDeleteModal();
+      successToast({
+        description: t('domains:global.confirmations.descriptions.deleted')
+      });
+    }
+  };
+
+  const changeCertificateInfo = async (
+    values: Partial<EmployeeCertificate>
+  ) => {
+    const response = await updateCertificate({
+      certificate: values,
+      employeeId,
+      certificateId
+    });
+
+    if ((response as { error?: FetchBaseQueryError }).error) {
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    } else {
+      onCloseCertificateInfoTab();
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    }
+  };
+
+  const onSubmitData = (
+    values: Partial<EmployeeCertificate> | EmployeeCertificate
+  ) => {
+    if (!certificateId) {
+      return addCertificateInfo(values as EmployeeCertificate);
+    }
+
+    return changeCertificateInfo(values as Partial<EmployeeCertificate>);
   };
 
   return (
@@ -50,8 +149,14 @@ export const CertificatesInfo = ({
 
             {canEdit ? (
               <EducationInfoControllers
-                onOpenInfoTab={onOpenCertificateInfoTab}
-                onOpenDeleteConfirm={onOpenConfirmModal}
+                onOpenInfoTab={() => {
+                  setCertificateId(certificate.id);
+                  setOpenCertificateModal(true);
+                }}
+                onOpenDeleteConfirm={() => {
+                  setCertificateId(certificate.id);
+                  setOpenConfirmModal(true);
+                }}
               />
             ) : null}
           </Flex>
@@ -64,10 +169,33 @@ export const CertificatesInfo = ({
           boxShadow="none"
           leftIcon={<MdAdd />}
           margin="auto"
+          onClick={() => {
+            setCertificateId(0);
+            setOpenCertificateModal(true);
+          }}
         >
           {t('domains:employee.actions.add_certificate')}
         </Button>
       </InfoSection>
+      <EditCertificateInfoModal
+        certificate={getChosenCertificate()}
+        isOpen={isOpenCertificateModal}
+        onClose={onCloseCertificateInfoTab}
+        onConfirm={onSubmitData}
+        isLoading={isLoadingCreate || isLoadingChange}
+      />
+      <ConfirmDeleteModal
+        title={t('domains:global.confirmations.titles.delete_education')}
+        description={t(
+          'domains:global.confirmations.descriptions.delete_education'
+        )}
+        onConfirm={() =>
+          certificateId ? deleteCertificateInfo(certificateId) : errorToast()
+        }
+        isOpen={isOpenConfirmModal}
+        onClose={() => onCloseConfirmDeleteModal()}
+        isLoading={isLoadingDelete}
+      />
     </>
   );
 };

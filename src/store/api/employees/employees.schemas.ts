@@ -106,19 +106,14 @@ export const SelectedSoftSkillSchema = z.object({
   label: z.string()
 });
 
-export const EmployeeCertificateSchema = AddressSchema.pick({
-  country_code: true,
-  city: true
-}).extend({
+export const EmployeeCertificateSchema = z.object({
   id: z.number(),
-  institute: z.string(),
-  file: z.string(),
+  name: z.string().nullable(),
+  issued_by: z.string().nullable(),
   start_date: z.string().datetime(),
-  speciality: z.string(),
-  end_date: z.string().datetime(),
-  issued_by: z.string(),
-  link: z.string(),
-  name: z.string()
+  link: z.string().nullable(),
+  end_date: z.string().datetime().nullable(),
+  file: z.string().or(z.instanceof(File)).nullable()
 });
 
 const EmployeeEmergencyContact = z.object({
