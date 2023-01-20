@@ -53,7 +53,8 @@ export const HardSkillSchema = z.object({
   id: z.number(),
   years_of_experience: z.number(),
   name_translations: TranslationSchema,
-  category: CategoriesHardSkillSchema
+  category: CategoriesHardSkillSchema,
+  is_show: z.boolean()
 });
 
 const LanguageLevelSchema = z.union([

@@ -13,7 +13,10 @@ export const SkillsTab = ({ employee }: { employee: Employee }) => {
   return (
     <Box>
       {employee.hard_skills ? (
-        <HardSkillsInfo skills={employee.hard_skills} />
+        <HardSkillsInfo
+          skills={employee.hard_skills}
+          employeeId={employee.id}
+        />
       ) : (
         <div>{t('domains:employee.errors.no_data')}</div>
       )}
