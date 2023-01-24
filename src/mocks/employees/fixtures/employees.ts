@@ -1,10 +1,11 @@
 import { faker } from '@faker-js/faker/locale/en';
 import { faker as fakerRu } from '@faker-js/faker/locale/ru';
+import sampleSize from 'lodash/sampleSize';
 
 import { type CreateEmployeeValues } from '~/features/employee/CreateEmployeeModal/employee.schema';
 import { getRandomHardSkills } from '~/mocks/employees/fixtures/hardSkills';
 import { getRandomLanguages } from '~/mocks/employees/fixtures/languages';
-import { getRandomSoftSkills } from '~/mocks/employees/fixtures/softSkills';
+import { opinions } from '~/mocks/employees/fixtures/softSkills';
 import { getRandomInteger } from '~/mocks/mocks.utils';
 import { getRandomPositions } from '~/mocks/positions/fixtures/positions';
 import { getRandomProjects } from '~/mocks/projects/fixtures/projects';
@@ -116,7 +117,7 @@ const generateEmployee = (id: number): Employee => {
 
     social_networks: generateSocialNetwork(),
     role: id === 0 ? 'admin' : faker.helpers.arrayElement(['admin', 'user']),
-    soft_skills: getRandomSoftSkills(getRandomInteger(0, 8)),
+    soft_skills: sampleSize(opinions, 5),
     status: faker.helpers.arrayElement(['active', 'candidate', 'inactive']),
     start_career_at: faker.date
       .birthdate({ min: 0, max: 5, mode: 'age' })

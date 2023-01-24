@@ -18,7 +18,10 @@ export const SkillsTab = ({ employee }: { employee: Employee }) => {
         <div>{t('domains:employee.errors.no_data')}</div>
       )}
       {employee.soft_skills ? (
-        <SoftSkillsInfo skills={employee.soft_skills} />
+        <SoftSkillsInfo
+          skills={employee.soft_skills}
+          employeeId={employee.id}
+        />
       ) : (
         <div>{t('domains:employee.errors.no_data')}</div>
       )}

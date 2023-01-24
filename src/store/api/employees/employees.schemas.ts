@@ -100,6 +100,11 @@ export const SoftSkillSchema = z.object({
   name_translations: TranslationSchema
 });
 
+export const SelectedSoftSkillSchema = z.object({
+  value: z.number(),
+  label: z.string()
+});
+
 export const EmployeeCertificateSchema = AddressSchema.pick({
   country_code: true,
   city: true
