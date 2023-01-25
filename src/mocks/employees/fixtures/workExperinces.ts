@@ -32,7 +32,8 @@ const generateEmployeeWorkExperience = (
   },
   environment: new Array(getRandomInteger(0, 15))
     .fill('')
-    .map(() => faker.word.noun())
+    .map(() => faker.word.noun()),
+  project_name: faker.company.name()
 });
 
 (function generateSessionEmployeeWorkExperiences() {

@@ -2,13 +2,13 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import { CVTab } from '~/features/employee/EmployeeInfo/tabs/CVTab';
-import { WorkExperienceTab } from '~/features/employee/EmployeeInfo/tabs/WorkExperienceTab';
 import { type Employee } from '~/store/api/employees/employees.types';
 
 import { EducationTab } from './tabs/EducationTab';
 import { PersonalInfoTab } from './tabs/PersonalInfoTab';
 import { PublicationsTab } from './tabs/PublicationsTab';
 import { SkillsTab } from './tabs/SkillsTab';
+import { WorkExperienceTab } from './tabs/WorkExperienceTab/WorkExperienceTab';
 
 const employeeInfoTabs = [
   {

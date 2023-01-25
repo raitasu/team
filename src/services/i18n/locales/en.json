@@ -234,6 +234,7 @@
         "add_education": "New education",
         "add_employee": "New profile",
         "add_publication": "New publication",
+        "add_work_experience": "New experience",
         "copy_profile": "Copy profile",
         "create_cv": "Create CV",
         "create_cv_confirmation": "Do you want to create CV?",
@@ -271,10 +272,13 @@
       },
       "titles": {
         "email": "Email",
+        "experience_month_one": "{{count}} month",
+        "experience_month_other": "{{count}} months",
         "experience_one": "{{count}} year",
         "experience_other": "{{count}} years",
         "first_name": "First name",
         "last_name": "Last name",
+        "present": "present",
         "profile_tabs": {
           "education": {
             "certificates": "Certificates",
@@ -348,6 +352,11 @@
             "languages": "Languages",
             "soft_skills": "Soft skills",
             "title": "Skills"
+          },
+          "work_experience": {
+            "description": "Description",
+            "environment": "Environment",
+            "responsibilities": "Responsibilities"
           }
         },
         "project_one": "{{count}} project",

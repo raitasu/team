@@ -219,6 +219,7 @@ export const CvSchema = z.object({
 export const WorkExperienceSchema = z.object({
   id: z.number(),
   company_name: z.string(),
+  project_name: z.string(),
   position: TranslationSchema,
   started_at: z.string().datetime(),
   ended_at: z.string().datetime(),

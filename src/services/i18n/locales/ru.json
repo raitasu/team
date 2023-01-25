@@ -234,6 +234,7 @@
         "add_education": "Новое образование",
         "add_employee": "Новый профиль",
         "add_publication": "Новая публикация",
+        "add_work_experience": "Новый опыт работы",
         "copy_profile": "Копировать профиль",
         "create_cv": "Создать резюме",
         "create_cv_confirmation": "Вы хотите создать резюме?",
@@ -273,9 +274,13 @@
         "email": "Электронная почта",
         "experience_few": "{{count}} года",
         "experience_many": "{{count}} лет",
+        "experience_month_few": "{{count}} месяца",
+        "experience_month_many": "{{count}} месяцов",
+        "experience_month_one": "{{count}} месяц",
         "experience_one": "{{count}} год",
         "first_name": "Имя",
         "last_name": "Фамилия",
+        "present": "настоящее время",
         "profile_tabs": {
           "education": {
             "certificates": "Сертификаты",
@@ -350,6 +355,11 @@
             "languages": "Языки",
             "soft_skills": "Общие навыки",
             "title": "Навыки"
+          },
+          "work_experience": {
+            "description": "Описание",
+            "environment": "Технологии",
+            "responsibilities": "Обязанности"
           }
         },
         "project_few": "{{count}} проекта",
