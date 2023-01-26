@@ -7,6 +7,11 @@ import { Patterns } from '../api.constants';
 
 export const EmployeeCountries = ['ru', 'be'] as const;
 
+export const EmployeeTimezones = [
+  '(GMT+03:00 Moscow, Standard Time - Minsk',
+  '(GMT+03:00 Moscow, Standard Time - Moscow'
+] as const;
+
 export const EmployeeCountriesSchema = createUnionSchema(EmployeeCountries);
 
 export const AddressSchema = z.object({
@@ -131,12 +136,20 @@ export const EmployeeCertificateSchema = AddressSchema.pick({
   speciality_translations: TranslationSchema
 });
 
+const EmployeeEmergencyContact = z.object({
+  name: z.string().nullable(),
+  phone: z.string().nullable(),
+  who_is_this: z.string().nullable()
+});
+
 export const EmployeeContactsSchema = z.object({
   primary_phone: z.string().nullable(),
-  phones: z.string().array().nullable(),
-  emergency_phones: z.string().array().nullable(),
-  emails: z.string().email().array(),
-  address: AddressSchema.nullable()
+  secondary_phone: z.string().nullable(),
+  emergency_contact: EmployeeEmergencyContact,
+  work_email: z.string().email(),
+  personal_email: z.string().email(),
+  address: AddressSchema.nullable(),
+  timezone: z.string()
 });
 
 export const EmployeeEducationSchema = AddressSchema.pick({

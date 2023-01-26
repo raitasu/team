@@ -52,7 +52,7 @@ export const SocialNetworkInfo = ({ employee }: { employee: Employee }) => {
           <ContactItem
             key={name}
             name={t(`enums:social_networks.${name}`)}
-            values={[link]}
+            link={link}
             linkType="web"
           />
         );

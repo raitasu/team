@@ -1,22 +1,32 @@
-import { Box, Flex, Grid } from '@chakra-ui/react';
+import { Flex, Grid } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { MdAdd } from 'react-icons/md';
 
-import { COLUMN_GAP } from '~/features/employee/employee.styles';
-import { TranslationKeys } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactInfo.constansts';
 import {
   type ChangedContactsInfoValues,
   EmployeeContactsInfoSchema
 } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfo.schemas';
 import { getInitialState } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfo.utils';
-import { InputContactField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/InputContactField';
-import { SelectContactField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/SelectContactField';
+import { ApartmentField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/ApartmentField';
+import { BuildingFiled } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/BuildingFiled';
+import { CityField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/CityField';
+import { CountryField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/CountryField';
+import { EmergencyContactField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/EmergencyContactField';
+import { EmergencyNameField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/EmergencyNameField';
+import { EmergencyWhoIsThisField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/EmergencyWhoIsThisField';
+import { PersonalEmailField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/PersonalEmailField';
+import { PrimaryMobileField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/PrimaryMobileField';
+import { SecondaryMobileField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/SecondaryMobileField';
+import { StreetField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/StreetField';
+import { TimeZoneField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/TimeZoneField';
+import { UnitField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/UnitField';
+import { WorkEmailField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/WorkEmailField';
+import { ZIPCodeField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/ZIPCodeField';
+import { COLUMN_GAP } from '~/pages/Employee/employee.styles';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
-import { Button } from '~/shared/ui/components/Button';
 import { type EmployeeContact } from '~/store/api/employees/employees.types';
 
 export const EditContactsInfoModal = ({
@@ -76,128 +86,40 @@ export const EditContactsInfoModal = ({
           flexDirection="column"
           gap="20px"
         >
-          <InputContactField
-            name="primaryPhone"
-            label={TranslationKeys.primaryPhone}
-            isRequired
-            errorMessage={
-              methods.formState.errors.primaryPhone?.message
-                ? t(
-                    `general_errors:${
-                      methods.formState.errors.primaryPhone
-                        .message as 'required_field'
-                    }`
-                  )
-                : undefined
-            }
-          />
-          <Box>
-            <Button
-              variant="primaryOutline"
-              outline="none"
-              boxShadow="none"
-              leftIcon={<MdAdd />}
-              margin="auto"
-            >
-              {t(
-                'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_secondary'
-              )}
-            </Button>
-          </Box>
-
-          <InputContactField
-            isRequired
-            name="emergencyContact"
-            label={TranslationKeys.emergencyContact}
-          />
-          <Box>
-            <Button
-              variant="primaryOutline"
-              outline="none"
-              boxShadow="none"
-              leftIcon={<MdAdd />}
-              margin="auto"
-            >
-              {t(
-                'domains:employee.titles.profile_tabs.personal_information.contacts.emergency'
-              )}
-            </Button>
-          </Box>
-          <InputContactField
-            isRequired
-            name="email"
-            label={TranslationKeys.email}
-            errorMessage={
-              methods.formState.errors.email?.message
-                ? t(
-                    `general_errors:${
-                      methods.formState.errors.email.message as 'invalid_email'
-                    }`
-                  )
-                : undefined
-            }
-          />
+          <PrimaryMobileField />
+          <SecondaryMobileField />
           <Grid
-            gridTemplateColumns="1fr 1fr"
+            gridTemplateColumns="repeat(3, 1fr)"
             gap={COLUMN_GAP}
           >
-            <SelectContactField
-              data={
-                contacts.address?.city
-                  ? contacts.address.city
-                  : { en: t('domains:employee.errors.no_data') }
-              }
-              name="country"
-              label={TranslationKeys.country}
-            />
-            <SelectContactField
-              data={
-                contacts.address?.city
-                  ? contacts.address.city
-                  : { en: t('domains:employee.errors.no_data') }
-              }
-              name="city"
-              label={TranslationKeys.city}
-            />
+            <EmergencyContactField />
+            <EmergencyNameField />
+            <EmergencyWhoIsThisField />
           </Grid>
-          <SelectContactField
-            data={
-              contacts.address?.city
-                ? contacts.address.city
-                : { en: t('domains:employee.errors.no_data') }
-            }
-            name="timeZone"
-            label={TranslationKeys.timeZone}
-          />
+          <WorkEmailField />
+          <PersonalEmailField />
           <Grid
             gridTemplateColumns="1fr 1fr"
             gap={COLUMN_GAP}
           >
-            <InputContactField
-              name="street"
-              label={TranslationKeys.street}
-            />
-            <InputContactField
-              name="ZIPCode"
-              label={TranslationKeys.ZIPCode}
-            />
+            <CountryField />
+            <CityField />
+          </Grid>
+          <TimeZoneField />
+          <Grid
+            gridTemplateColumns="1fr 1fr"
+            gap={COLUMN_GAP}
+          >
+            <StreetField />
+            <ZIPCodeField />
           </Grid>
           <Grid
             gridTemplateColumns="repeat(3, 1fr)"
             gap={COLUMN_GAP}
           >
-            <InputContactField
-              name="building"
-              label={TranslationKeys.building}
-            />
-            <InputContactField
-              name="unit"
-              label={TranslationKeys.unit}
-            />
-            <InputContactField
-              name="apartment"
-              label={TranslationKeys.apartment}
-            />
+            <BuildingFiled />
+            <UnitField />
+            <ApartmentField />
           </Grid>
         </Flex>
       </FormProvider>

@@ -1,4 +1,5 @@
 import { useDisclosure } from '@chakra-ui/react';
+import capitalize from 'lodash/capitalize';
 import { useTranslation } from 'react-i18next';
 
 import { isEditable } from '~/features/employee/employee.utils';
@@ -42,24 +43,23 @@ export const ContactInfo = ({
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_primary'
         )}
-        values={[
-          contacts.primary_phone || t('domains:employee.errors.no_data')
-        ]}
+        link={contacts.primary_phone || t('domains:employee.errors.no_data')}
         linkType="phone"
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_secondary'
         )}
-        values={contacts.phones || [t('domains:employee.errors.no_data')]}
+        link={contacts.secondary_phone || t('domains:employee.errors.no_data')}
         linkType="phone"
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.emergency'
         )}
-        values={
-          contacts.emergency_phones || [t('domains:employee.errors.no_data')]
+        link={
+          contacts.emergency_contact.phone ||
+          t('domains:employee.errors.no_data')
         }
         linkType="phone"
       />
@@ -67,17 +67,17 @@ export const ContactInfo = ({
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.address'
         )}
-        values={
+        link={
           contacts.address?.city
-            ? [getTranslation(contacts.address.city, language)]
-            : [t('domains:employee.errors.no_data')]
+            ? capitalize(getTranslation(contacts.address.city, language))
+            : t('domains:employee.errors.no_data')
         }
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.email'
         )}
-        values={contacts.emails}
+        link={contacts.personal_email}
         linkType="email"
       />
       <EditContactsInfoModal

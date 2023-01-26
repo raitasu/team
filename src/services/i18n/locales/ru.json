@@ -305,12 +305,17 @@
               "country": "Страна",
               "email": "Почта",
               "emergency": "Экстренный контакт",
+              "emergency_contact": "Экстренный контакт",
               "mobile_primary": "Основной мобильный телефон",
               "mobile_secondary": "Дополнительный мобильный телефон",
+              "name": "Имя",
+              "personal_email": "Личная почта",
               "section_title": "Контакты",
               "street": "Улица",
               "timezone": "Часовой пояс",
               "unit": "Корпус",
+              "who_is_this": "Кто это?",
+              "work_email": "Рабочая почта",
               "zip_code": "Почтовый индекс"
             },
             "education": {
@@ -438,6 +443,10 @@
     }
   },
   "enums": {
+    "cities": {
+      "minsk": "Минск",
+      "moscow": "Москва"
+    },
     "country": {
       "be": "Беларусь",
       "ru": "Россия"

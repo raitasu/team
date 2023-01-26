@@ -1,14 +1,22 @@
 export const TranslationKeys = {
   primaryPhone:
     'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_primary',
-  emergencyContact:
+  secondaryPhone:
     'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_secondary',
-  email:
-    'domains:employee.titles.profile_tabs.personal_information.contacts.email',
+  workEmail:
+    'domains:employee.titles.profile_tabs.personal_information.contacts.work_email',
+  emergencyContact:
+    'domains:employee.titles.profile_tabs.personal_information.contacts.emergency_contact',
+  emergencyName:
+    'domains:employee.titles.profile_tabs.personal_information.contacts.name',
+  emergencyWhoIsThis:
+    'domains:employee.titles.profile_tabs.personal_information.contacts.who_is_this',
+  personalEmail:
+    'domains:employee.titles.profile_tabs.personal_information.contacts.personal_email',
   country:
     'domains:employee.titles.profile_tabs.personal_information.contacts.country',
   city: 'domains:employee.titles.profile_tabs.personal_information.contacts.city',
-  timeZone:
+  timezone:
     'domains:employee.titles.profile_tabs.personal_information.contacts.timezone',
   street:
     'domains:employee.titles.profile_tabs.personal_information.contacts.street',

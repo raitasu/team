@@ -28,8 +28,8 @@ const generateEmployeeAddress = (): Address => ({
   apartment: faker.address.buildingNumber(),
   building: faker.address.buildingNumber(),
   city: {
-    en: faker.address.city(),
-    ru: fakerRu.address.city()
+    en: faker.helpers.arrayElement(['moscow', 'minsk']),
+    ru: faker.helpers.arrayElement(['moscow', 'minsk'])
   },
   country_code: faker.helpers.arrayElement(['be', 'ru']),
   street_translations: {
@@ -43,15 +43,18 @@ const generateEmployeeAddress = (): Address => ({
 const generateEmployeeContacts = (): EmployeeContact => ({
   address: generateEmployeeAddress(),
   primary_phone: faker.phone.number('+############'),
-  phones: new Array(getRandomInteger(1, 3))
-    .fill(1)
-    .map(() => faker.phone.number('+############')),
-  emergency_phones: new Array(getRandomInteger(1, 3))
-    .fill(1)
-    .map(() => faker.phone.number('+############')),
-  emails: new Array(getRandomInteger(1, 3))
-    .fill(1)
-    .map(() => faker.internet.email())
+  secondary_phone: faker.phone.number('+############'),
+  emergency_contact: {
+    name: faker.name.firstName(),
+    phone: faker.phone.number('+############'),
+    who_is_this: faker.name.firstName()
+  },
+  work_email: faker.internet.email(undefined, undefined, '@cyber.ru'),
+  personal_email: faker.internet.email(),
+  timezone: faker.helpers.arrayElement([
+    '(GMT+03:00 Moscow, Standard Time - Minsk',
+    '(GMT+03:00 Moscow, Standard Time - Moscow'
+  ])
 });
 
 const generateSocialNetwork = (): SocialNetwork => ({
@@ -151,7 +154,7 @@ export const createEmployee = (data: CreateEmployeeValues) => {
   newEmployee.first_name_translations.en = data.first_name_translations.en;
   newEmployee.last_name_translations.en = data.last_name_translations.en;
   newEmployee.status = data.status;
-  newEmployee.contacts.emails = [data.email];
+  newEmployee.contacts.work_email = data.email;
   sessionEmployees[newEmployee.id] = newEmployee;
 
   return newEmployee;

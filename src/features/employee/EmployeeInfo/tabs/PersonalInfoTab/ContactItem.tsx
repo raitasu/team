@@ -9,11 +9,11 @@ import { getPrefixedHref, type LinkType } from '~/shared/utils/links.utils';
 
 export const ContactItem = ({
   name,
-  values,
+  link,
   linkType
 }: {
   name?: string;
-  values?: string[];
+  link?: string;
   linkType?: LinkType;
 }) => (
   <Flex gap={COLUMN_GAP}>
@@ -27,18 +27,15 @@ export const ContactItem = ({
       flexDirection="column"
       gap={ROW_GAP}
     >
-      {(values || []).map((contact) =>
-        linkType ? (
-          <Link
-            key={contact}
-            href={getPrefixedHref(contact, linkType)}
-            target="_blank"
-          >
-            <Text>{contact}</Text>
-          </Link>
-        ) : (
-          <Text key={contact}>{contact}</Text>
-        )
+      {linkType ? (
+        <Link
+          href={getPrefixedHref(link || '', linkType)}
+          target="_blank"
+        >
+          <Text>{link}</Text>
+        </Link>
+      ) : (
+        <Text>{link}</Text>
       )}
     </Flex>
     <Box />
