@@ -45,7 +45,7 @@ export const ActionsModalFooter = ({
         </Button>
         <Button
           onClick={onSubmit}
-          disabled={!isValid || !isTouched || isLoading}
+          isDisabled={!isValid || !isTouched || isLoading}
           isLoading={isLoading}
         >
           {t(`general_actions:${submitTag}`)}
