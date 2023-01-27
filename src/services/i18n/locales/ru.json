@@ -285,6 +285,7 @@
             "document": "Документ",
             "end_date": "Дата начала",
             "fields_of_study": "Область знаний",
+            "link": "Ссылка",
             "start_date": "Дата окончания",
             "title": "Образование",
             "title_certificates": "Название",
@@ -330,7 +331,7 @@
           },
           "publications": {
             "description": "Описание",
-            "file": "Файл",
+            "document": "Документ",
             "link": "Ссылка",
             "title": "Публикации"
           },

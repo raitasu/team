@@ -63,7 +63,7 @@ export const PublicationsInfoItem = ({
               color="brand.headline2"
               textDecoration="underline"
             >
-              {t('domains:employee.titles.profile_tabs.publications.file')}
+              {t('domains:employee.titles.profile_tabs.publications.document')}
             </Text>
           </Link>
         </Grid>

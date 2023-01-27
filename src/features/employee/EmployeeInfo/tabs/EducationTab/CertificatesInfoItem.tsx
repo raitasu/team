@@ -1,4 +1,4 @@
-import { Flex, Grid, Text } from '@chakra-ui/react';
+import { Flex, Grid, Link, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -7,7 +7,6 @@ import {
   ROW_GAP
 } from '~/features/employee/employee.styles';
 import { getTranslation } from '~/services/i18n/i18n.utils';
-import { Button } from '~/shared/ui/components/Button';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
 
@@ -17,10 +16,6 @@ export const CertificatesInfoItem = ({
   certificate: EmployeeCertificate;
 }) => {
   const [t, { language }] = useTranslation();
-
-  const onDownloadDocument = () => {
-    console.debug(`Download ${certificate.file}`);
-  };
 
   return (
     <Flex
@@ -62,13 +57,26 @@ export const CertificatesInfoItem = ({
             </Text>
             {getTranslation(certificate.speciality_translations, language)}
           </Text>
-          <Button
-            variant="asLink"
+          <Link
             fontWeight="400"
-            onClick={onDownloadDocument}
+            href={certificate.file}
+            target="_blank"
+            color="brand.headline2"
+            textDecoration="underline"
+            lineHeight="19px"
+          >
+            {t('domains:employee.titles.profile_tabs.education.link')}
+          </Link>
+          <Link
+            fontWeight="400"
+            href={certificate.file}
+            target="_blank"
+            color="brand.headline2"
+            textDecoration="underline"
+            lineHeight="19px"
           >
             {t('domains:employee.titles.profile_tabs.education.document')}
-          </Button>
+          </Link>
         </Grid>
       </Grid>
     </Flex>
