@@ -37,7 +37,7 @@ export const CityField = () => {
         value={selectedCity}
         onChange={(option) => {
           if (option) {
-            field.onChange(option.value);
+            field.onChange({ en: option.value });
           }
         }}
         size="md"
