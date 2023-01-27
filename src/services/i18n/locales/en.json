@@ -347,10 +347,20 @@
             "title": "Personal information"
           },
           "publications": {
+            "date": "Date",
             "description": "Description",
             "document": "Document",
+            "download_file": "Download file",
+            "drag_description": "You may add publication from your computer",
+            "drag_error": "You need either to add link to the publication or upload from your computer",
+            "drag_file": "Drag a file here",
+            "file_format": "Maximum size 50MB Format: PDF, DOCX",
+            "follow_link": "Follow the link",
+            "incorrect_link": "Incorrect link",
             "link": "Link",
-            "title": "Publications"
+            "link_description": "Link to publication confirmation",
+            "name": "Publications",
+            "title": "Title"
           },
           "skills": {
             "category": {

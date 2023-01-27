@@ -187,11 +187,11 @@ export const EmployeeProjectSchema = z.object({
 
 export const EmployeePublicationSchema = z.object({
   id: z.number(),
-  start_date: z.string().datetime(),
+  start_date: z.string().datetime({ offset: true }),
   description: z.string(),
-  file: z.string(),
+  file: z.string().url().nullable(),
   name: z.string(),
-  link: z.string()
+  url: z.string().url().nullable()
 });
 
 const EmployeeRoles = ['admin', 'user'] as const;

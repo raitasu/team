@@ -63,6 +63,8 @@ export const ConfirmationModal = ({
               onClick={onConfirm}
               paddingLeft="30px"
               paddingRight="30px"
+              isDisabled={isLoading}
+              isLoading={isLoading}
             >
               {t('general_actions:yes')}
             </Button>

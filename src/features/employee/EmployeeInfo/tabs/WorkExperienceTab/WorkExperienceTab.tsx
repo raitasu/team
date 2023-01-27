@@ -22,11 +22,11 @@ export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
 
   return (
     <Box>
-      {workExperiences && hired_at ? (
+      {workExperiences ? (
         <>
           {workExperiences.map((workExperience) => (
             <WorkExperienceInfo
-              hiredAt={hired_at}
+              hiredAt={hired_at || ''}
               employeeId={id}
               key={workExperience.id}
               workExperience={workExperience}

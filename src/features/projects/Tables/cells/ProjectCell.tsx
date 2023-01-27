@@ -11,7 +11,6 @@ export const ProjectCell = ({ getValue }: CellContext<Project, Project>) => {
     <Link
       key={project.id}
       href={`${PagePaths.Projects}/${project.id}`}
-      target="_blank"
     >
       <Text
         variant="mm"

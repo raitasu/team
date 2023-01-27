@@ -14,7 +14,7 @@ const generateEmployeePublication = (id: number): EmployeePublication => ({
   description: faker.lorem.paragraph(),
   file: faker.commerce.productDescription(),
   name: faker.lorem.sentence(),
-  link: faker.internet.url()
+  url: faker.internet.url()
 });
 
 (function generateSessionPublications() {
