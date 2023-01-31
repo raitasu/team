@@ -279,8 +279,8 @@
         "experience_other": "{{count}} years",
         "first_name": "First name",
         "last_name": "Last name",
-        "present": "present",
         "personal_email": "Personal email",
+        "present": "present",
         "profile_tabs": {
           "education": {
             "certificates": "Certificates",
