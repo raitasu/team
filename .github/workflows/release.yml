@@ -1,16 +1,6 @@
 name: Release
 on:
   workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'debug'
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
 
 concurrency:
   group: release
@@ -30,13 +20,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Install 🔧
-        run: npm ci
+      - name: Setup 🔧
+        uses: ./.github/actions/setup
 
       - name: Release
         env:

@@ -1,0 +1,32 @@
+name: "Deploy Chromatic"
+description: "Deploy build to Chromatic UI"
+
+inputs:
+  project-token:
+    required: true
+    description: "The project token used to authenticate with Chromatic"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup 🔧
+      uses: ./.github/actions/setup
+
+    - name: Publish to Chromatic
+      if: github.ref != 'refs/heads/main'
+      uses: chromaui/action@v1
+      env:
+        NODE_OPTIONS: '--max_old_space_size=3072'
+      with:
+        projectToken: ${{ inputs.project-token }}
+        exitOnceUploaded: true
+
+    - name: Publish to Chromatic and auto accept changes
+      if: github.ref == 'refs/heads/main'
+      uses: chromaui/action@v1
+      env:
+        NODE_OPTIONS: '--max_old_space_size=3072'
+      with:
+        projectToken: ${{ inputs.project-token }}
+        autoAcceptChanges: true
+        exitOnceUploaded: true
