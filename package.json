@@ -35,7 +35,7 @@
     "storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
     "test:integration:debug": "npm run build:test && npm run preview:test",
     "test:unit": "vitest",
-    "test:unit:ci": "vitest run --coverage --outputFile.junit=./junit/vitest.xml"
+    "test:unit:ci": "vitest run --coverage --reporter=junit --outputFile.junit=./junit/vitest.xml"
   },
   "dependencies": {
     "@chakra-ui/react": "2.4.9",

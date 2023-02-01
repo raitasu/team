@@ -100,7 +100,7 @@ export default defineConfig(({ mode }) => {
         fallbackCJS: true
       },
       reporters: process.env.GITHUB_ACTIONS
-        ? ['default', 'junit', new GithubActionsReporter()]
+        ? ['default', new GithubActionsReporter()]
         : 'default',
       coverage: {
         src: ['src']
