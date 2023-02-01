@@ -1,9 +1,16 @@
-name: Staging Deploy
+name: Staging
 
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
+    secrets:
+      DEPLOY_PREVIEW_KEY:
+        required: true
+      AWS_REGION:
+        required: true
+      DEPLOY_PREVIEW_SECRET:
+        required: true
+      AWS_CLOUDFRONT_DISTRIBUTION_ID:
+        required: true
   workflow_dispatch:
 
 concurrency:

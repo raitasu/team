@@ -1,4 +1,4 @@
-name: Build Checks
+name: Build
 
 on:
   push:
@@ -54,3 +54,9 @@ jobs:
         uses: ./.github/actions/chromatic
         with:
           project-token: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+
+  deploy_staging:
+    name: Deploy
+    needs: [e2e, chromatic]
+    uses: ./.github/workflows/deploy_staging.yml
+    secrets: inherit
