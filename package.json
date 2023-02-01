@@ -15,7 +15,6 @@
     "audit:deadcode:ci": "./tools/scripts/ci/checkDeadCode.sh",
     "build": "vite build",
     "build:staging": "cross-env NODE_ENV=production npm run build -- --mode staging",
-    "build:staging:with-mock-server": "cross-env VITE_USE_MOCK_SERVER=true npm run build:staging",
     "build:test": "cross-env NODE_ENV=production npm run build -- --mode test",
     "build-storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider build-storybook",
     "chromatic": "npx chromatic",
