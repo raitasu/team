@@ -35,10 +35,13 @@ export const EducationInfoItem = ({
         columnGap={COLUMN_GAP}
       >
         <Grid rowGap={ROW_GAP}>
-          <Text color="brand.lightGray">{`${getFormattedDate(
-            education.started_at,
-            language
-          )} - ${getFormattedDate(education.graduated_at, language)}`}</Text>
+          <Text color="brand.lightGray">
+            {getFormattedDate(education.started_at, language)}
+            {education.graduated_at
+              ? ` - ${getFormattedDate(education.graduated_at, language)}`
+              : ''}
+          </Text>
+          <Text color="brand.lightGray">{education.country}</Text>
         </Grid>
 
         <Grid rowGap={ROW_GAP}>

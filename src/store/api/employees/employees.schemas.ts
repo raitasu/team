@@ -138,14 +138,14 @@ export const EmployeeContactInfoSchema = z.object({
   discord: z.string().nullable().optional(),
   github: z.string().nullable().optional()
 });
-export const EmployeeEducationSchema = AddressSchema.pick({
-  city: true
-}).extend({
+
+export const EmployeeEducationSchema = z.object({
   id: z.number(),
-  degree: z.string(),
+  country: z.string().nullable(),
+  degree: z.string().nullable(),
   nowadays: z.boolean(),
   started_at: z.string().datetime(),
-  graduated_at: z.string().datetime(),
+  graduated_at: z.string().datetime().nullable(),
   speciality: z.string(),
   university_name: z.string()
 });

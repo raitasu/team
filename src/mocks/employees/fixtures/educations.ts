@@ -9,7 +9,7 @@ const sessionEducations: Record<string, EmployeeEducation> = {};
 const generateEmployeeEducation = (id: number): EmployeeEducation => ({
   id,
   degree: faker.word.noun(),
-  city: faker.address.city(),
+  country: faker.address.country(),
   started_at: faker.date
     .birthdate({ min: 1999, max: 2018, mode: 'year' })
     .toISOString(),

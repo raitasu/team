@@ -300,12 +300,15 @@
         "profile_tabs": {
           "education": {
             "issued_by": "Выдан",
-            "title_certificate": "Введите название сертификата"
+            "title_certificate": "Введите название сертификата",
+            "university_name": "Введите название университета"
           }
         }
       },
       "table_headers": {
+        "actions_cv": "Действия",
         "contacts": "Место жительства",
+        "created_cv": "Дата создания",
         "current_projects": "Текущие проекты",
         "cv": "Резюме",
         "date_of_birth": "Дата рождения",
@@ -313,9 +316,11 @@
         "name": "Имя",
         "position_many": "Должности",
         "position_one": "Должность",
+        "position_other": "Должности",
         "primary_phone": "Номер",
         "social_network_many": "Социальные сети",
-        "social_network_one": "Социальные сеть"
+        "social_network_one": "Социальные сеть",
+        "title_cv": "Заголовок"
       },
       "titles": {
         "email": "Электронная почта",
@@ -676,6 +681,7 @@
     "enter_link": "Введите ссылку",
     "enter_text": "Введите текст...",
     "month": "Месяц",
+    "select": "Выберите",
     "year": "Год"
   },
   "navigation": {

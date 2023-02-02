@@ -2,10 +2,10 @@ import { Input } from '@chakra-ui/react';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { type EmployeeEducationInfoFormValues } from '~/features/employee/EmployeeInfo/tabs/EducationTab/modals/EditEducationInfo/EditEducationInfo.schema';
+import { type EmployeeEducationInfoFormValues } from '~/features/employee/EmployeeInfo/tabs/EducationTab/modals/EducationInfo/EducationInfo.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
 
-export const UniversityNameField = () => {
+export const StudyField = () => {
   const [t] = useTranslation();
 
   const {
@@ -13,14 +13,14 @@ export const UniversityNameField = () => {
     formState: { errors }
   } = useFormContext<EmployeeEducationInfoFormValues>();
 
-  const errorMessage = errors.university?.message as
+  const errorMessage = errors.speciality?.message as
     | 'required_field'
     | undefined;
 
   return (
     <FormControl
       label={t(
-        'domains:employee.titles.profile_tabs.education.university_name'
+        'domains:employee.titles.profile_tabs.education.fields_of_study'
       )}
       errorMessage={
         errorMessage !== undefined
@@ -29,7 +29,10 @@ export const UniversityNameField = () => {
       }
       isRequired
     >
-      <Input {...register('university')} />
+      <Input
+        {...register('speciality')}
+        placeholder={t('general_placeholders:enter_text')}
+      />
     </FormControl>
   );
 };

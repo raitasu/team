@@ -300,12 +300,15 @@
         "profile_tabs": {
           "education": {
             "issued_by": "Enter Institution",
-            "title_certificate": "Enter title"
+            "title_certificate": "Enter title",
+            "university_name": "Enter university name"
           }
         }
       },
       "table_headers": {
+        "actions_cv": "Actions",
         "contacts": "Location",
+        "created_cv": "Date of creation",
         "current_projects": "Current projects",
         "cv": "CV",
         "date_of_birth": "Date of birth",
@@ -315,7 +318,8 @@
         "position_other": "Positions",
         "primary_phone": "Phone Number",
         "social_network_one": "Social network",
-        "social_network_other": "Social networks"
+        "social_network_other": "Social networks",
+        "title_cv": "Name CV"
       },
       "titles": {
         "email": "Email",
@@ -670,6 +674,7 @@
     "enter_link": "Enter link",
     "enter_text": "Enter text...",
     "month": "Month",
+    "select": "Select",
     "year": "Year"
   },
   "navigation": {
