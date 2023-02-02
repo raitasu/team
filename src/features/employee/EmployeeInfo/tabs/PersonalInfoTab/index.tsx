@@ -10,7 +10,11 @@ export const PersonalInfoTab: EmployeeInfoTab = ({ employee }) => (
   <Box>
     <GeneralInfo employee={employee} />
     <ContactInfo
-      contacts={employee.contacts}
+      contacts={{
+        ...employee.contacts,
+        ...employee.contact_info,
+        work_email: employee.email
+      }}
       employeeId={employee.id}
     />
     <SocialNetworkInfo employee={employee} />

@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 import { TranslationSchema } from '~/store/api/api.types';
-import { EmployeeCountriesSchema } from '~/store/api/employees/employees.schemas';
 
 export type EmployeeEducationInfoFormValues = z.infer<
   typeof EmployeeEducationInfoSchema
@@ -14,11 +13,11 @@ export const EmployeeEducationInfoSchema = z
     university_name: TranslationSchema.extend({
       en: z.string().min(2, 'required_field')
     }),
-    degree: TranslationSchema,
+    degree: z.string().min(1, 'required_field'),
     field_of_study: TranslationSchema.extend({
       en: z.string().min(2, 'required_field')
     }),
-    country: EmployeeCountriesSchema,
+    country: z.string().nullable(),
     startMonth: z.number(),
     startYear: z.string().regex(/^19|20\d{2}$/i, { message: 'incorrect_date' }),
     endMonth: z.number(),

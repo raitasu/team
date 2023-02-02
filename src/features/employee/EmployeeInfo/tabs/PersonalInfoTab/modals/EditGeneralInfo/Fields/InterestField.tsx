@@ -15,7 +15,7 @@ export const InterestsField = () => {
         'domains:employee.titles.profile_tabs.personal_information.general.interests'
       )}
     >
-      <Textarea {...register('interest')} />
+      <Textarea {...register('interests')} />
     </FormControl>
   );
 };

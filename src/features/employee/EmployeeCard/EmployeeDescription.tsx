@@ -10,7 +10,7 @@ import { type Employee } from '~/store/api/employees/employees.types';
 export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
   const [t, { language }] = useTranslation();
   const city = employee.contacts.address?.city
-    ? getTranslation(employee.contacts.address.city, language)
+    ? employee.contacts.address.city
     : t('domains:employee.errors.no_data');
   const country =
     employee.contacts.address?.country_code ||

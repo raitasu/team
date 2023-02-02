@@ -310,12 +310,12 @@
               "mobile_primary": "Primary mobile  phone",
               "mobile_secondary": "Secondary mobile phone",
               "name": "Name",
+              "owner": "Owner",
               "personal_email": "Personal email",
               "section_title": "Contact information",
               "street": "Street",
               "timezone": "Time zone",
               "unit": "Unit",
-              "who_is_this": "Who is this?",
               "work_email": "Work email",
               "zip_code": "ZIP code"
             },

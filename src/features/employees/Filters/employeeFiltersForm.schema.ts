@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 import {
-  EmployeeCountriesSchema,
   EmployeeLanguageLevelSchema,
   EmployeeLanguagesSchema,
   EmployeeStatusSchema
@@ -26,7 +25,7 @@ const EmployeeFiltersSchema = z.object({
     .number({ invalid_type_error: 'invalid_number' })
     .optional(),
   languages: EmployeeLanguageSchema.array().optional(),
-  country: EmployeeCountriesSchema.array().optional(),
+  country: z.string().array().optional(),
   statuses: EmployeeStatusSchema.array().optional()
 });
 

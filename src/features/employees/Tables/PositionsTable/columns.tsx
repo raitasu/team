@@ -33,13 +33,8 @@ export const PositionsColumns = [
   columnHelper.accessor('contacts', {
     id: EmployeesHeaderIds.Contacts,
     cell: (info) =>
-      `${info.getValue().address.country_code},  ${
-        info.getValue().address.city
-          ? getTranslation(
-              info.getValue().address.city || { en: '' },
-              getI18n().language
-            )
-          : '-'
+      `${info.getValue().address.country_code || ''},  ${
+        info.getValue().address.city ? info.getValue().address.city || '' : '-'
       }`,
     header: TranslatedHeader,
     enableSorting: true

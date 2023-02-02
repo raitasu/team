@@ -27,7 +27,10 @@ import { ZIPCodeField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfo
 import { COLUMN_GAP } from '~/pages/Employee/employee.styles';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
-import { type EmployeeContact } from '~/store/api/employees/employees.types';
+import {
+  type EmployeeContactInfo,
+  type EmployeeContact
+} from '~/store/api/employees/employees.types';
 
 export const EditContactsInfoModal = ({
   contacts,
@@ -35,7 +38,7 @@ export const EditContactsInfoModal = ({
   onCloseGeneralInfoTab,
   onConfirm
 }: {
-  contacts: EmployeeContact;
+  contacts: EmployeeContact & EmployeeContactInfo & { work_email: string };
   isOpenGeneralInfoTab: boolean;
   onCloseGeneralInfoTab: () => void;
   onConfirm: (values: ChangedContactsInfoValues) => void;

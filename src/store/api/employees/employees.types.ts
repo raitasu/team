@@ -19,14 +19,17 @@ import {
   type SocialNetworkSchema,
   type SoftSkillSchema,
   type WorkExperienceSchema,
-  type CategoriesHardSkillSchema,
   type EmployeeLanguageLevelSchema,
-  type EmployeeLanguagesSchema
+  type EmployeeLanguagesSchema,
+  type CategoriesHardSkillSchema,
+  type EmployeeContactInfoSchema
 } from '~/store/api/employees/employees.schemas';
 
 export type Address = z.infer<typeof AddressSchema>;
 
 export type EmployeeContact = z.infer<typeof EmployeeContactsSchema>;
+
+export type EmployeeContactInfo = z.infer<typeof EmployeeContactInfoSchema>;
 
 export type EmployeeRole = z.infer<typeof EmployeeRoleSchema>;
 

@@ -28,7 +28,7 @@ export const PublicationsInfoItem = ({
         columnGap={COLUMN_GAP}
       >
         <Text color="brand.lightGray">
-          {getFormattedDate(publication.date, language, DateFormats.Long)}
+          {getFormattedDate(publication.start_date, language, DateFormats.Long)}
         </Text>
 
         <Grid rowGap="10px">
@@ -42,7 +42,7 @@ export const PublicationsInfoItem = ({
                 'domains:employee.titles.profile_tabs.publications.description'
               )} `}
             </Text>
-            {getTranslation(publication.description_translations, language)}
+            {publication.description}
           </Text>
           <Link
             href={publication.link}

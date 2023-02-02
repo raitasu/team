@@ -18,9 +18,9 @@ export const SkillsTab = ({ employee }: { employee: Employee }) => {
 
   return (
     <Box>
-      {employee.hard_skills ? (
+      {employee.employee_hard_skills ? (
         <HardSkillsInfo
-          skills={employee.hard_skills}
+          skills={employee.employee_hard_skills}
           employeeId={employee.id}
         />
       ) : (

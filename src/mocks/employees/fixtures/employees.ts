@@ -25,36 +25,13 @@ import { getRandomWorkExperiences } from './workExperinces';
 const sessionEmployees: Record<string, Employee> = {};
 
 const generateEmployeeAddress = (): Address => ({
-  apartment: faker.address.buildingNumber(),
-  building: faker.address.buildingNumber(),
-  city: {
-    en: faker.helpers.arrayElement(['moscow', 'minsk']),
-    ru: faker.helpers.arrayElement(['moscow', 'minsk'])
-  },
-  country_code: faker.helpers.arrayElement(['be', 'ru']),
-  street_translations: {
-    en: faker.address.street(),
-    ru: fakerRu.address.street()
-  },
-  unit: faker.address.buildingNumber(),
-  zip_code: faker.address.zipCode()
+  city: faker.address.city(),
+  country_code: faker.helpers.arrayElement(['be', 'ru'])
 });
 
 const generateEmployeeContacts = (): EmployeeContact => ({
   address: generateEmployeeAddress(),
-  primary_phone: faker.phone.number('+############'),
-  secondary_phone: faker.phone.number('+############'),
-  emergency_contact: {
-    name: faker.name.firstName(),
-    phone: faker.phone.number('+############'),
-    who_is_this: faker.name.firstName()
-  },
-  work_email: faker.internet.email(undefined, undefined, '@cyber.ru'),
-  personal_email: faker.internet.email(),
-  timezone: faker.helpers.arrayElement([
-    '(GMT+03:00 Moscow, Standard Time - Minsk',
-    '(GMT+03:00 Moscow, Standard Time - Moscow'
-  ])
+  primary_phone: faker.phone.number('+############')
 });
 
 const generateSocialNetwork = (): SocialNetwork => ({
@@ -72,10 +49,7 @@ const generateEmployee = (id: number): Employee => {
 
   return {
     email: faker.internet.email(),
-    about_translations: {
-      en: faker.lorem.paragraph(),
-      ru: fakerRu.lorem.paragraph()
-    },
+    about: faker.lorem.paragraph(),
     avatar_url: faker.image.avatar(),
     certificates: getRandomCertificates(getRandomInteger(0, 10)),
     clothing_size: faker.helpers.arrayElement([
@@ -89,6 +63,32 @@ const generateEmployee = (id: number): Employee => {
       '4xl'
     ]),
     contacts: generateEmployeeContacts(),
+    contact_info: {
+      personal_email: faker.internet.email(),
+      secondary_phone: faker.phone.number('+############'),
+      street: faker.address.street(),
+
+      unit: faker.address.street(),
+      zip_code: Number(faker.address.zipCode()),
+      apartment: Number(faker.address.buildingNumber()),
+      building: Number(faker.address.buildingNumber()),
+      timezone: faker.helpers.arrayElement([
+        '(GMT+03:00 Moscow, Standard Time - Minsk',
+        '(GMT+03:00 Moscow, Standard Time - Moscow'
+      ]),
+      emergency_contact: {
+        id: faker.datatype.number({ min: 0, max: 10 }),
+        number: faker.phone.number('+############'),
+        name: faker.name.firstName(),
+        owner: faker.name.firstName(),
+        created_at: faker.date
+          .birthdate({ min: 18, max: 32, mode: 'age' })
+          .toISOString(),
+        updated_at: faker.date
+          .birthdate({ min: 28, max: 50, mode: 'age' })
+          .toISOString()
+      }
+    },
     cvs: getRandomCvs(getRandomInteger(0, 5)),
     first_name_translations: {
       en: faker.name.firstName(gender),
@@ -103,12 +103,11 @@ const generateEmployee = (id: number): Employee => {
       .toISOString(),
     educations: getRandomEducations(getRandomInteger(0, 5)),
     gender,
-    hard_skills: getRandomHardSkills(getRandomInteger(0, 8)),
+    employee_hard_skills: getRandomHardSkills(getRandomInteger(0, 8)),
     id,
-    interests_translations: {
-      en: faker.lorem.paragraph(),
-      ru: fakerRu.lorem.paragraph()
-    },
+    interests: new Array(getRandomInteger(1, 3))
+      .fill(' ')
+      .map(() => faker.datatype.string()),
     languages: getRandomLanguages(getRandomInteger(1, 3)),
     positions: getRandomPositions(getRandomInteger(1, 3)),
 
@@ -125,7 +124,6 @@ const generateEmployee = (id: number): Employee => {
     start_career_at: faker.date
       .birthdate({ min: 0, max: 5, mode: 'age' })
       .toISOString(),
-    timezone: faker.address.timeZone(),
     years_of_experience: getRandomInteger(0, 15),
     work_experiences: getRandomWorkExperiences(getRandomInteger(0, 5))
   };
@@ -154,7 +152,6 @@ export const createEmployee = (data: CreateEmployeeValues) => {
   newEmployee.first_name_translations.en = data.first_name_translations.en;
   newEmployee.last_name_translations.en = data.last_name_translations.en;
   newEmployee.status = data.status;
-  newEmployee.contacts.work_email = data.email;
   sessionEmployees[newEmployee.id] = newEmployee;
 
   return newEmployee;

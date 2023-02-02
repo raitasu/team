@@ -13,7 +13,7 @@ export const ZIPCodeField = () => {
 
   return (
     <FormControl label={t(TranslationKeys.ZIPCode)}>
-      <Input {...register('ZIPCode')} />
+      <Input {...register('zip_code')} />
     </FormControl>
   );
 };

@@ -6,7 +6,6 @@ import {
   LEFT_COLUMN_WIDTH,
   ROW_GAP
 } from '~/features/employee/employee.styles';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
 
@@ -28,7 +27,7 @@ export const CertificatesInfoItem = ({
         fontWeight={500}
         variant="l"
       >
-        {getTranslation(certificate.institute_translations, language)}
+        {certificate.name}
       </Text>
 
       <Grid
@@ -37,9 +36,9 @@ export const CertificatesInfoItem = ({
       >
         <Grid rowGap={ROW_GAP}>
           <Text color="brand.lightGray">{`${getFormattedDate(
-            certificate.start_at,
+            certificate.start_date,
             language
-          )} - ${getFormattedDate(certificate.end_at, language)}`}</Text>
+          )} - ${getFormattedDate(certificate.end_date, language)}`}</Text>
         </Grid>
 
         <Grid
@@ -55,7 +54,7 @@ export const CertificatesInfoItem = ({
                 'domains:employee.titles.profile_tabs.education.title_certificates'
               )}: `}
             </Text>
-            {getTranslation(certificate.speciality_translations, language)}
+            {certificate.name}
           </Text>
           <Link
             fontWeight="400"

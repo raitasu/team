@@ -1,12 +1,10 @@
-import { useMemo } from 'react';
-
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
+import { countryOptions } from '~/features/employee/employee.constants';
 import { type EmployeeFiltersForm } from '~/features/employees/Filters/employeeFiltersForm.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
-import { EmployeeCountries } from '~/store/api/employees/employees.schemas';
 
 export const CountryField = () => {
   const [t] = useTranslation();
@@ -15,14 +13,6 @@ export const CountryField = () => {
     name: 'country'
   });
 
-  const countryOptions = useMemo(
-    () =>
-      EmployeeCountries.map((country) => ({
-        value: country,
-        label: t(`enums:country.${country}`)
-      })),
-    [t]
-  );
   const { value: currentValue } = field;
 
   const selectedCountry =

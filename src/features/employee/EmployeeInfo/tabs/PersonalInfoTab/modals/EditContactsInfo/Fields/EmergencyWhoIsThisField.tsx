@@ -16,19 +16,19 @@ export const EmergencyWhoIsThisField = () => {
 
   return (
     <FormControl
-      label={t(TranslationKeys.emergencyWhoIsThis)}
+      label={t(TranslationKeys.emergencyOwner)}
       errorMessage={
-        errors.emergencyContact?.who_is_this?.message
+        errors.emergencyContact?.owner?.message
           ? t(
               `general_errors:${
-                errors.emergencyContact.who_is_this.message as 'required_field'
+                errors.emergencyContact.owner.message as 'required_field'
               }`
             )
           : undefined
       }
       isRequired
     >
-      <Input {...register('emergencyContact.who_is_this')} />
+      <Input {...register('emergencyContact.owner')} />
     </FormControl>
   );
 };

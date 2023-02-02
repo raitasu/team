@@ -23,16 +23,12 @@ export const TimeZoneField = () => {
     []
   );
 
-  const selectedTimezone = timezoneOptions.find(
-    (timezone) => timezone.value === field.value
-  );
-
   return (
     <FormControl label={t(TranslationKeys.timezone)}>
       <Select
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         options={timezoneOptions}
-        value={selectedTimezone}
+        value={{ value: field.value, label: field.value }}
         onChange={(option) => {
           if (option) {
             field.onChange(option.value);

@@ -313,12 +313,12 @@
               "mobile_primary": "Основной мобильный телефон",
               "mobile_secondary": "Дополнительный мобильный телефон",
               "name": "Имя",
+              "owner": "Владелец",
               "personal_email": "Личная почта",
               "section_title": "Контакты",
               "street": "Улица",
               "timezone": "Часовой пояс",
               "unit": "Корпус",
-              "who_is_this": "Кто это?",
               "work_email": "Рабочая почта",
               "zip_code": "Почтовый индекс"
             },

@@ -9,41 +9,12 @@ const sessionEducations: Record<string, EmployeeEducation> = {};
 
 const generateEmployeeEducation = (id: number): EmployeeEducation => ({
   id,
-  degree: faker.helpers.arrayElement([
-    {
-      en: 'Associate degree',
-      ru: 'Ассоциированная степень'
-    },
-    {
-      en: "Bachelor's degree",
-      ru: 'Степень бакалавра'
-    },
-    {
-      en: "Master's degree",
-      ru: 'Степень магистра'
-    },
-    {
-      en: 'Doctoral degree',
-      ru: 'Докторская степень'
-    },
-    {
-      en: 'Postgraduate degree',
-      ru: 'Аспирантура'
-    },
-    {
-      en: 'First-professional degree',
-      ru: 'Первая профессиональная степень'
-    }
-  ]),
-  country_code: faker.helpers.arrayElement(['be', 'ru']),
-  city: {
-    en: faker.address.city(),
-    ru: fakerRu.address.city()
-  },
-  start_at: faker.date
+  degree: faker.word.noun(),
+  city: faker.address.city(),
+  started_at: faker.date
     .birthdate({ min: 1999, max: 2018, mode: 'year' })
     .toISOString(),
-  end_at: faker.date
+  graduated_at: faker.date
     .birthdate({ min: 2019, max: 2025, mode: 'year' })
     .toISOString(),
   speciality_translations: {
@@ -53,7 +24,8 @@ const generateEmployeeEducation = (id: number): EmployeeEducation => ({
   university_name_translations: {
     en: faker.company.name(),
     ru: fakerRu.company.name()
-  }
+  },
+  nowadays: faker.datatype.boolean()
 });
 
 (function generateSessionEducations() {

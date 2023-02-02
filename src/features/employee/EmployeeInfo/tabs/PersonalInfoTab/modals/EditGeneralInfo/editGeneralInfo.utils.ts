@@ -4,12 +4,10 @@ import { type Employee } from '~/store/api/employees/employees.types';
 export const getInitialState = (
   employee: Employee
 ): EmployeeGeneralInfoFormValues => ({
-  about: employee.about_translations ? employee.about_translations.en : '',
+  about: employee.about ? employee.about : '',
   clothingSize: employee.clothing_size ? employee.clothing_size : null,
   gender: employee.gender ? employee.gender : null,
   dateOfBirth: employee.date_of_birth ? employee.date_of_birth : '',
-  interest: employee.interests_translations
-    ? employee.interests_translations.en
-    : '',
+  interests: employee.interests.join(' '),
   startCareer: employee.start_career_at ? employee.start_career_at : ''
 });

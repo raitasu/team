@@ -13,20 +13,22 @@ const generateEmployeeCertificate = (id: number): EmployeeCertificate => ({
     en: faker.company.name(),
     ru: fakerRu.company.name()
   },
-  city: {
-    en: faker.address.city(),
-    ru: fakerRu.address.city()
-  },
+  city: faker.address.city(),
   country_code: faker.helpers.arrayElement(['be', 'ru']),
   file: faker.commerce.productDescription(),
-  start_at: faker.date
+  link: faker.commerce.productDescription(),
+  start_date: faker.date
     .birthdate({ min: 18, max: 23, mode: 'age' })
     .toISOString(),
-  end_at: faker.date.birthdate({ min: 23, max: 28, mode: 'age' }).toISOString(),
+  end_date: faker.date
+    .birthdate({ min: 23, max: 28, mode: 'age' })
+    .toISOString(),
   speciality_translations: {
     en: faker.company.catchPhrase(),
     ru: fakerRu.company.catchPhrase()
-  }
+  },
+  name: faker.company.name(),
+  issued_by: faker.company.name()
 });
 
 (function generateSessionEmployeeCertificates() {

@@ -8,7 +8,6 @@ import {
   COLUMN_GAP,
   LEFT_COLUMN_WIDTH
 } from '~/features/employee/employee.styles';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { DateFormats } from '~/shared/shared.constants';
 import { getFormattedDate, workPeriod } from '~/shared/utils/dates.utils';
 import { type EmployeeWorkExperience } from '~/store/api/employees/employees.types';
@@ -28,7 +27,11 @@ export const WorkExperienceInfo = ({
   );
 
   return (
-    <InfoSection title={getTranslation(workExperience.position, language)}>
+    <InfoSection
+      title={workExperience.positions
+        .map((position) => position.name)
+        .join(',')}
+    >
       <Grid
         gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
         columnGap={COLUMN_GAP}
@@ -82,7 +85,7 @@ export const WorkExperienceInfo = ({
                 'domains:employee.titles.profile_tabs.work_experience.description'
               )}: `}
             </Text>
-            {getTranslation(workExperience.description, language)}
+            {workExperience.description}
           </Text>
           <Text>
             <Text
@@ -94,7 +97,7 @@ export const WorkExperienceInfo = ({
                 'domains:employee.titles.profile_tabs.work_experience.responsibilities'
               )}: `}
             </Text>
-            {getTranslation(workExperience.responsibilities, language)}
+            {workExperience.responsibilities}
           </Text>
           <Text>
             <Text
@@ -106,7 +109,7 @@ export const WorkExperienceInfo = ({
                 'domains:employee.titles.profile_tabs.work_experience.environment'
               )}: `}
             </Text>
-            {workExperience.environment.map((item) => `${item}; `)}
+            {workExperience.environments.map((item) => `${item}; `)}
           </Text>
         </Grid>
       </Grid>

@@ -9,8 +9,8 @@ export const TranslationKeys = {
     'domains:employee.titles.profile_tabs.personal_information.contacts.emergency_contact',
   emergencyName:
     'domains:employee.titles.profile_tabs.personal_information.contacts.name',
-  emergencyWhoIsThis:
-    'domains:employee.titles.profile_tabs.personal_information.contacts.who_is_this',
+  emergencyOwner:
+    'domains:employee.titles.profile_tabs.personal_information.contacts.owner',
   personalEmail:
     'domains:employee.titles.profile_tabs.personal_information.contacts.personal_email',
   country:

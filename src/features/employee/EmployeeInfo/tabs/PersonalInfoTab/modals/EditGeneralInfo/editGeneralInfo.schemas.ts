@@ -15,7 +15,7 @@ export const EmployeeGeneralInfoSchema = z.object({
   about: z.string().trim().min(1, { message: 'required_field' }),
   clothingSize: EmployeeClothingSizesSchema.nullable(),
   gender: EmployeeGendersSchema.nullable(),
-  dateOfBirth: z.string().datetime(),
-  interest: z.string().trim(),
+  dateOfBirth: z.string().datetime({ offset: true }),
+  interests: z.string(),
   startCareer: z.string().datetime()
 });

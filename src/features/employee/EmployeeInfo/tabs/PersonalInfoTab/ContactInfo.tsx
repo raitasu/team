@@ -5,9 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { isEditable } from '~/features/employee/employee.utils';
 import { type ChangedContactsInfoValues } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfo.schemas';
 import { EditContactsInfoModal } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfoModal';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
-import { type EmployeeContact } from '~/store/api/employees/employees.types';
+import {
+  type EmployeeContactInfo,
+  type EmployeeContact
+} from '~/store/api/employees/employees.types';
 
 import { ContactItem } from './ContactItem';
 import { InfoSection } from '../components/InfoSection';
@@ -16,10 +18,10 @@ export const ContactInfo = ({
   contacts,
   employeeId
 }: {
-  contacts: EmployeeContact;
+  contacts: EmployeeContact & EmployeeContactInfo & { work_email: string };
   employeeId: number;
 }) => {
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
   const {
     isOpen: isOpenContactsInfoTab,
     onOpen: onOpenContactsInfoTab,
@@ -58,7 +60,7 @@ export const ContactInfo = ({
           'domains:employee.titles.profile_tabs.personal_information.contacts.emergency'
         )}
         link={
-          contacts.emergency_contact.phone ||
+          String(contacts.emergency_contact?.number) ||
           t('domains:employee.errors.no_data')
         }
         linkType="phone"
@@ -69,7 +71,7 @@ export const ContactInfo = ({
         )}
         link={
           contacts.address?.city
-            ? capitalize(getTranslation(contacts.address.city, language))
+            ? capitalize(contacts.address.city)
             : t('domains:employee.errors.no_data')
         }
       />
@@ -77,7 +79,7 @@ export const ContactInfo = ({
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.email'
         )}
-        link={contacts.personal_email}
+        link={contacts.personal_email || t('domains:employee.errors.no_data')}
         linkType="email"
       />
       <EditContactsInfoModal

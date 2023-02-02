@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 import { isEmail } from '~/features/employee/employee.utils';
-import { TranslationSchema } from '~/store/api/api.types';
 
 export type EmployeeContactsInfoFormValues = z.infer<
   typeof EmployeeContactsInfoSchema
@@ -13,7 +12,7 @@ export type ChangedContactsInfoValues = {
 const EmployeeEmergencyContact = z.object({
   name: z.string().min(1, 'required_field'),
   phone: z.string().min(1, 'required_field'),
-  who_is_this: z.string().min(1, 'required_field')
+  owner: z.string().min(1, 'required_field')
 });
 
 export const EmployeeContactsInfoSchema = z.object({
@@ -34,11 +33,11 @@ export const EmployeeContactsInfoSchema = z.object({
   }),
   personalEmail: z.string().email('invalid_email'),
   country: z.string(),
-  city: TranslationSchema,
-  timezone: z.string(),
+  city: z.string(),
+  timezone: z.string().nullable(),
   street: z.string(),
-  ZIPCode: z.string(),
+  zip_code: z.number(),
   building: z.string(),
   unit: z.string(),
-  apartment: z.string()
+  apartment: z.number()
 });

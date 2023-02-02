@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker/locale/en';
-import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
@@ -12,25 +11,25 @@ const generateEmployeeWorkExperience = (
 ): EmployeeWorkExperience => ({
   id,
   company_name: faker.company.name(),
-  position: {
-    en: faker.name.jobTitle(),
-    ru: fakerRu.name.jobTitle()
-  },
+  positions: new Array(getRandomInteger(0, 5)).fill('').map((_item, index) => ({
+    id: index,
+    created_at: faker.date
+      .birthdate({ min: 18, max: 23, mode: 'age' })
+      .toISOString(),
+    name: faker.name.jobTitle(),
+    updated_at: faker.date
+      .birthdate({ min: 23, max: 28, mode: 'age' })
+      .toISOString()
+  })),
   started_at: faker.date
     .birthdate({ min: 18, max: 23, mode: 'age' })
     .toISOString(),
   ended_at: faker.date
     .birthdate({ min: 23, max: 28, mode: 'age' })
     .toISOString(),
-  description: {
-    en: faker.lorem.paragraph(),
-    ru: fakerRu.lorem.paragraph()
-  },
-  responsibilities: {
-    en: faker.lorem.paragraph(),
-    ru: fakerRu.lorem.paragraph()
-  },
-  environment: new Array(getRandomInteger(0, 15))
+  description: faker.lorem.paragraph(),
+  responsibilities: faker.lorem.paragraph(),
+  environments: new Array(getRandomInteger(0, 15))
     .fill('')
     .map(() => faker.word.noun()),
   project_name: faker.company.name()

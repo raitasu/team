@@ -37,9 +37,9 @@ export const EducationInfoItem = ({
       >
         <Grid rowGap={ROW_GAP}>
           <Text color="brand.lightGray">{`${getFormattedDate(
-            education.start_at,
+            education.started_at,
             language
-          )} - ${getFormattedDate(education.end_at, language)}`}</Text>
+          )} - ${getFormattedDate(education.graduated_at, language)}`}</Text>
         </Grid>
 
         <Grid rowGap={ROW_GAP}>
@@ -52,7 +52,7 @@ export const EducationInfoItem = ({
                 'domains:employee.titles.profile_tabs.education.degree'
               )}: `}
             </Text>
-            {getTranslation(education.degree, language)}
+            {education.degree}
           </Text>
           <Text>
             <Text

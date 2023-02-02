@@ -10,9 +10,9 @@ export const getInitialState = (education: EmployeeEducation) => ({
   field_of_study: {
     en: education.speciality_translations.en
   },
-  country: education.country_code,
-  startMonth: getMonth(new Date(education.start_at)),
-  startYear: getYear(new Date(education.start_at)).toString(),
-  endMonth: getMonth(new Date(education.end_at)),
-  endYear: getYear(new Date(education.end_at)).toString()
+  country: education.city || '', // TODO: replace with education.country once fix would be applied on backend
+  startMonth: getMonth(new Date(education.started_at)),
+  startYear: getYear(new Date(education.started_at)).toString(),
+  endMonth: getMonth(new Date(education.graduated_at)),
+  endYear: getYear(new Date(education.graduated_at)).toString()
 });

@@ -25,7 +25,7 @@ export const DegreeField = () => {
   );
 
   const selectedDegree = degreeOptions.find(
-    (degree) => degree.value.en === field.value.en
+    (degree) => degree.value.en === field.value
   );
 
   return (

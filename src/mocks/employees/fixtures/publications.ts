@@ -9,11 +9,10 @@ const sessionPublications: Record<string, EmployeePublication> = {};
 
 const generateEmployeePublication = (id: number): EmployeePublication => ({
   id,
-  date: faker.date.birthdate({ min: 0, max: 15, mode: 'age' }).toISOString(),
-  description_translations: {
-    en: faker.lorem.paragraph(),
-    ru: fakerRu.lorem.paragraph()
-  },
+  start_date: faker.date
+    .birthdate({ min: 18, max: 32, mode: 'age' })
+    .toISOString(),
+  description: faker.lorem.paragraph(),
   file: faker.commerce.productDescription(),
   name_translations: {
     en: faker.lorem.sentence(),

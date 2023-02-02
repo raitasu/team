@@ -130,10 +130,12 @@ const getEmployeesHandler = rest.get(
             employee.positions.some(({ id }) => positions.includes(id));
         }
 
-        if (hardSkills.length > 0 && employee.hard_skills) {
+        if (hardSkills.length > 0 && employee.employee_hard_skills) {
           isValid =
             isValid &&
-            employee.hard_skills.some(({ id }) => hardSkills.includes(id));
+            employee.employee_hard_skills.some(({ id }) =>
+              hardSkills.includes(id)
+            );
         }
 
         if (languages && employee.languages) {
@@ -208,8 +210,8 @@ const getEmployeesHandler = rest.get(
             a.contacts.address?.city &&
             b.contacts.address?.city
           ) {
-            const firstNameA = getTranslation(a.contacts.address.city, locale);
-            const firstNameB = getTranslation(b.contacts.address.city, locale);
+            const firstNameA = a.contacts.address.city;
+            const firstNameB = b.contacts.address.city;
 
             if (sortDirection === 'desc') {
               return firstNameA > firstNameB ? -1 : 1;

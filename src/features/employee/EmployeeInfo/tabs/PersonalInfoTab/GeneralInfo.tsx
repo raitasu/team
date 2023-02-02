@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { isEditable } from '~/features/employee/employee.utils';
 import { EditGeneralInfoModal } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditGeneralInfo';
 import { type ChangedEmployeeGeneralInfoValues } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditGeneralInfo/editGeneralInfo.schemas';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { DateFormats } from '~/shared/shared.constants';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
@@ -79,9 +78,7 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
           'domains:employee.titles.profile_tabs.personal_information.general.about'
         )}
         value={
-          employee.about_translations
-            ? getTranslation(employee.about_translations, language)
-            : t('domains:employee.errors.no_data')
+          employee.about ? employee.about : t('domains:employee.errors.no_data')
         }
       />
       <GeneralInfoItem
@@ -89,8 +86,8 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
           'domains:employee.titles.profile_tabs.personal_information.general.interests'
         )}
         value={
-          employee.interests_translations
-            ? getTranslation(employee.interests_translations, language)
+          employee.interests.length > 0
+            ? employee.interests.join(' ')
             : t('domains:employee.errors.no_data')
         }
       />
