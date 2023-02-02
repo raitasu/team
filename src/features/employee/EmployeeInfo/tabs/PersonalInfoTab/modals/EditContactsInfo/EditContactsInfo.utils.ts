@@ -25,7 +25,7 @@ export const getInitialState = (
   city: contacts.address?.city ? contacts.address.city : '',
   timezone: contacts.timezone ? contacts.timezone : '',
   street: contacts.street ? contacts.street : '',
-  ZIPCode: contacts.zip_code ? contacts.zip_code : '',
+  zip_code: contacts.zip_code ? contacts.zip_code : '',
   building: contacts.building ? contacts.building : '',
   unit: contacts.unit ? contacts.unit : '',
   apartment: contacts.apartment ? contacts.apartment : ''

@@ -16,7 +16,7 @@ export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
     employee.contacts.address?.country_code ||
     t('domains:employee.errors.no_data');
   const position = employee.positions?.length
-    ? getTranslation(employee.positions[0].name_translations, language)
+    ? employee.positions[0].name
     : t('domains:employee.errors.no_data');
   const projectCount = t('domains:employee.titles.project', {
     count: employee.projects ? employee.projects.length : 0

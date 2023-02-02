@@ -6,7 +6,6 @@ import { ProjectsCell } from '~/features/employees/Tables/cells/ProjectsCell';
 import { TranslatedHeader } from '~/features/employees/Tables/cells/TranslatedHeader';
 import { EmployeesHeaderIds } from '~/features/employees/Tables/tables.constants';
 import { getI18n } from '~/services/i18n';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { DateFormats } from '~/shared/shared.constants';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { type ShortEmployee } from '~/store/api/employees/employees.types';
@@ -23,9 +22,7 @@ export const PositionsColumns = [
     id: EmployeesHeaderIds.Positions,
     cell: (info) =>
       Object.values(info.getValue() || [])
-        .map((project) =>
-          getTranslation(project.name_translations, getI18n().language)
-        )
+        .map((project) => project.name)
         .join(', '),
     header: TranslatedHeader,
     enableSorting: false

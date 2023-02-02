@@ -20,7 +20,7 @@ export const CityField = () => {
       <Select
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         options={citiesOptions}
-        value={selectedCity}
+        value={selectedCity || null}
         onChange={(option) => {
           if (option) {
             field.onChange(option.value);

@@ -47,7 +47,7 @@ export const ProjectsCell = ({
     >
       {`${getTranslation(project.name_translations, language)}${
         lastProject?.id !== project.id ? '; ' : ''
-      }`}
+      } `}
     </Link>
   );
 
@@ -77,9 +77,7 @@ export const ProjectsCell = ({
               >
                 <PopoverArrow bg="brand.stroke" />
                 <PopoverBody bg="brand.white">
-                  {projects.map((project: EmployeeProject) =>
-                    getProject(project)
-                  )}
+                  {projects.map((item: EmployeeProject) => getProject(item))}
                 </PopoverBody>
               </PopoverContent>
             </Popover>

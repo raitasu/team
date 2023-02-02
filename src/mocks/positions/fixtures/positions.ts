@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker/locale/en';
-import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
@@ -9,10 +8,13 @@ const sessionPositions: Record<string, EmployeePosition> = {};
 
 const generatePosition = (id: number): EmployeePosition => ({
   id,
-  name_translations: {
-    en: faker.name.jobTitle(),
-    ru: fakerRu.name.jobTitle()
-  }
+  created_at: faker.date
+    .birthdate({ min: 1999, max: 2018, mode: 'year' })
+    .toISOString(),
+  updated_at: faker.date
+    .birthdate({ min: 2019, max: 2025, mode: 'year' })
+    .toISOString(),
+  name: faker.datatype.string()
 });
 
 (function generateSessionPositions() {

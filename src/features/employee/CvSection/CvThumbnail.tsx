@@ -6,7 +6,6 @@ import {
   MdOutlineDelete
 } from 'react-icons/md';
 
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { IconButton } from '~/shared/ui/components/IconButton';
 import { type EmployeeCv } from '~/store/api/employees/employees.types';
 
@@ -21,7 +20,7 @@ export const CvThumbnail = ({
   onDownload?: () => void;
   onEdit?: () => void;
 }) => {
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
 
   return (
     <Grid
@@ -51,7 +50,7 @@ export const CvThumbnail = ({
         textOverflow="ellipsis"
         whiteSpace="nowrap"
       >
-        {getTranslation(cv.position.name_translations, language)}
+        {cv.position.name}
       </Text>
       <Flex
         gridColumn="2 / -1"

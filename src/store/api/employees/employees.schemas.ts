@@ -161,8 +161,10 @@ export const EmployeeEducationSchema = AddressSchema.pick({
 });
 
 export const EmployeePositionSchema = z.object({
+  created_at: z.string().datetime(),
   id: z.number(),
-  name_translations: TranslationSchema
+  name: z.string(),
+  updated_at: z.string().datetime()
 });
 
 export const EmployeeProjectSchema = z.object({

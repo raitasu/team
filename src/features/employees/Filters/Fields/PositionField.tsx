@@ -4,7 +4,6 @@ import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { type EmployeeFiltersForm } from '~/features/employees/Filters/employeeFiltersForm.schema';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 import { type EmployeePosition } from '~/store/api/employees/employees.types';
@@ -18,17 +17,17 @@ export const PositionField = ({
     name: 'positions'
   });
 
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
 
   const positionOptions = useMemo(
     () =>
       positions
         ? positions.map((position) => ({
             value: position.id,
-            label: getTranslation(position.name_translations, language)
+            label: position.name
           }))
         : [],
-    [language, positions]
+    [positions]
   );
 
   const { value: currentValue } = field;
