@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { type NonNullableRecord } from '~/shared/helpers.types';
 import {
   EmployeeLanguageLevelSchema,
   EmployeeLanguagesSchema,
@@ -14,30 +15,17 @@ const EmployeeLanguageSchema = z.object({
   level: EmployeeLanguageLevelSchema.nullable()
 });
 
-const EmployeeFiltersSchema = z.object({
-  name: z.string().optional(),
-  positions: z.number().array().optional(),
-  hard_skills: z.number().array().optional(),
-  work_experience_start: z
-    .number({ invalid_type_error: 'invalid_number' })
-    .optional(),
-  work_experience_end: z
-    .number({ invalid_type_error: 'invalid_number' })
-    .optional(),
-  languages: EmployeeLanguageSchema.array().optional(),
-  country: z.string().array().optional(),
-  statuses: EmployeeStatusSchema.array().optional()
-});
-
 export const EmployeeFiltersFormSchema = z
   .object({
-    name: EmployeeFiltersSchema.required().shape.name.nullable(),
-    positions: EmployeeFiltersSchema.required().shape.positions.nullable(),
-    hard_skills: EmployeeFiltersSchema.required().shape.hard_skills.nullable(),
-    work_experience_start:
-      EmployeeFiltersSchema.required().shape.work_experience_start.nullable(),
-    work_experience_end:
-      EmployeeFiltersSchema.required().shape.work_experience_end.nullable(),
+    name: z.string().nullable(),
+    positions: z.number().array().nullable(),
+    hard_skills: z.number().array().nullable(),
+    work_experience_start: z
+      .number({ invalid_type_error: 'invalid_number' })
+      .nullable(),
+    work_experience_end: z
+      .number({ invalid_type_error: 'invalid_number' })
+      .nullable(),
     languages: EmployeeLanguageSchema.merge(
       z.object({
         name: EmployeeLanguageSchema.shape.name.nullable()
@@ -56,8 +44,8 @@ export const EmployeeFiltersFormSchema = z
       })
       .array()
       .nullable(),
-    country: EmployeeFiltersSchema.required().shape.country.nullable(),
-    statuses: EmployeeFiltersSchema.required().shape.statuses.nullable()
+    country: z.string().array().nullable(),
+    statuses: EmployeeStatusSchema.array().nullable()
   })
   .refine(
     (data) => {
@@ -74,9 +62,14 @@ export const EmployeeFiltersFormSchema = z
       path: ['work_experience_start']
     }
   );
-export type EmployeeFilters = z.infer<typeof EmployeeFiltersSchema>;
 
 export type EmployeeFiltersForm = z.infer<typeof EmployeeFiltersFormSchema>;
+
+export type EmployeeFilters = Partial<
+  Omit<NonNullableRecord<EmployeeFiltersForm>, 'languages'> & {
+    languages?: z.infer<typeof EmployeeLanguageSchema>[];
+  }
+>;
 export const initialFilterValues: EmployeeFilterFormValues = {
   name: null,
   positions: null,
