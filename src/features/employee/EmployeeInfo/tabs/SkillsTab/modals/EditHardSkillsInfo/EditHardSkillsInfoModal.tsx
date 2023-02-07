@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { Grid, Text } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -6,6 +6,7 @@ import groupBy from 'lodash/groupBy';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 import {
   COLUMN_GAP,
@@ -20,6 +21,7 @@ import {
   type CategoriesHardSkill,
   type HardSkill
 } from '~/store/api/employees/employees.types';
+import { useUpdateHardSkillsMutation } from '~/store/api/hardSkills/hardSkills.api';
 
 import {
   type EmployeeHardSkillsFormValues,
@@ -37,6 +39,8 @@ export const EditHardSkillsInfo = ({
   onCloseHardSkillsInfo: () => void;
 }) => {
   const [t] = useTranslation();
+  const { id } = useParams();
+  const [updateHardSkills] = useUpdateHardSkillsMutation();
 
   const methods = useForm<EmployeeHardSkillsFormValues>({
     defaultValues: { skills },
@@ -44,10 +48,16 @@ export const EditHardSkillsInfo = ({
     resolver: zodResolver(HardSkillsInfoSchema)
   });
 
+  const { reset } = methods;
+
   const hardSkillsOnCategory = useMemo(
     () => groupBy(skills, 'category'),
     [skills]
   );
+
+  useEffect(() => {
+    reset({ skills }, { keepDefaultValues: false });
+  }, [reset, skills]);
 
   const toast = useSuccessToast({
     description: 'Information updated',
@@ -77,17 +87,20 @@ export const EditHardSkillsInfo = ({
       }}
       footer={
         <ActionsModalFooter
-          onCancel={() => onCloseHardSkillsInfo()}
+          onCancel={() => {
+            onCloseHardSkillsInfo();
+            methods.reset();
+          }}
           onReset={() => methods.reset()}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
           onSubmit={methods.handleSubmit((data) => {
-            const changedVal = data.skills.filter(
-              (el, index) => el.is_show !== skills[index].is_show
-            );
+            const changedVal = data.skills.filter((el) => el.is_show);
 
-            console.debug(changedVal);
-            onCloseHardSkillsInfo();
+            updateHardSkills({ skills: changedVal, id: Number(id) })
+              .then(onCloseHardSkillsInfo)
+              .catch(onCloseHardSkillsInfo);
+
             toast();
           })}
           submitTag="save"
