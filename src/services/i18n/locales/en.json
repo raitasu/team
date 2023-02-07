@@ -239,6 +239,7 @@
         "create_cv": "Create CV",
         "create_cv_confirmation": "Do you want to create CV?",
         "create_profile": "Create profile",
+        "created_new_work_experience": "New work experience was created!",
         "delete_cv": "Delete CV",
         "delete_profile": "Delete profile",
         "download_cv": "Download CV",
@@ -259,7 +260,8 @@
         "invalid_literal": "Select value",
         "no_data": "No data",
         "no_employees_data": "No employees data",
-        "required_field": "Field can't be empty"
+        "required_field": "Field can't be empty",
+        "unknown_error": "Oops, something went wrong"
       },
       "table_headers": {
         "contacts": "Location",

@@ -4,29 +4,29 @@ import { useTranslation } from 'react-i18next';
 
 import { FormControl } from '~/shared/ui/components/FormControl';
 
-import { type EmployeeNewWorkExperienceFormValues } from '../CreateNewWorkExperienceModal.schemas';
+import { type EmployeeWorkExperienceFormValues } from '../../WorkExperienceModal.schemas';
 
-export const DescriptionField = () => {
+export const ResponsibilitiesField = () => {
   const [t] = useTranslation();
 
   const {
     field,
     fieldState: { error }
-  } = useController<EmployeeNewWorkExperienceFormValues, 'description'>({
-    name: 'description'
+  } = useController<EmployeeWorkExperienceFormValues, 'responsibilities'>({
+    name: 'responsibilities'
   });
 
   return (
     <FormControl
       label={t(
-        'domains:employee.titles.profile_tabs.work_experience.description'
+        'domains:employee.titles.profile_tabs.work_experience.responsibilities'
       )}
+      isRequired
       errorMessage={
         error?.message
           ? t(`general_errors:${error.message as 'required_field'}`)
           : undefined
       }
-      isRequired
     >
       <Textarea
         {...field}

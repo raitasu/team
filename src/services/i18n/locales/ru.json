@@ -239,6 +239,7 @@
         "create_cv": "Создать резюме",
         "create_cv_confirmation": "Вы хотите создать резюме?",
         "create_profile": "Создать профиль",
+        "created_new_work_experience": "Новый опыт был создан!",
         "delete_cv": "Удалить резюме",
         "delete_profile": "Удалить профиль",
         "download_cv": "Скачать резюме",
@@ -259,7 +260,8 @@
         "invalid_literal": "Выберите значение",
         "no_data": "Нет данных",
         "no_employees_data": "Нет данных о сотрудниках",
-        "required_field": "Поле не может быть пустым"
+        "required_field": "Поле не может быть пустым",
+        "unknown_error": "Упс, что-то пошло не так."
       },
       "table_headers": {
         "contacts": "Место жительства",

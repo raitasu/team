@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 
-import { Grid, Link, Text } from '@chakra-ui/react';
+import { Grid, Link, Text, useDisclosure } from '@chakra-ui/react';
+import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useParams } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ import { useGetCurrentUserQuery } from '~/store/api/authentication/authenticatio
 import { type EmployeeWorkExperience } from '~/store/api/employees/employees.types';
 import { useRemoveWorkExperienceMutation } from '~/store/api/workExperience/workExperience.api';
 
+import { EditWorkExperienceInfoModal } from './modals/EditWorkExperienceInfo/EditWorkExperienceInfoModal';
 import { InfoSection } from '../components/InfoSection';
 
 export const WorkExperienceInfo = ({
@@ -33,6 +35,12 @@ export const WorkExperienceInfo = ({
     useRemoveWorkExperienceMutation();
   const { data: currentUser } = useGetCurrentUserQuery();
 
+  const {
+    isOpen: isOpenWorkExperienceInfoTab,
+    onOpen: onOpenWorkExperienceInfoTab,
+    onClose: onCloseWorkExperienceInfoTab
+  } = useDisclosure();
+
   const { months, years } = useMemo(
     () => workPeriod(workExperience.started_at, workExperience.ended_at),
     [workExperience.ended_at, workExperience.started_at]
@@ -43,14 +51,21 @@ export const WorkExperienceInfo = ({
   const toastSuccess = useSuccessToast(toastConfig);
 
   const deleteWorkExperience = async () => {
-    await removeWorkExperience({
+    const response = await removeWorkExperience({
       employeesId: String(id),
       workExperienceId: String(workExperience.id)
     });
-    onCloseConfirmDeleteModal();
-    toastSuccess({
-      description: t('domains:employee.actions.removed_work_experience')
-    });
+
+    if ((response as { error?: FetchBaseQueryError }).error) {
+      toastError({
+        description: t('domains:employee.errors.unknown_error')
+      });
+    } else {
+      toastSuccess({
+        description: t('domains:employee.actions.removed_work_experience')
+      });
+      onCloseConfirmDeleteModal();
+    }
   };
 
   const onCloseConfirmDeleteModal = () => {
@@ -69,6 +84,11 @@ export const WorkExperienceInfo = ({
       onDelete={
         isEditable(employeeId, currentUser)
           ? () => setOpenConfirmModal(true)
+          : undefined
+      }
+      onEdit={
+        isEditable(employeeId, currentUser)
+          ? onOpenWorkExperienceInfoTab
           : undefined
       }
     >
@@ -170,6 +190,11 @@ export const WorkExperienceInfo = ({
         isOpen={isOpenConfirmModal}
         onClose={() => onCloseConfirmDeleteModal()}
         isLoading={isLoadingDelete}
+      />
+      <EditWorkExperienceInfoModal
+        workExperience={workExperience}
+        isOpenWorkExperienceInfoTab={isOpenWorkExperienceInfoTab}
+        onCloseWorkExperienceInfoTab={onCloseWorkExperienceInfoTab}
       />
     </InfoSection>
   );

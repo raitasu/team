@@ -7,18 +7,18 @@ import { optionMonth } from '~/shared/ui/components/DatePicker/utils';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 
-import { type EmployeeNewWorkExperienceFormValues } from '../CreateNewWorkExperienceModal.schemas';
+import { type EmployeeWorkExperienceFormValues } from '../../WorkExperienceModal.schemas';
 
 export const DateField = () => {
   const [t] = useTranslation();
   const { field: startField } = useController<
-    EmployeeNewWorkExperienceFormValues,
+    EmployeeWorkExperienceFormValues,
     'startDate'
   >({
     name: 'startDate'
   });
   const { field: endField } = useController<
-    EmployeeNewWorkExperienceFormValues,
+    EmployeeWorkExperienceFormValues,
     'endDate'
   >({
     name: 'endDate'
@@ -27,7 +27,7 @@ export const DateField = () => {
   const {
     register,
     formState: { errors }
-  } = useFormContext<EmployeeNewWorkExperienceFormValues>();
+  } = useFormContext<EmployeeWorkExperienceFormValues>();
 
   return (
     <Grid

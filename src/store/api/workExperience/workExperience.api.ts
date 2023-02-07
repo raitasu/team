@@ -1,3 +1,5 @@
+import { type PartialWorkExperience } from '~/features/employee/EmployeeInfo/tabs/WorkExperienceTab/WorkExperienceModal.schemas';
+import { showGlobalError } from '~/shared/ui/components/Toast';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import {
@@ -78,6 +80,55 @@ const workExperienceApiSlice = rootApiSlice.injectEndpoints({
         url: `employees/${employeesId}/work_experiences/${workExperienceId}`,
         method: 'DELETE'
       })
+    }),
+    updateWorkExperience: builder.mutation<
+      EmployeeWorkExperience,
+      {
+        workExperience: PartialWorkExperience;
+        employeesId: number;
+        workExperienceId: number;
+      }
+    >({
+      invalidatesTags: (_result, _error, arg) => [
+        {
+          type: ApiTags.Employees,
+          id: `${arg.employeesId}`
+        }
+      ],
+      onQueryStarted: async (_, { queryFulfilled }) => {
+        try {
+          const response = await queryFulfilled;
+
+          const responseValidation =
+            EmployeeSchema.shape.work_experiences.safeParse(response.data);
+
+          if (!responseValidation.success) {
+            console.error(responseValidation.error.errors);
+
+            showGlobalError({
+              titleTag: 'server_error',
+              descriptionTag: 'invalid_response_schema',
+              descriptionTagArgs: {
+                url: 'PATCH employees/{employees_id}/work_experiences/{id}'
+              }
+            });
+          }
+          // eslint-disable-next-line no-empty -- error cases are handled outside
+        } catch (err) {}
+      },
+      query: ({ workExperience, employeesId, workExperienceId }) => ({
+        url: `employees/${employeesId}/work_experiences/${workExperienceId}`,
+        method: 'PATCH',
+        body: {
+          work_experience: {
+            ...workExperience,
+            positions: workExperience.positions?.map((position) => ({
+              id: Number(position.value),
+              name: position.label
+            }))
+          }
+        }
+      })
     })
   })
 });
@@ -88,3 +139,4 @@ export const {
   useGetCompanyProjectsQuery,
   useRemoveWorkExperienceMutation
 } = workExperienceApiSlice;
+export const { useUpdateWorkExperienceMutation } = workExperienceApiSlice;

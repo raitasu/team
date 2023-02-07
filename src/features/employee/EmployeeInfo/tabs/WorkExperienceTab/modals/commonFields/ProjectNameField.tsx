@@ -7,18 +7,18 @@ import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 import { useGetCompanyProjectsQuery } from '~/store/api/workExperience/workExperience.api';
 
-import { type EmployeeNewWorkExperienceFormValues } from '../CreateNewWorkExperienceModal.schemas';
+import { type EmployeeWorkExperienceFormValues } from '../../WorkExperienceModal.schemas';
 
 export const ProjectNameField = () => {
   const {
     field,
     fieldState: { error }
-  } = useController<EmployeeNewWorkExperienceFormValues, `project_name`>({
+  } = useController<EmployeeWorkExperienceFormValues, `project_name`>({
     name: `project_name`
   });
 
   const { field: companyName } = useController<
-    EmployeeNewWorkExperienceFormValues,
+    EmployeeWorkExperienceFormValues,
     `company_name`
   >({
     name: `company_name`
@@ -28,21 +28,29 @@ export const ProjectNameField = () => {
     companyName.value ? companyName.value : ''
   );
 
-  const companyProjectsOptions = useMemo(
-    () =>
-      companyProjects
-        ? companyProjects.map((project) => ({
-            label: project.name,
-            value: String(project.id)
-          }))
-        : [],
-    [companyProjects]
-  );
+  const companyProjectsOptions = companyProjects
+    ? companyProjects.map((project) => ({
+        label: project.name,
+        value: String(project.id)
+      }))
+    : [];
+
   const [t] = useTranslation();
 
-  const selectedProject = useMemo(
-    () => ({ label: field.value.name || '', value: field.value.id || '' }),
+  const project = useMemo(
+    () =>
+      field.value.name
+        ? { label: field.value.name, value: field.value.id }
+        : null,
     [field.value]
+  );
+
+  const filteredOptions = companyProjectsOptions.filter(
+    (item) => item.label !== project?.label
+  );
+
+  const selectedProject = companyProjectsOptions.filter(
+    (item) => item.label === project?.label
   );
 
   return (
@@ -60,7 +68,7 @@ export const ProjectNameField = () => {
       <Select
         {...field}
         placeholder={t('domains:filters.placeholders.placeholder_select')}
-        options={companyProjectsOptions}
+        options={filteredOptions}
         value={selectedProject}
         onChange={(option) => {
           if (option) {

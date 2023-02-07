@@ -14,7 +14,7 @@ const generatePosition = (id: number): EmployeePosition => ({
   updated_at: faker.date
     .birthdate({ min: 2019, max: 2025, mode: 'year' })
     .toISOString(),
-  name: faker.datatype.string()
+  name: faker.name.jobTitle()
 });
 
 (function generateSessionPositions() {

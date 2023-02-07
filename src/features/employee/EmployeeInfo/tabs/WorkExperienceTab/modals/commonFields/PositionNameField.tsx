@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 
-import { type EmployeeNewWorkExperienceFormValues } from '../CreateNewWorkExperienceModal.schemas';
+import { type EmployeeWorkExperienceFormValues } from '../../WorkExperienceModal.schemas';
 
 export const PositionField = ({
   options
@@ -17,7 +17,7 @@ export const PositionField = ({
   const {
     field,
     fieldState: { error }
-  } = useController<EmployeeNewWorkExperienceFormValues, `positions`>({
+  } = useController<EmployeeWorkExperienceFormValues, `positions`>({
     name: `positions`
   });
 

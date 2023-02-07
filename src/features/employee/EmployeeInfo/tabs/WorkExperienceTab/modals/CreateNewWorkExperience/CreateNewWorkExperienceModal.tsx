@@ -1,19 +1,15 @@
-import { useCallback } from 'react';
-
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
+import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
-import {
-  type EmployeePosition,
-  type Customers,
-  type HardSkill
-} from '~/store/api/employees/employees.types';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { useGetHardSkillsQuery } from '~/store/api/hardSkills/hardSkills.api';
 import { useGetPositionsQuery } from '~/store/api/positions/positions.api';
 import {
@@ -21,15 +17,19 @@ import {
   useGetCustomersQuery
 } from '~/store/api/workExperience/workExperience.api';
 
-import { EmployeeNewWorkExperienceSchema } from './CreateNewWorkExperienceModal.schemas';
-import { CompanyNameField } from './Fields/CompanyNameField';
-import { DateField } from './Fields/DateFIeld';
-import { DescriptionField } from './Fields/DescriptionField';
-import { EnvironmentField } from './Fields/EnvironmentField';
-import { PositionField } from './Fields/PositionNameField';
-import { ProjectNameField } from './Fields/ProjectNameField';
-import { ResponsibilitiesField } from './Fields/ResponsibilitiesField';
-import { getChangedDate, getInitialState } from '../../WorkExperience.utils';
+import {
+  getChangedDate,
+  getInitialStateForCreate,
+  getOptions
+} from '../../WorkExperience.utils';
+import { EmployeeWorkExperienceSchema } from '../../WorkExperienceModal.schemas';
+import { CompanyNameField } from '../commonFields/CompanyNameField';
+import { DateField } from '../commonFields/DateFIeld';
+import { DescriptionField } from '../commonFields/DescriptionField';
+import { EnvironmentField } from '../commonFields/EnvironmentField';
+import { PositionField } from '../commonFields/PositionNameField';
+import { ProjectNameField } from '../commonFields/ProjectNameField';
+import { ResponsibilitiesField } from '../commonFields/ResponsibilitiesField';
 
 export const CreateNewWorkExperienceModal = ({
   isOpenCreateNewWorkExperienceModal,
@@ -40,28 +40,18 @@ export const CreateNewWorkExperienceModal = ({
 }) => {
   const [t] = useTranslation();
   const { id } = useParams();
-
+  const toastError = useErrorToast(toastConfig);
+  const toastSuccess = useSuccessToast(toastConfig);
   const [createWorkExperience] = useCreateWorkExperienceMutation();
   const { data: environments } = useGetHardSkillsQuery();
   const { data: positions } = useGetPositionsQuery();
   const { data: customers } = useGetCustomersQuery();
 
   const methods = useForm({
-    defaultValues: getInitialState(),
+    defaultValues: getInitialStateForCreate(),
     mode: 'onBlur',
-    resolver: zodResolver(EmployeeNewWorkExperienceSchema)
+    resolver: zodResolver(EmployeeWorkExperienceSchema)
   });
-
-  const getOptions = useCallback(
-    (value: Customers[] | HardSkill[] | EmployeePosition[] | undefined) =>
-      value
-        ? value.map((item) => ({
-            label: item.name,
-            value: String(item.id)
-          }))
-        : [],
-    []
-  );
 
   return (
     <BaseModal
@@ -85,7 +75,7 @@ export const CreateNewWorkExperienceModal = ({
           onReset={() => methods.reset()}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
-          onSubmit={methods.handleSubmit((data) => {
+          onSubmit={methods.handleSubmit(async (data) => {
             const { startDate, endDate, ...payload } = data;
 
             const workExperience = {
@@ -110,15 +100,23 @@ export const CreateNewWorkExperienceModal = ({
               )
             };
 
-            createWorkExperience({
+            const response = await createWorkExperience({
               workExperience,
               employeesId: Number(id)
-            })
-              .then(() => {
-                onCloseCreateNewWorkExperienceModal();
-                methods.reset();
-              })
-              .catch(onCloseCreateNewWorkExperienceModal);
+            });
+
+            if ((response as { error?: FetchBaseQueryError }).error) {
+              toastError({
+                description: t('domains:employee.errors.unknown_error')
+              });
+            } else {
+              toastSuccess({
+                description: t(
+                  'domains:employee.actions.created_new_work_experience'
+                )
+              });
+              onCloseCreateNewWorkExperienceModal();
+            }
           })}
           submitTag="save"
         />

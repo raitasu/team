@@ -14,5 +14,5 @@ export const ApiTags = {
   Positions: 'positions',
   HardSkills: 'hardSkills',
   SoftSkills: 'softSkills',
-  WorkExperience: 'WorkExperience'
+  WorkExperience: 'workExperience'
 } as const;

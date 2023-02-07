@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 
-import { type EmployeeNewWorkExperienceFormValues } from '../CreateNewWorkExperienceModal.schemas';
+import { type EmployeeWorkExperienceFormValues } from '../../WorkExperienceModal.schemas';
 
 export const EnvironmentField = ({
   options
@@ -14,7 +14,7 @@ export const EnvironmentField = ({
   const {
     field,
     fieldState: { error }
-  } = useController<EmployeeNewWorkExperienceFormValues, `hard_skills`>({
+  } = useController<EmployeeWorkExperienceFormValues, `hard_skills`>({
     name: `hard_skills`
   });
 

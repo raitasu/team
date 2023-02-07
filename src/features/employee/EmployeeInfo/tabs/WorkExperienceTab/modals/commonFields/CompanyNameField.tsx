@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 
-import { type EmployeeNewWorkExperienceFormValues } from '../CreateNewWorkExperienceModal.schemas';
+import { type EmployeeWorkExperienceFormValues } from '../../WorkExperienceModal.schemas';
 
 export const CompanyNameField = ({
   options
@@ -16,12 +16,12 @@ export const CompanyNameField = ({
   const {
     field,
     fieldState: { error }
-  } = useController<EmployeeNewWorkExperienceFormValues, `company_name`>({
+  } = useController<EmployeeWorkExperienceFormValues, `company_name`>({
     name: `company_name`
   });
 
   const { field: projectName } = useController<
-    EmployeeNewWorkExperienceFormValues,
+    EmployeeWorkExperienceFormValues,
     `project_name`
   >({
     name: `project_name`
@@ -29,9 +29,17 @@ export const CompanyNameField = ({
 
   const [t] = useTranslation();
 
-  const selectedCompanyName = useMemo(
+  const company = useMemo(
     () => (field.value ? { label: field.value, value: field.value } : null),
     [field.value]
+  );
+
+  const filteredOptions = options.filter(
+    (item) => item.label !== company?.label
+  );
+
+  const selectedCompany = options.filter(
+    (item) => item.label === company?.label
   );
 
   return (
@@ -49,11 +57,13 @@ export const CompanyNameField = ({
       <Select
         {...field}
         placeholder={t('domains:filters.placeholders.placeholder_select')}
-        options={options}
-        value={selectedCompanyName}
+        options={filteredOptions}
+        value={selectedCompany}
         onChange={(option) => {
-          projectName.onChange({ id: null, name: null });
-          field.onChange(option?.label);
+          if (option) {
+            projectName.onChange({ id: null, name: null });
+            field.onChange(option.label);
+          }
         }}
         size="md"
         menuPlacement="auto"
