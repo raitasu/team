@@ -2,15 +2,15 @@ module.exports = {
   root: true,
   parser: '@babel/eslint-parser',
   plugins: ['react'],
-  extends: ['./tools/configs/eslint/.eslintrc.base.js'],
+  extends: ['./configs/eslint/.eslintrc.base.js'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
-      extends: ['./tools/configs/eslint/.eslintrc.typescript.js']
+      extends: ['./configs/eslint/.eslintrc.typescript.js']
     },
     {
       files: ['**/*.stories.ts', '**/*.stories.tsx'],
-      extends: ['./tools/configs/eslint/.eslint.storybook.js']
+      extends: ['./configs/eslint/.eslint.storybook.js']
     },
     {
       files: ['vite.config.ts', '.storybook/main.ts', 'cypress.config.ts'],

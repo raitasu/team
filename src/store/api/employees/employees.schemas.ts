@@ -273,7 +273,6 @@ export const ShortEmployeeSchema = EmployeeSchema.pick({
   email: true
 }).extend({
   contacts: EmployeeContactsSchema.pick({
-    emails: true,
     primary_phone: true
   }).extend({
     address: AddressSchema.pick({

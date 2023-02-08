@@ -18,11 +18,11 @@ runs:
 
     - name: Check dead code
       shell: bash
-      run: npm run audit:deadcode:ci
+      run: .github/actions/code_quality/checkDeadCode.sh
 
     - name: Run tests
       shell: bash
-      run: npm run test:unit:ci
+      run: npm run test:ci
 
     - name: Test Report
       uses: dorny/test-reporter@v1

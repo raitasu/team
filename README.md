@@ -13,13 +13,14 @@
 ### Installing https certificates
 
 - Install [mkcert](https://github.com/FiloSottile/mkcert) package. Follow carefully the instructions for your system (prefer installing from the pre-built binaries)
-- On Unix systems run `./tools/scripts/generate_certificate.sh`.
-- On Windows run the same commands from `./tools/scripts/generate_certificate.sh` in PowerShell from the project root.
+- On Unix systems run `./scripts/generate_certificate.sh`.
+- On Windows run the same commands from `./scripts/generate_certificate.sh` in PowerShell from the project root.
 
 ### Installing dependencies
 
-> Before start make sure that you're using the right node version.
-> You can use [nvm](https://github.com/nvm-sh/nvm) to change node version to one that specified inside `.nvmrc`.
+> Before start, make sure that you're using the right node version.
+> You can use [nvm](https://github.com/nvm-sh/nvm)
+> to change a node version to one that specified inside `.nvmrc`.
 
 - Run command `npm ci`
 
@@ -40,18 +41,18 @@ We are using [Vitest](https://vitest.dev/) for unit tests and [Cypress](https://
 | `cy:open`                | Opens Cypress UI.                                                              |
 | `cy:run`                 | Runs Cypress tests.                                                            |
 | `start:test`             | Runs dev server to use in Cypress tests.                                       |
-| `test:unit`              | Runs unit tests in watch mode.                                                 |
-| `test:unit:ci`           | Runs unit tests once and outputs test coverage.                                |
+| `test`                   | Runs unit tests in watch mode.                                                 |
+| `test:ci`                | Runs unit tests once and outputs test coverage.                                |
 | `test:integration:debug` | Builds application to use in Cypress tests and serves files from build folder. |
 | `preview:test`           | Serves files from build folder to use in Cypress tests.                        |
 
 ### Running unit tests
 
-- Run `npm run test:unit`
+- Run `npm run test`
 
 ### Emulating running unit tests in CI
 
-- Run `npm run test:unit:ci`
+- Run `npm run test:ci`
 
 ### Developing integration/components tests
 

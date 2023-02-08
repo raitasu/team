@@ -3,6 +3,7 @@ import path from 'path';
 
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import react from '@vitejs/plugin-react-swc';
+import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, type PluginOption } from 'vite';
 import eslint from 'vite-plugin-eslint';
@@ -68,13 +69,19 @@ export default defineConfig(({ mode }) => {
     plugins.push(basicSsl());
   }
 
+  const target = browserslistToEsbuild();
+
+  if (!target.length) {
+    throw new Error('Plz, verify browserslist config!');
+  }
+
   return {
     build: {
       outDir: 'build',
       emptyOutDir: true,
       manifest: 'assets-manifest.json',
       sourcemap: isDevelopmentBuild,
-      target: 'es2018'
+      target
     },
     server: {
       ...serverConfig,
