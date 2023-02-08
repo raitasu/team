@@ -5,7 +5,6 @@ import {
   COLUMN_GAP,
   LEFT_COLUMN_WIDTH
 } from '~/features/employee/employee.styles';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { DateFormats } from '~/shared/shared.constants';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { type EmployeePublication } from '~/store/api/employees/employees.types';
@@ -20,9 +19,7 @@ export const PublicationsInfoItem = ({
   const [t, { language }] = useTranslation();
 
   return (
-    <InfoSection
-      title={getTranslation(publication.name_translations, language)}
-    >
+    <InfoSection title={publication.name}>
       <Grid
         gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
         columnGap={COLUMN_GAP}

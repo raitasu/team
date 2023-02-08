@@ -13,7 +13,6 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import {
   type EmployeeProject,
   type ShortEmployee
@@ -25,7 +24,7 @@ const COUNT_LINE = 2;
 export const ProjectsCell = ({
   getValue
 }: CellContext<ShortEmployee, ShortEmployee['projects']>) => {
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
   const projects = getValue();
   const lastProject = projects?.at(-1);
   const divRef = useRef<HTMLDivElement>(null);
@@ -45,9 +44,7 @@ export const ProjectsCell = ({
         lineHeight: `${DEFAULT_FONT_HEIGHT}px`
       }}
     >
-      {`${getTranslation(project.name_translations, language)}${
-        lastProject?.id !== project.id ? '; ' : ''
-      } `}
+      {`${project.name}${lastProject?.id !== project.id ? '; ' : ''} `}
     </Link>
   );
 

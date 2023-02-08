@@ -9,7 +9,6 @@ import {
   getEmployees
 } from '~/mocks/employees/fixtures/employees';
 import { sleep } from '~/mocks/mocks.utils';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 
 const getCurrentUserHandler = rest.get(
   `${import.meta.env.VITE_PUBLIC_API_URL}me`,
@@ -37,8 +36,8 @@ const createEmployeeHandler = rest.post(
   `${import.meta.env.VITE_PUBLIC_API_URL}employees`,
   async (req, res, ctx) => {
     const formData = req.body as {
-      first_name_translations_en: CreateEmployeeValues['first_name_translations']['en'];
-      last_name_translations_en: CreateEmployeeValues['last_name_translations']['en'];
+      first_name: CreateEmployeeValues['first_name'];
+      last_name: CreateEmployeeValues['last_name'];
       status: CreateEmployeeValues['status'];
       email: CreateEmployeeValues['email'];
       personal_email: CreateEmployeeValues['personal_email'];
@@ -46,12 +45,8 @@ const createEmployeeHandler = rest.post(
     };
 
     const employee = createEmployee({
-      first_name_translations: {
-        en: formData.first_name_translations_en
-      },
-      last_name_translations: {
-        en: formData.last_name_translations_en
-      },
+      first_name: formData.first_name,
+      last_name: formData.last_name,
       status: formData.status,
       email: formData.email,
       personal_email: formData.personal_email,
@@ -80,7 +75,6 @@ const getEmployeesHandler = rest.get(
     )
       ? null
       : +(searchParams.get('work_experience_end') || '');
-    const locale = searchParams.get('locale') || 'en';
     const sortColumn = searchParams.get('sort_column');
     const sortDirection = searchParams.get('sort_direction');
     const positions = searchParams
@@ -106,12 +100,9 @@ const getEmployeesHandler = rest.get(
 
         if (name) {
           isValid =
-            getTranslation(employee.first_name_translations, locale)
-              .toLowerCase()
-              .indexOf(name.toLowerCase()) > -1 ||
-            getTranslation(employee.last_name_translations, locale)
-              .toLowerCase()
-              .indexOf(name.toLowerCase()) > -1;
+            employee.first_name.toLowerCase().indexOf(name.toLowerCase()) >
+              -1 ||
+            employee.last_name.toLowerCase().indexOf(name.toLowerCase()) > -1;
         }
 
         if (workExperienceStart !== null && employee.years_of_experience) {
@@ -173,22 +164,10 @@ const getEmployeesHandler = rest.get(
             }
 
           if (sortColumn === 'name') {
-            const firstNameA = getTranslation(
-              a.first_name_translations,
-              locale
-            );
-            const firstNameB = getTranslation(
-              b.first_name_translations,
-              locale
-            );
-            const lastNameA = getTranslation(
-              a.last_name_translations,
-              locale
-            ).toLowerCase();
-            const lastNameB = getTranslation(
-              b.last_name_translations,
-              locale
-            ).toLowerCase();
+            const firstNameA = a.first_name;
+            const firstNameB = b.first_name;
+            const lastNameA = a.last_name.toLowerCase();
+            const lastNameB = b.last_name.toLowerCase();
 
             if (firstNameA === firstNameB) {
               if (sortDirection === 'desc') {
@@ -229,9 +208,9 @@ const getEmployeesHandler = rest.get(
           'contacts',
           'avatar_url',
           'date_of_birth',
-          'first_name_translations',
+          'first_name',
           'id',
-          'last_name_translations',
+          'last_name',
           'positions',
           'projects',
           'role',

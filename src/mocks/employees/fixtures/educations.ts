@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker/locale/en';
-import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
@@ -17,14 +16,8 @@ const generateEmployeeEducation = (id: number): EmployeeEducation => ({
   graduated_at: faker.date
     .birthdate({ min: 2019, max: 2025, mode: 'year' })
     .toISOString(),
-  speciality_translations: {
-    en: faker.name.jobArea(),
-    ru: fakerRu.name.jobArea()
-  },
-  university_name_translations: {
-    en: faker.company.name(),
-    ru: fakerRu.company.name()
-  },
+  speciality: faker.name.jobArea(),
+  university_name: faker.company.name(),
   nowadays: faker.datatype.boolean()
 });
 

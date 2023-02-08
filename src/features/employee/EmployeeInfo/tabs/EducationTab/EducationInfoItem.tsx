@@ -6,7 +6,6 @@ import {
   LEFT_COLUMN_WIDTH,
   ROW_GAP
 } from '~/features/employee/employee.styles';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { type EmployeeEducation } from '~/store/api/employees/employees.types';
 
@@ -28,7 +27,7 @@ export const EducationInfoItem = ({
         fontWeight={500}
         variant="l"
       >
-        {getTranslation(education.university_name_translations, language)}
+        {education.university_name}
       </Text>
 
       <Grid
@@ -63,7 +62,7 @@ export const EducationInfoItem = ({
                 'domains:employee.titles.profile_tabs.education.fields_of_study'
               )}: `}
             </Text>
-            {getTranslation(education.speciality_translations, language)}
+            {education.speciality}
           </Text>
         </Grid>
       </Grid>

@@ -27,8 +27,8 @@ import { projectHandlers } from '~/mocks/projects/projects.handler';
           ...project.team,
           {
             id: employee.id,
-            first_name_translations: employee.first_name_translations,
-            last_name_translations: employee.last_name_translations
+            first_name: employee.first_name,
+            last_name: employee.last_name
           }
         ]
       });
@@ -37,7 +37,7 @@ import { projectHandlers } from '~/mocks/projects/projects.handler';
     updateEmployee(employee.id, {
       projects: employeeProjects.map((project) => ({
         id: project.id,
-        name_translations: project.name_translations
+        name: project.name
       }))
     });
   });

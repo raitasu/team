@@ -2,7 +2,6 @@ import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { MdLocationOn } from 'react-icons/md';
 
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { DateFormats } from '~/shared/shared.constants';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { type Employee } from '~/store/api/employees/employees.types';
@@ -42,13 +41,7 @@ export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
       }}
       textAlign="center"
     >
-      <Heading variant="4">{`${getTranslation(
-        employee.first_name_translations,
-        language
-      )} ${getTranslation(
-        employee.last_name_translations,
-        language
-      )}`}</Heading>
+      <Heading variant="4">{`${employee.first_name} ${employee.last_name}`}</Heading>
       <Text variant="hr">{position}</Text>
       <Flex justifyContent="center">
         <Text variant="dm">{workExperienceCount}</Text>

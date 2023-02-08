@@ -3,7 +3,6 @@ import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { SIDE_PAGE_PADDING } from '~/shared/layout/layout.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
@@ -25,10 +24,10 @@ export const EditSoftSkillsInfo = ({
   onCloseSoftSkillsInfo: () => void;
   skills: SoftSkill[];
 }) => {
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
 
   const selectedSkill = skills.map((opinion) => ({
-    label: getTranslation(opinion.name_translations, language),
+    label: opinion.name,
     value: opinion.id
   }));
 

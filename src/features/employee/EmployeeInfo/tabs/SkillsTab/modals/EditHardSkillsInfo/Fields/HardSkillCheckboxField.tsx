@@ -4,7 +4,6 @@ import { Box } from '@chakra-ui/react';
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { Checkbox } from '~/shared/ui/components/Checkbox';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { type HardSkill } from '~/store/api/employees/employees.types';
@@ -12,7 +11,7 @@ import { type HardSkill } from '~/store/api/employees/employees.types';
 import { type EmployeeHardSkillsFormValues } from '../EditHardSkillsInfo.schemas';
 
 export const HardSkillCheckboxField = ({ skill }: { skill: HardSkill }) => {
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
 
   const { field } = useController<EmployeeHardSkillsFormValues, `skills`>({
     name: `skills`
@@ -39,12 +38,9 @@ export const HardSkillCheckboxField = ({ skill }: { skill: HardSkill }) => {
             );
           }}
           isChecked={currentHardSkill?.is_show}
-          label={`${getTranslation(skill.name_translations, language)} (${t(
-            'domains:employee.titles.experience',
-            {
-              count: skill.years_of_experience
-            }
-          )})`}
+          label={`${skill.name} (${t('domains:employee.titles.experience', {
+            count: skill.years_of_experience
+          })})`}
         />
       </FormControl>
     </Box>

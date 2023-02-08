@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker/locale/en';
-import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 import upperFirst from 'lodash/upperFirst';
 
@@ -11,10 +10,6 @@ const sessionHardSkills: Record<string, HardSkill> = {};
 const generateEmployeeHardSkill = (id: number): HardSkill => ({
   id,
   name: upperFirst(faker.word.noun()),
-  name_translations: {
-    en: upperFirst(faker.word.noun()),
-    ru: upperFirst(fakerRu.word.noun())
-  },
   category: faker.helpers.arrayElement([
     'overal',
     'frontend',

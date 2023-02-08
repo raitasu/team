@@ -13,7 +13,7 @@ export const StudyField = () => {
     formState: { errors }
   } = useFormContext<EmployeeEducationInfoFormValues>();
 
-  const errorMessage = errors.field_of_study?.en?.message as
+  const errorMessage = errors.field_of_study?.message as
     | 'required_field'
     | undefined;
 
@@ -29,7 +29,7 @@ export const StudyField = () => {
       }
       isRequired
     >
-      <Input {...register('field_of_study.en')} />
+      <Input {...register('field_of_study')} />
     </FormControl>
   );
 };

@@ -21,10 +21,10 @@ export const EmployeeName = () => {
       <FormControl
         isRequired
         errorMessage={
-          errors.first_name_translations?.en?.message
+          errors.first_name?.message
             ? t(
                 `general_errors:${
-                  errors.first_name_translations.en.message as 'required_field'
+                  errors.first_name.message as 'required_field'
                 }`
               )
             : undefined
@@ -33,17 +33,15 @@ export const EmployeeName = () => {
       >
         <Input
           placeholder={t('general_placeholders:enter_text')}
-          {...register('first_name_translations.en')}
+          {...register('first_name')}
         />
       </FormControl>
       <FormControl
         isRequired
         errorMessage={
-          errors.last_name_translations?.en?.message
+          errors.last_name?.message
             ? t(
-                `general_errors:${
-                  errors.last_name_translations.en.message as 'required_field'
-                }`
+                `general_errors:${errors.last_name.message as 'required_field'}`
               )
             : undefined
         }
@@ -51,7 +49,7 @@ export const EmployeeName = () => {
       >
         <Input
           placeholder={t('general_placeholders:enter_text')}
-          {...register('last_name_translations.en')}
+          {...register('last_name')}
         />
       </FormControl>
     </Grid>

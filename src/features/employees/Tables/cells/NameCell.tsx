@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { Avatar } from '~/shared/ui/components/Avatar';
 import { Tooltip } from '~/shared/ui/components/Tooltip';
 import { type ShortEmployee } from '~/store/api/employees/employees.types';
@@ -12,7 +11,7 @@ import { type ShortEmployee } from '~/store/api/employees/employees.types';
 export const NameCell = ({
   getValue
 }: CellContext<ShortEmployee, ShortEmployee>) => {
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
   const employee = getValue();
 
   return (
@@ -37,10 +36,7 @@ export const NameCell = ({
           variant="mm"
           color="brand.headline"
         >
-          {`${getTranslation(
-            employee.first_name_translations,
-            language
-          )} ${getTranslation(employee.last_name_translations, language)}`}
+          {`${employee.first_name} ${employee.last_name}`}
         </Text>
       </Box>
     </Link>

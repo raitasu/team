@@ -13,7 +13,7 @@ export const UniversityNameField = () => {
     formState: { errors }
   } = useFormContext<EmployeeEducationInfoFormValues>();
 
-  const errorMessage = errors.university_name?.en?.message as
+  const errorMessage = errors.university?.message as
     | 'required_field'
     | undefined;
 
@@ -29,7 +29,7 @@ export const UniversityNameField = () => {
       }
       isRequired
     >
-      <Input {...register('university_name.en')} />
+      <Input {...register('university')} />
     </FormControl>
   );
 };

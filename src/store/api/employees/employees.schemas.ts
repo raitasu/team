@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 import { createUnionSchema } from '~/shared/helpers.zod';
-import { TranslationSchema } from '~/store/api/api.types';
 
 import { Patterns } from '../api.constants';
 
@@ -49,7 +48,6 @@ export const HardSkillSchema = z.object({
   id: z.number(),
   years_of_experience: z.number(),
   name: z.string(),
-  name_translations: TranslationSchema,
   category: CategoriesHardSkillSchema,
   is_show: z.boolean()
 });
@@ -99,7 +97,7 @@ export const SocialNetworkSchema = z.object({
 
 export const SoftSkillSchema = z.object({
   id: z.number(),
-  name_translations: TranslationSchema
+  name: z.string()
 });
 
 export const SelectedSoftSkillSchema = z.object({
@@ -112,10 +110,10 @@ export const EmployeeCertificateSchema = AddressSchema.pick({
   city: true
 }).extend({
   id: z.number(),
-  institute_translations: TranslationSchema,
+  institute: z.string(),
   file: z.string(),
   start_date: z.string().datetime(),
-  speciality_translations: TranslationSchema,
+  speciality: z.string(),
   end_date: z.string().datetime(),
   issued_by: z.string(),
   link: z.string(),
@@ -156,8 +154,8 @@ export const EmployeeEducationSchema = AddressSchema.pick({
   nowadays: z.boolean(),
   started_at: z.string().datetime(),
   graduated_at: z.string().datetime(),
-  speciality_translations: TranslationSchema,
-  university_name_translations: TranslationSchema
+  speciality: z.string(),
+  university_name: z.string()
 });
 
 export const EmployeePositionSchema = z.object({
@@ -169,7 +167,7 @@ export const EmployeePositionSchema = z.object({
 
 export const EmployeeProjectSchema = z.object({
   id: z.number(),
-  name_translations: TranslationSchema
+  name: z.string()
 });
 
 export const EmployeePublicationSchema = z.object({
@@ -177,7 +175,7 @@ export const EmployeePublicationSchema = z.object({
   start_date: z.string().datetime(),
   description: z.string(),
   file: z.string(),
-  name_translations: TranslationSchema,
+  name: z.string(),
   link: z.string()
 });
 
@@ -239,14 +237,14 @@ export const EmployeeSchema = z.object({
   cvs: CvSchema.array().optional().nullable(),
   date_of_birth: z.string().datetime({ offset: true }).nullable(),
   educations: EmployeeEducationSchema.array().nullable(),
-  first_name_translations: TranslationSchema,
+  first_name: z.string(),
   gender: EmployeeGendersSchema.nullable(),
   employee_hard_skills: HardSkillSchema.array().nullable(),
   id: z.number(),
   email: z.string().email(),
   interests: z.string().array(),
   languages: EmployeeLanguageSchema.array().nullable(),
-  last_name_translations: TranslationSchema,
+  last_name: z.string(),
   positions: EmployeePositionSchema.array().optional().nullable(),
   projects: EmployeeProjectSchema.array().nullable(),
   publications: EmployeePublicationSchema.array().nullable(),
@@ -262,9 +260,9 @@ export const EmployeeSchema = z.object({
 export const ShortEmployeeSchema = EmployeeSchema.pick({
   avatar_url: true,
   date_of_birth: true,
-  first_name_translations: true,
+  first_name: true,
   id: true,
-  last_name_translations: true,
+  last_name: true,
   positions: true,
   projects: true,
   role: true,

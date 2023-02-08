@@ -1,7 +1,5 @@
 import { type Primitive, z, type ZodLiteral, type ZodNever } from 'zod';
 
-import { type ArrayValues } from '~/shared/helpers.types';
-
 type MappedZodLiterals<T extends readonly Primitive[]> = {
   -readonly [K in keyof T]: ZodLiteral<T[K]>;
 };
@@ -37,19 +35,4 @@ export function createUnionSchema<T extends readonly Primitive[]>(values: T) {
   }
 
   throw new Error('Array must have a length');
-}
-
-export function createRecordOf<
-  T extends readonly string[],
-  ZodValueType extends z.ZodTypeAny
->(keys: T, zodValueType: ZodValueType) {
-  return z.object(
-    keys.reduce(
-      (agg, k) => ({
-        ...agg,
-        [k]: zodValueType
-      }),
-      {} as Record<ArrayValues<T>, ZodValueType>
-    )
-  );
 }

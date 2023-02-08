@@ -27,12 +27,8 @@ export const CreateEmployeeModal = ({
   const methods = useForm<CreateEmployeeFormValues>({
     defaultValues: {
       avatar: null,
-      first_name_translations: {
-        en: ''
-      },
-      last_name_translations: {
-        en: ''
-      },
+      first_name: '',
+      last_name: '',
       email: '',
       personal_email: '',
       status: 'active'

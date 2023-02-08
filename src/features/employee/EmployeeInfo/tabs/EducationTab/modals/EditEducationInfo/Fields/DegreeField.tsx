@@ -1,11 +1,8 @@
-import { useMemo } from 'react';
-
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { degrees } from '~/features/employee/EmployeeInfo/tabs/EducationTab/modals/EditEducationInfo/Constants';
 import { type EmployeeEducationInfoFormValues } from '~/features/employee/EmployeeInfo/tabs/EducationTab/modals/EditEducationInfo/EditEducationInfo.schema';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
 
@@ -13,16 +10,12 @@ export const DegreeField = () => {
   const { field } = useController<EmployeeEducationInfoFormValues, 'degree'>({
     name: 'degree'
   });
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
 
-  const degreeOptions = useMemo(
-    () =>
-      degrees.map((degree) => ({
-        value: degree,
-        label: getTranslation(degree, language)
-      })),
-    [language]
-  );
+  const degreeOptions = degrees.map((degree) => ({
+    value: degree,
+    label: degree
+  }));
 
   const selectedDegree = degreeOptions.find(
     (degree) => degree.value.en === field.value

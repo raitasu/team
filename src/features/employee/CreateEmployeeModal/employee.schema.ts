@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
 import { isEmail } from '~/features/employee/employee.utils';
-import { TranslationSchema } from '~/store/api/api.types';
 import { EmployeeStatusSchema } from '~/store/api/employees/employees.schemas';
 
 const ACCEPTED_IMAGE_TYPES = [
@@ -13,12 +12,8 @@ const ACCEPTED_IMAGE_TYPES = [
 
 export type CreateEmployeeFormValues = z.infer<typeof CreateEmployeeSchema>;
 export const CreateEmployeeSchema = z.object({
-  first_name_translations: TranslationSchema.extend({
-    en: z.string().min(1, 'required_field')
-  }),
-  last_name_translations: TranslationSchema.extend({
-    en: z.string().min(1, 'required_field')
-  }),
+  first_name: z.string().min(1, 'required_field'),
+  last_name: z.string().min(1, 'required_field'),
   email: z.string().transform((val, ctx) => {
     const email = val.concat('@cybergizer.com');
 

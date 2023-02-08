@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker/locale/en';
-import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
 import { type Project } from '~/store/api/projects/projects.types';
@@ -9,10 +8,7 @@ const sessionProjects: Record<string, Project> = {};
 const generateProject = (id: number): Project => ({
   id,
   team: [],
-  name_translations: {
-    en: faker.company.name(),
-    ru: fakerRu.company.name()
-  }
+  name: faker.company.name()
 });
 
 (function generateSessionProjects() {

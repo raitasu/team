@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker/locale/en';
-import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import shuffle from 'lodash/shuffle';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
@@ -14,10 +13,7 @@ const generateEmployeePublication = (id: number): EmployeePublication => ({
     .toISOString(),
   description: faker.lorem.paragraph(),
   file: faker.commerce.productDescription(),
-  name_translations: {
-    en: faker.lorem.sentence(),
-    ru: fakerRu.lorem.sentence()
-  },
+  name: faker.lorem.sentence(),
   link: faker.internet.url()
 });
 

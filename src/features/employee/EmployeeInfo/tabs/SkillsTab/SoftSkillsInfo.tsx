@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { COLUMN_GAP, ROW_GAP } from '~/features/employee/employee.styles';
 import { isEditable } from '~/features/employee/employee.utils';
-import { getTranslation } from '~/services/i18n/i18n.utils';
 import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import { type SoftSkill } from '~/store/api/employees/employees.types';
 
@@ -17,7 +16,7 @@ export const SoftSkillsInfo = ({
   skills: SoftSkill[];
   employeeId: number;
 }) => {
-  const [t, { language }] = useTranslation();
+  const [t] = useTranslation();
 
   const { data: currentUser } = useGetCurrentUserQuery();
 
@@ -40,9 +39,7 @@ export const SoftSkillsInfo = ({
         rowGap={ROW_GAP}
       >
         {skills.map((skill) => (
-          <Text key={skill.id}>
-            {getTranslation(skill.name_translations, language)}
-          </Text>
+          <Text key={skill.id}>{skill.name}</Text>
         ))}
       </Grid>
       <EditSoftSkillsInfo

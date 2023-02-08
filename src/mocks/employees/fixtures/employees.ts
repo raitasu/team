@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker/locale/en';
-import { faker as fakerRu } from '@faker-js/faker/locale/ru';
 import sampleSize from 'lodash/sampleSize';
 
 import { type CreateEmployeeValues } from '~/features/employee/CreateEmployeeModal/employee.schema';
@@ -90,14 +89,8 @@ const generateEmployee = (id: number): Employee => {
       }
     },
     cvs: getRandomCvs(getRandomInteger(0, 5)),
-    first_name_translations: {
-      en: faker.name.firstName(gender),
-      ru: fakerRu.name.firstName(gender)
-    },
-    last_name_translations: {
-      en: faker.name.lastName(gender),
-      ru: fakerRu.name.lastName(gender)
-    },
+    first_name: faker.name.firstName(gender),
+    last_name: faker.name.lastName(gender),
     date_of_birth: faker.date
       .birthdate({ min: 18, max: 50, mode: 'age' })
       .toISOString(),
@@ -113,7 +106,7 @@ const generateEmployee = (id: number): Employee => {
 
     projects: getRandomProjects(getRandomInteger(0, 3)).map((project) => ({
       id: project.id,
-      name_translations: project.name_translations
+      name: project.name
     })),
     publications: getRandomPublications(getRandomInteger(0, 8)),
 
@@ -149,8 +142,8 @@ export const createEmployee = (data: CreateEmployeeValues) => {
 
   const newEmployee = generateEmployee(newEmployeeId);
 
-  newEmployee.first_name_translations.en = data.first_name_translations.en;
-  newEmployee.last_name_translations.en = data.last_name_translations.en;
+  newEmployee.first_name = data.first_name;
+  newEmployee.last_name = data.last_name;
   newEmployee.status = data.status;
   sessionEmployees[newEmployee.id] = newEmployee;
 

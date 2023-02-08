@@ -121,17 +121,11 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
       query: (employee) => {
         const body = new FormData();
 
-        body.append(
-          'first_name_translations_en',
-          employee.first_name_translations.en
-        );
+        body.append('first_name', employee.first_name);
 
         body.append('email', employee.email);
 
-        body.append(
-          'last_name_translations_en',
-          employee.last_name_translations.en
-        );
+        body.append('last_name', employee.last_name);
 
         body.append('status', employee.status);
 

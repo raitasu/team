@@ -150,7 +150,7 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## API
 
-- [Swagger](https://team-stage.cybergizer.com/docs)
+- [Swagger](https://team-stage.cybergizer.com/api-docs/index.html#/Employees/get_employees)
 - [Repository](https://github.com/cybergizer-hq/team)
 
 | Environment variable  | Description | Location             |
