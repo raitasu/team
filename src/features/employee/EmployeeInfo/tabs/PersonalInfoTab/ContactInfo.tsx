@@ -6,10 +6,8 @@ import { isEditable } from '~/features/employee/employee.utils';
 import { type ChangedContactsInfoValues } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfo.schemas';
 import { EditContactsInfoModal } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfoModal';
 import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
-import {
-  type EmployeeContactInfo,
-  type EmployeeContact
-} from '~/store/api/employees/employees.types';
+import { useUpdateContactInfoMutation } from '~/store/api/employees/contactInfo/contactInfo.api';
+import { type EmployeeContactInfo } from '~/store/api/employees/employees.types';
 
 import { ContactItem } from './ContactItem';
 import { InfoSection } from '../components/InfoSection';
@@ -18,7 +16,7 @@ export const ContactInfo = ({
   contacts,
   employeeId
 }: {
-  contacts: EmployeeContact & EmployeeContactInfo & { work_email: string };
+  contacts: EmployeeContactInfo;
   employeeId: number;
 }) => {
   const [t] = useTranslation();
@@ -28,8 +26,20 @@ export const ContactInfo = ({
     onClose: onCloseContactsInfoTab
   } = useDisclosure();
   const { data: currentUser } = useGetCurrentUserQuery();
+
+  const [updateContactInfo] = useUpdateContactInfoMutation();
+
   const changeContactsInfo = (values: ChangedContactsInfoValues) => {
-    console.debug(values);
+    if (!contacts.id) {
+      return null;
+    }
+
+    return updateContactInfo({
+      data: values,
+      id: contacts.id
+    })
+      .then(onCloseContactsInfoTab)
+      .catch(onCloseContactsInfoTab);
   };
 
   return (
@@ -70,8 +80,8 @@ export const ContactInfo = ({
           'domains:employee.titles.profile_tabs.personal_information.contacts.address'
         )}
         link={
-          contacts.address?.city
-            ? capitalize(contacts.address.city)
+          contacts.city
+            ? capitalize(contacts.city)
             : t('domains:employee.errors.no_data')
         }
       />

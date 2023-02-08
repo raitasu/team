@@ -29,7 +29,7 @@ export const NameCell = ({
           <Avatar
             variant={employee.status}
             size="sm"
-            src={employee.avatar_url ?? undefined}
+            src={employee.avatar ?? undefined}
           />
         </Tooltip>
         <Text

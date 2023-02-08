@@ -18,14 +18,18 @@ export const WorkEmailField = () => {
     <FormControl
       label={t(TranslationKeys.workEmail)}
       errorMessage={
-        errors.workEmail?.message
-          ? t(`general_errors:${errors.workEmail.message as 'invalid_email'}`)
+        errors.employee_attributes?.email?.message
+          ? t(
+              `general_errors:${
+                errors.employee_attributes.email.message as 'invalid_email'
+              }`
+            )
           : undefined
       }
       isRequired
     >
       <Flex>
-        <Input {...register('workEmail')} />
+        <Input {...register('employee_attributes.email')} />
         <Text padding="10px">@cybergizer.com</Text>
       </Flex>
     </FormControl>

@@ -10,34 +10,38 @@ export type ChangedContactsInfoValues = {
 };
 
 const EmployeeEmergencyContact = z.object({
+  id: z.number(),
   name: z.string().min(1, 'required_field'),
-  phone: z.string().min(1, 'required_field'),
+  number: z.string().min(1, 'required_field'),
   owner: z.string().min(1, 'required_field')
 });
 
 export const EmployeeContactsInfoSchema = z.object({
-  primaryPhone: z.string().min(1, 'required_field'),
-  secondaryPhone: z.string(),
-  emergencyContact: EmployeeEmergencyContact,
-  workEmail: z.string().transform((val, ctx) => {
-    const email = val.concat('@cybergizer.com');
+  primary_phone: z.string().min(1, 'required_field'),
+  secondary_phone: z.string(),
+  emergency_contact_attributes: EmployeeEmergencyContact,
+  employee_attributes: z.object({
+    email: z.string().transform((val, ctx) => {
+      const email = val.concat('@cybergizer.com');
 
-    if (!isEmail(email)) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'invalid_email'
-      });
-    }
+      if (!isEmail(email)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'invalid_email'
+        });
+      }
 
-    return email;
+      return email;
+    }),
+    id: z.number()
   }),
-  personalEmail: z.string().email('invalid_email'),
-  country: z.string(),
+  personal_email: z.string().nullable(),
+  country_code: z.string(),
   city: z.string(),
   timezone: z.string().nullable(),
   street: z.string(),
   zip_code: z.number(),
-  building: z.string(),
+  building: z.number(),
   unit: z.string(),
   apartment: z.number()
 });

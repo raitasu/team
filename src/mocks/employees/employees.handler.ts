@@ -206,7 +206,7 @@ const getEmployeesHandler = rest.get(
       .map((employee) =>
         pick(employee, [
           'contacts',
-          'avatar_url',
+          'avatar',
           'date_of_birth',
           'first_name',
           'id',

@@ -49,9 +49,19 @@ const generateEmployee = (id: number): Employee => {
   return {
     email: faker.internet.email(),
     about: faker.lorem.paragraph(),
-    avatar_url: faker.image.avatar(),
+    avatar: faker.image.avatar(),
     certificates: getRandomCertificates(getRandomInteger(0, 10)),
-    clothing_size: faker.helpers.arrayElement([
+    t_shirt_size: faker.helpers.arrayElement([
+      'xs',
+      's',
+      'm',
+      'l',
+      'xl',
+      'xxl',
+      '3xl',
+      '4xl'
+    ]),
+    sweat_shirt_size: faker.helpers.arrayElement([
       'xs',
       's',
       'm',
@@ -63,10 +73,24 @@ const generateEmployee = (id: number): Employee => {
     ]),
     contacts: generateEmployeeContacts(),
     contact_info: {
+      id: faker.datatype.number({ min: 0, max: 10 }),
+      city: faker.address.city(),
+      primary_phone: faker.phone.number('+############'),
+      telegram: faker.internet.url(),
+      country_code: faker.address.countryCode(),
+      instagram: faker.internet.url(),
+      facebook: faker.internet.url(),
+      github: faker.internet.url(),
+      discord: faker.internet.url(),
+      linkedin: faker.internet.url(),
+      vk: faker.internet.email(),
+      employee_attributes: {
+        email: faker.internet.email(),
+        id: faker.datatype.number({ min: 0, max: 10 })
+      },
       personal_email: faker.internet.email(),
       secondary_phone: faker.phone.number('+############'),
       street: faker.address.street(),
-
       unit: faker.address.street(),
       zip_code: Number(faker.address.zipCode()),
       apartment: Number(faker.address.buildingNumber()),
@@ -79,13 +103,7 @@ const generateEmployee = (id: number): Employee => {
         id: faker.datatype.number({ min: 0, max: 10 }),
         number: faker.phone.number('+############'),
         name: faker.name.firstName(),
-        owner: faker.name.firstName(),
-        created_at: faker.date
-          .birthdate({ min: 18, max: 32, mode: 'age' })
-          .toISOString(),
-        updated_at: faker.date
-          .birthdate({ min: 28, max: 50, mode: 'age' })
-          .toISOString()
+        owner: faker.name.firstName()
       }
     },
     cvs: getRandomCvs(getRandomInteger(0, 5)),

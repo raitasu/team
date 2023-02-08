@@ -5,7 +5,7 @@ export const getInitialState = (
   employee: Employee
 ): EmployeeGeneralInfoFormValues => ({
   about: employee.about ? employee.about : '',
-  clothingSize: employee.clothing_size ? employee.clothing_size : null,
+  clothingSize: employee.t_shirt_size ? employee.t_shirt_size : null,
   gender: employee.gender ? employee.gender : null,
   dateOfBirth: employee.date_of_birth ? employee.date_of_birth : '',
   interests: employee.interests,

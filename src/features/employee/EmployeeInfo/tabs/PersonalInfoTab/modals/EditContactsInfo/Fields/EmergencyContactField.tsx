@@ -18,17 +18,18 @@ export const EmergencyContactField = () => {
     <FormControl
       label={t(TranslationKeys.emergencyContact)}
       errorMessage={
-        errors.emergencyContact?.phone?.message
+        errors.emergency_contact_attributes?.number?.message
           ? t(
               `general_errors:${
-                errors.emergencyContact.phone.message as 'required_field'
+                errors.emergency_contact_attributes.number
+                  .message as 'required_field'
               }`
             )
           : undefined
       }
       isRequired
     >
-      <Input {...register('emergencyContact.phone')} />
+      <Input {...register('emergency_contact_attributes.number')} />
     </FormControl>
   );
 };

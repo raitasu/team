@@ -124,9 +124,7 @@ const EmployeeEmergencyContact = z.object({
   id: z.number(),
   number: z.string().nullable(),
   name: z.string().nullable(),
-  owner: z.string().nullable(),
-  created_at: z.string().datetime(),
-  updated_at: z.string().datetime()
+  owner: z.string().nullable()
 });
 
 export const EmployeeContactsSchema = z.object({
@@ -135,17 +133,31 @@ export const EmployeeContactsSchema = z.object({
 });
 
 export const EmployeeContactInfoSchema = z.object({
+  id: z.number().optional(),
+  employee_attributes: z.object({
+    email: z.string().email().nullable().optional(),
+    id: z.number()
+  }),
   personal_email: z.string().email().nullable(),
   secondary_phone: z.string().nullable(),
+  primary_phone: z.string().nullable().optional(),
   street: z.string().nullable(),
+  country_code: z.string().nullable().optional(),
+  city: z.string().nullable().optional(),
   timezone: z.string().nullable(),
   apartment: z.number().nullable(),
   building: z.number().nullable(),
   unit: z.string().nullable(),
   zip_code: z.number().nullable(),
-  emergency_contact: EmployeeEmergencyContact.nullable()
+  emergency_contact: EmployeeEmergencyContact.nullable(),
+  linkedin: z.string().nullable().optional(),
+  facebook: z.string().nullable().optional(),
+  instagram: z.string().nullable().optional(),
+  vk: z.string().nullable().optional(),
+  telegram: z.string().nullable().optional(),
+  discord: z.string().nullable().optional(),
+  github: z.string().nullable().optional()
 });
-
 export const EmployeeEducationSchema = AddressSchema.pick({
   city: true
 }).extend({
@@ -229,9 +241,10 @@ export const WorkExperienceSchema = z.object({
 
 export const EmployeeSchema = z.object({
   about: z.string().nullable(),
-  avatar_url: z.string().url().nullable(),
+  avatar: z.string().url().nullable(),
   certificates: EmployeeCertificateSchema.array().nullable(),
-  clothing_size: EmployeeClothingSizesSchema.nullable(),
+  sweat_shirt_size: EmployeeClothingSizesSchema.nullable(),
+  t_shirt_size: EmployeeClothingSizesSchema.nullable(),
   contacts: EmployeeContactsSchema,
   contact_info: EmployeeContactInfoSchema,
   cvs: CvSchema.array().optional().nullable(),
@@ -258,7 +271,7 @@ export const EmployeeSchema = z.object({
 });
 
 export const ShortEmployeeSchema = EmployeeSchema.pick({
-  avatar_url: true,
+  avatar: true,
   date_of_birth: true,
   first_name: true,
   id: true,

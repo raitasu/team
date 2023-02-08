@@ -1,5 +1,8 @@
+import { useEffect } from 'react';
+
 import { Flex, Grid } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import isEqual from 'lodash/isEqual';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -15,7 +18,7 @@ import { CityField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab
 import { CountryField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/CountryField';
 import { EmergencyContactField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/EmergencyContactField';
 import { EmergencyNameField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/EmergencyNameField';
-import { EmergencyWhoIsThisField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/EmergencyWhoIsThisField';
+import { EmergencyOwnerField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/EmergencyOwnerField';
 import { PersonalEmailField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/PersonalEmailField';
 import { PrimaryMobileField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/PrimaryMobileField';
 import { SecondaryMobileField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/SecondaryMobileField';
@@ -27,10 +30,7 @@ import { ZIPCodeField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfo
 import { COLUMN_GAP } from '~/pages/Employee/employee.styles';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
-import {
-  type EmployeeContactInfo,
-  type EmployeeContact
-} from '~/store/api/employees/employees.types';
+import { type EmployeeContactInfo } from '~/store/api/employees/employees.types';
 
 export const EditContactsInfoModal = ({
   contacts,
@@ -38,17 +38,22 @@ export const EditContactsInfoModal = ({
   onCloseGeneralInfoTab,
   onConfirm
 }: {
-  contacts: EmployeeContact & EmployeeContactInfo & { work_email: string };
+  contacts: EmployeeContactInfo;
   isOpenGeneralInfoTab: boolean;
   onCloseGeneralInfoTab: () => void;
   onConfirm: (values: ChangedContactsInfoValues) => void;
 }) => {
   const [t] = useTranslation();
   const methods = useForm({
-    defaultValues: getInitialState(contacts),
+    defaultValues: getInitialState(contacts, false),
     mode: 'onBlur',
     resolver: zodResolver(EmployeeContactsInfoSchema)
   });
+  const { reset } = methods;
+
+  useEffect(() => {
+    reset(getInitialState(contacts), { keepDefaultValues: false });
+  }, [reset, contacts]);
 
   return (
     <BaseModal
@@ -74,8 +79,10 @@ export const EditContactsInfoModal = ({
           onSubmit={methods.handleSubmit((data) => {
             const changedValues = Object.entries(data).filter(
               (_, i) =>
-                Object.entries(data)[i][1] !==
-                Object.entries(getInitialState(contacts))[i][1]
+                !isEqual(
+                  Object.entries(data)[i][1],
+                  Object.entries(getInitialState(contacts, true))[i][1]
+                )
             );
 
             onConfirm(Object.fromEntries(changedValues));
@@ -97,7 +104,7 @@ export const EditContactsInfoModal = ({
           >
             <EmergencyContactField />
             <EmergencyNameField />
-            <EmergencyWhoIsThisField />
+            <EmergencyOwnerField />
           </Grid>
           <WorkEmailField />
           <PersonalEmailField />

@@ -96,8 +96,8 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
           'domains:employee.titles.profile_tabs.personal_information.general.clothing_size'
         )}
         value={upperCase(
-          employee.clothing_size
-            ? employee.clothing_size
+          employee.t_shirt_size
+            ? employee.t_shirt_size
             : t('domains:employee.errors.no_data')
         )}
       />

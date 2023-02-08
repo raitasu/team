@@ -6,7 +6,7 @@ import { TranslationKeys } from '~/features/employee/EmployeeInfo/tabs/PersonalI
 import { type EmployeeContactsInfoFormValues } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfo.schemas';
 import { FormControl } from '~/shared/ui/components/FormControl';
 
-export const EmergencyWhoIsThisField = () => {
+export const EmergencyOwnerField = () => {
   const {
     register,
     formState: { errors }
@@ -18,17 +18,18 @@ export const EmergencyWhoIsThisField = () => {
     <FormControl
       label={t(TranslationKeys.emergencyOwner)}
       errorMessage={
-        errors.emergencyContact?.owner?.message
+        errors.emergency_contact_attributes?.owner?.message
           ? t(
               `general_errors:${
-                errors.emergencyContact.owner.message as 'required_field'
+                errors.emergency_contact_attributes.owner
+                  .message as 'required_field'
               }`
             )
           : undefined
       }
       isRequired
     >
-      <Input {...register('emergencyContact.owner')} />
+      <Input {...register('emergency_contact_attributes.owner')} />
     </FormControl>
   );
 };

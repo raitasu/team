@@ -18,17 +18,17 @@ export const PrimaryMobileField = () => {
     <FormControl
       label={t(TranslationKeys.primaryPhone)}
       errorMessage={
-        errors.primaryPhone?.message
+        errors.primary_phone?.message
           ? t(
               `general_errors:${
-                errors.primaryPhone.message as 'required_field'
+                errors.primary_phone.message as 'required_field'
               }`
             )
           : undefined
       }
       isRequired
     >
-      <Input {...register('primaryPhone')} />
+      <Input {...register('primary_phone')} />
     </FormControl>
   );
 };

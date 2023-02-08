@@ -13,7 +13,7 @@ export const PersonalEmailField = () => {
 
   return (
     <FormControl label={t(TranslationKeys.personalEmail)}>
-      <Input {...register('personalEmail')} />
+      <Input {...register('personal_email')} />
     </FormControl>
   );
 };

@@ -13,7 +13,7 @@ export const SecondaryMobileField = () => {
 
   return (
     <FormControl label={t(TranslationKeys.secondaryPhone)}>
-      <Input {...register('secondaryPhone')} />
+      <Input {...register('secondary_phone')} />
     </FormControl>
   );
 };

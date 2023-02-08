@@ -223,10 +223,7 @@ export const countryOptions = [
   { value: 'TO', label: 'Tonga' },
   { value: 'TT', label: 'Trinidad and Tobago' },
   { value: 'TN', label: 'Tunisia' },
-  {
-    value: 'TR',
-    label: 'Turkey'
-  },
+  { value: 'TR', label: 'Turkey' },
   { value: 'TM', label: 'Turkmenistan' },
   { value: 'TC', label: 'Turks and Caicos Islands' },
   { value: 'TV', label: 'Tuvalu' },
