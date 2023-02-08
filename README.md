@@ -106,12 +106,11 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 - Code style is inspired by [Airbnb Guide](https://github.com/airbnb/javascript#airbnb-javascript-style-guide)
 - If you find that some rules are harmful or missing raise a PR with your proposal
 
-| Command                     | Description                                                                                          |
-| --------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `npm run audit:deadcode`    | Check for unused exports from modules. Results would be written into `deadcode.txt` in project root. |
-| `npm run audit:deadcode:ci` | Same as above but for CI. Results would be displayed in workflow summary.                            |
-| `npm run lint`              | Runs code style and format checks and prints results to console.                                     |
-| `npm run format`            | Runs code style and format checks and tries to autofix problems                                      |
+| Command                  | Description                                                                                          |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| `npm run audit:deadcode` | Check for unused exports from modules. Results would be written into `deadcode.txt` in project root. |
+| `npm run lint`           | Runs code style and format checks and prints results to console.                                     |
+| `npm run format`         | Runs code style and format checks and tries to autofix problems                                      |
 
 ## Internationalization
 
