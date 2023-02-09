@@ -1,17 +1,24 @@
-import { Box } from '@chakra-ui/react';
+import { Box, useDisclosure } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 
 import { type EmployeeInfoTab } from '~/features/employee/EmployeeInfo/employeeInfo.types';
 import { Button } from '~/shared/ui/components/Button';
 
+import { CreateNewWorkExperienceModal } from './modals/CreateNewWorkExperience/CreateNewWorkExperienceModal';
 import { WorkExperienceInfo } from './WorkExperienceInfo';
 import { InfoSection } from '../components/InfoSection';
 
 export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
-  const { work_experiences: workExperiences } = employee;
+  const { work_experiences: workExperiences, id } = employee;
 
   const [t] = useTranslation();
+
+  const {
+    isOpen: isOpenCreateNewWorkExperienceModal,
+    onOpen: onOpenCreateNewWorkExperienceModal,
+    onClose: onCloseCreateNewWorkExperienceModal
+  } = useDisclosure();
 
   return (
     <Box>
@@ -19,6 +26,7 @@ export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
         <>
           {workExperiences.map((workExperience) => (
             <WorkExperienceInfo
+              employeeId={id}
               key={workExperience.id}
               workExperience={workExperience}
             />
@@ -34,9 +42,18 @@ export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
           boxShadow="none"
           leftIcon={<MdAdd />}
           margin="auto"
+          onClick={onOpenCreateNewWorkExperienceModal}
         >
           {t('domains:employee.actions.add_work_experience')}
         </Button>
+        <CreateNewWorkExperienceModal
+          isOpenCreateNewWorkExperienceModal={
+            isOpenCreateNewWorkExperienceModal
+          }
+          onCloseCreateNewWorkExperienceModal={
+            onCloseCreateNewWorkExperienceModal
+          }
+        />
       </InfoSection>
     </Box>
   );

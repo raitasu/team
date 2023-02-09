@@ -242,7 +242,8 @@
         "delete_cv": "Удалить резюме",
         "delete_profile": "Удалить профиль",
         "download_cv": "Скачать резюме",
-        "edit_cv": "Изменить резюме"
+        "edit_cv": "Изменить резюме",
+        "removed_work_experience": "Опыт работы удален"
       },
       "errors": {
         "incorrect_date": "Добавьте корректный формат даты",
@@ -369,9 +370,15 @@
             "title": "Навыки"
           },
           "work_experience": {
+            "company_name": "Название компании",
             "description": "Описание",
             "environment": "Технологии",
-            "responsibilities": "Обязанности"
+            "no_selected_positions": "Нет выбранных позиций",
+
+            "position": "Должность",
+            "project_name": "Название проекта",
+            "responsibilities": "Обязанности",
+            "title": "Опыт работы"
           }
         },
         "project_few": "{{count}} проекта",
@@ -410,6 +417,7 @@
         "descriptions": {
           "delete": "Вы хотите удалить информацию?",
           "delete_education": "Вы хотите удалить информацию об образовании?",
+          "delete_work_experience": "Вы хотите удалить информацию об опыте работы?",
           "deleted": "Информация удалена",
           "save": "Вы хотите сохранить информацию?",
           "saved": "Информация сохранена"
@@ -417,6 +425,8 @@
         "titles": {
           "delete": "Удаление информации",
           "delete_education": "Удаление информации об образовании",
+          "delete_work_experience": "Удаление информации об опыте работы",
+
           "save": "Сохранение информации"
         }
       },

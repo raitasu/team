@@ -223,6 +223,11 @@ export const CvSchema = z.object({
   position: EmployeePositionSchema
 });
 
+export const CustomersSchema = z.object({
+  id: z.number(),
+  name: z.string()
+});
+
 export const WorkExperienceSchema = z.object({
   id: z.number(),
   company_name: z.string(),

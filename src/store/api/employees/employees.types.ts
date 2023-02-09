@@ -23,7 +23,8 @@ import {
   type EmployeeLanguagesSchema,
   type CategoriesHardSkillSchema,
   type EmployeeContactInfoSchema,
-  type SelectedSoftSkillSchema
+  type SelectedSoftSkillSchema,
+  type CustomersSchema
 } from '~/store/api/employees/employees.schemas';
 
 export type Address = z.infer<typeof AddressSchema>;
@@ -67,6 +68,8 @@ export type EmployeeCertificate = z.infer<typeof EmployeeCertificateSchema>;
 export type EmployeeWorkExperience = z.infer<typeof WorkExperienceSchema>;
 
 export type Employee = z.infer<typeof EmployeeSchema>;
+
+export type Customers = z.infer<typeof CustomersSchema>;
 
 export type ShortEmployee = z.infer<typeof ShortEmployeeSchema>;
 

@@ -19,13 +19,15 @@ export const ConfirmationModal = ({
   description,
   isOpen,
   onClose,
-  onConfirm
+  onConfirm,
+  isLoading
 }: {
   title: string;
   description: string;
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
+  isLoading?: boolean;
 }) => {
   const cancelRef = React.useRef<HTMLButtonElement>(null);
   const [t] = useTranslation();
@@ -52,6 +54,7 @@ export const ConfirmationModal = ({
               onClick={onClose}
               paddingLeft="30px"
               paddingRight="30px"
+              isDisabled={isLoading}
             >
               {t('general_actions:no')}
             </Button>

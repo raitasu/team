@@ -242,7 +242,8 @@
         "delete_cv": "Delete CV",
         "delete_profile": "Delete profile",
         "download_cv": "Download CV",
-        "edit_cv": "Edit CV"
+        "edit_cv": "Edit CV",
+        "removed_work_experience": "Work experience removed"
       },
       "errors": {
         "incorrect_date": "Add correct year format",
@@ -366,9 +367,14 @@
             "title": "Skills"
           },
           "work_experience": {
+            "company_name": "Company name",
             "description": "Description",
             "environment": "Environment",
-            "responsibilities": "Responsibilities"
+            "no_selected_positions": "No selected positions",
+            "position": "Position",
+            "project_name": "Project name",
+            "responsibilities": "Responsibilities",
+            "title": "work experience"
           }
         },
         "project_one": "{{count}} project",
@@ -406,6 +412,7 @@
         "descriptions": {
           "delete": "Do you want to delete information?",
           "delete_education": "Do you want to delete education?",
+          "delete_work_experience": "Do you want to delete work experience?",
           "deleted": "Information deleted",
           "save": "Do you want to save information?",
           "saved": "Information saved"
@@ -413,6 +420,7 @@
         "titles": {
           "delete": "Delete information",
           "delete_education": "Delete education",
+          "delete_work_experience": "Delete work experience",
           "save": "Save information"
         }
       },
