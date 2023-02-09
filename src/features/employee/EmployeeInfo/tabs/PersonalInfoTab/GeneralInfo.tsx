@@ -87,7 +87,7 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
         )}
         value={
           employee.interests.length > 0
-            ? employee.interests.join(' ')
+            ? employee.interests
             : t('domains:employee.errors.no_data')
         }
       />

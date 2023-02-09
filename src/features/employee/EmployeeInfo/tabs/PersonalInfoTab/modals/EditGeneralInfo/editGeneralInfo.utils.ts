@@ -8,6 +8,6 @@ export const getInitialState = (
   clothingSize: employee.clothing_size ? employee.clothing_size : null,
   gender: employee.gender ? employee.gender : null,
   dateOfBirth: employee.date_of_birth ? employee.date_of_birth : '',
-  interests: employee.interests.join(' '),
+  interests: employee.interests,
   startCareer: employee.start_career_at ? employee.start_career_at : ''
 });

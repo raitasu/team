@@ -98,9 +98,7 @@ const generateEmployee = (id: number): Employee => {
     gender,
     employee_hard_skills: getRandomHardSkills(getRandomInteger(0, 8)),
     id,
-    interests: new Array(getRandomInteger(1, 3))
-      .fill(' ')
-      .map(() => faker.datatype.string()),
+    interests: faker.datatype.string(),
     languages: getRandomLanguages(getRandomInteger(1, 3)),
     positions: getRandomPositions(getRandomInteger(1, 3)),
 

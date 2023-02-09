@@ -242,7 +242,7 @@ export const EmployeeSchema = z.object({
   employee_hard_skills: HardSkillSchema.array().nullable(),
   id: z.number(),
   email: z.string().email(),
-  interests: z.string().array(),
+  interests: z.string(),
   languages: EmployeeLanguageSchema.array().nullable(),
   last_name: z.string(),
   positions: EmployeePositionSchema.array().optional().nullable(),
