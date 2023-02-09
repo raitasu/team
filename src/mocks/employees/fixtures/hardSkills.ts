@@ -11,7 +11,7 @@ const generateEmployeeHardSkill = (id: number): HardSkill => ({
   id,
   name: upperFirst(faker.word.noun()),
   category: faker.helpers.arrayElement([
-    'overal',
+    'overall',
     'frontend',
     'backend',
     'dba',
