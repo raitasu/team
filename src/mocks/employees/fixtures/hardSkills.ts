@@ -20,10 +20,6 @@ const generateEmployeeHardSkill = (id: number): HardSkill => ({
     'management',
     'design'
   ]),
-  years_of_experience: faker.datatype.number({
-    min: 1,
-    max: 20
-  }),
   is_show: faker.datatype.boolean()
 });
 

@@ -46,10 +46,11 @@ export const CategoriesHardSkillSchema = z.union([
 
 export const HardSkillSchema = z.object({
   id: z.number(),
-  years_of_experience: z.number(),
   name: z.string(),
   category: CategoriesHardSkillSchema,
-  is_show: z.boolean()
+  is_show: z.boolean().optional(),
+  created_at: z.string().datetime().optional(),
+  updated_at: z.string().datetime().optional()
 });
 
 export const EmployeeLanguages = [
@@ -236,7 +237,7 @@ export const WorkExperienceSchema = z.object({
   ended_at: z.string().datetime(),
   description: z.string(),
   responsibilities: z.string(),
-  hard_skills: z.string().array()
+  hard_skills: HardSkillSchema.array()
 });
 
 export const EmployeeSchema = z.object({

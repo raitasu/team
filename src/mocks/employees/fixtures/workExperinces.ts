@@ -4,6 +4,8 @@ import shuffle from 'lodash/shuffle';
 import { getRandomInteger } from '~/mocks/mocks.utils';
 import { type EmployeeWorkExperience } from '~/store/api/employees/employees.types';
 
+import { getRandomHardSkills } from './hardSkills';
+
 const sessionWorkExperiences: Record<string, EmployeeWorkExperience> = {};
 
 const generateEmployeeWorkExperience = (
@@ -29,9 +31,7 @@ const generateEmployeeWorkExperience = (
     .toISOString(),
   description: faker.lorem.paragraph(),
   responsibilities: faker.lorem.paragraph(),
-  hard_skills: new Array(getRandomInteger(0, 15))
-    .fill('')
-    .map(() => faker.word.noun()),
+  hard_skills: getRandomHardSkills(getRandomInteger(0, 8)),
   project_name: faker.company.name()
 });
 
