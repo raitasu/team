@@ -96,7 +96,9 @@ const generateEmployee = (id: number): Employee => {
       .toISOString(),
     educations: getRandomEducations(getRandomInteger(0, 5)),
     gender,
-    employee_hard_skills: getRandomHardSkills(getRandomInteger(0, 8)),
+    employee_hard_skill_permissions: getRandomHardSkills(
+      getRandomInteger(0, 8)
+    ),
     id,
     interests: faker.datatype.string(),
     languages: getRandomLanguages(getRandomInteger(1, 3)),

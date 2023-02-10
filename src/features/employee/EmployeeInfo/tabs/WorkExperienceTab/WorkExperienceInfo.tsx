@@ -109,7 +109,7 @@ export const WorkExperienceInfo = ({
                 'domains:employee.titles.profile_tabs.work_experience.environment'
               )}: `}
             </Text>
-            {workExperience.environments.map((item) => `${item}; `)}
+            {workExperience.hard_skills.map((item) => `${item}; `)}
           </Text>
         </Grid>
       </Grid>

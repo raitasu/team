@@ -29,7 +29,7 @@ const generateEmployeeWorkExperience = (
     .toISOString(),
   description: faker.lorem.paragraph(),
   responsibilities: faker.lorem.paragraph(),
-  environments: new Array(getRandomInteger(0, 15))
+  hard_skills: new Array(getRandomInteger(0, 15))
     .fill('')
     .map(() => faker.word.noun()),
   project_name: faker.company.name()

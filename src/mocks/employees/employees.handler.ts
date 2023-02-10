@@ -121,10 +121,10 @@ const getEmployeesHandler = rest.get(
             employee.positions.some(({ id }) => positions.includes(id));
         }
 
-        if (hardSkills.length > 0 && employee.employee_hard_skills) {
+        if (hardSkills.length > 0 && employee.employee_hard_skill_permissions) {
           isValid =
             isValid &&
-            employee.employee_hard_skills.some(({ id }) =>
+            employee.employee_hard_skill_permissions.some(({ id }) =>
               hardSkills.includes(id)
             );
         }

@@ -224,7 +224,7 @@ export const WorkExperienceSchema = z.object({
   ended_at: z.string().datetime(),
   description: z.string(),
   responsibilities: z.string(),
-  environments: z.string().array()
+  hard_skills: z.string().array()
 });
 
 export const EmployeeSchema = z.object({
@@ -239,7 +239,7 @@ export const EmployeeSchema = z.object({
   educations: EmployeeEducationSchema.array().nullable(),
   first_name: z.string(),
   gender: EmployeeGendersSchema.nullable(),
-  employee_hard_skills: HardSkillSchema.array().nullable(),
+  employee_hard_skill_permissions: HardSkillSchema.array().nullable(),
   id: z.number(),
   email: z.string().email(),
   interests: z.string(),

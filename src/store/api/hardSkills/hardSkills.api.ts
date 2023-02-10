@@ -46,7 +46,9 @@ const hardSkillsApiSlice = rootApiSlice.injectEndpoints({
         try {
           const response = await queryFulfilled;
           const responseValidation =
-            EmployeeSchema.shape.employee_hard_skills.safeParse(response.data);
+            EmployeeSchema.shape.employee_hard_skill_permissions.safeParse(
+              response.data
+            );
 
           if (!responseValidation.success) {
             console.error(responseValidation.error.errors);
