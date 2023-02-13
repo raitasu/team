@@ -86,7 +86,7 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
           'domains:employee.titles.profile_tabs.personal_information.general.interests'
         )}
         value={
-          employee.interests.length > 0
+          employee.interests
             ? employee.interests
             : t('domains:employee.errors.no_data')
         }
