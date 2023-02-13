@@ -1,13 +1,5 @@
 import { ESLint } from 'eslint';
 
-const globPaths = [
-  '*.{js,jsx,ts,tsx}',
-  'src/**/*.{js,jsx,ts,tsx}',
-  'src/*.{js,jsx,ts,tsx}',
-  '.storybook/**/*.{js,jsx,ts,tsx}',
-  '.storybook/*.{js,jsx,ts,tsx}'
-];
-
 export async function runEslint(shouldAutoFix) {
   const eslint = new ESLint({
     cwd: process.cwd(),
@@ -16,7 +8,7 @@ export async function runEslint(shouldAutoFix) {
     errorOnUnmatchedPattern: false,
     reportUnusedDisableDirectives: 'error'
   });
-  const results = await eslint.lintFiles(globPaths);
+  const results = await eslint.lintFiles('.');
   if (shouldAutoFix) {
     await ESLint.outputFixes(results);
   }

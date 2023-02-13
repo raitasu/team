@@ -444,23 +444,23 @@
         "no_projects": "No current projects",
         "no_projects_data": "No projects data"
       },
+      "status": {
+        "completed": "Completed",
+        "in_progress": "In progress",
+        "on_hold": "On hold",
+        "wasted": "Wasted"
+      },
       "table_headers": {
+        "actions": "Actions",
         "company_name": "Company name",
         "project_name": "Project name",
         "status": "Status",
-        "type": "Type",
         "team": "Team",
-        "actions": "Actions"
-      },
-      "status": {
-        "in_progress": "In progress",
-        "on_hold": "On hold",
-        "completed": "Completed",
-        "wasted": "Wasted"
+        "type": "Type"
       },
       "type": {
-        "internal": "Internal",
-        "external": "External"
+        "external": "External",
+        "internal": "Internal"
       }
     }
   },

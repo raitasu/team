@@ -33,7 +33,7 @@
 
 ## Testing application
 
-We are using [Vitest](https://vitest.dev/) for unit tests and [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress) for integration tests
+We're using [Vitest](https://vitest.dev/) for unit tests and [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress) for integration tests
 
 | Command                  | Description                                                                    |
 | ------------------------ | ------------------------------------------------------------------------------ |
@@ -54,14 +54,14 @@ We are using [Vitest](https://vitest.dev/) for unit tests and [Cypress](https://
 
 - Run `npm run test:ci`
 
-### Developing integration/components tests
+### Developing integration/component tests
 
 - Run `npm run start:test`
 - Wait unless server is started
 - Run `npm run cy:open`
 - Use Cypress UI to select test
 
-### Emulating running integration/components tests in CI
+### Emulating running integration/component tests in CI
 
 - Run `npm run test:integration:debug`
 - Wait unless server is started
@@ -104,7 +104,7 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 ## Code Style Guide:
 
 - Code style is inspired by [Airbnb Guide](https://github.com/airbnb/javascript#airbnb-javascript-style-guide)
-- If you find that some rules are harmful or missing raise a PR with your proposal
+- If you find that some rules are harmful or missing, raise a PR with your proposal
 
 | Command                  | Description                                                                                          |
 | ------------------------ | ---------------------------------------------------------------------------------------------------- |
@@ -114,13 +114,13 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## Internationalization
 
-- We are using [react-i18next](https://react.i18next.com/)
+- We're using [react-i18next](https://react.i18next.com/)
 - Date formats: [date-fns](https://date-fns.org/), [date formats](https://date-fns.org/v2.29.3/docs/format)
 
 ## Storybook
 
-- We are using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction) for building UI components and pages.
-- We are hosting Storyboook on [Chromatic](https://www.chromatic.com/library?appId=63494e41f8bea2d9d59c6279)
+- We're using [Storybook](https://storybook.js.org/docs/react/writing-stories/introduction)
+- We're hosting Storyboook on [Chromatic](https://www.chromatic.com/library?appId=63494e41f8bea2d9d59c6279)
 
 | Command                   | Description                             |
 | ------------------------- | --------------------------------------- |
@@ -130,17 +130,16 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 
 ## Releasing
 
-- Manually trigger `Release` workflow from actions tab on `main` branch
+- Manually trigger `Release` workflow from `Actions` tab on `main` branch
 
-| Command                    | Description                                                                                                                                |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `npm run build`            | Builds project for production use.                                                                                                         |
-| `npm run build:staging`    | Builds project for staging use. Pass [--base](https://vitejs.dev/config/shared-options.html#base) option while building application in CI. |
-| `npm run semantic-release` | Creates a tag and release notes for a new version. Should be triggered on main branch within CI.                                           |
+| Command                 | Description                        |
+| ----------------------- | ---------------------------------- |
+| `npm run build`         | Builds project for production use. |
+| `npm run build:staging` | Builds project for staging use.    |
 
 ## Authorization
 
-- We are using [Alfred](https://github.com/cybergizer-hq/alfred#on-the-frontend) for user authentication.
+- We're using [Alfred](https://github.com/cybergizer-hq/alfred#on-the-frontend) for user authentication.
 
 | Environment variable       | Description                           | Localtion            |
 | -------------------------- | ------------------------------------- | -------------------- |

@@ -448,23 +448,23 @@
         "no_projects": "Нет текущих проектов",
         "no_projects_data": "Нет данных о проектах"
       },
+      "status": {
+        "completed": "Завершен",
+        "in_progress": "В процессе",
+        "on_hold": "Приостановлен",
+        "wasted": "Потрачено"
+      },
       "table_headers": {
+        "actions": "Действия",
         "company_name": "Компания",
         "project_name": "Проект",
         "status": "Статус",
-        "type": "Тип",
         "team": "Команда",
-        "actions": "Действия"
-      },
-      "status": {
-        "in_progress": "В процессе",
-        "on_hold": "Приостановлен",
-        "completed": "Завершен",
-        "wasted": "Потрачено"
+        "type": "Тип"
       },
       "type": {
-        "internal": "Внутренний",
-        "external": "Внешний"
+        "external": "Внешний",
+        "internal": "Внутренний"
       }
     }
   },

@@ -1,1 +1,7 @@
-public/mockServiceWorker.js
+/storybook-static
+/node_modules
+/coverage
+/junit
+/build
+/public
+/.cert
