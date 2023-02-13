@@ -1,14 +1,17 @@
 import { type SortingState } from '@tanstack/react-table';
 
+import { type PartialProject } from '~/features/project/CreateProjectModal/project.schema';
 import { getPageOffset } from '~/shared/utils/pagination.utils';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import {
   type ProjectResponse,
+  type Project,
   type ProjectsListResponse
 } from '~/store/api/projects/projects.types';
 import { type ProjectsFilters } from '~/store/slices/projects/projects.types';
 
+import { transformToFormData } from './projects.helpers';
 import { ProjectSchema, ProjectsResponseSchema } from './projects.schemas';
 import { getResponseValidator } from '../api.utils';
 
@@ -28,17 +31,17 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
         response
           ? [
               ...response.items.map((employee) => ({
-                type: ApiTags.Employees,
+                type: ApiTags.Projects,
                 id: employee.id
               })),
               {
-                type: ApiTags.Employees,
+                type: ApiTags.Projects,
                 id: 'LIST'
               }
             ]
           : [
               {
-                type: ApiTags.Employees,
+                type: ApiTags.Projects,
                 id: 'LIST'
               }
             ],
@@ -70,8 +73,42 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
         url: `projects/${id}`,
         method: 'GET'
       })
+    }),
+    createNewProject: builder.mutation<
+      Project,
+      {
+        project: PartialProject;
+      }
+    >({
+      invalidatesTags: [ApiTags.Projects],
+      onQueryStarted: getResponseValidator((data) =>
+        ProjectSchema.safeParse(data)
+      ),
+      query: ({ project }) => {
+        const body = new FormData();
+
+        transformToFormData(body, project);
+
+        return {
+          url: `projects`,
+          method: 'POST',
+          body
+        };
+      }
+    }),
+    removeProject: builder.mutation<void, string>({
+      invalidatesTags: [ApiTags.Projects],
+      query: (projectId) => ({
+        url: `projects/${projectId}`,
+        method: 'DELETE'
+      })
     })
   })
 });
 
-export const { useGetProjectsQuery, useGetProjectQuery } = projectsApiSlice;
+export const {
+  useGetProjectsQuery,
+  useGetProjectQuery,
+  useCreateNewProjectMutation,
+  useRemoveProjectMutation
+} = projectsApiSlice;

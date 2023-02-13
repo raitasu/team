@@ -1,7 +1,9 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, useDisclosure } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 
+import { isAdmin } from '~/features/employee/employee.utils';
+import { CreateProjectModal } from '~/features/project/CreateProjectModal';
 import { ProjectsFiltersDrawer } from '~/features/projects/Filters';
 import { ProjectsFilterControl } from '~/features/projects/Filters/ProjectsFilterControl';
 import { ProjectsTableContainer } from '~/features/projects/Tables';
@@ -9,22 +11,39 @@ import { ProjectsTable } from '~/features/projects/Tables/ProjectsTable';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
 import { PageToolbox } from '~/shared/layout/Page/PageToolbox';
 import { ControlButton } from '~/shared/ui/components/IconButton/ControlButton';
+import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 
 export const Projects = () => {
   const [t] = useTranslation();
+  const { data: currentEmployee } = useGetCurrentUserQuery();
+
+  const {
+    isOpen: isCreateModalOpen,
+    onOpen: onCreateModalOpen,
+    onClose: onCreateModalClose
+  } = useDisclosure();
 
   return (
     <Flex>
       <PageContainer>
         <ProjectsTableContainer table={ProjectsTable} />
+        {isCreateModalOpen && (
+          <CreateProjectModal
+            isOpen={isCreateModalOpen}
+            onClose={onCreateModalClose}
+          />
+        )}
         <PageToolbox
           drawerControl={<ProjectsFilterControl />}
           drawerContent={<ProjectsFiltersDrawer />}
           action={
-            <ControlButton
-              aria-label={t('domains:projects.actions.add_project')}
-              icon={<MdAdd />}
-            />
+            currentEmployee && isAdmin(currentEmployee) ? (
+              <ControlButton
+                aria-label={t('domains:projects.actions.add_project')}
+                icon={<MdAdd />}
+                onClick={onCreateModalOpen}
+              />
+            ) : undefined
           }
         />
       </PageContainer>

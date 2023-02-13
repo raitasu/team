@@ -240,6 +240,7 @@
         "create_cv_confirmation": "Вы хотите создать резюме?",
         "create_profile": "Создать профиль",
         "created_new_work_experience": "Новый опыт был создан!",
+        "create_project": "Создать проект",
         "delete_cv": "Удалить резюме",
         "delete_profile": "Удалить профиль",
         "download_cv": "Скачать резюме",
@@ -419,6 +420,7 @@
         "descriptions": {
           "delete": "Вы хотите удалить информацию?",
           "delete_education": "Вы хотите удалить информацию об образовании?",
+          "delete_project": "Вы хотите удалить проект?",
           "delete_work_experience": "Вы хотите удалить информацию об опыте работы?",
           "deleted": "Информация удалена",
           "save": "Вы хотите сохранить информацию?",
@@ -427,8 +429,9 @@
         "titles": {
           "delete": "Удаление информации",
           "delete_education": "Удаление информации об образовании",
-          "delete_work_experience": "Удаление информации об опыте работы",
+          "delete_project": "Удаление проекта",
 
+          "delete_work_experience": "Удаление информации об опыте работы",
           "save": "Сохранение информации"
         }
       },
@@ -456,11 +459,14 @@
     },
     "projects": {
       "actions": {
-        "add_project": "Новый проект"
+        "add_project": "Новый проект",
+        "created_new_project": "Проект создан!",
+        "removed_project": "Проект удалён!"
       },
       "errors": {
         "no_projects": "Нет текущих проектов",
-        "no_projects_data": "Нет данных о проектах"
+        "no_projects_data": "Нет данных о проектах",
+        "unknown_error": "Упс, что-то пошло не так."
       },
       "status": {
         "completed": "Завершен",
@@ -474,6 +480,13 @@
         "project_name": "Проект",
         "status": "Статус",
         "team": "Команда",
+        "type": "Тип"
+      },
+      "titles": {
+        "company_name": "Имя компании",
+        "manager": "Менеджер",
+        "project_name": "Имя проекта",
+        "status": "Статус",
         "type": "Тип"
       },
       "type": {

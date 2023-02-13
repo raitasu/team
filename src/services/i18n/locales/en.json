@@ -240,6 +240,7 @@
         "create_cv_confirmation": "Do you want to create CV?",
         "create_profile": "Create profile",
         "created_new_work_experience": "New work experience was created!",
+        "create_project": "Create project",
         "delete_cv": "Delete CV",
         "delete_profile": "Delete profile",
         "download_cv": "Download CV",
@@ -414,6 +415,7 @@
         "descriptions": {
           "delete": "Do you want to delete information?",
           "delete_education": "Do you want to delete education?",
+          "delete_project": "Do you want to delete project?",
           "delete_work_experience": "Do you want to delete work experience?",
           "deleted": "Information deleted",
           "save": "Do you want to save information?",
@@ -422,6 +424,7 @@
         "titles": {
           "delete": "Delete information",
           "delete_education": "Delete education",
+          "delete_project": "Delete project",
           "delete_work_experience": "Delete work experience",
           "save": "Save information"
         }
@@ -450,11 +453,14 @@
     },
     "projects": {
       "actions": {
-        "add_project": "New project"
+        "add_project": "New project",
+        "created_new_project": "Project was created!",
+        "removed_project": "Project deleted!"
       },
       "errors": {
         "no_projects": "No current projects",
-        "no_projects_data": "No projects data"
+        "no_projects_data": "No projects data",
+        "unknown_error": "Oops, something went wrong"
       },
       "status": {
         "completed": "Completed",
@@ -468,6 +474,13 @@
         "project_name": "Project name",
         "status": "Status",
         "team": "Team",
+        "type": "Type"
+      },
+      "titles": {
+        "company_name": "Company name",
+        "manager": "Manager",
+        "project_name": "Project name",
+        "status": "Status",
         "type": "Type"
       },
       "type": {

@@ -6,6 +6,7 @@ import {
   type GroupBase,
   type Props as SelectProps,
   Select as ChakraSelect,
+  CreatableSelect,
   type SelectComponent,
   type SelectComponentsConfig,
   type SelectInstance
@@ -45,12 +46,20 @@ const components: SelectComponentsConfig<
 };
 
 export const Select = React.forwardRef<SelectInstance, SelectProps>(
-  (selectProps, ref) => (
-    <ChakraSelect
-      ref={ref}
-      chakraStyles={SelectStyles}
-      {...selectProps}
-      components={components}
-    />
-  )
+  (selectProps, ref) =>
+    selectProps.isClearable ? (
+      <CreatableSelect
+        ref={ref}
+        chakraStyles={SelectStyles}
+        {...selectProps}
+        components={components}
+      />
+    ) : (
+      <ChakraSelect
+        ref={ref}
+        chakraStyles={SelectStyles}
+        {...selectProps}
+        components={components}
+      />
+    )
 ) as SelectComponent;

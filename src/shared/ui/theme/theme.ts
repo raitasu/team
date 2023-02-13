@@ -40,6 +40,7 @@ export const theme = extendTheme({
       red500: '#E53E3E',
       accentGreen: '#56A06B',
       accentYellow: '#CE9D1E',
+      accentBlue: '#0077B5',
       darkGray: '#7B7D7D',
       ghostGray: '#646271',
       lightGray: '#B3B3B3',

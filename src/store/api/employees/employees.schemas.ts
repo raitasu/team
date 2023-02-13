@@ -199,7 +199,16 @@ const EmployeeRoles = ['admin', 'user'] as const;
 export const EmployeeRoleSchema = createUnionSchema(EmployeeRoles);
 
 export const EmployeeStatuses = ['active', 'candidate', 'inactive'] as const;
+export const ProjectStatuses = [
+  'in_progress',
+  'on_hold',
+  'completed',
+  'wasted'
+] as const;
+export const ProjectTypes = ['external', 'internal'] as const;
 export const EmployeeStatusSchema = createUnionSchema(EmployeeStatuses);
+export const ProjectStatusesSchema = createUnionSchema(ProjectStatuses);
+export const ProjectTypesSchema = createUnionSchema(ProjectTypes);
 
 export const EmployeeLanguageLevel = [
   'elementary',

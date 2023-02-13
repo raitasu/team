@@ -90,6 +90,12 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
         method: 'GET'
       })
     }),
+    getAllEmployees: builder.query<Employee[], void>({
+      query: () => ({
+        url: `all_employees`,
+        method: 'GET'
+      })
+    }),
     createEmployee: builder.mutation<void, CreateEmployeeFormValues>({
       invalidatesTags: [ApiTags.Employees],
       onQueryStarted: getResponseValidator((data) =>
@@ -164,5 +170,6 @@ export const {
   useGetEmployeeQuery,
   useCreateEmployeeMutation,
   useUpdateGeneralInformationMutation,
-  useDeleteAvatarMutation
+  useDeleteAvatarMutation,
+  useGetAllEmployeesQuery
 } = employeesApiSlice;
