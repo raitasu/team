@@ -29,7 +29,11 @@ export const NameCell = ({
           <Avatar
             variant={employee.status}
             size="sm"
-            src={employee.avatar ?? undefined}
+            src={
+              employee.avatar
+                ? `${import.meta.env.VITE_GALLERY_BASE_URL}${employee.avatar}`
+                : undefined
+            }
           />
         </Tooltip>
         <Text

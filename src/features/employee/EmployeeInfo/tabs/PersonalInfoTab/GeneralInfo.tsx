@@ -1,4 +1,4 @@
-import { useDisclosure } from '@chakra-ui/react';
+import { Flex, Text, useDisclosure } from '@chakra-ui/react';
 import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -55,12 +55,8 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
           'domains:employee.titles.profile_tabs.personal_information.general.start_career'
         )}
         value={
-          employee.start_career_at
-            ? getFormattedDate(
-                employee.start_career_at,
-                language,
-                DateFormats.Long
-              )
+          employee.hired_at
+            ? getFormattedDate(employee.hired_at, language, DateFormats.Long)
             : t('domains:employee.errors.no_data')
         }
       />
@@ -101,13 +97,41 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
           'domains:employee.titles.profile_tabs.personal_information.general.clothing_size'
         )}
         value={
-          employee.sweat_shirt_size
-            ? `${employee.sweat_shirt_size} (${
-                t(
+          <Flex
+            flexDirection="column"
+            gap="10px"
+          >
+            <Flex>
+              {employee.sweat_shirt_size
+                ? employee.sweat_shirt_size.toUpperCase()
+                : t('domains:employee.errors.no_data')}
+              <Text
+                color="brand.lightGray"
+                ml="4px"
+              >
+                (
+                {t(
                   'domains:employee.titles.profile_tabs.personal_information.general.sweat_shirt_size'
-                ) as 'sweat_shirt_size'
-              })`
-            : t('domains:employee.errors.no_data')
+                )}
+                )
+              </Text>
+            </Flex>
+            <Flex>
+              {employee.t_shirt_size
+                ? employee.t_shirt_size.toUpperCase()
+                : t('domains:employee.errors.no_data')}
+              <Text
+                color="brand.lightGray"
+                ml="4px"
+              >
+                (
+                {t(
+                  'domains:employee.titles.profile_tabs.personal_information.general.t_shirt_size'
+                )}
+                )
+              </Text>
+            </Flex>
+          </Flex>
         }
       />
       <EditGeneralInfoModal

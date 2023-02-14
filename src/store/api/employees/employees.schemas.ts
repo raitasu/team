@@ -269,6 +269,7 @@ export const EmployeeSchema = z.object({
   soft_skills: SoftSkillSchema.array().nullable(),
   status: EmployeeStatusSchema,
   start_career_at: z.string().datetime().nullable(),
+  hired_at: z.string().datetime().nullable(),
   years_of_experience: z.number().optional().nullable(),
   work_experiences: WorkExperienceSchema.array().nullable()
 });

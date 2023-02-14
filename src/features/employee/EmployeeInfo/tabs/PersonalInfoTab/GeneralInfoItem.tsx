@@ -1,3 +1,5 @@
+import { type ReactElement } from 'react';
+
 import { Flex, Text } from '@chakra-ui/react';
 
 import {
@@ -10,7 +12,7 @@ export const GeneralInfoItem = ({
   value
 }: {
   name: string;
-  value: string;
+  value: string | ReactElement;
 }) => (
   <Flex gap={COLUMN_GAP}>
     <Text

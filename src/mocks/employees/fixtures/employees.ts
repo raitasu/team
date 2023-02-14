@@ -135,6 +135,9 @@ const generateEmployee = (id: number): Employee => {
     start_career_at: faker.date
       .birthdate({ min: 0, max: 5, mode: 'age' })
       .toISOString(),
+    hired_at: faker.date
+      .birthdate({ min: 0, max: 5, mode: 'age' })
+      .toISOString(),
     years_of_experience: getRandomInteger(0, 15),
     work_experiences: getRandomWorkExperiences(getRandomInteger(0, 5))
   };
