@@ -1,3 +1,4 @@
+import { Flex } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/dist/query/react';
 import { useParams } from 'react-router-dom';
 
@@ -15,8 +16,34 @@ export const CreateCV = () => {
     <PageContainer>
       <PageToolbox />
       {isLoading && <PageLoader />}
-      {data && JSON.stringify(data)}
-      {error && JSON.stringify(error)}
+
+      <Flex gap="20px">
+        <Flex
+          flexGrow="0.5"
+          flexDirection="column"
+          alignItems="flex-start"
+          padding="20px 14px"
+          gap="10px"
+          bgColor="white"
+          border="1px solid var(--chakra-colors-brand-stroke)"
+          borderRadius="4px"
+        />
+        <Flex
+          flexGrow="1"
+          border="1px solid var(--chakra-colors-brand-stroke)"
+          borderRadius="4px"
+          bgColor="white"
+        >
+          {data && JSON.stringify(data)}
+          {error && JSON.stringify(error)}
+        </Flex>
+        <Flex
+          flexGrow="1"
+          border="1px solid var(--chakra-colors-brand-stroke)"
+          borderRadius="4px"
+          bgColor="white"
+        />
+      </Flex>
     </PageContainer>
   );
 };
