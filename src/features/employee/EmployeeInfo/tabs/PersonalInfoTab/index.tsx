@@ -31,12 +31,17 @@ export const PersonalInfoTab: EmployeeInfoTab = ({ employee }) => {
           <div>Oops, something went wrong :(</div>
         </InfoSection>
       ) : (
-        <ContactInfo
-          contacts={contacts}
-          employeeId={contacts.id}
-        />
+        <>
+          <ContactInfo
+            contacts={contacts}
+            employeeId={contacts.id}
+          />
+          <SocialNetworkInfo
+            employee={employee}
+            contacts={contacts}
+          />
+        </>
       )}
-      <SocialNetworkInfo employee={employee} />
     </Box>
   );
 };

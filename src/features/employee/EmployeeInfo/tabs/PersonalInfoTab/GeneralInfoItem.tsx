@@ -19,9 +19,15 @@ export const GeneralInfoItem = ({
       width={LEFT_COLUMN_WIDTH}
       color="brand.headline2"
       flexShrink="0"
+      as="span"
     >
       {name}
     </Text>
-    <Text textAlign="justify">{value}</Text>
+    <Text
+      textAlign="justify"
+      as="div"
+    >
+      {value}
+    </Text>
   </Flex>
 );

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { FormControl } from '~/shared/ui/components/FormControl';
 
-import { type EditSocialNetworksValues } from '../EditSocialNetworks.shema';
+import { type EditSocialNetworksValues } from '../EditSocialNetworks.schema';
 
 export const SocialLinkField = ({
   linkName

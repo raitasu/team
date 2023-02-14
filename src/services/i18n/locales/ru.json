@@ -278,8 +278,8 @@
           "discord": "Добавьте корректное имя пользователя. Например: Username#4512",
           "facebook": "Добавьте корректную ссылку. Например: https://www.facebook.com/username",
           "github": "Добавьте корректную ссылку. Например: https://github.com/username",
-          "instagram": "Добавьте корректную ссылку. Например: https://instagram.com/username",
-          "linkedin": "Добавьте корректную ссылку. Например: htts://linkedin.com/in/username",
+          "instagram": "Добавьте корректную ссылку. Например: https://www.instagram.com/username",
+          "linkedin": "Добавьте корректную ссылку. Например: https://www.linkedin.com/in/username",
           "telegram": "Добавьте корректную ссылку. Например: https://t.me/username",
           "vk": "Добавьте корректную ссылку. Например: https://vk.com/username"
         },
@@ -481,6 +481,7 @@
           "delete_project": "Вы хотите удалить проект?",
           "delete_work_experience": "Вы хотите удалить информацию об опыте работы?",
           "deleted": "Информация удалена",
+          "link_copied": "ссылка скопирована",
           "save": "Вы хотите сохранить информацию?",
           "saved": "Информация сохранена"
         },
@@ -649,6 +650,7 @@
   "general_actions": {
     "add": "Добавить",
     "cancel": "Отменить",
+    "copy": "Копировать",
     "copy_id": "Копировать ID",
     "create": "Создать",
     "delete": "Удалить",

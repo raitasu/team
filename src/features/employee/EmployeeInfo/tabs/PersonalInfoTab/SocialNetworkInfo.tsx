@@ -4,15 +4,22 @@ import { useTranslation } from 'react-i18next';
 import { isEditable } from '~/features/employee/employee.utils';
 import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import {
-  type Employee,
-  type SocialNetwork
+  type EmployeeContactInfo,
+  type Employee
 } from '~/store/api/employees/employees.types';
 
 import { ContactItem } from './ContactItem';
 import { EditSocialNetworksInfoModal } from './modals/EditSocialNetworksInfo';
+import { socialFieldsNames } from './modals/EditSocialNetworksInfo/EditSocialNetworks.constants';
 import { InfoSection } from '../components/InfoSection';
 
-export const SocialNetworkInfo = ({ employee }: { employee: Employee }) => {
+export const SocialNetworkInfo = ({
+  employee,
+  contacts
+}: {
+  employee: Employee;
+  contacts: EmployeeContactInfo;
+}) => {
   const [t] = useTranslation();
   const {
     isOpen: isOpenSocialNetworksModal,
@@ -20,10 +27,6 @@ export const SocialNetworkInfo = ({ employee }: { employee: Employee }) => {
     onClose: onCloseSocialNetworksModal
   } = useDisclosure();
   const { data: currentEmployee } = useGetCurrentUserQuery();
-
-  const socialNetworks = employee.social_networks
-    ? employee.social_networks
-    : {};
 
   return (
     <InfoSection
@@ -36,30 +39,17 @@ export const SocialNetworkInfo = ({ employee }: { employee: Employee }) => {
           : undefined
       }
     >
-      {(
-        Object.entries(socialNetworks) as [
-          key: keyof SocialNetwork,
-          value: SocialNetwork[keyof SocialNetwork]
-        ][]
-      ).map((network) => {
-        const [name, link] = network;
-
-        if (!link) {
-          return null;
-        }
-
-        return (
-          <ContactItem
-            key={name}
-            name={t(`enums:social_networks.${name}`)}
-            link={link}
-            linkType="web"
-          />
-        );
-      })}
-
+      {socialFieldsNames.map((network) => (
+        <ContactItem
+          key={network}
+          name={t(`enums:social_networks.${network}`)}
+          link={contacts[network] || ''}
+          linkType="web"
+          canCopy
+        />
+      ))}
       <EditSocialNetworksInfoModal
-        networks={socialNetworks}
+        contacts={contacts}
         isOpenModal={isOpenSocialNetworksModal}
         onCloseModal={onCloseSocialNetworksModal}
       />

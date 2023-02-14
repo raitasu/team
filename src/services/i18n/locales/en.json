@@ -278,8 +278,8 @@
           "discord": "Add correct username. Example: Username#4512",
           "facebook": "Add correct link. Example: https://www.facebook.com/username",
           "github": "Add correct link. Example: https://github.com/username",
-          "instagram": "Add correct link. Example: https://instagram.com/username",
-          "linkedin": "Add correct link. Example: htts://linkedin.com/in/username",
+          "instagram": "Add correct link. Example: https://www.instagram.com/username",
+          "linkedin": "Add correct link. Example: https://www.linkedin.com/in/username",
           "telegram": "Add correct link. Example: https://t.me/username",
           "vk": "Add correct link. Example: https://vk.com/username"
         },
@@ -476,6 +476,7 @@
           "delete_project": "Do you want to delete project?",
           "delete_work_experience": "Do you want to delete work experience?",
           "deleted": "Information deleted",
+          "link_copied": "link copied",
           "save": "Do you want to save information?",
           "saved": "Information saved"
         },
@@ -643,6 +644,7 @@
   "general_actions": {
     "add": "Add",
     "cancel": "Cancel",
+    "copy": "Copy",
     "copy_id": "Copy ID",
     "create": "Create",
     "delete": "Delete",

@@ -1,55 +1,81 @@
+import { useEffect, useMemo } from 'react';
+
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  type FetchBaseQueryError,
+  skipToken
+} from '@reduxjs/toolkit/dist/query/react';
 import upperCase from 'lodash/upperCase';
-import { useForm, FormProvider } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
+import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
-import { type SocialNetwork } from '~/store/api/employees/employees.types';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
+import { useUpdateContactInfoMutation } from '~/store/api/employees/contactInfo/contactInfo.api';
+import { type EmployeeContactInfo } from '~/store/api/employees/employees.types';
 
+import { getInitialState } from './EditSocialNetwork.utils';
 import { socialFieldsNames } from './EditSocialNetworks.constants';
-import {
-  type EditSocialNetworksValues,
-  EditSocialNetworksSchema
-} from './EditSocialNetworks.shema';
+import { EditSocialNetworksSchema } from './EditSocialNetworks.schema';
 import { SocialLinkField } from './Fields/SocialLinkField';
+import { type ChangedContactsInfoValues } from '../EditContactsInfo/EditContactsInfo.schemas';
 
 export const EditSocialNetworksInfoModal = ({
-  networks,
+  contacts,
   isOpenModal,
   onCloseModal
 }: {
-  networks: SocialNetwork;
+  contacts: EmployeeContactInfo;
   isOpenModal: boolean;
   onCloseModal: () => void;
 }) => {
   const [t] = useTranslation();
 
-  const methods = useForm<EditSocialNetworksValues>({
-    defaultValues: {
-      linkedin: networks.linkedin,
-      github: networks.github,
-      discord: networks.discord,
-      telegram: networks.telegram,
-      facebook: networks.facebook,
-      instagram: networks.instagram,
-      vk: networks.vk
-    },
+  const { id } = useParams();
+
+  const employeeId = id ? +id : Number(skipToken);
+
+  const [updateContactInfo, { isLoading }] = useUpdateContactInfoMutation();
+
+  const errorToast = useErrorToast({ ...toastConfig });
+  const successToast = useSuccessToast({ ...toastConfig });
+
+  const changeContactsInfo = async (values: ChangedContactsInfoValues) => {
+    const response = await updateContactInfo({
+      data: values,
+      id: employeeId
+    });
+
+    if ((response as { error?: FetchBaseQueryError }).error) {
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    } else {
+      onCloseModal();
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    }
+  };
+
+  const methods = useForm({
+    defaultValues: getInitialState(contacts),
     mode: 'onBlur',
     resolver: zodResolver(EditSocialNetworksSchema)
   });
 
+  const { reset } = methods;
+
+  const defaultData = useMemo(() => getInitialState(contacts), [contacts]);
+
+  useEffect(() => reset({ ...defaultData }), [reset, defaultData]);
+
   const closeForm = () => {
     methods.reset();
-    onCloseModal();
-  };
-
-  const onConfirm = () => {
-    methods
-      .handleSubmit((data: EditSocialNetworksValues) => console.debug(data))()
-      .catch(() => undefined);
-
     onCloseModal();
   };
 
@@ -72,9 +98,18 @@ export const EditSocialNetworksInfoModal = ({
         <ActionsModalFooter
           onCancel={closeForm}
           onReset={() => methods.reset()}
-          onSubmit={onConfirm}
+          onSubmit={methods.handleSubmit((data) => {
+            const changedValues = Object.entries(data).filter(
+              (_, i) =>
+                Object.entries(data)[i][1] !==
+                Object.entries(getInitialState(contacts))[i][1]
+            );
+
+            return changeContactsInfo(Object.fromEntries(changedValues));
+          })}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
+          isLoading={isLoading}
         />
       }
     >

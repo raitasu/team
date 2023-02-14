@@ -2,8 +2,6 @@ import { z } from 'zod';
 
 import { createUnionSchema } from '~/shared/helpers.zod';
 
-import { Patterns } from '../api.constants';
-
 export const EmployeeTimezones = [
   '(GMT+03:00 Moscow, Standard Time - Minsk',
   '(GMT+03:00 Moscow, Standard Time - Moscow'
@@ -71,29 +69,13 @@ export const EmployeeLanguages = [
 ] as const;
 export const EmployeeLanguagesSchema = createUnionSchema(EmployeeLanguages);
 export const SocialNetworkSchema = z.object({
-  linkedin: z
-    .string()
-    .regex(new RegExp(Patterns.Linkedin))
-    .optional()
-    .nullable(),
-  github: z.string().regex(new RegExp(Patterns.GitHub)).optional().nullable(),
-  discord: z.string().regex(new RegExp(Patterns.Discord)).optional().nullable(),
-  telegram: z
-    .string()
-    .regex(new RegExp(Patterns.Telegram))
-    .optional()
-    .nullable(),
-  facebook: z
-    .string()
-    .regex(new RegExp(Patterns.Facebook))
-    .optional()
-    .nullable(),
-  instagram: z
-    .string()
-    .regex(new RegExp(Patterns.Instagram))
-    .optional()
-    .nullable(),
-  vk: z.string().regex(new RegExp(Patterns.VKontakte)).optional().nullable()
+  linkedin: z.string().optional().nullable(),
+  github: z.string().optional().nullable(),
+  discord: z.string().optional().nullable(),
+  telegram: z.string().optional().nullable(),
+  facebook: z.string().optional().nullable(),
+  instagram: z.string().optional().nullable(),
+  vk: z.string().optional().nullable()
 });
 
 export const SoftSkillSchema = z.object({
