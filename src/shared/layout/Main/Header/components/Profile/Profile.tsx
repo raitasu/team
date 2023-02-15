@@ -53,7 +53,11 @@ export const Profile = ({
           <Avatar
             size="md"
             variant={employee.status}
-            src={employee.avatar ?? undefined}
+            src={
+              employee.avatar
+                ? `${import.meta.env.VITE_GALLERY_BASE_URL}${employee.avatar}`
+                : undefined
+            }
           />
           <Box paddingLeft="6px">
             <IoIosArrowDown />
