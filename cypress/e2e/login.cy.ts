@@ -35,7 +35,7 @@ describe('should correctly authorized in the system', () => {
 
     cy.origin(alfredHost, () => {
       cy.location('href').should('include', '/login');
-      cy.get('a').contains('Log in');
+      cy.get('input').contains('Log in');
     });
 
     cy.visit(`/auth?code=${alfredCode}`);
