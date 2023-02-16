@@ -26,7 +26,7 @@ const authenticationApiSlice = rootApiSlice.injectEndpoints({
     getCurrentUser: builder.query<Employee, void>({
       providesTags: (employee) => [
         {
-          type: ApiTags.CurrentEmployee,
+          type: ApiTags.Employees,
           id: `${employee ? employee.id : 'ENTITY'}`
         }
       ],
