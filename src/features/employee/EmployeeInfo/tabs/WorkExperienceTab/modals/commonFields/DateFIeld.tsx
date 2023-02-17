@@ -13,21 +13,25 @@ export const DateField = () => {
   const [t] = useTranslation();
   const { field: startField } = useController<
     EmployeeWorkExperienceFormValues,
-    'startDate'
+    'started_at'
   >({
-    name: 'startDate'
+    name: 'started_at'
   });
   const { field: endField } = useController<
     EmployeeWorkExperienceFormValues,
-    'endDate'
+    'ended_at'
   >({
-    name: 'endDate'
+    name: 'ended_at'
   });
 
   const {
     register,
-    formState: { errors }
+    formState: { errors },
+    getValues
   } = useFormContext<EmployeeWorkExperienceFormValues>();
+
+  const startYear = getValues('started_at.year');
+  const endYear = getValues('ended_at.year');
 
   return (
     <Grid
@@ -37,10 +41,10 @@ export const DateField = () => {
       <FormControl
         label={t('domains:employee.titles.profile_tabs.education.start_date')}
         errorMessage={
-          errors.startDate?.startMonth?.message
+          errors.started_at?.month?.message
             ? t(
                 `general_errors:${
-                  errors.startDate.startMonth.message as 'required_field'
+                  errors.started_at.month.message as 'required_field'
                 }`
               )
             : undefined
@@ -56,8 +60,8 @@ export const DateField = () => {
             onChange={(selectedOption) => {
               if (selectedOption) {
                 startField.onChange({
-                  startYear: startField.value.startYear,
-                  startMonth: String(selectedOption.value)
+                  year: startYear,
+                  month: String(selectedOption.value)
                 });
               }
             }}
@@ -66,12 +70,12 @@ export const DateField = () => {
             value={
               optionMonth.find(
                 (month) =>
-                  String(month.value) === String(startField.value.startMonth)
+                  String(month.value) === String(startField.value.month)
               ) ?? null
             }
           />
           <Input
-            {...register('startDate.startYear')}
+            {...register('started_at.year')}
             onBlur={startField.onBlur}
           />
         </Grid>
@@ -79,10 +83,10 @@ export const DateField = () => {
       <FormControl
         label={t('domains:employee.titles.profile_tabs.education.end_date')}
         errorMessage={
-          errors.endDate?.endMonth?.message
+          errors.ended_at?.month?.message
             ? t(
                 `general_errors:${
-                  errors.endDate.endMonth.message as 'required_field'
+                  errors.ended_at.month.message as 'required_field'
                 }`
               )
             : undefined
@@ -97,8 +101,8 @@ export const DateField = () => {
             onChange={(selectedOption) => {
               if (selectedOption) {
                 endField.onChange({
-                  endYear: endField.value.endYear,
-                  endMonth: String(selectedOption.value)
+                  year: endYear,
+                  month: String(selectedOption.value)
                 });
               }
             }}
@@ -106,13 +110,12 @@ export const DateField = () => {
             getOptionLabel={(option) => t(option.label)}
             value={
               optionMonth.find(
-                (month) =>
-                  String(month.value) === String(endField.value.endMonth)
+                (month) => String(month.value) === String(endField.value.month)
               ) ?? null
             }
           />
           <Input
-            {...register('endDate.endYear')}
+            {...register('ended_at.year')}
             onBlur={endField.onBlur}
           />
         </Grid>

@@ -5,20 +5,29 @@ import { useTranslation } from 'react-i18next';
 
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
+import { useGetCustomersQuery } from '~/store/api/workExperience/workExperience.api';
 
 import { type EmployeeWorkExperienceFormValues } from '../../WorkExperienceModal.schemas';
 
-export const CompanyNameField = ({
-  options
-}: {
-  options: { label: string; value: string }[];
-}) => {
+export const CompanyNameField = () => {
   const {
     field,
     fieldState: { error }
   } = useController<EmployeeWorkExperienceFormValues, `company_name`>({
     name: `company_name`
   });
+  const { data: customers } = useGetCustomersQuery();
+
+  const options = useMemo(
+    () =>
+      customers
+        ? customers.map((item) => ({
+            label: item.name,
+            value: String(item.id)
+          }))
+        : [],
+    [customers]
+  );
 
   const { field: projectName } = useController<
     EmployeeWorkExperienceFormValues,

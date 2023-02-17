@@ -23,8 +23,10 @@ import { InfoSection } from '../components/InfoSection';
 
 export const WorkExperienceInfo = ({
   workExperience,
-  employeeId
+  employeeId,
+  hiredAt
 }: {
+  hiredAt: string;
   workExperience: EmployeeWorkExperience;
   employeeId: number;
 }) => {
@@ -192,6 +194,7 @@ export const WorkExperienceInfo = ({
         isLoading={isLoadingDelete}
       />
       <EditWorkExperienceInfoModal
+        hiredAt={hiredAt}
         workExperience={workExperience}
         isOpenWorkExperienceInfoTab={isOpenWorkExperienceInfoTab}
         onCloseWorkExperienceInfoTab={onCloseWorkExperienceInfoTab}

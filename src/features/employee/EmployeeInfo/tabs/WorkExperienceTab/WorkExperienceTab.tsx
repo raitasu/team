@@ -10,7 +10,7 @@ import { WorkExperienceInfo } from './WorkExperienceInfo';
 import { InfoSection } from '../components/InfoSection';
 
 export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
-  const { work_experiences: workExperiences, id } = employee;
+  const { work_experiences: workExperiences, id, hired_at } = employee;
 
   const [t] = useTranslation();
 
@@ -22,10 +22,11 @@ export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
 
   return (
     <Box>
-      {workExperiences ? (
+      {workExperiences && hired_at ? (
         <>
           {workExperiences.map((workExperience) => (
             <WorkExperienceInfo
+              hiredAt={hired_at}
               employeeId={id}
               key={workExperience.id}
               workExperience={workExperience}
@@ -47,6 +48,7 @@ export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
           {t('domains:employee.actions.add_work_experience')}
         </Button>
         <CreateNewWorkExperienceModal
+          hiredAt={hired_at}
           isOpenCreateNewWorkExperienceModal={
             isOpenCreateNewWorkExperienceModal
           }

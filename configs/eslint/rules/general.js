@@ -89,7 +89,7 @@ module.exports = {
   'no-octal-escape': 'warn',
   'no-param-reassign': [
     'error',
-    { props: true, ignorePropertyModificationsFor: ['state', 'config'] }
+    { props: true, ignorePropertyModificationsFor: ['state', 'config', 'acc'] }
   ],
   'no-redeclare': 'warn',
   'no-regex-spaces': 'warn',

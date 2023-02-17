@@ -7,23 +7,21 @@ export type EmployeeWorkExperienceFormValues = z.infer<
   typeof EmployeeWorkExperienceSchema
 >;
 
-export type StartDateType = z.infer<typeof StartDateSchema>;
-export type EndDateType = z.infer<typeof EndDateSchema>;
-
 const StartDateSchema = z.object({
-  startMonth: z.string().nullable(),
-  startYear: z.string().nullable()
+  month: z.string().nullable(),
+  year: z.string().nullable()
 });
 
 const EndDateSchema = z.object({
-  endMonth: z.string().nullable(),
-  endYear: z.string().nullable()
+  month: z.string().nullable(),
+  year: z.string().nullable()
 });
 
 const currentYear = getYear(new Date());
 
 export const EmployeeWorkExperienceSchema = z
   .object({
+    hiredAt: z.string().nullable(), // TODO: Need to configure validation
     company_name: z.string().trim().min(1, 'required_field').nullable(),
     hard_skills: z
       .object({
@@ -56,55 +54,49 @@ export const EmployeeWorkExperienceSchema = z
       .array()
       .min(1, 'required_field'),
     responsibilities: z.string().trim().min(1, 'required_field').nullable(),
-    startDate: StartDateSchema.superRefine((value, ctx) => {
-      if (
-        (value.startMonth && !value.startYear) ||
-        (!value.startMonth && value.startYear)
-      ) {
+    started_at: StartDateSchema.superRefine((value, ctx) => {
+      if ((value.month && !value.year) || (!value.month && value.year)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: 'required_field',
-          path: ['startMonth']
+          path: ['month']
         });
       }
 
       return value;
     }).superRefine((value, ctx) => {
       if (
-        (value.startYear && !isNumber.test(value.startYear)) ||
-        currentYear <= Number(value.startYear)
+        !(value.year && isNumber.test(value.year)) ||
+        currentYear <= Number(value.year)
       ) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: 'incorrect_date',
-          path: ['startMonth']
+          path: ['month']
         });
       }
 
       return value;
     }),
-    endDate: EndDateSchema.superRefine((value, ctx) => {
-      if (
-        (value.endMonth && !value.endYear) ||
-        (!value.endMonth && value.endYear)
-      ) {
+    ended_at: EndDateSchema.superRefine((value, ctx) => {
+      if ((value.month && !value.year) || (!value.month && value.year)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: 'required_field',
-          path: ['endMonth']
+          path: ['month']
         });
       }
 
       return value;
     }).superRefine((value, ctx) => {
       if (
-        (value.endYear && !isNumber.test(value.endYear)) ||
-        currentYear <= Number(value.endYear)
+        (value.year && !isNumber.test(value.year)) ||
+        currentYear <= Number(value.year)
       ) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: 'incorrect_date',
-          path: ['endMonth']
+          path: ['month']
         });
       }
 
@@ -113,15 +105,21 @@ export const EmployeeWorkExperienceSchema = z
   })
   .refine(
     (data) => {
-      if (data.startDate.startYear === null || data.endDate.endYear === null)
+      if (data.started_at.year === null || data.ended_at.year === null)
         return true;
 
-      return data.startDate.startYear <= data.endDate.endYear;
+      if (
+        data.started_at.year === data.ended_at.year &&
+        data.started_at.month &&
+        data.ended_at.month
+      ) {
+        return data.started_at.month <= data.ended_at.month;
+      }
+
+      return data.started_at.year <= data.ended_at.year;
     },
     {
       message: 'invalid_range',
-      path: ['endDate.endMonth']
+      path: ['ended_at.month']
     }
   );
-
-export type PartialWorkExperience = Partial<EmployeeWorkExperienceFormValues>;

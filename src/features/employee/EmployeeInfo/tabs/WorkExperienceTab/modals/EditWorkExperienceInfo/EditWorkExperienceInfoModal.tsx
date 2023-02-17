@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { Flex } from '@chakra-ui/react';
+import { Flex, Grid, Text } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import isEqual from 'lodash/isEqual';
@@ -9,29 +9,17 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
+import { COLUMN_GAP } from '~/features/employee/employee.styles';
+import { isCompanyProject } from '~/features/employee/employee.utils';
 import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { type EmployeeWorkExperience } from '~/store/api/employees/employees.types';
-import { useGetPositionsQuery } from '~/store/api/positions/positions.api';
-import {
-  useGetCustomersQuery,
-  useUpdateWorkExperienceMutation
-} from '~/store/api/workExperience/workExperience.api';
+import { useUpdateWorkExperienceMutation } from '~/store/api/workExperience/workExperience.api';
 
-import {
-  // getInitialStateForCreate,
-  getInitialStateForUpdate,
-  getOptions
-} from '../../WorkExperience.utils';
-import {
-  EmployeeWorkExperienceSchema,
-  type EndDateType,
-  type PartialWorkExperience,
-  type StartDateType,
-  type EmployeeWorkExperienceFormValues
-} from '../../WorkExperienceModal.schemas';
+import { getInitialValues } from '../../WorkExperience.utils';
+import { EmployeeWorkExperienceSchema } from '../../WorkExperienceModal.schemas';
 import { CompanyNameField } from '../commonFields/CompanyNameField';
 import { DateField } from '../commonFields/DateFIeld';
 import { DescriptionField } from '../commonFields/DescriptionField';
@@ -43,36 +31,39 @@ import { ResponsibilitiesField } from '../commonFields/ResponsibilitiesField';
 export const EditWorkExperienceInfoModal = ({
   workExperience,
   isOpenWorkExperienceInfoTab,
-  onCloseWorkExperienceInfoTab
+  onCloseWorkExperienceInfoTab,
+  hiredAt
 }: {
+  hiredAt: string;
   workExperience: EmployeeWorkExperience;
   isOpenWorkExperienceInfoTab: boolean;
   onCloseWorkExperienceInfoTab: () => void;
 }) => {
   const [updateWorkExperience] = useUpdateWorkExperienceMutation();
-  const { data: customers } = useGetCustomersQuery();
-  const { data: positions } = useGetPositionsQuery();
   const toastError = useErrorToast(toastConfig);
   const toastSuccess = useSuccessToast(toastConfig);
   const { id } = useParams();
   const [t] = useTranslation();
 
-  const methods = useForm<EmployeeWorkExperienceFormValues>({
-    defaultValues: getInitialStateForUpdate(workExperience),
+  const methods = useForm({
+    defaultValues: getInitialValues(workExperience),
     mode: 'onBlur',
     resolver: zodResolver(EmployeeWorkExperienceSchema)
   });
 
+  const isEdit = isCompanyProject(
+    hiredAt,
+    workExperience.started_at,
+    workExperience.ended_at
+  );
+
   const { reset } = methods;
 
   useEffect(() => {
-    reset(getInitialStateForUpdate(workExperience), {
+    reset(getInitialValues(workExperience), {
       keepDefaultValues: false
     });
   }, [reset, workExperience]);
-
-  const hasEmptyFields = (obj: EndDateType | StartDateType) =>
-    Object.values(obj).includes(null) || Object.values(obj).includes('');
 
   return (
     <BaseModal
@@ -96,46 +87,37 @@ export const EditWorkExperienceInfoModal = ({
           onReset={() => methods.reset()}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
-          onSubmit={methods.handleSubmit(async (data) => {
-            // const updatedWorkExperience: EmployeeWorkExperienceFormValues =
-            //   getInitialStateForCreate();
+          onSubmit={methods.handleSubmit(async (formValues) => {
+            const initialValues = getInitialValues(workExperience);
 
-            // (
-            //   Object.keys(data) as (keyof EmployeeWorkExperienceFormValues)[]
-            // ).forEach((key) => {
-            //   if (
-            //     !isEqual(
-            //       data[key],
-            //       getInitialStateForUpdate(workExperience)[key]
-            //     )
-            //   ) {
-            //     updatedWorkExperience[key] = data[key];
-            //   } else {
-            //     delete updatedWorkExperience[key];
-            //   }
-            // });
+            const updatedWorkExperience = (
+              Object.keys(formValues) as (keyof typeof formValues)[]
+            ).reduce<Partial<typeof formValues>>((acc, key) => {
+              const currentValue = formValues[key];
+              const initialValue = initialValues[key];
 
-            const updatedWorkExperience: PartialWorkExperience =
-              Object.fromEntries(
-                Object.entries(data).filter((item, i) => {
-                  if (item[0] === 'startDate' || item[0] === 'endDate') {
-                    return hasEmptyFields(
-                      item[1] as EndDateType | StartDateType
-                    );
-                  }
+              if (!isEqual(currentValue, initialValue)) {
+                if (key === 'ended_at' || key === 'started_at') {
+                  const newDate =
+                    formValues[key].year && formValues[key].month
+                      ? new Date(
+                          Number(formValues[key].year),
+                          Number(formValues[key].month)
+                        ).toISOString()
+                      : null;
 
-                  return !isEqual(
-                    Object.entries(data)[i][1],
-                    Object.entries(getInitialStateForUpdate(workExperience))[
-                      i
-                    ][1]
-                  );
-                })
-              );
+                  (acc[key] as typeof currentValue) = newDate;
+                } else {
+                  (acc[key] as typeof currentValue) = currentValue;
+                }
+              }
+
+              return acc;
+            }, {});
 
             const response = await updateWorkExperience({
               workExperience: updatedWorkExperience,
-              employeesId: Number(id),
+              employeeId: Number(id),
               workExperienceId: workExperience.id
             });
 
@@ -161,13 +143,49 @@ export const EditWorkExperienceInfoModal = ({
         gap="20px"
       >
         <FormProvider {...methods}>
-          <CompanyNameField options={getOptions(customers)} />
-          <ProjectNameField />
-          <PositionField options={getOptions(positions)} />
-          <DateField />
-          <DescriptionField />
+          {!isEdit && (
+            <Grid
+              gridTemplateColumns="1fr 1fr"
+              gap={COLUMN_GAP}
+            >
+              <Text>
+                <Text
+                  as="span"
+                  fontWeight="500"
+                  color="brand.headline2"
+                >
+                  {`${t(
+                    'domains:employee.titles.profile_tabs.work_experience.company_name'
+                  )}: `}
+                </Text>
+                {workExperience.company_name ||
+                  t('domains:employee.errors.no_data')}
+              </Text>
+              <Text>
+                <Text
+                  as="span"
+                  fontWeight="500"
+                  color="brand.headline2"
+                >
+                  {`${t(
+                    'domains:employee.titles.profile_tabs.work_experience.project_name'
+                  )}: `}
+                </Text>
+                {workExperience.project_name}
+              </Text>
+            </Grid>
+          )}
+          {isEdit && (
+            <>
+              <CompanyNameField />
+              <ProjectNameField />
+              <PositionField />
+              <DateField />
+              <DescriptionField />
+            </>
+          )}
           <ResponsibilitiesField />
-          <EnvironmentField options={[]} />
+          <EnvironmentField isAll={isEdit} />
         </FormProvider>
       </Flex>
     </BaseModal>

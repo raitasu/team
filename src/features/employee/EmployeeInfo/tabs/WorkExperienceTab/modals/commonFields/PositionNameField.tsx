@@ -1,25 +1,34 @@
+import { useMemo } from 'react';
+
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
+import { useGetPositionsQuery } from '~/store/api/positions/positions.api';
 
 import { type EmployeeWorkExperienceFormValues } from '../../WorkExperienceModal.schemas';
 
-export const PositionField = ({
-  options
-}: {
-  options: {
-    label: string;
-    value: string;
-  }[];
-}) => {
+export const PositionField = () => {
   const {
     field,
     fieldState: { error }
   } = useController<EmployeeWorkExperienceFormValues, `positions`>({
     name: `positions`
   });
+
+  const { data: positions } = useGetPositionsQuery();
+
+  const options = useMemo(
+    () =>
+      positions
+        ? positions.map((item) => ({
+            label: item.name,
+            value: String(item.id)
+          }))
+        : [],
+    [positions]
+  );
 
   const [t] = useTranslation();
 

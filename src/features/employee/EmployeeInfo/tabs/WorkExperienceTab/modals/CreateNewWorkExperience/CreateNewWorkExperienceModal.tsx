@@ -10,18 +10,9 @@ import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
-import { useGetHardSkillsQuery } from '~/store/api/hardSkills/hardSkills.api';
-import { useGetPositionsQuery } from '~/store/api/positions/positions.api';
-import {
-  useCreateWorkExperienceMutation,
-  useGetCustomersQuery
-} from '~/store/api/workExperience/workExperience.api';
+import { useCreateWorkExperienceMutation } from '~/store/api/workExperience/workExperience.api';
 
-import {
-  getChangedDate,
-  getInitialStateForCreate,
-  getOptions
-} from '../../WorkExperience.utils';
+import { getChangedDate, getInitialValues } from '../../WorkExperience.utils';
 import { EmployeeWorkExperienceSchema } from '../../WorkExperienceModal.schemas';
 import { CompanyNameField } from '../commonFields/CompanyNameField';
 import { DateField } from '../commonFields/DateFIeld';
@@ -33,22 +24,21 @@ import { ResponsibilitiesField } from '../commonFields/ResponsibilitiesField';
 
 export const CreateNewWorkExperienceModal = ({
   isOpenCreateNewWorkExperienceModal,
-  onCloseCreateNewWorkExperienceModal
+  onCloseCreateNewWorkExperienceModal,
+  hiredAt
 }: {
   isOpenCreateNewWorkExperienceModal: boolean;
   onCloseCreateNewWorkExperienceModal: () => void;
+  hiredAt: string | null;
 }) => {
   const [t] = useTranslation();
   const { id } = useParams();
   const toastError = useErrorToast(toastConfig);
   const toastSuccess = useSuccessToast(toastConfig);
   const [createWorkExperience] = useCreateWorkExperienceMutation();
-  const { data: environments } = useGetHardSkillsQuery();
-  const { data: positions } = useGetPositionsQuery();
-  const { data: customers } = useGetCustomersQuery();
 
   const methods = useForm({
-    defaultValues: getInitialStateForCreate(),
+    defaultValues: getInitialValues(undefined, hiredAt),
     mode: 'onBlur',
     resolver: zodResolver(EmployeeWorkExperienceSchema)
   });
@@ -76,7 +66,7 @@ export const CreateNewWorkExperienceModal = ({
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
           onSubmit={methods.handleSubmit(async (data) => {
-            const { startDate, endDate, ...payload } = data;
+            const { started_at, ended_at, ...payload } = data;
 
             const workExperience = {
               company_name: payload.company_name || '',
@@ -88,15 +78,15 @@ export const CreateNewWorkExperienceModal = ({
               project_id: Number(payload.project_name.id),
               responsibilities: payload.responsibilities || '',
               ended_at:
-                endDate.endMonth !== null && endDate.endYear
+                ended_at.month !== null && ended_at.year
                   ? getChangedDate(
-                      Number(endDate.endYear),
-                      Number(endDate.endMonth)
+                      Number(ended_at.year),
+                      Number(ended_at.month)
                     )
                   : null,
               started_at: getChangedDate(
-                Number(startDate.startYear),
-                Number(startDate.startMonth)
+                Number(started_at.year),
+                Number(started_at.month)
               )
             };
 
@@ -127,13 +117,13 @@ export const CreateNewWorkExperienceModal = ({
         gap="20px"
       >
         <FormProvider {...methods}>
-          <CompanyNameField options={getOptions(customers)} />
+          <CompanyNameField />
           <ProjectNameField />
-          <PositionField options={getOptions(positions)} />
+          <PositionField />
           <DateField />
           <DescriptionField />
           <ResponsibilitiesField />
-          <EnvironmentField options={getOptions(environments)} />
+          <EnvironmentField isAll />
         </FormProvider>
       </Flex>
     </BaseModal>

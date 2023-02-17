@@ -67,6 +67,17 @@ export type EmployeeCertificate = z.infer<typeof EmployeeCertificateSchema>;
 
 export type EmployeeWorkExperience = z.infer<typeof WorkExperienceSchema>;
 
+export type CreateEmployeeWorkExperience = {
+  company_name: string;
+  description: string;
+  hard_skill_ids: number[];
+  position_ids: number[];
+  project_id: number;
+  responsibilities: string;
+  ended_at: string | null;
+  started_at: string;
+};
+
 export type Employee = z.infer<typeof EmployeeSchema>;
 
 export type Customers = z.infer<typeof CustomersSchema>;
