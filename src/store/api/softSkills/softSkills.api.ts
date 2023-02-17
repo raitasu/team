@@ -1,4 +1,3 @@
-import { showGlobalError } from '~/shared/ui/components/Toast';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import {
@@ -6,6 +5,7 @@ import {
   type SoftSkill
 } from '~/store/api/employees/employees.types';
 
+import { getResponseValidator } from '../api.utils';
 import { EmployeeSchema } from '../employees/employees.schemas';
 
 const softSkillsApiSlice = rootApiSlice.injectEndpoints({
@@ -30,6 +30,9 @@ const softSkillsApiSlice = rootApiSlice.injectEndpoints({
                 id: 'LIST'
               }
             ],
+      onQueryStarted: getResponseValidator((data) =>
+        EmployeeSchema.shape.soft_skills.safeParse(data)
+      ),
       query: () => ({
         url: 'soft_skills',
         method: 'GET'
@@ -48,28 +51,9 @@ const softSkillsApiSlice = rootApiSlice.injectEndpoints({
           id: `${arg.id}`
         }
       ],
-      onQueryStarted: async (_, { queryFulfilled }) => {
-        try {
-          const response = await queryFulfilled;
-
-          const responseValidation = EmployeeSchema.shape.soft_skills.safeParse(
-            response.data
-          );
-
-          if (!responseValidation.success) {
-            console.error(responseValidation.error.errors);
-
-            showGlobalError({
-              titleTag: 'server_error',
-              descriptionTag: 'invalid_response_schema',
-              descriptionTagArgs: {
-                url: 'POST employees/{id}/batch_soft_skills'
-              }
-            });
-          }
-          // eslint-disable-next-line no-empty -- error cases are handled outside
-        } catch (err) {}
-      },
+      onQueryStarted: getResponseValidator((data) =>
+        EmployeeSchema.shape.soft_skills.safeParse(data)
+      ),
       query: ({ skills, id }) => ({
         url: `employees/${id}/batch_soft_skills`,
         method: 'POST',

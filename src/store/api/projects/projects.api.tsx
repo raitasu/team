@@ -6,6 +6,9 @@ import { ApiTags } from '~/store/api/api.constants';
 import { type ProjectsListResponse } from '~/store/api/projects/projects.types';
 import { type ProjectsFilters } from '~/store/slices/projects/projects.types';
 
+import { ProjectsResponseSchema } from './projects.schemas';
+import { getResponseValidator } from '../api.utils';
+
 const projectsApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
   endpoints: (builder) => ({
@@ -36,6 +39,9 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
                 id: 'LIST'
               }
             ],
+      onQueryStarted: getResponseValidator((data) =>
+        ProjectsResponseSchema.safeParse(data)
+      ),
       query: ({ page, elementsPerPage }) => {
         const params = new URLSearchParams({
           limit: `${elementsPerPage}`,

@@ -210,6 +210,11 @@ export const EmployeeLanguageLevel = [
   'proficiency'
 ] as const;
 
+export const AuthSchema = z.object({
+  access_token: z.string(),
+  refresh_token: z.string()
+});
+
 export const EmployeeLanguageLevelSchema = createUnionSchema(
   EmployeeLanguageLevel
 );
@@ -277,6 +282,15 @@ export const EmployeeSchema = z.object({
   hired_at: z.string().datetime().nullable(),
   years_of_experience: z.number().optional().nullable(),
   work_experiences: WorkExperienceSchema.array().nullable()
+});
+
+export const EmployeeResponseSchema = z.object({
+  items: EmployeeSchema.array(),
+  page: z.object({
+    limit: z.number(),
+    offset: z.number(),
+    total_count: z.number()
+  })
 });
 
 export const ShortEmployeeSchema = EmployeeSchema.pick({

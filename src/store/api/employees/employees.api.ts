@@ -2,12 +2,12 @@ import { type SortingState } from '@tanstack/react-table';
 
 import { type CreateEmployeeFormValues } from '~/features/employee/CreateEmployeeModal/employee.schema';
 import { type ChangedEmployeeGeneralInfoValues } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditGeneralInfo/editGeneralInfo.schemas';
-import { showGlobalError } from '~/shared/ui/components/Toast';
 import { getPageOffset } from '~/shared/utils/pagination.utils';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import { assignFilterParams } from '~/store/api/employees/employees.helpers';
 import {
+  EmployeeResponseSchema,
   EmployeeSchema,
   ShortEmployeeSchema
 } from '~/store/api/employees/employees.schemas';
@@ -16,6 +16,8 @@ import {
   type EmployeesListResponse
 } from '~/store/api/employees/employees.types';
 import { type EmployeesFilters } from '~/store/slices/employees/employees.types';
+
+import { getResponseValidator } from '../api.utils';
 
 const employeesApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
@@ -47,25 +49,10 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
                 id: 'LIST'
               }
             ],
-      onQueryStarted: async (_, { queryFulfilled }) => {
-        try {
-          const response = await queryFulfilled;
-          const responseValidation = ShortEmployeeSchema.array().safeParse(
-            response.data.items
-          );
 
-          if (!responseValidation.success) {
-            console.error(responseValidation.error.errors);
-
-            showGlobalError({
-              titleTag: 'server_error',
-              descriptionTag: 'invalid_response_schema',
-              descriptionTagArgs: { url: 'GET /employees' }
-            });
-          }
-          // eslint-disable-next-line no-empty -- error cases are handled outside
-        } catch (err) {}
-      },
+      onQueryStarted: getResponseValidator((data) =>
+        EmployeeResponseSchema.safeParse(data)
+      ),
       query: ({ page, elementsPerPage, filters = {}, sorting = [] }) => {
         const params = new URLSearchParams({
           limit: `${elementsPerPage}`,
@@ -95,6 +82,9 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
       providesTags: (employee) => [
         { type: ApiTags.Employees, id: `${employee ? employee.id : 'ENTITY'}` }
       ],
+      onQueryStarted: getResponseValidator((data) =>
+        EmployeeSchema.safeParse(data)
+      ),
       query: (id) => ({
         url: `employees/${id}`,
         method: 'GET'
@@ -102,23 +92,9 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
     }),
     createEmployee: builder.mutation<void, CreateEmployeeFormValues>({
       invalidatesTags: [ApiTags.Employees],
-      onQueryStarted: async (_, { queryFulfilled }) => {
-        try {
-          const response = await queryFulfilled;
-          const responseValidation = EmployeeSchema.safeParse(response.data);
-
-          if (!responseValidation.success) {
-            console.error(responseValidation.error.errors);
-
-            showGlobalError({
-              titleTag: 'server_error',
-              descriptionTag: 'invalid_response_schema',
-              descriptionTagArgs: { url: 'POST /employees' }
-            });
-          }
-          // eslint-disable-next-line no-empty -- error cases are handled outside
-        } catch (err) {}
-      },
+      onQueryStarted: getResponseValidator((data) =>
+        EmployeeSchema.safeParse(data)
+      ),
       query: (employee) => {
         const body = new FormData();
 
@@ -154,26 +130,9 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
           id: `${employee ? employee.id : 'ENTITY'}`
         }
       ],
-      onQueryStarted: async (_, { queryFulfilled }) => {
-        try {
-          const response = await queryFulfilled;
-          const responseValidation = ShortEmployeeSchema.safeParse(
-            response.data
-          );
-
-          if (!responseValidation.success) {
-            console.error(responseValidation.error.errors);
-            showGlobalError({
-              titleTag: 'server_error',
-              descriptionTag: 'invalid_response_schema',
-              descriptionTagArgs: {
-                url: 'PATCH employees/{id}'
-              }
-            });
-          }
-          // eslint-disable-next-line no-empty -- error cases are handled outside
-        } catch (err) {}
-      },
+      onQueryStarted: getResponseValidator((data) =>
+        ShortEmployeeSchema.safeParse(data)
+      ),
       query: ({ data, id }) => {
         const body = new FormData();
 

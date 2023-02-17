@@ -2,6 +2,9 @@ import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import { type EmployeePosition } from '~/store/api/employees/employees.types';
 
+import { PositionSchema } from './position.schemas';
+import { getResponseValidator } from '../api.utils';
+
 const positionsApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
   endpoints: (builder) => ({
@@ -24,6 +27,9 @@ const positionsApiSlice = rootApiSlice.injectEndpoints({
                 id: 'LIST'
               }
             ],
+      onQueryStarted: getResponseValidator((data) =>
+        PositionSchema.array().safeParse(data)
+      ),
       query: () => ({
         url: 'positions',
         method: 'GET'

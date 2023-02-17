@@ -1,4 +1,3 @@
-import { showGlobalError } from '~/shared/ui/components/Toast';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import {
@@ -7,7 +6,11 @@ import {
   type EmployeeWorkExperience
 } from '~/store/api/employees/employees.types';
 
-import { EmployeeSchema } from '../employees/employees.schemas';
+import { getResponseValidator } from '../api.utils';
+import {
+  CustomersSchema,
+  EmployeeSchema
+} from '../employees/employees.schemas';
 
 const workExperienceApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
@@ -34,27 +37,9 @@ const workExperienceApiSlice = rootApiSlice.injectEndpoints({
           id: `${arg.employeesId}`
         }
       ],
-      onQueryStarted: async (_, { queryFulfilled }) => {
-        try {
-          const response = await queryFulfilled;
-
-          const responseValidation =
-            EmployeeSchema.shape.work_experiences.safeParse(response.data);
-
-          if (!responseValidation.success) {
-            console.error(responseValidation.error.errors);
-
-            showGlobalError({
-              titleTag: 'server_error',
-              descriptionTag: 'invalid_response_schema',
-              descriptionTagArgs: {
-                url: 'POST employees/{employees_id}/work_experiences'
-              }
-            });
-          }
-          // eslint-disable-next-line no-empty -- error cases are handled outside
-        } catch (err) {}
-      },
+      onQueryStarted: getResponseValidator((data) =>
+        EmployeeSchema.shape.work_experiences.safeParse(data)
+      ),
       query: ({ workExperience, employeesId }) => ({
         url: `employees/${employeesId}/work_experiences`,
         method: 'POST',
@@ -62,12 +47,18 @@ const workExperienceApiSlice = rootApiSlice.injectEndpoints({
       })
     }),
     getCustomers: builder.query<Customers[], void>({
+      onQueryStarted: getResponseValidator((data) =>
+        CustomersSchema.array().safeParse(data)
+      ),
       query: () => ({
         url: `customers`,
         method: 'GET'
       })
     }),
     getCompanyProjects: builder.query<EmployeeProject[], string>({
+      onQueryStarted: getResponseValidator((data) =>
+        EmployeeSchema.shape.projects.array().safeParse(data)
+      ),
       query: (name) => ({
         url: `company_projects?name=${name}`,
         method: 'GET'

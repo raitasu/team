@@ -1,13 +1,17 @@
-import { showGlobalError } from '~/shared/ui/components/Toast';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import { type AuthTokens } from '~/store/api/authentication/authentication.types';
-import { EmployeeSchema } from '~/store/api/employees/employees.schemas';
+import {
+  AuthSchema,
+  EmployeeSchema
+} from '~/store/api/employees/employees.schemas';
 import { type Employee } from '~/store/api/employees/employees.types';
 import {
   loggedIn,
   tokenReceived
 } from '~/store/slices/authentication/authentication.slice';
+
+import { getResponseValidator } from '../api.utils';
 
 export const getAuthApiUrl = () => {
   const queryParams = new URLSearchParams({
@@ -34,25 +38,11 @@ const authenticationApiSlice = rootApiSlice.injectEndpoints({
         url: 'me',
         method: 'GET'
       }),
-      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
-        try {
-          const response = await queryFulfilled;
-          const responseValidation = EmployeeSchema.safeParse(response.data);
+      onQueryStarted: getResponseValidator((data, dispatch) => {
+        dispatch(loggedIn());
 
-          if (!responseValidation.success) {
-            console.error(responseValidation.error.errors);
-
-            showGlobalError({
-              titleTag: 'server_error',
-              descriptionTag: 'invalid_response_schema',
-              descriptionTagArgs: { url: 'GET /me' }
-            });
-          }
-
-          dispatch(loggedIn());
-          // eslint-disable-next-line no-empty -- error cases are handled outside
-        } catch (err) {}
-      }
+        return EmployeeSchema.safeParse(data);
+      })
     }),
     getAccessToken: builder.query<AuthTokens, string>({
       providesTags: [ApiTags.Authentication],
@@ -65,14 +55,11 @@ const authenticationApiSlice = rootApiSlice.injectEndpoints({
           client_id: import.meta.env.VITE_ALFRED_CLIENT_ID
         }
       }),
-      onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
-        try {
-          const { data } = await queryFulfilled;
+      onQueryStarted: getResponseValidator((data, dispatch) => {
+        dispatch(tokenReceived(data));
 
-          dispatch(tokenReceived(data));
-          // eslint-disable-next-line no-empty -- error cases are handled outside
-        } catch (err) {}
-      }
+        return AuthSchema.safeParse(data);
+      })
     })
   })
 });
