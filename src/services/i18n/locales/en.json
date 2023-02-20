@@ -546,6 +546,12 @@
       "end_year": "Cannot be set earlier than the start date",
       "start_year": "Cannot be set later than the current date"
     },
+    "projects_tabs": {
+      "attachments": "Attachments",
+      "main_information": "Main information",
+      "slides": "Slides",
+      "team_management": "Team management"
+    },
     "social_networks": {
       "discord": "Discord",
       "facebook": "Facebook",

@@ -13,7 +13,7 @@ const ProjectTypes = ['external', 'internal'] as const;
 const ProjectStatusSchema = createUnionSchema(ProjectStatuses);
 const ProjectTypesSchema = createUnionSchema(ProjectTypes);
 
-const ProjectSchema = z.object({
+export const ProjectSchema = z.object({
   id: z.number(),
   name: z.string(),
   status: ProjectStatusSchema,
@@ -28,7 +28,9 @@ const ProjectSchema = z.object({
     .array(),
   links: z.string(),
   customer_name: z.string().nullable(),
-  contractor_name: z.string().nullable()
+  contractor_name: z.string().nullable(),
+  started_at: z.string().nullable(),
+  ended_at: z.string().nullable()
 });
 
 export const ProjectsResponseSchema = z.object({

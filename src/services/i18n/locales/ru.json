@@ -552,6 +552,12 @@
       "end_year": "Нельзя установить ранее даты старта",
       "start_year": "Нельзя установить позже текущей даты"
     },
+    "projects_tabs": {
+      "attachments": "Education",
+      "main_information": "CV",
+      "slides": "Publication",
+      "team_management": "Personal Information"
+    },
     "social_networks": {
       "discord": "Дискорд",
       "facebook": "Фейсбук",

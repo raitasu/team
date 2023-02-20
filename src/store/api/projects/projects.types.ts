@@ -13,9 +13,11 @@ export interface Project {
   links: string;
   customer_name: string;
   contractor_name: string;
+  started_at: string;
+  ended_at: string;
 }
 
-interface ProjectResponse {
+export interface ProjectResponse {
   id: number;
   name: string;
   status: ProjectStatus;
@@ -24,6 +26,8 @@ interface ProjectResponse {
   links: string;
   customer_name: string;
   contractor_name: string;
+  started_at: string;
+  ended_at: string;
 }
 
 type ShortEmployee = {
