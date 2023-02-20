@@ -1,7 +1,8 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Box } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/dist/query/react';
 import { useParams } from 'react-router-dom';
 
+import { CVSideNav } from '~/features/createCV/sideNav/CVSideNav';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
 import { PageToolbox } from '~/shared/layout/Page/PageToolbox';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
@@ -16,33 +17,18 @@ export const CreateCV = () => {
     <PageContainer>
       <PageToolbox />
       {isLoading && <PageLoader />}
-
-      <Flex gap="20px">
-        <Flex
-          flexGrow="0.5"
-          flexDirection="column"
-          alignItems="flex-start"
-          padding="20px 14px"
-          gap="10px"
-          bgColor="white"
-          border="1px solid var(--chakra-colors-brand-stroke)"
-          borderRadius="4px"
-        />
-        <Flex
-          flexGrow="1"
-          border="1px solid var(--chakra-colors-brand-stroke)"
-          borderRadius="4px"
-          bgColor="white"
-        >
+      <Flex
+        width="100%"
+        overflow="auto"
+        gap="20px"
+        height="100%"
+        alignItems="top"
+      >
+        <CVSideNav />
+        <Box>
           {data && JSON.stringify(data)}
           {error && JSON.stringify(error)}
-        </Flex>
-        <Flex
-          flexGrow="1"
-          border="1px solid var(--chakra-colors-brand-stroke)"
-          borderRadius="4px"
-          bgColor="white"
-        />
+        </Box>
       </Flex>
     </PageContainer>
   );

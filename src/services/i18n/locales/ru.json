@@ -228,6 +228,28 @@
         "welcome": "Добро пожаловать!"
       }
     },
+    "cv": {
+      "blocks": {
+        "avatar": "Аватар",
+        "certificates": "Сертификаты",
+        "description": "Описание",
+        "education": "Образование",
+        "hard_skills": "Профессиональные навыки",
+        "languages": "Языки",
+        "position": "Позиция",
+        "publications": "Публикации",
+        "soft_skills": "Общие навыки",
+        "work_experience": "Опыт работы"
+      },
+      "navigation": {
+        "back_to_profile": "Назад к профилю",
+        "blocks": "Блоки",
+        "delete": "Удалить",
+        "export_pdf": "Экспортировать PDF",
+        "save": "Сохранить",
+        "save_as": "Сохранить как..."
+      }
+    },
     "employee": {
       "actions": {
         "add_certificate": "Новый сертификат",

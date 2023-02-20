@@ -228,6 +228,28 @@
         "welcome": "Welcome aboard!"
       }
     },
+    "cv": {
+      "blocks": {
+        "avatar": "Avatar",
+        "certificates": "Certificates",
+        "description": "Description",
+        "education": "Education",
+        "hard_skills": "Hard Skills",
+        "languages": "Languages",
+        "position": "Position",
+        "publications": "Publications",
+        "soft_skills": "Soft Skills",
+        "work_experience": "Work Experience"
+      },
+      "navigation": {
+        "back_to_profile": "Back to profile",
+        "blocks": "Blocks",
+        "delete": "Delete",
+        "export_pdf": "Export PDF",
+        "save": "Save",
+        "save_as": "Save as..."
+      }
+    },
     "employee": {
       "actions": {
         "add_certificate": "New certificate",
