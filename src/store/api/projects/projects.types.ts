@@ -1,4 +1,5 @@
 import {
+  type ProjectCustomer,
   type ProjectStatus,
   type ProjectType
 } from '~/features/projects/Tables/tables.constants';
@@ -11,6 +12,7 @@ export interface Project {
   project_type: ProjectType;
   team: ShortEmployee[];
   links: string;
+  customer: ProjectCustomer;
   customer_name: string;
   contractor_name: string;
   started_at: string;
@@ -24,7 +26,9 @@ export interface ProjectResponse {
   project_type: ProjectType;
   team: ShortEmployee[];
   links: string;
+  customer: ProjectCustomer;
   customer_name: string;
+
   contractor_name: string;
   started_at: string;
   ended_at: string;

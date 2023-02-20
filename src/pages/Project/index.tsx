@@ -3,6 +3,7 @@ import { skipToken } from '@reduxjs/toolkit/dist/query/react';
 import isFinite from 'lodash/isFinite';
 import { useParams } from 'react-router-dom';
 
+import { ProjectCard } from '~/features/project/ProjectCard';
 import {
   COLUMN_GAP,
   containerStyles,
@@ -51,7 +52,7 @@ export const Project = () => {
             padding="40px"
             {...containerStyles}
           >
-            Project Card
+            <ProjectCard project={project} />
           </Box>
         </Flex>
         <Box

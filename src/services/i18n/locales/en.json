@@ -239,8 +239,8 @@
         "create_cv": "Create CV",
         "create_cv_confirmation": "Do you want to create CV?",
         "create_profile": "Create profile",
-        "created_new_work_experience": "New work experience was created!",
         "create_project": "Create project",
+        "created_new_work_experience": "New work experience was created!",
         "delete_cv": "Delete CV",
         "delete_profile": "Delete profile",
         "download_cv": "Download CV",
@@ -454,7 +454,10 @@
     "projects": {
       "actions": {
         "add_project": "New project",
+        "copy_project": "Copy project",
+        "create_slide": "Create slide",
         "created_new_project": "Project was created!",
+        "delete_project": "Delete project",
         "removed_project": "Project deleted!"
       },
       "errors": {
@@ -462,6 +465,7 @@
         "no_projects_data": "No projects data",
         "unknown_error": "Oops, something went wrong"
       },
+      "project": "project",
       "status": {
         "completed": "Completed",
         "in_progress": "In progress",

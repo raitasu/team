@@ -239,8 +239,8 @@
         "create_cv": "Создать резюме",
         "create_cv_confirmation": "Вы хотите создать резюме?",
         "create_profile": "Создать профиль",
-        "created_new_work_experience": "Новый опыт был создан!",
         "create_project": "Создать проект",
+        "created_new_work_experience": "Новый опыт был создан!",
         "delete_cv": "Удалить резюме",
         "delete_profile": "Удалить профиль",
         "download_cv": "Скачать резюме",
@@ -460,7 +460,10 @@
     "projects": {
       "actions": {
         "add_project": "Новый проект",
+        "copy_project": "Копировать проект",
+        "create_slide": "Создать слайд",
         "created_new_project": "Проект создан!",
+        "delete_project": "Удалить проект",
         "removed_project": "Проект удалён!"
       },
       "errors": {
@@ -468,6 +471,7 @@
         "no_projects_data": "Нет данных о проектах",
         "unknown_error": "Упс, что-то пошло не так."
       },
+      "project": "проект",
       "status": {
         "completed": "Завершен",
         "in_progress": "В процессе",
