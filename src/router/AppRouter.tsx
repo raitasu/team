@@ -78,7 +78,7 @@ export const AppRouter = () => (
             }
           />
           <Route
-            path={`${PagePaths.Employees}/:id/add-cv`}
+            path={`${PagePaths.Employees}/:employeeId/cv/:cvId`}
             element={
               <Suspense fallback={<PageLoader />}>
                 <LoadableCreateCV />

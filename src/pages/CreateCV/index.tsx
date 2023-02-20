@@ -1,17 +1,21 @@
-import { Flex, Box } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/dist/query/react';
 import { useParams } from 'react-router-dom';
 
+import { CVContainer } from '~/features/createCV/CV';
 import { CVSideNav } from '~/features/createCV/sideNav/CVSideNav';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
 import { PageToolbox } from '~/shared/layout/Page/PageToolbox';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
-import { useGetEmployeeQuery } from '~/store/api/employees/employees.api';
+import { useGetCVQuery } from '~/store/api/createCV/createCV.api';
 
 export const CreateCV = () => {
-  const { id } = useParams();
+  const { employeeId, cvId } = useParams();
 
-  const { data, error, isLoading } = useGetEmployeeQuery(id ? +id : skipToken);
+  const { data, isLoading } = useGetCVQuery({
+    employeeId: employeeId || String(skipToken),
+    cvId: cvId || String(skipToken)
+  });
 
   return (
     <PageContainer>
@@ -25,10 +29,7 @@ export const CreateCV = () => {
         alignItems="top"
       >
         <CVSideNav />
-        <Box>
-          {data && JSON.stringify(data)}
-          {error && JSON.stringify(error)}
-        </Box>
+        {data && <CVContainer cv={data} />}
       </Flex>
     </PageContainer>
   );

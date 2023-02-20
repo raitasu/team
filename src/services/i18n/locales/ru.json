@@ -229,6 +229,9 @@
       }
     },
     "cv": {
+      "actions": {
+        "cv_saved": "Резюме сохранено"
+      },
       "blocks": {
         "avatar": "Аватар",
         "certificates": "Сертификаты",
@@ -263,6 +266,7 @@
         "create_profile": "Создать профиль",
         "create_project": "Создать проект",
         "created_new_work_experience": "Новый опыт был создан!",
+        "cv_name": "Имя резюме",
         "delete_cv": "Удалить резюме",
         "delete_profile": "Удалить профиль",
         "download_cv": "Скачать резюме",

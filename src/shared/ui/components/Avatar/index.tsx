@@ -22,6 +22,10 @@ const sizes: SizeType = {
     width: '250px',
     height: '250px',
     borderWeight: '10px'
+  },
+  cv: {
+    width: '225px',
+    height: '225px'
   }
 };
 
@@ -49,7 +53,10 @@ const getSizeStyles = (
   }
 };
 
-const getStyles = (size: 'sm' | 'md' | 'lg', variant?: EmployeeStatus) => {
+const getStyles = (
+  size: 'sm' | 'md' | 'lg' | 'cv',
+  variant?: EmployeeStatus
+) => {
   switch (size) {
     case 'sm':
       return {
@@ -58,7 +65,8 @@ const getStyles = (size: 'sm' | 'md' | 'lg', variant?: EmployeeStatus) => {
       };
     case 'md':
       return sizes[size];
-
+    case 'cv':
+      return sizes[size];
     case 'lg':
       return {
         ...sizes[size],

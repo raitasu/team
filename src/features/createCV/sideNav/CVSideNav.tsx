@@ -25,7 +25,7 @@ import { Checkbox } from '~/shared/ui/components/Checkbox';
 export const CVSideNav = () => {
   const [t] = useTranslation();
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { employeeId } = useParams();
 
   return (
     <Box
@@ -46,8 +46,8 @@ export const CVSideNav = () => {
         variant="primaryOutline"
         leftIcon={<MdArrowBack />}
         onClick={() => {
-          if (id) {
-            navigate(`${PagePaths.Employees}/${id}`);
+          if (employeeId) {
+            navigate(`${PagePaths.Employees}/${employeeId}`);
           }
         }}
       >
@@ -85,6 +85,7 @@ export const CVSideNav = () => {
               >
                 {Object.values(CvBlocks).map((key) => (
                   <Checkbox
+                    key={key}
                     variant="outlined"
                     value={key}
                     label={t(`domains:cv.blocks.${key}`)}
