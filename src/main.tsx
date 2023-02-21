@@ -32,7 +32,7 @@ const app = (
 if (import.meta.env.VITE_USE_MOCK_SERVER) {
   import('./mocks/browser')
     .then(({ worker }) => worker.start({ onUnhandledRequest: 'bypass' }))
-    .then(() => fetch(`${import.meta.env.VITE_PUBLIC_API_URL}health`))
+    .then(() => fetch(`${import.meta.env.VITE_API_HOST}/api/v1/health`))
     .then(() => {
       root.render(app);
     })

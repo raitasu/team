@@ -6,7 +6,7 @@ export const getInitialState = (publication: EmployeePublication) => ({
   description: publication.description,
   url: publication.url || null,
   file: publication.file
-    ? `${import.meta.env.VITE_GALLERY_BASE_URL}${publication.file}`
+    ? `${import.meta.env.VITE_API_HOST}${publication.file}`
     : null,
   start_date: publication.start_date
 });

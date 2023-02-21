@@ -13,6 +13,7 @@
   "scripts": {
     "audit:deadcode": "npx ts-prune >deadcode.txt",
     "build": "vite build",
+    "build:production": "cross-env NODE_ENV=production npm run build -- --mode production",
     "build:staging": "cross-env NODE_ENV=production npm run build -- --mode staging",
     "build:test": "cross-env NODE_ENV=production npm run build -- --mode test",
     "build-storybook": "cross-env NODE_OPTIONS=--openssl-legacy-provider build-storybook",
@@ -43,7 +44,7 @@
     "@emotion/styled": "11.10.6",
     "@fontsource/roboto": "4.5.8",
     "@hookform/resolvers": "2.9.11",
-    "@reduxjs/toolkit": "1.9.2",
+    "@reduxjs/toolkit": "1.9.3",
     "@tanstack/react-table": "8.7.9",
     "async-mutex": "0.4.0",
     "chakra-react-select": "4.4.3",
@@ -65,7 +66,7 @@
     "zod": "3.20.6"
   },
   "devDependencies": {
-    "@babel/core": "7.20.12",
+    "@babel/core": "7.21.0",
     "@babel/eslint-parser": "7.19.1",
     "@chakra-ui/cli": "2.3.0",
     "@commitlint/cli": "17.4.4",
@@ -91,8 +92,8 @@
     "@types/react-avatar-editor": "13.0.0",
     "@types/react-datepicker": "4.8.0",
     "@types/react-dom": "18.0.11",
-    "@typescript-eslint/eslint-plugin": "5.52.0",
-    "@typescript-eslint/parser": "5.52.0",
+    "@typescript-eslint/eslint-plugin": "5.53.0",
+    "@typescript-eslint/parser": "5.53.0",
     "@vitejs/plugin-basic-ssl": "1.0.1",
     "@vitejs/plugin-react": "3.1.0",
     "@vitejs/plugin-react-swc": "3.2.0",

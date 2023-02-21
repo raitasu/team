@@ -1,27 +1,17 @@
-name: Staging
+name: Production
 
 on:
-  workflow_call:
-    secrets:
-      STAGE_AWS_ACCESS_KEY_ID:
-        required: true
-      STAGE_AWS_REGION:
-        required: true
-      STAGE_AWS_S3_BUCKET:
-        required: true
-      STAGE_AWS_SECRET_ACCESS_KEY:
-        required: true
-      STAGE_CLOUDFRONT_DISTRIBUTION_ID:
-        required: true
+  release:
+    types: [created]
   workflow_dispatch:
 
 concurrency:
-  group: deploy-staging
+  group: deploy-production
   cancel-in-progress: true
 
 jobs:
   deploy:
-    name: Staging Deploy
+    name: Production Deploy
     runs-on: self-hosted
     steps:
       - name: Checkout 🛎️
@@ -36,7 +26,7 @@ jobs:
         env:
           VITE_APP_VERSION: ${{ github.ref_type == 'tag' && github.ref_name || github.sha }}
           NODE_OPTIONS: '--max_old_space_size=3072'
-        run: npm run build:staging
+        run: npm run build:production
 
       - name: S3/CloudFront Deploy
         uses: staevs/s3-deploy-action@v1.2.2
@@ -44,10 +34,10 @@ jobs:
         with:
           args: --follow-symlinks --delete --no-progress --sse AES256 --cache-control max-age=600
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.STAGE_AWS_ACCESS_KEY_ID }}
-          AWS_REGION: ${{ secrets.STAGE_AWS_REGION }}
-          AWS_S3_BUCKET: ${{ secrets.STAGE_AWS_S3_BUCKET }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.STAGE_AWS_SECRET_ACCESS_KEY }}
-          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.STAGE_CLOUDFRONT_DISTRIBUTION_ID }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+          AWS_REGION: ${{ secrets.PROD_AWS_REGION }}
+          AWS_S3_BUCKET: ${{ secrets.PROD_AWS_S3_BUCKET }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.PROD_CLOUDFRONT_DISTRIBUTION_ID }}
           S3_SOURCE_DIR: 'build'
           USE_GZIP_COMPRESSION: true

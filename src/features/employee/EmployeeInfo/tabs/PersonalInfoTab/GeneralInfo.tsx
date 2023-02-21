@@ -108,6 +108,7 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
               <Text
                 color="brand.lightGray"
                 ml="4px"
+                as="span"
               >
                 (
                 {t(
@@ -123,6 +124,7 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
               <Text
                 color="brand.lightGray"
                 ml="4px"
+                as="span"
               >
                 (
                 {t(

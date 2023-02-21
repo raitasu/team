@@ -5,9 +5,10 @@ import { type EmployeeCertificate } from '~/store/api/employees/employees.types'
 export const getInitialState = (certificate: EmployeeCertificate) => ({
   name: certificate.name,
   issued_by: certificate.issued_by,
-  file: certificate.file
-    ? `${import.meta.env.VITE_GALLERY_BASE_URL}${certificate.file as string}`
-    : null,
+  file:
+    typeof certificate.file === 'string'
+      ? `${import.meta.env.VITE_API_HOST}${certificate.file}`
+      : null,
   link: certificate.link,
   start_date: {
     month: getMonth(new Date(certificate.start_date)).toString(),

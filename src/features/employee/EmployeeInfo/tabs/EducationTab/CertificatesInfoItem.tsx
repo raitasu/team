@@ -69,9 +69,7 @@ export const CertificatesInfoItem = ({
             minWidth="min-content"
           >
             <Link
-              href={`${import.meta.env.VITE_GALLERY_BASE_URL}/${
-                certificate.file
-              }`}
+              href={`${import.meta.env.VITE_API_HOST}${certificate.file}`}
               target="_blank"
             >
               <ControlButton

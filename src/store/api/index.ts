@@ -17,7 +17,7 @@ export const rootApiSlice = createApi({
 
       return headers;
     },
-    baseUrl: import.meta.env.VITE_PUBLIC_API_URL
+    baseUrl: `${import.meta.env.VITE_API_HOST}/api/v1`
   }),
   endpoints: () => ({})
 });

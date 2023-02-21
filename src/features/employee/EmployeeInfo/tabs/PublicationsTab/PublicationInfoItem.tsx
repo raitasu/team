@@ -67,9 +67,7 @@ export const PublicationInfoItem = ({
             minWidth="min-content"
           >
             <Link
-              href={`${import.meta.env.VITE_GALLERY_BASE_URL}${
-                publication.file
-              }`}
+              href={`${import.meta.env.VITE_API_HOST}${publication.file}`}
               target="_blank"
             >
               <ControlButton

@@ -11,7 +11,7 @@ import {
 import { sleep } from '~/mocks/mocks.utils';
 
 const getCurrentUserHandler = rest.get(
-  `${import.meta.env.VITE_PUBLIC_API_URL}me`,
+  `${import.meta.env.VITE_API_HOST}/api/v1/me`,
   async (_, res, ctx) => {
     const me = getEmployees()[0];
 
@@ -20,7 +20,7 @@ const getCurrentUserHandler = rest.get(
 );
 
 const getEmployeeHandler = rest.get(
-  `${import.meta.env.VITE_PUBLIC_API_URL}employees/:id`,
+  `${import.meta.env.VITE_API_HOST}/api/v1/employees/:id`,
   async ({ params: { id } }, res, ctx) => {
     const employee = getEmployeeById(+id);
 
@@ -33,7 +33,7 @@ const getEmployeeHandler = rest.get(
 );
 
 const createEmployeeHandler = rest.post(
-  `${import.meta.env.VITE_PUBLIC_API_URL}employees`,
+  `${import.meta.env.VITE_API_HOST}/api/v1/employees`,
   async (req, res, ctx) => {
     const formData = req.body as {
       first_name: CreateEmployeeValues['first_name'];
@@ -60,7 +60,7 @@ const createEmployeeHandler = rest.post(
 );
 
 const getEmployeesHandler = rest.get(
-  `${import.meta.env.VITE_PUBLIC_API_URL}employees`,
+  `${import.meta.env.VITE_API_HOST}/api/v1/employees`,
   async ({ url: { searchParams, search } }, res, ctx) => {
     const limit = +(searchParams.get('limit') || 10);
     const offset = +(searchParams.get('offset') || 0);

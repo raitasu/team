@@ -113,7 +113,7 @@ export const EmployeeAvatarEditor = ({
         <Avatar
           src={
             avatarUrl
-              ? `${import.meta.env.VITE_GALLERY_BASE_URL}${avatarUrl}`
+              ? `${import.meta.env.VITE_API_HOST}${avatarUrl}`
               : undefined
           }
           variant={status}

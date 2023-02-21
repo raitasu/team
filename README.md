@@ -2,10 +2,12 @@
 
 ![Build](https://github.com/cybergizer-hq/team-front/actions/workflows/main.yml/badge.svg?branch=main)
 ![Staging Deploy](https://github.com/cybergizer-hq/team-front/actions/workflows/deploy_staging.yml/badge.svg?branch=main)
+![Production Deploy](https://github.com/cybergizer-hq/team-front/actions/workflows/deploy_production.yml/badge.svg?branch=main)
 
 ## Application links
 
 - [Staging](https://d2xyex20ve59hj.cloudfront.net/)
+- [Production](https://d35ovcr2q762qb.cloudfront.net/)
 - [Storybook](https://main--63494e41f8bea2d9d59c6279.chromatic.com/)
 
 ## Installation
@@ -35,16 +37,16 @@
 
 We're using [Vitest](https://vitest.dev/) for unit tests and [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress) for integration tests
 
-| Command                  | Description                                                                    |
-| ------------------------ | ------------------------------------------------------------------------------ |
-| `build:test`             | Builds application to use in Cypress tests.                                    |
-| `cy:open`                | Opens Cypress UI.                                                              |
-| `cy:run`                 | Runs Cypress tests.                                                            |
-| `start:test`             | Runs dev server to use in Cypress tests.                                       |
-| `test`                   | Runs unit tests in watch mode.                                                 |
-| `test:ci`                | Runs unit tests once and outputs test coverage.                                |
-| `test:integration:debug` | Builds application to use in Cypress tests and serves files from build folder. |
-| `preview:test`           | Serves files from build folder to use in Cypress tests.                        |
+| Command                          | Description                                                                    |
+| -------------------------------- | ------------------------------------------------------------------------------ |
+| `npm run build:test`             | Builds application to use in Cypress tests.                                    |
+| `npm run cy:open`                | Opens Cypress UI.                                                              |
+| `npm run cy:run`                 | Runs Cypress tests.                                                            |
+| `npm run start:test`             | Runs dev server to use in Cypress tests.                                       |
+| `npm run test`                   | Runs unit tests in watch mode.                                                 |
+| `npm run test:ci`                | Runs unit tests once and outputs test coverage.                                |
+| `npm run test:integration:debug` | Builds application to use in Cypress tests and serves files from build folder. |
+| `npm run preview:test`           | Serves files from build folder to use in Cypress tests.                        |
 
 ### Running unit tests
 
@@ -152,6 +154,6 @@ Project follows [Conventional Commits specification](https://www.conventionalcom
 - [Swagger](https://team-stage.cybergizer.com/api-docs/index.html#/Employees/get_employees)
 - [Repository](https://github.com/cybergizer-hq/team)
 
-| Environment variable  | Description | Location             |
-| --------------------- | ----------- | -------------------- |
-| `VITE_PUBLIC_API_URL` | API host    | `.env.{environment}` |
+| Environment variable | Description | Location             |
+| -------------------- | ----------- | -------------------- |
+| `VITE_API_HOST`      | API host    | `.env.{environment}` |

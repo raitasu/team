@@ -36,9 +36,7 @@ export const EditCertificateInfoModal = ({
   certificate: EmployeeCertificate | undefined;
   isOpen: boolean;
   onClose: () => void;
-  onConfirm: (
-    values: Partial<EmployeeCertificate> | EmployeeCertificate
-  ) => void;
+  onConfirm: (values: Partial<EmployeeCertificate>) => void;
   isLoading: boolean;
 }) => {
   const [t] = useTranslation();

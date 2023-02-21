@@ -55,7 +55,7 @@ export const Profile = ({
             variant={employee.status}
             src={
               employee.avatar
-                ? `${import.meta.env.VITE_GALLERY_BASE_URL}${employee.avatar}`
+                ? `${import.meta.env.VITE_API_HOST}${employee.avatar}`
                 : undefined
             }
           />
