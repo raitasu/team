@@ -1,4 +1,4 @@
-import { Box, Img, useMediaQuery } from '@chakra-ui/react';
+import { Flex, Img, Text, useMediaQuery } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
@@ -10,16 +10,21 @@ export const HeaderLogo = () => {
   const [isLagerThan] = useMediaQuery(`(min-width: ${SMALL_SCREEN_WIDTH})`);
 
   return (
-    <Box flexShrink={0}>
+    <Flex
+      flexShrink={0}
+      flexDirection="column"
+    >
       <NavLink to={PagePaths.Employees}>
         <Img
-          height="40px"
-          minHeight="40px"
+          flex={1}
+          maxHeight="40px"
+          minHeight="20px"
           src={isLagerThan ? logo : smallLogo}
           width="auto"
           alt="Logo team"
         />
       </NavLink>
-    </Box>
+      <Text as="span">{import.meta.env.VITE_APP_VERSION.slice(0, 8)}</Text>
+    </Flex>
   );
 };
