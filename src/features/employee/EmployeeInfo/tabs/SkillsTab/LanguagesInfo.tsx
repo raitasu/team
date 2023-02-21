@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { type EmployeeLanguage } from '~/store/api/employees/employees.types';
 
-import { type ChangedEmployeeLanguageInfoValues } from './modals/EditLanguagesInfo/EditLanguagesInfo.shema';
 import { EditLanguagesInfoModal } from './modals/EditLanguagesInfo/EditLanguagesInfoModal';
 import { InfoSection } from '../components/InfoSection';
 
@@ -22,10 +21,6 @@ export const LanguagesInfo = ({
     onClose: onCloseLanguagesInfoTab
   } = useDisclosure();
 
-  const changeLanguagesInfo = (values: ChangedEmployeeLanguageInfoValues) => {
-    console.debug(values);
-  };
-
   return (
     <InfoSection
       title={t('domains:employee.titles.profile_tabs.skills.languages')}
@@ -43,10 +38,9 @@ export const LanguagesInfo = ({
         </Text>
       ))}
       <EditLanguagesInfoModal
-        languages={languages}
+        languagesArray={languages}
         isOpenLanguagesInfoTab={isOpenLanguagesInfoTab}
         onCloseLanguagesInfoTab={onCloseLanguagesInfoTab}
-        onConfirm={changeLanguagesInfo}
       />
     </InfoSection>
   );

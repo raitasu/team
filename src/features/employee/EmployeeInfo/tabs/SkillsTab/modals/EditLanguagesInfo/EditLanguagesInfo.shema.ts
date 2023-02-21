@@ -11,16 +11,21 @@ const EmployeesEditLanguageSchema = z.object({
   level: EmployeeLanguageLevelSchema.nullable()
 });
 
-const EditLanguageSchema = z.object({
-  languages: EmployeesEditLanguageSchema.array()
+const EmployeesLanguageSchema = z.object({
+  id: z.number().optional(),
+  name: EmployeeLanguagesSchema,
+  level: EmployeeLanguageLevelSchema
 });
 
 export const EmployeeLanguageValidationSchema = z.object({
+  languages: EmployeesLanguageSchema.array()
+});
+
+const LanguageEditSchema = z.object({
   languages: EmployeesEditLanguageSchema.array()
 });
 
-export type LanguagesInfoFormValues = z.infer<typeof EditLanguageSchema>;
-
-export type ChangedEmployeeLanguageInfoValues = {
-  [DataKey in keyof LanguagesInfoFormValues]?: LanguagesInfoFormValues[DataKey];
-};
+export type LanguagesInfoFormValues = z.infer<typeof LanguageEditSchema>;
+export type EmployeeLanguageValues = z.infer<
+  typeof EmployeesEditLanguageSchema
+>;

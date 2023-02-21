@@ -1,39 +1,59 @@
+import { useEffect } from 'react';
+
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  type FetchBaseQueryError,
+  skipToken
+} from '@reduxjs/toolkit/dist/query/react';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useFieldArray, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
+import { useParams } from 'react-router-dom';
 
+import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
 import { Button } from '~/shared/ui/components/Button';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { type EmployeeLanguage } from '~/store/api/employees/employees.types';
+import { useUpdateLanguagesInfoMutation } from '~/store/api/employees/languages/languages.api';
 
 import {
   EmployeeLanguageValidationSchema,
-  type ChangedEmployeeLanguageInfoValues
+  type EmployeeLanguageValues,
+  type LanguagesInfoFormValues
 } from './EditLanguagesInfo.shema';
 import { LanguageField } from './fields/LanguageField';
 
 export const EditLanguagesInfoModal = ({
-  languages,
+  languagesArray,
   isOpenLanguagesInfoTab,
-  onCloseLanguagesInfoTab,
-  onConfirm
+  onCloseLanguagesInfoTab
 }: {
-  languages: EmployeeLanguage[];
+  languagesArray: EmployeeLanguage[];
   isOpenLanguagesInfoTab: boolean;
   onCloseLanguagesInfoTab: () => void;
-  onConfirm: (values: ChangedEmployeeLanguageInfoValues) => void;
 }) => {
   const [t] = useTranslation();
 
-  const methods = useForm<ChangedEmployeeLanguageInfoValues>({
-    defaultValues: { languages },
+  const { id } = useParams();
+
+  const employeeId = id ? +id : Number(skipToken);
+
+  const methods = useForm<LanguagesInfoFormValues>({
+    defaultValues: { languages: languagesArray },
     mode: 'onBlur',
     resolver: zodResolver(EmployeeLanguageValidationSchema)
   });
+
+  const { reset } = methods;
+
+  useEffect(
+    () => reset({ languages: languagesArray }),
+    [languagesArray, reset]
+  );
 
   const closeLanguageslInfoForm = () => {
     methods.reset();
@@ -46,6 +66,26 @@ export const EditLanguagesInfoModal = ({
   });
 
   const onRemove = (index: number) => remove(index);
+
+  const [updateLanguages, { isLoading }] = useUpdateLanguagesInfoMutation();
+
+  const errorToast = useErrorToast({ ...toastConfig });
+  const successToast = useSuccessToast({ ...toastConfig });
+
+  const changeLanguagesInfo = async (languages: EmployeeLanguageValues[]) => {
+    const response = await updateLanguages({ languages, employeeId });
+
+    if ((response as { error?: FetchBaseQueryError }).error) {
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    } else {
+      onCloseLanguagesInfoTab();
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    }
+  };
 
   return (
     <BaseModal
@@ -64,17 +104,12 @@ export const EditLanguagesInfoModal = ({
         <ActionsModalFooter
           onCancel={closeLanguageslInfoForm}
           onReset={() => methods.reset()}
-          onSubmit={methods.handleSubmit((data) => {
-            const changedValues = Object.entries(data).filter(
-              (_, i) =>
-                Object.entries(data)[i][1] !==
-                Object.entries({ languages })[i][1]
-            );
-
-            onConfirm(Object.fromEntries(changedValues));
-          })}
+          onSubmit={methods.handleSubmit((data) =>
+            changeLanguagesInfo(data.languages)
+          )}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
+          isLoading={isLoading}
         />
       }
     >
