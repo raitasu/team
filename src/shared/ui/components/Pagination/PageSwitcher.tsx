@@ -1,5 +1,9 @@
+import { useMemo, useState } from 'react';
+
 import { Flex, Text } from '@chakra-ui/react';
+import debounce from 'lodash/debounce';
 import { useTranslation } from 'react-i18next';
+import { useUpdateEffect } from 'react-use';
 
 import { NumberInput } from '~/shared/ui/components/NumberInput';
 import { type PaginationProps } from '~/shared/ui/components/Pagination/pagination.types';
@@ -21,6 +25,16 @@ export const PageSwitcher = ({
   pageSize
 }: PaginationProps) => {
   const [t] = useTranslation();
+  const [selectedPage, setSelectedPage] = useState(`${currentPage}`);
+
+  const debouncedUpdate = useMemo(
+    () => debounce(onPageChange, 500),
+    [onPageChange]
+  );
+
+  useUpdateEffect(() => {
+    setSelectedPage(`${currentPage}`);
+  }, [currentPage]);
 
   return (
     <Flex alignItems="center">
@@ -46,17 +60,27 @@ export const PageSwitcher = ({
         flexShrink="0"
       >{`${t('domains:pagination.actions.go_to_page')}:`}</Text>
       <NumberInput
-        value={currentPage}
+        value={selectedPage}
         min={1}
         max={totalPages}
         width="76px"
         marginLeft="8px"
         marginRight="40px"
-        onChange={(e) => {
-          const page = Number(e);
+        onChange={(value) => {
+          const page = Number(value);
+
+          setSelectedPage(value);
+          if (page >= 1) {
+            debouncedUpdate(page);
+          }
+        }}
+        onBlur={({ target: { value } }) => {
+          const page = Number(value);
 
           if (page >= 1) {
-            onPageChange(page);
+            debouncedUpdate(page);
+          } else {
+            setSelectedPage(`${currentPage}`);
           }
         }}
         defaultValue={1}

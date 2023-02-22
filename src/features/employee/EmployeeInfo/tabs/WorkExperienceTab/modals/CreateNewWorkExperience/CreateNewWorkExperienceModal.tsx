@@ -43,6 +43,11 @@ export const CreateNewWorkExperienceModal = ({
     resolver: zodResolver(EmployeeWorkExperienceSchema)
   });
 
+  const closeForm = () => {
+    onCloseCreateNewWorkExperienceModal();
+    methods.reset();
+  };
+
   return (
     <BaseModal
       autoFocus={false}
@@ -50,7 +55,7 @@ export const CreateNewWorkExperienceModal = ({
         t('domains:employee.titles.profile_tabs.work_experience.title')
       )}
       isOpen={isOpenCreateNewWorkExperienceModal}
-      onClose={onCloseCreateNewWorkExperienceModal}
+      onClose={closeForm}
       shouldUseOverlay
       isCentered
       contentProps={{
@@ -58,10 +63,7 @@ export const CreateNewWorkExperienceModal = ({
       }}
       footer={
         <ActionsModalFooter
-          onCancel={() => {
-            onCloseCreateNewWorkExperienceModal();
-            methods.reset();
-          }}
+          onCancel={closeForm}
           onReset={() => methods.reset()}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
@@ -105,7 +107,7 @@ export const CreateNewWorkExperienceModal = ({
                   'domains:employee.actions.created_new_work_experience'
                 )
               });
-              onCloseCreateNewWorkExperienceModal();
+              closeForm();
             }
           })}
           submitTag="save"

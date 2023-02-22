@@ -10,10 +10,6 @@ import {
   Heading,
   Input
 } from '@chakra-ui/react';
-import {
-  skipToken,
-  type FetchBaseQueryError
-} from '@reduxjs/toolkit/dist/query/react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
@@ -26,39 +22,39 @@ import { useCreateCVMutation } from '~/store/api/createCV/createCV.api';
 export const CreateCVModal = ({
   isOpen,
   onClose,
-  isLoading,
   employeeId
 }: {
   isOpen: boolean;
   onClose: () => void;
-  isLoading?: boolean;
   employeeId: number | null;
 }) => {
   const cancelRef = React.useRef<HTMLButtonElement>(null);
   const [t] = useTranslation();
   const navigate = useNavigate();
-  const [createCV] = useCreateCVMutation();
+  const [createCV, { isLoading: isUpdating }] = useCreateCVMutation();
   const [name, setName] = React.useState('');
 
   const errorToast = useErrorToast(toastConfig);
   const successToast = useSuccessToast(toastConfig);
   const onConfirmHandler = async () => {
-    const response = await createCV({
-      employeeId: employeeId || Number(skipToken),
-      name
-    }).unwrap();
+    if (employeeId === null) {
+      return;
+    }
 
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
-      if (employeeId) {
-        navigate(`${PagePaths.Employees}/${employeeId}/cv/${response}`);
-      }
+    try {
+      const data = await createCV({
+        employeeId,
+        name
+      }).unwrap();
 
+      navigate(`${PagePaths.Employees}/${employeeId}/cv/${data}`);
       successToast({
         description: t('domains:cv.actions.cv_saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
       });
     }
   };
@@ -91,7 +87,7 @@ export const CreateCVModal = ({
               onClick={onClose}
               paddingLeft="30px"
               paddingRight="30px"
-              isDisabled={isLoading}
+              isDisabled={isUpdating}
             >
               {t('general_actions:cancel')}
             </Button>
@@ -100,8 +96,8 @@ export const CreateCVModal = ({
               onClick={onConfirmHandler}
               paddingLeft="30px"
               paddingRight="30px"
-              isDisabled={isLoading}
-              isLoading={isLoading}
+              isDisabled={isUpdating}
+              isLoading={isUpdating}
             >
               {t('general_actions:create')}
             </Button>

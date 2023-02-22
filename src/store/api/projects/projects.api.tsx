@@ -5,8 +5,8 @@ import { getPageOffset } from '~/shared/utils/pagination.utils';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import {
-  type ProjectResponse,
   type Project,
+  type ProjectResponse,
   type ProjectsListResponse
 } from '~/store/api/projects/projects.types';
 import { type ProjectsFilters } from '~/store/slices/projects/projects.types';
@@ -66,8 +66,8 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
       onQueryStarted: getResponseValidator((data) =>
         ProjectSchema.safeParse(data)
       ),
-      providesTags: (employee) => [
-        { type: ApiTags.Employees, id: `${employee ? employee.id : 'ENTITY'}` }
+      providesTags: (project) => [
+        { type: ApiTags.Employees, id: `${project ? project.id : 'ENTITY'}` }
       ],
       query: (id) => ({
         url: `projects/${id}`,
@@ -80,7 +80,7 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
         project: PartialProject;
       }
     >({
-      invalidatesTags: [ApiTags.Projects],
+      invalidatesTags: [{ type: ApiTags.Projects, id: 'LIST' }],
       onQueryStarted: getResponseValidator((data) =>
         ProjectSchema.safeParse(data)
       ),
@@ -97,7 +97,7 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
       }
     }),
     removeProject: builder.mutation<void, string>({
-      invalidatesTags: [ApiTags.Projects],
+      invalidatesTags: [{ type: ApiTags.Projects, id: 'LIST' }],
       query: (projectId) => ({
         url: `projects/${projectId}`,
         method: 'DELETE'

@@ -1,18 +1,16 @@
-import { Flex, useDisclosure } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 import { isAdmin } from '~/features/employee/employee.utils';
 import { Avatar } from '~/shared/ui/components/Avatar';
-import { CreateCVModal } from '~/shared/ui/components/CreateCVModal';
-import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
+import { selectLoggedInUser } from '~/store/api/authentication/authentication.selectors';
 import { type Employee } from '~/store/api/employees/employees.types';
 import { useAppSelector } from '~/store/store.hooks';
 
-import { EmployeeCvControls } from './EmployeeCvControls';
 import { EmployeeDescription } from './EmployeeDescription';
+import { EmployeeProfileControls } from './EmployeeProfileControls';
 
 export const EmployeeCard = ({ employee }: { employee: Employee }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const { data: currentEmployee } = useAppSelector(selectCurrentEmployee);
+  const user = useAppSelector(selectLoggedInUser);
 
   return (
     <Flex
@@ -29,14 +27,7 @@ export const EmployeeCard = ({ employee }: { employee: Employee }) => {
         }
       />
       <EmployeeDescription employee={employee} />
-      {currentEmployee && isAdmin(currentEmployee) && (
-        <EmployeeCvControls onCreate={onOpen} />
-      )}
-      <CreateCVModal
-        isOpen={isOpen}
-        onClose={onClose}
-        employeeId={employee.id}
-      />
+      {isAdmin(user) && <EmployeeProfileControls employee={employee} />}
     </Flex>
   );
 };

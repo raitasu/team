@@ -4,7 +4,6 @@ import { TableLoader } from '~/features/projects/Tables/components/TableLoader';
 import { type ProjectsTableType } from '~/features/projects/Tables/tables.types';
 import { Pagination } from '~/shared/ui/components/Pagination';
 import { getTotalPages } from '~/shared/utils/pagination.utils';
-import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
 import { useGetProjectsQuery } from '~/store/api/projects/projects.api';
 import {
   selectProjectsFilters,
@@ -19,15 +18,16 @@ import {
 import { useAppDispatch, useAppSelector } from '~/store/store.hooks';
 
 export const ProjectsTableContainer = ({
+  hasAdminAccess,
   table: Table
 }: {
+  hasAdminAccess: boolean;
   table: ProjectsTableType;
 }) => {
   const pagination = useAppSelector(selectProjectsPagination);
   const filters = useAppSelector(selectProjectsFilters);
   const sorting = useAppSelector(selectProjectsSorting);
 
-  const { data: employee } = useAppSelector(selectCurrentEmployee);
   const dispatch = useAppDispatch();
 
   const { data, isFetching } = useGetProjectsQuery({
@@ -36,8 +36,6 @@ export const ProjectsTableContainer = ({
     filters,
     sorting
   });
-
-  if (!employee) return null;
 
   const totalPages = getTotalPages(
     data?.page.total_count || 0,
@@ -65,7 +63,7 @@ export const ProjectsTableContainer = ({
         {isFetching && <TableLoader />}
         <Table
           data={data?.items || []}
-          employee={employee}
+          hasAdminAccess={hasAdminAccess}
           sorting={sorting}
           onSortingChange={(updatedSort) =>
             dispatch(toggleSorting(updatedSort))

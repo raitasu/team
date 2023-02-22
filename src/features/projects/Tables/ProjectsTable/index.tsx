@@ -1,7 +1,6 @@
 import { Table } from '@chakra-ui/react';
 import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
 
-import { isAdmin } from '~/features/employee/employee.utils';
 import { TableBody } from '~/features/projects/Tables/components/TableBody';
 import { TableHeader } from '~/features/projects/Tables/components/TableHeader';
 import { PositionsColumns } from '~/features/projects/Tables/ProjectsTable/columns';
@@ -9,7 +8,7 @@ import { type ProjectsTableType } from '~/features/projects/Tables/tables.types'
 
 export const ProjectsTable: ProjectsTableType = ({
   data,
-  employee,
+  hasAdminAccess,
   sorting,
   onSortingChange
 }) => {
@@ -24,7 +23,7 @@ export const ProjectsTable: ProjectsTableType = ({
       ),
     initialState: {
       columnVisibility: {
-        actions: isAdmin(employee)
+        actions: hasAdminAccess
       }
     },
     state: {

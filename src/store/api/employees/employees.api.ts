@@ -97,7 +97,7 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
       })
     }),
     createEmployee: builder.mutation<void, CreateEmployeeFormValues>({
-      invalidatesTags: [ApiTags.Employees],
+      invalidatesTags: [{ type: ApiTags.Employees, id: 'LIST' }],
       onQueryStarted: getResponseValidator((data) =>
         EmployeeSchema.safeParse(data)
       ),
@@ -161,6 +161,16 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
         url: `/employees/${id}/avatars`,
         method: 'DELETE'
       })
+    }),
+    deleteEmployee: builder.mutation<void, { id: number }>({
+      invalidatesTags: (_result, _error, arg) => [
+        { type: ApiTags.Employees, id: `${arg.id}` },
+        { type: ApiTags.Employees, id: 'LIST' }
+      ],
+      query: ({ id }) => ({
+        url: `/employees/${id}`,
+        method: 'DELETE'
+      })
     })
   })
 });
@@ -171,5 +181,6 @@ export const {
   useCreateEmployeeMutation,
   useUpdateGeneralInformationMutation,
   useDeleteAvatarMutation,
-  useGetAllEmployeesQuery
+  useGetAllEmployeesQuery,
+  useDeleteEmployeeMutation
 } = employeesApiSlice;

@@ -11,11 +11,13 @@ import { ProjectsTable } from '~/features/projects/Tables/ProjectsTable';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
 import { PageToolbox } from '~/shared/layout/Page/PageToolbox';
 import { ControlButton } from '~/shared/ui/components/IconButton/ControlButton';
-import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
+import { selectLoggedInUser } from '~/store/api/authentication/authentication.selectors';
+import { useAppSelector } from '~/store/store.hooks';
 
 export const Projects = () => {
   const [t] = useTranslation();
-  const { data: currentEmployee } = useGetCurrentUserQuery();
+  const user = useAppSelector(selectLoggedInUser);
+  const hasAdminAccess = isAdmin(user);
 
   const {
     isOpen: isCreateModalOpen,
@@ -26,7 +28,10 @@ export const Projects = () => {
   return (
     <Flex>
       <PageContainer>
-        <ProjectsTableContainer table={ProjectsTable} />
+        <ProjectsTableContainer
+          table={ProjectsTable}
+          hasAdminAccess={hasAdminAccess}
+        />
         {isCreateModalOpen && (
           <CreateProjectModal
             isOpen={isCreateModalOpen}
@@ -37,7 +42,7 @@ export const Projects = () => {
           drawerControl={<ProjectsFilterControl />}
           drawerContent={<ProjectsFiltersDrawer />}
           action={
-            currentEmployee && isAdmin(currentEmployee) ? (
+            hasAdminAccess ? (
               <ControlButton
                 aria-label={t('domains:projects.actions.add_project')}
                 icon={<MdAdd />}

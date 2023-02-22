@@ -2,10 +2,10 @@ import { Box, Flex } from '@chakra-ui/react';
 
 import { TableLoader } from '~/features/employees/Tables/components/TableLoader';
 import { type EmployeesTable } from '~/features/employees/Tables/tables.types';
+import { type SearchEmployee } from '~/pages/About/components/SearchEmployee';
 import { Pagination } from '~/shared/ui/components/Pagination';
 import { getTotalPages } from '~/shared/utils/pagination.utils';
 import { useGetEmployeesQuery } from '~/store/api/employees/employees.api';
-import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
 import {
   selectEmployeesFilters,
   selectEmployeesPagination,
@@ -18,19 +18,18 @@ import {
 } from '~/store/slices/employees/employees.slice';
 import { useAppDispatch, useAppSelector } from '~/store/store.hooks';
 
-import { type SearchEmployee } from '../../../pages/About/components/SearchEmployee';
-
 export const EmployeesTablesContainer = ({
   table: Table,
+  hasAdminAccess,
   header: Header
 }: {
   table: EmployeesTable;
+  hasAdminAccess: boolean;
   header?: typeof SearchEmployee;
 }) => {
   const pagination = useAppSelector(selectEmployeesPagination);
   const filters = useAppSelector(selectEmployeesFilters);
   const sorting = useAppSelector(selectEmployeesSorting);
-  const { data: employee } = useAppSelector(selectCurrentEmployee);
   const dispatch = useAppDispatch();
 
   const { data, isFetching } = useGetEmployeesQuery({
@@ -39,8 +38,6 @@ export const EmployeesTablesContainer = ({
     filters,
     sorting
   });
-
-  if (!employee) return null;
 
   const totalPages = getTotalPages(
     data?.page.total_count || 0,
@@ -69,7 +66,7 @@ export const EmployeesTablesContainer = ({
         {isFetching && <TableLoader />}
         <Table
           data={data?.items || []}
-          employee={employee}
+          hasAdminAccess={hasAdminAccess}
           sorting={sorting}
           onSortingChange={(updatedSort) =>
             dispatch(toggleSorting(updatedSort))

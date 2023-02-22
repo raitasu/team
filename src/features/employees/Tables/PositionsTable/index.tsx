@@ -3,7 +3,6 @@ import React from 'react';
 import { Table } from '@chakra-ui/react';
 import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
 
-import { isAdmin } from '~/features/employee/employee.utils';
 import { TableBody } from '~/features/employees/Tables/components/TableBody';
 import { TableHeader } from '~/features/employees/Tables/components/TableHeader';
 import { PositionsColumns } from '~/features/employees/Tables/PositionsTable/columns';
@@ -12,7 +11,7 @@ import { CreateCVModal } from '~/shared/ui/components/CreateCVModal';
 
 export const EmployeesPositionsTable: EmployeesTable = ({
   data,
-  employee,
+  hasAdminAccess,
   sorting,
   onSortingChange
 }) => {
@@ -36,7 +35,7 @@ export const EmployeesPositionsTable: EmployeesTable = ({
     },
     initialState: {
       columnVisibility: {
-        cv: isAdmin(employee)
+        cv: hasAdminAccess
       }
     },
     state: {
@@ -50,11 +49,13 @@ export const EmployeesPositionsTable: EmployeesTable = ({
         <TableHeader headerGroups={table.getHeaderGroups()} />
         <TableBody rows={table.getRowModel().rows} />
       </Table>
-      <CreateCVModal
-        isOpen={selectedEmployeeId !== null}
-        onClose={() => setSelectedEmployeeId(null)}
-        employeeId={selectedEmployeeId}
-      />
+      {hasAdminAccess && (
+        <CreateCVModal
+          isOpen={selectedEmployeeId !== null}
+          onClose={() => setSelectedEmployeeId(null)}
+          employeeId={selectedEmployeeId}
+        />
+      )}
     </>
   );
 };

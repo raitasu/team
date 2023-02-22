@@ -3,24 +3,20 @@ import { useTranslation } from 'react-i18next';
 
 import { Profile } from '~/shared/layout/Main/Header/components/Profile/Profile';
 import { ConfirmationModal } from '~/shared/ui/components/ConfirmationModal';
-import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
+import { selectLoggedInUser } from '~/store/api/authentication/authentication.selectors';
 import { loggedOut } from '~/store/slices/authentication/authentication.slice';
 import { useAppDispatch, useAppSelector } from '~/store/store.hooks';
 
 export const ProfileContainer = () => {
   const dispatch = useAppDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { data: employee } = useAppSelector(selectCurrentEmployee);
+  const user = useAppSelector(selectLoggedInUser);
   const [t] = useTranslation();
-
-  if (!employee) {
-    return null;
-  }
 
   return (
     <Box>
       <Profile
-        employee={employee}
+        employee={user}
         onLogout={onOpen}
       />
       <ConfirmationModal
