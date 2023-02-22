@@ -251,6 +251,14 @@
         "export_pdf": "Export PDF",
         "save": "Save",
         "save_as": "Save as..."
+      },
+      "titles": {
+        "degree": "Degree",
+        "description": "Description",
+        "environment": "Enviroment",
+        "fields_of_study": "Fields of study",
+        "link": "Link",
+        "responsibilities": "Responsibilities"
       }
     },
     "employee": {

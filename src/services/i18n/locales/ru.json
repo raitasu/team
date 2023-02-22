@@ -251,6 +251,14 @@
         "export_pdf": "Экспортировать PDF",
         "save": "Сохранить",
         "save_as": "Сохранить как..."
+      },
+      "titles": {
+        "degree": "Степень",
+        "description": "Описание",
+        "environment": "Окружение",
+        "fields_of_study": "Область знаний",
+        "link": "Ссылка",
+        "responsibilities": "Обязанности"
       }
     },
     "employee": {

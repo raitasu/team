@@ -6,6 +6,7 @@ export const Description = ({ cv }: { cv: GetCVResponse }) => (
   <Text
     mt={3}
     fontSize="lg"
+    color="brand.black"
   >
     {cv.profile.description}
   </Text>

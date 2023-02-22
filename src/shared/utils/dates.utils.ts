@@ -18,7 +18,7 @@ export const workPeriod = (startedAt: string, endedAt: string | null) => {
 };
 
 export const getFormattedDate = (
-  date: string,
+  date: string | number,
   language: string,
   pattern: (typeof DateFormats)[keyof typeof DateFormats] = DateFormats.Short
 ) => {

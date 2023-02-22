@@ -1,3 +1,5 @@
+import { type LanguageLevel } from '~/store/api/employees/employees.types';
+
 export interface GetCVResponse {
   name: string;
   id: number;
@@ -11,23 +13,31 @@ export interface GetCVResponse {
     description?: string;
     languages?: Array<{
       name: string;
-      level: string;
+      level: LanguageLevel;
     }>;
     hard_skills?: Array<{
+      category: string;
+      created_at: Date;
+      id: number;
       name: string;
-      duration: string;
+      updated_at: string;
     }>;
     soft_skills?: Array<{
       name: string;
     }>;
-    work_experience?: Array<{
+    work_experiences?: Array<{
       project_name: string;
       company_name: string;
       description: string;
       responsibilities: string;
-      environment: Array<string>;
+      environment: Array<{
+        name: string;
+      }>;
+      position: string;
+      started_at: string;
+      ended_at: string;
     }>;
-    education?: Array<{
+    educations?: Array<{
       university_name: string;
       speciality: string;
       started_at: string;
@@ -41,14 +51,14 @@ export interface GetCVResponse {
       start_date: string;
       link: string;
       end_date: string;
-      file: string | null;
+      file: File | null;
     }>;
     publications?: Array<{
       name: string;
       url: string;
       start_date: string;
       description: string;
-      file: string | null;
+      file: File | null;
     }>;
   };
 }

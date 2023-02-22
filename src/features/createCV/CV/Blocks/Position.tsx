@@ -8,7 +8,7 @@ export const Position = ({ cv }: { cv: GetCVResponse }) => {
   const [t] = useTranslation();
 
   const projectCount = t('domains:employee.titles.project', {
-    count: cv.profile.work_experience ? cv.profile.work_experience.length : 0
+    count: cv.profile.work_experiences ? cv.profile.work_experiences.length : 0
   });
 
   const workExperienceCount = t('domains:employee.titles.experience', {

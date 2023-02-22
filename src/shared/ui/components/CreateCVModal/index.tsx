@@ -14,9 +14,10 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
-import { toastConfig } from '~/shared/shared.constants';
+import { DateFormats, toastConfig } from '~/shared/shared.constants';
 import { Button } from '~/shared/ui/components/Button';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
+import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { useCreateCVMutation } from '~/store/api/createCV/createCV.api';
 
 export const CreateCVModal = ({
@@ -29,22 +30,28 @@ export const CreateCVModal = ({
   employeeId: number | null;
 }) => {
   const cancelRef = React.useRef<HTMLButtonElement>(null);
-  const [t] = useTranslation();
+  const [t, { language }] = useTranslation();
   const navigate = useNavigate();
   const [createCV, { isLoading: isUpdating }] = useCreateCVMutation();
   const [name, setName] = React.useState('');
 
   const errorToast = useErrorToast(toastConfig);
   const successToast = useSuccessToast(toastConfig);
+
   const onConfirmHandler = async () => {
     if (employeeId === null) {
       return;
     }
 
+    const nameResult =
+      name === ''
+        ? `${getFormattedDate(Date.now(), language, DateFormats.DateAndTime)}`
+        : name;
+
     try {
       const data = await createCV({
         employeeId,
-        name
+        name: nameResult
       }).unwrap();
 
       navigate(`${PagePaths.Employees}/${employeeId}/cv/${data}`);

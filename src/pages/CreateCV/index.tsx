@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Box, Text } from '@chakra-ui/react';
 import { skipToken } from '@reduxjs/toolkit/dist/query/react';
 import { useParams } from 'react-router-dom';
 
@@ -21,6 +21,26 @@ export const CreateCV = () => {
     <PageContainer>
       <PageToolbox />
       {isLoading && <PageLoader />}
+      <Flex
+        width="100%"
+        gap="20px"
+        mb={3}
+      >
+        <Box flex="0 0 240px" />
+        <Box
+          width="100%"
+          textAlign="center"
+        >
+          <Text
+            sx={{ textTransform: 'uppercase' }}
+            fontSize="xl"
+            fontWeight="900"
+            as="span"
+          >
+            {data && data.name}
+          </Text>
+        </Box>
+      </Flex>
       <Flex
         width="100%"
         overflow="auto"
