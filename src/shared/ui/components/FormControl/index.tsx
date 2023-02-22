@@ -12,11 +12,12 @@ export const FormControl = ({
   helperText,
   errorMessage,
   children,
+  width = '100%',
   ...passThroughProps
-}: BaseFormControlProps) => (
+}: BaseFormControlProps & { width?: string }) => (
   <ChakraFormControl
     {...passThroughProps}
-    width="100%"
+    width={width}
     isInvalid={Boolean(errorMessage)}
   >
     {label ? <FormLabel>{label}</FormLabel> : null}

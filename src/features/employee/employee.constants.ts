@@ -243,4 +243,32 @@ export const countryOptions = [
   { value: 'YE', label: 'Yemen' },
   { value: 'ZM', label: 'Zambia' },
   { value: 'ZW', label: 'Zimbabwe' }
-];
+] as const;
+
+export const businessDomains = [
+  'construction_engineering',
+  'digital_agriculture',
+  'distribution_management_system',
+  'e_commerce',
+  'ecology_and_environmental_protection',
+  'education_industry',
+  'finances',
+  'gaming_industry',
+  'government_sector',
+  'health_care_fitness_recreation',
+  'iot_geofencing',
+  'it_industry',
+  'logistics',
+  'marketing_advertising_sales',
+  'media_entertainment',
+  'mobile_app_development',
+  'procurement_management_solution',
+  'project_management_industry',
+  'science_innovation',
+  'service_sector',
+  'social_media_social_media_analysis',
+  'supply_chain_inventory_order_management',
+  'telecom_industry',
+  'ticketing',
+  'travel_tourism'
+] as const;

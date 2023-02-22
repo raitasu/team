@@ -2,7 +2,7 @@ import set from 'date-fns/set';
 
 import { type PartialProject } from '~/features/project/CreateProjectModal/project.schema';
 
-export const transformToFormData = (
+export const transformToFormDataForCreate = (
   body: FormData,
   filters: PartialProject
 ) => {

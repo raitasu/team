@@ -4,6 +4,7 @@ import isFinite from 'lodash/isFinite';
 import { useParams } from 'react-router-dom';
 
 import { ProjectCard } from '~/features/project/ProjectCard';
+import { ProjectInfo } from '~/features/project/ProjectInfo';
 import {
   COLUMN_GAP,
   containerStyles,
@@ -60,7 +61,7 @@ export const Project = () => {
           overflow="hidden"
           {...containerStyles}
         >
-          Projects Info
+          <ProjectInfo project={project} />
         </Box>
       </Flex>
     </PageContainer>

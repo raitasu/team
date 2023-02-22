@@ -16,18 +16,8 @@ const generateProject = (id: number): Project => ({
   status: ProjectStatus.InProgress,
   project_type: ProjectType.Internal,
   links: '',
-  customer: {
-    id,
-    name: faker.company.name()
-  },
   customer_name: faker.company.name(),
-  contractor_name: faker.company.name(),
-  started_at: faker.date
-    .birthdate({ min: 1999, max: 2018, mode: 'year' })
-    .toISOString(),
-  ended_at: faker.date
-    .birthdate({ min: 2019, max: 2025, mode: 'year' })
-    .toISOString()
+  contractor_name: faker.company.name()
 });
 
 (function generateSessionProjects() {

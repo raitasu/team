@@ -1,10 +1,14 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import debounce from 'lodash/debounce';
 import AvatarEditor from 'react-avatar-editor';
 import { useDropzone } from 'react-dropzone';
-import { MdAdd } from 'react-icons/md';
+import {
+  MdAdd,
+  MdOutlineDeleteOutline,
+  MdOutlineModeEditOutline
+} from 'react-icons/md';
 
 import { EditorActions } from '~/features/employee/CreateEmployeeModal/EmployeeAvatar/EditorActions';
 import { borderColor } from '~/features/project/pojects.utils';
@@ -17,12 +21,14 @@ export const ProjectAvatarEditor = ({
   avatar,
   onAvatarChanged,
   onReset,
-  status
+  status,
+  avatarUrl
 }: {
   avatar: File | string | null;
   status: ProjectStatuses | null;
   onAvatarChanged: (avatar: File | string | null) => void;
   onReset: React.MouseEventHandler<HTMLButtonElement>;
+  avatarUrl?: string;
 }) => {
   const [scale, setScale] = useState(1);
   const [currentFile, setCurrentFile] = useState<File | string | null>(null);
@@ -88,6 +94,11 @@ export const ProjectAvatarEditor = ({
           />
         ) : (
           <Avatar
+            src={
+              avatarUrl
+                ? `${import.meta.env.VITE_API_HOST}${avatarUrl}`
+                : undefined
+            }
             _hover={{
               div: {
                 opacity: 1
@@ -100,23 +111,51 @@ export const ProjectAvatarEditor = ({
               border: `${borderColor(status)}`
             }}
           >
-            <Box
+            <Flex
+              borderRadius="5px"
+              border="1px solid var(--chakra-colors-brand-stroke)"
+              bgColor="#FFFFFF"
+              cursor="pointer"
               sx={{
                 position: 'absolute',
                 opacity: 0
               }}
-              {...getRootProps({
-                onClick: (ev) => {
-                  if (currentFile) ev.stopPropagation();
-                }
-              })}
             >
-              <MdAdd
-                id="AddAvatarIcon"
-                size={64}
-                color="var(--chakra-colors-brand-ghostGray)"
-              />
-            </Box>
+              <Flex
+                {...getRootProps({
+                  onClick: (
+                    ev: React.MouseEvent<HTMLElement | SVGElement, MouseEvent>
+                  ) => {
+                    if (currentFile) ev.stopPropagation();
+                  }
+                })}
+              >
+                {avatarUrl !== 'null' ? (
+                  <>
+                    <MdOutlineModeEditOutline
+                      id="EditAvatarIcon"
+                      size={50}
+                      color="var(--chakra-colors-brand-ghostGray)"
+                    />
+                    <MdOutlineDeleteOutline
+                      id="DeleteAvatarIcon"
+                      size={50}
+                      color="var(--chakra-colors-brand-ghostGray)"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onAvatarChanged('null');
+                      }}
+                    />
+                  </>
+                ) : (
+                  <MdAdd
+                    id="AddAvatarIcon"
+                    size={64}
+                    color="var(--chakra-colors-brand-ghostGray)"
+                  />
+                )}
+              </Flex>
+            </Flex>
           </Avatar>
         )}
         <input {...getInputProps()} />

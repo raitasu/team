@@ -26,6 +26,11 @@ export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
         labelText={t(`domains:projects.status.${project.status}`)}
       >
         <Avatar
+          src={
+            project.avatar
+              ? `${import.meta.env.VITE_API_HOST}${project.avatar}`
+              : undefined
+          }
           size="lg"
           borderRadius="none"
           style={{

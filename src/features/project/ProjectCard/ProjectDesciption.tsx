@@ -45,7 +45,9 @@ export const ProjectDescription = ({
         {project.name || t('domains:employee.errors.no_data')}
       </Heading>
       <Text variant="hr">
-        {project.customer.name || t('domains:employee.errors.no_data')}
+        {project.customer
+          ? project.customer.name
+          : t('domains:employee.errors.no_data')}
       </Text>
       <Flex justifyContent="center">
         <Text>{`${startProjectCount} –`}</Text>

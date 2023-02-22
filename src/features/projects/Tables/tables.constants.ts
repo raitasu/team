@@ -18,8 +18,3 @@ export enum ProjectType {
   Internal = 'internal',
   External = 'external'
 }
-
-export type ProjectCustomer = {
-  id: number;
-  name: string;
-};
