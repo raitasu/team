@@ -3,13 +3,16 @@ import { Flex, useDisclosure } from '@chakra-ui/react';
 import { isAdmin } from '~/features/employee/employee.utils';
 import { Avatar } from '~/shared/ui/components/Avatar';
 import { CreateCVModal } from '~/shared/ui/components/CreateCVModal';
+import { selectCurrentEmployee } from '~/store/api/employees/employees.selectors';
 import { type Employee } from '~/store/api/employees/employees.types';
+import { useAppSelector } from '~/store/store.hooks';
 
 import { EmployeeCvControls } from './EmployeeCvControls';
 import { EmployeeDescription } from './EmployeeDescription';
 
 export const EmployeeCard = ({ employee }: { employee: Employee }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { data: currentEmployee } = useAppSelector(selectCurrentEmployee);
 
   return (
     <Flex
@@ -26,7 +29,9 @@ export const EmployeeCard = ({ employee }: { employee: Employee }) => {
         }
       />
       <EmployeeDescription employee={employee} />
-      {isAdmin(employee) && <EmployeeCvControls onCreate={onOpen} />}
+      {currentEmployee && isAdmin(currentEmployee) && (
+        <EmployeeCvControls onCreate={onOpen} />
+      )}
       <CreateCVModal
         isOpen={isOpen}
         onClose={onClose}
