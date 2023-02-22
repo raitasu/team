@@ -13,7 +13,12 @@ export const UnitField = () => {
 
   return (
     <FormControl label={t(TranslationKeys.unit)}>
-      <Input {...register('unit')} />
+      <Input
+        {...register('unit')}
+        placeholder={t(
+          'domains:employee.placeholders.profile_tabs.contacts.enter_unit'
+        )}
+      />
     </FormControl>
   );
 };

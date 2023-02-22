@@ -36,7 +36,7 @@ const contactInfoApiSlice = rootApiSlice.injectEndpoints({
       query: ({ data, id }) => ({
         url: `employees/${id}/contact_infos`,
         method: 'PATCH',
-        body: data
+        body: { contact_info: data }
       })
     })
   })

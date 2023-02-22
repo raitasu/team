@@ -30,7 +30,7 @@ const educationApiSlice = rootApiSlice.injectEndpoints({
         return {
           url: `employees/${data.employeeId}/educations`,
           method: 'POST',
-          body: payload
+          body: { education: payload }
         };
       }
     }),
@@ -69,7 +69,7 @@ const educationApiSlice = rootApiSlice.injectEndpoints({
         return {
           url: `employees/${employeeId}/educations/${educationId}`,
           method: 'PATCH',
-          body: payload
+          body: { education: payload }
         };
       }
     })

@@ -7,13 +7,26 @@ import { type EmployeeContactsInfoFormValues } from '~/features/employee/Employe
 import { FormControl } from '~/shared/ui/components/FormControl';
 
 export const SecondaryMobileField = () => {
-  const { register } = useFormContext<EmployeeContactsInfoFormValues>();
+  const {
+    register,
+    formState: { errors }
+  } = useFormContext<EmployeeContactsInfoFormValues>();
 
   const [t] = useTranslation();
 
   return (
-    <FormControl label={t(TranslationKeys.secondaryPhone)}>
-      <Input {...register('secondary_phone')} />
+    <FormControl
+      label={t(TranslationKeys.secondaryPhone)}
+      errorMessage={
+        errors.secondary_phone
+          ? t(`general_errors:invalid_phone_number`)
+          : undefined
+      }
+    >
+      <Input
+        {...register('secondary_phone')}
+        placeholder={t('general_placeholders:enter_number')}
+      />
     </FormControl>
   );
 };

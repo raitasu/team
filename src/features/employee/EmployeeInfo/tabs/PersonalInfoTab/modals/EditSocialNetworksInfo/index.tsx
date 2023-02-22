@@ -2,21 +2,19 @@ import { useEffect, useMemo } from 'react';
 
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  type FetchBaseQueryError,
-  skipToken
-} from '@reduxjs/toolkit/dist/query/react';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
 
 import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { useUpdateContactInfoMutation } from '~/store/api/employees/contactInfo/contactInfo.api';
-import { type EmployeeContactInfo } from '~/store/api/employees/employees.types';
+import {
+  type Employee,
+  type EmployeeContactInfo
+} from '~/store/api/employees/employees.types';
 
 import { getInitialState } from './EditSocialNetwork.utils';
 import { socialFieldsNames } from './EditSocialNetworks.constants';
@@ -27,37 +25,35 @@ import { type ChangedContactsInfoValues } from '../EditContactsInfo/EditContacts
 export const EditSocialNetworksInfoModal = ({
   contacts,
   isOpenModal,
-  onCloseModal
+  onCloseModal,
+  employee
 }: {
   contacts: EmployeeContactInfo;
   isOpenModal: boolean;
   onCloseModal: () => void;
+  employee: Employee;
 }) => {
   const [t] = useTranslation();
 
-  const { id } = useParams();
-
-  const employeeId = id ? +id : Number(skipToken);
-
   const [updateContactInfo, { isLoading }] = useUpdateContactInfoMutation();
 
-  const errorToast = useErrorToast({ ...toastConfig });
-  const successToast = useSuccessToast({ ...toastConfig });
+  const errorToast = useErrorToast(toastConfig);
+  const successToast = useSuccessToast(toastConfig);
 
   const changeContactsInfo = async (values: ChangedContactsInfoValues) => {
-    const response = await updateContactInfo({
-      data: values,
-      id: employeeId
-    });
-
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
+    try {
+      await updateContactInfo({
+        data: values,
+        id: employee.id
+      }).unwrap();
       onCloseModal();
       successToast({
         description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
       });
     }
   };

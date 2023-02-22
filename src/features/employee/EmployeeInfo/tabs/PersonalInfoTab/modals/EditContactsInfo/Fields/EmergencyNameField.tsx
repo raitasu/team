@@ -29,7 +29,12 @@ export const EmergencyNameField = () => {
       }
       isRequired
     >
-      <Input {...register('emergency_contact_attributes.name')} />
+      <Input
+        {...register('emergency_contact_attributes.name')}
+        placeholder={t(
+          'domains:employee.placeholders.profile_tabs.contacts.enter_name'
+        )}
+      />
     </FormControl>
   );
 };

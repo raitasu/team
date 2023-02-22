@@ -29,7 +29,10 @@ export const EmergencyContactField = () => {
       }
       isRequired
     >
-      <Input {...register('emergency_contact_attributes.number')} />
+      <Input
+        {...register('emergency_contact_attributes.number')}
+        placeholder={t('general_placeholders:enter_number')}
+      />
     </FormControl>
   );
 };

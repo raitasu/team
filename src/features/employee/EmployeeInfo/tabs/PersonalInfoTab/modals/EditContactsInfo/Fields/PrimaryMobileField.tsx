@@ -28,7 +28,10 @@ export const PrimaryMobileField = () => {
       }
       isRequired
     >
-      <Input {...register('primary_phone')} />
+      <Input
+        {...register('primary_phone')}
+        placeholder={t('general_placeholders:enter_number')}
+      />
     </FormControl>
   );
 };

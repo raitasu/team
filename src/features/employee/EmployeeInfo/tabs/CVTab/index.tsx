@@ -1,11 +1,11 @@
 import { Box } from '@chakra-ui/layout';
 
+import { type EmployeeInfoTab } from '~/features/employee/EmployeeInfo/employeeInfo.types';
 import { useGetCVsListQuery } from '~/store/api/CV/cv.api.slice';
-import { type Employee } from '~/store/api/employees/employees.types';
 
 import { CVTableInfo } from './CVTableInfo';
 
-export const CVTab = ({ employee }: { employee: Employee }) => {
+export const CVTab: EmployeeInfoTab = ({ employee }) => {
   const { data: cvs } = useGetCVsListQuery({ employeeId: employee.id });
 
   return (

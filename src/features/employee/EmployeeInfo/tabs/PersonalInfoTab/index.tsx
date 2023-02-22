@@ -1,7 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import { skipToken } from '@reduxjs/toolkit/dist/query/react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
 
 import { type EmployeeInfoTab } from '~/features/employee/EmployeeInfo/employeeInfo.types';
 import { InfoSection } from '~/features/employee/EmployeeInfo/tabs/components/InfoSection';
@@ -11,17 +9,16 @@ import { ContactInfo } from './ContactInfo';
 import { GeneralInfo } from './GeneralInfo';
 import { SocialNetworkInfo } from './SocialNetworkInfo';
 
-export const PersonalInfoTab: EmployeeInfoTab = ({ employee }) => {
-  const { id } = useParams();
-
-  const { data: contacts, isError } = useGetContactInfoQuery(
-    id ? +id : skipToken
-  );
+export const PersonalInfoTab: EmployeeInfoTab = ({ employee, canEdit }) => {
+  const { data: contacts, isError } = useGetContactInfoQuery(employee.id);
   const { t } = useTranslation();
 
   return (
     <Box>
-      <GeneralInfo employee={employee} />
+      <GeneralInfo
+        employee={employee}
+        canEdit={canEdit}
+      />
       {isError || !contacts || !contacts.id ? (
         <InfoSection
           title={t(
@@ -33,12 +30,14 @@ export const PersonalInfoTab: EmployeeInfoTab = ({ employee }) => {
       ) : (
         <>
           <ContactInfo
-            contacts={contacts}
-            employeeId={contacts.id}
-          />
-          <SocialNetworkInfo
             employee={employee}
             contacts={contacts}
+            canEdit={canEdit}
+          />
+          <SocialNetworkInfo
+            contacts={contacts}
+            employee={employee}
+            canEdit={canEdit}
           />
         </>
       )}

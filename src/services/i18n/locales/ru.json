@@ -310,6 +310,15 @@
       },
       "placeholders": {
         "profile_tabs": {
+          "contacts": {
+            "enter_apartment": "Введите номер квартиры",
+            "enter_building": "Введите номер здания",
+            "enter_name": "Введите имя",
+            "enter_owner": "Кем приходится",
+            "enter_street": "Введите название улицы",
+            "enter_unit": "Введите литер",
+            "enter_zip_code": "Введите почтовый индекс"
+          },
           "education": {
             "issued_by": "Выдан",
             "title_certificate": "Введите название сертификата",
@@ -380,7 +389,7 @@
               "mobile_primary": "Основной мобильный телефон",
               "mobile_secondary": "Дополнительный мобильный телефон",
               "name": "Имя",
-              "owner": "Владелец",
+              "owner": "Кем приходится?",
               "personal_email": "Личная почта",
               "section_title": "Контакты",
               "street": "Улица",
@@ -947,13 +956,16 @@
     "incorrect_date": "Добавьте корректный формат года",
     "invalid_email": "Неправильный формат эл.почты",
     "invalid_number": "Неверное число",
+    "invalid_phone_number": "Добавьте корректный номер телефона. Например:  +1(234)567 89 00 или 1-234-567-89-00",
     "invalid_range": "Недопустимый диапазон",
     "no_dublicates": "Дублирование не допускается",
     "required_all_date": "Добавьте и месяц, и год",
     "required_field": "Поле не может быть пустым"
   },
   "general_placeholders": {
+    "enter_email": "Введите почту",
     "enter_link": "Введите ссылку",
+    "enter_number": "Введите номер",
     "enter_text": "Введите текст...",
     "month": "Месяц",
     "select": "Выберите",

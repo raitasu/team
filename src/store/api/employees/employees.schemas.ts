@@ -1,13 +1,7 @@
 import { z } from 'zod';
 
 import { createUnionSchema } from '~/shared/helpers.zod';
-
-import { CountriesCode } from '../api.constants';
-
-export const EmployeeTimezones = [
-  '(GMT+03:00 Moscow, Standard Time - Minsk',
-  '(GMT+03:00 Moscow, Standard Time - Moscow'
-] as const;
+import { CountriesCode } from '~/store/api/api.constants';
 
 const CountriesCodeSchema = createUnionSchema(CountriesCode);
 
@@ -23,8 +17,7 @@ export const EmployeeClothingSizes = [
   'l',
   'xl',
   'xxl',
-  '3xl',
-  '4xl'
+  '3xl'
 ] as const;
 
 export const EmployeeClothingSizesSchema = createUnionSchema(
@@ -127,8 +120,8 @@ export const EmployeeContactInfoSchema = z.object({
   primary_phone: z.string().nullable().optional(),
   street: z.string().nullable(),
   country_code: z.string().nullable().optional(),
-  city: z.string().nullable().optional(),
-  timezone: z.string().nullable(),
+  city_name: z.string().nullable().optional(),
+  time_zone: z.string().nullable(),
   apartment: z.number().nullable(),
   building: z.number().nullable(),
   unit: z.string().nullable(),

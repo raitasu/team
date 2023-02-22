@@ -9,9 +9,10 @@ import { CreateNewWorkExperienceModal } from './modals/CreateNewWorkExperience/C
 import { WorkExperienceInfo } from './WorkExperienceInfo';
 import { InfoSection } from '../components/InfoSection';
 
-export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
-  const { work_experiences: workExperiences, id, hired_at } = employee;
-
+export const WorkExperienceTab: EmployeeInfoTab = ({
+  employee: { work_experiences: workExperiences, hired_at: hiredAt },
+  canEdit
+}) => {
   const [t] = useTranslation();
 
   const {
@@ -26,10 +27,10 @@ export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
         <>
           {workExperiences.map((workExperience) => (
             <WorkExperienceInfo
-              hiredAt={hired_at || ''}
-              employeeId={id}
+              hiredAt={hiredAt || ''}
               key={workExperience.id}
               workExperience={workExperience}
+              canEdit={canEdit}
             />
           ))}
         </>
@@ -48,7 +49,7 @@ export const WorkExperienceTab: EmployeeInfoTab = ({ employee }) => {
           {t('domains:employee.actions.add_work_experience')}
         </Button>
         <CreateNewWorkExperienceModal
-          hiredAt={hired_at}
+          hiredAt={hiredAt}
           isOpenCreateNewWorkExperienceModal={
             isOpenCreateNewWorkExperienceModal
           }

@@ -1,11 +1,9 @@
 import { useDisclosure } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import { isEditable } from '~/features/employee/employee.utils';
-import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import {
-  type EmployeeContactInfo,
-  type Employee
+  type Employee,
+  type EmployeeContactInfo
 } from '~/store/api/employees/employees.types';
 
 import { ContactItem } from './ContactItem';
@@ -14,10 +12,12 @@ import { socialFieldsNames } from './modals/EditSocialNetworksInfo/EditSocialNet
 import { InfoSection } from '../components/InfoSection';
 
 export const SocialNetworkInfo = ({
-  employee,
-  contacts
+  contacts,
+  canEdit,
+  employee
 }: {
   employee: Employee;
+  canEdit: boolean;
   contacts: EmployeeContactInfo;
 }) => {
   const [t] = useTranslation();
@@ -26,18 +26,13 @@ export const SocialNetworkInfo = ({
     onOpen: onOpenSocialNetworksModal,
     onClose: onCloseSocialNetworksModal
   } = useDisclosure();
-  const { data: currentEmployee } = useGetCurrentUserQuery();
 
   return (
     <InfoSection
       title={t(
         'domains:employee.titles.profile_tabs.personal_information.social_network_title'
       )}
-      onEdit={
-        isEditable(employee.id, currentEmployee)
-          ? onOpenSocialNetworksModal
-          : undefined
-      }
+      onEdit={canEdit ? onOpenSocialNetworksModal : undefined}
     >
       {socialFieldsNames.map((network) => (
         <ContactItem
@@ -52,6 +47,7 @@ export const SocialNetworkInfo = ({
         contacts={contacts}
         isOpenModal={isOpenSocialNetworksModal}
         onCloseModal={onCloseSocialNetworksModal}
+        employee={employee}
       />
     </InfoSection>
   );

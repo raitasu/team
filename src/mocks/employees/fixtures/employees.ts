@@ -59,8 +59,7 @@ const generateEmployee = (id: number): Employee => {
       'l',
       'xl',
       'xxl',
-      '3xl',
-      '4xl'
+      '3xl'
     ]),
     sweat_shirt_size: faker.helpers.arrayElement([
       'xs',
@@ -69,13 +68,12 @@ const generateEmployee = (id: number): Employee => {
       'l',
       'xl',
       'xxl',
-      '3xl',
-      '4xl'
+      '3xl'
     ]),
     contacts: generateEmployeeContacts(),
     contact_info: {
       id: faker.datatype.number({ min: 0, max: 10 }),
-      city: faker.address.city(),
+      city_name: faker.address.city(),
       primary_phone: faker.phone.number('+############'),
       telegram: faker.internet.url(),
       country_code: faker.address.countryCode(),
@@ -96,7 +94,7 @@ const generateEmployee = (id: number): Employee => {
       zip_code: Number(faker.address.zipCode()),
       apartment: Number(faker.address.buildingNumber()),
       building: Number(faker.address.buildingNumber()),
-      timezone: faker.helpers.arrayElement([
+      time_zone: faker.helpers.arrayElement([
         '(GMT+03:00 Moscow, Standard Time - Minsk',
         '(GMT+03:00 Moscow, Standard Time - Moscow'
       ]),

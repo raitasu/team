@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 
 import { Grid, Link, Text, useDisclosure } from '@chakra-ui/react';
-import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useParams } from 'react-router-dom';
 
@@ -9,12 +8,10 @@ import {
   COLUMN_GAP,
   LEFT_COLUMN_WIDTH
 } from '~/features/employee/employee.styles';
-import { isEditable } from '~/features/employee/employee.utils';
 import { DateFormats, toastConfig } from '~/shared/shared.constants';
 import { ConfirmationModal as ConfirmDeleteModal } from '~/shared/ui/components/ConfirmationModal';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { getFormattedDate, workPeriod } from '~/shared/utils/dates.utils';
-import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import { type EmployeeWorkExperience } from '~/store/api/employees/employees.types';
 import { useRemoveWorkExperienceMutation } from '~/store/api/workExperience/workExperience.api';
 
@@ -23,19 +20,18 @@ import { InfoSection } from '../components/InfoSection';
 
 export const WorkExperienceInfo = ({
   workExperience,
-  employeeId,
-  hiredAt
+  hiredAt,
+  canEdit
 }: {
   hiredAt: string;
   workExperience: EmployeeWorkExperience;
-  employeeId: number;
+  canEdit: boolean;
 }) => {
   const [t, { language }] = useTranslation();
   const { id } = useParams();
   const [isOpenConfirmModal, setOpenConfirmModal] = useState<boolean>(false);
   const [removeWorkExperience, { isLoading: isLoadingDelete }] =
     useRemoveWorkExperienceMutation();
-  const { data: currentUser } = useGetCurrentUserQuery();
 
   const {
     isOpen: isOpenWorkExperienceInfoTab,
@@ -53,20 +49,20 @@ export const WorkExperienceInfo = ({
   const toastSuccess = useSuccessToast(toastConfig);
 
   const deleteWorkExperience = async () => {
-    const response = await removeWorkExperience({
-      employeesId: String(id),
-      workExperienceId: String(workExperience.id)
-    });
-
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      toastError({
-        description: t('domains:employee.errors.unknown_error')
-      });
-    } else {
+    try {
+      await removeWorkExperience({
+        employeesId: String(id),
+        workExperienceId: String(workExperience.id)
+      }).unwrap();
       toastSuccess({
         description: t('domains:employee.actions.removed_work_experience')
       });
       onCloseConfirmDeleteModal();
+    } catch (e) {
+      console.error(e);
+      toastError({
+        description: t('domains:employee.errors.unknown_error')
+      });
     }
   };
 
@@ -83,16 +79,8 @@ export const WorkExperienceInfo = ({
               'domains:employee.titles.profile_tabs.work_experience.no_selected_positions'
             )
       }
-      onDelete={
-        isEditable(employeeId, currentUser)
-          ? () => setOpenConfirmModal(true)
-          : undefined
-      }
-      onEdit={
-        isEditable(employeeId, currentUser)
-          ? onOpenWorkExperienceInfoTab
-          : undefined
-      }
+      onDelete={canEdit ? () => setOpenConfirmModal(true) : undefined}
+      onEdit={canEdit ? onOpenWorkExperienceInfoTab : undefined}
     >
       <Grid
         gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}

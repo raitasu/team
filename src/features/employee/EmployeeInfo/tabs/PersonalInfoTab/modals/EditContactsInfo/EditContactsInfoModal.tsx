@@ -28,32 +28,68 @@ import { UnitField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab
 import { WorkEmailField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/WorkEmailField';
 import { ZIPCodeField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/ZIPCodeField';
 import { COLUMN_GAP } from '~/pages/Employee/employee.styles';
+import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
-import { type EmployeeContactInfo } from '~/store/api/employees/employees.types';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
+import { useUpdateContactInfoMutation } from '~/store/api/employees/contactInfo/contactInfo.api';
+import {
+  type Employee,
+  type EmployeeContactInfo
+} from '~/store/api/employees/employees.types';
 
 export const EditContactsInfoModal = ({
   contacts,
+  employee,
   isOpenGeneralInfoTab,
-  onCloseGeneralInfoTab,
-  onConfirm
+  onCloseGeneralInfoTab
 }: {
+  employee: Employee;
   contacts: EmployeeContactInfo;
   isOpenGeneralInfoTab: boolean;
   onCloseGeneralInfoTab: () => void;
-  onConfirm: (values: ChangedContactsInfoValues) => void;
 }) => {
   const [t] = useTranslation();
+
   const methods = useForm({
     defaultValues: getInitialState(contacts, false),
     mode: 'onBlur',
     resolver: zodResolver(EmployeeContactsInfoSchema)
   });
+
   const { reset } = methods;
 
+  const [updateContactInfo, { isLoading }] = useUpdateContactInfoMutation();
+
+  const errorToast = useErrorToast(toastConfig);
+  const successToast = useSuccessToast(toastConfig);
+
+  const changeContactsInfo = async (values: ChangedContactsInfoValues) => {
+    try {
+      await updateContactInfo({
+        data: values,
+        id: employee.id
+      }).unwrap();
+      onCloseGeneralInfoTab();
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
+  };
+
   useEffect(() => {
-    reset(getInitialState(contacts), { keepDefaultValues: false });
+    reset(getInitialState(contacts));
   }, [reset, contacts]);
+
+  const onCloseTab = () => {
+    reset();
+    onCloseGeneralInfoTab();
+  };
 
   return (
     <BaseModal
@@ -64,7 +100,7 @@ export const EditContactsInfoModal = ({
         )
       )}
       isOpen={isOpenGeneralInfoTab}
-      onClose={onCloseGeneralInfoTab}
+      onClose={onCloseTab}
       shouldUseOverlay
       isCentered
       contentProps={{
@@ -72,22 +108,29 @@ export const EditContactsInfoModal = ({
       }}
       footer={
         <ActionsModalFooter
-          onCancel={onCloseGeneralInfoTab}
-          onReset={() => methods.reset()}
+          onCancel={onCloseTab}
+          onReset={() => methods.reset(getInitialState(contacts))}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
           onSubmit={methods.handleSubmit((data) => {
-            const changedValues = Object.entries(data).filter(
-              (_, i) =>
-                !isEqual(
-                  Object.entries(data)[i][1],
-                  Object.entries(getInitialState(contacts, true))[i][1]
-                )
-            );
+            const initialValues = getInitialState(contacts, true);
+            const updatedContacts = (
+              Object.keys(data) as (keyof typeof data)[]
+            ).reduce<ChangedContactsInfoValues>((acc, key) => {
+              const currentValue = data[key];
+              const initialValue = initialValues[key];
 
-            onConfirm(Object.fromEntries(changedValues));
+              if (!isEqual(currentValue, initialValue)) {
+                (acc[key] as typeof currentValue) = currentValue;
+              }
+
+              return acc;
+            }, {});
+
+            return changeContactsInfo(updatedContacts);
           })}
           submitTag="save"
+          isLoading={isLoading}
         />
       }
     >

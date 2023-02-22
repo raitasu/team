@@ -46,10 +46,12 @@ const getEmployeeProfileTabs = (hasAdminAccess: boolean) =>
 
 export const EmployeeInfo = ({
   employee,
-  hasAdminAccess
+  hasAdminAccess,
+  canEdit
 }: {
   employee: Employee;
   hasAdminAccess: boolean;
+  canEdit: boolean;
 }) => {
   const [t] = useTranslation();
 
@@ -70,7 +72,10 @@ export const EmployeeInfo = ({
       <TabPanels>
         {tabs.map(({ title, panel: Panel }) => (
           <TabPanel key={title}>
-            <Panel employee={employee} />
+            <Panel
+              employee={employee}
+              canEdit={canEdit}
+            />
           </TabPanel>
         ))}
       </TabPanels>

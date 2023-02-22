@@ -1,19 +1,14 @@
 import { Box } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import { isEditable } from '~/features/employee/employee.utils';
-import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
-import { type Employee } from '~/store/api/employees/employees.types';
+import { type EmployeeInfoTab } from '~/features/employee/EmployeeInfo/employeeInfo.types';
 
 import { CertificatesInfo } from './CertificatesInfo';
 import { EducationInfo } from './EducationInfo';
 
-export const EducationTab = ({ employee }: { employee: Employee }) => {
+export const EducationTab: EmployeeInfoTab = ({ employee, canEdit }) => {
   const { educations, certificates } = employee;
-  const { data: currentUser } = useGetCurrentUserQuery();
-
   const [t] = useTranslation();
-  const canEdit = isEditable(employee.id, currentUser);
 
   return (
     <Box>

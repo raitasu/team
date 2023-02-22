@@ -7,13 +7,24 @@ import { type EmployeeContactsInfoFormValues } from '~/features/employee/Employe
 import { FormControl } from '~/shared/ui/components/FormControl';
 
 export const PersonalEmailField = () => {
-  const { register } = useFormContext<EmployeeContactsInfoFormValues>();
+  const {
+    register,
+    formState: { errors }
+  } = useFormContext<EmployeeContactsInfoFormValues>();
 
   const [t] = useTranslation();
 
   return (
-    <FormControl label={t(TranslationKeys.personalEmail)}>
-      <Input {...register('personal_email')} />
+    <FormControl
+      label={t(TranslationKeys.personalEmail)}
+      errorMessage={
+        errors.personal_email ? t(`general_errors:invalid_email`) : undefined
+      }
+    >
+      <Input
+        {...register('personal_email')}
+        placeholder={t('general_placeholders:enter_email')}
+      />
     </FormControl>
   );
 };

@@ -31,12 +31,14 @@ export const ContactItem = ({
   name,
   link,
   linkType,
-  canCopy
+  canCopy,
+  children
 }: {
   name?: string;
   link?: string;
   linkType?: LinkType;
   canCopy?: boolean;
+  children?: React.ReactNode;
 }) => {
   const [t] = useTranslation();
   const { onCopy, hasCopied } = useClipboard(link || '');
@@ -92,6 +94,7 @@ export const ContactItem = ({
               />
             </Tooltip>
           ) : null}
+          {children}
         </Flex>
       </Flex>
       <Box />

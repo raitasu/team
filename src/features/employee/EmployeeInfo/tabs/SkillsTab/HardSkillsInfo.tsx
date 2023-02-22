@@ -9,28 +9,23 @@ import {
   LEFT_COLUMN_WIDTH,
   ROW_GAP
 } from '~/features/employee/employee.styles';
-import { isEditable } from '~/features/employee/employee.utils';
-import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
+import { InfoSection } from '~/features/employee/EmployeeInfo/tabs/components/InfoSection';
 import {
-  type HardSkill,
-  type CategoriesHardSkill
+  type CategoriesHardSkill,
+  type HardSkill
 } from '~/store/api/employees/employees.types';
 
 import { HardSkillsInfoItem } from './HardSkillsInfoItem';
 import { EditHardSkillsInfo } from './modals/EditHardSkillsInfo/EditHardSkillsInfoModal';
-import { InfoSection } from '../components/InfoSection';
 
 export const HardSkillsInfo = ({
   skills,
-  employeeId
+  canEdit
 }: {
   skills: HardSkill[];
-  employeeId: number;
+  canEdit: boolean;
 }) => {
   const [t] = useTranslation();
-
-  const { data: currentUser } = useGetCurrentUserQuery();
-
   const {
     isOpen: isOpenHardSkillsInfo,
     onOpen: onOpenHardSkillsInfo,
@@ -45,9 +40,7 @@ export const HardSkillsInfo = ({
   return (
     <InfoSection
       title={t('domains:employee.titles.profile_tabs.skills.hard_skills')}
-      onEdit={
-        isEditable(employeeId, currentUser) ? onOpenHardSkillsInfo : undefined
-      }
+      onEdit={canEdit ? onOpenHardSkillsInfo : undefined}
     >
       <Grid gap="30px">
         {Object.keys(hardSkillsOnCategory).map(

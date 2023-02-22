@@ -29,7 +29,10 @@ export const WorkEmailField = () => {
       isRequired
     >
       <Flex>
-        <Input {...register('employee_attributes.email')} />
+        <Input
+          {...register('employee_attributes.email')}
+          placeholder={t('general_placeholders:enter_email')}
+        />
         <Text padding="10px">@cybergizer.com</Text>
       </Flex>
     </FormControl>

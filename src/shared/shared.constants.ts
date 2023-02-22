@@ -28,6 +28,8 @@ export const toastConfig: ToastProps = {
 export const isNumber = /^[\d.,:]*$/;
 
 export const Patterns = {
+  Date: /^19\d{2}|20\d{2}$/i,
   Link: /https:\/\/.[-a-zA-Z0-9@:%._~#=]{2,256}\.[a-z]{2,6}\b[-a-zA-Z0-9@:%_.~#?&= ]*/i,
-  Date: /^19\d{2}|20\d{2}$/i
+  Number: /^[\d.,:]*$/,
+  PhoneNumber: /^(?<code>[+{1-3}])?[\d., -()]*$/
 };

@@ -3,7 +3,7 @@ import { skipToken } from '@reduxjs/toolkit/query/react';
 import isFinite from 'lodash/isFinite';
 import { useParams } from 'react-router-dom';
 
-import { isAdmin } from '~/features/employee/employee.utils';
+import { isAdmin, isEditable } from '~/features/employee/employee.utils';
 import { EmployeeCard } from '~/features/employee/EmployeeCard';
 import { EmployeeInfo } from '~/features/employee/EmployeeInfo';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
@@ -20,7 +20,6 @@ import {
 
 export const Employee = () => {
   const user = useAppSelector(selectLoggedInUser);
-  const hasAdminAccess = isAdmin(user);
   const { id } = useParams();
   const {
     data: employee,
@@ -39,6 +38,9 @@ export const Employee = () => {
       </PageContainer>
     );
   }
+
+  const hasAdminAccess = isAdmin(user);
+  const canEdit = isEditable(employee.id, user);
 
   return (
     <PageContainer>
@@ -69,6 +71,7 @@ export const Employee = () => {
           <EmployeeInfo
             employee={employee}
             hasAdminAccess={hasAdminAccess}
+            canEdit={canEdit}
           />
         </Box>
       </Flex>

@@ -29,7 +29,12 @@ export const EmergencyOwnerField = () => {
       }
       isRequired
     >
-      <Input {...register('emergency_contact_attributes.owner')} />
+      <Input
+        {...register('emergency_contact_attributes.owner')}
+        placeholder={t(
+          'domains:employee.placeholders.profile_tabs.contacts.enter_owner'
+        )}
+      />
     </FormControl>
   );
 };

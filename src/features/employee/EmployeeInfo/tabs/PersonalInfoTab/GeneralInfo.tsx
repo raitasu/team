@@ -1,44 +1,34 @@
 import { Flex, Text, useDisclosure } from '@chakra-ui/react';
 import upperFirst from 'lodash/upperFirst';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
 
-import { isEditable } from '~/features/employee/employee.utils';
+import { InfoSection } from '~/features/employee/EmployeeInfo/tabs/components/InfoSection';
+import { GeneralInfoItem } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/GeneralInfoItem';
 import { EditGeneralInfoModal } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditGeneralInfo';
-import { type ChangedEmployeeGeneralInfoValues } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditGeneralInfo/editGeneralInfo.schemas';
 import { DateFormats } from '~/shared/shared.constants';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
-import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
-import { useUpdateGeneralInformationMutation } from '~/store/api/employees/employees.api';
 import { type Employee } from '~/store/api/employees/employees.types';
 
-import { GeneralInfoItem } from './GeneralInfoItem';
-import { InfoSection } from '../components/InfoSection';
-
-export const GeneralInfo = ({ employee }: { employee: Employee }) => {
+export const GeneralInfo = ({
+  employee,
+  canEdit
+}: {
+  employee: Employee;
+  canEdit: boolean;
+}) => {
   const [t, { language }] = useTranslation();
   const {
     isOpen: isOpenGeneralInfoTab,
     onOpen: onOpenGeneralInfoTab,
     onClose: onCloseGeneralInfoTab
   } = useDisclosure();
-  const { data: currentUser } = useGetCurrentUserQuery();
-  const { id } = useParams();
-  const [updateGeneralInformation] = useUpdateGeneralInformationMutation();
-  const changeGeneralInfo = (values: ChangedEmployeeGeneralInfoValues) => {
-    updateGeneralInformation({ data: values, id: Number(id) })
-      .then(onCloseGeneralInfoTab)
-      .catch(onCloseGeneralInfoTab);
-  };
 
   return (
     <InfoSection
       title={t(
         'domains:employee.titles.profile_tabs.personal_information.general.section_title'
       )}
-      onEdit={
-        isEditable(employee.id, currentUser) ? onOpenGeneralInfoTab : undefined
-      }
+      onEdit={canEdit ? onOpenGeneralInfoTab : undefined}
     >
       <GeneralInfoItem
         name={t(
@@ -140,7 +130,6 @@ export const GeneralInfo = ({ employee }: { employee: Employee }) => {
         employee={employee}
         isOpenGeneralInfoTab={isOpenGeneralInfoTab}
         onCloseGeneralInfoTab={onCloseGeneralInfoTab}
-        onConfirm={changeGeneralInfo}
       />
     </InfoSection>
   );

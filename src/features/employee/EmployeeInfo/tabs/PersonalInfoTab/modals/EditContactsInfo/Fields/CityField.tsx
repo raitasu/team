@@ -9,8 +9,8 @@ import { Select } from '~/shared/ui/components/Select';
 
 export const CityField = () => {
   const [t] = useTranslation();
-  const { field } = useController<EmployeeContactsInfoFormValues, 'city'>({
-    name: 'city'
+  const { field } = useController<EmployeeContactsInfoFormValues, 'city_name'>({
+    name: 'city_name'
   });
 
   const selectedCity = citiesOptions.find((city) => city.value === field.value);

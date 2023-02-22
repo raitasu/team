@@ -13,7 +13,12 @@ export const StreetField = () => {
 
   return (
     <FormControl label={t(TranslationKeys.street)}>
-      <Input {...register('street')} />
+      <Input
+        {...register('street')}
+        placeholder={t(
+          'domains:employee.placeholders.profile_tabs.contacts.enter_street'
+        )}
+      />
     </FormControl>
   );
 };
