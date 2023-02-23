@@ -571,6 +571,14 @@
       "be": "Belarus",
       "ru": "Russia"
     },
+    "degrees": {
+      "associate": "Associate degree",
+      "bachelor": "Bachelor's degree",
+      "doctoral": "Doctoral degree",
+      "first_professional": "First-professional degree",
+      "master": "Master's degree",
+      "postgraduate": "Postgraduate degree"
+    },
     "employee_profile_tabs": {
       "cv": "CV",
       "education": "Education",

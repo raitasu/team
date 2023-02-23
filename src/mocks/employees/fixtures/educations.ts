@@ -2,13 +2,14 @@ import { faker } from '@faker-js/faker/locale/en';
 import shuffle from 'lodash/shuffle';
 
 import { getRandomInteger } from '~/mocks/mocks.utils';
+import { EducationDegrees } from '~/store/api/employees/employees.schemas';
 import { type EmployeeEducation } from '~/store/api/employees/employees.types';
 
 const sessionEducations: Record<string, EmployeeEducation> = {};
 
 const generateEmployeeEducation = (id: number): EmployeeEducation => ({
   id,
-  degree: faker.word.noun(),
+  degree: faker.helpers.arrayElement(EducationDegrees),
   country: faker.address.country(),
   started_at: faker.date
     .birthdate({ min: 1999, max: 2018, mode: 'year' })

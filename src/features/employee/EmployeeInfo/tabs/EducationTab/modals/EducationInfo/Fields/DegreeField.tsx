@@ -1,10 +1,10 @@
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { degrees } from '~/features/employee/EmployeeInfo/tabs/EducationTab/modals/EducationInfo/Constants';
 import { type EmployeeEducationInfoFormValues } from '~/features/employee/EmployeeInfo/tabs/EducationTab/modals/EducationInfo/EducationInfo.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
 import { Select } from '~/shared/ui/components/Select';
+import { EducationDegrees } from '~/store/api/employees/employees.schemas';
 
 export const DegreeField = () => {
   const { field } = useController<EmployeeEducationInfoFormValues, 'degree'>({
@@ -12,9 +12,9 @@ export const DegreeField = () => {
   });
   const [t] = useTranslation();
 
-  const degreeOptions = degrees.map((degree) => ({
-    value: degree.en,
-    label: degree.en
+  const degreeOptions = EducationDegrees.map((degree) => ({
+    value: degree,
+    label: t(`enums:degrees.${degree}`)
   }));
 
   const selectedDegree =

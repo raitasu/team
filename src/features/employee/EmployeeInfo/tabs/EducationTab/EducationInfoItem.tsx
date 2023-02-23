@@ -54,7 +54,7 @@ export const EducationInfoItem = ({
                 'domains:employee.titles.profile_tabs.education.degree'
               )}: `}
             </Text>
-            {education.degree}
+            {education.degree && t(`enums:degrees.${education.degree}`)}
           </Text>
           <Text>
             <Text

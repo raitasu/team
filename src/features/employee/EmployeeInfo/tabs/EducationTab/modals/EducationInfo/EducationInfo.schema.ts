@@ -2,6 +2,7 @@ import getYear from 'date-fns/getYear';
 import { z } from 'zod';
 
 import { Patterns } from '~/shared/shared.constants';
+import { EmployeeDegreesSchema } from '~/store/api/employees/employees.schemas';
 
 export type EmployeeEducationInfoFormValues = z.infer<
   typeof EmployeeEducationDefaultInfoSchema
@@ -24,7 +25,7 @@ const EndDateSchema = z.object({
 
 const EmployeeEducationDefaultInfoSchema = z.object({
   university_name: z.string().nullable(),
-  degree: z.string().nullable(),
+  degree: EmployeeDegreesSchema.nullable(),
   speciality: z.string().nullable(),
   country: z.string().nullable(),
   nowadays: z.boolean(),
@@ -37,7 +38,7 @@ const EmployeeEducationDefaultInfoSchema = z.object({
 export const EmployeeEducationInfoSchema = z
   .object({
     university_name: z.string().min(2, 'required_field'),
-    degree: z.string().optional().nullable(),
+    degree: EmployeeDegreesSchema.optional().nullable(),
     speciality: z.string().min(2, 'required_field'),
     country: z.string().optional().nullable(),
     nowadays: z.boolean(),

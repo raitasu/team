@@ -139,10 +139,21 @@ export const EmployeeContactInfoSchema = z.object({
   github: z.string().nullable().optional()
 });
 
+export const EducationDegrees = [
+  'associate',
+  'bachelor',
+  'master',
+  'doctoral',
+  'postgraduate',
+  'first_professional'
+] as const;
+
+export const EmployeeDegreesSchema = createUnionSchema(EducationDegrees);
+
 export const EmployeeEducationSchema = z.object({
   id: z.number(),
   country: z.string().nullable(),
-  degree: z.string().nullable(),
+  degree: EmployeeDegreesSchema.nullable(),
   nowadays: z.boolean(),
   started_at: z.string().datetime(),
   graduated_at: z.string().datetime().nullable(),
