@@ -2,7 +2,7 @@ import { Heading, Box, Flex, Text } from '@chakra-ui/react';
 import { getYear } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 
-import { type GetCVResponse } from '~/store/api/createCV/createCV.types';
+import { type GetCVResponse } from '~/store/api/CV/cv.types';
 
 export const Position = ({ cv }: { cv: GetCVResponse }) => {
   const [t] = useTranslation();

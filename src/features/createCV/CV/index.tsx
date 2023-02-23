@@ -1,7 +1,7 @@
 import { Box, Img, Divider } from '@chakra-ui/react';
 
 import logo from '~/shared/layout/Main/Header/assets/logo.svg';
-import { type GetCVResponse } from '~/store/api/createCV/createCV.types';
+import { type GetCVResponse } from '~/store/api/CV/cv.types';
 
 import { Avatar } from './Blocks/Avatar';
 import { Certificates } from './Blocks/Certificates';

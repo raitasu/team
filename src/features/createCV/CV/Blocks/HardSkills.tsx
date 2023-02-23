@@ -2,7 +2,7 @@ import { Box, Text } from '@chakra-ui/react';
 import { getYear } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 
-import { type GetCVResponse } from '~/store/api/createCV/createCV.types';
+import { type GetCVResponse } from '~/store/api/CV/cv.types';
 
 import { CVHeading } from './CVHeading';
 

@@ -7,7 +7,7 @@ import { CVSideNav } from '~/features/createCV/sideNav/CVSideNav';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
 import { PageToolbox } from '~/shared/layout/Page/PageToolbox';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
-import { useGetCVQuery } from '~/store/api/createCV/createCV.api';
+import { useGetCVQuery } from '~/store/api/CV/cv.api.slice';
 
 export const CreateCV = () => {
   const { employeeId, cvId } = useParams();

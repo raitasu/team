@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 
 import { Avatar as ChakraAvatar } from '~/shared/ui/components/Avatar';
-import { type GetCVResponse } from '~/store/api/createCV/createCV.types';
+import { type GetCVResponse } from '~/store/api/CV/cv.types';
 
 export const Avatar = ({ cv }: { cv: GetCVResponse }) => (
   <Box>

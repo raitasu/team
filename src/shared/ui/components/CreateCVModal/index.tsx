@@ -18,7 +18,7 @@ import { DateFormats, toastConfig } from '~/shared/shared.constants';
 import { Button } from '~/shared/ui/components/Button';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { getFormattedDate } from '~/shared/utils/dates.utils';
-import { useCreateCVMutation } from '~/store/api/createCV/createCV.api';
+import { useCreateCVMutation } from '~/store/api/CV/cv.api.slice';
 
 export const CreateCVModal = ({
   isOpen,

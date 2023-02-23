@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
-import { type GetCVResponse } from '~/store/api/createCV/createCV.types';
+import { type GetCVResponse } from '~/store/api/CV/cv.types';
 
 import { CVHeading } from './CVHeading';
 

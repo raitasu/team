@@ -1,6 +1,6 @@
 import { Heading } from '@chakra-ui/react';
 
-import { type GetCVResponse } from '~/store/api/createCV/createCV.types';
+import { type GetCVResponse } from '~/store/api/CV/cv.types';
 
 export const Name = ({ cv }: { cv: GetCVResponse }) => (
   <Heading

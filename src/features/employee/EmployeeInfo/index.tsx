@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
@@ -37,20 +39,36 @@ const employeeInfoTabs = [
   }
 ];
 
-export const EmployeeInfo = ({ employee }: { employee: Employee }) => {
+const getEmployeeProfileTabs = (hasAdminAccess: boolean) =>
+  hasAdminAccess
+    ? employeeInfoTabs.slice()
+    : employeeInfoTabs.filter(({ title }) => title !== 'cv');
+
+export const EmployeeInfo = ({
+  employee,
+  hasAdminAccess
+}: {
+  employee: Employee;
+  hasAdminAccess: boolean;
+}) => {
   const [t] = useTranslation();
+
+  const tabs = useMemo(
+    () => getEmployeeProfileTabs(hasAdminAccess),
+    [hasAdminAccess]
+  );
 
   return (
     <Tabs>
       <TabList>
-        {employeeInfoTabs.map((tab) => (
+        {tabs.map((tab) => (
           <Tab key={tab.title}>
             {t(`enums:employee_profile_tabs.${tab.title}`)}
           </Tab>
         ))}
       </TabList>
       <TabPanels>
-        {employeeInfoTabs.map(({ title, panel: Panel }) => (
+        {tabs.map(({ title, panel: Panel }) => (
           <TabPanel key={title}>
             <Panel employee={employee} />
           </TabPanel>

@@ -1,5 +1,13 @@
 import { type LanguageLevel } from '~/store/api/employees/employees.types';
 
+export interface GetCVListResponse {
+  created_at: string;
+  id: number;
+  name: string;
+  positions: string | null;
+  link: string;
+}
+
 export interface GetCVResponse {
   name: string;
   id: number;

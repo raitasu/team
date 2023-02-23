@@ -17,7 +17,15 @@ export const AddCVCell = ({
     <Button
       variant="primaryOutline"
       leftIcon={<MdAdd />}
-      onClick={() => meta?.onAddCVBtnClick(getValue())}
+      onClick={() => {
+        const { onAddCVBtnClick } = meta || {};
+
+        if (!onAddCVBtnClick) {
+          throw new Error('Table should implement onAddCVBtnClick');
+        }
+
+        onAddCVBtnClick(getValue());
+      }}
     >
       {t('domains:employee.table_headers.cv')}
     </Button>

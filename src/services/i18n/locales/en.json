@@ -488,6 +488,7 @@
         "descriptions": {
           "delete": "Do you want to delete information?",
           "delete_certificate": "Do you want to delete certificate?",
+          "delete_cv": "Do you really want to delete user CV?",
           "delete_education": "Do you want to delete education?",
           "delete_employee": "Do you want to delete user profile?",
           "delete_project": "Do you want to delete project?",
@@ -500,6 +501,7 @@
         "titles": {
           "delete": "Delete information",
           "delete_certificate": "Delete certificate",
+          "delete_cv": "Delete CV",
           "delete_education": "Delete education",
           "delete_project": "Delete project",
           "delete_work_experience": "Delete work experience",

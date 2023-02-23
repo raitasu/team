@@ -1,4 +1,4 @@
-import { format, differenceInMonths } from 'date-fns';
+import { differenceInMonths, format, isValid as isValidDate } from 'date-fns';
 
 import { DateFnsLocales } from '~/services/i18n/i18n.constants';
 import { isSupportedLocale } from '~/services/i18n/i18n.utils';
@@ -28,9 +28,13 @@ export const getFormattedDate = (
     );
   }
 
-  return format(new Date(date), pattern, {
-    locale: DateFnsLocales[language]
-  });
+  const cvDate = new Date(date);
+
+  return isValidDate(cvDate)
+    ? format(new Date(date), pattern, {
+        locale: DateFnsLocales[language]
+      })
+    : 'invalid_date';
 };
 
 export const getFirstLetterOfMonth = (date: string) => {
