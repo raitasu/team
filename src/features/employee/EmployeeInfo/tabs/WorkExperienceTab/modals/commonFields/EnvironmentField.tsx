@@ -20,9 +20,9 @@ export const EnvironmentField = ({ isAll }: { isAll?: boolean }) => {
 
   const { field: projectName } = useController<
     EmployeeWorkExperienceFormValues,
-    `project_name`
+    `project`
   >({
-    name: `project_name`
+    name: `project`
   });
 
   const { data: companyHardSkills } = useGetCompanyHardSkillsQuery(

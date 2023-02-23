@@ -75,7 +75,7 @@ export type CreateEmployeeWorkExperience = {
   description: string;
   hard_skill_ids: number[];
   position_ids: number[];
-  project_id: number;
+  project_name: string;
   responsibilities: string;
   ended_at: string | null;
   started_at: string;

@@ -21,7 +21,6 @@ const currentYear = getYear(new Date());
 
 export const EmployeeWorkExperienceSchema = z
   .object({
-    hiredAt: z.string().nullable(), // TODO: Need to configure validation
     company_name: z.string().trim().min(1, 'required_field').nullable(),
     hard_skills: z
       .object({
@@ -30,7 +29,7 @@ export const EmployeeWorkExperienceSchema = z
       })
       .array()
       .min(1, 'required_field'),
-    project_name: z
+    project: z
       .object({
         name: z.string().nullable(),
         id: z.string().nullable()
@@ -54,6 +53,8 @@ export const EmployeeWorkExperienceSchema = z
       .array()
       .min(1, 'required_field'),
     responsibilities: z.string().trim().min(1, 'required_field').nullable(),
+
+    hiredAt: z.string().nullable(), // TODO: Need to configure validation
     started_at: StartDateSchema.superRefine((value, ctx) => {
       if ((value.month && !value.year) || (!value.month && value.year)) {
         ctx.addIssue({

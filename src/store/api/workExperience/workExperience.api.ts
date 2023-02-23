@@ -1,4 +1,3 @@
-import { type EmployeeWorkExperienceFormValues } from '~/features/employee/EmployeeInfo/tabs/WorkExperienceTab/WorkExperienceModal.schemas';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import {
@@ -87,7 +86,7 @@ const workExperienceApiSlice = rootApiSlice.injectEndpoints({
     updateWorkExperience: builder.mutation<
       EmployeeWorkExperience,
       {
-        workExperience: Partial<EmployeeWorkExperienceFormValues>;
+        workExperience: Partial<CreateEmployeeWorkExperience>;
         employeeId: number;
         workExperienceId: number;
       }
@@ -105,16 +104,7 @@ const workExperienceApiSlice = rootApiSlice.injectEndpoints({
         url: `employees/${employeeId}/work_experiences/${workExperienceId}`,
         method: 'PATCH',
         body: {
-          work_experience: {
-            ...workExperience,
-            positions: workExperience.positions?.map((position) => ({
-              id: Number(position.value),
-              name: position.label
-            })),
-            hard_skill_ids: workExperience.hard_skills?.map((item) =>
-              Number(item.value)
-            )
-          }
+          work_experience: workExperience
         }
       })
     })
@@ -126,6 +116,6 @@ export const {
   useGetCustomersQuery,
   useGetCompanyProjectsQuery,
   useRemoveWorkExperienceMutation,
-  useGetCompanyHardSkillsQuery
+  useGetCompanyHardSkillsQuery,
+  useUpdateWorkExperienceMutation
 } = workExperienceApiSlice;
-export const { useUpdateWorkExperienceMutation } = workExperienceApiSlice;

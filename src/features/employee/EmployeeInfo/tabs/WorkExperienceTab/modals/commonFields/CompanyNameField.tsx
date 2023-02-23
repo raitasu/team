@@ -29,11 +29,11 @@ export const CompanyNameField = () => {
     [customers]
   );
 
-  const { field: projectName } = useController<
+  const { field: project } = useController<
     EmployeeWorkExperienceFormValues,
-    `project_name`
+    `project`
   >({
-    name: `project_name`
+    name: `project`
   });
 
   const [t] = useTranslation();
@@ -45,10 +45,6 @@ export const CompanyNameField = () => {
 
   const filteredOptions = options.filter(
     (item) => item.label !== company?.label
-  );
-
-  const selectedCompany = options.filter(
-    (item) => item.label === company?.label
   );
 
   return (
@@ -67,10 +63,11 @@ export const CompanyNameField = () => {
         {...field}
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         options={filteredOptions}
-        value={selectedCompany}
+        value={company}
+        isClearable
         onChange={(option) => {
           if (option) {
-            projectName.onChange({ id: null, name: null });
+            project.onChange({ id: null, name: null });
             field.onChange(option.label);
           }
         }}

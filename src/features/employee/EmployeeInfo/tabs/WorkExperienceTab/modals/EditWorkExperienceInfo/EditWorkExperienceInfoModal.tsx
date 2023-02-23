@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
 
-import { Flex, Grid, Text } from '@chakra-ui/react';
+import { Flex, Grid, Link, Text } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import isEqual from 'lodash/isEqual';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 import { COLUMN_GAP } from '~/features/employee/employee.styles';
 import { isCompanyProject } from '~/features/employee/employee.utils';
@@ -18,7 +17,7 @@ import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { type EmployeeWorkExperience } from '~/store/api/employees/employees.types';
 import { useUpdateWorkExperienceMutation } from '~/store/api/workExperience/workExperience.api';
 
-import { getInitialValues } from '../../WorkExperience.utils';
+import { getInitialValues, transformData } from '../../WorkExperience.utils';
 import { EmployeeWorkExperienceSchema } from '../../WorkExperienceModal.schemas';
 import { CompanyNameField } from '../commonFields/CompanyNameField';
 import { DateField } from '../commonFields/DateFIeld';
@@ -97,41 +96,33 @@ export const EditWorkExperienceInfoModal = ({
               const initialValue = initialValues[key];
 
               if (!isEqual(currentValue, initialValue)) {
-                if (key === 'ended_at' || key === 'started_at') {
-                  const newDate =
-                    formValues[key].year && formValues[key].month
-                      ? new Date(
-                          Number(formValues[key].year),
-                          Number(formValues[key].month)
-                        ).toISOString()
-                      : null;
-
-                  (acc[key] as typeof currentValue) = newDate;
-                } else {
-                  (acc[key] as typeof currentValue) = currentValue;
-                }
+                (acc[key] as typeof currentValue) = currentValue;
               }
 
               return acc;
             }, {});
 
-            const response = await updateWorkExperience({
-              workExperience: updatedWorkExperience,
-              employeeId: Number(id),
-              workExperienceId: workExperience.id
-            });
+            try {
+              await updateWorkExperience({
+                workExperience: transformData(updatedWorkExperience),
+                employeeId: Number(id),
+                workExperienceId: workExperience.id
+              }).unwrap();
 
-            if ((response as { error?: FetchBaseQueryError }).error) {
-              toastError({
-                description: t('domains:employee.errors.unknown_error')
-              });
-            } else {
               toastSuccess({
                 description: t(
                   'domains:employee.actions.created_new_work_experience'
                 )
               });
               onCloseWorkExperienceInfoTab();
+            } catch (e) {
+              console.error(e);
+
+              toastError({
+                description: t(
+                  'domains:global.errors.descriptions.unknown_error'
+                )
+              });
             }
           })}
           submitTag="save"
@@ -171,7 +162,12 @@ export const EditWorkExperienceInfoModal = ({
                     'domains:employee.titles.profile_tabs.work_experience.project_name'
                   )}: `}
                 </Text>
-                {workExperience.project_name}
+                <Link
+                  as={NavLink}
+                  to={`/projects/${workExperience.project.id}`}
+                >
+                  {workExperience.project.name}
+                </Link>
               </Text>
             </Grid>
           )}

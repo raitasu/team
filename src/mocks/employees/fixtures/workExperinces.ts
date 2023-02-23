@@ -32,7 +32,10 @@ const generateEmployeeWorkExperience = (
   description: faker.lorem.paragraph(),
   responsibilities: faker.lorem.paragraph(),
   hard_skills: getRandomHardSkills(getRandomInteger(0, 8)),
-  project_name: faker.company.name()
+  project: {
+    name: faker.company.name(),
+    id: faker.datatype.number()
+  }
 });
 
 (function generateSessionEmployeeWorkExperiences() {

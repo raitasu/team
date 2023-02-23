@@ -230,7 +230,10 @@ export const CustomersSchema = z.object({
 export const WorkExperienceSchema = z.object({
   id: z.number(),
   company_name: z.string(),
-  project_name: z.string(),
+  project: z.object({
+    name: z.string(),
+    id: z.number()
+  }),
   positions: z
     .object({
       created_at: z.string().datetime(),

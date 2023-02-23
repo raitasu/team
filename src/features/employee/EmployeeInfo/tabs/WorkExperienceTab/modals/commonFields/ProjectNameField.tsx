@@ -13,8 +13,8 @@ export const ProjectNameField = () => {
   const {
     field,
     fieldState: { error }
-  } = useController<EmployeeWorkExperienceFormValues, `project_name`>({
-    name: `project_name`
+  } = useController<EmployeeWorkExperienceFormValues, `project`>({
+    name: `project`
   });
 
   const { field: companyName } = useController<
@@ -49,10 +49,6 @@ export const ProjectNameField = () => {
     (item) => item.label !== project?.label
   );
 
-  const selectedProject = companyProjectsOptions.filter(
-    (item) => item.label === project?.label
-  );
-
   return (
     <FormControl
       label={t(
@@ -69,10 +65,11 @@ export const ProjectNameField = () => {
         {...field}
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         options={filteredOptions}
-        value={selectedProject}
+        isClearable
+        value={project}
         onChange={(option) => {
           if (option) {
-            field.onChange({ id: option.value, name: option.label });
+            field.onChange({ name: option.label, id: option.value });
           }
         }}
         size="md"

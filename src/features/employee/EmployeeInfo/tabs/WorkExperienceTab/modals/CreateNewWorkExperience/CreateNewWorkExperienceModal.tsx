@@ -1,6 +1,5 @@
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -77,7 +76,7 @@ export const CreateNewWorkExperienceModal = ({
                 Number(item.value)
               ),
               position_ids: payload.positions.map((item) => Number(item.value)),
-              project_id: Number(payload.project_name.id),
+              project_name: payload.project.name || '',
               responsibilities: payload.responsibilities || '',
               ended_at:
                 ended_at.month !== null && ended_at.year
@@ -92,22 +91,24 @@ export const CreateNewWorkExperienceModal = ({
               )
             };
 
-            const response = await createWorkExperience({
-              workExperience,
-              employeesId: Number(id)
-            });
+            try {
+              await createWorkExperience({
+                workExperience,
+                employeesId: Number(id)
+              }).unwrap();
 
-            if ((response as { error?: FetchBaseQueryError }).error) {
-              toastError({
-                description: t('domains:employee.errors.unknown_error')
-              });
-            } else {
               toastSuccess({
                 description: t(
                   'domains:employee.actions.created_new_work_experience'
                 )
               });
               closeForm();
+            } catch (e) {
+              console.error(e);
+
+              toastError({
+                description: t('domains:employee.errors.unknown_error')
+              });
             }
           })}
           submitTag="save"

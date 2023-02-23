@@ -105,8 +105,8 @@ export const WorkExperienceInfo = ({
           <Text>
             <Link
               as={NavLink}
-              to="/projects"
-            >{`${workExperience.project_name} `}</Link>
+              to={`/projects/${workExperience.project.id}`}
+            >{`${workExperience.project.name} `}</Link>
             ({workExperience.company_name})
           </Text>
           <Text color="brand.lightGray">
