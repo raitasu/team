@@ -14,7 +14,7 @@ export const Publications = ({ cv }: { cv: GetCVResponse }) => {
     <>
       <CVHeading text={t(`domains:cv.blocks.publications`)} />
       {cv.profile.publications?.map((publication) => (
-        <Box key={publication.name}>
+        <Box key={publication.id}>
           <Text
             mt={7}
             mb={1}

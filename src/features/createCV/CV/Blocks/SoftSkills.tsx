@@ -13,7 +13,7 @@ export const SoftSkills = ({ cv }: { cv: GetCVResponse }) => {
       <CVHeading text={t(`domains:cv.blocks.soft_skills`)} />
       {cv.profile.soft_skills?.map((skill) => (
         <Text
-          key={skill.name}
+          key={skill.id}
           mt={3}
           mb={3}
           fontSize="lg"

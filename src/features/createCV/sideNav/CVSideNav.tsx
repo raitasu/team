@@ -1,12 +1,14 @@
+import { useEffect } from 'react';
+
 import {
   Box,
-  CheckboxGroup,
   Stack,
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionIcon,
-  AccordionPanel
+  AccordionPanel,
+  useCheckboxGroup
 } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -21,11 +23,32 @@ import { CvBlocks } from '~/features/createCV/cv.constants';
 import { PagePaths } from '~/router/router.constants';
 import { Button } from '~/shared/ui/components/Button';
 import { Checkbox } from '~/shared/ui/components/Checkbox';
+import { type GetCVResponse } from '~/store/api/CV/cv.types';
+import { setBlocksVisibility } from '~/store/slices/cv/cv.slice';
+import { useAppDispatch } from '~/store/store.hooks';
 
-export const CVSideNav = () => {
+export const CVSideNav = ({ cv }: { cv: GetCVResponse }) => {
   const [t] = useTranslation();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { employeeId } = useParams();
+
+  const { value, getCheckboxProps } = useCheckboxGroup({
+    defaultValue: Object.values(CvBlocks).filter(
+      (block) => cv.profile[block] !== null
+    ),
+    onChange: (values: string[]) => {
+      dispatch(setBlocksVisibility(values));
+    }
+  });
+
+  useEffect(() => {
+    dispatch(
+      setBlocksVisibility(
+        Object.values(CvBlocks).filter((block) => cv.profile[block] !== null)
+      )
+    );
+  }, [cv.profile, dispatch]);
 
   return (
     <Box
@@ -75,24 +98,20 @@ export const CVSideNav = () => {
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
-            <CheckboxGroup
-              colorScheme="green"
-              defaultValue={['naruto', 'kakashi']}
+            <Stack
+              spacing={[1, 5]}
+              direction={['column', 'column']}
             >
-              <Stack
-                spacing={[1, 5]}
-                direction={['column', 'column']}
-              >
-                {Object.values(CvBlocks).map((key) => (
-                  <Checkbox
-                    key={key}
-                    variant="outlined"
-                    value={key}
-                    label={t(`domains:cv.blocks.${key}`)}
-                  />
-                ))}
-              </Stack>
-            </CheckboxGroup>
+              {Object.values(CvBlocks).map((key) => (
+                <Checkbox
+                  key={key}
+                  variant="outlined"
+                  label={t(`domains:cv.blocks.${key}`)}
+                  {...getCheckboxProps({ value: key })}
+                  isChecked={Boolean(value.find((el) => el === key))}
+                />
+              ))}
+            </Stack>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

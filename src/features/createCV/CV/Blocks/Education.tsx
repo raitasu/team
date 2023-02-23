@@ -11,9 +11,9 @@ export const Education = ({ cv }: { cv: GetCVResponse }) => {
 
   return (
     <>
-      <CVHeading text={t(`domains:cv.blocks.education`)} />
+      <CVHeading text={t(`domains:cv.blocks.educations`)} />
       {cv.profile.educations?.map((education) => (
-        <Box key={education.university_name}>
+        <Box key={education.id}>
           <Text
             mt={7}
             mb={2}

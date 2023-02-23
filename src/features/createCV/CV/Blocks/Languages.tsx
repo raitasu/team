@@ -13,7 +13,7 @@ export const Languages = ({ cv }: { cv: GetCVResponse }) => {
       <CVHeading text={t(`domains:cv.blocks.languages`)} />
       {cv.profile.languages?.map((lang) => (
         <Text
-          key={lang.name}
+          key={lang.id}
           mt={3}
           mb={3}
           fontSize="lg"

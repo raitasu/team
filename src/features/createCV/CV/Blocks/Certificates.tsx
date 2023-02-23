@@ -13,7 +13,7 @@ export const Certificates = ({ cv }: { cv: GetCVResponse }) => {
     <>
       <CVHeading text={t(`domains:cv.blocks.certificates`)} />
       {cv.profile.certificates?.map((certificate) => (
-        <Box key={certificate.name}>
+        <Box key={certificate.id}>
           <Text
             mt={5}
             mb={1}

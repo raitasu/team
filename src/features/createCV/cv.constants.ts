@@ -2,11 +2,11 @@ export const CvBlocks = {
   Avatar: 'avatar',
   Position: 'position',
   Description: 'description',
-  WorkExperience: 'work_experience',
+  WorkExperience: 'work_experiences',
   HardSkills: 'hard_skills',
   SoftSkills: 'soft_skills',
   Languages: 'languages',
-  Education: 'education',
+  Education: 'educations',
   Certificates: 'certificates',
   Publications: 'publications'
 } as const;

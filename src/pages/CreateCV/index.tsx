@@ -49,7 +49,7 @@ export const CreateCV = () => {
           flexDirection="column"
           overflow="hidden"
         >
-          <CVSideNav />
+          {data && <CVSideNav cv={data} />}
         </Flex>
         <Flex
           flex="1"

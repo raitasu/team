@@ -236,13 +236,13 @@
         "avatar": "Аватар",
         "certificates": "Сертификаты",
         "description": "Описание",
-        "education": "Образование",
+        "educations": "Образование",
         "hard_skills": "Профессиональные навыки",
         "languages": "Языки",
         "position": "Позиция",
         "publications": "Публикации",
         "soft_skills": "Общие навыки",
-        "work_experience": "Опыт работы"
+        "work_experiences": "Опыт работы"
       },
       "navigation": {
         "back_to_profile": "Назад к профилю",

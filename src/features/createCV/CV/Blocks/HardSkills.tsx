@@ -13,7 +13,7 @@ export const HardSkills = ({ cv }: { cv: GetCVResponse }) => {
     <>
       <CVHeading text={t(`domains:cv.blocks.hard_skills`)} />
       {cv.profile.hard_skills?.map((skill) => (
-        <Box key={skill.name}>
+        <Box key={skill.id}>
           <Text
             mt={3}
             fontSize="lg"

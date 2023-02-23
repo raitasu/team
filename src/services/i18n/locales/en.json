@@ -236,13 +236,13 @@
         "avatar": "Avatar",
         "certificates": "Certificates",
         "description": "Description",
-        "education": "Education",
+        "educations": "Education",
         "hard_skills": "Hard Skills",
         "languages": "Languages",
         "position": "Position",
         "publications": "Publications",
         "soft_skills": "Soft Skills",
-        "work_experience": "Work Experience"
+        "work_experiences": "Work Experience"
       },
       "navigation": {
         "back_to_profile": "Back to profile",

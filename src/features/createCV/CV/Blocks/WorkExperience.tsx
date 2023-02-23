@@ -11,9 +11,9 @@ export const WorkExperience = ({ cv }: { cv: GetCVResponse }) => {
 
   return (
     <>
-      <CVHeading text={t(`domains:cv.blocks.work_experience`)} />
+      <CVHeading text={t(`domains:cv.blocks.work_experiences`)} />
       {cv.profile.work_experiences?.map((workExperience) => (
-        <Box key={workExperience.company_name}>
+        <Box key={workExperience.id}>
           <Text
             mt={7}
             mb={2}
