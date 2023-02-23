@@ -7,11 +7,9 @@ import { type EmployeeGeneralInfoFormValues } from '~/features/employee/Employee
 import { FormControl } from '~/shared/ui/components/FormControl';
 
 export const AvatarField = ({
-  onReset,
-  avatarUrl
+  onReset
 }: {
   onReset: React.MouseEventHandler<HTMLButtonElement>;
-  avatarUrl: string | null;
 }) => {
   const {
     field,
@@ -36,8 +34,8 @@ export const AvatarField = ({
       errorMessage={errors.avatar?.message ? errors.avatar.message : undefined}
     >
       <EmployeeAvatarEditor
-        avatarUrl={avatarUrl}
-        avatarFile={field.value}
+        avatarUrl={typeof field.value === 'string' ? field.value : null}
+        avatarFile={typeof field.value !== 'string' ? field.value : null}
         onAvatarChanged={onAvatarChanged}
         status={status.value}
         onReset={onReset}

@@ -9,7 +9,7 @@ export const getInitialState = (
   first_name: employee.first_name,
   last_name: employee.last_name,
   status: employee.status,
-  avatar: typeof employee.avatar === 'string' ? null : employee.avatar,
+  avatar: employee.avatar,
   about: employee.about || '',
   sweat_shirt_size: employee.sweat_shirt_size
     ? employee.sweat_shirt_size

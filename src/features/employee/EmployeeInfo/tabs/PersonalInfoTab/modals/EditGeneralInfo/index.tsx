@@ -139,10 +139,7 @@ export const EditGeneralInfoModal = ({
         <FormProvider {...methods}>
           <Flex gap={COLUMN_GAP}>
             <Box w="fit-content">
-              <AvatarField
-                avatarUrl={employee.avatar || null}
-                onReset={() => methods.resetField('avatar')}
-              />
+              <AvatarField onReset={() => methods.resetField('avatar')} />
             </Box>
             <Stack
               spacing="20px"

@@ -9,11 +9,9 @@ import {
   MdOutlineDeleteOutline,
   MdOutlineModeEditOutline
 } from 'react-icons/md';
-import { useParams } from 'react-router-dom';
 
 import { EditorActions } from '~/features/employee/CreateEmployeeModal/EmployeeAvatar/EditorActions';
 import { Avatar } from '~/shared/ui/components/Avatar';
-import { useDeleteAvatarMutation } from '~/store/api/employees/employees.api';
 import { type EmployeeStatus } from '~/store/api/employees/employees.types';
 
 const backdropColor = [255, 255, 255, 0.6];
@@ -86,8 +84,6 @@ export const EmployeeAvatarEditor = ({
         return 'var(--chakra-colors-brand-accentGreen)';
     }
   };
-  const { id } = useParams();
-  const [deleteAvatar] = useDeleteAvatarMutation();
 
   return (
     <Box>
@@ -154,10 +150,9 @@ export const EmployeeAvatarEditor = ({
                     id="DeleteAvatarIcon"
                     size={50}
                     color="var(--chakra-colors-brand-ghostGray)"
-                    onClick={async (event) => {
+                    onClick={(event) => {
                       event.stopPropagation();
                       onAvatarChanged(null);
-                      await deleteAvatar({ id: id || '' });
                     }}
                   />
                 </>

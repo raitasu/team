@@ -25,10 +25,11 @@ export const EmployeeGeneralInfoSchema = z.object({
   last_name: z.string().min(1, 'required_field'),
   status: EmployeeStatusSchema,
   avatar: z
-    .instanceof(File)
+    .string()
+    .or(z.instanceof(File))
     .nullable()
     .superRefine((f, ctx) => {
-      if (f === null) {
+      if (f === null || typeof f === 'string') {
         return null;
       }
 

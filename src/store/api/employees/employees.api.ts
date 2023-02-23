@@ -143,6 +143,7 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
         const body = new FormData();
 
         Object.entries(data).forEach(([key, value]) => {
+          if (key === 'avatar' && value === null) body.append(key, 'null');
           if (value && typeof value !== 'number') body.append(key, value);
         });
 
@@ -152,15 +153,6 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
           body
         };
       }
-    }),
-    deleteAvatar: builder.mutation<void, { id: string }>({
-      invalidatesTags: (_result, _error, arg) => [
-        { type: ApiTags.Employees, id: `${arg.id}` }
-      ],
-      query: ({ id }) => ({
-        url: `/employees/${id}/avatars`,
-        method: 'DELETE'
-      })
     }),
     deleteEmployee: builder.mutation<void, { id: number }>({
       invalidatesTags: (_result, _error, arg) => [
@@ -180,7 +172,6 @@ export const {
   useGetEmployeeQuery,
   useCreateEmployeeMutation,
   useUpdateGeneralInformationMutation,
-  useDeleteAvatarMutation,
   useGetAllEmployeesQuery,
   useDeleteEmployeeMutation
 } = employeesApiSlice;
