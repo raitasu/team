@@ -53,7 +53,7 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
       ),
       query: ({ page, elementsPerPage }) => {
         const params = new URLSearchParams({
-          limit: `${elementsPerPage}`,
+          items: `${elementsPerPage}`,
           offset: `${getPageOffset(page, elementsPerPage)}`,
           page: page.toString()
         });

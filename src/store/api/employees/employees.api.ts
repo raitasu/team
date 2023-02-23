@@ -55,7 +55,7 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
       ),
       query: ({ page, elementsPerPage, filters = {}, sorting = [] }) => {
         const params = new URLSearchParams({
-          limit: `${elementsPerPage}`,
+          items: `${elementsPerPage}`,
           offset: `${getPageOffset(page, elementsPerPage)}`,
           page: page.toString()
         });

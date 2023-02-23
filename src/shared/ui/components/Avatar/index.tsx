@@ -84,7 +84,6 @@ export const Avatar = React.forwardRef<
   <ChakraAvatar
     {...passThroughProps}
     ref={ref}
-    bg="brand.stroke"
     src={src || defaultAvatar}
     sx={getStyles(size, variant)}
   />
