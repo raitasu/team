@@ -845,12 +845,8 @@
       "ZW": "Zimbabwe"
     },
     "degrees": {
-      "associate": "Ассоциированная степень",
       "bachelor": "Степень бакалавра",
-      "doctoral": "Докторская степень",
-      "first_professional": "Первая профессиональная степень",
-      "master": "Степень магистра",
-      "postgraduate": "Аспирантура"
+      "master": "Степень магистра"
     },
     "employee_profile_tabs": {
       "cv": "Резюме",

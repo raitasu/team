@@ -8,6 +8,7 @@ import { opinions } from '~/mocks/employees/fixtures/softSkills';
 import { getRandomInteger } from '~/mocks/mocks.utils';
 import { getRandomPositions } from '~/mocks/positions/fixtures/positions';
 import { getRandomProjects } from '~/mocks/projects/fixtures/projects';
+import { CountriesCode } from '~/store/api/api.constants';
 import {
   type Address,
   type Employee,
@@ -25,7 +26,7 @@ const sessionEmployees: Record<string, Employee> = {};
 
 const generateEmployeeAddress = (): Address => ({
   city: faker.address.city(),
-  country_code: faker.helpers.arrayElement(['be', 'ru'])
+  country_code: faker.helpers.arrayElement(CountriesCode)
 });
 
 const generateEmployeeContacts = (): EmployeeContact => ({
