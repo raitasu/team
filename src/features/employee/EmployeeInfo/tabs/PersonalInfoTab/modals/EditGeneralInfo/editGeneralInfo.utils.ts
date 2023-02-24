@@ -16,7 +16,7 @@ export const getInitialState = (
     : null,
   t_shirt_size: employee.t_shirt_size || null,
   gender: employee.gender ? employee.gender : null,
-  date_of_birth: employee.date_of_birth || '',
+  date_of_birth: employee.date_of_birth || new Date().toISOString(),
   interests: employee.interests || '',
   startMonth: employee.start_career_at
     ? getMonth(new Date(employee.start_career_at))
