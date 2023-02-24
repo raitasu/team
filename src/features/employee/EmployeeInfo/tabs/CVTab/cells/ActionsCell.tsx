@@ -6,6 +6,7 @@ import {
   MdOutlineDownload,
   MdOutlineEdit
 } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
 import { IconButton } from '~/shared/ui/components/IconButton';
@@ -66,8 +67,8 @@ export const ActionsCell = ({
         labelText={t('general_actions:edit')}
       >
         <Link
-          href={`${PagePaths.Employees}/${employeeId}/cv/${cv.id}`}
-          target="_blank"
+          as={NavLink}
+          to={`${PagePaths.Employees}/${employeeId}/cv/${cv.id}`}
         >
           <IconButton
             icon={<MdOutlineEdit />}

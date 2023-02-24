@@ -38,7 +38,6 @@ export const ProjectsCell = ({
     <Link
       key={project.id}
       to={`${PagePaths.Projects}/${project.id}`}
-      target="_blank"
       style={{
         display: `${isShowedPoppover ? 'block' : 'inline'}`,
         lineHeight: `${DEFAULT_FONT_HEIGHT}px`
