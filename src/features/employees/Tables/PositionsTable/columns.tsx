@@ -1,13 +1,13 @@
 import { createColumnHelper } from '@tanstack/react-table';
 
 import { AddCVCell } from '~/features/employees/Tables/cells/AddCVCell';
+import { AddressCell } from '~/features/employees/Tables/cells/AddressCell';
+import { BirthdayCell } from '~/features/employees/Tables/cells/BirthdayCell';
 import { NameCell } from '~/features/employees/Tables/cells/NameCell';
+import { PositionCell } from '~/features/employees/Tables/cells/PositionCell';
 import { ProjectsCell } from '~/features/employees/Tables/cells/ProjectsCell';
 import { TranslatedHeader } from '~/features/employees/Tables/cells/TranslatedHeader';
 import { EmployeesHeaderIds } from '~/features/employees/Tables/tables.constants';
-import { getI18n } from '~/services/i18n';
-import { DateFormats } from '~/shared/shared.constants';
-import { getFormattedDate } from '~/shared/utils/dates.utils';
 import { type ShortEmployee } from '~/store/api/employees/employees.types';
 
 const columnHelper = createColumnHelper<ShortEmployee>();
@@ -20,30 +20,19 @@ export const PositionsColumns = [
   }),
   columnHelper.accessor('positions', {
     id: EmployeesHeaderIds.Positions,
-    cell: (info) =>
-      Object.values(info.getValue() || [])
-        .map((project) => project.name)
-        .join(', '),
+    cell: PositionCell,
     header: TranslatedHeader,
     enableSorting: false
   }),
-  columnHelper.accessor('contacts', {
+  columnHelper.accessor('contacts.address', {
     id: EmployeesHeaderIds.Contacts,
-    cell: (info) =>
-      `${info.getValue().address.country_code || ''},  ${
-        info.getValue().address.city ? info.getValue().address.city || '' : '-'
-      }`,
+    cell: AddressCell,
     header: TranslatedHeader,
     enableSorting: true
   }),
   columnHelper.accessor('date_of_birth', {
     id: EmployeesHeaderIds.Birthday,
-    cell: (info) =>
-      getFormattedDate(
-        info.getValue() as string,
-        getI18n().language,
-        DateFormats.Long
-      ),
+    cell: BirthdayCell,
     header: TranslatedHeader
   }),
   columnHelper.accessor('projects', {
