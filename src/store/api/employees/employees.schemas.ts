@@ -28,16 +28,19 @@ export const EmployeeGenders = ['male', 'female', 'other'] as const;
 
 export const EmployeeGendersSchema = createUnionSchema(EmployeeGenders);
 
-export const CategoriesHardSkillSchema = z.union([
-  z.literal('overall'),
-  z.literal('frontend'),
-  z.literal('backend'),
-  z.literal('dba'),
-  z.literal('dev_ops'),
-  z.literal('blockchain'),
-  z.literal('management'),
-  z.literal('design')
-]);
+export const EnvironmentCategories = [
+  'overall',
+  'frontend',
+  'backend',
+  'dba',
+  'dev_ops',
+  'blockchain',
+  'management',
+  'design'
+] as const;
+export const CategoriesHardSkillSchema = createUnionSchema(
+  EnvironmentCategories
+);
 
 export const HardSkillSchema = z.object({
   id: z.number(),

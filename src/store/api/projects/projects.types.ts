@@ -7,6 +7,7 @@ import {
 } from '~/features/projects/Tables/tables.constants';
 import { type PaginatedResponse } from '~/store/api/api.types';
 import {
+  CategoriesHardSkillSchema,
   ProjectStatusesSchema,
   ProjectTypesSchema
 } from '~/store/api/employees/employees.schemas';
@@ -58,7 +59,7 @@ export const ProjectResponseSchema = z.object({
   hard_skills: z
     .array(
       z.object({
-        category: z.string(),
+        category: CategoriesHardSkillSchema,
         id: z.number(),
         name: z.string()
       })
