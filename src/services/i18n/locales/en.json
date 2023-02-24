@@ -555,6 +555,7 @@
       "errors": {
         "no_projects": "No current projects",
         "no_projects_data": "No projects data",
+        "no_team": "No active team",
         "unknown_error": "Oops, something went wrong"
       },
       "project": "project",

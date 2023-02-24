@@ -33,7 +33,7 @@ export const PositionsColumns = [
     cell: TypeCell,
     header: TranslatedHeader
   }),
-  columnHelper.accessor((project) => project, {
+  columnHelper.accessor('team', {
     id: ProjectsHeaderIds.Team,
     cell: TeamCell,
     header: TranslatedHeader
