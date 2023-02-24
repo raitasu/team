@@ -1,4 +1,3 @@
-import upperCase from 'lodash/upperCase';
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -35,7 +34,7 @@ export const ClothingSizeField = ({
       <Select
         menuPlacement="top"
         options={clothingSizeOptions}
-        getOptionLabel={(option) => upperCase(option.label)}
+        getOptionLabel={(option) => option.label.toUpperCase()}
         value={clothingSizeOptions.find(
           (option) => option.value === field.value
         )}

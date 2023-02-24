@@ -26,7 +26,11 @@ export const CreateEmployeeSchema = z.object({
 
     return email;
   }),
-  personal_email: z.string().email('invalid_email'),
+  personal_email: z
+    .string()
+    .email('invalid_email')
+    .optional()
+    .or(z.literal('')),
   status: EmployeeStatusSchema,
   avatar: z
     .instanceof(File)

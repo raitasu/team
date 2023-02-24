@@ -51,6 +51,11 @@ export const Select = React.forwardRef<SelectInstance, SelectProps>(
       <CreatableSelect
         ref={ref}
         chakraStyles={SelectStyles}
+        menuPortalTarget={document.body}
+        styles={{
+          menuPortal: (provided) => ({ ...provided, zIndex: 9999 })
+        }}
+        menuPlacement="auto"
         {...selectProps}
         components={components}
       />
@@ -58,6 +63,11 @@ export const Select = React.forwardRef<SelectInstance, SelectProps>(
       <ChakraSelect
         ref={ref}
         chakraStyles={SelectStyles}
+        menuPortalTarget={document.body}
+        menuPlacement="auto"
+        styles={{
+          menuPortal: (provided) => ({ ...provided, zIndex: 9999 })
+        }}
         {...selectProps}
         components={components}
       />

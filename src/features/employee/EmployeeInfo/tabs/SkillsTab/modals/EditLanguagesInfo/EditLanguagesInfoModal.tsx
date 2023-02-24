@@ -6,7 +6,6 @@ import {
   type FetchBaseQueryError,
   skipToken
 } from '@reduxjs/toolkit/dist/query/react';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useFieldArray, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
@@ -69,8 +68,8 @@ export const EditLanguagesInfoModal = ({
 
   const [updateLanguages, { isLoading }] = useUpdateLanguagesInfoMutation();
 
-  const errorToast = useErrorToast({ ...toastConfig });
-  const successToast = useSuccessToast({ ...toastConfig });
+  const errorToast = useErrorToast(toastConfig);
+  const successToast = useSuccessToast(toastConfig);
 
   const changeLanguagesInfo = async (languages: EmployeeLanguageValues[]) => {
     const response = await updateLanguages({ languages, employeeId });
@@ -90,9 +89,9 @@ export const EditLanguagesInfoModal = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t('domains:employee.titles.profile_tabs.skills.languages')
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.skills.languages'
+      ).toUpperCase()}
       isOpen={isOpenLanguagesInfoTab}
       onClose={closeLanguageslInfoForm}
       shouldUseOverlay

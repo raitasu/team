@@ -1,6 +1,5 @@
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -34,7 +33,8 @@ export const CreateNewWorkExperienceModal = ({
   const { id } = useParams();
   const toastError = useErrorToast(toastConfig);
   const toastSuccess = useSuccessToast(toastConfig);
-  const [createWorkExperience] = useCreateWorkExperienceMutation();
+  const [createWorkExperience, { isLoading }] =
+    useCreateWorkExperienceMutation();
 
   const methods = useForm({
     defaultValues: getInitialValues(undefined, hiredAt),
@@ -50,9 +50,9 @@ export const CreateNewWorkExperienceModal = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t('domains:employee.titles.profile_tabs.work_experience.title')
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.work_experience.title'
+      ).toUpperCase()}
       isOpen={isOpenCreateNewWorkExperienceModal}
       onClose={closeForm}
       shouldUseOverlay
@@ -66,6 +66,7 @@ export const CreateNewWorkExperienceModal = ({
           onReset={() => methods.reset()}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
+          isLoading={isLoading}
           onSubmit={methods.handleSubmit(async (data) => {
             const { started_at, ended_at, ...payload } = data;
 

@@ -3,7 +3,6 @@ import { useEffect, useMemo } from 'react';
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import isEqual from 'lodash/isEqual';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -65,9 +64,9 @@ export const EditCertificateInfoModal = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t('domains:employee.titles.profile_tabs.education.certificate')
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.education.certificate'
+      ).toUpperCase()}
       isOpen={isOpen}
       onClose={closeCertificateInfoForm}
       shouldUseOverlay

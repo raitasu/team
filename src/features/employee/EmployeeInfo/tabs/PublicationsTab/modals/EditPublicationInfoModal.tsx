@@ -3,7 +3,6 @@ import React, { useMemo } from 'react';
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import isEqual from 'lodash/isEqual';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -67,9 +66,9 @@ export const EditPublicationInfoModal = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t('domains:employee.titles.profile_tabs.publications.name')
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.publications.name'
+      ).toUpperCase()}
       isOpen={isOpen}
       onClose={closePublicationInfoForm}
       shouldUseOverlay

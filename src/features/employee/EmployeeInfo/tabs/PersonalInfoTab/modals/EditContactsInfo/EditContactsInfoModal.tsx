@@ -3,14 +3,13 @@ import { useEffect } from 'react';
 import { Flex, Grid } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import isEqual from 'lodash/isEqual';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import {
   type ChangedContactsInfoValues,
   EmployeeContactsInfoSchema
-} from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfo.schemas';
+} from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfo.schema';
 import { getInitialState } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfo.utils';
 import { ApartmentField } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/ApartmentField';
 import { BuildingFiled } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/Fields/BuildingFiled';
@@ -94,11 +93,9 @@ export const EditContactsInfoModal = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t(
-          'domains:employee.titles.profile_tabs.personal_information.contacts.section_title'
-        )
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.personal_information.contacts.section_title'
+      ).toUpperCase()}
       isOpen={isOpenGeneralInfoTab}
       onClose={onCloseTab}
       shouldUseOverlay

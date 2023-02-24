@@ -2,7 +2,6 @@ import { useEffect, useMemo } from 'react';
 
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -65,11 +64,9 @@ export const EducationInfoModal = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t(
-          'domains:employee.titles.profile_tabs.personal_information.education.section_title'
-        )
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.personal_information.education.section_title'
+      ).toUpperCase()}
       isOpen={isOpen}
       onClose={closeEducationInfoForm}
       shouldUseOverlay

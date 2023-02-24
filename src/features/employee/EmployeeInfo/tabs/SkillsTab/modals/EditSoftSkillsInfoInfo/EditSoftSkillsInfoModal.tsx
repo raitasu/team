@@ -1,24 +1,20 @@
 import { useEffect, useMemo } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
-import { SIDE_PAGE_PADDING } from '~/shared/layout/layout.constants';
+import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
 import { useSuccessToast } from '~/shared/ui/components/Toast';
 import { type SoftSkill } from '~/store/api/employees/employees.types';
-import {
-  useGetSoftSkillQuery,
-  useUpdateSoftSkillsMutation
-} from '~/store/api/softSkills/softSkills.api';
+import { useUpdateSoftSkillsMutation } from '~/store/api/softSkills/softSkills.api';
 
 import {
-  SoftSkillsInfoSchema,
-  type EmployeeSoftSkillsFormValues
+  type EmployeeSoftSkillsFormValues,
+  SoftSkillsInfoSchema
 } from './EditSoftSkillsInfo.schemas';
 import { SoftSkillField } from './Fields/SoftSkillField';
 
@@ -35,8 +31,7 @@ export const EditSoftSkillsInfo = ({
 
   const { id } = useParams();
 
-  const { data: softSkillsOpinions } = useGetSoftSkillQuery();
-  const [updateSoftSkills] = useUpdateSoftSkillsMutation();
+  const [updateSoftSkills, { isLoading }] = useUpdateSoftSkillsMutation();
 
   const selectedSkill = useMemo(
     () =>
@@ -47,7 +42,7 @@ export const EditSoftSkillsInfo = ({
     [skills]
   );
 
-  const methods = useForm<EmployeeSoftSkillsFormValues>({
+  const methods = useForm({
     defaultValues: { skills: selectedSkill },
     mode: 'onBlur',
     resolver: zodResolver(SoftSkillsInfoSchema)
@@ -55,16 +50,24 @@ export const EditSoftSkillsInfo = ({
 
   const { reset } = methods;
 
-  const toast = useSuccessToast({
-    description: 'Information updated',
-    variant: 'toast',
-    position: 'bottom-left',
-    containerStyle: {
-      marginLeft: SIDE_PAGE_PADDING,
-      marginBottom: '20px'
-    },
-    duration: 5000
-  });
+  const successToast = useSuccessToast(toastConfig);
+  const errorToast = useSuccessToast(toastConfig);
+
+  const onSubmit = async (data: EmployeeSoftSkillsFormValues) => {
+    try {
+      await updateSoftSkills({ skills: data.skills, id: Number(id) }).unwrap();
+      onCloseSoftSkillsInfo();
+
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
+  };
 
   useEffect(() => {
     reset({ skills: selectedSkill }, { keepDefaultValues: false });
@@ -73,9 +76,9 @@ export const EditSoftSkillsInfo = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t('domains:employee.titles.profile_tabs.skills.soft_skills')
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.skills.soft_skills'
+      ).toUpperCase()}
       isOpen={isOpenSoftSkillsInfo}
       onClose={() => {
         onCloseSoftSkillsInfo();
@@ -93,19 +96,15 @@ export const EditSoftSkillsInfo = ({
             methods.reset();
           }}
           onReset={() => methods.reset()}
-          onSubmit={methods.handleSubmit((data) => {
-            updateSoftSkills({ skills: data.skills, id: Number(id) })
-              .then(onCloseSoftSkillsInfo)
-              .catch(onCloseSoftSkillsInfo);
-            toast();
-          })}
+          onSubmit={methods.handleSubmit(onSubmit)}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
+          isLoading={isLoading}
         />
       }
     >
       <FormProvider {...methods}>
-        <SoftSkillField options={softSkillsOpinions || []} />
+        <SoftSkillField />
       </FormProvider>
     </BaseModal>
   );

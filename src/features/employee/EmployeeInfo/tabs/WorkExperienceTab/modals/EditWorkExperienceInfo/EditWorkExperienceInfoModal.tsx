@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { Flex, Grid, Link, Text } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import isEqual from 'lodash/isEqual';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { NavLink, useParams } from 'react-router-dom';
@@ -38,7 +37,8 @@ export const EditWorkExperienceInfoModal = ({
   isOpenWorkExperienceInfoTab: boolean;
   onCloseWorkExperienceInfoTab: () => void;
 }) => {
-  const [updateWorkExperience] = useUpdateWorkExperienceMutation();
+  const [updateWorkExperience, { isLoading }] =
+    useUpdateWorkExperienceMutation();
   const toastError = useErrorToast(toastConfig);
   const toastSuccess = useSuccessToast(toastConfig);
   const { id } = useParams();
@@ -67,9 +67,9 @@ export const EditWorkExperienceInfoModal = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t('domains:employee.titles.profile_tabs.work_experience.title')
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.work_experience.title'
+      ).toUpperCase()}
       isOpen={isOpenWorkExperienceInfoTab}
       onClose={onCloseWorkExperienceInfoTab}
       shouldUseOverlay
@@ -83,6 +83,7 @@ export const EditWorkExperienceInfoModal = ({
             onCloseWorkExperienceInfoTab();
             methods.reset();
           }}
+          isLoading={isLoading}
           onReset={() => methods.reset()}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
@@ -111,7 +112,7 @@ export const EditWorkExperienceInfoModal = ({
 
               toastSuccess({
                 description: t(
-                  'domains:employee.actions.created_new_work_experience'
+                  'domains:global.confirmations.descriptions.saved'
                 )
               });
               onCloseWorkExperienceInfoTab();

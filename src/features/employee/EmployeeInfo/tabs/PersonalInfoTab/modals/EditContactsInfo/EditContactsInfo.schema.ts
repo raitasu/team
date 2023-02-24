@@ -55,9 +55,9 @@ export const EmployeeContactsInfoSchema = z.object({
   }),
   personal_email: z
     .string()
-    .nullable()
+    .email('invalid_email')
     .optional()
-    .refine((email) => !(email && !isEmail(email))),
+    .or(z.literal('')),
   country_code: z.string(),
   city_name: z.string().nullable().optional(),
   time_zone: z.string().nullable().optional(),

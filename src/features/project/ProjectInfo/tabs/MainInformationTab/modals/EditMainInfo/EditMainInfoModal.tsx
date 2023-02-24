@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { Flex, Grid, Stack } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod/dist/zod';
 import isEqual from 'lodash/isEqual';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -60,11 +59,9 @@ export const EditMainInfoModal = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t(
-          'domains:employee.titles.profile_tabs.personal_information.general.section_title'
-        )
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.personal_information.general.section_title'
+      ).toUpperCase()}
       isOpen={isOpenMainInfoTab}
       onClose={closeMainInfoForm}
       shouldUseOverlay

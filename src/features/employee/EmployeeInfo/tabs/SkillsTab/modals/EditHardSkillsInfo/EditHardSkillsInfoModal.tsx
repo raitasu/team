@@ -3,7 +3,6 @@ import { useEffect, useMemo } from 'react';
 import { Grid, Text } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import groupBy from 'lodash/groupBy';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -13,7 +12,7 @@ import {
   LEFT_COLUMN_WIDTH,
   ROW_GAP
 } from '~/features/employee/employee.styles';
-import { SIDE_PAGE_PADDING } from '~/shared/layout/layout.constants';
+import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
 import { useSuccessToast } from '~/shared/ui/components/Toast';
@@ -40,9 +39,9 @@ export const EditHardSkillsInfo = ({
 }) => {
   const [t] = useTranslation();
   const { id } = useParams();
-  const [updateHardSkills] = useUpdateHardSkillsMutation();
+  const [updateHardSkills, { isLoading }] = useUpdateHardSkillsMutation();
 
-  const methods = useForm<EmployeeHardSkillsFormValues>({
+  const methods = useForm({
     defaultValues: { skills },
     mode: 'onBlur',
     resolver: zodResolver(HardSkillsInfoSchema)
@@ -59,23 +58,33 @@ export const EditHardSkillsInfo = ({
     reset({ skills }, { keepDefaultValues: false });
   }, [reset, skills]);
 
-  const toast = useSuccessToast({
-    description: 'Information updated',
-    variant: 'toast',
-    position: 'bottom-left',
-    containerStyle: {
-      marginLeft: SIDE_PAGE_PADDING,
-      marginBottom: '20px'
-    },
-    duration: 5000
-  });
+  const successToast = useSuccessToast(toastConfig);
+  const errorToast = useSuccessToast(toastConfig);
+
+  const onSubmit = async (data: EmployeeHardSkillsFormValues) => {
+    try {
+      const updatedValues = data.skills.filter((el) => el.is_show);
+
+      await updateHardSkills({ skills: updatedValues, id: Number(id) });
+      onCloseHardSkillsInfo();
+
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
+  };
 
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t('domains:employee.titles.profile_tabs.skills.hard_skills')
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.skills.hard_skills'
+      ).toUpperCase()}
       isOpen={isOpenHardSkillsInfo}
       onClose={onCloseHardSkillsInfo}
       shouldUseOverlay
@@ -94,16 +103,9 @@ export const EditHardSkillsInfo = ({
           onReset={() => methods.reset()}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
-          onSubmit={methods.handleSubmit((data) => {
-            const changedVal = data.skills.filter((el) => el.is_show);
-
-            updateHardSkills({ skills: changedVal, id: Number(id) })
-              .then(onCloseHardSkillsInfo)
-              .catch(onCloseHardSkillsInfo);
-
-            toast();
-          })}
+          onSubmit={methods.handleSubmit(onSubmit)}
           submitTag="save"
+          isLoading={isLoading}
         />
       }
     >

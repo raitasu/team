@@ -1,7 +1,6 @@
 import { Flex, Grid } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -14,9 +13,9 @@ import { useCreateNewProjectMutation } from '~/store/api/projects/projects.api';
 import {
   type CreateProjectFormValues,
   CreateProjectSchema,
+  type EndDateType,
   type PartialProject,
-  type StartDateType,
-  type EndDateType
+  type StartDateType
 } from './project.schema';
 import { ProjectAvatar } from './ProjectAvatar';
 import { CompanyName } from './ProjectDetails/CompanyName';
@@ -70,7 +69,7 @@ export const CreateProjectModal = ({
       onClose={onClose}
       isCentered
       shouldUseOverlay
-      title={upperCase(t('domains:employee.actions.create_project'))}
+      title={t('domains:employee.actions.create_project').toUpperCase()}
       contentProps={{
         maxWidth: '962px',
         maxHeight: '80%',

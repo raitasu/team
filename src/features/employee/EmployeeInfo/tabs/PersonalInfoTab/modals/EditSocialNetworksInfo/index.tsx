@@ -2,10 +2,10 @@ import { useEffect, useMemo } from 'react';
 
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
+import { type ChangedContactsInfoValues } from 'src/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfo.schema';
 import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
@@ -20,7 +20,6 @@ import { getInitialState } from './EditSocialNetwork.utils';
 import { socialFieldsNames } from './EditSocialNetworks.constants';
 import { EditSocialNetworksSchema } from './EditSocialNetworks.schema';
 import { SocialLinkField } from './Fields/SocialLinkField';
-import { type ChangedContactsInfoValues } from '../EditContactsInfo/EditContactsInfo.schemas';
 
 export const EditSocialNetworksInfoModal = ({
   contacts,
@@ -78,11 +77,9 @@ export const EditSocialNetworksInfoModal = ({
   return (
     <BaseModal
       autoFocus={false}
-      title={upperCase(
-        t(
-          'domains:employee.titles.profile_tabs.personal_information.social_network_title'
-        )
-      )}
+      title={t(
+        'domains:employee.titles.profile_tabs.personal_information.social_network_title'
+      ).toUpperCase()}
       isOpen={isOpenModal}
       onClose={closeForm}
       shouldUseOverlay

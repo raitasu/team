@@ -1,6 +1,5 @@
 import { Grid } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import upperCase from 'lodash/upperCase';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -10,8 +9,10 @@ import {
 } from '~/features/employee/CreateEmployeeModal/employee.schema';
 import { EmployeeAvatar } from '~/features/employee/CreateEmployeeModal/EmployeeAvatar';
 import { EmployeeDetails } from '~/features/employee/CreateEmployeeModal/EmployeeDetails';
+import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { useCreateEmployeeMutation } from '~/store/api/employees/employees.api';
 
 export const CreateEmployeeModal = ({
@@ -37,13 +38,31 @@ export const CreateEmployeeModal = ({
     resolver: zodResolver(CreateEmployeeSchema)
   });
 
+  const toastError = useErrorToast(toastConfig);
+  const toastSuccess = useSuccessToast(toastConfig);
+
+  const onSubmit = async (employee: CreateEmployeeFormValues) => {
+    try {
+      await createEmployee(employee).unwrap();
+      onClose();
+      toastSuccess({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      toastError({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
+  };
+
   return (
     <BaseModal
       isOpen={isOpen}
       onClose={onClose}
       isCentered
       shouldUseOverlay
-      title={upperCase(t('domains:employee.actions.create_profile'))}
+      title={t('domains:employee.actions.create_profile').toUpperCase()}
       contentProps={{
         maxWidth: '962px'
       }}
@@ -54,9 +73,7 @@ export const CreateEmployeeModal = ({
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
           isLoading={isLoading}
-          onSubmit={methods.handleSubmit((employee) => {
-            createEmployee(employee).then(onClose).catch(onClose);
-          })}
+          onSubmit={methods.handleSubmit(onSubmit)}
           submitTag="create"
         />
       }
