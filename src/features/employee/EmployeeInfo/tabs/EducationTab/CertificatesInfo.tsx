@@ -162,40 +162,45 @@ export const CertificatesInfo = ({
           </Flex>
         </EducationSection>
       ))}
-      <InfoSection style={{ gap: 0 }}>
-        <Button
-          variant="primaryOutline"
-          outline="none"
-          boxShadow="none"
-          leftIcon={<MdAdd />}
-          margin="auto"
-          onClick={() => {
-            setCertificateId(0);
-            setOpenCertificateModal(true);
-          }}
-        >
-          {t('domains:employee.actions.add_certificate')}
-        </Button>
-      </InfoSection>
-      <EditCertificateInfoModal
-        certificate={getChosenCertificate()}
-        isOpen={isOpenCertificateModal}
-        onClose={onCloseCertificateInfoTab}
-        onConfirm={onSubmitData}
-        isLoading={isLoadingCreate || isLoadingChange}
-      />
-      <ConfirmDeleteModal
-        title={t('domains:global.confirmations.titles.delete_education')}
-        description={t(
-          'domains:global.confirmations.descriptions.delete_education'
-        )}
-        onConfirm={() =>
-          certificateId ? deleteCertificateInfo(certificateId) : errorToast()
-        }
-        isOpen={isOpenConfirmModal}
-        onClose={() => onCloseConfirmDeleteModal()}
-        isLoading={isLoadingDelete}
-      />
+      {canEdit && (
+        <InfoSection style={{ gap: 0 }}>
+          <Button
+            variant="primaryOutline"
+            outline="none"
+            boxShadow="none"
+            leftIcon={<MdAdd />}
+            margin="auto"
+            onClick={() => {
+              setCertificateId(0);
+              setOpenCertificateModal(true);
+            }}
+          >
+            {t('domains:employee.actions.add_certificate')}
+          </Button>
+
+          <EditCertificateInfoModal
+            certificate={getChosenCertificate()}
+            isOpen={isOpenCertificateModal}
+            onClose={onCloseCertificateInfoTab}
+            onConfirm={onSubmitData}
+            isLoading={isLoadingCreate || isLoadingChange}
+          />
+          <ConfirmDeleteModal
+            title={t('domains:global.confirmations.titles.delete_education')}
+            description={t(
+              'domains:global.confirmations.descriptions.delete_education'
+            )}
+            onConfirm={() =>
+              certificateId
+                ? deleteCertificateInfo(certificateId)
+                : errorToast()
+            }
+            isOpen={isOpenConfirmModal}
+            onClose={() => onCloseConfirmDeleteModal()}
+            isLoading={isLoadingDelete}
+          />
+        </InfoSection>
+      )}
     </>
   );
 };

@@ -168,40 +168,43 @@ export const EducationInfo = ({
         </EducationSection>
       ))}
 
-      <InfoSection style={{ gap: 0 }}>
-        <Button
-          variant="primaryOutline"
-          outline="none"
-          boxShadow="none"
-          leftIcon={<MdAdd />}
-          margin="auto"
-          onClick={() => {
-            setEducationId(0);
-            setOpenEducationModal(true);
-          }}
-        >
-          {t('domains:employee.actions.add_education')}
-        </Button>
-      </InfoSection>
-      <EducationInfoModal
-        education={getChoosedEducation()}
-        isOpen={isOpenEducationModal}
-        onCloseEducationInfoTab={onCloseEducationInfoTab}
-        onConfirm={onSubmitData}
-        isLoading={isLoadingCreate || isLoadingChange}
-      />
-      <ConfirmDeleteModal
-        title={t('domains:global.confirmations.titles.delete_education')}
-        description={t(
-          'domains:global.confirmations.descriptions.delete_education'
-        )}
-        onConfirm={() =>
-          educationId ? deleteEducationInfo(educationId) : errorToast()
-        }
-        isOpen={isOpenConfirmModal}
-        onClose={() => onCloseConfirmDeleteModal()}
-        isLoading={isLoadingDelete}
-      />
+      {canEdit && (
+        <InfoSection style={{ gap: 0 }}>
+          <Button
+            variant="primaryOutline"
+            outline="none"
+            boxShadow="none"
+            leftIcon={<MdAdd />}
+            margin="auto"
+            onClick={() => {
+              setEducationId(0);
+              setOpenEducationModal(true);
+            }}
+          >
+            {t('domains:employee.actions.add_education')}
+          </Button>
+
+          <EducationInfoModal
+            education={getChoosedEducation()}
+            isOpen={isOpenEducationModal}
+            onCloseEducationInfoTab={onCloseEducationInfoTab}
+            onConfirm={onSubmitData}
+            isLoading={isLoadingCreate || isLoadingChange}
+          />
+          <ConfirmDeleteModal
+            title={t('domains:global.confirmations.titles.delete_education')}
+            description={t(
+              'domains:global.confirmations.descriptions.delete_education'
+            )}
+            onConfirm={() =>
+              educationId ? deleteEducationInfo(educationId) : errorToast()
+            }
+            isOpen={isOpenConfirmModal}
+            onClose={() => onCloseConfirmDeleteModal()}
+            isLoading={isLoadingDelete}
+          />
+        </InfoSection>
+      )}
     </>
   );
 };

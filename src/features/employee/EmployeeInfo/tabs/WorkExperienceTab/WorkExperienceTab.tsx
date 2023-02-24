@@ -37,27 +37,29 @@ export const WorkExperienceTab: EmployeeInfoTab = ({
       ) : (
         <div>{t('domains:employee.errors.no_data')}</div>
       )}
-      <InfoSection>
-        <Button
-          variant="primaryOutline"
-          outline="none"
-          boxShadow="none"
-          leftIcon={<MdAdd />}
-          margin="auto"
-          onClick={onOpenCreateNewWorkExperienceModal}
-        >
-          {t('domains:employee.actions.add_work_experience')}
-        </Button>
-        <CreateNewWorkExperienceModal
-          hiredAt={hiredAt}
-          isOpenCreateNewWorkExperienceModal={
-            isOpenCreateNewWorkExperienceModal
-          }
-          onCloseCreateNewWorkExperienceModal={
-            onCloseCreateNewWorkExperienceModal
-          }
-        />
-      </InfoSection>
+      {canEdit && (
+        <InfoSection>
+          <Button
+            variant="primaryOutline"
+            outline="none"
+            boxShadow="none"
+            leftIcon={<MdAdd />}
+            margin="auto"
+            onClick={onOpenCreateNewWorkExperienceModal}
+          >
+            {t('domains:employee.actions.add_work_experience')}
+          </Button>
+          <CreateNewWorkExperienceModal
+            hiredAt={hiredAt}
+            isOpenCreateNewWorkExperienceModal={
+              isOpenCreateNewWorkExperienceModal
+            }
+            onCloseCreateNewWorkExperienceModal={
+              onCloseCreateNewWorkExperienceModal
+            }
+          />
+        </InfoSection>
+      )}
     </Box>
   );
 };

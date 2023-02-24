@@ -165,40 +165,45 @@ export const PublicationsInfo = ({
           </Flex>
         </EducationSection>
       ))}
-      <InfoSection gap={0}>
-        <Button
-          variant="primaryOutline"
-          outline="none"
-          boxShadow="none"
-          leftIcon={<MdAdd />}
-          margin="auto"
-          onClick={() => {
-            setPublicationId(0);
-            setOpenPublicationModal(true);
-          }}
-        >
-          {t('domains:employee.actions.add_publication')}
-        </Button>
-      </InfoSection>
-      <EditPublicationInfoModal
-        publication={getChosenPublication()}
-        onConfirm={onSubmitData}
-        isOpen={isOpenPublicationModal}
-        onClose={onClosePublicationInfoTab}
-        isLoading={isLoadingCreate || isLoadingUpdate}
-      />
-      <ConfirmationModal
-        title={t('domains:global.confirmations.titles.delete_education')}
-        description={t(
-          'domains:global.confirmations.descriptions.delete_education'
-        )}
-        onConfirm={() =>
-          publicationId ? deletePublicationInfo(publicationId) : errorToast()
-        }
-        isOpen={isOpenConfirmModal}
-        onClose={() => onCloseConfirmDeleteModal()}
-        isLoading={isLoadingDelete}
-      />
+      {canEdit && (
+        <InfoSection gap={0}>
+          <Button
+            variant="primaryOutline"
+            outline="none"
+            boxShadow="none"
+            leftIcon={<MdAdd />}
+            margin="auto"
+            onClick={() => {
+              setPublicationId(0);
+              setOpenPublicationModal(true);
+            }}
+          >
+            {t('domains:employee.actions.add_publication')}
+          </Button>
+
+          <EditPublicationInfoModal
+            publication={getChosenPublication()}
+            onConfirm={onSubmitData}
+            isOpen={isOpenPublicationModal}
+            onClose={onClosePublicationInfoTab}
+            isLoading={isLoadingCreate || isLoadingUpdate}
+          />
+          <ConfirmationModal
+            title={t('domains:global.confirmations.titles.delete_education')}
+            description={t(
+              'domains:global.confirmations.descriptions.delete_education'
+            )}
+            onConfirm={() =>
+              publicationId
+                ? deletePublicationInfo(publicationId)
+                : errorToast()
+            }
+            isOpen={isOpenConfirmModal}
+            onClose={() => onCloseConfirmDeleteModal()}
+            isLoading={isLoadingDelete}
+          />
+        </InfoSection>
+      )}
     </>
   );
 };
