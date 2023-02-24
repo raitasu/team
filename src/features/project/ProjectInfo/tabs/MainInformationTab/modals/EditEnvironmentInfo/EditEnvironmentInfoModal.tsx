@@ -66,7 +66,7 @@ export const EditEnvironmentInfoModal = ({
         data: { hard_skill_ids: result },
         id: Number(id)
       }).unwrap();
-
+      onCloseEnvironmentInfo();
       successToast({
         description: t('domains:global.confirmations.descriptions.saved')
       });
