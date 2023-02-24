@@ -38,9 +38,9 @@ export const SocialNetworkInfo = ({
         <ContactItem
           key={network}
           name={t(`enums:social_networks.${network}`)}
-          link={contacts[network] || ''}
-          linkType="web"
-          canCopy
+          link={contacts[network] || t('domains:employee.errors.no_data')}
+          linkType={contacts[network] ? 'web' : undefined}
+          canCopy={!!contacts[network]}
         />
       ))}
       <EditSocialNetworksInfoModal

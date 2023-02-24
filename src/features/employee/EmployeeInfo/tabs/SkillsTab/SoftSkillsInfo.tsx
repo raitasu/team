@@ -32,9 +32,13 @@ export const SoftSkillsInfo = ({
         columnGap={COLUMN_GAP}
         rowGap={ROW_GAP}
       >
-        {skills.map((skill) => (
-          <Text key={skill.id}>{skill.name}</Text>
-        ))}
+        {skills.length ? (
+          skills.map((skill) => <Text key={skill.id}>{skill.name}</Text>)
+        ) : (
+          <Text color="brand.lightGray">
+            {t('domains:employee.errors.no_data')}
+          </Text>
+        )}
       </Grid>
       <EditSoftSkillsInfo
         skills={skills}

@@ -1,4 +1,4 @@
-import { Text, useDisclosure } from '@chakra-ui/react';
+import { useDisclosure } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import { EditContactsInfoModal } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/modals/EditContactsInfo/EditContactsInfoModal';
@@ -39,58 +39,48 @@ export const ContactInfo = ({
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_primary'
         )}
-        link={contacts.primary_phone || ''}
-        linkType="phone"
+        link={contacts.primary_phone || t('domains:employee.errors.no_data')}
+        linkType={contacts.primary_phone ? 'phone' : undefined}
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.mobile_secondary'
         )}
-        link={contacts.secondary_phone || ''}
-        linkType="phone"
+        link={contacts.secondary_phone || t('domains:employee.errors.no_data')}
+        linkType={contacts.secondary_phone ? 'phone' : undefined}
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.emergency'
         )}
-        link={String(contacts.emergency_contact?.number) || ''}
-        linkType="phone"
-      >
-        <Text color="brand.lightGray">
-          {` (${
-            contacts.emergency_contact?.name
-              ? contacts.emergency_contact.name
-              : t(
-                  'domains:employee.titles.profile_tabs.personal_information.contacts.emergency_contact'
-                )
-          }, ${
-            contacts.emergency_contact?.owner
-              ? contacts.emergency_contact.owner
-              : t(
-                  'domains:employee.titles.profile_tabs.personal_information.contacts.owner'
-                )
-          })`}
-        </Text>
-      </ContactItem>
+        link={
+          contacts.emergency_contact?.number ||
+          t('domains:employee.errors.no_data')
+        }
+        linkType={contacts.emergency_contact?.number ? 'phone' : undefined}
+      />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.work_email'
         )}
-        link={contacts.employee_attributes?.email || ''}
-        linkType="email"
+        link={
+          contacts.employee_attributes?.email ||
+          t('domains:employee.errors.no_data')
+        }
+        linkType={contacts.employee_attributes?.email ? 'email' : undefined}
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.personal_email'
         )}
-        link={contacts.personal_email || ''}
-        linkType="email"
+        link={contacts.personal_email || t('domains:employee.errors.no_data')}
+        linkType={contacts.personal_email ? 'email' : undefined}
       />
       <ContactItem
         name={t(
           'domains:employee.titles.profile_tabs.personal_information.contacts.address'
         )}
-        link={getAddress(contacts)}
+        link={getAddress(contacts) || t('domains:employee.errors.no_data')}
       />
       <EditContactsInfoModal
         contacts={contacts}

@@ -43,43 +43,49 @@ export const HardSkillsInfo = ({
       onEdit={canEdit ? onOpenHardSkillsInfo : undefined}
     >
       <Grid gap="30px">
-        {Object.keys(hardSkillsOnCategory).map(
-          (categoryName) =>
-            !!hardSkillsOnCategory[categoryName].filter((el) => el.is_show)
-              .length && (
-              <Grid
-                key={categoryName}
-                gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
-              >
-                <Text
-                  color="brand.ghostGray"
-                  fontWeight={500}
-                  variant="l"
-                >
-                  {t(
-                    `domains:employee.titles.profile_tabs.skills.category.${
-                      categoryName as CategoriesHardSkill
-                    }`
-                  )}
-                </Text>
-
+        {skills.length ? (
+          Object.keys(hardSkillsOnCategory).map(
+            (categoryName) =>
+              !!hardSkillsOnCategory[categoryName].filter((el) => el.is_show)
+                .length && (
                 <Grid
+                  key={categoryName}
                   gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
-                  columnGap={COLUMN_GAP}
-                  rowGap={ROW_GAP}
                 >
-                  {hardSkillsOnCategory[categoryName].map(
-                    (skill) =>
-                      skill.is_show && (
-                        <HardSkillsInfoItem
-                          key={skill.id}
-                          skill={skill}
-                        />
-                      )
-                  )}
+                  <Text
+                    color="brand.ghostGray"
+                    fontWeight={500}
+                    variant="l"
+                  >
+                    {t(
+                      `domains:employee.titles.profile_tabs.skills.category.${
+                        categoryName as CategoriesHardSkill
+                      }`
+                    )}
+                  </Text>
+
+                  <Grid
+                    gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
+                    columnGap={COLUMN_GAP}
+                    rowGap={ROW_GAP}
+                  >
+                    {hardSkillsOnCategory[categoryName].map(
+                      (skill) =>
+                        skill.is_show && (
+                          <HardSkillsInfoItem
+                            key={skill.id}
+                            skill={skill}
+                          />
+                        )
+                    )}
+                  </Grid>
                 </Grid>
-              </Grid>
-            )
+              )
+          )
+        ) : (
+          <Text color="brand.lightGray">
+            {t('domains:employee.errors.no_data')}
+          </Text>
         )}
       </Grid>
       <EditHardSkillsInfo
