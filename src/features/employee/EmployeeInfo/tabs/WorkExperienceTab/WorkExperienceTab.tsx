@@ -1,4 +1,4 @@
-import { Box, useDisclosure } from '@chakra-ui/react';
+import { Box, Text, useDisclosure } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 
@@ -23,19 +23,21 @@ export const WorkExperienceTab: EmployeeInfoTab = ({
 
   return (
     <Box>
-      {workExperiences ? (
-        <>
-          {workExperiences.map((workExperience) => (
-            <WorkExperienceInfo
-              hiredAt={hiredAt || ''}
-              key={workExperience.id}
-              workExperience={workExperience}
-              canEdit={canEdit}
-            />
-          ))}
-        </>
+      {workExperiences?.length ? (
+        workExperiences.map((workExperience) => (
+          <WorkExperienceInfo
+            hiredAt={hiredAt || ''}
+            key={workExperience.id}
+            workExperience={workExperience}
+            canEdit={canEdit}
+          />
+        ))
       ) : (
-        <div>{t('domains:employee.errors.no_data')}</div>
+        <InfoSection title={t(`domains:cv.blocks.work_experiences`)}>
+          <Text color="brand.lightGray">
+            {t('domains:employee.errors.no_data')}
+          </Text>
+        </InfoSection>
       )}
       {canEdit && (
         <InfoSection>
