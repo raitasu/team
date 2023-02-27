@@ -1,10 +1,7 @@
 import { useState } from 'react';
 
-import { Flex, Heading } from '@chakra-ui/react';
-import {
-  type FetchBaseQueryError,
-  skipToken
-} from '@reduxjs/toolkit/dist/query/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
+import { skipToken } from '@reduxjs/toolkit/dist/query/react';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
@@ -74,31 +71,31 @@ export const EducationInfo = ({
   };
 
   const addEducationInfo = async (values: EmployeeEducationInfoFormValues) => {
-    const response = await createEducation({ ...values, employeeId });
-
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
+    try {
+      await createEducation({ ...values, employeeId }).unwrap();
       onCloseEducationInfoTab();
       successToast({
         description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
       });
     }
   };
 
   const deleteEducationInfo = async (id: number) => {
-    const response = await deleteEducation({ employeeId, id });
-
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
+    try {
+      await deleteEducation({ employeeId, id }).unwrap();
       onCloseConfirmDeleteModal();
       successToast({
         description: t('domains:global.confirmations.descriptions.deleted')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
       });
     }
   };
@@ -106,20 +103,21 @@ export const EducationInfo = ({
   const changeEducationInfo = async (
     values: ChangedEmployeeEducationInfoValues
   ) => {
-    const response = await updateEducation({
-      education: values,
-      employeeId,
-      educationId
-    });
-
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
+    try {
+      await updateEducation({
+        education: values,
+        employeeId,
+        educationId
+      }).unwrap();
       onCloseEducationInfoTab();
+
       successToast({
         description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
       });
     }
   };
@@ -144,29 +142,37 @@ export const EducationInfo = ({
         {t('domains:employee.titles.profile_tabs.education.title')}
       </Heading>
 
-      {educations.map((education) => (
-        <EducationSection key={education.id}>
-          <Flex
-            justifyContent="space-between"
-            padding={SECTION_PADDING}
-          >
-            <EducationInfoItem education={education} />
+      {educations.length ? (
+        educations.map((education) => (
+          <EducationSection key={education.id}>
+            <Flex
+              justifyContent="space-between"
+              padding={SECTION_PADDING}
+            >
+              <EducationInfoItem education={education} />
 
-            {canEdit ? (
-              <EducationInfoControllers
-                onOpenInfoTab={() => {
-                  setEducationId(education.id);
-                  setOpenEducationModal(true);
-                }}
-                onOpenDeleteConfirm={() => {
-                  setEducationId(education.id);
-                  setOpenConfirmModal(true);
-                }}
-              />
-            ) : null}
-          </Flex>
-        </EducationSection>
-      ))}
+              {canEdit ? (
+                <EducationInfoControllers
+                  onOpenInfoTab={() => {
+                    setEducationId(education.id);
+                    setOpenEducationModal(true);
+                  }}
+                  onOpenDeleteConfirm={() => {
+                    setEducationId(education.id);
+                    setOpenConfirmModal(true);
+                  }}
+                />
+              ) : null}
+            </Flex>
+          </EducationSection>
+        ))
+      ) : (
+        <InfoSection style={{ gap: 0 }}>
+          <Text color="brand.lightGray">
+            {t('domains:employee.errors.no_data')}
+          </Text>
+        </InfoSection>
+      )}
 
       {canEdit && (
         <InfoSection style={{ gap: 0 }}>

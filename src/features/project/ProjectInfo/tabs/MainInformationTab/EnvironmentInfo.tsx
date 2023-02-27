@@ -33,6 +33,8 @@ export const EnvironmentInfo = ({ project }: { project: ProjectResponse }) => {
     [project.hard_skills]
   );
 
+  const skillCategories = Object.keys(hardSkillsOnCategoryProjects);
+
   return (
     <InfoSection
       title={`${t(
@@ -45,37 +47,45 @@ export const EnvironmentInfo = ({ project }: { project: ProjectResponse }) => {
       }
     >
       <Grid gap="30px">
-        {Object.keys(hardSkillsOnCategoryProjects).map((categoryName) => (
-          <Grid
-            key={categoryName}
-            gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
-          >
-            <Text
-              color="brand.ghostGray"
-              fontWeight={500}
-              variant="l"
-            >
-              {t(
-                `domains:employee.titles.profile_tabs.skills.category.${
-                  categoryName as CategoriesHardSkill
-                }`
-              )}
-            </Text>
-
+        {skillCategories.length ? (
+          skillCategories.map((categoryName) => (
             <Grid
+              key={categoryName}
               gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
-              columnGap={COLUMN_GAP}
-              rowGap={ROW_GAP}
             >
-              {hardSkillsOnCategoryProjects[categoryName].map((skill) => (
-                <HardSkillsInfoItem
-                  key={skill.id}
-                  skill={skill}
-                />
-              ))}
+              <Text
+                color="brand.ghostGray"
+                fontWeight={500}
+                variant="l"
+              >
+                {t(
+                  `domains:employee.titles.profile_tabs.skills.category.${
+                    categoryName as CategoriesHardSkill
+                  }`
+                )}
+              </Text>
+
+              <Grid
+                gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
+                columnGap={COLUMN_GAP}
+                rowGap={ROW_GAP}
+              >
+                {hardSkillsOnCategoryProjects[categoryName].map((skill) => (
+                  <HardSkillsInfoItem
+                    key={skill.id}
+                    skill={skill}
+                  />
+                ))}
+              </Grid>
             </Grid>
-          </Grid>
-        ))}
+          ))
+        ) : (
+          <InfoSection style={{ gap: 0 }}>
+            <Text color="brand.lightGray">
+              {t('domains:employee.errors.no_data')}
+            </Text>
+          </InfoSection>
+        )}
       </Grid>
       <EditEnvironmentInfoModal
         project={project}

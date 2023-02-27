@@ -32,11 +32,13 @@ export const EditMainInfoModal = ({
   project,
   isOpenMainInfoTab,
   onCloseMainInfoTab,
-  onConfirm
+  onConfirm,
+  isLoading
 }: {
   project: ProjectResponse;
   isOpenMainInfoTab: boolean;
   onCloseMainInfoTab: () => void;
+  isLoading: boolean;
   onConfirm: (values: ChangedProjectMainInfoValues) => void;
 }) => {
   const { t } = useTranslation();
@@ -104,6 +106,7 @@ export const EditMainInfoModal = ({
           })}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
+          isLoading={isLoading}
         />
       }
     >

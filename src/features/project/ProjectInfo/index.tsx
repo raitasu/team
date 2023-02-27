@@ -7,27 +7,27 @@ import { SlidesTab } from '~/features/project/ProjectInfo/tabs/SlidesTab';
 import { TeamManagementTab } from '~/features/project/ProjectInfo/tabs/TeamManagementTab';
 import { type ProjectResponse } from '~/store/api/projects/projects.types';
 
+const projectsInfoTabs = [
+  {
+    title: 'main_information' as const,
+    panel: MainInformationTab
+  },
+  {
+    title: 'attachments' as const,
+    panel: AttachmentsTab
+  },
+  {
+    title: 'team_management' as const,
+    panel: TeamManagementTab
+  },
+  {
+    title: 'slides' as const,
+    panel: SlidesTab
+  }
+];
+
 export const ProjectInfo = ({ project }: { project: ProjectResponse }) => {
   const { t } = useTranslation();
-
-  const projectsInfoTabs = [
-    {
-      title: 'main_information' as const,
-      panel: MainInformationTab
-    },
-    {
-      title: 'attachments' as const,
-      panel: AttachmentsTab
-    },
-    {
-      title: 'team_management' as const,
-      panel: TeamManagementTab
-    },
-    {
-      title: 'slides' as const,
-      panel: SlidesTab
-    }
-  ];
 
   return (
     <Tabs>

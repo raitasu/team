@@ -1,6 +1,5 @@
 import { Flex, Grid } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -63,6 +62,45 @@ export const CreateProjectModal = ({
   const hasEmptyFields = (obj: EndDateType | StartDateType) =>
     Object.values(obj).includes(null) || Object.values(obj).includes('');
 
+  const onProjectCreateSubmit = async (data: CreateProjectFormValues) => {
+    const appliedFilters: PartialProject = Object.fromEntries(
+      Object.entries(data).filter((item) => {
+        if (
+          item[0] === 'startDate' ||
+          item[0] === 'endDate' ||
+          item[0] === 'company_name'
+        ) {
+          return !hasEmptyFields(item[1] as EndDateType | StartDateType);
+        }
+
+        return item[1] !== null;
+      })
+    );
+
+    const appliedManagerFilter = appliedFilters.managers?.filter(
+      (language) => language.label
+    );
+
+    if (appliedManagerFilter?.length === 0) {
+      delete appliedFilters.managers;
+    }
+
+    try {
+      await createNewProject({
+        project: appliedFilters
+      }).unwrap();
+      onClose();
+      toastSuccess({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      toastError({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
+  };
+
   return (
     <BaseModal
       isOpen={isOpen}
@@ -82,46 +120,7 @@ export const CreateProjectModal = ({
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
           isLoading={isLoading}
-          onSubmit={methods.handleSubmit(async (data) => {
-            const appliedFilters: PartialProject = Object.fromEntries(
-              Object.entries(data).filter((item) => {
-                if (
-                  item[0] === 'startDate' ||
-                  item[0] === 'endDate' ||
-                  item[0] === 'company_name'
-                ) {
-                  return !hasEmptyFields(
-                    item[1] as EndDateType | StartDateType
-                  );
-                }
-
-                return item[1] !== null;
-              })
-            );
-
-            const appliedManagerFilter = appliedFilters.managers?.filter(
-              (language) => language.label
-            );
-
-            if (appliedManagerFilter?.length === 0) {
-              delete appliedFilters.managers;
-            }
-
-            const response = await createNewProject({
-              project: appliedFilters
-            });
-
-            if ((response as { error?: FetchBaseQueryError }).error) {
-              toastError({
-                description: t('domains:projects.errors.unknown_error')
-              });
-            } else {
-              toastSuccess({
-                description: t('domains:projects.actions.created_new_project')
-              });
-              onClose();
-            }
-          })}
+          onSubmit={methods.handleSubmit(onProjectCreateSubmit)}
           submitTag="create"
         />
       }

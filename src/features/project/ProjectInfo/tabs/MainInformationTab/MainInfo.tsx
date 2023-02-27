@@ -7,6 +7,8 @@ import { InfoSection } from '~/features/employee/EmployeeInfo/tabs/components/In
 import { GeneralInfoItem } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/GeneralInfoItem';
 import { type ChangedProjectMainInfoValues } from '~/features/project/ProjectInfo/tabs/MainInformationTab/modals/EditMainInfo/EditMainInfo.schemas';
 import { EditMainInfoModal } from '~/features/project/ProjectInfo/tabs/MainInformationTab/modals/EditMainInfo/EditMainInfoModal';
+import { toastConfig } from '~/shared/shared.constants';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import { useUpdateMainInfoMutation } from '~/store/api/projects/projects.api';
 import { type ProjectResponse } from '~/store/api/projects/projects.types';
@@ -20,11 +22,24 @@ export const MainInfo = ({ project }: { project: ProjectResponse }) => {
   } = useDisclosure();
   const { data: currentUser } = useGetCurrentUserQuery();
   const { id } = useParams();
-  const [updateMainInfo] = useUpdateMainInfoMutation();
-  const changeMainInfo = (values: ChangedProjectMainInfoValues) => {
-    updateMainInfo({ data: values, id: Number(id) })
-      .then(onCloseMainInfoTab)
-      .catch(onCloseMainInfoTab);
+  const [updateMainInfo, { isLoading }] = useUpdateMainInfoMutation();
+
+  const errorToast = useErrorToast(toastConfig);
+
+  const successToast = useSuccessToast(toastConfig);
+  const changeMainInfo = async (values: ChangedProjectMainInfoValues) => {
+    try {
+      await updateMainInfo({ data: values, id: Number(id) }).unwrap();
+      onCloseMainInfoTab();
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
   };
 
   return (
@@ -82,6 +97,7 @@ export const MainInfo = ({ project }: { project: ProjectResponse }) => {
         isOpenMainInfoTab={isOpenMainInfoTab}
         onCloseMainInfoTab={onCloseMainInfoTab}
         onConfirm={changeMainInfo}
+        isLoading={isLoading}
       />
     </InfoSection>
   );

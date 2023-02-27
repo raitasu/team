@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
 import {
   type FetchBaseQueryError,
   skipToken
@@ -101,20 +101,20 @@ export const CertificatesInfo = ({
   const changeCertificateInfo = async (
     values: Partial<EmployeeCertificate>
   ) => {
-    const response = await updateCertificate({
-      certificate: values,
-      employeeId,
-      certificateId
-    });
-
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
+    try {
+      await updateCertificate({
+        certificate: values,
+        employeeId,
+        certificateId
+      }).unwrap();
       onCloseCertificateInfoTab();
       successToast({
         description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (err) {
+      console.error(err);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
       });
     }
   };
@@ -139,29 +139,38 @@ export const CertificatesInfo = ({
         {t('domains:employee.titles.profile_tabs.education.certificates')}
       </Heading>
 
-      {certificates.map((certificate) => (
-        <EducationSection key={certificate.id}>
-          <Flex
-            justifyContent="space-between"
-            padding={SECTION_PADDING}
-          >
-            <CertificatesInfoItem certificate={certificate} />
+      {certificates.length ? (
+        certificates.map((certificate) => (
+          <EducationSection key={certificate.id}>
+            <Flex
+              justifyContent="space-between"
+              padding={SECTION_PADDING}
+            >
+              <CertificatesInfoItem certificate={certificate} />
 
-            {canEdit ? (
-              <EducationInfoControllers
-                onOpenInfoTab={() => {
-                  setCertificateId(certificate.id);
-                  setOpenCertificateModal(true);
-                }}
-                onOpenDeleteConfirm={() => {
-                  setCertificateId(certificate.id);
-                  setOpenConfirmModal(true);
-                }}
-              />
-            ) : null}
-          </Flex>
-        </EducationSection>
-      ))}
+              {canEdit ? (
+                <EducationInfoControllers
+                  onOpenInfoTab={() => {
+                    setCertificateId(certificate.id);
+                    setOpenCertificateModal(true);
+                  }}
+                  onOpenDeleteConfirm={() => {
+                    setCertificateId(certificate.id);
+                    setOpenConfirmModal(true);
+                  }}
+                />
+              ) : null}
+            </Flex>
+          </EducationSection>
+        ))
+      ) : (
+        <InfoSection style={{ gap: 0 }}>
+          <Text color="brand.lightGray">
+            {t('domains:employee.errors.no_data')}
+          </Text>
+        </InfoSection>
+      )}
+
       {canEdit && (
         <InfoSection style={{ gap: 0 }}>
           <Button

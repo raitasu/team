@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import { type EmployeeInfoTab } from '~/features/employee/EmployeeInfo/employeeInfo.types';
@@ -18,7 +18,11 @@ export const EducationTab: EmployeeInfoTab = ({ employee, canEdit }) => {
           canEdit={canEdit}
         />
       ) : (
-        <div>{t('domains:employee.errors.no_data')}</div>
+        <div>
+          <Text color="brand.lightGray">
+            {t('domains:employee.errors.no_data')}
+          </Text>
+        </div>
       )}
       {certificates ? (
         <CertificatesInfo
@@ -26,7 +30,11 @@ export const EducationTab: EmployeeInfoTab = ({ employee, canEdit }) => {
           canEdit={canEdit}
         />
       ) : (
-        <div>{t('domains:employee.errors.no_data')}</div>
+        <div>
+          <Text color="brand.lightGray">
+            {t('domains:employee.errors.no_data')}
+          </Text>
+        </div>
       )}
     </Box>
   );

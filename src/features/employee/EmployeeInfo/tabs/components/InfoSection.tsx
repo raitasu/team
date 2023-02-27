@@ -30,7 +30,11 @@ export const InfoSection = ({
       flexDirection="column"
       gap="20px"
       p={SECTION_PADDING}
-      borderBottom="1px solid var(--chakra-colors-brand-stroke)"
+      sx={{
+        '&:not(:last-child)': {
+          borderBottom: '1px solid var(--chakra-colors-brand-stroke)'
+        }
+      }}
       position="relative"
     >
       <Grid

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex, Heading, Text } from '@chakra-ui/react';
 import {
   type FetchBaseQueryError,
   skipToken
@@ -101,20 +101,20 @@ export const PublicationsInfo = ({
   const updatePublicationInfo = async (
     values: ChangedEmployeePublicationInfoValues
   ) => {
-    const response = await updatePublications({
-      data: values,
-      employeeId,
-      publicationId
-    });
-
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
+    try {
+      await updatePublications({
+        data: values,
+        employeeId,
+        publicationId
+      }).unwrap();
       onClosePublicationInfoTab();
       successToast({
         description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
       });
     }
   };
@@ -143,28 +143,36 @@ export const PublicationsInfo = ({
         {t('domains:employee.titles.profile_tabs.publications.name')}
       </Heading>
 
-      {publications.map((publication) => (
-        <EducationSection key={publication.id}>
-          <Flex
-            justifyContent="space-between"
-            padding={SECTION_PADDING}
-          >
-            <PublicationInfoItem publication={publication} />
-            {canEdit ? (
-              <EducationInfoControllers
-                onOpenInfoTab={() => {
-                  setPublicationId(publication.id);
-                  setOpenPublicationModal(true);
-                }}
-                onOpenDeleteConfirm={() => {
-                  setPublicationId(publication.id);
-                  setOpenConfirmModal(true);
-                }}
-              />
-            ) : null}
-          </Flex>
-        </EducationSection>
-      ))}
+      {publications.length ? (
+        publications.map((publication) => (
+          <EducationSection key={publication.id}>
+            <Flex
+              justifyContent="space-between"
+              padding={SECTION_PADDING}
+            >
+              <PublicationInfoItem publication={publication} />
+              {canEdit ? (
+                <EducationInfoControllers
+                  onOpenInfoTab={() => {
+                    setPublicationId(publication.id);
+                    setOpenPublicationModal(true);
+                  }}
+                  onOpenDeleteConfirm={() => {
+                    setPublicationId(publication.id);
+                    setOpenConfirmModal(true);
+                  }}
+                />
+              ) : null}
+            </Flex>
+          </EducationSection>
+        ))
+      ) : (
+        <InfoSection style={{ gap: 0 }}>
+          <Text color="brand.lightGray">
+            {t('domains:employee.errors.no_data')}
+          </Text>
+        </InfoSection>
+      )}
       {canEdit && (
         <InfoSection gap={0}>
           <Button
