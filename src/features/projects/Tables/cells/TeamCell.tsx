@@ -4,11 +4,11 @@ import { useTranslation } from 'react-i18next';
 
 import { Avatar } from '~/shared/ui/components/Avatar';
 import defaultAvatar from '~/shared/ui/components/Avatar/defaultAvatar.svg';
-import { type Project } from '~/store/api/projects/projects.types';
+import { type ShortProject } from '~/store/api/projects/projects.types';
 
 export const TeamCell = ({
   getValue
-}: CellContext<Project, Project['team']>) => {
+}: CellContext<ShortProject, ShortProject['team']>) => {
   const [t] = useTranslation();
   const team = getValue();
 

@@ -3,13 +3,15 @@ import { type CellContext } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 
 import { ProjectStatus } from '~/features/projects/Tables/tables.constants';
-import { type Project } from '~/store/api/projects/projects.types';
+import { type ShortProject } from '~/store/api/projects/projects.types';
 
-export const StatusCell = ({ getValue }: CellContext<Project, Project>) => {
+export const StatusCell = ({
+  getValue
+}: CellContext<ShortProject, ShortProject>) => {
   const project = getValue();
   const [t] = useTranslation();
 
-  const getStatusColor = (project: Project) => {
+  const getStatusColor = (project: ShortProject) => {
     switch (project.status) {
       case ProjectStatus.Completed:
         return '#0077B5';

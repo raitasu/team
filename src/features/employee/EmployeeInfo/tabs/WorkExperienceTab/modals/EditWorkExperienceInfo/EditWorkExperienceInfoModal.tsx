@@ -53,7 +53,7 @@ export const EditWorkExperienceInfoModal = ({
   const isEdit = isCompanyProject(
     hiredAt,
     workExperience.started_at,
-    workExperience.ended_at
+    workExperience.ended_at as string
   );
 
   const { reset } = methods;

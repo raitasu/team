@@ -2,9 +2,9 @@ import { Tbody, Td, Tr } from '@chakra-ui/react';
 import { flexRender, type Row } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 
-import { type Project } from '~/store/api/projects/projects.types';
+import { type ShortProject } from '~/store/api/projects/projects.types';
 
-export const TableBody = ({ rows }: { rows: Row<Project>[] }) => {
+export const TableBody = ({ rows }: { rows: Row<ShortProject>[] }) => {
   const [t] = useTranslation();
 
   return (

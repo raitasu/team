@@ -11,8 +11,8 @@ export const getInitialState = (certificate: EmployeeCertificate) => ({
       : null,
   link: certificate.link,
   start_date: {
-    month: getMonth(new Date(certificate.start_date)).toString(),
-    year: getYear(new Date(certificate.start_date)).toString()
+    month: getMonth(new Date(certificate.start_date || '')).toString(),
+    year: getYear(new Date(certificate.start_date || '')).toString()
   },
   end_date: {
     month: certificate.end_date

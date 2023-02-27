@@ -2,12 +2,12 @@ import { Box, Th, Thead, Tr } from '@chakra-ui/react';
 import { type HeaderGroup, flexRender } from '@tanstack/react-table';
 
 import { SortIcon } from '~/features/projects/Tables/components/SortIcon';
-import { type Project } from '~/store/api/projects/projects.types';
+import { type ShortProject } from '~/store/api/projects/projects.types';
 
 export const TableHeader = ({
   headerGroups
 }: {
-  headerGroups: HeaderGroup<Project>[];
+  headerGroups: HeaderGroup<ShortProject>[];
 }) => (
   <Thead>
     {headerGroups.map((headerGroup) => (

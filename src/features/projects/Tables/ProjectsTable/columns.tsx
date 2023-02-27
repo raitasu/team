@@ -8,9 +8,9 @@ import { TeamCell } from '~/features/projects/Tables/cells/TeamCell';
 import { TranslatedHeader } from '~/features/projects/Tables/cells/TranslatedHeader';
 import { TypeCell } from '~/features/projects/Tables/cells/TypeCell';
 import { ProjectsHeaderIds } from '~/features/projects/Tables/tables.constants';
-import { type Project } from '~/store/api/projects/projects.types';
+import { type ShortProject } from '~/store/api/projects/projects.types';
 
-const columnHelper = createColumnHelper<Project>();
+const columnHelper = createColumnHelper<ShortProject>();
 
 export const PositionsColumns = [
   columnHelper.accessor((project) => project, {

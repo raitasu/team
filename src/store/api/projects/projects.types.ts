@@ -2,38 +2,10 @@ import { z } from 'zod';
 
 import { DomainsSchema } from '~/features/project/ProjectInfo/tabs/MainInformationTab/modals/EditMainInfo/EditMainInfo.schemas';
 import {
-  type ProjectStatus,
-  type ProjectType
-} from '~/features/projects/Tables/tables.constants';
-import { type PaginatedResponse } from '~/store/api/api.types';
-import {
   CategoriesHardSkillSchema,
   ProjectStatusesSchema,
   ProjectTypesSchema
 } from '~/store/api/employees/employees.schemas';
-
-export interface Project {
-  id: number;
-
-  name: string;
-  status: ProjectStatus;
-  project_type: ProjectType;
-  team: ShortEmployee[];
-  links: string;
-  customer_name: string;
-  contractor_name: string;
-}
-
-interface ProjectsResponse {
-  id: number;
-  name: string;
-  status: ProjectStatus;
-  project_type: ProjectType;
-  team: ShortEmployee[];
-  links: string;
-  customer_name: string;
-  contractor_name: string;
-}
 
 export type ProjectResponse = z.infer<typeof ProjectResponseSchema>;
 
@@ -96,11 +68,33 @@ export const ProjectResponseSchema = z.object({
   )
 });
 
-type ShortEmployee = {
-  id: number;
-  first_name: string;
-  last_name: string;
-  avatar: string | null;
-};
+const ProjectTeamEmployee = z.object({
+  id: z.number(),
+  first_name: z.string(),
+  last_name: z.string(),
+  avatar: z.string().nullable()
+});
 
-export type ProjectsListResponse = PaginatedResponse<ProjectsResponse>;
+const ProjectShortSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  status: ProjectStatusesSchema,
+  project_type: ProjectTypesSchema,
+  team: z.array(ProjectTeamEmployee),
+  links: z.string().nullable(),
+  customer_name: z.string().nullable(),
+  contractor_name: z.string().nullable()
+});
+
+export type ShortProject = z.infer<typeof ProjectShortSchema>;
+
+export const ProjectsResponseSchema = z.object({
+  items: ProjectShortSchema.array(),
+  page: z.object({
+    limit: z.number(),
+    offset: z.number(),
+    total_count: z.number()
+  })
+});
+
+export type ProjectListResponse = z.infer<typeof ProjectsResponseSchema>;

@@ -32,12 +32,3 @@ export const ProjectSchema = z.object({
   started_at: z.string().nullable(),
   ended_at: z.string().nullable()
 });
-
-export const ProjectsResponseSchema = z.object({
-  items: ProjectSchema.array(),
-  page: z.object({
-    limit: z.number(),
-    offset: z.number(),
-    total_count: z.number()
-  })
-});

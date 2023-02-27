@@ -95,7 +95,7 @@ export const CertificatesInfoItem = ({
       >
         <Grid rowGap={ROW_GAP}>
           <Text color="brand.lightGray">
-            {getFormattedDate(certificate.start_date, language)}
+            {getFormattedDate(certificate.start_date || '', language)}
             {certificate.end_date &&
               ` - ${getFormattedDate(certificate.end_date, language)}`}
           </Text>

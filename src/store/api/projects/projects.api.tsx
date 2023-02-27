@@ -7,22 +7,23 @@ import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import { type Employee } from '~/store/api/employees/employees.types';
 import {
-  type Project,
-  type ProjectsListResponse,
   ProjectResponseSchema,
-  type ProjectResponse
+  type ProjectResponse,
+  ProjectsResponseSchema,
+  type ProjectListResponse,
+  type ShortProject
 } from '~/store/api/projects/projects.types';
 import { type ProjectsFilters } from '~/store/slices/projects/projects.types';
 
 import { transformToFormDataForCreate } from './projects.helpers';
-import { ProjectSchema, ProjectsResponseSchema } from './projects.schemas';
+import { ProjectSchema } from './projects.schemas';
 import { getResponseValidator } from '../api.utils';
 
 const projectsApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
   endpoints: (builder) => ({
     getProjects: builder.query<
-      ProjectsListResponse,
+      ProjectListResponse,
       {
         page: number;
         elementsPerPage: number;
@@ -119,7 +120,7 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
       }
     }),
     createNewProject: builder.mutation<
-      Project,
+      ShortProject,
       {
         project: PartialProject;
       }

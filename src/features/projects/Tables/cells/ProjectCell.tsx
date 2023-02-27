@@ -3,9 +3,11 @@ import { type CellContext } from '@tanstack/react-table';
 import { NavLink } from 'react-router-dom';
 
 import { PagePaths } from '~/router/router.constants';
-import { type Project } from '~/store/api/projects/projects.types';
+import { type ShortProject } from '~/store/api/projects/projects.types';
 
-export const ProjectCell = ({ getValue }: CellContext<Project, Project>) => {
+export const ProjectCell = ({
+  getValue
+}: CellContext<ShortProject, ShortProject>) => {
   const project = getValue();
 
   return (

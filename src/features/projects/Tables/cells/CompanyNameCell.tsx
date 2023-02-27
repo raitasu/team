@@ -2,11 +2,11 @@ import { Text } from '@chakra-ui/react';
 import { type CellContext } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 
-import { type Project } from '~/store/api/projects/projects.types';
+import { type ShortProject } from '~/store/api/projects/projects.types';
 
 export const CompanyNameCell = ({
   getValue
-}: CellContext<Project, Project>) => {
+}: CellContext<ShortProject, ShortProject>) => {
   const [t] = useTranslation();
   const project = getValue();
 

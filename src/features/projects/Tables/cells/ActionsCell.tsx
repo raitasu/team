@@ -10,12 +10,14 @@ import { ConfirmationModal as ConfirmDeleteModal } from '~/shared/ui/components/
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
 import { Tooltip } from '~/shared/ui/components/Tooltip';
 import { useRemoveProjectMutation } from '~/store/api/projects/projects.api';
-import { type Project } from '~/store/api/projects/projects.types';
+import { type ShortProject } from '~/store/api/projects/projects.types';
 
 import connectIcon from '../assets/connect.svg';
 import deleteIcon from '../assets/delete.svg';
 
-export const ActionsCell = ({ getValue }: CellContext<Project, Project>) => {
+export const ActionsCell = ({
+  getValue
+}: CellContext<ShortProject, ShortProject>) => {
   const project = getValue();
   const [t] = useTranslation();
   const [isOpenConfirmModal, setOpenConfirmModal] = useState<boolean>(false);

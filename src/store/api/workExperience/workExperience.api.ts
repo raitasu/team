@@ -11,7 +11,8 @@ import {
 import { getResponseValidator } from '../api.utils';
 import {
   CustomersSchema,
-  EmployeeSchema
+  EmployeeSchema,
+  WorkExperienceSchema
 } from '../employees/employees.schemas';
 
 const workExperienceApiSlice = rootApiSlice.injectEndpoints({
@@ -50,7 +51,7 @@ const workExperienceApiSlice = rootApiSlice.injectEndpoints({
     }),
     getCompanyProjects: builder.query<EmployeeProject[], string>({
       onQueryStarted: getResponseValidator((data) =>
-        EmployeeSchema.shape.projects.array().safeParse(data)
+        EmployeeSchema.shape.projects.safeParse(data)
       ),
       query: (name) => ({
         url: `company_projects?name=${name}`,
@@ -98,7 +99,7 @@ const workExperienceApiSlice = rootApiSlice.injectEndpoints({
         }
       ],
       onQueryStarted: getResponseValidator((data) =>
-        EmployeeSchema.shape.work_experiences.safeParse(data)
+        WorkExperienceSchema.safeParse(data)
       ),
       query: ({ workExperience, employeeId, workExperienceId }) => ({
         url: `employees/${employeeId}/work_experiences/${workExperienceId}`,

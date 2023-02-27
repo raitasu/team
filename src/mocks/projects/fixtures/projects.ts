@@ -5,11 +5,11 @@ import {
   ProjectStatus,
   ProjectType
 } from '~/features/projects/Tables/tables.constants';
-import { type Project } from '~/store/api/projects/projects.types';
+import { type ShortProject } from '~/store/api/projects/projects.types';
 
-const sessionProjects: Record<string, Project> = {};
+const sessionProjects: Record<string, ShortProject> = {};
 
-const generateProject = (id: number): Project => ({
+const generateProject = (id: number): ShortProject => ({
   id,
   team: [],
   name: faker.company.name(),
@@ -31,7 +31,10 @@ export const getRandomProjects = (count: number) =>
 
 export const getProjects = () => Object.values(sessionProjects);
 
-export const updateProject = (projectId: number, project: Partial<Project>) => {
+export const updateProject = (
+  projectId: number,
+  project: Partial<ShortProject>
+) => {
   sessionProjects[projectId] = {
     ...sessionProjects[projectId],
     ...project

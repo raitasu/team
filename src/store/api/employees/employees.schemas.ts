@@ -92,7 +92,7 @@ export const EmployeeCertificateSchema = z.object({
   id: z.number(),
   name: z.string().nullable(),
   issued_by: z.string().nullable(),
-  start_date: z.string().datetime(),
+  start_date: z.string().datetime().nullable(),
   link: z.string().nullable(),
   end_date: z.string().datetime().nullable(),
   file: z.string().or(z.instanceof(File)).nullable()
@@ -118,13 +118,13 @@ export const EmployeeContactInfoSchema = z.object({
       id: z.number()
     })
     .optional(),
-  personal_email: z.string().email().nullable(),
+  personal_email: z.string().email().nullable().or(z.string()),
   secondary_phone: z.string().nullable(),
   primary_phone: z.string().nullable().optional(),
   street: z.string().nullable(),
   country_code: z.string().nullable().optional(),
   city_name: z.string().nullable().optional(),
-  time_zone: z.string().nullable(),
+  time_zone: z.string().nullable().optional(),
   apartment: z.number().nullable(),
   building: z.number().nullable(),
   unit: z.string().nullable(),
@@ -170,7 +170,7 @@ export const EmployeePublicationSchema = z.object({
   id: z.number(),
   start_date: z.string().datetime({ offset: true }),
   description: z.string(),
-  file: z.string().url().nullable(),
+  file: z.string().nullable(),
   name: z.string(),
   url: z.string().url().nullable()
 });
@@ -232,22 +232,22 @@ export const WorkExperienceSchema = z.object({
   }),
   positions: z
     .object({
-      created_at: z.string().datetime(),
+      created_at: z.string().datetime().optional(),
       id: z.number(),
       name: z.string(),
-      updated_at: z.string().datetime()
+      updated_at: z.string().datetime().optional()
     })
     .array(),
   started_at: z.string().datetime(),
-  ended_at: z.string().datetime(),
+  ended_at: z.string().datetime().nullable(),
   description: z.string(),
   responsibilities: z.string(),
   hard_skills: HardSkillSchema.array()
 });
 
 export const EmployeeSchema = z.object({
-  about: z.string().nullable(),
-  avatar: z.string().url().nullable(),
+  about: z.string().nullable().optional(),
+  avatar: z.string().nullable(),
   certificates: EmployeeCertificateSchema.array().nullable(),
   sweat_shirt_size: EmployeeClothingSizesSchema.nullable(),
   t_shirt_size: EmployeeClothingSizesSchema.nullable(),
@@ -260,8 +260,8 @@ export const EmployeeSchema = z.object({
   gender: EmployeeGendersSchema.nullable(),
   employee_hard_skill_permissions: HardSkillSchema.array().nullable(),
   id: z.number(),
-  email: z.string().email(),
-  interests: z.string().nullable(),
+  email: z.string().email().nullable().or(z.string()),
+  interests: z.string().nullable().optional(),
   languages: EmployeeLanguageSchema.array().nullable(),
   last_name: z.string(),
   positions: EmployeePositionSchema.array().optional().nullable(),
@@ -275,15 +275,6 @@ export const EmployeeSchema = z.object({
   hired_at: z.string().datetime().nullable(),
   years_of_experience: z.number().optional().nullable(),
   work_experiences: WorkExperienceSchema.array().nullable()
-});
-
-export const EmployeeResponseSchema = z.object({
-  items: EmployeeSchema.array(),
-  page: z.object({
-    limit: z.number(),
-    offset: z.number(),
-    total_count: z.number()
-  })
 });
 
 export const ShortEmployeeSchema = EmployeeSchema.pick({
@@ -309,5 +300,14 @@ export const ShortEmployeeSchema = EmployeeSchema.pick({
       city: true,
       country_code: true
     })
+  })
+});
+
+export const EmployeeResponseSchema = z.object({
+  items: ShortEmployeeSchema.array(),
+  page: z.object({
+    limit: z.number(),
+    offset: z.number(),
+    total_count: z.number()
   })
 });
