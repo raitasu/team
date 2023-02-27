@@ -1,27 +1,28 @@
 import { Flex, useDisclosure } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
 
-import { isEditable } from '~/features/employee/employee.utils';
 import { InfoSection } from '~/features/employee/EmployeeInfo/tabs/components/InfoSection';
 import { GeneralInfoItem } from '~/features/employee/EmployeeInfo/tabs/PersonalInfoTab/GeneralInfoItem';
 import { type ChangedProjectMainInfoValues } from '~/features/project/ProjectInfo/tabs/MainInformationTab/modals/EditMainInfo/EditMainInfo.schemas';
 import { EditMainInfoModal } from '~/features/project/ProjectInfo/tabs/MainInformationTab/modals/EditMainInfo/EditMainInfoModal';
 import { toastConfig } from '~/shared/shared.constants';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
-import { useGetCurrentUserQuery } from '~/store/api/authentication/authentication.api';
 import { useUpdateMainInfoMutation } from '~/store/api/projects/projects.api';
 import { type ProjectResponse } from '~/store/api/projects/projects.types';
 
-export const MainInfo = ({ project }: { project: ProjectResponse }) => {
+export const MainInfo = ({
+  project,
+  canEdit
+}: {
+  project: ProjectResponse;
+  canEdit: boolean;
+}) => {
   const [t] = useTranslation();
   const {
     isOpen: isOpenMainInfoTab,
     onOpen: onOpenMainInfoTab,
     onClose: onCloseMainInfoTab
   } = useDisclosure();
-  const { data: currentUser } = useGetCurrentUserQuery();
-  const { id } = useParams();
   const [updateMainInfo, { isLoading }] = useUpdateMainInfoMutation();
 
   const errorToast = useErrorToast(toastConfig);
@@ -29,7 +30,7 @@ export const MainInfo = ({ project }: { project: ProjectResponse }) => {
   const successToast = useSuccessToast(toastConfig);
   const changeMainInfo = async (values: ChangedProjectMainInfoValues) => {
     try {
-      await updateMainInfo({ data: values, id: Number(id) }).unwrap();
+      await updateMainInfo({ data: values, id: project.id }).unwrap();
       onCloseMainInfoTab();
       successToast({
         description: t('domains:global.confirmations.descriptions.saved')
@@ -47,9 +48,7 @@ export const MainInfo = ({ project }: { project: ProjectResponse }) => {
       title={t(
         'domains:employee.titles.profile_tabs.personal_information.general.section_title'
       )}
-      onEdit={
-        isEditable(project.id, currentUser) ? onOpenMainInfoTab : undefined
-      }
+      onEdit={canEdit ? onOpenMainInfoTab : undefined}
     >
       <Flex
         flexDirection="column"

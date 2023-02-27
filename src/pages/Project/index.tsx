@@ -3,6 +3,7 @@ import { skipToken } from '@reduxjs/toolkit/dist/query/react';
 import isFinite from 'lodash/isFinite';
 import { useParams } from 'react-router-dom';
 
+import { isAdmin } from '~/features/employee/employee.utils';
 import { ProjectCard } from '~/features/project/ProjectCard';
 import { ProjectInfo } from '~/features/project/ProjectInfo';
 import {
@@ -12,7 +13,9 @@ import {
 } from '~/pages/Employee/employee.styles';
 import { PageContainer } from '~/shared/layout/Page/PageContainer';
 import { PageLoader } from '~/shared/ui/components/PageLoader';
+import { selectLoggedInUser } from '~/store/api/authentication/authentication.selectors';
 import { useGetProjectQuery } from '~/store/api/projects/projects.api';
+import { useAppSelector } from '~/store/store.hooks';
 
 export const Project = () => {
   const { id } = useParams();
@@ -22,6 +25,7 @@ export const Project = () => {
     isLoading,
     isError
   } = useGetProjectQuery(id && isFinite(+id) ? +id : skipToken);
+  const user = useAppSelector(selectLoggedInUser);
 
   if (isLoading) {
     return <PageLoader />;
@@ -34,6 +38,8 @@ export const Project = () => {
       </PageContainer>
     );
   }
+
+  const canEdit = isAdmin(user);
 
   return (
     <PageContainer>
@@ -53,7 +59,10 @@ export const Project = () => {
             padding="40px"
             {...containerStyles}
           >
-            <ProjectCard project={project} />
+            <ProjectCard
+              project={project}
+              canEdit={canEdit}
+            />
           </Box>
         </Flex>
         <Box
@@ -61,7 +70,10 @@ export const Project = () => {
           overflow="hidden"
           {...containerStyles}
         >
-          <ProjectInfo project={project} />
+          <ProjectInfo
+            project={project}
+            canEdit={canEdit}
+          />
         </Box>
       </Flex>
     </PageContainer>

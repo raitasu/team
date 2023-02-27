@@ -8,6 +8,9 @@ declare module '@tanstack/table-core' {
   interface TableMeta<TData extends ShortEmployee> {
     onAddCVBtnClick?: (id: number) => void;
     onDeleteCV?: (id: number) => void;
+    onDeleteManager?: (id: number) => void;
+    onEditMemberTeam?: (id: number) => void;
+    onDeleteMemberTeam?: (id: number[]) => void;
 
     employee?: Employee;
   }

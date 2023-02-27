@@ -1,22 +1,26 @@
+import { Box } from '@chakra-ui/layout';
 import { useTranslation } from 'react-i18next';
 
 import { InfoSection } from '~/features/employee/EmployeeInfo/tabs/components/InfoSection';
-import { type ProjectResponse } from '~/store/api/projects/projects.types';
+import { type ProjectInfoTab } from '~/features/project/ProjectInfo/projectInfo.types';
 
-export const TeamManagementTab = ({
-  project
-}: {
-  project: ProjectResponse;
-}) => {
+import { tableWrapperStyle } from './tables/tables.styles';
+import { TeamTable } from './tables/TeamTable/TeamTable';
+
+export const TeamManagementTab: ProjectInfoTab = ({ project, canEdit }) => {
   const [t] = useTranslation();
 
   return (
     <InfoSection
-      title={t(
-        'domains:employee.titles.profile_tabs.personal_information.general.section_title'
-      )}
+      title={t('domains:projects.titles.project_tabs.team_management.team')}
+      sx={{
+        borderBottom: 'none'
+      }}
+      onAdd={canEdit ? () => console.debug('Add team') : undefined}
     >
-      {`${project.name || 'Project'} team`}
+      <Box {...tableWrapperStyle}>
+        <TeamTable project={project} />
+      </Box>
     </InfoSection>
   );
 };

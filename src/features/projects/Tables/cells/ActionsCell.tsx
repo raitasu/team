@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import { Box, Img } from '@chakra-ui/react';
-import { type FetchBaseQueryError } from '@reduxjs/toolkit/dist/query';
 import { type CellContext } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 
@@ -29,17 +28,17 @@ export const ActionsCell = ({
     useRemoveProjectMutation();
 
   const deleteProject = async () => {
-    const response = await removeProject(String(project.id));
+    try {
+      await removeProject(project.id);
 
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      toastError({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
       toastSuccess({
         description: t('domains:projects.actions.removed_project')
       });
       onCloseConfirmDeleteModal();
+    } catch {
+      toastError({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
     }
   };
 

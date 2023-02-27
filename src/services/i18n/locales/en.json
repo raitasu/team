@@ -298,6 +298,7 @@
         "invalid_literal": "Select value",
         "no_data": "No data",
         "no_employees_data": "No employees data",
+        "no_information": "No information",
         "required_field": "Field can't be empty",
         "unknown_error": "Oops, something went wrong"
       },
@@ -327,11 +328,13 @@
         }
       },
       "table_headers": {
+        "actions": "Actions",
         "actions_cv": "Actions",
         "contacts": "Location",
         "created_cv": "Date of creation",
         "current_projects": "Current projects",
         "cv": "CV",
+        "date": "Date",
         "date_of_birth": "Date of birth",
         "email": "Email",
         "name": "Name",
@@ -500,6 +503,8 @@
           "delete_cv": "Do you really want to delete user CV?",
           "delete_education": "Do you want to delete education?",
           "delete_employee": "Do you want to delete user profile?",
+          "delete_manager": "Do you want to delete a manager from this project?",
+          "delete_member": "Do you want to delete an employee from this project?",
           "delete_project": "Do you want to delete project?",
           "delete_work_experience": "Do you want to delete work experience?",
           "deleted": "Information deleted",
@@ -512,6 +517,8 @@
           "delete_certificate": "Delete certificate",
           "delete_cv": "Delete CV",
           "delete_education": "Delete education",
+          "delete_manager": "Delete manager",
+          "delete_member": "Delete employee",
           "delete_project": "Delete project",
           "delete_work_experience": "Delete work experience",
           "save": "Save information"
@@ -582,6 +589,14 @@
         "company_name": "Company name",
         "manager": "Manager",
         "project_name": "Project name",
+        "project_tabs": {
+          "team_management": {
+            "add_manager": "Add manager",
+            "managers": "Managers",
+            "name_manager": "Name of the employee",
+            "team": "Team"
+          }
+        },
         "status": "Status",
         "type": "Type"
       },
@@ -913,6 +928,7 @@
     },
     "notes": {
       "end_year": "Cannot be set earlier than the start date",
+      "nowadays": "nowadays",
       "start_year": "Cannot be set later than the current date"
     },
     "projects_tabs": {

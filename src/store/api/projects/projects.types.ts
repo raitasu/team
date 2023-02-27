@@ -7,6 +7,8 @@ import {
   ProjectTypesSchema
 } from '~/store/api/employees/employees.schemas';
 
+import { ManagersSchema, MemberTeamSchema } from './projects.schemas';
+
 export type ProjectResponse = z.infer<typeof ProjectResponseSchema>;
 
 export const ProjectResponseSchema = z.object({
@@ -38,34 +40,13 @@ export const ProjectResponseSchema = z.object({
     )
     .nullable(),
   id: z.number(),
-  managers: z.string().array().nullable(),
+  managers: ManagersSchema.array(),
   name: z.string().nullable(),
   project_type: ProjectTypesSchema,
   solution: z.string().nullable(),
   started_at: z.string().nullable(),
   status: ProjectStatusesSchema,
-  team: z.array(
-    z.object({
-      first_name: z.string(),
-      id: z.number(),
-      last_name: z.string(),
-      work_experience: z.array(
-        z.object({
-          work_experience_positions: z.array(
-            z.object({
-              created_at: z.string().nullable(),
-              end_date: z.string().nullable(),
-              id: z.number(),
-              position_id: z.number(),
-              start_date: z.string().nullable(),
-              updated_at: z.string(),
-              work_experience_id: z.number()
-            })
-          )
-        })
-      )
-    })
-  )
+  team: MemberTeamSchema.array()
 });
 
 const ProjectTeamEmployee = z.object({
@@ -98,3 +79,4 @@ export const ProjectsResponseSchema = z.object({
 });
 
 export type ProjectListResponse = z.infer<typeof ProjectsResponseSchema>;
+export type ProjectTeam = z.infer<typeof MemberTeamSchema>;

@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
 import { InfoSection } from '~/features/employee/EmployeeInfo/tabs/components/InfoSection';
-import { type ProjectResponse } from '~/store/api/projects/projects.types';
+import { type ProjectInfoTab } from '~/features/project/ProjectInfo/projectInfo.types';
 
-export const SlidesTab = ({ project }: { project: ProjectResponse }) => {
+export const SlidesTab: ProjectInfoTab = ({ project }) => {
   const [t] = useTranslation();
 
   return (

@@ -141,13 +141,29 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
         };
       }
     }),
-    removeProject: builder.mutation<void, string>({
+    removeProject: builder.mutation<void, number>({
       invalidatesTags: [{ type: ApiTags.Projects, id: 'LIST' }],
       query: (projectId) => ({
         url: `projects/${projectId}`,
         method: 'DELETE'
       })
-    })
+    }),
+    removeEmployee: builder.mutation<void, { projectId: number; id: number[] }>(
+      {
+        invalidatesTags: (_result, _error, arg) => [
+          { type: ApiTags.Employees, id: `${arg.projectId}` }
+        ],
+        query: ({ projectId, id }) => ({
+          url: `projects/${projectId}/remove_employee`,
+          method: 'PATCH',
+          body: {
+            work_experience_positions: {
+              work_experience_id: id
+            }
+          }
+        })
+      }
+    )
   })
 });
 
@@ -156,5 +172,6 @@ export const {
   useGetProjectQuery,
   useCreateNewProjectMutation,
   useRemoveProjectMutation,
+  useRemoveEmployeeMutation,
   useUpdateMainInfoMutation
 } = projectsApiSlice;

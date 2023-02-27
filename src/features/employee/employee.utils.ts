@@ -6,7 +6,7 @@ export const isAdmin = (
   employee: Employee
 ): employee is Employee & { role: 'admin' } => employee.role === 'admin';
 
-export const isEditable = (
+export const isEditableProfile = (
   employeeId: Employee['id'],
   currentEmployee?: Employee
 ) => {

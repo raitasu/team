@@ -1,6 +1,6 @@
 import { Flex, type FlexProps, Grid, Heading } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
-import { MdOutlineDelete, MdOutlineEdit } from 'react-icons/md';
+import { MdOutlineAdd, MdOutlineDelete, MdOutlineEdit } from 'react-icons/md';
 
 import {
   COLUMN_GAP,
@@ -15,12 +15,14 @@ export const InfoSection = ({
   children,
   onEdit,
   onDelete,
+  onAdd,
   ...throwProps
 }: {
   title?: string;
   children: React.ReactNode;
   onEdit?: () => void;
   onDelete?: () => void;
+  onAdd?: () => void;
 } & FlexProps) => {
   const { t } = useTranslation();
 
@@ -60,7 +62,7 @@ export const InfoSection = ({
               labelText={t('general_actions:edit')}
             >
               <IconButton
-                aria-label="DownloadCV"
+                aria-label="Edit"
                 variant="iconButtonSmall"
                 icon={<MdOutlineEdit />}
                 onClick={onEdit}
@@ -75,10 +77,25 @@ export const InfoSection = ({
               labelText={t('general_actions:delete')}
             >
               <IconButton
-                aria-label="delete-avatar"
+                aria-label="Delete"
                 variant="iconButtonSmall"
                 icon={<MdOutlineDelete />}
                 onClick={onDelete}
+              />
+            </Tooltip>
+          ) : null}
+          {onAdd ? (
+            <Tooltip
+              hasArrow
+              place="top"
+              labelText={t('general_actions:add')}
+            >
+              <IconButton
+                aria-label="Add"
+                variant="iconButtonSmall"
+                icon={<MdOutlineAdd />}
+                color="brand.accentRed"
+                onClick={onAdd}
               />
             </Tooltip>
           ) : null}

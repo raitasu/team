@@ -26,7 +26,13 @@ const projectsInfoTabs = [
   }
 ];
 
-export const ProjectInfo = ({ project }: { project: ProjectResponse }) => {
+export const ProjectInfo = ({
+  project,
+  canEdit
+}: {
+  project: ProjectResponse;
+  canEdit: boolean;
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -39,7 +45,10 @@ export const ProjectInfo = ({ project }: { project: ProjectResponse }) => {
       <TabPanels>
         {projectsInfoTabs.map(({ title, panel: Panel }) => (
           <TabPanel key={title}>
-            <Panel project={project} />
+            <Panel
+              project={project}
+              canEdit={canEdit}
+            />
           </TabPanel>
         ))}
       </TabPanels>

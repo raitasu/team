@@ -28,6 +28,11 @@ export const Table = {
           color: 'var(--chakra-colors-brand-body)',
           fontSize: '16px',
           lineHeight: '120%'
+        },
+        _last: {
+          td: {
+            borderBottom: 'none'
+          }
         }
       }
     }
