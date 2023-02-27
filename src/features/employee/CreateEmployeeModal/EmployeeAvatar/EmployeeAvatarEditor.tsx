@@ -12,10 +12,19 @@ import {
 
 import { EditorActions } from '~/features/employee/CreateEmployeeModal/EmployeeAvatar/EditorActions';
 import { Avatar } from '~/shared/ui/components/Avatar';
-import { ACCEPTED_IMAGE_TYPES } from '~/shared/utils/dates.utils';
+import { ACCEPTED_IMAGE_TYPES } from '~/shared/utils/files.utils';
 import { type EmployeeStatus } from '~/store/api/employees/employees.types';
 
 const backdropColor = [255, 255, 255, 0.6];
+const dropzoneAccept = ACCEPTED_IMAGE_TYPES.reduce<
+  NonNullable<DropzoneOptions['accept']>
+>(
+  (acc, imageType) => ({
+    ...acc,
+    [imageType]: []
+  }),
+  {}
+);
 
 export const EmployeeAvatarEditor = ({
   avatarFile,
@@ -64,13 +73,7 @@ export const EmployeeAvatarEditor = ({
 
   const { getRootProps, getInputProps, inputRef } = useDropzone({
     maxFiles: 1,
-    accept: ACCEPTED_IMAGE_TYPES.reduce<NonNullable<DropzoneOptions['accept']>>(
-      (acc, imageType) => ({
-        ...acc,
-        [imageType]: []
-      }),
-      {}
-    ),
+    accept: dropzoneAccept,
     onDrop: ([file]: (File | undefined)[]) => {
       if (file) {
         setCurrentFile(file);

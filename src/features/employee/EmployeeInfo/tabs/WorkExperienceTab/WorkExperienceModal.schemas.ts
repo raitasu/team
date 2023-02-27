@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
 import {
-  isValidDateObject,
+  isValidWorkPeriod,
   isValidAndRequiredDate,
-  isAbsentOrValidDate
+  isEmptyOrValidDate
 } from '~/shared/utils/dates.utils';
 
 export type EmployeeWorkExperienceFormValues = z.infer<
@@ -67,7 +67,7 @@ const baseWorkExperienceSchema = z.object({
     return value;
   }),
   ended_at: EndDateSchema.superRefine((value, ctx) => {
-    if (!isAbsentOrValidDate(value)) {
+    if (!isEmptyOrValidDate(value)) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         message: 'incorrect_date',
@@ -80,7 +80,7 @@ const baseWorkExperienceSchema = z.object({
 });
 
 export const EmployeeWorkExperienceSchema = baseWorkExperienceSchema.refine(
-  (data) => isValidDateObject(data.started_at, data.ended_at),
+  (data) => isValidWorkPeriod(data.started_at, data.ended_at),
   {
     message: 'invalid_range',
     path: ['ended_at.month']

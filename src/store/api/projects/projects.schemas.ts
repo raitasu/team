@@ -45,7 +45,7 @@ export const ManagersSchema = z.object({
   first_name: z.string(),
   last_name: z.string(),
   avatar: z.string().nullable(),
-  status: EmployeeStatusSchema
+  status: EmployeeStatusSchema.nullable().optional()
 });
 
 const WorkExperiencePositionsSchema = z.object({

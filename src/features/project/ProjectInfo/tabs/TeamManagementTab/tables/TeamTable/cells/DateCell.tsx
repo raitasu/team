@@ -18,11 +18,9 @@ export const DateCell = ({
       gap="14px"
     >
       {work_experience.length !== 0
-        ? work_experience.map((item) => {
-            const { work_experience_positions } = item;
-
-            if (work_experience_positions.length !== 0) {
-              return work_experience_positions.map((item) => (
+        ? work_experience.map(({ work_experience_positions: positions }) => {
+            if (positions.length !== 0) {
+              return positions.map((item) => (
                 <Box
                   display="flex"
                   gap="5px"

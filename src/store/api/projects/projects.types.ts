@@ -82,3 +82,4 @@ export const ProjectsResponseSchema = z.object({
 
 export type ProjectListResponse = z.infer<typeof ProjectsResponseSchema>;
 export type ProjectTeam = z.infer<typeof MemberTeamSchema>;
+export type ProjectManagers = z.infer<typeof ManagersSchema>;

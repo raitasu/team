@@ -143,7 +143,10 @@ export const Button = {
       minWidth: '24px',
       px: '0',
       bg: 'inherit',
-      color: 'brand.accentRed'
+      color: 'brand.accentRed',
+      _disabled: {
+        color: 'brand.lightGray'
+      }
     },
     iconButtonSmall: {
       width: '24px',
@@ -151,7 +154,10 @@ export const Button = {
       minWidth: '24px',
       px: '0',
       bg: 'inherit',
-      color: 'brand.body'
+      color: 'brand.body',
+      _disabled: {
+        color: 'brand.lightGray'
+      }
     },
     asLink: {
       display: 'inline',

@@ -58,13 +58,13 @@ export const DateField = () => {
         >
           <Select
             {...startField}
+            isClearable
             onChange={(selectedOption) => {
-              if (selectedOption) {
-                startField.onChange({
-                  year: startYear,
-                  month: String(selectedOption.value)
-                });
-              }
+              startField.onChange({
+                year: startYear,
+                month:
+                  selectedOption === null ? null : String(selectedOption.value)
+              });
             }}
             options={optionMonth}
             getOptionLabel={(option) => t(option.label)}
@@ -83,7 +83,16 @@ export const DateField = () => {
           >
             <Input
               {...register('start_date.year')}
-              onBlur={startField.onBlur}
+              onBlur={(val) => {
+                if (val.target.value.trim() === '') {
+                  startField.onChange({
+                    year: null,
+                    month: startField.value.month
+                  });
+                }
+
+                startField.onBlur();
+              }}
               placeholder={t('general_placeholders:year')}
             />
           </Tooltip>
@@ -107,13 +116,13 @@ export const DateField = () => {
         >
           <Select
             {...endField}
+            isClearable
             onChange={(selectedOption) => {
-              if (selectedOption) {
-                endField.onChange({
-                  year: endYear,
-                  month: String(selectedOption.value)
-                });
-              }
+              endField.onChange({
+                year: endYear,
+                month:
+                  selectedOption === null ? null : String(selectedOption.value)
+              });
             }}
             options={optionMonth}
             getOptionLabel={(option) => t(option.label)}
@@ -131,7 +140,16 @@ export const DateField = () => {
           >
             <Input
               {...register('end_date.year')}
-              onBlur={endField.onBlur}
+              onBlur={(val) => {
+                if (val.target.value.trim() === '') {
+                  endField.onChange({
+                    year: null,
+                    month: endField.value.month
+                  });
+                }
+
+                endField.onBlur();
+              }}
               placeholder={t('general_placeholders:year')}
             />
           </Tooltip>

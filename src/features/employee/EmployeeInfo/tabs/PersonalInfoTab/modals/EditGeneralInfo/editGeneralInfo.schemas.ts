@@ -4,7 +4,7 @@ import { Patterns } from '~/shared/shared.constants';
 import {
   ACCEPTED_IMAGE_TYPES,
   isValidImageFile
-} from '~/shared/utils/dates.utils';
+} from '~/shared/utils/files.utils';
 import {
   EmployeeClothingSizesSchema,
   EmployeeGendersSchema,

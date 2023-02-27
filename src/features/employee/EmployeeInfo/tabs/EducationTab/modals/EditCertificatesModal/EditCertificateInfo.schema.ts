@@ -1,12 +1,12 @@
 import { z } from 'zod';
 
 import {
-  isValidDateObject,
-  isValidDocsFile,
-  isValidUrl,
+  isEmptyOrValidDate,
   isValidAndRequiredDate,
-  isAbsentOrValidDate
+  isValidUrl,
+  isValidWorkPeriod
 } from '~/shared/utils/dates.utils';
+import { isValidDocsFile } from '~/shared/utils/files.utils';
 
 const StartDateSchema = z.object({
   month: z.string().nullable(),
@@ -68,7 +68,7 @@ export const EmployeeCertificateInfoSchema = z
       return value;
     }),
     end_date: EndDateSchema.superRefine((value, ctx) => {
-      if (!isAbsentOrValidDate(value)) {
+      if (!isEmptyOrValidDate(value)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: 'incorrect_date',
@@ -79,7 +79,7 @@ export const EmployeeCertificateInfoSchema = z
       return value;
     })
   })
-  .refine((data) => isValidDateObject(data.start_date, data.end_date), {
+  .refine((data) => isValidWorkPeriod(data.start_date, data.end_date), {
     message: 'invalid_range',
     path: ['end_date.month']
   })

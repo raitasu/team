@@ -1,7 +1,8 @@
 import { isBefore } from 'date-fns';
 import { z } from 'zod';
 
-import { isValidDocsFile, isValidUrl } from '~/shared/utils/dates.utils';
+import { isValidUrl } from '~/shared/utils/dates.utils';
+import { isValidDocsFile } from '~/shared/utils/files.utils';
 
 export type EmployeePublicationInfoFormValues = z.infer<
   typeof PublicationDefaultInfoSchema

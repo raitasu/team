@@ -11,7 +11,7 @@ import {
 import { DateFormats, toastConfig } from '~/shared/shared.constants';
 import { ConfirmationModal as ConfirmDeleteModal } from '~/shared/ui/components/ConfirmationModal';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
-import { getFormattedDate, workPeriod } from '~/shared/utils/dates.utils';
+import { getFormattedDate, getWorkPeriod } from '~/shared/utils/dates.utils';
 import { type EmployeeWorkExperience } from '~/store/api/employees/employees.types';
 import { useRemoveWorkExperienceMutation } from '~/store/api/workExperience/workExperience.api';
 
@@ -40,7 +40,7 @@ export const WorkExperienceInfo = ({
   } = useDisclosure();
 
   const { months, years } = useMemo(
-    () => workPeriod(workExperience.started_at, workExperience.ended_at),
+    () => getWorkPeriod(workExperience.started_at, workExperience.ended_at),
     [workExperience.ended_at, workExperience.started_at]
   );
 

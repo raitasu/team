@@ -32,9 +32,11 @@ export const EmployeeSection = ({
     <IconButton
       isDisabled={fields.length === 1}
       aria-label="delete_employee"
-      variant="iconButtonSmall"
-      icon={<MdDeleteOutline color="var(--chakra-colors-brand-accentRed)" />}
+      variant="iconButtonSmallPrimary"
+      icon={<MdDeleteOutline color="inherit" />}
       onClick={() => remove(index)}
+      position="absolute"
+      right="20px"
     />
   </Flex>
 );

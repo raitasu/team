@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
 import {
-  isAbsentOrValidDate,
+  isEmptyOrValidDate,
   isValidAndRequiredDate,
-  isValidDateObject
+  isValidWorkPeriod
 } from '~/shared/utils/dates.utils';
 
 export type EditTeamEmployeeFormValues = z.infer<typeof EditTeamEmployeeSchema>;
@@ -46,7 +46,7 @@ export const EditTeamEmployeeSchema = z.object({
             year: z.string().nullable()
           })
           .superRefine((value, ctx) => {
-            if (!isAbsentOrValidDate(value)) {
+            if (!isEmptyOrValidDate(value)) {
               ctx.addIssue({
                 code: z.ZodIssueCode.custom,
                 message: 'required_field',
@@ -59,7 +59,7 @@ export const EditTeamEmployeeSchema = z.object({
         id: z.number().optional(),
         work_experience_id: z.number().nullable().optional()
       })
-      .refine((data) => isValidDateObject(data.start_date, data.end_date), {
+      .refine((data) => isValidWorkPeriod(data.start_date, data.end_date), {
         message: 'invalid_range',
         path: ['end_date.month']
       })

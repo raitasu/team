@@ -1,10 +1,12 @@
+import { useCallback, useState } from 'react';
+
 import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { type ProjectTeamFormValues } from '~/features/project/ProjectInfo/tabs/TeamManagementTab/modals/AddNewEmployeeToTeam/AddNewEmployeeToTeam.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
-import { Select } from '~/shared/ui/components/Select';
-import { useGetEmployeesQuery } from '~/store/api/employees/employees.api';
+import { AsyncSelect } from '~/shared/ui/components/Select';
+import { useLazyGetEmployeesQuery } from '~/store/api/employees/employees.api';
 
 export const NameField = ({ index }: { index: number }) => {
   const {
@@ -14,21 +16,29 @@ export const NameField = ({ index }: { index: number }) => {
     name: `team.${index}.employee_id`
   });
   const { t } = useTranslation();
-  const { data: employees } = useGetEmployeesQuery({
-    page: 1,
-    elementsPerPage: 1000,
-    filters: {}
-  });
 
-  const employeesNameOptions = employees
-    ? employees.items.map((employee) => ({
+  const [selectedOption, setSelectedOption] = useState<{
+    label: string;
+    value: number;
+  } | null>(null);
+  const [trigger] = useLazyGetEmployeesQuery();
+
+  const loadEmployeeOptions = useCallback(
+    async (inputValue: string) => {
+      const data = await trigger({
+        page: 1,
+        elementsPerPage: 100,
+        filters: {
+          name: inputValue
+        }
+      }).unwrap();
+
+      return data.items.map((employee) => ({
         value: employee.id,
         label: `${employee.first_name} ${employee.last_name}`
-      }))
-    : [];
-
-  const selectedNameValue = employeesNameOptions.filter(
-    (item) => item.value === field.value
+      }));
+    },
+    [trigger]
   );
 
   return (
@@ -45,14 +55,21 @@ export const NameField = ({ index }: { index: number }) => {
           : undefined
       }
     >
-      <Select
+      <AsyncSelect
         {...field}
         placeholder={t('domains:filters.placeholders.placeholder_select')}
-        value={selectedNameValue}
-        options={employeesNameOptions}
+        loadOptions={loadEmployeeOptions}
         onChange={(option) => {
-          if (option) field.onChange(option.value);
+          if (option) {
+            field.onChange(option.value);
+          }
+
+          setSelectedOption(option);
         }}
+        value={selectedOption}
+        defaultOptions
+        cacheOptions
+        isMulti={false}
       />
     </FormControl>
   );

@@ -1,9 +1,9 @@
 import { z } from 'zod';
 
 import {
-  isValidDateObject,
+  isValidWorkPeriod,
   isValidAndRequiredDate,
-  isAbsentOrValidDate
+  isEmptyOrValidDate
 } from '~/shared/utils/dates.utils';
 import { EmployeeDegreesSchema } from '~/store/api/employees/employees.schemas';
 
@@ -55,7 +55,7 @@ export const EmployeeEducationInfoSchema = z
       return value;
     }),
     endDate: EndDateSchema.superRefine((value, ctx) => {
-      if (!isAbsentOrValidDate(value)) {
+      if (!isEmptyOrValidDate(value)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: 'incorrect_date',
@@ -66,7 +66,7 @@ export const EmployeeEducationInfoSchema = z
       return value;
     })
   })
-  .refine((data) => isValidDateObject(data.startDate, data.endDate), {
+  .refine((data) => isValidWorkPeriod(data.startDate, data.endDate), {
     message: 'invalid_range',
     path: ['endDate.month']
   });

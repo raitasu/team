@@ -35,7 +35,11 @@ export const BaseModal = ({
         <ModalFooter
           width="100%"
           display="flex"
-          justifyContent="space-between"
+          justifyContent={
+            contentProps?.justifyContent
+              ? contentProps.justifyContent
+              : 'space-between'
+          }
         >
           {footer}
         </ModalFooter>

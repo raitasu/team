@@ -163,6 +163,7 @@ const employeesApiSlice = rootApiSlice.injectEndpoints({
 
 export const {
   useGetEmployeesQuery,
+  useLazyGetEmployeesQuery,
   useGetEmployeeQuery,
   useCreateEmployeeMutation,
   useUpdateGeneralInformationMutation,

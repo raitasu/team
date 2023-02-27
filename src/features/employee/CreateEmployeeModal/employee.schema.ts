@@ -4,7 +4,7 @@ import { isEmail } from '~/features/employee/employee.utils';
 import {
   ACCEPTED_IMAGE_TYPES,
   isValidImageFile
-} from '~/shared/utils/dates.utils';
+} from '~/shared/utils/files.utils';
 import { EmployeeStatusSchema } from '~/store/api/employees/employees.schemas';
 
 export type CreateEmployeeFormValues = z.infer<typeof CreateEmployeeSchema>;

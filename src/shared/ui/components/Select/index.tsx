@@ -2,14 +2,17 @@ import React from 'react';
 
 import { Icon } from '@chakra-ui/react';
 import {
-  chakraComponents,
+  AsyncCreatableSelect as ChakraAsyncCreatableSelect,
+  AsyncSelect as ChakraAsyncSelect,
+  type AsyncSelectComponent,
   type GroupBase,
   type Props as SelectProps,
   Select as ChakraSelect,
-  CreatableSelect,
   type SelectComponent,
   type SelectComponentsConfig,
-  type SelectInstance
+  type SelectInstance,
+  CreatableSelect,
+  chakraComponents
 } from 'chakra-react-select';
 import { MdClose, MdExpandMore } from 'react-icons/md';
 
@@ -44,6 +47,35 @@ const components: SelectComponentsConfig<
     </chakraComponents.MultiValueRemove>
   )
 };
+
+export const AsyncSelect = React.forwardRef<SelectInstance, SelectProps>(
+  (selectProps, ref) =>
+    selectProps.isClearable ? (
+      <ChakraAsyncCreatableSelect
+        ref={ref}
+        chakraStyles={SelectStyles}
+        menuPortalTarget={document.body}
+        styles={{
+          menuPortal: (provided) => ({ ...provided, zIndex: 9999 })
+        }}
+        menuPlacement="auto"
+        {...selectProps}
+        components={components}
+      />
+    ) : (
+      <ChakraAsyncSelect
+        ref={ref}
+        chakraStyles={SelectStyles}
+        menuPortalTarget={document.body}
+        menuPlacement="auto"
+        styles={{
+          menuPortal: (provided) => ({ ...provided, zIndex: 9999 })
+        }}
+        {...selectProps}
+        components={components}
+      />
+    )
+) as AsyncSelectComponent;
 
 export const Select = React.forwardRef<SelectInstance, SelectProps>(
   (selectProps, ref) =>

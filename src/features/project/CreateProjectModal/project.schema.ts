@@ -1,11 +1,13 @@
 import { z } from 'zod';
 
 import {
-  isValidDateObject,
-  isValidImageFile,
-  ACCEPTED_IMAGE_TYPES,
-  isAbsentOrValidDate
+  isValidWorkPeriod,
+  isEmptyOrValidDate
 } from '~/shared/utils/dates.utils';
+import {
+  ACCEPTED_IMAGE_TYPES,
+  isValidImageFile
+} from '~/shared/utils/files.utils';
 import {
   ProjectStatusesSchema,
   ProjectTypesSchema
@@ -56,7 +58,7 @@ export const CreateProjectSchema = z
       })
       .array(),
     startDate: StartDateSchema.superRefine((value, ctx) => {
-      if (!isAbsentOrValidDate(value)) {
+      if (!isEmptyOrValidDate(value)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: 'incorrect_date',
@@ -67,7 +69,7 @@ export const CreateProjectSchema = z
       return value;
     }),
     endDate: EndDateSchema.superRefine((value, ctx) => {
-      if (!isAbsentOrValidDate(value)) {
+      if (!isEmptyOrValidDate(value)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: 'incorrect_date',
@@ -78,9 +80,9 @@ export const CreateProjectSchema = z
       return value;
     })
   })
-  .refine((data) => isValidDateObject(data.startDate, data.endDate), {
+  .refine((data) => isValidWorkPeriod(data.startDate, data.endDate, true), {
     message: 'invalid_range',
-    path: ['endDate.endMonth']
+    path: ['endDate.month']
   });
 
 export type PartialProject = Partial<CreateProjectFormValues>;

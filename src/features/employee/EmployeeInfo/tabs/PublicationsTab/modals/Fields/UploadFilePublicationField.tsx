@@ -7,7 +7,7 @@ import {
   TagLeftIcon,
   Text
 } from '@chakra-ui/react';
-import { useDropzone } from 'react-dropzone';
+import { type DropzoneOptions, useDropzone } from 'react-dropzone';
 import { useController, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { AiOutlineCloudUpload } from 'react-icons/all';
@@ -15,6 +15,17 @@ import { MdOutlineAttachFile } from 'react-icons/md';
 
 import { type EmployeePublicationValues } from '~/features/employee/EmployeeInfo/tabs/PublicationsTab/EditPublication.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
+import { ACCEPTED_DOCS_FILE_TYPES } from '~/shared/utils/files.utils';
+
+const dropzoneAccept = ACCEPTED_DOCS_FILE_TYPES.reduce<
+  NonNullable<DropzoneOptions['accept']>
+>(
+  (acc, docType) => ({
+    ...acc,
+    [docType]: []
+  }),
+  {}
+);
 
 export const UploadFilePublicationField = () => {
   const { t } = useTranslation();
@@ -40,10 +51,7 @@ export const UploadFilePublicationField = () => {
         setTimeout(() => trigger(), 0);
       }
     },
-    accept: {
-      'application/pdf': [],
-      'application/msword': []
-    }
+    accept: dropzoneAccept
   });
 
   const errorMessage = error
