@@ -2,10 +2,14 @@ import { type SortingState } from '@tanstack/react-table';
 
 import { type PartialProject } from '~/features/project/CreateProjectModal/project.schema';
 import { type ChangedProjectMainInfoValues } from '~/features/project/ProjectInfo/tabs/MainInformationTab/modals/EditMainInfo/EditMainInfo.schemas';
+import { type ProjectTeamFormValues } from '~/features/project/ProjectInfo/tabs/TeamManagementTab/modals/AddNewEmployeeToTeam/AddNewEmployeeToTeam.schema';
 import { getPageOffset } from '~/shared/utils/pagination.utils';
 import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
-import { type Employee } from '~/store/api/employees/employees.types';
+import {
+  type CreateEmployeeProjects,
+  type Employee
+} from '~/store/api/employees/employees.types';
 import {
   ProjectResponseSchema,
   type ProjectResponse,
@@ -141,6 +145,25 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
         };
       }
     }),
+    addNewEmployee: builder.mutation<
+      ProjectTeamFormValues,
+      {
+        data: CreateEmployeeProjects;
+        projectId: number;
+      }
+    >({
+      invalidatesTags: (_result, _error, arg) => [
+        { type: ApiTags.Employees, id: `${arg.projectId}` }
+      ],
+      onQueryStarted: getResponseValidator((data) =>
+        ProjectSchema.safeParse(data)
+      ),
+      query: ({ data, projectId }) => ({
+        url: `projects/${projectId}/add_team_members`,
+        method: 'PATCH',
+        body: data
+      })
+    }),
     removeProject: builder.mutation<void, number>({
       invalidatesTags: [{ type: ApiTags.Projects, id: 'LIST' }],
       query: (projectId) => ({
@@ -173,5 +196,6 @@ export const {
   useCreateNewProjectMutation,
   useRemoveProjectMutation,
   useRemoveEmployeeMutation,
+  useAddNewEmployeeMutation,
   useUpdateMainInfoMutation
 } = projectsApiSlice;

@@ -28,9 +28,11 @@ export const ProjectSchema = z.object({
       avatar: z.string().nullable()
     })
     .array(),
-  links: z.string(),
-  customer_name: z.string().nullable(),
-  contractor_name: z.string().nullable(),
+  links: z.string().optional(),
+  contractor: z.object({
+    id: z.number(),
+    name: z.string().nullable()
+  }),
   started_at: z.string().nullable(),
   ended_at: z.string().nullable()
 });

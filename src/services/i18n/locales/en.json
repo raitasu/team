@@ -559,6 +559,8 @@
       "challenge": "Challenge",
       "company_name": "Company name",
       "description": "Description",
+      "employee": "Employee",
+      "employee_name": "Name of the employee",
       "errors": {
         "no_projects": "No current projects",
         "no_projects_data": "No projects data",
@@ -585,6 +587,7 @@
         "team": "Team",
         "type": "Type"
       },
+      "team": "Team",
       "titles": {
         "company_name": "Company name",
         "manager": "Manager",

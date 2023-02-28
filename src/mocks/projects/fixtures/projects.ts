@@ -16,8 +16,7 @@ const generateProject = (id: number): ShortProject => ({
   status: ProjectStatus.InProgress,
   project_type: ProjectType.Internal,
   links: '',
-  customer_name: faker.company.name(),
-  contractor_name: faker.company.name()
+  customer_name: faker.company.name()
 });
 
 (function generateSessionProjects() {

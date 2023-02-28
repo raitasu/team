@@ -565,6 +565,8 @@
       "challenge": "Сложная задача",
       "company_name": "Имя компании",
       "description": "Описание",
+      "employee": "Сотрудник",
+      "employee_name": "Имя сотрудника",
       "errors": {
         "no_projects": "Нет текущих проектов",
         "no_projects_data": "Нет данных о проектах",
@@ -591,6 +593,7 @@
         "team": "Команда",
         "type": "Тип"
       },
+      "team": "Команда",
       "titles": {
         "company_name": "Имя компании",
         "manager": "Менеджер",

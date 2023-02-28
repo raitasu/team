@@ -15,7 +15,10 @@ export const ProjectResponseSchema = z.object({
   avatar: z.string().nullable().optional(),
   business_domain: DomainsSchema.nullable(),
   challenge: z.string().nullable(),
-  contractor: z.string().nullable(),
+  contractor: z.object({
+    id: z.number(),
+    name: z.string().nullable()
+  }),
   country: z
     .object({
       id: z.number(),
@@ -63,8 +66,7 @@ const ProjectShortSchema = z.object({
   project_type: ProjectTypesSchema,
   team: z.array(ProjectTeamEmployee),
   links: z.string().nullable(),
-  customer_name: z.string().nullable(),
-  contractor_name: z.string().nullable()
+  customer_name: z.string().nullable()
 });
 
 export type ShortProject = z.infer<typeof ProjectShortSchema>;
