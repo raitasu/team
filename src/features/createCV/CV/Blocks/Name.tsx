@@ -1,12 +1,30 @@
 import { Heading } from '@chakra-ui/react';
+import { useController } from 'react-hook-form';
 
-import { type GetCVResponse } from '~/store/api/CV/cv.types';
+import {
+  type CVFormValues,
+  type CVRegisterField
+} from '~/features/createCV/cv.schema';
 
-export const Name = ({ cv }: { cv: GetCVResponse }) => (
-  <Heading
-    size="2xl"
-    sx={{ textTransform: 'capitalize' }}
-  >
-    {`${cv.profile.first_name} ${cv.profile.last_name.charAt(0)}.`}
-  </Heading>
-);
+import { EditWrapper } from '../Edit/EditWrapper';
+
+export const Name = ({
+  setRegisteredField
+}: {
+  setRegisteredField: (fieldName: CVRegisterField | null) => void;
+}) => {
+  const { field } = useController<CVFormValues, 'profile'>({
+    name: 'profile'
+  });
+
+  return (
+    <EditWrapper onClick={() => setRegisteredField('profile.name')}>
+      <Heading
+        size="2xl"
+        sx={{ textTransform: 'capitalize' }}
+      >
+        {field.value.name}
+      </Heading>
+    </EditWrapper>
+  );
+};

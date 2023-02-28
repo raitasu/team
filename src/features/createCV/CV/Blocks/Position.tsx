@@ -1,20 +1,20 @@
-import { Heading, Box, Flex, Text } from '@chakra-ui/react';
-import { getYear } from 'date-fns';
-import { useTranslation } from 'react-i18next';
+import { Heading, Box, Flex, Text, Divider } from '@chakra-ui/react';
+import { useController } from 'react-hook-form';
 
-import { type GetCVResponse } from '~/store/api/CV/cv.types';
+import {
+  type CVFormValues,
+  type CVRegisterField
+} from '~/features/createCV/cv.schema';
 
-export const Position = ({ cv }: { cv: GetCVResponse }) => {
-  const [t] = useTranslation();
+import { EditWrapper } from '../Edit/EditWrapper';
 
-  const projectCount = t('domains:employee.titles.project', {
-    count: cv.profile.work_experiences ? cv.profile.work_experiences.length : 0
-  });
-
-  const workExperienceCount = t('domains:employee.titles.experience', {
-    count:
-      getYear(new Date(Date.now())) -
-      getYear(new Date(cv.profile.start_career_at))
+export const Position = ({
+  setRegisteredField
+}: {
+  setRegisteredField: (fieldName: CVRegisterField | null) => void;
+}) => {
+  const { field } = useController<CVFormValues, 'profile'>({
+    name: 'profile'
   });
 
   return (
@@ -22,25 +22,48 @@ export const Position = ({ cv }: { cv: GetCVResponse }) => {
       mb={5}
       mt={5}
     >
-      <Heading
-        size="xl"
-        mb={2}
+      <EditWrapper
+        isInline
+        onClick={() => setRegisteredField('profile.position')}
       >
-        {cv.profile.position}
-      </Heading>
+        <Heading
+          size="xl"
+          mb={2}
+        >
+          {field.value.position === '' || field.value.position === null
+            ? '...'
+            : field.value.position}
+        </Heading>
+      </EditWrapper>
       <Flex>
-        <Text
-          variant="dm"
-          fontSize="xl"
+        <EditWrapper
+          isInline
+          onClick={() => setRegisteredField('profile.years_of_experience')}
         >
-          {workExperienceCount}
-        </Text>
-        <Text
-          variant="dm"
-          fontSize="xl"
+          <Text
+            variant="dm"
+            fontSize="xl"
+          >
+            {field.value.years_of_experience}
+          </Text>
+        </EditWrapper>
+        <Divider
+          ml={2}
+          mr={2}
+          sx={{ borderWidth: '1px', borderColor: '#7B7D7D', height: '20px' }}
+          orientation="vertical"
+        />
+        <EditWrapper
+          isInline
+          onClick={() => setRegisteredField('profile.projects_count')}
         >
-          {projectCount}
-        </Text>
+          <Text
+            variant="dm"
+            fontSize="xl"
+          >
+            {field.value.projects_count}
+          </Text>
+        </EditWrapper>
       </Flex>
     </Box>
   );

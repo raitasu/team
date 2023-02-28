@@ -1,5 +1,3 @@
-import { type LanguageLevel } from '~/store/api/employees/employees.types';
-
 export interface GetCVListResponse {
   created_at: string;
   id: number;
@@ -14,19 +12,19 @@ export interface GetCVResponse {
   link: string;
   profile: {
     id: number;
-    first_name: string;
-    last_name: string;
-    start_career_at: string;
+    name: string;
+    projects_count: string;
+    years_of_experience: string;
     avatar?: string | null;
     position?: string;
     description?: string;
-    languages: CVLanguage[] | null;
-    hard_skills: CVHardSkill[] | null;
-    soft_skills: CVSoftSkill[] | null;
-    work_experiences: CVWorkExperience[] | null;
-    educations: CVEducation[] | null;
-    certificates: CVCertificate[] | null;
-    publications: CVPublication[] | null;
+    languages: CVLanguage[];
+    hard_skills: CVHardSkill[];
+    soft_skills: CVSoftSkill[];
+    work_experiences: CVWorkExperience[];
+    educations: CVEducation[];
+    certificates: CVCertificate[];
+    publications: CVPublication[];
   };
 }
 
@@ -51,7 +49,6 @@ type CVCertificate = {
 
 type CVEducation = {
   id: number;
-
   university_name: string;
   speciality: string;
   started_at: string;
@@ -66,9 +63,7 @@ type CVWorkExperience = {
   company_name: string;
   description: string;
   responsibilities: string;
-  environment: Array<{
-    name: string;
-  }>;
+  environment: string;
   position: string;
   started_at: string;
   ended_at: string;
@@ -80,15 +75,11 @@ type CVSoftSkill = {
 };
 
 type CVHardSkill = {
-  id: number;
-  category: string;
-  created_at: Date;
   name: string;
-  updated_at: string;
+  years_of_experience: string;
 };
 
 type CVLanguage = {
   id: number;
   name: string;
-  level: LanguageLevel;
 };

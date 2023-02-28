@@ -1,73 +1,103 @@
 import { Text, Box } from '@chakra-ui/react';
+import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { DateFormats } from '~/shared/shared.constants';
-import { getFormattedDate } from '~/shared/utils/dates.utils';
-import { type GetCVResponse } from '~/store/api/CV/cv.types';
+import {
+  type CVFormValues,
+  type CVRegisterField
+} from '~/features/createCV/cv.schema';
 
 import { CVHeading } from './CVHeading';
+import { EditWrapper } from '../Edit/EditWrapper';
 
-export const Publications = ({ cv }: { cv: GetCVResponse }) => {
-  const [t, { language }] = useTranslation();
+export const Publications = ({
+  setRegisteredField
+}: {
+  setRegisteredField: (fieldName: CVRegisterField | null) => void;
+}) => {
+  const [t] = useTranslation();
+  const { field } = useController<CVFormValues, 'profile'>({
+    name: 'profile'
+  });
 
   return (
     <>
       <CVHeading text={t(`domains:cv.blocks.publications`)} />
-      {cv.profile.publications?.map((publication) => (
+      {field.value.publications.map((publication, index) => (
         <Box key={publication.id}>
-          <Text
-            mt={7}
-            mb={1}
-            fontSize="lg"
-            color="brand.black"
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(`profile.publications.${index}.start_date`)
+            }
           >
-            {getFormattedDate(
-              publication.start_date,
-              language,
-              DateFormats.Full
-            )}
-          </Text>
-          <Text
-            fontWeight="900"
-            fontSize="xl"
-            color="brand.black"
-          >
-            {publication.name}
-          </Text>
-          <Box mt={1}>
             <Text
-              as="span"
+              mt={7}
+              mb={1}
+              fontSize="lg"
+              color="brand.black"
+            >
+              {publication.start_date}
+            </Text>
+          </EditWrapper>
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(`profile.publications.${index}.name`)
+            }
+          >
+            <Text
               fontWeight="900"
               fontSize="xl"
               color="brand.black"
             >
-              {`${t('domains:cv.titles.description')}: `}
+              {publication.name}
             </Text>
-            <Text
-              fontSize="xl"
-              as="span"
-              color="brand.black"
-            >
-              {publication.description}
-            </Text>
-          </Box>
-          <Box mt={1}>
-            <Text
-              as="span"
-              fontWeight="900"
-              fontSize="xl"
-              color="brand.black"
-            >
-              {`${t('domains:cv.titles.link')}: `}
-            </Text>
-            <Text
-              fontSize="xl"
-              as="span"
-              color="brand.black"
-            >
-              {publication.url}
-            </Text>
-          </Box>
+          </EditWrapper>
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(`profile.publications.${index}.description`)
+            }
+          >
+            <Box mt={1}>
+              <Text
+                as="span"
+                fontWeight="900"
+                fontSize="xl"
+                color="brand.black"
+              >
+                {`${t('domains:cv.titles.description')}: `}
+              </Text>
+              <Text
+                fontSize="xl"
+                as="span"
+                color="brand.black"
+              >
+                {publication.description}
+              </Text>
+            </Box>
+          </EditWrapper>
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(`profile.publications.${index}.url`)
+            }
+          >
+            <Box mt={1}>
+              <Text
+                as="span"
+                fontWeight="900"
+                fontSize="xl"
+                color="brand.black"
+              >
+                {`${t('domains:cv.titles.link')}: `}
+              </Text>
+              <Text
+                fontSize="xl"
+                as="span"
+                color="brand.black"
+              >
+                {publication.url}
+              </Text>
+            </Box>
+          </EditWrapper>
         </Box>
       ))}
     </>

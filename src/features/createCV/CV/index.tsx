@@ -1,6 +1,9 @@
+import { useState } from 'react';
+
 import { Box, Img, Divider } from '@chakra-ui/react';
 
 import { CvBlocks } from '~/features/createCV/cv.constants';
+import { type CVRegisterField } from '~/features/createCV/cv.schema';
 import logo from '~/shared/layout/Main/Header/assets/logo.svg';
 import { type GetCVResponse } from '~/store/api/CV/cv.types';
 import { selectCVBlocks } from '~/store/slices/cv/cv.selectors';
@@ -17,9 +20,12 @@ import { Position } from './Blocks/Position';
 import { Publications } from './Blocks/Publications';
 import { SoftSkills } from './Blocks/SoftSkills';
 import { WorkExperience } from './Blocks/WorkExperience';
+import { EditModal } from './Edit/EditModal';
 
 export const CVContainer = ({ cv }: { cv: GetCVResponse }) => {
   const blocks = useAppSelector(selectCVBlocks);
+  const [registeredField, setRegisteredField] =
+    useState<CVRegisterField | null>(null);
 
   const isVisible = (blockName: string) =>
     Boolean(blocks.find((el) => el === blockName));
@@ -46,14 +52,18 @@ export const CVContainer = ({ cv }: { cv: GetCVResponse }) => {
             mb={5}
             alt="company logo"
           />
-          <Name cv={cv} />
-          {isVisible(CvBlocks.Position) && <Position cv={cv} />}
+          <Name setRegisteredField={setRegisteredField} />
+          {isVisible(CvBlocks.Position) && (
+            <Position setRegisteredField={setRegisteredField} />
+          )}
         </Box>
         {isVisible(CvBlocks.Avatar) && <Avatar cv={cv} />}
       </Box>
-      {isVisible(CvBlocks.Description) && <Description cv={cv} />}
+      {isVisible(CvBlocks.Description) && (
+        <Description setRegisteredField={setRegisteredField} />
+      )}
       <Divider
-        mb={8}
+        mb={6}
         mt={8}
       />
       <Box
@@ -64,17 +74,35 @@ export const CVContainer = ({ cv }: { cv: GetCVResponse }) => {
           minWidth="235px"
           pr={8}
         >
-          {isVisible(CvBlocks.Languages) && <Languages cv={cv} />}
-          {isVisible(CvBlocks.HardSkills) && <HardSkills cv={cv} />}
-          {isVisible(CvBlocks.SoftSkills) && <SoftSkills cv={cv} />}
+          {isVisible(CvBlocks.Languages) && (
+            <Languages setRegisteredField={setRegisteredField} />
+          )}
+          {isVisible(CvBlocks.HardSkills) && (
+            <HardSkills setRegisteredField={setRegisteredField} />
+          )}
+          {isVisible(CvBlocks.SoftSkills) && (
+            <SoftSkills setRegisteredField={setRegisteredField} />
+          )}
         </Box>
         <Box minWidth="535px">
-          {isVisible(CvBlocks.WorkExperience) && <WorkExperience cv={cv} />}
-          {isVisible(CvBlocks.Education) && <Education cv={cv} />}
-          {isVisible(CvBlocks.Certificates) && <Certificates cv={cv} />}
-          {isVisible(CvBlocks.Publications) && <Publications cv={cv} />}
+          {isVisible(CvBlocks.WorkExperience) && (
+            <WorkExperience setRegisteredField={setRegisteredField} />
+          )}
+          {isVisible(CvBlocks.Education) && (
+            <Education setRegisteredField={setRegisteredField} />
+          )}
+          {isVisible(CvBlocks.Certificates) && (
+            <Certificates setRegisteredField={setRegisteredField} />
+          )}
+          {isVisible(CvBlocks.Publications) && (
+            <Publications setRegisteredField={setRegisteredField} />
+          )}
         </Box>
       </Box>
+      <EditModal
+        registeredField={registeredField}
+        setRegisteredField={setRegisteredField}
+      />
     </Box>
   );
 };

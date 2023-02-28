@@ -1,26 +1,44 @@
 import { Text } from '@chakra-ui/react';
+import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { type GetCVResponse } from '~/store/api/CV/cv.types';
+import {
+  type CVFormValues,
+  type CVRegisterField
+} from '~/features/createCV/cv.schema';
 
 import { CVHeading } from './CVHeading';
+import { EditWrapper } from '../Edit/EditWrapper';
 
-export const SoftSkills = ({ cv }: { cv: GetCVResponse }) => {
+export const SoftSkills = ({
+  setRegisteredField
+}: {
+  setRegisteredField: (fieldName: CVRegisterField | null) => void;
+}) => {
   const [t] = useTranslation();
+  const { field } = useController<CVFormValues, 'profile'>({
+    name: 'profile'
+  });
 
   return (
     <>
       <CVHeading text={t(`domains:cv.blocks.soft_skills`)} />
-      {cv.profile.soft_skills?.map((skill) => (
-        <Text
+      {field.value.soft_skills.map((skill, index) => (
+        <EditWrapper
           key={skill.id}
-          mt={3}
-          mb={3}
-          fontSize="lg"
-          color="brand.black"
+          onClick={() =>
+            setRegisteredField(`profile.soft_skills.${index}.name`)
+          }
         >
-          {skill.name}
-        </Text>
+          <Text
+            mt={3}
+            mb={3}
+            fontSize="lg"
+            color="brand.black"
+          >
+            {skill.name}
+          </Text>
+        </EditWrapper>
       ))}
     </>
   );

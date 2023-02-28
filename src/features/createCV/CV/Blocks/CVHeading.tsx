@@ -5,6 +5,7 @@ export const CVHeading = ({ text }: { text: string }) => (
     <Heading
       size="lg"
       sx={{ textTransform: 'uppercase' }}
+      mt={2}
     >
       {text}
     </Heading>

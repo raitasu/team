@@ -1,45 +1,98 @@
 import { Text, Box } from '@chakra-ui/react';
+import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { getFormattedDate } from '~/shared/utils/dates.utils';
-import { type GetCVResponse } from '~/store/api/CV/cv.types';
+import {
+  type CVFormValues,
+  type CVRegisterField
+} from '~/features/createCV/cv.schema';
 
 import { CVHeading } from './CVHeading';
+import { EditWrapper } from '../Edit/EditWrapper';
 
-export const WorkExperience = ({ cv }: { cv: GetCVResponse }) => {
-  const [t, { language }] = useTranslation();
+export const WorkExperience = ({
+  setRegisteredField
+}: {
+  setRegisteredField: (fieldName: CVRegisterField | null) => void;
+}) => {
+  const [t] = useTranslation();
+  const { field } = useController<CVFormValues, 'profile'>({
+    name: 'profile'
+  });
 
   return (
     <>
       <CVHeading text={t('domains:cv.blocks.work_experiences')} />
-      {cv.profile.work_experiences?.map((workExperience) => (
+      {field.value.work_experiences.map((workExperience, index) => (
         <Box key={workExperience.id}>
-          <Text
-            mt={7}
-            mb={2}
-            fontSize="lg"
-            color="brand.black"
+          <EditWrapper
+            isInline
+            onClick={() =>
+              setRegisteredField(`profile.work_experiences.${index}.started_at`)
+            }
           >
-            {getFormattedDate(workExperience.started_at, language)}
-            {workExperience.ended_at
-              ? ` - ${getFormattedDate(workExperience.ended_at, language)}`
-              : ''}
-          </Text>
-          <Text
-            fontWeight="900"
-            fontSize="xl"
-            color="brand.black"
+            <Text
+              mt={7}
+              mb={2}
+              fontSize="lg"
+              color="brand.black"
+            >
+              {workExperience.started_at === ''
+                ? '...'
+                : workExperience.started_at}
+            </Text>
+          </EditWrapper>
+          <EditWrapper
+            isInline
+            onClick={() =>
+              setRegisteredField(`profile.work_experiences.${index}.ended_at`)
+            }
           >
-            {workExperience.position}
-          </Text>
-          <Text
-            fontSize="xl"
-            mb={2}
-            color="brand.lightGray"
+            <Text
+              mt={7}
+              mb={2}
+              fontSize="lg"
+              color="brand.black"
+            >
+              &nbsp;-{' '}
+              {workExperience.ended_at === '' ? '...' : workExperience.ended_at}
+            </Text>
+          </EditWrapper>
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(`profile.work_experiences.${index}.position`)
+            }
           >
-            {workExperience.company_name}
-          </Text>
-          <Box>
+            <Text
+              fontWeight="900"
+              fontSize="xl"
+              color="brand.black"
+            >
+              {workExperience.position}
+            </Text>
+          </EditWrapper>
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(
+                `profile.work_experiences.${index}.company_name`
+              )
+            }
+          >
+            <Text
+              fontSize="xl"
+              mb={2}
+              color="brand.lightGray"
+            >
+              {workExperience.company_name}
+            </Text>
+          </EditWrapper>
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(
+                `profile.work_experiences.${index}.description`
+              )
+            }
+          >
             <Text
               as="span"
               fontWeight="900"
@@ -55,44 +108,57 @@ export const WorkExperience = ({ cv }: { cv: GetCVResponse }) => {
             >
               {workExperience.description}
             </Text>
-          </Box>
-          <Box mt={1}>
-            <Text
-              as="span"
-              fontWeight="900"
-              fontSize="xl"
-              color="brand.black"
-            >
-              {`${t('domains:cv.titles.responsibilities')}: `}
-            </Text>
-            <Text
-              fontSize="xl"
-              as="span"
-              color="brand.black"
-            >
-              {workExperience.responsibilities}
-            </Text>
-          </Box>
-          <Box mt={1}>
-            <Text
-              as="span"
-              fontWeight="900"
-              fontSize="xl"
-              color="brand.black"
-            >
-              {`${t('domains:cv.titles.environment')}: `}
-            </Text>
-            <Text
-              fontSize="xl"
-              as="span"
-              color="brand.black"
-            >
-              {workExperience.environment
-                .map((env: { name: string }) => env.name)
-                .join('; ')}
-              {workExperience.environment.length > 0 && '.'}
-            </Text>
-          </Box>
+          </EditWrapper>
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(
+                `profile.work_experiences.${index}.responsibilities`
+              )
+            }
+          >
+            <Box mt={1}>
+              <Text
+                as="span"
+                fontWeight="900"
+                fontSize="xl"
+                color="brand.black"
+              >
+                {`${t('domains:cv.titles.responsibilities')}: `}
+              </Text>
+              <Text
+                fontSize="xl"
+                as="span"
+                color="brand.black"
+              >
+                {workExperience.responsibilities}
+              </Text>
+            </Box>
+          </EditWrapper>
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(
+                `profile.work_experiences.${index}.environment`
+              )
+            }
+          >
+            <Box mt={1}>
+              <Text
+                as="span"
+                fontWeight="900"
+                fontSize="xl"
+                color="brand.black"
+              >
+                {`${t('domains:cv.titles.environment')}: `}
+              </Text>
+              <Text
+                fontSize="xl"
+                as="span"
+                color="brand.black"
+              >
+                {workExperience.environment}
+              </Text>
+            </Box>
+          </EditWrapper>
         </Box>
       ))}
     </>

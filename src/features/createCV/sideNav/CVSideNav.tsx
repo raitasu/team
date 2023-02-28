@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import {
   Box,
@@ -27,28 +27,54 @@ import { type GetCVResponse } from '~/store/api/CV/cv.types';
 import { setBlocksVisibility } from '~/store/slices/cv/cv.slice';
 import { useAppDispatch } from '~/store/store.hooks';
 
-export const CVSideNav = ({ cv }: { cv: GetCVResponse }) => {
+export const CVSideNav = ({
+  cv,
+  onSave,
+  onDelete
+}: {
+  cv: GetCVResponse;
+  onSave: () => void;
+  onDelete: () => void;
+}) => {
   const [t] = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { employeeId } = useParams();
 
+  const getVisibleValues = useMemo(
+    () =>
+      Object.values(CvBlocks).filter((block) => {
+        if (typeof cv.profile[block] === 'object') {
+          if (cv.profile[block]?.length !== undefined) {
+            const res = cv.profile[block]?.length;
+
+            if (res !== undefined) {
+              if (res > 0) {
+                return true;
+              }
+            }
+          }
+        }
+
+        if (typeof cv.profile[block] === 'string') {
+          return true;
+        }
+
+        return false;
+      }),
+    [cv.profile]
+  );
+
   const { value, getCheckboxProps } = useCheckboxGroup({
-    defaultValue: Object.values(CvBlocks).filter(
-      (block) => cv.profile[block] !== null
-    ),
+    defaultValue: getVisibleValues,
     onChange: (values: string[]) => {
       dispatch(setBlocksVisibility(values));
     }
   });
 
   useEffect(() => {
-    dispatch(
-      setBlocksVisibility(
-        Object.values(CvBlocks).filter((block) => cv.profile[block] !== null)
-      )
-    );
-  }, [cv.profile, dispatch]);
+    dispatch(setBlocksVisibility(getVisibleValues));
+  }, [dispatch, getVisibleValues]);
 
   return (
     <Box
@@ -119,6 +145,7 @@ export const CVSideNav = ({ cv }: { cv: GetCVResponse }) => {
         width="100%"
         variant="primaryOutline"
         leftIcon={<MdDownloadDone />}
+        onClick={onSave}
       >
         {t('domains:cv.navigation.save')}
       </Button>
@@ -140,6 +167,7 @@ export const CVSideNav = ({ cv }: { cv: GetCVResponse }) => {
         width="100%"
         variant="primaryOutline"
         leftIcon={<MdDelete />}
+        onClick={onDelete}
       >
         {t('domains:cv.navigation.delete')}
       </Button>

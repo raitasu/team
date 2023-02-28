@@ -1,36 +1,59 @@
 import { Box, Text } from '@chakra-ui/react';
-import { getYear } from 'date-fns';
+import { useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { type GetCVResponse } from '~/store/api/CV/cv.types';
+import {
+  type CVFormValues,
+  type CVRegisterField
+} from '~/features/createCV/cv.schema';
 
 import { CVHeading } from './CVHeading';
+import { EditWrapper } from '../Edit/EditWrapper';
 
-export const HardSkills = ({ cv }: { cv: GetCVResponse }) => {
+export const HardSkills = ({
+  setRegisteredField
+}: {
+  setRegisteredField: (fieldName: CVRegisterField | null) => void;
+}) => {
   const [t] = useTranslation();
+  const { field } = useController<CVFormValues, 'profile'>({
+    name: 'profile'
+  });
 
   return (
     <>
       <CVHeading text={t(`domains:cv.blocks.hard_skills`)} />
-      {cv.profile.hard_skills?.map((skill) => (
-        <Box key={skill.id}>
-          <Text
-            mt={3}
-            fontSize="lg"
-            color="brand.black"
+      {field.value.hard_skills.map((skill, index) => (
+        <Box
+          key={skill.name}
+          mt={3}
+        >
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(`profile.hard_skills.${index}.name`)
+            }
           >
-            {skill.name}
-          </Text>
-          <Text
-            color="brand.lightGray"
-            as="span"
+            <Text
+              fontSize="lg"
+              color="brand.black"
+            >
+              {field.value.hard_skills[index].name}
+            </Text>
+          </EditWrapper>
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(
+                `profile.hard_skills.${index}.years_of_experience`
+              )
+            }
           >
-            {t('domains:employee.titles.experience', {
-              count:
-                getYear(new Date(Date.now())) -
-                getYear(new Date(skill.created_at))
-            })}
-          </Text>
+            <Text
+              color="brand.lightGray"
+              as="span"
+            >
+              {skill.years_of_experience}
+            </Text>
+          </EditWrapper>
         </Box>
       ))}
     </>

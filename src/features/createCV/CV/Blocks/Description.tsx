@@ -1,13 +1,31 @@
 import { Text } from '@chakra-ui/react';
+import { useController } from 'react-hook-form';
 
-import { type GetCVResponse } from '~/store/api/CV/cv.types';
+import {
+  type CVFormValues,
+  type CVRegisterField
+} from '~/features/createCV/cv.schema';
 
-export const Description = ({ cv }: { cv: GetCVResponse }) => (
-  <Text
-    mt={3}
-    fontSize="lg"
-    color="brand.black"
-  >
-    {cv.profile.description}
-  </Text>
-);
+import { EditWrapper } from '../Edit/EditWrapper';
+
+export const Description = ({
+  setRegisteredField
+}: {
+  setRegisteredField: (fieldName: CVRegisterField | null) => void;
+}) => {
+  const { field } = useController<CVFormValues, 'profile'>({
+    name: 'profile'
+  });
+
+  return (
+    <EditWrapper onClick={() => setRegisteredField('profile.description')}>
+      <Text
+        mt={3}
+        fontSize="lg"
+        color="brand.black"
+      >
+        {field.value.description}
+      </Text>
+    </EditWrapper>
+  );
+};
