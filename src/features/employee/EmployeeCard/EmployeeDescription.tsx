@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import differenceInYears from 'date-fns/differenceInYears';
 import { useTranslation } from 'react-i18next';
 import { MdLocationOn } from 'react-icons/md';
 
@@ -20,12 +21,21 @@ export const EmployeeDescription = ({ employee }: { employee: Employee }) => {
   const projectCount = t('domains:employee.titles.project', {
     count: employee.projects ? employee.projects.length : 0
   });
-  const workExperienceCount = t('domains:employee.titles.experience', {
-    count: employee.years_of_experience ? employee.years_of_experience : 0
-  });
-  const startCareerCount = employee.start_career_at
-    ? getFormattedDate(employee.start_career_at, language, DateFormats.Full)
+
+  const earliestWorkExperience = employee.work_experiences
+    ?.map((item) => item.started_at)
+    .sort((a, b) => (a < b ? 1 : -1))
+    .pop();
+
+  const startCareerCount = earliestWorkExperience
+    ? getFormattedDate(earliestWorkExperience, language, DateFormats.Full)
     : t('domains:employee.errors.no_data');
+
+  const workExperienceCount = t('domains:employee.titles.experience', {
+    count: earliestWorkExperience
+      ? differenceInYears(new Date(), new Date(earliestWorkExperience))
+      : 0
+  });
 
   return (
     <Box

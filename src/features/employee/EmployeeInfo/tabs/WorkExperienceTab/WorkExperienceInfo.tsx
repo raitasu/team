@@ -74,7 +74,7 @@ export const WorkExperienceInfo = ({
     <InfoSection
       title={
         workExperience.positions.length > 0
-          ? workExperience.positions.map((position) => position.name).join(',')
+          ? workExperience.positions.map((position) => position.name).join(', ')
           : t(
               'domains:employee.titles.profile_tabs.work_experience.no_selected_positions'
             )
