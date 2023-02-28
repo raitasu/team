@@ -59,5 +59,5 @@ export const EmployeeGeneralInfoSchema = z.object({
       }
     })
     .optional(),
-  start_career_at: z.string().nullable()
+  hired_at: z.string().nullable()
 });

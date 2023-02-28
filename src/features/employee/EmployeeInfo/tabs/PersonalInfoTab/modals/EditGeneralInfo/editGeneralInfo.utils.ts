@@ -18,13 +18,13 @@ export const getInitialState = (
   gender: employee.gender ? employee.gender : null,
   date_of_birth: employee.date_of_birth || new Date().toISOString(),
   interests: employee.interests || '',
-  startMonth: employee.start_career_at
-    ? getMonth(new Date(employee.start_career_at))
+  startMonth: employee.hired_at
+    ? getMonth(new Date(employee.hired_at))
     : getMonth(new Date()),
-  startYear: employee.start_career_at
-    ? getYear(new Date(employee.start_career_at))
+  startYear: employee.hired_at
+    ? getYear(new Date(employee.hired_at))
     : getYear(new Date()),
-  start_career_at: employee.start_career_at
+  hired_at: employee.hired_at
 });
 
 export const getInitialFilterState = (data: EmployeeGeneralInfoFormValues) => {

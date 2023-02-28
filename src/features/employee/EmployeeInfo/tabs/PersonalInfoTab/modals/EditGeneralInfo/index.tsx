@@ -112,7 +112,7 @@ export const EditGeneralInfoModal = ({
                   ).toISOString();
             const object = {
               ...rest,
-              start_career_at: startCareerAt
+              hired_at: startCareerAt
             };
 
             const a = Object.entries(object);
