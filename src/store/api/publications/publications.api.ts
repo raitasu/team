@@ -71,7 +71,6 @@ const publicationsApiSlice = rootApiSlice.injectEndpoints({
 
         Object.entries(data).forEach(([key, value]) => {
           if (key === 'url' && !value) body.append(key, '');
-          if (key === 'file' && !value) body.append(key, 'null');
           if (value) body.append(key, value);
         });
 
