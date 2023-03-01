@@ -25,7 +25,10 @@ export const DescriptionField = () => {
       }
       isRequired
     >
-      <Input {...register('description')} />
+      <Input
+        {...register('description')}
+        placeholder={t('general_placeholders:enter_desc')}
+      />
     </FormControl>
   );
 };

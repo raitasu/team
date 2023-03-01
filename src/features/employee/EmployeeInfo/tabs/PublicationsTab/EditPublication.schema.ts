@@ -1,6 +1,10 @@
+import { isBefore } from 'date-fns';
 import { z } from 'zod';
 
 import { isValidUrl } from '~/features/employee/EmployeeInfo/tabs/PublicationsTab/EditPublicationInfo.utils';
+
+const ACCEPTED_FILE_TYPES = ['application/pdf', 'application/msword'];
+const MAX_FILE_SIZE = 52428800;
 
 export type EmployeePublicationInfoFormValues = z.infer<
   typeof PublicationDefaultInfoSchema
@@ -26,17 +30,35 @@ export const EmployeePublicationInfoSchema = z
       .trim()
       .optional()
       .nullable()
-      .superRefine((url, ctx) => {
-        if (url && !isValidUrl(url))
+      .refine((url) => !url || isValidUrl(url), { message: 'incorrect_link' }),
+    file: z
+      .string()
+      .or(z.instanceof(File))
+      .nullable()
+      .superRefine((element, ctx) => {
+        if (!element || typeof element === 'string') {
+          return null;
+        }
+
+        if (
+          !ACCEPTED_FILE_TYPES.includes(element.type) ||
+          element.size > MAX_FILE_SIZE
+        ) {
           ctx.addIssue({
             code: z.ZodIssueCode.custom,
-            message: 'incorrect_link'
+            message: 'file_format'
           });
+        }
 
-        return url;
+        return null;
       }),
-    file: z.string().or(z.instanceof(File)).nullable(),
-    start_date: z.string().datetime({ offset: true })
+    start_date: z
+      .string()
+      .datetime({ offset: true })
+      .refine((date) => !isBefore(new Date(), new Date(date)), {
+        message: 'incorrect_date',
+        path: ['start_date']
+      })
   })
   .superRefine((arg, ctx) => {
     if (arg.url || arg.file) {

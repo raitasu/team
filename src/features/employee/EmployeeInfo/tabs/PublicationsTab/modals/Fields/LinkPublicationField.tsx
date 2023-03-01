@@ -37,7 +37,10 @@ export const LinkPublicationField = () => {
       }
       isRequired={!(publication || publicationURL)}
     >
-      <Input {...register('url')} />
+      <Input
+        {...register('url')}
+        placeholder={t('general_placeholders:enter_link')}
+      />
     </FormControl>
   );
 };

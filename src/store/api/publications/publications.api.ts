@@ -33,7 +33,9 @@ const publicationsApiSlice = rootApiSlice.injectEndpoints({
         const body = new FormData();
 
         Object.entries(data).forEach(([key, value]) => {
-          if (value && typeof value !== 'number') body.append(key, value); // TODO backend needs to make an opportunity to send null for url and file
+          if (key === 'url' && !value) body.append(key, '');
+          if (key === 'file' && !value) body.append(key, 'null');
+          if (value && typeof value !== 'number') body.append(key, value);
         });
 
         return {
@@ -68,7 +70,8 @@ const publicationsApiSlice = rootApiSlice.injectEndpoints({
         const body = new FormData();
 
         Object.entries(data).forEach(([key, value]) => {
-          // TODO backend needs to make an opportunity to send null for url and file
+          if (key === 'url' && !value) body.append(key, '');
+          if (key === 'file' && !value) body.append(key, 'null');
           if (value) body.append(key, value);
         });
 

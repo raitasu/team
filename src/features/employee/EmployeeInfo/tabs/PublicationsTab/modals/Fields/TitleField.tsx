@@ -23,7 +23,10 @@ export const TitleField = () => {
       }
       isRequired
     >
-      <Input {...register('name')} />
+      <Input
+        {...register('name')}
+        placeholder={t('general_placeholders:enter_title')}
+      />
     </FormControl>
   );
 };

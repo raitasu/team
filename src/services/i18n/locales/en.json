@@ -418,7 +418,7 @@
               "sweat_shirt_size": "Sweatshirt size",
               "t_shirt_size": "T-shirt size"
             },
-            "social_network_title": "Social network",
+            "social_network_title": "Social networks",
             "title": "Personal information"
           },
           "publications": {
@@ -874,7 +874,7 @@
       "cv": "CV",
       "education": "Education",
       "personal_information": "Personal Information",
-      "publication": "Publication",
+      "publications": "Publications",
       "skills": "Skills",
       "work_experience": "Work Experience"
     },
@@ -968,6 +968,7 @@
   },
   "general_errors": {
     "incorrect_date": "Add correct date format",
+    "incorrect_date_start": "Date cannot be set later than the current date",
     "invalid_email": "Email is invalid",
     "invalid_number": "Invalid number",
     "invalid_phone_number": "Add correct phone number. Exapmple +1(234)567 89 00 or 1-234-567-89-00",
@@ -977,10 +978,13 @@
     "required_field": "Field is required"
   },
   "general_placeholders": {
+    "date": "DD.MM.YY",
+    "enter_desc": "Enter description",
     "enter_email": "Enter email",
     "enter_link": "Enter link",
     "enter_number": "Enter number",
     "enter_text": "Enter text...",
+    "enter_title": "Enter title",
     "month": "Month",
     "select": "Select",
     "year": "Year"

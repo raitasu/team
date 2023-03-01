@@ -39,7 +39,7 @@ export const EmployeeContactsInfoSchema = z.object({
     }),
   emergency_contact_attributes: EmployeeEmergencyContact,
   employee_attributes: z.object({
-    email: z.string().transform((val, ctx) => {
+    email: z.string().superRefine((val, ctx) => {
       const email = val.concat('@cybergizer.com');
 
       if (!isEmail(email)) {

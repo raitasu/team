@@ -172,7 +172,7 @@ export const EmployeePublicationSchema = z.object({
   description: z.string(),
   file: z.string().nullable(),
   name: z.string(),
-  url: z.string().url().nullable()
+  url: z.string().nullable()
 });
 
 const EmployeeRoles = ['admin', 'user'] as const;

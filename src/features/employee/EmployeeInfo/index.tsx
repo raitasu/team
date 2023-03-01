@@ -30,7 +30,7 @@ const employeeInfoTabs = [
     panel: EducationTab
   },
   {
-    title: 'publication' as const,
+    title: 'publications' as const,
     panel: PublicationsTab
   },
   {

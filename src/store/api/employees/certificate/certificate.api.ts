@@ -25,6 +25,8 @@ const certificateApiSlice = rootApiSlice.injectEndpoints({
         const body = new FormData();
 
         Object.entries(data).forEach(([key, value]) => {
+          if (key === 'link' && !value) body.append(key, '');
+          if (key === 'file' && !value) body.append(key, 'null');
           if (value && typeof value !== 'number') body.append(key, value);
         });
 
@@ -71,6 +73,8 @@ const certificateApiSlice = rootApiSlice.injectEndpoints({
         const body = new FormData();
 
         Object.entries(certificate).forEach(([key, value]) => {
+          if (key === 'link' && !value) body.append(key, '');
+          if (key === 'file' && !value) body.append(key, 'null');
           if (value && typeof value !== 'number') body.append(key, value);
         });
 

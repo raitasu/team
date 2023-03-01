@@ -1,5 +1,6 @@
 import { compareAsc, parseISO } from 'date-fns';
 
+import { Patterns } from '~/shared/shared.constants';
 import { type Employee } from '~/store/api/employees/employees.types';
 
 export const isAdmin = (
@@ -36,5 +37,4 @@ export const isCompanyProject = (
   return false;
 };
 
-export const isEmail = (email: string) =>
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+export const isEmail = (email: string) => Patterns.Email.test(email);

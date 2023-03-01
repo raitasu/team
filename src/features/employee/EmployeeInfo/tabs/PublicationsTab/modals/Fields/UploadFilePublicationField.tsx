@@ -1,5 +1,6 @@
 import {
   Flex,
+  Link,
   Tag,
   TagCloseButton,
   TagLabel,
@@ -7,17 +8,23 @@ import {
   Text
 } from '@chakra-ui/react';
 import { useDropzone } from 'react-dropzone';
-import { useController } from 'react-hook-form';
+import { useController, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { AiOutlineCloudUpload } from 'react-icons/all';
 import { MdOutlineAttachFile } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
 
 import { type EmployeePublicationValues } from '~/features/employee/EmployeeInfo/tabs/PublicationsTab/EditPublication.schema';
 import { FormControl } from '~/shared/ui/components/FormControl';
 
 export const UploadFilePublicationField = () => {
-  const { field } = useController<EmployeePublicationValues, 'file'>({
+  const { t } = useTranslation();
+
+  const { getValues, trigger } = useFormContext<EmployeePublicationValues>();
+
+  const {
+    field,
+    fieldState: { error }
+  } = useController<EmployeePublicationValues, 'file'>({
     name: 'file'
   });
   const { field: fileURL } = useController<EmployeePublicationValues, 'url'>({
@@ -30,6 +37,7 @@ export const UploadFilePublicationField = () => {
     onDrop: ([file]: (File | undefined)[]) => {
       if (file) {
         field.onChange(file);
+        setTimeout(() => trigger(), 0);
       }
     },
     accept: {
@@ -37,7 +45,12 @@ export const UploadFilePublicationField = () => {
       'application/msword': []
     }
   });
-  const { t } = useTranslation();
+
+  const errorMessage = error
+    ? (error.message as 'file_format' | undefined)
+    : undefined;
+
+  const publicationName = getValues('name');
 
   return !field.value ? (
     <Flex
@@ -92,29 +105,43 @@ export const UploadFilePublicationField = () => {
   ) : (
     <FormControl
       label={t('domains:employee.titles.profile_tabs.publications.document')}
+      errorMessage={
+        errorMessage ? t(`domains:employee.errors.${errorMessage}`) : undefined
+      }
     >
-      <NavLink to={field.value as string}>
-        <Tag
-          size="lg"
-          variant="colorCloseBtn"
-          height="var(--chakra-sizes-10)"
-          justifyContent="space-between"
+      <Tag
+        size="lg"
+        variant="colorCloseBtn"
+        height="var(--chakra-sizes-10)"
+        justifyContent="space-between"
+      >
+        <TagLeftIcon as={MdOutlineAttachFile} />
+        <TagLabel
+          textTransform="none"
+          margin="0 auto 0 4px"
         >
-          <TagLeftIcon as={MdOutlineAttachFile} />
-          <TagLabel
-            textTransform="none"
-            margin="0 auto 0 4px"
-          >
-            {(field.value as File).name || (field.value as string)}
-          </TagLabel>
-          <TagCloseButton
-            onClick={(e) => {
-              e.preventDefault();
-              field.onChange(null);
-            }}
-          />
-        </Tag>
-      </NavLink>
+          {typeof field.value !== 'string' ? (
+            field.value.name
+          ) : (
+            <Link
+              fontWeight="400"
+              href={field.value}
+              target="_blank"
+              color="brand.headline2"
+              textDecoration="underline"
+              lineHeight="19px"
+            >
+              {publicationName}
+            </Link>
+          )}
+        </TagLabel>
+        <TagCloseButton
+          onClick={(e) => {
+            e.preventDefault();
+            field.onChange(null);
+          }}
+        />
+      </Tag>
     </FormControl>
   );
 };
