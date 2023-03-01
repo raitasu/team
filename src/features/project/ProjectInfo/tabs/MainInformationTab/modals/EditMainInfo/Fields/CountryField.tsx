@@ -13,7 +13,7 @@ export const CountryField = () => {
   });
 
   const countryIdOptions = countryOptions.map((item, index) => ({
-    value: index,
+    value: index + 1,
     label: t(`enums:country.${item.value}`)
   }));
 
@@ -29,7 +29,7 @@ export const CountryField = () => {
         value={selectedCountry}
         onChange={(option) => {
           if (option) {
-            field.onChange(option.value + 1);
+            field.onChange(option.value);
           }
         }}
         size="md"
