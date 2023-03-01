@@ -30,10 +30,12 @@ import { useAppDispatch } from '~/store/store.hooks';
 export const CVSideNav = ({
   cv,
   onSave,
+  onSaveAs,
   onDelete
 }: {
   cv: GetCVResponse;
   onSave: () => void;
+  onSaveAs: () => void;
   onDelete: () => void;
 }) => {
   const [t] = useTranslation();
@@ -153,6 +155,7 @@ export const CVSideNav = ({
         width="100%"
         variant="primaryOutline"
         leftIcon={<MdDownloadDone />}
+        onClick={onSaveAs}
       >
         {t('domains:cv.navigation.save_as')}
       </Button>
@@ -160,6 +163,16 @@ export const CVSideNav = ({
         width="100%"
         variant="primaryOutline"
         leftIcon={<MdArchive />}
+        onClick={() => {
+          if (employeeId) {
+            window.open(
+              `${
+                import.meta.env.VITE_API_HOST
+              }/api/v1/employees/${employeeId}/cvs/${cv.id}.pdf`,
+              '_blank'
+            );
+          }
+        }}
       >
         {t('domains:cv.navigation.export_pdf')}
       </Button>

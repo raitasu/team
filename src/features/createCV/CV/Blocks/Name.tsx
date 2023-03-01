@@ -19,12 +19,7 @@ export const Name = ({
 
   return (
     <EditWrapper onClick={() => setRegisteredField('profile.name')}>
-      <Heading
-        size="2xl"
-        sx={{ textTransform: 'capitalize' }}
-      >
-        {field.value.name}
-      </Heading>
+      <Heading size="2xl">{field.value.name}</Heading>
     </EditWrapper>
   );
 };

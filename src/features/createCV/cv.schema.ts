@@ -2,64 +2,62 @@ import { z } from 'zod';
 
 const CVPublicationSchema = z.object({
   id: z.number(),
-  name: z.string(),
-  url: z.string(),
-  start_date: z.string(),
-  description: z.string(),
-  file: z.string().or(z.instanceof(File)).nullable()
+  name: z.string().nullable(),
+  url: z.string().nullable(),
+  start_date: z.string().nullable(),
+  description: z.string().nullable()
 });
 
 const CVCertificateSchema = z.object({
   id: z.number(),
-  name: z.string(),
-  issued_by: z.string(),
-  start_date: z.string(),
-  link: z.string(),
-  end_date: z.string(),
-  file: z.string().or(z.instanceof(File)).nullable()
+  name: z.string().nullable(),
+  issued_by: z.string().nullable(),
+  start_date: z.string().nullable(),
+  link: z.string().nullable(),
+  end_date: z.string().nullable()
 });
 
 const CVEducationSchema = z.object({
   id: z.number(),
-  university_name: z.string(),
-  speciality: z.string(),
-  started_at: z.string(),
+  university_name: z.string().nullable(),
+  speciality: z.string().nullable(),
+  started_at: z.string().nullable(),
   graduated_at: z.string().nullable(),
-  country: z.string(),
-  degree: z.string()
+  country: z.string().nullable(),
+  degree: z.string().nullable()
 });
 
 const CVWorkExperienceSchema = z.object({
   id: z.number(),
-  project_name: z.string(),
-  company_name: z.string(),
-  description: z.string(),
-  responsibilities: z.string(),
-  environment: z.string(),
-  position: z.string(),
-  started_at: z.string(),
-  ended_at: z.string()
+  project_name: z.string().nullable(),
+  company_name: z.string().nullable(),
+  description: z.string().nullable(),
+  responsibilities: z.string().nullable(),
+  environment: z.string().nullable(),
+  position: z.string().nullable(),
+  started_at: z.string().nullable(),
+  ended_at: z.string().nullable()
 });
 
 const CVSoftSkillSchema = z.object({
   id: z.number(),
-  name: z.string()
+  name: z.string().nullable()
 });
 
 const CVHardSkillSchema = z.object({
-  name: z.string(),
-  years_of_experience: z.string()
+  name: z.string().nullable(),
+  years_of_experience: z.string().nullable()
 });
 
 const CVLanguageSchema = z.object({
   id: z.number(),
-  name: z.string()
+  name: z.string().nullable()
 });
 
 export const CVSchema = z.object({
-  name: z.string(),
+  name: z.string().nullable(),
   id: z.number(),
-  link: z.string(),
+  link: z.string().nullable(),
   profile: z.object({
     id: z.number(),
     name: z.string(),

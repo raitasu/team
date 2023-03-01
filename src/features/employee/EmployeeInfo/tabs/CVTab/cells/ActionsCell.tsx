@@ -49,7 +49,9 @@ export const ActionsCell = ({
         labelText={t('general_actions:download')}
       >
         <Link
-          href={`${PagePaths.Employees}/${employeeId}/cv/${cv.link}`}
+          href={`${
+            import.meta.env.VITE_API_HOST
+          }/api/v1/employees/${employeeId}/cvs/${cv.id}.pdf`}
           target="_blank"
         >
           <IconButton

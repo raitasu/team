@@ -1,3 +1,4 @@
+import { type CVFormValues } from '~/features/createCV/cv.schema';
 import { rootApiSlice } from '~/store/api';
 
 import { type GetCVListResponse, type GetCVResponse } from './cv.types';
@@ -7,7 +8,13 @@ const CvApiSlice = rootApiSlice.injectEndpoints({
   overrideExisting: false,
   endpoints: (builder) => ({
     getCV: builder.query<GetCVResponse, { employeeId: string; cvId: string }>({
-      providesTags: (cv) => [{ type: ApiTags.CVs, id: cv ? cv.id : 'ENTITY' }],
+      providesTags: (cv) => [
+        { type: ApiTags.CVs, id: cv ? cv.id : 'ENTITY' },
+        {
+          type: ApiTags.CV,
+          id: cv ? cv.id : 'ENTITY'
+        }
+      ],
       query: ({ employeeId, cvId }) => ({
         url: `/employees/${employeeId}/cvs/${cvId}`,
         method: 'GET'
@@ -30,12 +37,40 @@ const CvApiSlice = rootApiSlice.injectEndpoints({
         body: { name }
       })
     }),
+    saveCV: builder.mutation<
+      number,
+      {
+        employeeId: number;
+        cvId: number;
+        cv: { payload: Partial<CVFormValues> };
+      }
+    >({
+      invalidatesTags: (cvId, _error, arg) => [
+        {
+          type: ApiTags.CVs,
+          id: cvId !== undefined ? `${cvId}` : 'ENTITY'
+        },
+        {
+          type: ApiTags.CVs,
+          id: `${arg.employeeId ? arg.employeeId : 'LIST'}`
+        },
+        {
+          type: ApiTags.CV,
+          id: `${arg.cvId ? arg.cvId : 'ENTITY'}`
+        }
+      ],
+      query: ({ employeeId, cvId, cv }) => ({
+        url: `/employees/${employeeId}/cvs/${cvId}`,
+        method: 'PATCH',
+        body: cv
+      })
+    }),
     getCVsList: builder.query<Array<GetCVListResponse>, { employeeId: number }>(
       {
         providesTags: (result, _error, arg) => [
           {
             type: ApiTags.CVs,
-            id: `${arg.employeeId ? arg.employeeId : 'LIST'}`
+            id: arg.employeeId ? arg.employeeId : 'LIST'
           },
           ...(result || []).map((cv) => ({
             type: ApiTags.CVs,
@@ -48,7 +83,7 @@ const CvApiSlice = rootApiSlice.injectEndpoints({
         })
       }
     ),
-    deleteCV: builder.mutation<number, { employeeId: number; id: number }>({
+    deleteCV: builder.mutation<number, { employeeId: number; cvId: number }>({
       invalidatesTags: (_result, _error, arg) => [
         {
           type: ApiTags.CVs,
@@ -56,11 +91,11 @@ const CvApiSlice = rootApiSlice.injectEndpoints({
         },
         {
           type: ApiTags.CVs,
-          id: `${arg.employeeId}`
+          id: arg.employeeId
         }
       ],
-      query: ({ employeeId, id }) => ({
-        url: `employees/${employeeId}/cvs/${id}`,
+      query: ({ employeeId, cvId }) => ({
+        url: `employees/${employeeId}/cvs/${cvId}`,
         method: 'DELETE'
       })
     })
@@ -71,5 +106,6 @@ export const {
   useGetCVsListQuery,
   useDeleteCVMutation,
   useCreateCVMutation,
+  useSaveCVMutation,
   useGetCVQuery
 } = CvApiSlice;

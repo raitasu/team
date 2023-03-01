@@ -1,6 +1,10 @@
+import { useState } from 'react';
+
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import { CVContainer } from '~/features/createCV/CV';
 import { type CVFormValues, CVSchema } from '~/features/createCV/cv.schema';
@@ -9,20 +13,69 @@ import {
   COLUMN_GAP,
   PROFILE_COLUMN_WIDTH
 } from '~/pages/Employee/employee.styles';
+import { PagePaths } from '~/router/router.constants';
+import { toastConfig } from '~/shared/shared.constants';
+import { ConfirmationModal } from '~/shared/ui/components/ConfirmationModal';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
+import {
+  useSaveCVMutation,
+  useDeleteCVMutation
+} from '~/store/api/CV/cv.api.slice';
 import { type GetCVResponse } from '~/store/api/CV/cv.types';
 
 export const CVForm = ({ cv }: { cv: GetCVResponse }) => {
+  const [t] = useTranslation();
+  const navigate = useNavigate();
   const methods = useForm<CVFormValues>({
     defaultValues: cv,
     resolver: zodResolver(CVSchema)
   });
+  const [saveCV] = useSaveCVMutation();
+  const [deleteCV, { isLoading: isDeleteCVUpdating }] = useDeleteCVMutation();
+  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
 
-  const onDelete = () => {
-    methods.reset();
+  const errorToast = useErrorToast(toastConfig);
+  const successToast = useSuccessToast(toastConfig);
+
+  const onSave = async () => {
+    try {
+      await methods.handleSubmit(
+        async (formData) => {
+          await saveCV({
+            employeeId: cv.profile.id,
+            cvId: cv.id,
+            cv: { payload: formData.profile }
+          }).unwrap();
+        },
+        (err) => console.error('sv save error', err)
+      )();
+      successToast({
+        description: t('domains:cv.actions.cv_saved')
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
   };
 
-  const onSave = () => {
-    methods.handleSubmit(() => true);
+  const onDelete = async () => {
+    try {
+      await deleteCV({
+        employeeId: cv.profile.id,
+        cvId: cv.id
+      }).unwrap();
+      successToast({
+        description: t('domains:cv.actions.cv_deleted')
+      });
+      navigate(`${PagePaths.Employees}/${cv.profile.id}`);
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
   };
 
   return (
@@ -42,7 +95,10 @@ export const CVForm = ({ cv }: { cv: GetCVResponse }) => {
           <CVSideNav
             cv={cv}
             onSave={onSave}
-            onDelete={onDelete}
+            onSaveAs={onSave}
+            onDelete={() => {
+              setDeleteModalOpen(true);
+            }}
           />
         </Flex>
         <Flex
@@ -52,6 +108,14 @@ export const CVForm = ({ cv }: { cv: GetCVResponse }) => {
           <CVContainer cv={cv} />
         </Flex>
       </Flex>
+      <ConfirmationModal
+        title={t('domains:global.confirmations.titles.delete_cv')}
+        description={t('domains:global.confirmations.descriptions.delete_cv')}
+        onConfirm={onDelete}
+        isOpen={isDeleteModalOpen}
+        onClose={() => setDeleteModalOpen(false)}
+        isLoading={isDeleteCVUpdating}
+      />
     </FormProvider>
   );
 };

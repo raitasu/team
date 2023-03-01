@@ -52,7 +52,7 @@ export const CVTableInfo: CVsTable = ({ data, employee }) => {
     try {
       await deleteCV({
         employeeId: employee.id,
-        id: deleteCvId
+        cvId: deleteCvId
       }).unwrap();
       successToast({
         description: t('domains:global.confirmations.descriptions.deleted')

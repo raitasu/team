@@ -9,7 +9,7 @@ export interface GetCVListResponse {
 export interface GetCVResponse {
   name: string;
   id: number;
-  link: string;
+  link: string | null;
   profile: {
     id: number;
     name: string;
@@ -34,17 +34,15 @@ type CVPublication = {
   url: string;
   start_date: string;
   description: string;
-  file: File | null;
 };
 
 type CVCertificate = {
   id: number;
   name: string;
-  issued_by: string;
-  start_date: string;
+  issued_by: string | null;
+  start_date: string | null;
   link: string;
-  end_date: string;
-  file: File | null;
+  end_date: string | null;
 };
 
 type CVEducation = {
@@ -53,8 +51,8 @@ type CVEducation = {
   speciality: string;
   started_at: string;
   graduated_at: string | null;
-  country: string;
-  degree: string;
+  country: string | null;
+  degree: string | null;
 };
 
 type CVWorkExperience = {
@@ -64,7 +62,7 @@ type CVWorkExperience = {
   description: string;
   responsibilities: string;
   environment: string;
-  position: string;
+  position: string | null;
   started_at: string;
   ended_at: string;
 };

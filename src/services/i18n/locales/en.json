@@ -230,7 +230,9 @@
     },
     "cv": {
       "actions": {
-        "cv_saved": "CV saved"
+        "cv_deleted": "CV deleted",
+        "cv_saved": "CV saved",
+        "pdf_exported": "PDF exported"
       },
       "blocks": {
         "avatar": "Avatar",

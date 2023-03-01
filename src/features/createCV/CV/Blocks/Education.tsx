@@ -79,7 +79,9 @@ export const Education = ({
               mb={2}
               color="brand.lightGray"
             >
-              {education.country}
+              {education.country === null || education.country === ''
+                ? '...'
+                : education.country}
             </Text>
           </EditWrapper>
           <EditWrapper

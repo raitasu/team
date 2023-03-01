@@ -23,7 +23,8 @@ export const ApiTags = {
   SoftSkills: 'softSkills',
   WorkExperience: 'workExperience',
   Projects: 'projects',
-  CVs: 'cvs'
+  CVs: 'cvs',
+  CV: 'cv'
 } as const;
 
 export const CountriesCode = [

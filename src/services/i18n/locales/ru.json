@@ -230,7 +230,9 @@
     },
     "cv": {
       "actions": {
-        "cv_saved": "Резюме сохранено"
+        "cv_deleted": "Резюме удалено",
+        "cv_saved": "Резюме сохранено",
+        "pdf_exported": "PDF экспортирован"
       },
       "blocks": {
         "avatar": "Аватар",
