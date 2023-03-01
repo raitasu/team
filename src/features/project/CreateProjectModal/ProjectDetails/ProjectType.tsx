@@ -25,15 +25,15 @@ export const ProjectType = () => {
   );
 
   const selectedType = useMemo(
-    () =>
-      field.value !== null
-        ? options.find((item) => item.label === field.value)
-        : null,
+    () => options.find((item) => item.value === field.value),
     [field.value, options]
   );
 
   return (
-    <FormControl label={t('domains:projects.titles.type')}>
+    <FormControl
+      label={t('domains:projects.titles.type')}
+      isRequired
+    >
       <Select
         placeholder={t('domains:filters.placeholders.placeholder_select')}
         options={options}

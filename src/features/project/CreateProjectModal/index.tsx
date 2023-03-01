@@ -41,7 +41,7 @@ export const CreateProjectModal = ({
       name: '',
       company_name: { value: null, label: null },
       status: null,
-      type: null,
+      type: 'external',
       managers: [{ value: null, label: null }],
       startDate: {
         startMonth: null,

@@ -59,7 +59,7 @@ export const CreateProjectSchema = z
       value: z.string().nullable()
     }),
     status: ProjectStatusesSchema.nullable(),
-    type: ProjectTypesSchema.nullable(),
+    type: ProjectTypesSchema,
     managers: z
       .object({
         label: z.string().nullable(),
