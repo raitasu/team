@@ -14,6 +14,7 @@ export const PublicationsTab: EmployeeInfoTab = ({ employee, canEdit }) => {
       {publications ? (
         <PublicationsInfo
           publications={publications}
+          employee={employee}
           canEdit={canEdit}
         />
       ) : (

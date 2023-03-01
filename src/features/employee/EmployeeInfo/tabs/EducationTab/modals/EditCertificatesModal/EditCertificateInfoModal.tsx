@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 import { Flex } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -6,16 +6,24 @@ import isEqual from 'lodash/isEqual';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
+import { toastConfig } from '~/shared/shared.constants';
 import { BaseModal } from '~/shared/ui/components/BaseModal';
 import { ActionsModalFooter } from '~/shared/ui/components/BaseModal/ActionsModalFooter';
-import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
+import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
+import {
+  useCreateCertificateMutation,
+  useUpdateCertificateMutation
+} from '~/store/api/employees/certificate/certificate.api';
+import {
+  type Employee,
+  type EmployeeCertificate
+} from '~/store/api/employees/employees.types';
 
 import {
   type EmployeeCertificateInfoFormValues,
   EmployeeCertificateInfoSchema
 } from './EditCertificateInfo.schema';
 import {
-  getChangedDate,
   getInitialState,
   initialCertificateValues
 } from './EditCertificateInfo.utils';
@@ -29,36 +37,90 @@ export const EditCertificateInfoModal = ({
   certificate,
   isOpen,
   onClose,
-  onConfirm,
-  isLoading
+  employee
 }: {
   certificate: EmployeeCertificate | undefined;
   isOpen: boolean;
   onClose: () => void;
-  onConfirm: (values: Partial<EmployeeCertificate>) => void;
-  isLoading: boolean;
+  employee: Employee;
 }) => {
   const [t] = useTranslation();
-
-  const defaultData = useMemo(
-    () =>
-      certificate ? getInitialState(certificate) : initialCertificateValues(),
-    [certificate]
-  );
-
   const methods = useForm<EmployeeCertificateInfoFormValues>({
-    defaultValues: defaultData,
+    defaultValues: certificate
+      ? getInitialState(certificate)
+      : initialCertificateValues(),
     mode: 'onBlur',
     resolver: zodResolver(EmployeeCertificateInfoSchema)
   });
+  const errorToast = useErrorToast(toastConfig);
+  const successToast = useSuccessToast(toastConfig);
+
+  const [createCertificate, { isLoading: isLoadingCreate }] =
+    useCreateCertificateMutation();
+  const [updateCertificate, { isLoading: isLoadingChange }] =
+    useUpdateCertificateMutation();
 
   const { reset } = methods;
 
-  useEffect(() => reset({ ...defaultData }), [reset, defaultData]);
+  useEffect(
+    () =>
+      reset(
+        certificate ? getInitialState(certificate) : initialCertificateValues(),
+        {
+          keepDefaultValues: false
+        }
+      ),
+    [reset, certificate]
+  );
 
-  const closeCertificateInfoForm = () => {
-    reset();
-    onClose();
+  const addCertificateInfo = async (values: EmployeeCertificate) => {
+    try {
+      await createCertificate({ ...values, employeeId: employee.id }).unwrap();
+      onClose();
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+      reset(initialCertificateValues(), {
+        keepDefaultValues: false
+      });
+    } catch (e) {
+      console.error(e);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
+  };
+  const changeCertificateInfo = async (
+    values: Partial<EmployeeCertificate>
+  ) => {
+    if (!certificate) {
+      return;
+    }
+
+    try {
+      await updateCertificate({
+        certificate: values,
+        employeeId: employee.id,
+        certificateId: certificate.id
+      }).unwrap();
+      onClose();
+      successToast({
+        description: t('domains:global.confirmations.descriptions.saved')
+      });
+    } catch (err) {
+      console.error(err);
+      errorToast({
+        description: t('domains:global.errors.descriptions.unknown_error')
+      });
+    }
+  };
+
+  const onSubmitData = async (values: Partial<EmployeeCertificate>) => {
+    if (!certificate) {
+      await addCertificateInfo(values as EmployeeCertificate);
+    }
+
+    await changeCertificateInfo(values);
   };
 
   return (
@@ -68,7 +130,7 @@ export const EditCertificateInfoModal = ({
         'domains:employee.titles.profile_tabs.education.certificate'
       ).toUpperCase()}
       isOpen={isOpen}
-      onClose={closeCertificateInfoForm}
+      onClose={onClose}
       shouldUseOverlay
       isCentered
       contentProps={{
@@ -76,25 +138,19 @@ export const EditCertificateInfoModal = ({
       }}
       footer={
         <ActionsModalFooter
-          onCancel={closeCertificateInfoForm}
-          onReset={() => methods.reset()}
+          onCancel={onClose}
+          onReset={() => reset()}
           onSubmit={methods.handleSubmit((data) => {
             const { start_date, end_date, ...payload } = data;
 
             const validDate = {
               start_date:
                 start_date.month && start_date.year
-                  ? getChangedDate(
-                      Number(start_date.year),
-                      Number(start_date.month)
-                    )
-                  : new Date().toString(),
+                  ? new Date(+start_date.year, +start_date.month).toISOString()
+                  : new Date().toISOString(),
               end_date:
                 end_date.month && end_date.year
-                  ? getChangedDate(
-                      Number(end_date.year),
-                      Number(end_date.month)
-                    )
+                  ? new Date(+end_date.year, +end_date.month).toISOString()
                   : null
             };
 
@@ -104,39 +160,38 @@ export const EditCertificateInfoModal = ({
             };
 
             if (!certificate) {
-              onConfirm(validateData);
-              setTimeout(() => reset({ ...defaultData }), 0);
-            } else {
-              const initialValues = getInitialState(certificate);
-              const updatedCertificates = (
-                Object.keys(data) as (keyof typeof data)[]
-              ).reduce<Partial<typeof validateData>>((acc, key) => {
-                const currentValue = data[key];
-                const initialValue = initialValues[key];
-
-                if (!isEqual(currentValue, initialValue)) {
-                  if (key === 'end_date' || key === 'start_date') {
-                    (acc[key] as typeof currentValue) =
-                      data[key].year && data[key].month
-                        ? new Date(
-                            Number(data[key].year),
-                            Number(data[key].month)
-                          ).toISOString()
-                        : null;
-                  } else {
-                    (acc[key] as typeof currentValue) = currentValue;
-                  }
-                }
-
-                return acc;
-              }, {});
-
-              onConfirm(updatedCertificates);
+              return onSubmitData(validateData);
             }
+
+            const initialValues = getInitialState(certificate);
+            const updatedCertificates = (
+              Object.keys(data) as (keyof typeof data)[]
+            ).reduce<Partial<typeof validateData>>((acc, key) => {
+              const currentValue = data[key];
+              const initialValue = initialValues[key];
+
+              if (!isEqual(currentValue, initialValue)) {
+                if (key === 'end_date' || key === 'start_date') {
+                  (acc[key] as typeof currentValue) =
+                    data[key].year && data[key].month
+                      ? new Date(
+                          Number(data[key].year),
+                          Number(data[key].month)
+                        ).toISOString()
+                      : null;
+                } else {
+                  (acc[key] as typeof currentValue) = currentValue;
+                }
+              }
+
+              return acc;
+            }, {});
+
+            return onSubmitData(updatedCertificates);
           })}
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
-          isLoading={isLoading}
+          isLoading={isLoadingChange || isLoadingCreate}
         />
       }
     >

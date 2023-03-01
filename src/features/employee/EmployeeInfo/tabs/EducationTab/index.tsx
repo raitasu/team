@@ -16,6 +16,7 @@ export const EducationTab: EmployeeInfoTab = ({ employee, canEdit }) => {
         <EducationInfo
           educations={educations}
           canEdit={canEdit}
+          employee={employee}
         />
       ) : (
         <div>
@@ -28,6 +29,7 @@ export const EducationTab: EmployeeInfoTab = ({ employee, canEdit }) => {
         <CertificatesInfo
           certificates={certificates}
           canEdit={canEdit}
+          employee={employee}
         />
       ) : (
         <div>

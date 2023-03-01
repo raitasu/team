@@ -39,6 +39,3 @@ export const initialEducationValues = () => ({
     endYear: null
   }
 });
-
-export const getChangedDate = (year: number, month: number) =>
-  new Date(year, month).toISOString();

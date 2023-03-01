@@ -1,25 +1,19 @@
 import { useState } from 'react';
 
 import { Flex, Heading, Text } from '@chakra-ui/react';
-import {
-  type FetchBaseQueryError,
-  skipToken
-} from '@reduxjs/toolkit/dist/query/react';
 import { useTranslation } from 'react-i18next';
 import { MdAdd } from 'react-icons/md';
-import { useParams } from 'react-router-dom';
 
 import { SECTION_PADDING } from '~/features/employee/employee.styles';
 import { toastConfig } from '~/shared/shared.constants';
 import { Button } from '~/shared/ui/components/Button';
 import { ConfirmationModal as ConfirmDeleteModal } from '~/shared/ui/components/ConfirmationModal';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
+import { useDeleteCertificateMutation } from '~/store/api/employees/certificate/certificate.api';
 import {
-  useCreateCertificateMutation,
-  useDeleteCertificateMutation,
-  useUpdateCertificateMutation
-} from '~/store/api/employees/certificate/certificate.api';
-import { type EmployeeCertificate } from '~/store/api/employees/employees.types';
+  type Employee,
+  type EmployeeCertificate
+} from '~/store/api/employees/employees.types';
 
 import { CertificatesInfoItem } from './CertificatesInfoItem';
 import { EducationInfoControllers } from './EducationInfoControllers';
@@ -29,10 +23,12 @@ import { InfoSection } from '../components/InfoSection';
 
 export const CertificatesInfo = ({
   certificates,
-  canEdit
+  canEdit,
+  employee
 }: {
   certificates: EmployeeCertificate[];
   canEdit: boolean;
+  employee: Employee;
 }) => {
   const [certificateId, setCertificateId] = useState<number>(0);
   const [isOpenCertificateModal, setOpenCertificateModal] =
@@ -40,17 +36,8 @@ export const CertificatesInfo = ({
   const [isOpenConfirmModal, setOpenConfirmModal] = useState<boolean>(false);
 
   const [t] = useTranslation();
-
-  const { id } = useParams();
-
-  const employeeId = id ? +id : Number(skipToken);
-
-  const [createCertificate, { isLoading: isLoadingCreate }] =
-    useCreateCertificateMutation();
   const [deleteCertificate, { isLoading: isLoadingDelete }] =
     useDeleteCertificateMutation();
-  const [updateCertificate, { isLoading: isLoadingChange }] =
-    useUpdateCertificateMutation();
 
   const getChosenCertificate = () =>
     certificates.find((certificate) => certificate.id === certificateId);
@@ -68,65 +55,19 @@ export const CertificatesInfo = ({
     setOpenCertificateModal(false);
   };
 
-  const addCertificateInfo = async (values: EmployeeCertificate) => {
-    const response = await createCertificate({ ...values, employeeId });
-
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
-      onCloseCertificateInfoTab();
-      successToast({
-        description: t('domains:global.confirmations.descriptions.saved')
-      });
-    }
-  };
-
   const deleteCertificateInfo = async (id: number) => {
-    const response = await deleteCertificate({ employeeId, id });
-
-    if ((response as { error?: FetchBaseQueryError }).error) {
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    } else {
+    try {
+      await deleteCertificate({ employeeId: employee.id, id }).unwrap();
       onCloseConfirmDeleteModal();
       successToast({
         description: t('domains:global.confirmations.descriptions.deleted')
       });
-    }
-  };
-
-  const changeCertificateInfo = async (
-    values: Partial<EmployeeCertificate>
-  ) => {
-    try {
-      await updateCertificate({
-        certificate: values,
-        employeeId,
-        certificateId
-      }).unwrap();
-      onCloseCertificateInfoTab();
-      successToast({
-        description: t('domains:global.confirmations.descriptions.saved')
-      });
-    } catch (err) {
-      console.error(err);
+    } catch (e) {
+      console.error(e);
       errorToast({
         description: t('domains:global.errors.descriptions.unknown_error')
       });
     }
-  };
-
-  const onSubmitData = (
-    values: Partial<EmployeeCertificate> | EmployeeCertificate
-  ) => {
-    if (!certificateId) {
-      return addCertificateInfo(values as EmployeeCertificate);
-    }
-
-    return changeCertificateInfo(values as Partial<EmployeeCertificate>);
   };
 
   return (
@@ -191,8 +132,7 @@ export const CertificatesInfo = ({
             certificate={getChosenCertificate()}
             isOpen={isOpenCertificateModal}
             onClose={onCloseCertificateInfoTab}
-            onConfirm={onSubmitData}
-            isLoading={isLoadingCreate || isLoadingChange}
+            employee={employee}
           />
           <ConfirmDeleteModal
             title={t('domains:global.confirmations.titles.delete_education')}

@@ -95,7 +95,9 @@ export const WorkExperienceInfo = ({
               as={NavLink}
               to={`/projects/${workExperience.project.id}`}
             >{`${workExperience.project.name} `}</Link>
-            ({workExperience.company_name})
+            {workExperience.company_name
+              ? ` (${workExperience.company_name})`
+              : ''}
           </Text>
           <Text color="brand.lightGray">
             {`${getFormattedDate(
@@ -115,11 +117,11 @@ export const WorkExperienceInfo = ({
           <Text color="brand.lightGray">
             {`(${
               years
-                ? t('domains:employee.titles.experience', {
+                ? `${t('domains:employee.titles.experience', {
                     count: years
-                  })
+                  })} `
                 : ''
-            } ${t('domains:employee.titles.experience_month', {
+            }${t('domains:employee.titles.experience_month', {
               count: months
             })})`}
           </Text>

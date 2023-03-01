@@ -19,7 +19,6 @@ import {
 import { ProjectAvatar } from './ProjectAvatar';
 import { CompanyName } from './ProjectDetails/CompanyName';
 import { DateField } from './ProjectDetails/DateFIeld';
-import { ProjectManager } from './ProjectDetails/ProjectManager';
 import { ProjectName } from './ProjectDetails/ProjectName';
 import { ProjectStatus } from './ProjectDetails/ProjectStatus';
 import { ProjectType } from './ProjectDetails/ProjectType';
@@ -140,7 +139,6 @@ export const CreateProjectModal = ({
             <DateField />
             <ProjectStatus />
             <ProjectType />
-            <ProjectManager />
           </Flex>
         </Grid>
       </FormProvider>

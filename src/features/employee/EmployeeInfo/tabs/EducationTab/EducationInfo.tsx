@@ -7,20 +7,15 @@ import { MdAdd } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
 
 import { SECTION_PADDING } from '~/features/employee/employee.styles';
-import {
-  type ChangedEmployeeEducationInfoValues,
-  type EmployeeEducationInfoFormValues
-} from '~/features/employee/EmployeeInfo/tabs/EducationTab/modals/EducationInfo/EducationInfo.schema';
 import { toastConfig } from '~/shared/shared.constants';
 import { Button } from '~/shared/ui/components/Button';
 import { ConfirmationModal as ConfirmDeleteModal } from '~/shared/ui/components/ConfirmationModal';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
+import { useDeleteEducationMutation } from '~/store/api/employees/education/education.api';
 import {
-  useCreateEducationMutation,
-  useDeleteEducationMutation,
-  useUpdateEducationMutation
-} from '~/store/api/employees/education/education.api';
-import { type EmployeeEducation } from '~/store/api/employees/employees.types';
+  type Employee,
+  type EmployeeEducation
+} from '~/store/api/employees/employees.types';
 
 import { EducationInfoControllers } from './EducationInfoControllers';
 import { EducationInfoItem } from './EducationInfoItem';
@@ -30,10 +25,12 @@ import { InfoSection } from '../components/InfoSection';
 
 export const EducationInfo = ({
   educations,
-  canEdit
+  canEdit,
+  employee
 }: {
   educations: EmployeeEducation[];
   canEdit: boolean;
+  employee: Employee;
 }) => {
   const [educationId, setEducationId] = useState<number>(0);
   const [isOpenEducationModal, setOpenEducationModal] =
@@ -45,13 +42,8 @@ export const EducationInfo = ({
   const { id } = useParams();
 
   const employeeId = id ? +id : Number(skipToken);
-
-  const [createEducation, { isLoading: isLoadingCreate }] =
-    useCreateEducationMutation();
   const [deleteEducation, { isLoading: isLoadingDelete }] =
     useDeleteEducationMutation();
-  const [updateEducation, { isLoading: isLoadingChange }] =
-    useUpdateEducationMutation();
 
   const getChoosedEducation = () =>
     educations.find((education) => education.id === educationId);
@@ -69,22 +61,6 @@ export const EducationInfo = ({
     setEducationId(0);
     setOpenEducationModal(false);
   };
-
-  const addEducationInfo = async (values: EmployeeEducationInfoFormValues) => {
-    try {
-      await createEducation({ ...values, employeeId }).unwrap();
-      onCloseEducationInfoTab();
-      successToast({
-        description: t('domains:global.confirmations.descriptions.saved')
-      });
-    } catch (e) {
-      console.error(e);
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    }
-  };
-
   const deleteEducationInfo = async (id: number) => {
     try {
       await deleteEducation({ employeeId, id }).unwrap();
@@ -98,38 +74,6 @@ export const EducationInfo = ({
         description: t('domains:global.errors.descriptions.unknown_error')
       });
     }
-  };
-
-  const changeEducationInfo = async (
-    values: ChangedEmployeeEducationInfoValues
-  ) => {
-    try {
-      await updateEducation({
-        education: values,
-        employeeId,
-        educationId
-      }).unwrap();
-      onCloseEducationInfoTab();
-
-      successToast({
-        description: t('domains:global.confirmations.descriptions.saved')
-      });
-    } catch (e) {
-      console.error(e);
-      errorToast({
-        description: t('domains:global.errors.descriptions.unknown_error')
-      });
-    }
-  };
-
-  const onSubmitData = (
-    values: EmployeeEducationInfoFormValues | ChangedEmployeeEducationInfoValues
-  ) => {
-    if (!educationId) {
-      return addEducationInfo(values as EmployeeEducationInfoFormValues);
-    }
-
-    return changeEducationInfo(values as ChangedEmployeeEducationInfoValues);
   };
 
   return (
@@ -194,8 +138,7 @@ export const EducationInfo = ({
             education={getChoosedEducation()}
             isOpen={isOpenEducationModal}
             onCloseEducationInfoTab={onCloseEducationInfoTab}
-            onConfirm={onSubmitData}
-            isLoading={isLoadingCreate || isLoadingChange}
+            employee={employee}
           />
           <ConfirmDeleteModal
             title={t('domains:global.confirmations.titles.delete_education')}

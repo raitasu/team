@@ -38,6 +38,3 @@ export const initialCertificateValues = () => ({
     year: null
   }
 });
-
-export const getChangedDate = (year: number, month: number) =>
-  new Date(year, month).toISOString();
