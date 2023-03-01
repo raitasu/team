@@ -4,6 +4,7 @@ import { Table } from '@chakra-ui/react';
 import { getCoreRowModel, useReactTable } from '@tanstack/react-table';
 import { useTranslation } from 'react-i18next';
 
+import { EditTeamEmployeeModal } from '~/features/project/ProjectInfo/tabs/TeamManagementTab/modals/EditTeamEmployee/EditTeamEmployeeModal';
 import { toastConfig } from '~/shared/shared.constants';
 import { ConfirmationModal as ConfirmDeleteModal } from '~/shared/ui/components/ConfirmationModal';
 import { useErrorToast, useSuccessToast } from '~/shared/ui/components/Toast';
@@ -22,7 +23,8 @@ export const TeamTable = ({ project }: { project: ProjectResponse }) => {
   );
   const errorToast = useErrorToast(toastConfig);
   const successToast = useSuccessToast(toastConfig);
-  const [removeEmployee, { isLoading }] = useRemoveEmployeeMutation();
+  const [removeEmployee, { isLoading: isLoadingRemove }] =
+    useRemoveEmployeeMutation();
 
   const table = useReactTable({
     columns: TeamColumns,
@@ -37,7 +39,8 @@ export const TeamTable = ({ project }: { project: ProjectResponse }) => {
       }
     }
   });
-
+  const getChosenTeamEmployee = () =>
+    project.team.find((employee) => employee.id === editMemberTeam);
   const onDeleteMemberTeam = async () => {
     if (deleteMemberTeam === null) {
       return;
@@ -62,14 +65,21 @@ export const TeamTable = ({ project }: { project: ProjectResponse }) => {
     }
   };
 
-  console.debug(editMemberTeam, 'editMemberTeam');
-
   return (
     <>
       <Table>
         <TableHeader headerGroups={table.getHeaderGroups()} />
         <TableBody rows={table.getRowModel().rows} />
       </Table>
+
+      <EditTeamEmployeeModal
+        employee={getChosenTeamEmployee()}
+        projectId={project.id}
+        editMemberTeam={editMemberTeam}
+        setEditMemberTeam={setEditMemberTeam}
+        isOpenPositionTab={editMemberTeam !== null}
+        onClosePositionTab={() => setEditMemberTeam(null)}
+      />
 
       <ConfirmDeleteModal
         title={t('domains:global.confirmations.titles.delete_member')}
@@ -79,7 +89,7 @@ export const TeamTable = ({ project }: { project: ProjectResponse }) => {
         onConfirm={onDeleteMemberTeam}
         isOpen={deleteMemberTeam !== null}
         onClose={() => setDeleteMemberTeam(null)}
-        isLoading={isLoading}
+        isLoading={isLoadingRemove}
       />
     </>
   );

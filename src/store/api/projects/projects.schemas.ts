@@ -15,6 +15,9 @@ const ProjectTypes = ['external', 'internal'] as const;
 const ProjectStatusSchema = createUnionSchema(ProjectStatuses);
 const ProjectTypesSchema = createUnionSchema(ProjectTypes);
 
+export type WorkExperiencePositions = z.infer<
+  typeof WorkExperiencePositionsSchema
+>;
 export const ProjectSchema = z.object({
   id: z.number(),
   name: z.string(),
@@ -55,7 +58,7 @@ const WorkExperiencePositionsSchema = z.object({
   updated_at: z.string().datetime().nullable()
 });
 
-const PositonsSchema = z.object({
+const PositionsSchema = z.object({
   id: z.number(),
   name: z.string().nullable(),
   created_at: z.string().datetime().nullable(),
@@ -66,7 +69,7 @@ const WorkExperienceSchema = z.object({
   id: z.number().nullable().optional(),
   work_experience_positions: WorkExperiencePositionsSchema.array(),
   nowadays: z.boolean(),
-  positions: PositonsSchema.array()
+  positions: PositionsSchema.array()
 });
 
 export const MemberTeamSchema = z.object({

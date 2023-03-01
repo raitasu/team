@@ -973,7 +973,7 @@
     "incorrect_date_start": "Date cannot be set later than the current date",
     "invalid_email": "Email is invalid",
     "invalid_number": "Invalid number",
-    "invalid_phone_number": "Add correct phone number. Example +1(234)567 89 00 or 1-234-567-89-00",
+    "invalid_phone_number": "Add correct phone number. Example +375295553322",
     "invalid_range": "Invalid range",
     "no_dublicates": "No duplicated allowed",
     "required_all_date": "You should add month and year",

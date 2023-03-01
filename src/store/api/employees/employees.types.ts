@@ -88,6 +88,18 @@ export type CreateEmployeeProjects = {
     end_date: string | null;
   }[];
 };
+
+export type EditEmployeeProjects = {
+  work_experience_positions: {
+    position_id?: number | null;
+    start_date?: string | null;
+    end_date?: string | null;
+    id?: number | null;
+    work_experience_id?: number | null;
+    _destroy?: null;
+  }[];
+};
+
 export type Employee = z.infer<typeof EmployeeSchema>;
 
 export type Customers = z.infer<typeof CustomersSchema>;

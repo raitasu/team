@@ -8,6 +8,7 @@ import { rootApiSlice } from '~/store/api';
 import { ApiTags } from '~/store/api/api.constants';
 import {
   type CreateEmployeeProjects,
+  type EditEmployeeProjects,
   type Employee
 } from '~/store/api/employees/employees.types';
 import {
@@ -171,6 +172,25 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
         method: 'DELETE'
       })
     }),
+    updateProjectsTeam: builder.mutation<
+      ProjectTeamFormValues,
+      {
+        data: EditEmployeeProjects;
+        projectId: number;
+      }
+    >({
+      invalidatesTags: (_result, _error, arg) => [
+        { type: ApiTags.Employees, id: `${arg.projectId}` }
+      ],
+      onQueryStarted: getResponseValidator((data) =>
+        ProjectSchema.safeParse(data)
+      ),
+      query: ({ data, projectId }) => ({
+        url: `projects/${projectId}/work_experience_positions`,
+        method: 'PATCH',
+        body: data
+      })
+    }),
     removeEmployee: builder.mutation<void, { projectId: number; id: number[] }>(
       {
         invalidatesTags: (_result, _error, arg) => [
@@ -196,6 +216,7 @@ export const {
   useCreateNewProjectMutation,
   useRemoveProjectMutation,
   useRemoveEmployeeMutation,
+  useUpdateProjectsTeamMutation,
   useAddNewEmployeeMutation,
   useUpdateMainInfoMutation
 } = projectsApiSlice;

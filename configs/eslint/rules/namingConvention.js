@@ -88,7 +88,7 @@ module.exports = {
       leadingUnderscore: 'allow',
       filter: {
         regex:
-          '^_(active|checked|disabled|first|focus|focusVisible|hover|last|notFirst|notLast|placeholder|selected)$',
+          '^_(active|checked|destroy|disabled|first|focus|focusVisible|hover|last|notFirst|notLast|placeholder|selected)$',
         match: true
       }
     },

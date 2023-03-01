@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { type ProjectTeam } from '~/store/api/projects/projects.types';
 
-export const PositonsCell = ({
+export const PositionsCell = ({
   getValue
 }: CellContext<ProjectTeam, ProjectTeam>) => {
   const [t] = useTranslation();
@@ -18,14 +18,14 @@ export const PositonsCell = ({
     >
       {work_experience.map((item) => {
         if (item.positions.length !== 0) {
-          return (
+          return item.positions.map((item) => (
             <Box
               color="brand.ghostGray"
-              key={item.positions[0].id}
+              key={item.id}
             >
-              {item.positions[0].name}
+              {item.name}
             </Box>
-          );
+          ));
         }
 
         return <Box>{t('domains:employee.errors.no_data')}</Box>;

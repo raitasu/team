@@ -21,32 +21,23 @@ export const DateCell = ({
         ? work_experience.map((item) => {
             const { work_experience_positions } = item;
 
-            if (
-              work_experience_positions.length !== 0 &&
-              work_experience_positions[0].start_date
-            ) {
-              return (
+            if (work_experience_positions.length !== 0) {
+              return work_experience_positions.map((item) => (
                 <Box
                   display="flex"
                   gap="5px"
-                  key={work_experience_positions[0].id}
+                  key={item.id}
                 >
                   <Box>
-                    {getFormattedDate(
-                      work_experience_positions[0].start_date,
-                      language
-                    )}
+                    {getFormattedDate(item.start_date as string, language)}
                   </Box>
                   <Box>
-                    {work_experience_positions[0]?.end_date
-                      ? ` — ${getFormattedDate(
-                          work_experience_positions[0].end_date,
-                          language
-                        )}`
+                    {item.end_date
+                      ? ` — ${getFormattedDate(item.end_date, language)}`
                       : ` — ${t('enums:notes.nowadays')}`}
                   </Box>
                 </Box>
-              );
+              ));
             }
 
             return <Box>{t('domains:employee.errors.no_data')}</Box>;

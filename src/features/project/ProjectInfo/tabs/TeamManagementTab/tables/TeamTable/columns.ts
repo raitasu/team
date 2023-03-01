@@ -5,7 +5,7 @@ import { type ProjectTeam } from '~/store/api/projects/projects.types';
 import { ActionsCell } from './cells/ActionsCell';
 import { DateCell } from './cells/DateCell';
 import { NameCell } from './cells/NameCell';
-import { PositonsCell } from './cells/PositionsCell';
+import { PositionsCell } from './cells/PositionsCell';
 import { TranslatedHeader } from './cells/TranslatedHeader';
 import { TeamHeadersIds } from '../tables.constans';
 
@@ -19,7 +19,7 @@ export const TeamColumns = [
   }),
   columnHelper.accessor((data) => data, {
     id: TeamHeadersIds.Positions,
-    cell: PositonsCell,
+    cell: PositionsCell,
     header: TranslatedHeader,
     enableSorting: false
   }),
