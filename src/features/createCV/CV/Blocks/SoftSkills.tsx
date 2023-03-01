@@ -1,5 +1,5 @@
 import { Text } from '@chakra-ui/react';
-import { useController } from 'react-hook-form';
+import { useController, useFieldArray, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -8,6 +8,7 @@ import {
 } from '~/features/createCV/cv.schema';
 
 import { CVHeading } from './CVHeading';
+import { DeleteWrapper } from '../Edit/DeleteWrapper';
 import { EditWrapper } from '../Edit/EditWrapper';
 
 export const SoftSkills = ({
@@ -19,26 +20,42 @@ export const SoftSkills = ({
   const { field } = useController<CVFormValues, 'profile'>({
     name: 'profile'
   });
+  const { control } = useFormContext<CVFormValues>();
+  const { append, remove } = useFieldArray({
+    control,
+    name: 'profile.soft_skills'
+  });
 
   return (
     <>
-      <CVHeading text={t(`domains:cv.blocks.soft_skills`)} />
-      {field.value.soft_skills.map((skill, index) => (
-        <EditWrapper
+      <CVHeading
+        text={t(`domains:cv.blocks.soft_skills`)}
+        addHandler={() => {
+          append({ id: Date.now(), name: 'xxx' });
+        }}
+      />
+      {field.value.soft_skills?.map((skill, index) => (
+        <DeleteWrapper
+          onClick={() => {
+            remove(index);
+          }}
           key={skill.id}
-          onClick={() =>
-            setRegisteredField(`profile.soft_skills.${index}.name`)
-          }
         >
-          <Text
-            mt={3}
-            mb={3}
-            fontSize="lg"
-            color="brand.black"
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(`profile.soft_skills.${index}.name`)
+            }
           >
-            {skill.name}
-          </Text>
-        </EditWrapper>
+            <Text
+              mt={3}
+              mb={3}
+              fontSize="lg"
+              color="brand.black"
+            >
+              {skill.name}
+            </Text>
+          </EditWrapper>
+        </DeleteWrapper>
       ))}
     </>
   );

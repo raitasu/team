@@ -1,5 +1,5 @@
 import { Text } from '@chakra-ui/react';
-import { useController } from 'react-hook-form';
+import { useController, useFieldArray, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -8,6 +8,7 @@ import {
 } from '~/features/createCV/cv.schema';
 
 import { CVHeading } from './CVHeading';
+import { DeleteWrapper } from '../Edit/DeleteWrapper';
 import { EditWrapper } from '../Edit/EditWrapper';
 
 export const Languages = ({
@@ -16,27 +17,45 @@ export const Languages = ({
   setRegisteredField: (fieldName: CVRegisterField | null) => void;
 }) => {
   const [t] = useTranslation();
+
   const { field } = useController<CVFormValues, 'profile'>({
     name: 'profile'
+  });
+  const { control } = useFormContext<CVFormValues>();
+  const { append, remove } = useFieldArray({
+    control,
+    name: 'profile.languages'
   });
 
   return (
     <>
-      <CVHeading text={t(`domains:cv.blocks.languages`)} />
-      {field.value.languages.map((language, index) => (
-        <EditWrapper
+      <CVHeading
+        text={t(`domains:cv.blocks.languages`)}
+        addHandler={() => {
+          append({ id: Date.now(), name: 'xxx (xx)' });
+        }}
+      />
+      {field.value.languages?.map((language, index) => (
+        <DeleteWrapper
+          onClick={() => {
+            remove(index);
+          }}
           key={language.id}
-          onClick={() => setRegisteredField(`profile.languages.${index}.name`)}
         >
-          <Text
-            mt={3}
-            mb={3}
-            fontSize="lg"
-            color="brand.black"
+          <EditWrapper
+            onClick={() =>
+              setRegisteredField(`profile.languages.${index}.name`)
+            }
           >
-            {language.name}
-          </Text>
-        </EditWrapper>
+            <Text
+              pt={3}
+              fontSize="lg"
+              color="brand.black"
+            >
+              {language.name}
+            </Text>
+          </EditWrapper>
+        </DeleteWrapper>
       ))}
     </>
   );

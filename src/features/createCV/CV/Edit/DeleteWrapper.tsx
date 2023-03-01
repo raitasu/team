@@ -1,21 +1,22 @@
 import { useState } from 'react';
 
-import { Heading, Divider, Box } from '@chakra-ui/react';
-import { MdAdd } from 'react-icons/md';
+import { Box } from '@chakra-ui/react';
+import { MdOutlineDelete } from 'react-icons/md';
 
 import { IconButton } from '~/shared/ui/components/IconButton';
 
-export const CVHeading = ({
-  text,
-  addHandler
+export const DeleteWrapper = ({
+  onClick,
+  children
 }: {
-  text: string;
-  addHandler?: () => void;
+  onClick: () => void;
+  children: React.ReactNode;
 }) => {
   const [isFocused, setFocused] = useState(false);
 
   return (
     <Box
+      borderRight={isFocused ? '1px solid #E0E0E0' : undefined}
       position="relative"
       onMouseEnter={() => {
         setFocused(true);
@@ -24,13 +25,7 @@ export const CVHeading = ({
         setFocused(false);
       }}
     >
-      <Heading
-        size="lg"
-        sx={{ textTransform: 'uppercase' }}
-        mt={2}
-      >
-        {text}
-      </Heading>
+      {children}
       {isFocused && (
         <Box
           sx={{
@@ -38,19 +33,18 @@ export const CVHeading = ({
             borderRadius: '2px',
             position: 'absolute',
             backgroundColor: 'white',
-            top: '3px',
-            right: '3px'
+            top: 'calc(50% - 13px)',
+            right: '5px'
           }}
         >
           <IconButton
-            icon={<MdAdd />}
+            icon={<MdOutlineDelete />}
             aria-label="edit"
             variant="iconButtonSmall"
-            onClick={addHandler}
+            onClick={() => onClick()}
           />
         </Box>
       )}
-      <Divider sx={{ border: '1px solid #EF4523' }} />
     </Box>
   );
 };

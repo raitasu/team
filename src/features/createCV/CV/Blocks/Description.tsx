@@ -24,7 +24,9 @@ export const Description = ({
         fontSize="lg"
         color="brand.black"
       >
-        {field.value.description}
+        {field.value.description === null || field.value.description === ''
+          ? '...'
+          : field.value.description}
       </Text>
     </EditWrapper>
   );

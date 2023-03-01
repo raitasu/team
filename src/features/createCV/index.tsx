@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import { CVContainer } from '~/features/createCV/CV';
+import { CvBlocks } from '~/features/createCV/cv.constants';
 import { type CVFormValues, CVSchema } from '~/features/createCV/cv.schema';
 import { CVSideNav } from '~/features/createCV/sideNav/CVSideNav';
 import {
@@ -22,6 +23,8 @@ import {
   useDeleteCVMutation
 } from '~/store/api/CV/cv.api.slice';
 import { type GetCVResponse } from '~/store/api/CV/cv.types';
+import { selectCVBlocks } from '~/store/slices/cv/cv.selectors';
+import { useAppSelector } from '~/store/store.hooks';
 
 export const CVForm = ({ cv }: { cv: GetCVResponse }) => {
   const [t] = useTranslation();
@@ -33,6 +36,7 @@ export const CVForm = ({ cv }: { cv: GetCVResponse }) => {
   const [saveCV] = useSaveCVMutation();
   const [deleteCV, { isLoading: isDeleteCVUpdating }] = useDeleteCVMutation();
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+  const visibleBlocks = useAppSelector(selectCVBlocks);
 
   const errorToast = useErrorToast(toastConfig);
   const successToast = useSuccessToast(toastConfig);
@@ -41,10 +45,18 @@ export const CVForm = ({ cv }: { cv: GetCVResponse }) => {
     try {
       await methods.handleSubmit(
         async (formData) => {
+          const payload = formData.profile;
+
+          Object.values(CvBlocks).forEach((key) => {
+            if (!visibleBlocks.find((el) => el === key)) {
+              payload[key] = null;
+            }
+          });
+
           await saveCV({
             employeeId: cv.profile.id,
             cvId: cv.id,
-            cv: { payload: formData.profile }
+            cv: { payload }
           }).unwrap();
         },
         (err) => console.error('sv save error', err)

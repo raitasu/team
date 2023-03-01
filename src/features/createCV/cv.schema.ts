@@ -65,14 +65,14 @@ export const CVSchema = z.object({
     years_of_experience: z.string(),
     avatar: z.string().nullable(),
     position: z.string().nullable(),
-    description: z.string(),
-    languages: CVLanguageSchema.array(),
-    hard_skills: CVHardSkillSchema.array(),
-    soft_skills: CVSoftSkillSchema.array(),
-    work_experiences: CVWorkExperienceSchema.array(),
-    educations: CVEducationSchema.array(),
-    certificates: CVCertificateSchema.array(),
-    publications: CVPublicationSchema.array()
+    description: z.string().nullable(),
+    languages: CVLanguageSchema.array().nullable(),
+    hard_skills: CVHardSkillSchema.array().nullable(),
+    soft_skills: CVSoftSkillSchema.array().nullable(),
+    work_experiences: CVWorkExperienceSchema.array().nullable(),
+    educations: CVEducationSchema.array().nullable(),
+    certificates: CVCertificateSchema.array().nullable(),
+    publications: CVPublicationSchema.array().nullable()
   })
 });
 
@@ -115,6 +115,7 @@ export type CVRegisterField =
   | `profile.work_experiences.${number}.started_at`
   | `profile.work_experiences.${number}.ended_at`
   | `profile.work_experiences.${number}.position`
+  | `profile.work_experiences.${number}.project_name`
   | `profile.work_experiences.${number}.company_name`
   | `profile.work_experiences.${number}.description`
   | `profile.work_experiences.${number}.responsibilities`
