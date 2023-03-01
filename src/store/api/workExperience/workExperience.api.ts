@@ -60,9 +60,7 @@ const workExperienceApiSlice = rootApiSlice.injectEndpoints({
     }),
     getCompanyHardSkills: builder.query<HardSkill[], string>({
       onQueryStarted: getResponseValidator((data) =>
-        EmployeeSchema.shape.employee_hard_skill_permissions
-          .array()
-          .safeParse(data)
+        EmployeeSchema.shape.employee_hard_skill_permissions.safeParse(data)
       ),
       query: (name) => ({
         url: `/project_hard_skills?name=${name}`,

@@ -17,7 +17,10 @@ import { type EmployeeWorkExperience } from '~/store/api/employees/employees.typ
 import { useUpdateWorkExperienceMutation } from '~/store/api/workExperience/workExperience.api';
 
 import { getInitialValues, transformData } from '../../WorkExperience.utils';
-import { EmployeeWorkExperienceSchema } from '../../WorkExperienceModal.schemas';
+import {
+  EmployeeWorkExperienceSchema,
+  ShortEmployeeWorkExperienceSchema
+} from '../../WorkExperienceModal.schemas';
 import { CompanyNameField } from '../commonFields/CompanyNameField';
 import { DateField } from '../commonFields/DateFIeld';
 import { DescriptionField } from '../commonFields/DescriptionField';
@@ -44,17 +47,18 @@ export const EditWorkExperienceInfoModal = ({
   const { id } = useParams();
   const [t] = useTranslation();
 
-  const methods = useForm({
-    defaultValues: getInitialValues(workExperience),
-    mode: 'onBlur',
-    resolver: zodResolver(EmployeeWorkExperienceSchema)
-  });
-
   const isEdit = isCompanyProject(
     hiredAt,
     workExperience.started_at,
     workExperience.ended_at as string
   );
+  const methods = useForm({
+    defaultValues: getInitialValues(workExperience),
+    mode: 'onBlur',
+    resolver: zodResolver(
+      isEdit ? EmployeeWorkExperienceSchema : ShortEmployeeWorkExperienceSchema
+    )
+  });
 
   const { reset } = methods;
 
