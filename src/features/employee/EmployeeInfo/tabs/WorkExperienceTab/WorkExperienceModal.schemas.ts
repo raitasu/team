@@ -1,7 +1,10 @@
-import { getYear } from 'date-fns';
 import { z } from 'zod';
 
-import { isNumber } from '~/shared/shared.constants';
+import {
+  isValidDateObject,
+  isValidAndRequiredDate,
+  isAbsentOrValidDate
+} from '~/shared/utils/dates.utils';
 
 export type EmployeeWorkExperienceFormValues = z.infer<
   typeof EmployeeWorkExperienceSchema
@@ -16,8 +19,6 @@ const EndDateSchema = z.object({
   month: z.string().nullable(),
   year: z.string().nullable()
 });
-
-const currentYear = getYear(new Date());
 
 const baseWorkExperienceSchema = z.object({
   company_name: z.string().trim().min(1, 'required_field').nullable(),
@@ -55,20 +56,7 @@ const baseWorkExperienceSchema = z.object({
 
   hiredAt: z.string().nullable(), // TODO: Need to configure validation
   started_at: StartDateSchema.superRefine((value, ctx) => {
-    if ((value.month && !value.year) || (!value.month && value.year)) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'required_field',
-        path: ['month']
-      });
-    }
-
-    return value;
-  }).superRefine((value, ctx) => {
-    if (
-      !(value.year && isNumber.test(value.year)) ||
-      currentYear <= Number(value.year)
-    ) {
+    if (!isValidAndRequiredDate(value)) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         message: 'incorrect_date',
@@ -79,20 +67,7 @@ const baseWorkExperienceSchema = z.object({
     return value;
   }),
   ended_at: EndDateSchema.superRefine((value, ctx) => {
-    if ((value.month && !value.year) || (!value.month && value.year)) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: 'required_field',
-        path: ['month']
-      });
-    }
-
-    return value;
-  }).superRefine((value, ctx) => {
-    if (
-      (value.year && !isNumber.test(value.year)) ||
-      currentYear <= Number(value.year)
-    ) {
+    if (!isAbsentOrValidDate(value)) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         message: 'incorrect_date',
@@ -105,20 +80,7 @@ const baseWorkExperienceSchema = z.object({
 });
 
 export const EmployeeWorkExperienceSchema = baseWorkExperienceSchema.refine(
-  (data) => {
-    if (data.started_at.year === null || data.ended_at.year === null)
-      return true;
-
-    if (
-      data.started_at.year === data.ended_at.year &&
-      data.started_at.month &&
-      data.ended_at.month
-    ) {
-      return data.started_at.month <= data.ended_at.month;
-    }
-
-    return data.started_at.year <= data.ended_at.year;
-  },
+  (data) => isValidDateObject(data.started_at, data.ended_at),
   {
     message: 'invalid_range',
     path: ['ended_at.month']

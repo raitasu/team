@@ -2,6 +2,10 @@ import { z } from 'zod';
 
 import { businessDomains } from '~/features/employee/employee.constants';
 import { createUnionSchema } from '~/shared/helpers.zod';
+import {
+  ACCEPTED_IMAGE_TYPES,
+  isValidImageFile
+} from '~/shared/utils/dates.utils';
 import { ProjectStatusesSchema } from '~/store/api/employees/employees.schemas';
 
 export type ChangedProjectMainInfoValues = {
@@ -13,7 +17,21 @@ export type ProjectMainInfoFormValues = z.infer<typeof ProjectInfoSchema>;
 export const DomainsSchema = createUnionSchema(businessDomains);
 
 export const ProjectInfoSchema = z.object({
-  avatar: z.string().or(z.instanceof(File)),
+  avatar: z
+    .string()
+    .or(z.instanceof(File))
+    .superRefine((item, ctx) => {
+      if (item && !isValidImageFile(item)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `File must be one of ${ACCEPTED_IMAGE_TYPES.join(
+            ', '
+          )} but was ${item instanceof File ? item.type : item}`
+        });
+      }
+
+      return null;
+    }),
   customer_name: z.string(),
   name: z.string().min(1, 'required_field'),
   status: ProjectStatusesSchema,

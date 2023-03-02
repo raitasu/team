@@ -1,10 +1,7 @@
 import { isBefore } from 'date-fns';
 import { z } from 'zod';
 
-import { isValidUrl } from '~/features/employee/EmployeeInfo/tabs/PublicationsTab/EditPublicationInfo.utils';
-
-const ACCEPTED_FILE_TYPES = ['application/pdf', 'application/msword'];
-const MAX_FILE_SIZE = 52428800;
+import { isValidDocsFile, isValidUrl } from '~/shared/utils/dates.utils';
 
 export type EmployeePublicationInfoFormValues = z.infer<
   typeof PublicationDefaultInfoSchema
@@ -30,20 +27,15 @@ export const EmployeePublicationInfoSchema = z
       .trim()
       .optional()
       .nullable()
-      .refine((url) => !url || isValidUrl(url), { message: 'incorrect_link' }),
+      .refine((data) => isValidUrl(data), {
+        message: 'incorrect_link'
+      }),
     file: z
       .string()
       .or(z.instanceof(File))
       .nullable()
       .superRefine((element, ctx) => {
-        if (!element || typeof element === 'string') {
-          return null;
-        }
-
-        if (
-          !ACCEPTED_FILE_TYPES.includes(element.type) ||
-          element.size > MAX_FILE_SIZE
-        ) {
+        if (!isValidDocsFile(element)) {
           ctx.addIssue({
             code: z.ZodIssueCode.custom,
             message: 'file_format'

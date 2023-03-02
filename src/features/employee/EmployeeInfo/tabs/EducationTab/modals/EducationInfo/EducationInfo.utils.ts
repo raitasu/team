@@ -9,14 +9,14 @@ export const getInitialState = (education: EmployeeEducation) => ({
   country: education.country,
   nowadays: false,
   startDate: {
-    startMonth: getMonth(new Date(education.started_at)).toString(),
-    startYear: getYear(new Date(education.started_at)).toString()
+    month: getMonth(new Date(education.started_at)).toString(),
+    year: getYear(new Date(education.started_at)).toString()
   },
   endDate: {
-    endMonth: education.graduated_at
+    month: education.graduated_at
       ? getMonth(new Date(education.graduated_at)).toString()
       : null,
-    endYear: education.graduated_at
+    year: education.graduated_at
       ? getYear(new Date(education.graduated_at)).toString()
       : null
   },
@@ -31,11 +31,11 @@ export const initialEducationValues = () => ({
   country: null,
   nowadays: false,
   startDate: {
-    startMonth: null,
-    startYear: null
+    month: null,
+    year: null
   },
   endDate: {
-    endMonth: null,
-    endYear: null
+    month: null,
+    year: null
   }
 });

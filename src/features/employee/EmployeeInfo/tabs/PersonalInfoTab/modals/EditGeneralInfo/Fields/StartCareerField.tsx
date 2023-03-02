@@ -50,6 +50,7 @@ export const StartCareerField = () => {
           getOptionLabel={(option) => t(option.label)}
         />
         <Input
+          {...startYear}
           value={startYear.value}
           onChange={(event) => {
             if (/^[\d.,:]*$/.test(event.currentTarget.value))

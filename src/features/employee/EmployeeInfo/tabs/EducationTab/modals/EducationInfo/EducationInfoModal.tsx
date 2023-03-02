@@ -143,15 +143,12 @@ export const EducationInfoModal = ({
 
             const validDate = {
               started_at:
-                startDate.startMonth !== null && startDate.startYear
-                  ? new Date(
-                      +startDate.startYear,
-                      +startDate.startMonth
-                    ).toISOString()
+                startDate.month !== null && startDate.year
+                  ? new Date(+startDate.year, +startDate.month).toISOString()
                   : new Date().toString(),
               graduated_at:
-                endDate.endMonth !== null && endDate.endYear
-                  ? new Date(+endDate.endYear, +endDate.endMonth).toISOString()
+                endDate.month !== null && endDate.year
+                  ? new Date(+endDate.year, +endDate.month).toISOString()
                   : null
             };
 

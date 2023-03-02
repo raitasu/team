@@ -21,6 +21,11 @@ export const EmployeeAvatar = ({
     name: 'status'
   });
 
+  const onAvatarChanged = (value: string | null | File) => {
+    field.onChange(value);
+    field.onBlur();
+  };
+
   return (
     <FormControl
       errorMessage={errors.avatar?.message ? errors.avatar.message : undefined}
@@ -28,7 +33,7 @@ export const EmployeeAvatar = ({
       <EmployeeAvatarEditor
         avatarUrl={null}
         avatarFile={field.value}
-        onAvatarChanged={field.onChange}
+        onAvatarChanged={onAvatarChanged}
         status={status.value}
         onReset={onReset}
       />

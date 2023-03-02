@@ -1,5 +1,10 @@
 import { z } from 'zod';
 
+import { Patterns } from '~/shared/shared.constants';
+import {
+  ACCEPTED_IMAGE_TYPES,
+  isValidImageFile
+} from '~/shared/utils/dates.utils';
 import {
   EmployeeClothingSizesSchema,
   EmployeeGendersSchema,
@@ -13,13 +18,6 @@ export type ChangedEmployeeGeneralInfoValues = {
   [DataKey in keyof EmployeeGeneralInfoFormValues]?: EmployeeGeneralInfoFormValues[DataKey];
 };
 
-const ACCEPTED_IMAGE_TYPES = [
-  'image/jpeg',
-  'image/jpg',
-  'image/png',
-  'image/webp'
-];
-
 export const EmployeeGeneralInfoSchema = z.object({
   first_name: z.string().min(1, 'required_field'),
   last_name: z.string().min(1, 'required_field'),
@@ -28,15 +26,13 @@ export const EmployeeGeneralInfoSchema = z.object({
     .string()
     .or(z.instanceof(File))
     .nullable()
-    .superRefine((f, ctx) => {
-      if (f === null || typeof f === 'string') {
-        return null;
-      }
-
-      if (!ACCEPTED_IMAGE_TYPES.includes(f.type)) {
+    .superRefine((item, ctx) => {
+      if (item && !isValidImageFile(item)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: `File must be one of jpeg, jpg, png, webp but was ${f.type}`
+          message: `File must be one of ${ACCEPTED_IMAGE_TYPES.join(
+            ', '
+          )} but was ${item instanceof File ? item.type : item}`
         });
       }
 
@@ -52,7 +48,7 @@ export const EmployeeGeneralInfoSchema = z.object({
   startYear: z
     .number()
     .superRefine((arg, ctx) => {
-      if (!/^19\d{2}|20\d{2}$/i.test(String(arg))) {
+      if (!Patterns.Date.test(String(arg))) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
           message: 'incorrect_date'

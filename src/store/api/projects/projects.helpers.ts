@@ -22,11 +22,11 @@ export const transformToFormDataForCreate = (
         const value = filters[key];
 
         if (value) {
-          const { startMonth, startYear } = value;
+          const { year, month } = value;
 
           const newDate = set(new Date(), {
-            year: startYear ? +startYear : 0,
-            month: startMonth ? +startMonth : 0
+            year: year ? +year : 0,
+            month: month ? +month : 0
           });
 
           body.append('started_at', newDate.toISOString());
@@ -39,14 +39,14 @@ export const transformToFormDataForCreate = (
         const value = filters[key];
 
         if (value) {
-          const { endYear, endMonth } = value;
+          const { year, month } = value;
 
           const newDate = set(new Date(), {
-            year: endYear ? +endYear : 0,
-            month: endMonth ? +endMonth : 0
+            year: year ? +year : 0,
+            month: month ? +month : 0
           });
 
-          body.append('started_at', newDate.toISOString());
+          body.append('ended_at', newDate.toISOString());
         }
 
         break;

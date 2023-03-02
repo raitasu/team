@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import debounce from 'lodash/debounce';
 import AvatarEditor from 'react-avatar-editor';
-import { useDropzone } from 'react-dropzone';
+import { useDropzone, type DropzoneOptions } from 'react-dropzone';
 import {
   MdAdd,
   MdOutlineDeleteOutline,
@@ -12,6 +12,7 @@ import {
 
 import { EditorActions } from '~/features/employee/CreateEmployeeModal/EmployeeAvatar/EditorActions';
 import { Avatar } from '~/shared/ui/components/Avatar';
+import { ACCEPTED_IMAGE_TYPES } from '~/shared/utils/dates.utils';
 import { type EmployeeStatus } from '~/store/api/employees/employees.types';
 
 const backdropColor = [255, 255, 255, 0.6];
@@ -63,6 +64,13 @@ export const EmployeeAvatarEditor = ({
 
   const { getRootProps, getInputProps, inputRef } = useDropzone({
     maxFiles: 1,
+    accept: ACCEPTED_IMAGE_TYPES.reduce<NonNullable<DropzoneOptions['accept']>>(
+      (acc, imageType) => ({
+        ...acc,
+        [imageType]: []
+      }),
+      {}
+    ),
     onDrop: ([file]: (File | undefined)[]) => {
       if (file) {
         setCurrentFile(file);

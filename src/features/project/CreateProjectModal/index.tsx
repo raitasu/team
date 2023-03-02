@@ -43,12 +43,12 @@ export const CreateProjectModal = ({
       type: 'external',
       managers: [{ value: null, label: null }],
       startDate: {
-        startMonth: null,
-        startYear: null
+        month: null,
+        year: null
       },
       endDate: {
-        endMonth: null,
-        endYear: null
+        month: null,
+        year: null
       }
     },
     mode: 'onBlur',

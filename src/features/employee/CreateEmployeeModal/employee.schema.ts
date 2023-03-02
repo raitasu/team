@@ -1,14 +1,11 @@
 import { z } from 'zod';
 
 import { isEmail } from '~/features/employee/employee.utils';
+import {
+  ACCEPTED_IMAGE_TYPES,
+  isValidImageFile
+} from '~/shared/utils/dates.utils';
 import { EmployeeStatusSchema } from '~/store/api/employees/employees.schemas';
-
-const ACCEPTED_IMAGE_TYPES = [
-  'image/jpeg',
-  'image/jpg',
-  'image/png',
-  'image/webp'
-];
 
 export type CreateEmployeeFormValues = z.infer<typeof CreateEmployeeSchema>;
 export const CreateEmployeeSchema = z.object({
@@ -35,15 +32,13 @@ export const CreateEmployeeSchema = z.object({
   avatar: z
     .instanceof(File)
     .nullable()
-    .superRefine((f, ctx) => {
-      if (f === null) {
-        return null;
-      }
-
-      if (!ACCEPTED_IMAGE_TYPES.includes(f.type)) {
+    .superRefine((item, ctx) => {
+      if (item && !isValidImageFile(item)) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: `File must be one of jpeg, jpg, png, webp but was ${f.type}`
+          message: `File must be one of ${ACCEPTED_IMAGE_TYPES.join(
+            ', '
+          )} but was ${item instanceof File ? item.type : item}`
         });
       }
 

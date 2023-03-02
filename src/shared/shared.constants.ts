@@ -25,8 +25,6 @@ export const toastConfig: ToastProps = {
   duration: 5000
 };
 
-export const isNumber = /^[\d.,:]*$/;
-
 export const Patterns = {
   Date: /^19\d{2}|20\d{2}$/i,
   Link: /https:\/\/.[-a-zA-Z0-9@:%._~#=]{2,256}\.[a-z]{2,6}\b[-a-zA-Z0-9@:%_.~#?&= ]*/i,

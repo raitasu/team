@@ -1,10 +1,12 @@
-import { getYear } from 'date-fns';
 import { z } from 'zod';
 
-import { isNumber } from '~/shared/shared.constants';
+import {
+  isValidDateObject,
+  isValidAndRequiredDate,
+  isAbsentOrValidDate
+} from '~/shared/utils/dates.utils';
 
 export type ProjectTeamFormValues = z.infer<typeof AddNewEmployeeToTeamSchema>;
-const currentYear = getYear(new Date());
 
 export const AddNewEmployeeToTeamSchema = z.object({
   team: z.array(
@@ -39,21 +41,7 @@ export const AddNewEmployeeToTeamSchema = z.object({
             year: z.string().nullable()
           })
           .superRefine((value, ctx) => {
-            if ((value.month && !value.year) || (!value.month && value.year)) {
-              ctx.addIssue({
-                code: z.ZodIssueCode.custom,
-                message: 'required_field',
-                path: ['month']
-              });
-            }
-
-            return value;
-          })
-          .superRefine((value, ctx) => {
-            if (
-              !(value.year && isNumber.test(value.year)) ||
-              currentYear <= Number(value.year)
-            ) {
+            if (!isValidAndRequiredDate(value)) {
               ctx.addIssue({
                 code: z.ZodIssueCode.custom,
                 message: 'incorrect_date',
@@ -69,21 +57,7 @@ export const AddNewEmployeeToTeamSchema = z.object({
             year: z.string().nullable()
           })
           .superRefine((value, ctx) => {
-            if ((value.month && !value.year) || (!value.month && value.year)) {
-              ctx.addIssue({
-                code: z.ZodIssueCode.custom,
-                message: 'required_field',
-                path: ['month']
-              });
-            }
-
-            return value;
-          })
-          .superRefine((value, ctx) => {
-            if (
-              (value.year && !isNumber.test(value.year)) ||
-              currentYear <= Number(value.year)
-            ) {
+            if (!isAbsentOrValidDate(value)) {
               ctx.addIssue({
                 code: z.ZodIssueCode.custom,
                 message: 'incorrect_date',
@@ -94,25 +68,9 @@ export const AddNewEmployeeToTeamSchema = z.object({
             return value;
           })
       })
-      .refine(
-        (data) => {
-          if (data.start_date.year === null || data.end_date.year === null)
-            return true;
-
-          if (
-            data.start_date.year === data.end_date.year &&
-            data.start_date.month &&
-            data.end_date.month
-          ) {
-            return data.start_date.month <= data.end_date.month;
-          }
-
-          return data.start_date.year <= data.end_date.year;
-        },
-        {
-          message: 'invalid_range',
-          path: ['end_date.month']
-        }
-      )
+      .refine((data) => isValidDateObject(data.start_date, data.end_date), {
+        message: 'invalid_range',
+        path: ['end_date.month']
+      })
   )
 });
