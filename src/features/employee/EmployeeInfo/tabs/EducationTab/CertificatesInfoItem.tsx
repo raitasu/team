@@ -88,7 +88,7 @@ export const CertificatesInfoItem = ({
           </Tooltip>
         )}
       </Flex>
-
+      <Text>{certificate.issued_by || ''}</Text>
       <Grid
         gridTemplateColumns={`${LEFT_COLUMN_WIDTH} 1fr`}
         columnGap={COLUMN_GAP}
