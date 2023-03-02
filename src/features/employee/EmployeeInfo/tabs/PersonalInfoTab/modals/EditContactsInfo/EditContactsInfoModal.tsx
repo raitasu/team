@@ -110,7 +110,7 @@ export const EditContactsInfoModal = ({
           isValid={methods.formState.isValid}
           isTouched={methods.formState.isDirty}
           onSubmit={methods.handleSubmit((data) => {
-            const initialValues = getInitialState(contacts, true);
+            const initialValues = getInitialState(contacts);
             const updatedContacts = (
               Object.keys(data) as (keyof typeof data)[]
             ).reduce<ChangedContactsInfoValues>((acc, key) => {
@@ -123,6 +123,13 @@ export const EditContactsInfoModal = ({
 
               return acc;
             }, {});
+
+            if (updatedContacts.employee_attributes) {
+              updatedContacts.employee_attributes.email =
+                updatedContacts.employee_attributes.email.concat(
+                  '@cybergizer.com'
+                );
+            }
 
             return changeContactsInfo(updatedContacts);
           })}

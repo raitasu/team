@@ -27,6 +27,7 @@ const EmployeeEmergencyContact = z.object({
 export const EmployeeContactsInfoSchema = z.object({
   primary_phone: z
     .string()
+    .trim()
     .min(1, 'required_field')
     .refine((data) => checkPhoneNumber(data), {
       message: 'invalid_phone_number'
@@ -48,8 +49,6 @@ export const EmployeeContactsInfoSchema = z.object({
           message: 'invalid_email'
         });
       }
-
-      return email;
     }),
     id: z.number()
   }),
