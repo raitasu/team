@@ -1,0 +1,1 @@
+import{t,X as a,b6 as i,bB as s}from"./index-b52e60c4.js";const x=({children:e,...o})=>t.jsx(a,{...o,height:"100vh",overflow:"hidden",padding:`calc(${i} + 40px) ${s} 35px`,width:"100%",flexDirection:"column",children:e});export{x as P};

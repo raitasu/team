@@ -1,0 +1,604 @@
+{
+  "_AuthBox-56169f33.js": {
+    "file": "assets/AuthBox-56169f33.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_ControlButton-705a2275.js": {
+    "file": "assets/ControlButton-705a2275.js",
+    "imports": [
+      "index.html",
+      "_index-e0576515.js"
+    ]
+  },
+  "_PageContainer-cf710d20.js": {
+    "file": "assets/PageContainer-cf710d20.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_PageToolbox-e4e89f14.js": {
+    "file": "assets/PageToolbox-e4e89f14.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_ProjectAvatarEditor-478221fd.js": {
+    "file": "assets/ProjectAvatarEditor-478221fd.js",
+    "imports": [
+      "_index-e9f440b3.js",
+      "index.html",
+      "_dates.utils-6e33ef55.js",
+      "_utils-23d7ea7a.js"
+    ]
+  },
+  "_SortIcon-c4d16a7d.js": {
+    "file": "assets/SortIcon-c4d16a7d.js",
+    "imports": [
+      "index.html",
+      "_index-e0576515.js"
+    ]
+  },
+  "_TranslatedHeader-def8d229.js": {
+    "file": "assets/TranslatedHeader-def8d229.js",
+    "imports": [
+      "index.html",
+      "_index-44705779.js",
+      "_index-e9f440b3.js",
+      "_employees.api-9c2d4ee1.js",
+      "_SortIcon-c4d16a7d.js"
+    ]
+  },
+  "_WorkExperience.utils-49debe2b.js": {
+    "file": "assets/WorkExperience.utils-49debe2b.js",
+    "imports": [
+      "index.html",
+      "_index-6daba2ff.js",
+      "_index-e0576515.js",
+      "_utils-23d7ea7a.js",
+      "_index-e9f440b3.js",
+      "_dates.utils-6e33ef55.js",
+      "_identity-2fb35422.js",
+      "_positions.api-ff8451bf.js"
+    ]
+  },
+  "__arrayPush-38175ba5.js": {
+    "file": "assets/_arrayPush-38175ba5.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_chunk-E77276RR-5eab1adb.js": {
+    "file": "assets/chunk-E77276RR-5eab1adb.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_chunk-O5CRURSQ-9f7f155a.js": {
+    "file": "assets/chunk-O5CRURSQ-9f7f155a.js",
+    "imports": [
+      "index.html",
+      "_index-e0576515.js"
+    ]
+  },
+  "_chunk-RK6YFQX6-341bbaad.js": {
+    "file": "assets/chunk-RK6YFQX6-341bbaad.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_chunk-RSUMUOHR-d38abe03.js": {
+    "file": "assets/chunk-RSUMUOHR-d38abe03.js"
+  },
+  "_chunk-YLPWWAYV-171e0be4.js": {
+    "file": "assets/chunk-YLPWWAYV-171e0be4.js",
+    "imports": [
+      "_PageToolbox-e4e89f14.js",
+      "index.html"
+    ]
+  },
+  "_cv.api.slice-0a41192c.js": {
+    "file": "assets/cv.api.slice-0a41192c.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_dates.utils-6e33ef55.js": {
+    "file": "assets/dates.utils-6e33ef55.js",
+    "imports": [
+      "index.html",
+      "_index-e0576515.js",
+      "_index-6daba2ff.js",
+      "_index-e9f440b3.js"
+    ]
+  },
+  "_employee.styles-04eda2df.js": {
+    "file": "assets/employee.styles-04eda2df.js",
+    "imports": [
+      "_index-e0576515.js",
+      "index.html"
+    ]
+  },
+  "_employees.api-9c2d4ee1.js": {
+    "file": "assets/employees.api-9c2d4ee1.js",
+    "imports": [
+      "_index-e9f440b3.js",
+      "index.html"
+    ]
+  },
+  "_identity-2fb35422.js": {
+    "file": "assets/identity-2fb35422.js",
+    "imports": [
+      "__arrayPush-38175ba5.js",
+      "index.html"
+    ]
+  },
+  "_index-44705779.js": {
+    "file": "assets/index-44705779.js",
+    "imports": [
+      "index.html",
+      "_ControlButton-705a2275.js",
+      "_index-e9f440b3.js",
+      "_index-e0576515.js"
+    ]
+  },
+  "_index-47815d84.js": {
+    "file": "assets/index-47815d84.js",
+    "imports": [
+      "index.html",
+      "_index-e0576515.js",
+      "_chunk-RSUMUOHR-d38abe03.js"
+    ]
+  },
+  "_index-6daba2ff.js": {
+    "file": "assets/index-6daba2ff.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_index-abbc436e.js": {
+    "file": "assets/index-abbc436e.js",
+    "imports": [
+      "index.html",
+      "_index-e9f440b3.js",
+      "_dates.utils-6e33ef55.js",
+      "_index-6daba2ff.js",
+      "_cv.api.slice-0a41192c.js"
+    ]
+  },
+  "_index-e0576515.js": {
+    "file": "assets/index-e0576515.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "_index-e9f440b3.js": {
+    "file": "assets/index-e9f440b3.js",
+    "imports": [
+      "_index-e0576515.js",
+      "index.html"
+    ]
+  },
+  "_links.utils-3b83ad40.js": {
+    "file": "assets/links.utils-3b83ad40.js"
+  },
+  "_positions.api-ff8451bf.js": {
+    "file": "assets/positions.api-ff8451bf.js",
+    "imports": [
+      "__arrayPush-38175ba5.js",
+      "index.html"
+    ]
+  },
+  "_utils-23d7ea7a.js": {
+    "file": "assets/utils-23d7ea7a.js",
+    "imports": [
+      "_index-e9f440b3.js"
+    ]
+  },
+  "_workExperience.api-a9afe45d.js": {
+    "file": "assets/workExperience.api-a9afe45d.js",
+    "imports": [
+      "index.html"
+    ]
+  },
+  "index.css": {
+    "file": "assets/index-486780c3.css",
+    "src": "index.css"
+  },
+  "index.html": {
+    "assets": [
+      "assets/logo-25d53cbd.svg",
+      "assets/small-logo-20dfa9bd.svg",
+      "assets/defaultAvatar-6f6c4a9b.svg",
+      "assets/roboto-cyrillic-ext-400-normal-b7ef2cd1.woff2",
+      "assets/roboto-all-400-normal-e41533d5.woff",
+      "assets/roboto-cyrillic-400-normal-495d38d4.woff2",
+      "assets/roboto-greek-400-normal-daf51ab5.woff2",
+      "assets/roboto-vietnamese-400-normal-77b24796.woff2",
+      "assets/roboto-latin-ext-400-normal-3c23eb02.woff2",
+      "assets/roboto-latin-400-normal-f6734f81.woff2",
+      "assets/roboto-cyrillic-ext-500-normal-aeed0e51.woff2",
+      "assets/roboto-all-500-normal-8f838c80.woff",
+      "assets/roboto-cyrillic-500-normal-3728fbdd.woff2",
+      "assets/roboto-greek-500-normal-713780d8.woff2",
+      "assets/roboto-vietnamese-500-normal-0948409a.woff2",
+      "assets/roboto-latin-ext-500-normal-7f1c829b.woff2",
+      "assets/roboto-latin-500-normal-b0195382.woff2",
+      "assets/roboto-cyrillic-ext-700-normal-3c505383.woff2",
+      "assets/roboto-all-700-normal-b5883883.woff",
+      "assets/roboto-cyrillic-700-normal-6a84eeee.woff2",
+      "assets/roboto-greek-700-normal-1c9cc76f.woff2",
+      "assets/roboto-vietnamese-700-normal-4ec57f2a.woff2",
+      "assets/roboto-latin-ext-700-normal-fc66f942.woff2",
+      "assets/roboto-latin-700-normal-f5aebdfe.woff2"
+    ],
+    "css": [
+      "assets/index-486780c3.css"
+    ],
+    "dynamicImports": [
+      "src/pages/NotFound/index.tsx",
+      "src/pages/Employees/index.tsx",
+      "src/pages/Projects/index.tsx",
+      "src/pages/CreateCV/index.tsx",
+      "src/pages/Project/index.tsx",
+      "src/pages/Login/index.tsx",
+      "src/pages/Authentication/index.tsx",
+      "src/pages/About/index.tsx",
+      "src/pages/Employee/index.tsx",
+      "src/services/i18n/locales/ru.json",
+      "src/mocks/browser.ts"
+    ],
+    "file": "assets/index-b52e60c4.js",
+    "isEntry": true,
+    "src": "index.html"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-all-400-normal.woff": {
+    "file": "assets/roboto-all-400-normal-e41533d5.woff",
+    "src": "node_modules/@fontsource/roboto/files/roboto-all-400-normal.woff"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-all-500-normal.woff": {
+    "file": "assets/roboto-all-500-normal-8f838c80.woff",
+    "src": "node_modules/@fontsource/roboto/files/roboto-all-500-normal.woff"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-all-700-normal.woff": {
+    "file": "assets/roboto-all-700-normal-b5883883.woff",
+    "src": "node_modules/@fontsource/roboto/files/roboto-all-700-normal.woff"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-cyrillic-400-normal.woff2": {
+    "file": "assets/roboto-cyrillic-400-normal-495d38d4.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-cyrillic-400-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-cyrillic-500-normal.woff2": {
+    "file": "assets/roboto-cyrillic-500-normal-3728fbdd.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-cyrillic-500-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-cyrillic-700-normal.woff2": {
+    "file": "assets/roboto-cyrillic-700-normal-6a84eeee.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-cyrillic-700-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-cyrillic-ext-400-normal.woff2": {
+    "file": "assets/roboto-cyrillic-ext-400-normal-b7ef2cd1.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-cyrillic-ext-400-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-cyrillic-ext-500-normal.woff2": {
+    "file": "assets/roboto-cyrillic-ext-500-normal-aeed0e51.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-cyrillic-ext-500-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-cyrillic-ext-700-normal.woff2": {
+    "file": "assets/roboto-cyrillic-ext-700-normal-3c505383.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-cyrillic-ext-700-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-greek-400-normal.woff2": {
+    "file": "assets/roboto-greek-400-normal-daf51ab5.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-greek-400-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-greek-500-normal.woff2": {
+    "file": "assets/roboto-greek-500-normal-713780d8.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-greek-500-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-greek-700-normal.woff2": {
+    "file": "assets/roboto-greek-700-normal-1c9cc76f.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-greek-700-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-latin-400-normal.woff2": {
+    "file": "assets/roboto-latin-400-normal-f6734f81.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-latin-400-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-latin-500-normal.woff2": {
+    "file": "assets/roboto-latin-500-normal-b0195382.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-latin-500-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-latin-700-normal.woff2": {
+    "file": "assets/roboto-latin-700-normal-f5aebdfe.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-latin-700-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-latin-ext-400-normal.woff2": {
+    "file": "assets/roboto-latin-ext-400-normal-3c23eb02.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-latin-ext-400-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-latin-ext-500-normal.woff2": {
+    "file": "assets/roboto-latin-ext-500-normal-7f1c829b.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-latin-ext-500-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-latin-ext-700-normal.woff2": {
+    "file": "assets/roboto-latin-ext-700-normal-fc66f942.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-latin-ext-700-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-vietnamese-400-normal.woff2": {
+    "file": "assets/roboto-vietnamese-400-normal-77b24796.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-vietnamese-400-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-vietnamese-500-normal.woff2": {
+    "file": "assets/roboto-vietnamese-500-normal-0948409a.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-vietnamese-500-normal.woff2"
+  },
+  "node_modules/@fontsource/roboto/files/roboto-vietnamese-700-normal.woff2": {
+    "file": "assets/roboto-vietnamese-700-normal-4ec57f2a.woff2",
+    "src": "node_modules/@fontsource/roboto/files/roboto-vietnamese-700-normal.woff2"
+  },
+  "src/features/authentication/assets/discordLogo.svg": {
+    "file": "assets/discordLogo-54e73df8.svg",
+    "src": "src/features/authentication/assets/discordLogo.svg"
+  },
+  "src/features/authentication/assets/logoFull.svg": {
+    "file": "assets/logoFull-b3610d7e.svg",
+    "src": "src/features/authentication/assets/logoFull.svg"
+  },
+  "src/features/employees/Tables/assets/discord.svg": {
+    "file": "assets/discord-174285c1.svg",
+    "src": "src/features/employees/Tables/assets/discord.svg"
+  },
+  "src/features/employees/Tables/assets/facebook.svg": {
+    "file": "assets/facebook-3ec8f2dd.svg",
+    "src": "src/features/employees/Tables/assets/facebook.svg"
+  },
+  "src/features/employees/Tables/assets/github.svg": {
+    "file": "assets/github-f68606fc.svg",
+    "src": "src/features/employees/Tables/assets/github.svg"
+  },
+  "src/features/employees/Tables/assets/instagram.svg": {
+    "file": "assets/instagram-43ba935a.svg",
+    "src": "src/features/employees/Tables/assets/instagram.svg"
+  },
+  "src/features/employees/Tables/assets/linkedin.svg": {
+    "file": "assets/linkedin-e97468ea.svg",
+    "src": "src/features/employees/Tables/assets/linkedin.svg"
+  },
+  "src/features/employees/Tables/assets/telegram.svg": {
+    "file": "assets/telegram-d007bb9a.svg",
+    "src": "src/features/employees/Tables/assets/telegram.svg"
+  },
+  "src/features/employees/Tables/assets/vk.svg": {
+    "file": "assets/vk-f182e556.svg",
+    "src": "src/features/employees/Tables/assets/vk.svg"
+  },
+  "src/features/projects/Tables/assets/connect.svg": {
+    "file": "assets/connect-1825990f.svg",
+    "src": "src/features/projects/Tables/assets/connect.svg"
+  },
+  "src/features/projects/Tables/assets/delete.svg": {
+    "file": "assets/delete-9b95ffab.svg",
+    "src": "src/features/projects/Tables/assets/delete.svg"
+  },
+  "src/mocks/browser.ts": {
+    "file": "assets/browser-a05dd1db.js",
+    "imports": [
+      "index.html",
+      "_identity-2fb35422.js",
+      "__arrayPush-38175ba5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/mocks/browser.ts"
+  },
+  "src/pages/About/assets/log_time.jpg": {
+    "file": "assets/log_time-cacbc367.jpg",
+    "src": "src/pages/About/assets/log_time.jpg"
+  },
+  "src/pages/About/assets/spent_time.jpg": {
+    "file": "assets/spent_time-d8c9bad5.jpg",
+    "src": "src/pages/About/assets/spent_time.jpg"
+  },
+  "src/pages/About/index.tsx": {
+    "assets": [
+      "assets/log_time-cacbc367.jpg",
+      "assets/spent_time-d8c9bad5.jpg"
+    ],
+    "file": "assets/index-75e6756e.js",
+    "imports": [
+      "index.html",
+      "_chunk-O5CRURSQ-9f7f155a.js",
+      "_index-e0576515.js",
+      "_chunk-RSUMUOHR-d38abe03.js",
+      "_index-e9f440b3.js",
+      "_TranslatedHeader-def8d229.js",
+      "_links.utils-3b83ad40.js",
+      "_chunk-RK6YFQX6-341bbaad.js",
+      "_ControlButton-705a2275.js",
+      "_SortIcon-c4d16a7d.js",
+      "_PageContainer-cf710d20.js",
+      "_chunk-E77276RR-5eab1adb.js",
+      "_index-44705779.js",
+      "_employees.api-9c2d4ee1.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/About/index.tsx"
+  },
+  "src/pages/Authentication/index.tsx": {
+    "assets": [
+      "assets/discordLogo-54e73df8.svg"
+    ],
+    "file": "assets/index-c626ea0e.js",
+    "imports": [
+      "index.html",
+      "_AuthBox-56169f33.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/Authentication/index.tsx"
+  },
+  "src/pages/CreateCV/index.tsx": {
+    "file": "assets/index-0e811409.js",
+    "imports": [
+      "index.html",
+      "_index-6daba2ff.js",
+      "_index-e0576515.js",
+      "_employee.styles-04eda2df.js",
+      "_index-47815d84.js",
+      "_chunk-O5CRURSQ-9f7f155a.js",
+      "_cv.api.slice-0a41192c.js",
+      "_PageContainer-cf710d20.js",
+      "_PageToolbox-e4e89f14.js",
+      "_chunk-RSUMUOHR-d38abe03.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/CreateCV/index.tsx"
+  },
+  "src/pages/Employee/index.tsx": {
+    "file": "assets/index-8e85e493.js",
+    "imports": [
+      "index.html",
+      "_WorkExperience.utils-49debe2b.js",
+      "_index-e9f440b3.js",
+      "_dates.utils-6e33ef55.js",
+      "_index-abbc436e.js",
+      "_employees.api-9c2d4ee1.js",
+      "_chunk-RK6YFQX6-341bbaad.js",
+      "_cv.api.slice-0a41192c.js",
+      "_index-e0576515.js",
+      "_SortIcon-c4d16a7d.js",
+      "_utils-23d7ea7a.js",
+      "_ControlButton-705a2275.js",
+      "_index-6daba2ff.js",
+      "_positions.api-ff8451bf.js",
+      "_employee.styles-04eda2df.js",
+      "_links.utils-3b83ad40.js",
+      "_chunk-O5CRURSQ-9f7f155a.js",
+      "_index-47815d84.js",
+      "_workExperience.api-a9afe45d.js",
+      "_PageContainer-cf710d20.js",
+      "_identity-2fb35422.js",
+      "__arrayPush-38175ba5.js",
+      "_chunk-RSUMUOHR-d38abe03.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/Employee/index.tsx"
+  },
+  "src/pages/Employees/index.tsx": {
+    "file": "assets/index-6f1aac7d.js",
+    "imports": [
+      "index.html",
+      "_index-6daba2ff.js",
+      "_index-e9f440b3.js",
+      "_dates.utils-6e33ef55.js",
+      "_index-abbc436e.js",
+      "_employees.api-9c2d4ee1.js",
+      "_positions.api-ff8451bf.js",
+      "_PageToolbox-e4e89f14.js",
+      "_TranslatedHeader-def8d229.js",
+      "_SortIcon-c4d16a7d.js",
+      "_index-44705779.js",
+      "_chunk-YLPWWAYV-171e0be4.js",
+      "_chunk-O5CRURSQ-9f7f155a.js",
+      "_ControlButton-705a2275.js",
+      "_PageContainer-cf710d20.js",
+      "_index-e0576515.js",
+      "_cv.api.slice-0a41192c.js",
+      "__arrayPush-38175ba5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/Employees/index.tsx"
+  },
+  "src/pages/Login/index.tsx": {
+    "assets": [
+      "assets/logoFull-b3610d7e.svg"
+    ],
+    "file": "assets/index-400eb378.js",
+    "imports": [
+      "index.html",
+      "_AuthBox-56169f33.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/Login/index.tsx"
+  },
+  "src/pages/NotFound/assets/not-found-image.png": {
+    "file": "assets/not-found-image-50100345.png",
+    "src": "src/pages/NotFound/assets/not-found-image.png"
+  },
+  "src/pages/NotFound/index.tsx": {
+    "assets": [
+      "assets/not-found-image-50100345.png"
+    ],
+    "file": "assets/index-89185d37.js",
+    "imports": [
+      "index.html",
+      "_PageContainer-cf710d20.js",
+      "_chunk-E77276RR-5eab1adb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/NotFound/index.tsx"
+  },
+  "src/pages/Project/index.tsx": {
+    "file": "assets/index-cf799efb.js",
+    "imports": [
+      "index.html",
+      "_WorkExperience.utils-49debe2b.js",
+      "_index-e9f440b3.js",
+      "_ProjectAvatarEditor-478221fd.js",
+      "_dates.utils-6e33ef55.js",
+      "_chunk-RK6YFQX6-341bbaad.js",
+      "_utils-23d7ea7a.js",
+      "_index-6daba2ff.js",
+      "_positions.api-ff8451bf.js",
+      "_employee.styles-04eda2df.js",
+      "_chunk-O5CRURSQ-9f7f155a.js",
+      "_employees.api-9c2d4ee1.js",
+      "_index-e0576515.js",
+      "_PageContainer-cf710d20.js",
+      "_identity-2fb35422.js",
+      "__arrayPush-38175ba5.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/Project/index.tsx"
+  },
+  "src/pages/Projects/index.tsx": {
+    "assets": [
+      "assets/connect-1825990f.svg",
+      "assets/delete-9b95ffab.svg"
+    ],
+    "file": "assets/index-2987d753.js",
+    "imports": [
+      "index.html",
+      "_index-e9f440b3.js",
+      "_index-6daba2ff.js",
+      "_dates.utils-6e33ef55.js",
+      "_ProjectAvatarEditor-478221fd.js",
+      "_workExperience.api-a9afe45d.js",
+      "_utils-23d7ea7a.js",
+      "_chunk-YLPWWAYV-171e0be4.js",
+      "_PageToolbox-e4e89f14.js",
+      "_ControlButton-705a2275.js",
+      "_index-44705779.js",
+      "_index-e0576515.js",
+      "_PageContainer-cf710d20.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/Projects/index.tsx"
+  },
+  "src/services/i18n/locales/ru.json": {
+    "file": "assets/ru-f30926ea.js",
+    "isDynamicEntry": true,
+    "src": "src/services/i18n/locales/ru.json"
+  },
+  "src/shared/layout/Main/Header/assets/logo.svg": {
+    "file": "assets/logo-25d53cbd.svg",
+    "src": "src/shared/layout/Main/Header/assets/logo.svg"
+  },
+  "src/shared/layout/Main/Header/assets/small-logo.svg": {
+    "file": "assets/small-logo-20dfa9bd.svg",
+    "src": "src/shared/layout/Main/Header/assets/small-logo.svg"
+  },
+  "src/shared/ui/components/Avatar/defaultAvatar.svg": {
+    "file": "assets/defaultAvatar-6f6c4a9b.svg",
+    "src": "src/shared/ui/components/Avatar/defaultAvatar.svg"
+  }
+}
