@@ -103,6 +103,13 @@ const projectsApiSlice = rootApiSlice.injectEndpoints({
         const body = new FormData();
 
         Object.entries(data).forEach(([key, value]) => {
+          if (
+            key === 'hard_skill_ids' &&
+            (value as Array<number>).length === 0
+          ) {
+            return body.append(`${key}`, '[]');
+          }
+
           if (key === 'hard_skill_ids' && value)
             return (value as Array<number>).forEach((item) => {
               body.append(`${key}[]`, String(item));

@@ -63,13 +63,14 @@ export const EditEnvironmentInfoModal = ({
 
       Object.entries(data).forEach((item) => result.push(...item[1]));
       await updateMainInfo({
-        data: { hard_skill_ids: result },
+        data: { hard_skill_ids: result.length > 0 ? result : [] },
         id: Number(id)
       }).unwrap();
       onCloseEnvironmentInfo();
       successToast({
         description: t('domains:global.confirmations.descriptions.saved')
       });
+      console.log(result);
     } catch (e) {
       console.error(e);
       errorToast({

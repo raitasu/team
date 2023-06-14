@@ -28,7 +28,7 @@ export const AppRouter = () => (
       <Route element={<PrivateOnlyRoutes />}>
         <Route element={<MainLayout />}>
           <Route
-            path="/"
+            path="/team"
             element={<Navigate to={PagePaths.Employees} />}
           />
           <Route

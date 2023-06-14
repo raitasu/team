@@ -44,7 +44,7 @@ const generateSocialNetwork = (): SocialNetwork => ({
   vk: `https://vk.com/${faker.name.firstName()}`
 });
 
-const generateEmployee = (id: number): Employee => {
+export const generateEmployee = (id: number): Employee => {
   const gender = (['male', 'female'] as const)[getRandomInteger(0, 1)];
 
   return {
@@ -128,7 +128,7 @@ const generateEmployee = (id: number): Employee => {
     publications: getRandomPublications(getRandomInteger(0, 8)),
 
     social_networks: generateSocialNetwork(),
-    role: id === 0 ? 'admin' : faker.helpers.arrayElement(['admin', 'user']),
+    role: 'admin',
     soft_skills: sampleSize(opinions, 5),
     status: faker.helpers.arrayElement(['active', 'candidate', 'inactive']),
     start_career_at: faker.date

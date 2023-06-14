@@ -1,8 +1,8 @@
 export const PagePaths = {
-  About: '/about',
-  Authentication: '/auth',
-  Employees: '/employees',
-  Login: '/login',
-  NotFound: '/not-found',
-  Projects: '/projects'
+  About: '/team/about',
+  Authentication: '/team/auth',
+  Employees: '/team/employees',
+  Login: '/team/login',
+  NotFound: '/team/not-found',
+  Projects: '/team/projects'
 } as const;
